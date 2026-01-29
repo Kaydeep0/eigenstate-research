@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eigenstate Research | Structural Intelligence</title>
+    <meta name="description" content="Where patterns persist across technological waves. Intelligence research identifying power concentration mechanisms.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span id="loadingText"></span>
+                <span class="loading-cursor">_</span>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav nav-hidden" id="mainNav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">EIGENSTATE</a>
+            <div class="nav-links">
+                <a href="#pattern">The Pattern</a>
+                <a href="#intelligence">Intelligence</a>
+                <a href="#access">Access</a>
+            </div>
+            <a href="#access" class="nav-cta">Request Access</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <!-- Background Layers -->
+        <div class="hero-bg-layers">
+            <!-- Binary Rain Canvas -->
+            <canvas id="binary-rain-canvas" class="layer-binary-rain"></canvas>
+            
+            <!-- Cluster Network Canvas -->
+            <canvas id="clusterNetworkCanvas" class="layer-cluster"></canvas>
+            
+            <!-- Particle System Canvas -->
+            <canvas id="particleCanvas" class="layer-particles"></canvas>
+            
+            <!-- Binary Wave at Bottom -->
+            <div class="binary-wave">
+                <canvas id="binary-wave-canvas"></canvas>
+            </div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <div class="hero-eyebrow">EIGENSTATE RESEARCH</div>
+            <h1 class="hero-title">STRUCTURAL<br>INTELLIGENCE</h1>
+            <p class="hero-subtitle">WHERE PATTERNS PERSIST ACROSS TECHNOLOGICAL WAVES.</p>
+            <a href="#access" class="btn-primary hero-cta">REQUEST RESEARCH ACCESS</a>
+        </div>
+    </section>
+
+    <!-- The Pattern Section -->
+    <section class="pattern-section" id="pattern">
+        <div class="pattern-container">
+            <div class="pattern-text">
+                <div class="section-eyebrow">STRUCTURAL CONVERGENCE</div>
+                <h2 class="section-title">THE<br><span class="text-gradient">PATTERN</span></h2>
+                <div class="section-divider"></div>
+                
+                <p class="pattern-description">
+                    For 160 years, power has concentrated with each technological wave.
+                </p>
+                <p class="pattern-description">
+                    This isn't market dynamics. It's structural.
+                </p>
+                <p class="pattern-description highlight">
+                    We've identified the convergence mechanism and where it's occurring right now.
+                </p>
+                
+                <div class="pattern-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">160+</span>
+                        <span class="stat-label">YEARS VALIDATED</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">6</span>
+                        <span class="stat-label">TECHNOLOGICAL WAVES</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">78%</span>
+                        <span class="stat-label">CURRENT CONCENTRATION</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pattern-visual">
+                <div class="network-container">
+                    <canvas id="network-canvas"></canvas>
+                    <div class="network-label">
+                        Structural convergence: 1860s → 2020s.
+                        <br><span class="highlight-text">Six waves. One pattern.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Access Section -->
+    <section class="access-section" id="access">
+        <div class="access-container">
+            <div class="access-header">
+                <div class="section-eyebrow">LIMITED ACCESS</div>
+                <h2 class="section-title">REQUEST<br><span class="text-gradient">BRIEFING</span></h2>
+                <div class="section-divider"></div>
+                <p class="access-description">
+                    Research access is limited to qualified institutional investors and strategic decision-makers.
+                </p>
+            </div>
+            
+            <form class="access-form" id="accessForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="Professional email">
+                    </div>
+                    <div class="form-group">
+                        <label for="organization">Organization</label>
+                        <input type="text" id="organization" name="organization" required placeholder="Company or institution">
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <select id="role" name="role" required>
+                            <option value="">Select your role</option>
+                            <option value="investor">Institutional Investor</option>
+                            <option value="executive">C-Suite Executive</option>
+                            <option value="strategist">Strategy Lead</option>
+                            <option value="researcher">Research Analyst</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="interest">Area of Interest</label>
+                    <textarea id="interest" name="interest" rows="3" placeholder="What patterns are you tracking?"></textarea>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <span>SUBMIT REQUEST</span>
+                    <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+                <div class="form-message" id="formMessage"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">EIGENSTATE</div>
+            <div class="footer-text">
+                <p>© 2025 Eigenstate Research. All rights reserved.</p>
+                <p class="footer-tagline">Structural intelligence for structural advantage.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>

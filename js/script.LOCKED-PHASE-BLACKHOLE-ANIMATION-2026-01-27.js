@@ -1,0 +1,2331 @@
+// ============================================
+// 3D BINARY CORRIDOR (Tunnel/Vacuum Effect)
+// ============================================
+
+class BinaryTunnel {
+    constructor(canvasId) {
+        this.canvas = document.getElementById(canvasId);
+        if (!this.canvas) return;
+        
+        this.ctx = this.canvas.getContext('2d');
+        this.particles = [];
+        this.particleCount = 800;
+        this.focalLength = 300;
+        this.time = 0;
+        
+        this.mouseX = window.innerWidth / 2;
+        this.mouseY = window.innerHeight / 2;
+        
+        window.addEventListener('mousemove', (e) => {
+            this.mouseX = e.clientX;
+            this.mouseY = e.clientY;
+            this.lastInteraction = Date.now();
+            this.idleMode = false;
+        });
+        
+        // Warp speed
+        this.isWarping = false;
+        this.warpMultiplier = 1;
+        
+        window.addEventListener('mousedown', (e) => {
+            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') return;
+            this.isWarping = true;
+            this.lastInteraction = Date.now();
+            this.idleMode = false;
+        });
+        
+        window.addEventListener('mouseup', () => {
+            this.isWarping = false;
+        });
+        
+        // Idle animation
+        this.lastInteraction = Date.now();
+        this.idleMode = false;
+        this.spiralAngle = 0;
+        
+        // Scroll parallax
+        this.scrollSpeed = 1;
+        this.scrollSpread = 1;
+        
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const scrollProgress = Math.min(scrollY / windowHeight, 1);
+            
+            // Slow down and spread as user scrolls
+            this.scrollSpeed = 1 - (scrollProgress * 0.7); // Slows to 0.3x
+            this.scrollSpread = 1 + (scrollProgress * 0.5); // Spreads 1.5x
+            
+            // Reset idle timer on scroll
+            this.lastInteraction = Date.now();
+            this.idleMode = false;
+        });
+        
+        // Effects
+        this.pulseTime = 0;
+        this.patternOpacity = 0;
+        this.patternPhase = 0;
+        this.patternDelay = 0;
+        this.patternVisible = false;
+        this.patternFadeStart = 0;
+        this.stillnessStartTime = null;
+        
+        // Floating equations - 3D sphere with depth layers
+        this.equations = [
+            { text: 'H = -Σp(x)log p(x)', angle: 0, dist: 0, delay: 0.3, formProgress: 0, atEdge: false, depth: 1.0 },
+            { text: 'Whole > Σ Parts', angle: Math.PI * 0.2, dist: 0, delay: 0.5, formProgress: 0, atEdge: false, depth: 0.7 },
+            { text: 'P(A|B) = P(B|A)P(A)/P(B)', angle: Math.PI * 0.4, dist: 0, delay: 0.7, formProgress: 0, atEdge: false, depth: 1.2 },
+            { text: 'rs = 2GM/c²', angle: Math.PI * 0.6, dist: 0, delay: 0.9, formProgress: 0, atEdge: false, depth: 0.85 },
+            { text: '∂S/∂t ≥ 0', angle: Math.PI * 0.8, dist: 0, delay: 1.1, formProgress: 0, atEdge: false, depth: 1.1 },
+            { text: 'θ = θ - α∇L(θ)', angle: Math.PI * 1.0, dist: 0, delay: 1.3, formProgress: 0, atEdge: false, depth: 0.75 },
+            { text: 'P(x) ∝ x^(-α)', angle: Math.PI * 1.2, dist: 0, delay: 1.5, formProgress: 0, atEdge: false, depth: 1.15 },
+            { text: 'I(X;Y) = H(X) - H(X|Y)', angle: Math.PI * 1.4, dist: 0, delay: 1.7, formProgress: 0, atEdge: false, depth: 0.8 },
+            { text: 'V ∝ n²', angle: Math.PI * 1.6, dist: 0, delay: 1.9, formProgress: 0, atEdge: false, depth: 1.05 },
+            { text: 'S = k log W', angle: Math.PI * 1.8, dist: 0, delay: 2.1, formProgress: 0, atEdge: false, depth: 0.9 }
+        ];
+        this.equationTime = 0;
+        
+        // Click burst
+        this.bursts = [];
+        window.addEventListener('click', (e) => {
+            // Don't burst if clicking on button
+            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') return;
+            this.createBurst(e.clientX, e.clientY);
+            this.lastInteraction = Date.now();
+            this.idleMode = false;
+        });
+        
+        // Focal node
+        this.focalZ = 500;
+        this.focalRadius = 150;
+        this.nodeGlow = 0;
+        
+        // DNA Helix
+        this.helixParticles = [];
+        this.maxHelixParticles = 60;
+        this.helixSpawnRate = 0;
+        
+        this.init();
+        setTimeout(() => this.animate(), 100);
+        
+        window.addEventListener('resize', () => this.handleResize());
+    }
+    
+    init() {
+        this.handleResize();
+        this.createParticles();
+    }
+    
+    handleResize() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+        this.centerX = this.canvas.width / 2;
+        this.centerY = this.canvas.height / 2;
+    }
+    
+    createParticles() {
+        this.particles = [];
+        for (let i = 0; i < this.particleCount; i++) {
+            this.particles.push(this.createParticle(Math.random() * 2000));
+        }
+    }
+    
+    createParticle(z = 2000) {
+        const isOrange = Math.random() < 0.05; // 5% chance orange
+        return {
+            x: (Math.random() - 0.5) * 2000,
+            y: (Math.random() - 0.5) * 2000,
+            z: z,
+            char: Math.random() > 0.5 ? '1' : '0',
+            speed: 1.5 + Math.random() * 4, // More variation: 1.5 to 5.5
+            baseSize: 14 + Math.random() * 10,
+            isOrange: isOrange
+        };
+    }
+    
+    createBurst(x, y) {
+        if (this.bursts.length > 100) return;
+        for (let i = 0; i < 20; i++) {
+            const angle = (Math.PI * 2 / 20) * i;
+            this.bursts.push({
+                x: x,
+                y: y,
+                vx: Math.cos(angle) * (3 + Math.random() * 3),
+                vy: Math.sin(angle) * (3 + Math.random() * 3),
+                life: 1,
+                char: Math.random() > 0.5 ? '1' : '0',
+                size: 12 + Math.random() * 8
+            });
+        }
+    }
+    
+    updateBursts() {
+        this.bursts.forEach(b => {
+            b.x += b.vx;
+            b.y += b.vy;
+            b.vx *= 0.96;
+            b.vy *= 0.96;
+            b.life -= 0.02;
+        });
+        this.bursts = this.bursts.filter(b => b.life > 0);
+    }
+    
+    drawBursts() {
+        this.updateBursts();
+        this.bursts.forEach(b => {
+            this.ctx.fillStyle = `rgba(255, 107, 53, ${b.life})`;
+            this.ctx.font = `bold ${b.size}px "JetBrains Mono", monospace`;
+            this.ctx.textAlign = 'center';
+            this.ctx.textBaseline = 'middle';
+            this.ctx.fillText(b.char, b.x, b.y);
+        });
+    }
+    
+    drawEmergingPattern() {
+        // Pattern emerges when equations stabilize (8+ at edge)
+        const equationsAtEdge = this.equations.filter(eq => eq.atEdge).length;
+        
+        if (equationsAtEdge < 8) return; // Wait for structure to form
+        
+        // Track when pattern becomes visible for smooth fade-in
+        if (!this.patternVisible) {
+            this.patternVisible = true;
+            this.patternFadeStart = this.patternDelay;
+        }
+        
+        this.patternDelay += 0.016; // Keep incrementing for animation
+        
+        // Fade in over 2 seconds after equations stabilize
+        const timeSinceVisible = this.patternDelay - this.patternFadeStart;
+        const fadeProgress = Math.min(timeSinceVisible / 2, 1);
+        
+        this.patternPhase += 0.015;
+        
+        // Pulse opacity between 0.06 and 0.12, multiplied by fadeProgress
+        this.patternOpacity = (0.06 + Math.sin(this.patternPhase) * 0.03) * fadeProgress;
+        
+        const cx = this.centerX;
+        const cy = this.centerY;
+        
+        this.ctx.save();
+        this.ctx.strokeStyle = `rgba(255, 107, 53, ${this.patternOpacity})`;
+        this.ctx.lineWidth = 1;
+        
+        // Draw expanding mathematical pattern - wavy circles
+        for (let i = 0; i < 4; i++) {
+            const baseRadius = 40 + i * 50;
+            const radius = baseRadius + Math.sin(this.patternPhase + i * 0.5) * 8;
+            const rotation = this.patternPhase * 0.3 + i * 0.2;
+            
+            this.ctx.beginPath();
+            for (let a = 0; a < Math.PI * 2; a += 0.08) {
+                const r = radius + Math.sin(a * 6 + rotation) * (8 + i * 4);
+                const x = cx + Math.cos(a) * r;
+                const y = cy + Math.sin(a) * r;
+                if (a === 0) this.ctx.moveTo(x, y);
+                else this.ctx.lineTo(x, y);
+            }
+            this.ctx.closePath();
+            this.ctx.stroke();
+        }
+        
+        // Inner sacred geometry - hexagon
+        const hexRadius = 45 + Math.sin(this.patternPhase * 1.5) * 8;
+        this.ctx.strokeStyle = `rgba(255, 107, 53, ${this.patternOpacity * 1.2})`;
+        this.ctx.beginPath();
+        for (let i = 0; i <= 6; i++) {
+            const angle = (Math.PI / 3) * i + this.patternPhase * 0.15;
+            const x = cx + Math.cos(angle) * hexRadius;
+            const y = cy + Math.sin(angle) * hexRadius;
+            if (i === 0) this.ctx.moveTo(x, y);
+            else this.ctx.lineTo(x, y);
+        }
+        this.ctx.stroke();
+        
+        // Connecting lines through center
+        for (let i = 0; i < 3; i++) {
+            const angle = (Math.PI / 3) * i + this.patternPhase * 0.15;
+            this.ctx.beginPath();
+            this.ctx.moveTo(cx + Math.cos(angle) * hexRadius, cy + Math.sin(angle) * hexRadius);
+            this.ctx.lineTo(cx + Math.cos(angle + Math.PI) * hexRadius, cy + Math.sin(angle + Math.PI) * hexRadius);
+            this.ctx.stroke();
+        }
+        
+        this.ctx.restore();
+    }
+    
+    drawFloatingEquations() {
+        this.equationTime += 0.016;
+        
+        // Elliptical ring with depth
+        const baseEdgeDistX = this.canvas.width * 0.46;
+        const baseEdgeDistY = this.canvas.height * 0.44;
+        const invisibleZone = 0.15;
+        
+        this.equations.forEach(eq => {
+            if (this.equationTime < eq.delay) return;
+            
+            // Move outward until reaching edge
+            if (!eq.atEdge) {
+                eq.dist += 0.02 * this.warpMultiplier;
+                
+                if (eq.dist >= 1) {
+                    eq.dist = 1;
+                    eq.atEdge = true;
+                }
+            } else {
+                // Gentle orbit drift at different speeds based on depth
+                eq.angle += 0.001 * eq.depth;
+            }
+            
+            // Apply depth to edge distance (creates 3D sphere effect)
+            const edgeDistX = baseEdgeDistX * eq.depth;
+            const edgeDistY = baseEdgeDistY * eq.depth;
+            
+            const currentDistX = eq.dist * edgeDistX;
+            const currentDistY = eq.dist * edgeDistY;
+            let screenX = this.centerX + Math.cos(eq.angle) * currentDistX * this.scrollSpread;
+            let screenY = this.centerY + Math.sin(eq.angle) * currentDistY * this.scrollSpread;
+            
+            // Add Brownian micro-motion when still
+            if (this.stillnessStartTime) {
+                const timeSinceStillness = this.equationTime - this.stillnessStartTime;
+                const stillnessProgress = Math.min(timeSinceStillness / 8, 1);
+                
+                // Only at high stillness, add tiny random motion
+                if (stillnessProgress > 0.7) {
+                    const jitterStrength = 0.3; // Very subtle
+                    screenX += (Math.random() - 0.5) * jitterStrength;
+                    screenY += (Math.random() - 0.5) * jitterStrength;
+                }
+            }
+            
+            // Opacity based on distance AND depth
+            let opacity = 0;
+            if (eq.dist > invisibleZone) {
+                const depthFade = 0.5 + eq.depth * 0.5; // Closer = brighter
+                opacity = Math.min(0.75, (eq.dist - invisibleZone) / 0.5 * depthFade);
+            }
+            
+            if (opacity < 0.02) return;
+            
+            // Form progress
+            eq.formProgress = Math.min(1, (eq.dist - invisibleZone) / 0.35);
+            
+            // Generate display text
+            let displayText = '';
+            for (let i = 0; i < eq.text.length; i++) {
+                if (Math.random() < eq.formProgress || eq.text[i] === ' ') {
+                    displayText += eq.text[i];
+                } else {
+                    displayText += Math.random() > 0.5 ? '1' : '0';
+                }
+            }
+            
+            // Size based on depth (closer = larger)
+            const baseSize = eq.atEdge ? 18 : 12 + eq.dist * 8;
+            const size = baseSize * (0.7 + eq.depth * 0.4);
+            
+            // Draw equation
+            this.ctx.save();
+            this.ctx.fillStyle = `rgba(255, 107, 53, ${opacity})`;
+            this.ctx.font = `bold ${size}px "JetBrains Mono", monospace`;
+            this.ctx.textAlign = 'center';
+            this.ctx.textBaseline = 'middle';
+            
+            if (eq.atEdge) {
+                this.ctx.shadowBlur = 25 * eq.depth;
+                this.ctx.shadowColor = `rgba(255, 107, 53, ${opacity * 0.9})`;
+            }
+            
+            this.ctx.fillText(displayText, screenX, screenY);
+            this.ctx.restore();
+        });
+    }
+    
+    drawPulseWave() {
+        // Calculate depth factor - pulse recedes into singularity as stillness increases
+        let depthFactor = 1; // Full size at chaos
+        if (this.stillnessStartTime) {
+            const timeSinceStillness = this.equationTime - this.stillnessStartTime;
+            const stillnessProgress = Math.min(timeSinceStillness / 4, 1);
+            // Shrinks to 30% of original size (receding into depth)
+            depthFactor = 1 - (stillnessProgress * 0.7);
+        }
+        
+        // Calculate dynamic pulse interval based on stillness
+        // Start subtle (1.5s) → slow to 4.5s at stillness
+        let pulseInterval = 1.5; // Gentle heartbeat - subtle but present
+        if (this.stillnessStartTime) {
+            const timeSinceStillness = this.equationTime - this.stillnessStartTime;
+            const stillnessProgress = Math.min(timeSinceStillness / 4, 1);
+            
+            // Pulse interval: 1.5s (subtle) → 4.5s (slow at stillness)
+            pulseInterval = 1.5 + (stillnessProgress * 3);
+        }
+        
+        // Pulse animation duration - fade quickly, don't linger
+        // Expansion speed slows as it recedes (feels further away)
+        const basePulseDuration = 0.8;
+        const pulseDuration = basePulseDuration / depthFactor; // Slower expansion when deeper
+        
+        // Update pulse time
+        this.pulseTime += 0.016;
+        
+        // Calculate which pulse cycle we're in
+        const pulseCycle = this.pulseTime % pulseInterval;
+        
+        // Draw pulse if we're in the expansion phase
+        if (pulseCycle < pulseDuration) {
+            // Progress through expansion (slower when deeper)
+            const progress = pulseCycle / pulseDuration;
+            
+            // Max radius shrinks as pulse recedes (300px → 90px at max stillness)
+            const maxRadius = Math.max(this.canvas.width, this.canvas.height) * depthFactor;
+            const radius = progress * maxRadius;
+            
+            // Opacity reduces as it recedes (0.15 → 0.045 at max stillness)
+            const baseAlpha = (1 - progress) * 0.15;
+            const pulseOpacity = baseAlpha * depthFactor;
+            
+            this.ctx.strokeStyle = `rgba(0, 217, 255, ${pulseOpacity})`;
+            this.ctx.lineWidth = (1.5 + (1 - progress) * 2.5) * depthFactor;
+            this.ctx.beginPath();
+            this.ctx.arc(this.centerX, this.centerY, radius, 0, Math.PI * 2);
+            this.ctx.stroke();
+        }
+    }
+    
+    drawAccretionDisk() {
+        const cx = this.centerX;
+        const cy = this.centerY;
+        
+        // Calculate color transition based on stillness
+        let colorProgress = 0;
+        if (this.stillnessStartTime) {
+            const timeSinceStillness = this.equationTime - this.stillnessStartTime;
+            colorProgress = Math.min(timeSinceStillness / 10, 1);
+        }
+        
+        // Interpolate colors: cool blue → warm orange
+        const r = Math.round(80 + colorProgress * 175);   // 80 → 255
+        const g = Math.round(180 - colorProgress * 40);   // 180 → 140
+        const b = Math.round(255 - colorProgress * 175);  // 255 → 80
+        
+        const innerRadius = Math.min(this.canvas.width, this.canvas.height) * 0.32;
+        const outerRadius = Math.min(this.canvas.width, this.canvas.height) * 0.48;
+        const midRadius = (innerRadius + outerRadius) / 2;
+        
+        // Create gradient from inner to outer with transitioning color
+        const gradient = this.ctx.createRadialGradient(cx, cy, innerRadius, cx, cy, outerRadius);
+        gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0)`);       // Inner edge - transparent
+        gradient.addColorStop(0.3, `rgba(${r}, ${g}, ${b}, 0.12)`);  // Fade in
+        gradient.addColorStop(0.5, `rgba(${r}, ${g}, ${b}, 0.25)`);  // Middle - solid
+        gradient.addColorStop(0.7, `rgba(${r}, ${g}, ${b}, 0.12)`);  // Fade out
+        gradient.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);       // Outer edge - transparent
+        
+        // Draw the ring
+        this.ctx.fillStyle = gradient;
+        this.ctx.beginPath();
+        this.ctx.arc(cx, cy, outerRadius, 0, Math.PI * 2);
+        this.ctx.arc(cx, cy, innerRadius, 0, Math.PI * 2, true);
+        this.ctx.fill();
+        
+        // Thin bright photon ring at inner edge (also transitions color)
+        const ringR = Math.round(80 + colorProgress * 175);   // 80 → 255
+        const ringG = Math.round(180 - colorProgress * 30);   // 180 → 150
+        const ringB = Math.round(255 - colorProgress * 105);   // 255 → 150
+        this.ctx.strokeStyle = `rgba(${ringR}, ${ringG}, ${ringB}, ${0.15 + colorProgress * 0.05})`;
+        this.ctx.lineWidth = 1.5;
+        this.ctx.beginPath();
+        this.ctx.arc(cx, cy, innerRadius + 5, 0, Math.PI * 2);
+        this.ctx.stroke();
+    }
+    
+    drawSingularity() {
+        if (!this.stillnessStartTime) return;
+        
+        const timeSinceStillness = this.equationTime - this.stillnessStartTime;
+        const slowdownProgress = Math.min(timeSinceStillness / 2, 1);
+        const stillnessFactor = 1 - (slowdownProgress * 0.8);
+        
+        // Fog only starts when particles have slowed to 50% speed (ring is formed)
+        if (stillnessFactor > 0.5) return;
+        
+        // Fog progress based on how still we are (0.5 → 0.2 = full fog)
+        const fogProgress = Math.min((0.5 - stillnessFactor) / 0.3, 1);
+        
+        const cx = this.centerX;
+        const cy = this.centerY;
+        
+        // FOG SHRINKS as it progresses - starts at 60px, ends at 5px
+        const fogRadius = 60 - (fogProgress * 55);
+        const fogOpacity = 0.5 - (fogProgress * 0.3); // Fades as it shrinks
+        
+        if (fogRadius > 5) {
+            const gradient = this.ctx.createRadialGradient(cx, cy, 0, cx, cy, fogRadius);
+            gradient.addColorStop(0, `rgba(3, 7, 18, ${fogOpacity})`);
+            gradient.addColorStop(0.5, `rgba(3, 7, 18, ${fogOpacity * 0.5})`);
+            gradient.addColorStop(1, 'rgba(3, 7, 18, 0)');
+            
+            this.ctx.fillStyle = gradient;
+            this.ctx.beginPath();
+            this.ctx.arc(cx, cy, fogRadius, 0, Math.PI * 2);
+            this.ctx.fill();
+        }
+        
+        // Singularity point appears as fog collapses
+        if (fogProgress > 0.6) {
+            const pointOpacity = (fogProgress - 0.6) / 0.4;
+            const pointRadius = 3 + (1 - pointOpacity) * 2; // Shrinks to 3px
+            
+            this.ctx.fillStyle = `rgba(0, 0, 0, ${pointOpacity * 0.9})`;
+            this.ctx.beginPath();
+            this.ctx.arc(cx, cy, pointRadius, 0, Math.PI * 2);
+            this.ctx.fill();
+            
+            // Depth glow - represents "furthest" point (like looking down light cone)
+            const depthOpacity = pointOpacity * 0.3;
+            
+            // Tiny bright core - represents infinite depth
+            const depthGlow = this.ctx.createRadialGradient(cx, cy, 0, cx, cy, 8);
+            depthGlow.addColorStop(0, `rgba(0, 150, 200, ${depthOpacity * 0.5})`);
+            depthGlow.addColorStop(0.5, `rgba(0, 100, 150, ${depthOpacity * 0.2})`);
+            depthGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+            
+            this.ctx.fillStyle = depthGlow;
+            this.ctx.beginPath();
+            this.ctx.arc(cx, cy, 8, 0, Math.PI * 2);
+            this.ctx.fill();
+        }
+    }
+    
+    drawConnectionLines() {
+        if (!this.equations.some(eq => eq.atEdge)) return;
+        
+        const edgeDistX = this.canvas.width * 0.46;
+        const edgeDistY = this.canvas.height * 0.44;
+        
+        this.ctx.strokeStyle = 'rgba(255, 107, 53, 0.08)';
+        this.ctx.lineWidth = 1;
+        
+        // Connect adjacent equations
+        const atEdge = this.equations.filter(eq => eq.atEdge);
+        
+        for (let i = 0; i < atEdge.length; i++) {
+            const eq1 = atEdge[i];
+            const eq2 = atEdge[(i + 1) % atEdge.length];
+            
+            const x1 = this.centerX + Math.cos(eq1.angle) * edgeDistX * eq1.depth * this.scrollSpread;
+            const y1 = this.centerY + Math.sin(eq1.angle) * edgeDistY * eq1.depth * this.scrollSpread;
+            const x2 = this.centerX + Math.cos(eq2.angle) * edgeDistX * eq2.depth * this.scrollSpread;
+            const y2 = this.centerY + Math.sin(eq2.angle) * edgeDistY * eq2.depth * this.scrollSpread;
+            
+            this.ctx.beginPath();
+            this.ctx.moveTo(x1, y1);
+            this.ctx.lineTo(x2, y2);
+            this.ctx.stroke();
+        }
+        
+        // Cross connections (every 3rd equation)
+        for (let i = 0; i < atEdge.length; i++) {
+            const eq1 = atEdge[i];
+            const eq2 = atEdge[(i + 3) % atEdge.length];
+            
+            const x1 = this.centerX + Math.cos(eq1.angle) * edgeDistX * eq1.depth * this.scrollSpread;
+            const y1 = this.centerY + Math.sin(eq1.angle) * edgeDistY * eq1.depth * this.scrollSpread;
+            const x2 = this.centerX + Math.cos(eq2.angle) * edgeDistX * eq2.depth * this.scrollSpread;
+            const y2 = this.centerY + Math.sin(eq2.angle) * edgeDistY * eq2.depth * this.scrollSpread;
+            
+            this.ctx.strokeStyle = 'rgba(255, 107, 53, 0.04)';
+            this.ctx.beginPath();
+            this.ctx.moveTo(x1, y1);
+            this.ctx.lineTo(x2, y2);
+            this.ctx.stroke();
+        }
+    }
+    
+    update() {
+        // Warp speed effect
+        if (this.isWarping) {
+            this.warpMultiplier = Math.min(this.warpMultiplier + 0.1, 4);
+        } else {
+            this.warpMultiplier = Math.max(this.warpMultiplier - 0.05, 1);
+        }
+        
+        // Calculate stillness factor - system calms after structure emerges
+        let stillnessFactor = 1;
+        if (this.patternVisible) {
+            // Track how long pattern has been visible
+            if (!this.stillnessStartTime) {
+                this.stillnessStartTime = this.equationTime;
+            }
+            
+            // Gradually slow down over 2 seconds after pattern appears (faster collapse)
+            const timeSincePattern = this.equationTime - this.stillnessStartTime;
+            const slowdownProgress = Math.min(timeSincePattern / 2, 1);
+            
+            // Particles slow to 20% of original speed at full stillness
+            stillnessFactor = 1 - (slowdownProgress * 0.8);
+        }
+        
+        this.particles.forEach(p => {
+            p.z -= p.speed * this.warpMultiplier * this.scrollSpeed * stillnessFactor;
+            
+            // Gravitational pull toward center
+            const scale = this.focalLength / Math.max(p.z, 1);
+            const screenX = this.centerX + p.x * scale;
+            const screenY = this.centerY + p.y * scale;
+            
+            const dx = screenX - this.centerX;
+            const dy = screenY - this.centerY;
+            const distFromCenter = Math.sqrt(dx * dx + dy * dy);
+            
+            // Differential collapse - outer slows, inner accelerates
+            if (this.stillnessStartTime) {
+                const timeSinceStillness = this.equationTime - this.stillnessStartTime;
+                const overallProgress = Math.min(timeSinceStillness / 8, 1);
+                
+                if (distFromCenter < 200) {
+                    // How close to center (0 = edge, 1 = center)
+                    const depthFactor = 1 - (distFromCenter / 200);
+                    
+                    // OUTER particles (depthFactor near 0): slow to almost still
+                    // INNER particles (depthFactor near 1): accelerate inward
+                    
+                    // Speed multiplier: outer = 0.1x, inner = 2x
+                    const speedMultiplier = 0.1 + (depthFactor * 1.9 * overallProgress);
+                    p.speed = p.speed * (depthFactor > 0.5 ? speedMultiplier : (1 - overallProgress * 0.9));
+                    
+                    // Pull strength: exponential toward center
+                    if (distFromCenter < 120 && distFromCenter > 10) {
+                        const pullStrength = overallProgress * depthFactor * depthFactor * 0.2;
+                        const angle = Math.atan2(dy, dx);
+                        p.x -= Math.cos(angle) * pullStrength * distFromCenter * 0.05;
+                        p.y -= Math.sin(angle) * pullStrength * distFromCenter * 0.05;
+                    }
+                }
+            }
+            
+            // Brownian motion at near-stillness (never fully static)
+            if (stillnessFactor < 0.25) {
+                // Tiny random jitter - like thermal fluctuations
+                p.x += (Math.random() - 0.5) * 0.3;
+                p.y += (Math.random() - 0.5) * 0.3;
+            }
+            
+            const eventHorizon = 50;
+            const pullZone = Math.min(this.canvas.width, this.canvas.height) * 0.45;
+            
+            if (distFromCenter < pullZone && distFromCenter > eventHorizon) {
+                const pullStrength = Math.pow(1 - distFromCenter / pullZone, 2) * 0.6;
+                const angle = Math.atan2(dy, dx);
+                
+                // Spiral pull - tangential + radial
+                p.x -= Math.cos(angle) * pullStrength * 1.5;        // Inward
+                p.y -= Math.sin(angle) * pullStrength * 1.5;
+                p.x += Math.cos(angle + Math.PI/2) * pullStrength * 2.5;  // Spiral
+                p.y += Math.sin(angle + Math.PI/2) * pullStrength * 2.5;
+            }
+            
+            // Reset particles that fall into singularity
+            if (distFromCenter < eventHorizon && p.z < 600) {
+                p.x = (Math.random() - 0.5) * 2000;
+                p.y = (Math.random() - 0.5) * 2000;
+                p.z = 1800 + Math.random() * 200;
+                p.char = Math.random() > 0.5 ? '1' : '0';
+                p.isOrange = Math.random() < 0.05;
+            }
+            
+            // Force reset for particles that are too close to camera (low z) 
+            // but somehow avoided the center - they're "escapees" that break physics
+            if (p.z < 150 && distFromCenter > eventHorizon) {
+                p.x = (Math.random() - 0.5) * 2000;
+                p.y = (Math.random() - 0.5) * 2000;
+                p.z = 1800 + Math.random() * 200;
+                p.char = Math.random() > 0.5 ? '1' : '0';
+                p.isOrange = Math.random() < 0.05;
+            }
+            
+            // Once rose pattern is visible, it becomes a structural boundary
+            // Particles cannot penetrate the pattern zone - they get consumed at the edge
+            if (this.patternVisible) {
+                const roseRadius = 200; // Rose pattern extends ~200px from center
+                if (distFromCenter < roseRadius && p.z < 400) {
+                    // Particle hit the structure - reset it
+                    p.x = (Math.random() - 0.5) * 2000;
+                    p.y = (Math.random() - 0.5) * 2000;
+                    p.z = 1800 + Math.random() * 200;
+                    p.char = Math.random() > 0.5 ? '1' : '0';
+                    p.isOrange = Math.random() < 0.05;
+                }
+            }
+            
+            // Mouse repulsion when close
+            if (p.z < 600 && p.z > 1) {
+                const scale = this.focalLength / Math.max(p.z, 1);
+                const screenX = this.centerX + p.x * scale;
+                const screenY = this.centerY + p.y * scale;
+                
+                const dx = screenX - this.mouseX;
+                const dy = screenY - this.mouseY;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                
+                if (dist < 150 && dist > 0.1) {
+                    const push = (150 - dist) / 150 * 0.3;
+                    p.x += (dx / dist) * push * (p.z / 100);
+                    p.y += (dy / dist) * push * (p.z / 100);
+                }
+            }
+            
+            if (p.z < 1) {
+                p.x = (Math.random() - 0.5) * 2000;
+                p.y = (Math.random() - 0.5) * 2000;
+                p.z = 1800 + Math.random() * 200;
+                p.char = Math.random() > 0.5 ? '1' : '0';
+                p.isOrange = Math.random() < 0.05;
+            }
+        });
+    }
+    
+    drawEventHorizonMembrane() {
+        const cx = this.centerX;
+        const cy = this.centerY;
+        
+        // Membrane radius - sits inside the accretion disk
+        const maxRadius = Math.min(this.canvas.width, this.canvas.height) * 0.28;
+        
+        // Radial gradient: subtle dark film in center, fades to nothing at edges
+        const gradient = this.ctx.createRadialGradient(cx, cy, 0, cx, cy, maxRadius);
+        gradient.addColorStop(0, 'rgba(3, 7, 18, 0.4)');      // Center: subtle dark
+        gradient.addColorStop(0.5, 'rgba(3, 7, 18, 0.25)');   // Mid: lighter
+        gradient.addColorStop(0.85, 'rgba(3, 7, 18, 0.1)');   // Near edge: very faint
+        gradient.addColorStop(1, 'rgba(3, 7, 18, 0)');        // Edge: transparent
+        
+        this.ctx.fillStyle = gradient;
+        this.ctx.beginPath();
+        this.ctx.arc(cx, cy, maxRadius, 0, Math.PI * 2);
+        this.ctx.fill();
+    }
+    
+    draw() {
+        // Motion blur / trails
+        const blurAlpha = this.isWarping ? 0.08 : 0.15;
+        this.ctx.fillStyle = `rgba(3, 7, 18, ${blurAlpha})`;
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        // Subtle center glow
+        const glowGradient = this.ctx.createRadialGradient(
+            this.centerX, this.centerY, 0,
+            this.centerX, this.centerY, 200
+        );
+        glowGradient.addColorStop(0, 'rgba(0, 150, 200, 0.08)');
+        glowGradient.addColorStop(0.5, 'rgba(0, 100, 150, 0.03)');
+        glowGradient.addColorStop(1, 'transparent');
+        this.ctx.fillStyle = glowGradient;
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        // Event horizon membrane - subtle dark film at observation boundary
+        this.drawEventHorizonMembrane();
+        
+        this.update();
+        
+        // Sort by z (far to near) for proper layering
+        const sorted = [...this.particles].sort((a, b) => b.z - a.z);
+        
+        sorted.forEach(p => {
+            // 3D projection
+            if (p.z < 1) return;
+            const scale = this.focalLength / p.z;
+            const screenX = this.centerX + p.x * scale * this.scrollSpread;
+            const screenY = this.centerY + p.y * scale * this.scrollSpread;
+            
+            // Skip if off screen
+            if (screenX < -50 || screenX > this.canvas.width + 50 ||
+                screenY < -50 || screenY > this.canvas.height + 50) return;
+            
+            // Calculate distance from center for depth shrink
+            const distFromCenter = Math.sqrt(
+                Math.pow(screenX - this.centerX, 2) + 
+                Math.pow(screenY - this.centerY, 2)
+            );
+            
+            // Size based on depth (closer = bigger)
+            const size = Math.max(4, p.baseSize * scale);
+            
+            // Particles near center shrink during collapse (depth effect)
+            let depthScale = 1;
+            if (this.stillnessStartTime) {
+                const timeSinceStillness = this.equationTime - this.stillnessStartTime;
+                
+                // Collapse - 2 seconds
+                const collapseProgress = Math.min(timeSinceStillness / 2, 1);
+                
+                // Particles within 200px of center shrink as collapse progresses
+                if (distFromCenter < 200) {
+                    const proximityFactor = 1 - (distFromCenter / 200);
+                    // GENTLER shrink - 50% max instead of 70%
+                    depthScale = 1 - (collapseProgress * proximityFactor * 0.5);
+                }
+            }
+            
+            const finalSize = size * depthScale;
+            
+            // Alpha based on depth (closer = brighter)
+            let alpha = Math.min(1, Math.max(0.1, (1 - p.z / 2000) * 1.2));
+            
+            // Outer ring gets clearer as it stills
+            if (this.stillnessStartTime && distFromCenter < 200 && distFromCenter > 100) {
+                const timeSinceStillness = this.equationTime - this.stillnessStartTime;
+                const clarityBoost = Math.min(timeSinceStillness / 8, 1) * 0.3;
+                alpha = Math.min(1, alpha + clarityBoost); // Outer ring gets clearer
+            }
+            
+            // Color based on depth and type
+            let color;
+            if (p.isOrange) {
+                color = `rgba(255, 107, 53, ${alpha})`;
+            } else {
+                const nearness = 1 - p.z / 2000;
+                const r = Math.floor(150 * nearness);
+                const g = Math.floor(200 + 55 * nearness);
+                const b = 255;
+                color = `rgba(${r}, ${g}, ${b}, ${alpha})`;
+            }
+            
+            this.ctx.fillStyle = color;
+            this.ctx.font = `bold ${finalSize}px "JetBrains Mono", monospace`;
+            this.ctx.textAlign = 'center';
+            this.ctx.textBaseline = 'middle';
+            
+            // Glow for close particles
+            if (p.z < 400) {
+                this.ctx.shadowBlur = 15 * (1 - p.z / 400);
+                this.ctx.shadowColor = '#00ffff';
+            } else {
+                this.ctx.shadowBlur = 0;
+            }
+            
+            this.ctx.fillText(p.char, screenX, screenY);
+        });
+        
+        // Draw focal node
+        // this.drawFocalNode();
+        
+        // Draw DNA helix
+        // this.drawHelix();
+        
+        // Draw effects (ORDER MATTERS)
+        this.drawAccretionDisk();      // Behind everything
+        this.drawSingularity();       // Fog inside particle ring → singularity
+        this.drawEmergingPattern();
+        this.drawConnectionLines();     // Connect equations
+        this.drawFloatingEquations();
+        this.drawPulseWave();
+        this.drawBursts();
+        
+        this.ctx.shadowBlur = 0;
+    }
+    
+    drawFocalNode() {
+        const scale = this.focalLength / this.focalZ;
+        const screenX = this.centerX;
+        const screenY = this.centerY;
+        const baseRadius = 30 * scale;
+        
+        // Outer glow
+        const gradient = this.ctx.createRadialGradient(
+            screenX, screenY, 0,
+            screenX, screenY, baseRadius * 4
+        );
+        gradient.addColorStop(0, `rgba(0, 255, 255, ${0.3 + this.nodeGlow * 0.4})`);
+        gradient.addColorStop(0.3, `rgba(0, 200, 255, ${0.15 + this.nodeGlow * 0.2})`);
+        gradient.addColorStop(0.6, `rgba(255, 107, 53, ${0.05 + this.nodeGlow * 0.1})`);
+        gradient.addColorStop(1, 'transparent');
+        
+        this.ctx.fillStyle = gradient;
+        this.ctx.beginPath();
+        this.ctx.arc(screenX, screenY, baseRadius * 4, 0, Math.PI * 2);
+        this.ctx.fill();
+        
+        // Core node
+        const coreGradient = this.ctx.createRadialGradient(
+            screenX, screenY, 0,
+            screenX, screenY, baseRadius
+        );
+        coreGradient.addColorStop(0, `rgba(255, 255, 255, ${0.8 + this.nodeGlow * 0.2})`);
+        coreGradient.addColorStop(0.5, `rgba(0, 255, 255, ${0.5 + this.nodeGlow * 0.3})`);
+        coreGradient.addColorStop(1, 'transparent');
+        
+        this.ctx.fillStyle = coreGradient;
+        this.ctx.beginPath();
+        this.ctx.arc(screenX, screenY, baseRadius, 0, Math.PI * 2);
+        this.ctx.fill();
+        
+        // Pulsing ring
+        const pulseRadius = baseRadius * (1.5 + Math.sin(this.time * 3) * 0.3);
+        this.ctx.strokeStyle = `rgba(0, 255, 255, ${0.3 + this.nodeGlow * 0.4})`;
+        this.ctx.lineWidth = 2;
+        this.ctx.beginPath();
+        this.ctx.arc(screenX, screenY, pulseRadius, 0, Math.PI * 2);
+        this.ctx.stroke();
+    }
+    
+    spawnHelixParticle() {
+        if (this.helixParticles.length >= this.maxHelixParticles) return;
+        
+        const side = Math.random() > 0.5 ? 1 : -1;
+        this.helixParticles.push({
+            angle: Math.random() * Math.PI * 2,
+            y: this.centerY,
+            side: side,
+            speed: 1.5 + Math.random(),
+            char: Math.random() > 0.5 ? '1' : '0',
+            size: 12 + Math.random() * 6,
+            alpha: 1
+        });
+    }
+    
+    updateHelix() {
+        // Spawn based on node glow intensity
+        this.helixSpawnRate += this.nodeGlow * 0.15;
+        if (this.helixSpawnRate > 1) {
+            this.spawnHelixParticle();
+            this.helixSpawnRate = 0;
+        }
+        
+        const waveTop = this.canvas.height * 0.7;
+        
+        this.helixParticles.forEach(p => {
+            // Move down
+            p.y += p.speed;
+            
+            // Rotate in helix
+            p.angle += 0.08;
+            
+            // Helix radius shrinks as approaching wave
+            const progress = (p.y - this.centerY) / (waveTop - this.centerY);
+            const radius = 50 * (1 - progress * 0.5);
+            
+            p.x = this.centerX + Math.cos(p.angle) * radius * p.side;
+            
+            // Fade when approaching wave
+            if (p.y > waveTop - 50) {
+                p.alpha = Math.max(0, (waveTop - p.y) / 50);
+            }
+        });
+        
+        // Remove dead particles
+        this.helixParticles = this.helixParticles.filter(p => p.y < waveTop && p.alpha > 0);
+    }
+    
+    drawHelix() {
+        this.updateHelix();
+        
+        // Draw connections between nearby helix particles
+        for (let i = 0; i < this.helixParticles.length; i++) {
+            for (let j = i + 1; j < this.helixParticles.length; j++) {
+                const p1 = this.helixParticles[i];
+                const p2 = this.helixParticles[j];
+                
+                if (p1.side !== p2.side) {
+                    const dy = Math.abs(p1.y - p2.y);
+                    if (dy < 30) {
+                        const alpha = (1 - dy / 30) * 0.4 * Math.min(p1.alpha, p2.alpha);
+                        this.ctx.strokeStyle = `rgba(255, 107, 53, ${alpha})`;
+                        this.ctx.lineWidth = 1.5;
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(p1.x, p1.y);
+                        this.ctx.lineTo(p2.x, p2.y);
+                        this.ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        // Draw helix particles
+        this.helixParticles.forEach(p => {
+            this.ctx.fillStyle = `rgba(0, 255, 255, ${p.alpha})`;
+            this.ctx.font = `bold ${p.size}px "JetBrains Mono", monospace`;
+            this.ctx.textAlign = 'center';
+            this.ctx.textBaseline = 'middle';
+            
+            this.ctx.shadowBlur = 8;
+            this.ctx.shadowColor = '#00ffff';
+            this.ctx.fillText(p.char, p.x, p.y);
+        });
+        
+        this.ctx.shadowBlur = 0;
+    }
+    
+    animate() {
+        if (!this.canvas.width || !this.canvas.height) {
+            this.handleResize();
+        }
+        this.draw();
+        requestAnimationFrame(() => this.animate());
+    }
+}
+
+// ============================================
+// BINARY WAVE (Bottom Formation) - FIXED
+// ============================================
+
+class BinaryWave {
+    constructor(canvasId) {
+        this.canvas = document.getElementById(canvasId);
+        if (!this.canvas) return;
+        
+        this.ctx = this.canvas.getContext('2d');
+        this.particles = [];
+        this.time = 0;
+        this.isMobile = window.innerWidth < 768;
+        
+        this.init();
+        this.animate();
+        
+        window.addEventListener('resize', () => this.handleResize());
+    }
+    
+    init() {
+        this.handleResize();
+        this.createParticles();
+    }
+    
+    handleResize() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight * 0.35;
+        this.width = this.canvas.width;
+        this.height = this.canvas.height;
+        this.isMobile = window.innerWidth < 768;
+        this.createParticles();
+    }
+    
+    createParticles() {
+        this.particles = [];
+        const spacing = this.isMobile ? 18 : 12;
+        const cols = Math.ceil(this.width / spacing);
+        const rows = Math.ceil(this.height / spacing);
+        
+        for (let x = 0; x < cols; x++) {
+            for (let y = 0; y < rows; y++) {
+                this.particles.push({
+                    baseX: x * spacing,
+                    baseY: y * spacing,
+                    x: x * spacing,
+                    y: y * spacing,
+                    char: Math.random() > 0.5 ? '1' : '0',
+                    phase: Math.random() * Math.PI * 2
+                });
+            }
+        }
+    }
+    
+    draw() {
+        // Clear completely
+        this.ctx.clearRect(0, 0, this.width, this.height);
+        
+        this.time += 0.02;
+        
+        this.ctx.font = `bold 12px "JetBrains Mono", monospace`;
+        this.ctx.textAlign = 'center';
+        this.ctx.textBaseline = 'middle';
+        
+        this.particles.forEach(particle => {
+            // Multiple wave layers for complex motion
+            const wave1 = Math.sin(particle.baseX * 0.006 + this.time) * 40;
+            const wave2 = Math.sin(particle.baseX * 0.003 + this.time * 0.7) * 25;
+            const wave3 = Math.sin(particle.baseX * 0.01 + this.time * 1.3) * 12;
+            
+            const waveY = this.height * 0.5 + wave1 + wave2 + wave3;
+            
+            // Distance from wave center
+            const distanceFromWave = Math.abs(particle.baseY - waveY);
+            const maxDistance = 70;
+            const proximityFactor = Math.max(0, 1 - distanceFromWave / maxDistance);
+            
+            if (proximityFactor > 0.05) {
+                // Apply subtle motion
+                const displacement = Math.sin(particle.baseX * 0.01 + this.time) * 3;
+                particle.y = particle.baseY + displacement;
+                
+                // Brightness based on proximity
+                const brightness = 0.1 + proximityFactor * 0.9;
+                
+                // Color - wave crest is bright cyan
+                const isInCrest = distanceFromWave < 12;
+                
+                if (isInCrest && proximityFactor > 0.8) {
+                    // Bright crest
+                    this.ctx.fillStyle = `rgba(0, 255, 255, ${brightness})`;
+                    this.ctx.shadowBlur = 10;
+                    this.ctx.shadowColor = '#00ffff';
+                } else {
+                    // Body of wave - gradient from cyan to blue
+                    const g = Math.floor(160 + 95 * proximityFactor);
+                    this.ctx.fillStyle = `rgba(14, ${g}, 255, ${brightness * 0.8})`;
+                    this.ctx.shadowBlur = 0;
+                }
+                
+                this.ctx.fillText(particle.char, particle.x, particle.y);
+            }
+        });
+        
+        this.ctx.shadowBlur = 0;
+    }
+    
+    animate() {
+        this.draw();
+        requestAnimationFrame(() => this.animate());
+    }
+}
+
+// ============================================
+// DATA FLOW ECOSYSTEM
+// ============================================
+
+class DataFlow {
+    constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.particles = [];
+        this.maxParticles = 150;
+        this.time = 0;
+        this.clusterPoints = [];
+        this.init();
+    }
+    
+    init() {
+        // Create cluster points where data concentrates
+        // These will form the "DNA strand" regions
+        this.clusterPoints = [
+            { x: 0.15, y: 0.3, strength: 1 },   // left side
+            { x: 0.85, y: 0.35, strength: 1 },  // right side
+            { x: 0.2, y: 0.55, strength: 0.8 }, // lower left
+            { x: 0.8, y: 0.5, strength: 0.8 }   // lower right
+        ];
+    }
+    
+    spawnParticle() {
+        if (this.particles.length >= this.maxParticles) return;
+        
+        // Spawn from edges (caught from the tunnel)
+        const edge = Math.random();
+        let x, y;
+        
+        if (edge < 0.3) {
+            x = Math.random() * this.canvas.width;
+            y = -10;
+        } else if (edge < 0.5) {
+            x = -10;
+            y = Math.random() * this.canvas.height * 0.4;
+        } else if (edge < 0.7) {
+            x = this.canvas.width + 10;
+            y = Math.random() * this.canvas.height * 0.4;
+        } else {
+            // Some from center (escaping tunnel)
+            const angle = Math.random() * Math.PI * 2;
+            const dist = 50 + Math.random() * 100;
+            x = this.canvas.width / 2 + Math.cos(angle) * dist;
+            y = this.canvas.height * 0.4 + Math.sin(angle) * dist;
+        }
+        
+        this.particles.push({
+            x: x,
+            y: y,
+            vx: 0,
+            vy: 0,
+            char: Math.random() > 0.5 ? '1' : '0',
+            size: 8 + Math.random() * 6,
+            alpha: 0.8,
+            state: 'free', // free → clustering → strand → flowing
+            clusterId: null,
+            strandPhase: Math.random() * Math.PI * 2,
+            life: 0
+        });
+    }
+    
+    update() {
+        this.time += 0.016;
+        
+        // Spawn new particles
+        if (Math.random() < 0.15) this.spawnParticle();
+        
+        const w = this.canvas.width;
+        const h = this.canvas.height;
+        
+        this.particles.forEach(p => {
+            p.life += 0.016;
+            
+            // Find nearest cluster point
+            let nearestCluster = null;
+            let nearestDist = Infinity;
+            
+            this.clusterPoints.forEach((cp, i) => {
+                const cx = cp.x * w;
+                const cy = cp.y * h;
+                const dist = Math.hypot(p.x - cx, p.y - cy);
+                if (dist < nearestDist) {
+                    nearestDist = dist;
+                    nearestCluster = { ...cp, index: i, cx, cy };
+                }
+            });
+            
+            // State machine
+            if (p.state === 'free') {
+                // Drift toward nearest cluster
+                if (nearestCluster && nearestDist < 250) {
+                    const pull = 0.02 * nearestCluster.strength;
+                    p.vx += (nearestCluster.cx - p.x) * pull * 0.01;
+                    p.vy += (nearestCluster.cy - p.y) * pull * 0.01;
+                    
+                    if (nearestDist < 80) {
+                        p.state = 'clustering';
+                        p.clusterId = nearestCluster.index;
+                    }
+                }
+                
+                // Gentle downward drift
+                p.vy += 0.01;
+                
+            } else if (p.state === 'clustering') {
+                // Orbit around cluster point (DNA-like motion)
+                if (nearestCluster) {
+                    p.strandPhase += 0.03;
+                    const orbitRadius = 30 + Math.sin(p.life * 2) * 15;
+                    const targetX = nearestCluster.cx + Math.cos(p.strandPhase) * orbitRadius;
+                    const targetY = nearestCluster.cy + Math.sin(p.strandPhase * 0.5) * 50 + p.life * 8;
+                    
+                    p.vx += (targetX - p.x) * 0.05;
+                    p.vy += (targetY - p.y) * 0.05;
+                    
+                    // Transition to flowing after clustering
+                    if (p.life > 3 || p.y > h * 0.6) {
+                        p.state = 'flowing';
+                    }
+                }
+                
+            } else if (p.state === 'flowing') {
+                // Flow down to wave
+                p.vy += 0.05;
+                p.vx *= 0.98;
+                
+                // Fade as approaching wave
+                if (p.y > h * 0.65) {
+                    p.alpha = Math.max(0, 1 - (p.y - h * 0.65) / (h * 0.25));
+                }
+            }
+            
+            // Apply velocity with damping
+            p.vx *= 0.95;
+            p.vy *= 0.95;
+            p.x += p.vx;
+            p.y += p.vy;
+        });
+        
+        // Remove dead particles
+        this.particles = this.particles.filter(p => 
+            p.alpha > 0.02 && p.y < h + 20
+        );
+    }
+    
+    draw() {
+        this.update();
+        
+        // Draw connections between nearby clustering particles
+        const clustering = this.particles.filter(p => p.state === 'clustering');
+        
+        clustering.forEach((p1, i) => {
+            clustering.slice(i + 1).forEach(p2 => {
+                if (p1.clusterId === p2.clusterId) {
+                    const dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
+                    if (dist < 60) {
+                        const alpha = (1 - dist / 60) * 0.3 * Math.min(p1.alpha, p2.alpha);
+                        const isOrange = (i % 3 === 0);
+                        
+                        this.ctx.strokeStyle = isOrange
+                            ? `rgba(255, 107, 53, ${alpha})`
+                            : `rgba(0, 217, 255, ${alpha * 0.6})`;
+                        this.ctx.lineWidth = 1;
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(p1.x, p1.y);
+                        this.ctx.lineTo(p2.x, p2.y);
+                        this.ctx.stroke();
+                    }
+                }
+            });
+        });
+        
+        // Draw particles (characters only, no glow orbs)
+        this.particles.forEach(p => {
+            // Character only
+            this.ctx.fillStyle = `rgba(0, 217, 255, ${p.alpha})`;
+            this.ctx.font = `bold ${p.size}px "JetBrains Mono", monospace`;
+            this.ctx.textAlign = 'center';
+            this.ctx.textBaseline = 'middle';
+            this.ctx.fillText(p.char, p.x, p.y);
+        });
+    }
+    
+    animate() {
+        this.draw();
+        requestAnimationFrame(() => this.animate());
+    }
+}
+
+// ============================================
+// PARTICLE SYSTEM (Connecting Nodes)
+// ============================================
+
+class ParticleSystem {
+    constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.particles = [];
+        this.mouse = { x: 0, y: 0 };
+        this.animationId = null;
+        this.time = 0;
+        
+        this.init();
+    }
+    
+    init() {
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
+        this.canvas.addEventListener('mousemove', (e) => {
+            const rect = this.canvas.getBoundingClientRect();
+            this.mouse.x = e.clientX - rect.left;
+            this.mouse.y = e.clientY - rect.top;
+        });
+        
+        const particleCount = window.innerWidth < 768 ? 25 : 50;
+        
+        for (let i = 0; i < particleCount; i++) {
+            this.particles.push({
+                x: Math.random() * this.canvas.width,
+                y: Math.random() * this.canvas.height,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                radius: Math.random() * 2 + 1,
+                pulsePhase: Math.random() * Math.PI * 2,
+            });
+        }
+        
+        this.animate();
+    }
+    
+    resize() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+    }
+    
+    animate() {
+        this.time += 0.016;
+        
+        // Clear with fade
+        this.ctx.fillStyle = 'rgba(3, 7, 18, 0.06)';
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        // Update particles
+        this.particles.forEach(particle => {
+            particle.x += particle.vx;
+            particle.y += particle.vy;
+            
+            // Wrap around
+            if (particle.x < 0) particle.x = this.canvas.width;
+            if (particle.x > this.canvas.width) particle.x = 0;
+            if (particle.y < 0) particle.y = this.canvas.height;
+            if (particle.y > this.canvas.height) particle.y = 0;
+            
+            // Mouse repulsion
+            const dx = this.mouse.x - particle.x;
+            const dy = this.mouse.y - particle.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 100) {
+                const force = (100 - distance) / 100;
+                particle.vx -= (dx / distance) * force * 0.02;
+                particle.vy -= (dy / distance) * force * 0.02;
+            }
+            
+            // Damping
+            particle.vx *= 0.99;
+            particle.vy *= 0.99;
+        });
+        
+        // Draw connections
+        for (let i = 0; i < this.particles.length; i++) {
+            for (let j = i + 1; j < this.particles.length; j++) {
+                const dx = this.particles[i].x - this.particles[j].x;
+                const dy = this.particles[i].y - this.particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 150) {
+                    const opacity = (1 - distance / 150) * 0.25;
+                    const isOrange = (i + j) % 4 === 0;
+                    
+                    this.ctx.strokeStyle = isOrange 
+                        ? `rgba(255, 107, 53, ${opacity})`
+                        : `rgba(0, 217, 255, ${opacity * 0.4})`;
+                    this.ctx.lineWidth = isOrange ? 1.5 : 1;
+                    
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+                    this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
+                    this.ctx.stroke();
+                }
+            }
+        }
+        
+        // Draw particles
+        this.particles.forEach(particle => {
+            particle.pulsePhase += 0.05;
+            const pulse = 1 + Math.sin(particle.pulsePhase) * 0.3;
+            const radius = particle.radius * pulse;
+            
+            // Glow
+            const gradient = this.ctx.createRadialGradient(
+                particle.x, particle.y, 0,
+                particle.x, particle.y, radius * 4
+            );
+            gradient.addColorStop(0, 'rgba(0, 217, 255, 0.5)');
+            gradient.addColorStop(0.5, 'rgba(0, 217, 255, 0.15)');
+            gradient.addColorStop(1, 'transparent');
+            
+            this.ctx.fillStyle = gradient;
+            this.ctx.beginPath();
+            this.ctx.arc(particle.x, particle.y, radius * 4, 0, Math.PI * 2);
+            this.ctx.fill();
+            
+            // Core
+            this.ctx.fillStyle = '#00d9ff';
+            this.ctx.beginPath();
+            this.ctx.arc(particle.x, particle.y, radius, 0, Math.PI * 2);
+            this.ctx.fill();
+        });
+        
+        this.animationId = requestAnimationFrame(() => this.animate());
+    }
+    
+    destroy() {
+        if (this.animationId) {
+            cancelAnimationFrame(this.animationId);
+        }
+    }
+}
+
+// ============================================
+// CLUSTER NETWORK
+// ============================================
+
+class ClusterNetwork {
+    constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
+        this.clusters = [];
+        this.nodes = [];
+        this.time = 0;
+        this.init();
+    }
+    
+    init() {
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
+        
+        const clusterCount = window.innerWidth < 768 ? 3 : 5;
+        for (let i = 0; i < clusterCount; i++) {
+            const cluster = {
+                center: {
+                    x: Math.random() * this.canvas.width,
+                    y: Math.random() * this.canvas.height
+                },
+                nodes: [],
+                radius: 60 + Math.random() * 80,
+                rotation: Math.random() * Math.PI * 2,
+                rotationSpeed: 0.002 + Math.random() * 0.003
+            };
+            
+            const nodeCount = 5 + Math.floor(Math.random() * 3);
+            for (let j = 0; j < nodeCount; j++) {
+                const angle = (Math.PI * 2 / nodeCount) * j;
+                const distance = cluster.radius * (0.3 + Math.random() * 0.7);
+                
+                const node = {
+                    x: cluster.center.x + Math.cos(angle) * distance,
+                    y: cluster.center.y + Math.sin(angle) * distance,
+                    baseAngle: angle,
+                    baseDistance: distance,
+                    cluster: cluster,
+                    isAnchor: j === 0,
+                    radius: j === 0 ? 4 : 2,
+                    pulsePhase: Math.random() * Math.PI * 2
+                };
+                
+                cluster.nodes.push(node);
+                this.nodes.push(node);
+            }
+            
+            this.clusters.push(cluster);
+        }
+        
+        this.animate();
+    }
+    
+    resize() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+    }
+    
+    animate() {
+        this.time += 0.016;
+        
+        this.ctx.fillStyle = 'rgba(3, 7, 18, 0.03)';
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        this.clusters.forEach(cluster => {
+            cluster.rotation += cluster.rotationSpeed;
+            
+            cluster.nodes.forEach((node, index) => {
+                if (!node.isAnchor) {
+                    const angle = node.baseAngle + cluster.rotation;
+                    node.x = cluster.center.x + Math.cos(angle) * node.baseDistance;
+                    node.y = cluster.center.y + Math.sin(angle) * node.baseDistance;
+                }
+                node.pulsePhase += 0.05;
+            });
+        });
+        
+        // Draw connections
+        this.ctx.lineWidth = 1;
+        this.clusters.forEach(cluster => {
+            for (let i = 0; i < cluster.nodes.length; i++) {
+                for (let j = i + 1; j < cluster.nodes.length; j++) {
+                    const node1 = cluster.nodes[i];
+                    const node2 = cluster.nodes[j];
+                    const dx = node1.x - node2.x;
+                    const dy = node1.y - node2.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < cluster.radius * 1.5) {
+                        const opacity = (1 - distance / (cluster.radius * 1.5)) * 0.4;
+                        const isOrange = Math.random() > 0.7;
+                        
+                        this.ctx.strokeStyle = isOrange 
+                            ? `rgba(255, 107, 53, ${opacity})`
+                            : `rgba(30, 64, 175, ${opacity})`;
+                        
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(node1.x, node1.y);
+                        this.ctx.lineTo(node2.x, node2.y);
+                        this.ctx.stroke();
+                    }
+                }
+            }
+        });
+        
+        // Draw nodes
+        this.nodes.forEach(node => {
+            const pulse = 1 + Math.sin(node.pulsePhase) * 0.3;
+            const radius = node.radius * pulse;
+            
+            const gradient = this.ctx.createRadialGradient(
+                node.x, node.y, 0,
+                node.x, node.y, radius * 4
+            );
+            
+            if (node.isAnchor) {
+                gradient.addColorStop(0, 'rgba(0, 217, 255, 0.9)');
+                gradient.addColorStop(0.5, 'rgba(0, 217, 255, 0.4)');
+                gradient.addColorStop(1, 'rgba(0, 217, 255, 0)');
+            } else {
+                gradient.addColorStop(0, 'rgba(14, 165, 233, 0.8)');
+                gradient.addColorStop(0.5, 'rgba(14, 165, 233, 0.3)');
+                gradient.addColorStop(1, 'rgba(14, 165, 233, 0)');
+            }
+            
+            this.ctx.fillStyle = gradient;
+            this.ctx.beginPath();
+            this.ctx.arc(node.x, node.y, radius * 4, 0, Math.PI * 2);
+            this.ctx.fill();
+            
+            this.ctx.fillStyle = node.isAnchor ? '#00d9ff' : '#0ea5e9';
+            this.ctx.beginPath();
+            this.ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
+            this.ctx.fill();
+        });
+        
+        requestAnimationFrame(() => this.animate());
+    }
+}
+
+// ============================================
+// NETWORK FORMATION VISUALIZATION
+// ============================================
+
+class NetworkFormation {
+    constructor(canvasId) {
+        this.canvas = document.getElementById(canvasId);
+        if (!this.canvas) return;
+        
+        this.ctx = this.canvas.getContext('2d');
+        this.nodes = [];
+        this.centerNode = null;
+        this.absorbedParticles = [];
+        this.phase = 0;
+        this.maxPhase = 2;
+        this.phaseProgress = 0;
+        this.flashIntensity = 0;
+        this.isMobile = window.innerWidth < 768;
+        this.phaseSpeed = this.isMobile ? 0.004 : 0.003;
+        
+        this.init();
+        this.animate();
+        
+        this.canvas.addEventListener('mousemove', (e) => this.handleHover(e));
+        this.canvas.addEventListener('click', (e) => this.handleClick(e));
+        window.addEventListener('resize', () => this.handleResize());
+    }
+    
+    init() {
+        this.handleResize();
+        this.createNodes();
+    }
+    
+    handleResize() {
+        const rect = this.canvas.getBoundingClientRect();
+        this.canvas.width = rect.width * window.devicePixelRatio;
+        this.canvas.height = rect.height * window.devicePixelRatio;
+        this.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        
+        this.width = rect.width;
+        this.height = rect.height;
+        this.centerX = this.width / 2;
+        this.centerY = this.height / 2;
+        
+        if (this.nodes.length === 0) {
+            this.createNodes();
+        }
+    }
+    
+    createNodes() {
+        this.centerNode = {
+            x: this.centerX,
+            y: this.centerY,
+            targetX: this.centerX,
+            targetY: this.centerY,
+            size: 40,
+            maxSize: 80,
+            color: '#ff6b35',
+            label: 'CORE',
+            type: 'center',
+            connections: [],
+            pulsePhase: 0
+        };
+        
+        const nodeCount = window.innerWidth < 768 ? 25 : 40;
+        const waves = ['W1', 'W2', 'W3', 'W4', 'W5', 'W6'];
+        
+        this.nodes = [];
+        for (let i = 0; i < nodeCount; i++) {
+            const angle = (Math.PI * 2 / nodeCount) * i;
+            const distance = 150 + Math.random() * 200;
+            const x = this.centerX + Math.cos(angle) * distance;
+            const y = this.centerY + Math.sin(angle) * distance;
+            
+            const finalDistance = 80 + Math.random() * 120;
+            const finalAngle = angle + (Math.random() - 0.5) * 0.5;
+            const targetX = this.centerX + Math.cos(finalAngle) * finalDistance;
+            const targetY = this.centerY + Math.sin(finalAngle) * finalDistance;
+            
+            this.nodes.push({
+                x: x,
+                y: y,
+                initialX: x,
+                initialY: y,
+                targetX: targetX,
+                targetY: targetY,
+                size: 8 + Math.random() * 8,
+                initialSize: 8 + Math.random() * 8,
+                finalSize: 2 + Math.random() * 3,
+                color: i < nodeCount * 0.3 ? '#00d9ff' : '#94a3b8',
+                alpha: 0.8,
+                label: waves[Math.floor(Math.random() * waves.length)] + '_' + i.toString(16).toUpperCase(),
+                type: 'peripheral',
+                orbitSpeed: (Math.random() - 0.5) * 0.0005,
+                orbitRadius: 20 + Math.random() * 40
+            });
+        }
+    }
+    
+    updatePhase() {
+        this.phaseProgress += this.phaseSpeed;
+        
+        if (this.phaseProgress >= 1) {
+            this.phaseProgress = 0;
+            this.phase = (this.phase + 1) % (this.maxPhase + 1);
+            this.flashIntensity = 1;
+            
+            if (this.phase === 0) {
+                this.phaseSpeed = 0.001;
+                setTimeout(() => {
+                    this.phaseSpeed = this.isMobile ? 0.004 : 0.003;
+                }, 1500);
+            }
+        }
+        
+        if (this.flashIntensity > 0) {
+            this.flashIntensity -= 0.05;
+        }
+    }
+    
+    interpolate(start, end, progress) {
+        return start + (end - start) * this.easeInOutCubic(progress);
+    }
+    
+    easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+    
+    draw() {
+        this.ctx.fillStyle = '#0a0e27';
+        this.ctx.fillRect(0, 0, this.width, this.height);
+        
+        const globalProgress = (this.phase + this.phaseProgress) / this.maxPhase;
+        const centerSize = this.interpolate(this.centerNode.size, this.centerNode.maxSize * 1.2, globalProgress);
+        
+        if (this.flashIntensity > 0) {
+            this.ctx.fillStyle = `rgba(14, 165, 233, ${this.flashIntensity * 0.1})`;
+            this.ctx.fillRect(0, 0, this.width, this.height);
+        }
+        
+        this.drawTargetingGrid();
+        this.drawConnections(globalProgress);
+        this.createAbsorptionParticles();
+        
+        this.nodes.forEach(node => {
+            const currentX = this.interpolate(node.initialX, node.targetX, globalProgress);
+            const currentY = this.interpolate(node.initialY, node.targetY, globalProgress);
+            const orbitOffset = Math.sin(Date.now() * node.orbitSpeed) * node.orbitRadius * (1 - globalProgress);
+            node.x = currentX + orbitOffset;
+            node.y = currentY;
+            
+            const currentSize = this.interpolate(node.initialSize, node.finalSize, globalProgress);
+            const currentAlpha = this.interpolate(0.8, 0.3, globalProgress);
+            
+            this.drawNode(node.x, node.y, currentSize, node.color, currentAlpha, node.label);
+        });
+        
+        this.centerNode.pulsePhase += 0.02;
+        const pulseSizeIncrease = Math.sin(this.centerNode.pulsePhase) * 5;
+        this.drawCenterNode(centerSize + pulseSizeIncrease, globalProgress);
+        this.drawPhaseIndicator();
+    }
+    
+    drawConnections(globalProgress) {
+        this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+        this.ctx.lineWidth = 1;
+        
+        this.nodes.forEach((node, i) => {
+            const distToCenter = Math.hypot(node.x - this.centerX, node.y - this.centerY);
+            const connectionStrength = 1 - (distToCenter / 300);
+            
+            if (connectionStrength > 0.3) {
+                this.ctx.beginPath();
+                this.ctx.strokeStyle = `rgba(14, 165, 233, ${connectionStrength * globalProgress * 0.3})`;
+                this.ctx.lineWidth = 1 + connectionStrength * 2;
+                this.ctx.moveTo(node.x, node.y);
+                this.ctx.lineTo(this.centerX, this.centerY);
+                this.ctx.stroke();
+            }
+        });
+    }
+    
+    drawNode(x, y, size, color, alpha, label) {
+        const alphaHex255 = Math.floor(alpha * 255).toString(16).padStart(2, '0');
+        this.ctx.fillStyle = `${color}${alphaHex255}`;
+        this.ctx.shadowBlur = 10;
+        this.ctx.shadowColor = color;
+        this.ctx.beginPath();
+        this.roundRect(x - size/2, y - size/2, size, size, size * 0.2);
+        this.ctx.fill();
+        this.ctx.shadowBlur = 0;
+        
+        if (size > 6) {
+            this.ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.7})`;
+            this.ctx.font = `${size * 0.35}px 'JetBrains Mono', monospace`;
+            this.ctx.textAlign = 'center';
+            this.ctx.textBaseline = 'middle';
+            this.ctx.fillText(label.substring(0, 3), x, y);
+        }
+    }
+    
+    drawCenterNode(size, globalProgress) {
+        const centerX = this.centerX;
+        const centerY = this.centerY;
+        
+        for (let i = 0; i < 3; i++) {
+            const ringProgress = (this.centerNode.pulsePhase + i * 0.3) % 1;
+            const ringRadius = size + ringProgress * 50;
+            const ringAlpha = (1 - ringProgress) * 0.25;
+            
+            this.ctx.strokeStyle = `rgba(255, 107, 53, ${ringAlpha})`;
+            this.ctx.lineWidth = 2;
+            this.ctx.beginPath();
+            this.ctx.arc(centerX, centerY, ringRadius, 0, Math.PI * 2);
+            this.ctx.stroke();
+        }
+        
+        const gradient = this.ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, size * 1.5);
+        gradient.addColorStop(0, 'rgba(255, 107, 53, 0.6)');
+        gradient.addColorStop(0.5, 'rgba(255, 107, 53, 0.2)');
+        gradient.addColorStop(1, 'transparent');
+        
+        this.ctx.fillStyle = gradient;
+        this.ctx.beginPath();
+        this.ctx.arc(centerX, centerY, size * 1.5, 0, Math.PI * 2);
+        this.ctx.fill();
+        
+        this.ctx.fillStyle = '#ff6b35';
+        this.ctx.shadowBlur = 15;
+        this.ctx.shadowColor = '#ff6b35';
+        this.ctx.beginPath();
+        this.roundRect(centerX - size/2, centerY - size/2, size, size, size * 0.15);
+        this.ctx.fill();
+        this.ctx.shadowBlur = 0;
+        
+        this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+        this.ctx.lineWidth = 1.5;
+        const numLines = 12;
+        for (let i = 0; i < numLines; i++) {
+            const angle = (Math.PI * 2 / numLines) * i;
+            const startRadius = size * 0.6;
+            const endRadius = size + 40 + Math.sin(Date.now() * 0.001 + i) * 10;
+            
+            this.ctx.beginPath();
+            this.ctx.moveTo(centerX + Math.cos(angle) * startRadius, centerY + Math.sin(angle) * startRadius);
+            this.ctx.lineTo(centerX + Math.cos(angle) * endRadius, centerY + Math.sin(angle) * endRadius);
+            this.ctx.stroke();
+        }
+        
+        const labelPulse = 0.9 + Math.sin(this.centerNode.pulsePhase * 2) * 0.1;
+        this.ctx.fillStyle = `rgba(255, 255, 255, ${labelPulse})`;
+        this.ctx.font = `${size * 0.25}px 'Orbitron', sans-serif`;
+        this.ctx.textAlign = 'center';
+        this.ctx.textBaseline = 'middle';
+        this.ctx.shadowBlur = 8;
+        this.ctx.shadowColor = '#ffffff';
+        this.ctx.fillText('CORE', centerX, centerY);
+        this.ctx.shadowBlur = 0;
+        
+        const concentration = Math.floor(65 + globalProgress * 13);
+        this.ctx.font = `${size * 0.18}px 'JetBrains Mono', monospace`;
+        this.ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        this.ctx.fillText(`${concentration}%`, centerX, centerY + size * 0.65);
+    }
+    
+    createAbsorptionParticles() {
+        const spawnRate = this.phase === 1 ? 0.15 : 0.05;
+        
+        if (Math.random() < spawnRate && this.nodes.length > 0) {
+            const sourceNode = this.nodes[Math.floor(Math.random() * this.nodes.length)];
+            
+            this.absorbedParticles.push({
+                x: sourceNode.x,
+                y: sourceNode.y,
+                targetX: this.centerX,
+                targetY: this.centerY,
+                progress: 0,
+                speed: 0.01 + Math.random() * 0.02,
+                size: 2 + Math.random() * 3,
+                color: Math.random() > 0.7 ? '#ff6b35' : '#00d9ff'
+            });
+        }
+        
+        this.absorbedParticles = this.absorbedParticles.filter(particle => {
+            particle.progress += particle.speed;
+            particle.x = particle.x + (particle.targetX - particle.x) * particle.speed * 2;
+            particle.y = particle.y + (particle.targetY - particle.y) * particle.speed * 2;
+            
+            this.ctx.fillStyle = particle.color;
+            this.ctx.shadowBlur = 8;
+            this.ctx.shadowColor = particle.color;
+            this.ctx.beginPath();
+            this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+            this.ctx.fill();
+            this.ctx.shadowBlur = 0;
+            
+            return particle.progress < 1;
+        });
+    }
+    
+    drawTargetingGrid() {
+        this.ctx.save();
+        this.ctx.translate(this.centerX, this.centerY);
+        
+        this.ctx.strokeStyle = 'rgba(14, 165, 233, 0.2)';
+        this.ctx.lineWidth = 1;
+        
+        this.ctx.beginPath();
+        this.ctx.moveTo(-100, 0);
+        this.ctx.lineTo(-20, 0);
+        this.ctx.moveTo(20, 0);
+        this.ctx.lineTo(100, 0);
+        this.ctx.stroke();
+        
+        this.ctx.beginPath();
+        this.ctx.moveTo(0, -100);
+        this.ctx.lineTo(0, -20);
+        this.ctx.moveTo(0, 20);
+        this.ctx.lineTo(0, 100);
+        this.ctx.stroke();
+        
+        for (let r = 60; r <= 120; r += 30) {
+            this.ctx.beginPath();
+            this.ctx.arc(0, 0, r, 0, Math.PI * 2);
+            this.ctx.stroke();
+        }
+        
+        this.ctx.restore();
+    }
+    
+    drawPhaseIndicator() {
+        const labels = ['Wave 0: Distributed', 'Waves 1-3: Clustering', 'Wave 5: Concentrated'];
+        const currentLabel = labels[this.phase];
+        
+        const boxWidth = 260;
+        const boxHeight = 40;
+        const boxX = this.width - boxWidth - 20;
+        const boxY = this.height - boxHeight - 20;
+        
+        this.ctx.fillStyle = 'rgba(10, 14, 39, 0.9)';
+        this.ctx.fillRect(boxX, boxY, boxWidth, boxHeight);
+        
+        this.ctx.strokeStyle = 'rgba(14, 165, 233, 0.6)';
+        this.ctx.lineWidth = 2;
+        this.ctx.strokeRect(boxX, boxY, boxWidth, boxHeight);
+        
+        this.ctx.fillStyle = '#0ea5e9';
+        this.ctx.font = 'bold 14px "JetBrains Mono", monospace';
+        this.ctx.textAlign = 'left';
+        this.ctx.textBaseline = 'middle';
+        this.ctx.fillText(currentLabel, boxX + 15, boxY + boxHeight/2);
+        
+        const progressWidth = (boxWidth - 20) * this.phaseProgress;
+        this.ctx.fillStyle = '#ff6b35';
+        this.ctx.fillRect(boxX + 10, boxY + boxHeight - 5, progressWidth, 3);
+    }
+    
+    roundRect(x, y, width, height, radius) {
+        this.ctx.beginPath();
+        this.ctx.moveTo(x + radius, y);
+        this.ctx.lineTo(x + width - radius, y);
+        this.ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+        this.ctx.lineTo(x + width, y + height - radius);
+        this.ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+        this.ctx.lineTo(x + radius, y + height);
+        this.ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+        this.ctx.lineTo(x, y + radius);
+        this.ctx.quadraticCurveTo(x, y, x + radius, y);
+        this.ctx.closePath();
+    }
+    
+    handleHover(e) {
+        const rect = this.canvas.getBoundingClientRect();
+        const mouseX = (e.clientX - rect.left);
+        const mouseY = (e.clientY - rect.top);
+        const distToCenter = Math.hypot(mouseX - this.centerX, mouseY - this.centerY);
+        this.canvas.style.cursor = distToCenter < 50 ? 'pointer' : 'default';
+    }
+    
+    handleClick(e) {
+        const rect = this.canvas.getBoundingClientRect();
+        const mouseX = (e.clientX - rect.left);
+        const mouseY = (e.clientY - rect.top);
+        const distToCenter = Math.hypot(mouseX - this.centerX, mouseY - this.centerY);
+        
+        if (distToCenter < 50) {
+            this.centerNode.pulsePhase = 0;
+            this.nodes.forEach(node => {
+                const angle = Math.atan2(node.y - this.centerY, node.x - this.centerX);
+                node.x += Math.cos(angle) * 30;
+                node.y += Math.sin(angle) * 30;
+            });
+        }
+    }
+    
+    animate() {
+        this.updatePhase();
+        this.draw();
+        requestAnimationFrame(() => this.animate());
+    }
+}
+
+// ============================================
+// SCROLL ANIMATIONS
+// ============================================
+
+class ScrollAnimations {
+    constructor() {
+        this.observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        this.init();
+    }
+    
+    init() {
+        this.observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    this.observer.unobserve(entry.target);
+                    
+                    if (entry.target.id === 'pattern') {
+                        const networkCanvas = document.getElementById('network-canvas');
+                        if (networkCanvas && !window.networkFormation) {
+                            setTimeout(() => {
+                                window.networkFormation = new NetworkFormation('network-canvas');
+                            }, 500);
+                        }
+                        
+                        const patternText = entry.target.querySelector('.pattern-text');
+                        const patternVisual = entry.target.querySelector('.pattern-visual');
+                        if (patternText) patternText.classList.add('visible');
+                        if (patternVisual) patternVisual.classList.add('visible');
+                    }
+                    
+                    const title = entry.target.querySelector('.section-title');
+                    if (title && !title.classList.contains('visible')) {
+                        title.classList.add('visible');
+                    }
+                    
+                    if (entry.target.classList.contains('intel-card')) {
+                        this.animateCounters(entry.target);
+                        this.animateProgress(entry.target);
+                    }
+                    
+                    if (entry.target.classList.contains('comparison-column')) {
+                        const arrow = document.querySelector('.comparison-arrow');
+                        if (arrow) setTimeout(() => arrow.classList.add('visible'), 200);
+                    }
+                }
+            });
+        }, this.observerOptions);
+        
+        document.querySelectorAll('[data-animate]').forEach(el => this.observer.observe(el));
+        document.querySelectorAll('section').forEach(section => this.observer.observe(section));
+        document.querySelectorAll('.comparison-column, .comparison-arrow').forEach(el => this.observer.observe(el));
+    }
+    
+    animateCounters(card) {
+        const counters = card.querySelectorAll('[data-target]');
+        counters.forEach(counter => {
+            const target = parseFloat(counter.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+            
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    counter.textContent = current.toFixed(1);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target.toFixed(1);
+                }
+            };
+            updateCounter();
+        });
+    }
+    
+    animateProgress(card) {
+        const progressBar = card.querySelector('.progress-bar');
+        if (progressBar) {
+            const progress = progressBar.getAttribute('data-progress');
+            const fill = progressBar.querySelector('.progress-fill');
+            if (fill) {
+                setTimeout(() => {
+                    fill.style.setProperty('--progress-width', progress + '%');
+                    fill.classList.add('animate');
+                }, 300);
+            }
+        }
+    }
+}
+
+// ============================================
+// NAVIGATION & FORM
+// ============================================
+
+function initNavigation() {
+    const nav = document.getElementById('mainNav');
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > window.innerHeight) {
+            nav.classList.remove('nav-hidden');
+        } else {
+            nav.classList.add('nav-hidden');
+        }
+    });
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const offset = 80;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+            }
+        });
+    });
+}
+
+function initForm() {
+    const form = document.getElementById('accessForm');
+    if (!form) return;
+    
+    const submitBtn = form.querySelector('.btn-submit');
+    const messageDiv = document.getElementById('formMessage');
+    
+    form.querySelectorAll('input, select, textarea').forEach(input => {
+        input.addEventListener('focus', () => input.parentElement.classList.add('focused'));
+        input.addEventListener('blur', () => {
+            if (!input.value) input.parentElement.classList.remove('focused');
+        });
+        input.addEventListener('change', () => {
+            if (input.value) {
+                input.classList.add('has-value');
+                input.parentElement.classList.add('focused');
+            }
+        });
+    });
+    
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        let isValid = true;
+        form.querySelectorAll('[required]').forEach(input => {
+            if (!input.value.trim()) {
+                isValid = false;
+                input.style.borderColor = '#dc2626';
+            } else {
+                input.style.borderColor = '';
+            }
+        });
+        
+        if (!isValid) {
+            messageDiv.innerHTML = '<span style="color: var(--accent-red);">Please fill in all required fields.</span>';
+            messageDiv.style.opacity = '1';
+            return;
+        }
+        
+        submitBtn.disabled = true;
+        submitBtn.classList.add('loading');
+        
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        messageDiv.innerHTML = '<span style="color: #10b981;">REQUEST RECEIVED. STANDBY FOR CONTACT.</span>';
+        messageDiv.className = 'form-message success';
+        messageDiv.style.opacity = '1';
+        form.reset();
+        
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+    });
+}
+
+function initMiniCharts() {
+    document.querySelectorAll('.mini-chart').forEach(canvas => {
+        const ctx = canvas.getContext('2d');
+        const type = canvas.getAttribute('data-type');
+        
+        const resize = () => {
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width * window.devicePixelRatio;
+            canvas.height = rect.height * window.devicePixelRatio;
+            ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+            draw();
+        };
+        
+        const draw = () => {
+            const width = canvas.width / window.devicePixelRatio;
+            const height = canvas.height / window.devicePixelRatio;
+            ctx.clearRect(0, 0, width, height);
+            
+            if (type === 'trend-up') {
+                ctx.strokeStyle = '#10b981';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(0, height);
+                ctx.lineTo(width * 0.3, height * 0.6);
+                ctx.lineTo(width * 0.6, height * 0.4);
+                ctx.lineTo(width, height * 0.2);
+                ctx.stroke();
+            }
+        };
+        
+        resize();
+        window.addEventListener('resize', resize);
+    });
+}
+
+function initNetworkCanvas() {
+    document.querySelectorAll('.network-canvas').forEach(canvas => {
+        const ctx = canvas.getContext('2d');
+        const nodes = [];
+        
+        for (let i = 0; i < 8; i++) {
+            nodes.push({
+                x: Math.random() * (canvas.offsetWidth || 200),
+                y: Math.random() * (canvas.offsetHeight || 80),
+                radius: 3,
+                pulse: Math.random() * Math.PI * 2
+            });
+        }
+        
+        const draw = () => {
+            const width = canvas.offsetWidth || 200;
+            const height = canvas.offsetHeight || 80;
+            ctx.clearRect(0, 0, width, height);
+            
+            ctx.strokeStyle = 'rgba(14, 165, 233, 0.3)';
+            ctx.lineWidth = 1;
+            
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dist = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y);
+                    if (dist < 80) {
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            
+            nodes.forEach(node => {
+                node.pulse += 0.02;
+                const radius = node.radius + Math.sin(node.pulse);
+                ctx.fillStyle = 'rgba(14, 165, 233, 0.8)';
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            requestAnimationFrame(draw);
+        };
+        
+        draw();
+    });
+}
+
+// ============================================
+// CUSTOM CURSOR
+// ============================================
+
+class CustomCursor {
+    constructor() {
+        this.cursor = document.createElement('div');
+        this.cursor.className = 'custom-cursor';
+        document.body.appendChild(this.cursor);
+        
+        this.trails = [];
+        for (let i = 0; i < 5; i++) {
+            const trail = document.createElement('div');
+            trail.className = 'custom-cursor-trail';
+            document.body.appendChild(trail);
+            this.trails.push(trail);
+        }
+        
+        document.addEventListener('mousemove', (e) => {
+            this.cursor.style.left = e.clientX + 'px';
+            this.cursor.style.top = e.clientY + 'px';
+            
+            this.trails.forEach((trail, i) => {
+                setTimeout(() => {
+                    trail.style.left = e.clientX + 'px';
+                    trail.style.top = e.clientY + 'px';
+                    trail.style.opacity = (5 - i) / 5 * 0.5;
+                }, i * 15);
+            });
+            
+            const target = e.target;
+            this.cursor.style.transform = (target.tagName === 'A' || target.tagName === 'BUTTON') 
+                ? 'scale(2)' : 'scale(1)';
+        });
+        
+        if (window.innerWidth < 768) {
+            this.cursor.style.display = 'none';
+            this.trails.forEach(t => t.style.display = 'none');
+        }
+    }
+}
+
+// ============================================
+// INITIALIZATION
+// ============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const loadingText = document.getElementById('loadingText');
+    if (loadingText) {
+        const text = 'INITIALIZING...';
+        loadingText.textContent = '';
+        let i = 0;
+        const typeInterval = setInterval(() => {
+            if (i < text.length) {
+                loadingText.textContent += text[i];
+                i++;
+            } else {
+                clearInterval(typeInterval);
+            }
+        }, 25);
+    }
+    
+    // Initialize 3D Binary Tunnel (main background effect)
+    if (document.getElementById('binary-rain-canvas')) {
+        window.binaryTunnel = new BinaryTunnel('binary-rain-canvas');
+    }
+    
+    // Initialize Binary Wave at bottom
+    // if (document.getElementById('binary-wave-canvas')) {
+    //     window.binaryWave = new BinaryWave('binary-wave-canvas');
+    // }
+    
+    // Initialize Cluster Network
+    // const clusterNetworkCanvas = document.getElementById('clusterNetworkCanvas');
+    // if (clusterNetworkCanvas) {
+    //     window.clusterNetwork = new ClusterNetwork(clusterNetworkCanvas);
+    // }
+    
+    // Initialize Particle System
+    // const particleCanvas = document.getElementById('particleCanvas');
+    // if (particleCanvas) {
+    //     window.particleSystem = new ParticleSystem(particleCanvas);
+    // }
+    
+    // Initialize Data Flow ecosystem
+    // const dataFlowCanvas = document.getElementById('particleCanvas');
+    // if (dataFlowCanvas) {
+    //     window.dataFlow = new DataFlow(dataFlowCanvas);
+    //     window.dataFlow.animate();
+    // }
+    
+    // Initialize custom cursor after loading
+    setTimeout(() => {
+        if (window.innerWidth >= 768) {
+            window.customCursor = new CustomCursor();
+        }
+    }, 2000);
+    
+    // Initialize other components
+    window.scrollAnimations = new ScrollAnimations();
+    initMiniCharts();
+    initNetworkCanvas();
+    initNavigation();
+    initForm();
+    
+    window.addEventListener('beforeunload', () => {
+        if (window.particleSystem) window.particleSystem.destroy();
+    });
+});
