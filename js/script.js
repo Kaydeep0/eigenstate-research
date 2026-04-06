@@ -2206,7 +2206,13 @@ function initForm() {
     if (!form) return;
     
     const submitBtn = form.querySelector('.btn-submit');
-    const messageDiv = document.getElementById('formMessage');
+    let messageDiv = document.getElementById('formMessage');
+    if (!messageDiv) {
+        messageDiv = document.createElement('div');
+        messageDiv.id = 'formMessage';
+        messageDiv.className = 'form-message';
+        form.appendChild(messageDiv);
+    }
     
     form.querySelectorAll('input, select, textarea').forEach(input => {
         input.addEventListener('focus', () => input.parentElement.classList.add('focused'));
@@ -2223,7 +2229,7 @@ function initForm() {
     
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         let isValid = true;
         form.querySelectorAll('[required]').forEach(input => {
             if (!input.value.trim()) {
@@ -2233,25 +2239,58 @@ function initForm() {
                 input.style.borderColor = '';
             }
         });
-        
+
         if (!isValid) {
             messageDiv.innerHTML = '<span style="color: var(--accent-red);">Please fill in all required fields.</span>';
             messageDiv.style.opacity = '1';
             return;
         }
-        
+
+        const name = (document.getElementById('name') || {}).value || '';
+        const email = (document.getElementById('email') || {}).value || '';
+        const organization = (document.getElementById('organization') || {}).value || '';
+
         submitBtn.disabled = true;
         submitBtn.classList.add('loading');
-        
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        
-        messageDiv.innerHTML = '<span style="color: #10b981;">REQUEST RECEIVED. STANDBY FOR CONTACT.</span>';
-        messageDiv.className = 'form-message success';
+        messageDiv.innerHTML = '<span style="color: #94a3b8;">Sending…</span>';
         messageDiv.style.opacity = '1';
-        form.reset();
-        
+
+        try {
+            const r = await fetch('https://formspree.io/f/xgoprgww', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'application/json',
+                },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    organization,
+                    _subject: 'Eigenstate — institutional access request (root site)',
+                }),
+            });
+            if (r.ok) {
+                messageDiv.innerHTML =
+                    '<span style="color: #10b981;">REQUEST RECEIVED. STANDBY FOR CONTACT.</span>';
+                messageDiv.className = 'form-message success';
+                form.reset();
+            } else {
+                const err = await r.json().catch(() => ({}));
+                messageDiv.innerHTML =
+                    '<span style="color: #f87171;">' +
+                    (err.error || 'Send failed') +
+                    '. Email research@eigenstate.xyz</span>';
+                messageDiv.className = 'form-message';
+            }
+        } catch {
+            messageDiv.innerHTML =
+                '<span style="color: #f87171;">Network error. Email research@eigenstate.xyz</span>';
+            messageDiv.className = 'form-message';
+        }
+
         submitBtn.disabled = false;
         submitBtn.classList.remove('loading');
+        messageDiv.style.opacity = '1';
     });
 }
 
