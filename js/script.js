@@ -2179,15 +2179,8 @@ class ScrollAnimations {
 
 function initNavigation() {
     const nav = document.getElementById('mainNav');
-    
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > window.innerHeight) {
-            nav.classList.remove('nav-hidden');
-        } else {
-            nav.classList.add('nav-hidden');
-        }
-    });
-    
+    if (nav) nav.classList.remove('nav-hidden');
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
