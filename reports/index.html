@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Signal Reports — Eigenstate Research</title>
+<title>Signal Reports - Eigenstate Research</title>
 <meta name="description" content="Topology signal reports for the tokenized settlement layer. 196 entities, real-time curl detection.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -174,7 +174,7 @@ section { padding: 100px 40px; }
 
 <section class="field-bg">
     <div class="container">
-        <div class="eyebrow">FIELD STATE — LIVE</div>
+        <div class="eyebrow">FIELD STATE - LIVE</div>
         <div class="field-grid">
             <div class="field-cell"><div class="fc-label">Entities tracked</div><div class="fc-val">196</div><div class="fc-sub">tokenized settlement layer</div></div>
             <div class="field-cell"><div class="fc-label">G_total</div><div class="fc-val o">0.89</div><div class="fc-sub">approaching 1/φ = 0.618</div></div>
@@ -185,7 +185,7 @@ section { padding: 100px 40px; }
         </div>
         <div class="field-loop">
             <span class="fl">dominant loop</span>
-            <code>OCC → US_JURISDICTION → SEC → TOKENIZED_TREASURY_POOL → STABLECOIN_POOL → OCC</code>
+            <code>OCC → Treasury → SEC → Tokenized Treasuries → Stablecoin Issuers → OCC</code>
             <span class="fl">∇×G</span><span class="fv">16,278</span> &nbsp;&nbsp;
             <span class="fl">dcurl/dt</span><span class="fv">+8,003 (accelerating)</span> &nbsp;&nbsp;
             <span class="fl">helix</span><span class="fv">fb40dcc8d8dedcfd</span>
@@ -209,7 +209,7 @@ section { padding: 100px 40px; }
             </div>
             <div class="tier">
                 <div>
-                    <div class="tier-name">SECTOR REPORT — INFORMATION FLOW</div>
+                    <div class="tier-name">SECTOR REPORT - INFORMATION FLOW</div>
                     <div class="tier-desc">Full analysis of the information flow sector: 164 entities, 158 currently breaking, Φ_S scores, loop velocity rankings, recommended positions. Updated weekly on atomic cycle.</div>
                     <div class="tier-inc">Includes: full sector map · weekly Δ · top breaking entities · forming loops · field equations</div>
                 </div>
@@ -234,15 +234,15 @@ section { padding: 100px 40px; }
         <div class="divider"></div>
         <div class="articles">
             <a href="https://paragraph.com/@eigenstate/how-the-genius-act-registration-window-changes-the-stablecoin-topology" class="article" target="_blank" rel="noopener">
-                <div><div class="art-title">How the GENIUS Act Registration Window Changes the Stablecoin Topology</div><div class="art-sub">OCC LOOP · CIRCLE_CORPORATE · COINBASE_CORPORATE · $500B FIELD</div></div>
+                <div><div class="art-title">How the GENIUS Act Registration Window Changes the Stablecoin Topology</div><div class="art-sub">OCC loop · Circle · Coinbase · $500B field</div></div>
                 <div class="art-date">APR 6, 2026</div>
             </a>
             <a href="https://paragraph.com/@eigenstate/how-stripes-acquisition-of-bridge-restructures-the-tokenized-settlement-layer" class="article" target="_blank" rel="noopener">
-                <div><div class="art-title">How Stripe's Acquisition of Bridge Restructures the Tokenized Settlement Layer</div><div class="art-sub">RING · CABLE · HIGHWAY · MINT — INFORMATION FLOW CONCENTRATION</div></div>
+                <div><div class="art-title">How Stripe's Acquisition of Bridge Restructures the Tokenized Settlement Layer</div><div class="art-sub">Stripe · Bridge · Settlement · Issuance - information flow</div></div>
                 <div class="art-date">APR 1, 2026</div>
             </a>
             <a href="https://paragraph.com/@eigenstate/how-stripes-bridge-acquisition-reshapes-the-stablecoin-settlement" class="article" target="_blank" rel="noopener">
-                <div><div class="art-title">How Stripe's Bridge Acquisition Reshapes the Stablecoin Settlement</div><div class="art-sub">CIRCLE_CORPORATE · TETHER · COINBASE_CORPORATE · $274B RWA INFRASTRUCTURE</div></div>
+                <div><div class="art-title">How Stripe's Bridge Acquisition Reshapes the Stablecoin Settlement</div><div class="art-sub">Circle · Tether · Coinbase · $274B RWA infrastructure</div></div>
                 <div class="art-date">MAR 27, 2026</div>
             </a>
         </div>
@@ -265,10 +265,10 @@ section { padding: 100px 40px; }
                 <label>Report type</label>
                 <select id="ft">
                     <option value="" disabled selected>Select report type</option>
-                    <option>Single entity — $59</option>
-                    <option>Sector report — $490/month</option>
-                    <option>Custom briefing — $2,400</option>
-                    <option>Not sure — send me a sample</option>
+                    <option>Single entity - $59</option>
+                    <option>Sector report - $490/month</option>
+                    <option>Custom briefing - $2,400</option>
+                    <option>Not sure - send me a sample</option>
                 </select>
             </div>
             <div class="form-group"><label>Entity or sector of interest</label><textarea id="fent" rows="3" placeholder="e.g. Circle, Coinbase, OCC regulatory loop, GENIUS Act implementation, stablecoin issuance layer..."></textarea></div>
@@ -339,10 +339,10 @@ async function submit(){
                 organization:document.getElementById('fo').value,
                 report_type:document.getElementById('ft').value,
                 entity_interest:document.getElementById('fent').value,
-                _subject:'Eigenstate — signal report request'
+                _subject:'Eigenstate - signal report request'
             })
         });
-        if(r.ok){msg.textContent='Received. Expect a response within 24 hours. — Eigenstate Research';msg.className='form-msg ok';}
+        if(r.ok){msg.textContent='Received. Expect a response within 24 hours. - Eigenstate Research';msg.className='form-msg ok';}
         else{msg.textContent='Something went wrong. Email research@eigenstate.xyz directly.';msg.className='form-msg err';}
     }catch{msg.textContent='Network error. Email research@eigenstate.xyz directly.';msg.className='form-msg err';}
 }
