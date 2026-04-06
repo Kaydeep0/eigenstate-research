@@ -580,21 +580,47 @@
 </footer>
 
 <script>
-function handleSubmit() {
-  const email = document.getElementById('email-input').value;
+/** Create a form at https://formspree.io — paste the form id (the part after /f/) */
+const FORMSPREE_FORM_ID = 'YOUR_FORM_ID';
+
+async function handleSubmit() {
+  const email = document.getElementById('email-input').value.trim();
   if (!email || !email.includes('@')) {
     document.getElementById('email-input').focus();
     return;
   }
-  document.getElementById('success-msg').style.display = 'block';
-  document.getElementById('email-input').value = '';
-
-  // Replace with your actual form endpoint (Formspree, Typeform, etc.)
-  // fetch('https://formspree.io/f/YOUR_ID', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({ email })
-  // });
+  const msg = document.getElementById('success-msg');
+  if (FORMSPREE_FORM_ID === 'YOUR_FORM_ID') {
+    msg.textContent = 'Set FORMSPREE_FORM_ID in index.html (Formspree), or email research@eigenstate.xyz';
+    msg.style.display = 'block';
+    msg.style.color = '#c9a84c';
+    return;
+  }
+  try {
+    const r = await fetch('https://formspree.io/f/' + FORMSPREE_FORM_ID, {
+      method: 'POST',
+      headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email,
+        _subject: 'Eigenstate — signal report request',
+      }),
+    });
+    if (r.ok) {
+      msg.style.color = '';
+      msg.textContent = 'Received. Expect a response within 24 hours. — Eigenstate Research';
+      msg.style.display = 'block';
+      document.getElementById('email-input').value = '';
+    } else {
+      const err = await r.json().catch(() => ({}));
+      msg.textContent = (err.error || 'Send failed') + ' — try research@eigenstate.xyz';
+      msg.style.color = '#c9a84c';
+      msg.style.display = 'block';
+    }
+  } catch (e) {
+    msg.textContent = 'Network error — email research@eigenstate.xyz';
+    msg.style.color = '#c9a84c';
+    msg.style.display = 'block';
+  }
 }
 
 // Allow enter key
