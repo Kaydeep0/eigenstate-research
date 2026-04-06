@@ -1,638 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eigenstate Research — Topology Signal Reports</title>
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --bg:       #0a0a0a;
-    --surface:  #111111;
-    --border:   #222222;
-    --text:     #e8e6e0;
-    --muted:    #888680;
-    --gold:     #c9a84c;
-    --green:    #2d6a4f;
-    --green-lt: #52b788;
-  }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Georgia', serif;
-    font-size: 16px;
-    line-height: 1.7;
-    min-height: 100vh;
-  }
-
-  a { color: var(--gold); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-
-  nav {
-    padding: 1.5rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .wordmark {
-    font-family: 'Georgia', serif;
-    font-size: 15px;
-    letter-spacing: 0.08em;
-    color: var(--text);
-  }
-
-  .wordmark span { color: var(--gold); }
-
-  nav-links { display: flex; gap: 2rem; }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    font-family: sans-serif;
-    font-size: 13px;
-    color: var(--muted);
-  }
-
-  .nav-links a { color: var(--muted); }
-  .nav-links a:hover { color: var(--text); text-decoration: none; }
-
-  .hero {
-    max-width: 720px;
-    margin: 5rem auto 4rem;
-    padding: 0 2rem;
-  }
-
-  .hero-label {
-    font-family: sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-  }
-
-  h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: normal;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    color: var(--text);
-  }
-
-  .hero p {
-    font-size: 1.1rem;
-    color: var(--muted);
-    max-width: 560px;
-    margin-bottom: 2.5rem;
-  }
-
-  .eq {
-    font-family: 'Courier New', monospace;
-    font-size: 13px;
-    color: var(--gold);
-    margin-bottom: 2.5rem;
-    opacity: 0.8;
-  }
-
-  .cta-row {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  .btn-primary {
-    background: var(--gold);
-    color: #0a0a0a;
-    padding: 0.75rem 1.75rem;
-    font-family: sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    letter-spacing: 0.03em;
-    transition: opacity 0.15s;
-  }
-
-  .btn-primary:hover { opacity: 0.85; }
-
-  .btn-secondary {
-    color: var(--muted);
-    font-family: sans-serif;
-    font-size: 13px;
-    padding: 0.75rem 0;
-  }
-
-  .btn-secondary:hover { color: var(--text); text-decoration: none; }
-
-  .divider {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    border-top: 1px solid var(--border);
-  }
-
-  section {
-    max-width: 720px;
-    margin: 4rem auto;
-    padding: 0 2rem;
-  }
-
-  .section-label {
-    font-family: sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-  }
-
-  .metrics {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin-bottom: 3rem;
-  }
-
-  .metric {
-    background: var(--surface);
-    padding: 1.5rem;
-  }
-
-  .metric-val {
-    font-size: 2rem;
-    font-weight: normal;
-    color: var(--text);
-    margin-bottom: 0.25rem;
-    font-family: 'Georgia', serif;
-  }
-
-  .metric-label {
-    font-family: sans-serif;
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  .tiers {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-  }
-
-  .tier {
-    background: var(--surface);
-    padding: 1.5rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: start;
-    gap: 1rem;
-  }
-
-  .tier-name {
-    font-family: sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 0.4rem;
-    letter-spacing: 0.02em;
-  }
-
-  .tier-desc {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  .tier-price {
-    font-family: 'Courier New', monospace;
-    font-size: 15px;
-    color: var(--gold);
-    white-space: nowrap;
-    text-align: right;
-  }
-
-  .tier-cadence {
-    font-family: sans-serif;
-    font-size: 11px;
-    color: var(--muted);
-    text-align: right;
-    margin-top: 4px;
-  }
-
-  .articles {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-  }
-
-  .article {
-    background: var(--surface);
-    padding: 1.25rem 1.5rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 1rem;
-    transition: background 0.15s;
-  }
-
-  .article:hover { background: #181818; }
-
-  .article-title {
-    font-size: 14px;
-    color: var(--text);
-    line-height: 1.4;
-  }
-
-  .article-sub {
-    font-family: sans-serif;
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 3px;
-  }
-
-  .article-date {
-    font-family: sans-serif;
-    font-size: 11px;
-    color: var(--muted);
-    white-space: nowrap;
-  }
-
-  .field-box {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--gold);
-    padding: 1.5rem;
-    font-family: 'Courier New', monospace;
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.8;
-    margin-bottom: 2rem;
-  }
-
-  .field-box .val { color: var(--green-lt); }
-  .field-box .label { color: var(--gold); }
-
-  .form-wrap {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 2rem;
-  }
-
-  .form-wrap h3 {
-    font-size: 1.1rem;
-    font-weight: normal;
-    margin-bottom: 0.5rem;
-  }
-
-  .form-wrap p {
-    font-size: 14px;
-    color: var(--muted);
-    margin-bottom: 1.5rem;
-  }
-
-  .form-row {
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-  }
-
-  input[type="email"] {
-    flex: 1;
-    min-width: 200px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 0.65rem 1rem;
-    font-family: sans-serif;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.15s;
-  }
-
-  input[type="email"]:focus { border-color: var(--gold); }
-  input[type="email"]::placeholder { color: var(--muted); }
-
-  button[type="submit"] {
-    background: var(--gold);
-    color: #0a0a0a;
-    border: none;
-    padding: 0.65rem 1.5rem;
-    font-family: sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: opacity 0.15s;
-  }
-
-  button[type="submit"]:hover { opacity: 0.85; }
-
-  .success-msg {
-    display: none;
-    font-family: sans-serif;
-    font-size: 13px;
-    color: var(--green-lt);
-    margin-top: 1rem;
-  }
-
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1rem;
-    max-width: 720px;
-    margin: 4rem auto 0;
-  }
-
-  .footer-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .footer-left {
-    font-family: sans-serif;
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 1.5rem;
-    font-family: sans-serif;
-    font-size: 12px;
-  }
-
-  .footer-links a { color: var(--muted); }
-  .footer-links a:hover { color: var(--text); text-decoration: none; }
-
-  .fingerprint {
-    font-family: 'Courier New', monospace;
-    font-size: 10px;
-    color: #333;
-    margin-top: 0.5rem;
-  }
-
-  .intel-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem 2rem;
-    margin-top: 1.5rem;
-    font-family: sans-serif;
-    font-size: 12px;
-  }
-
-  .intel-links a { color: var(--muted); }
-  .intel-links a.gold { color: var(--gold); }
-  .intel-links a:hover { color: var(--text); text-decoration: none; }
-
-  .footer-eq {
-    text-align: center;
-    font-family: 'Courier New', monospace;
-    font-size: 10px;
-    color: #222;
-    padding: 1rem 0 0;
-    border-top: 1px solid var(--border);
-  }
-
-  @media (max-width: 600px) {
-    .metrics { grid-template-columns: 1fr; }
-    .tier { grid-template-columns: 1fr; }
-    .tier-price { text-align: left; }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eigenstate Research | Structural Intelligence</title>
+    <meta name="description" content="Where patterns persist across technological waves. Intelligence research identifying power concentration mechanisms.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
-<nav>
-  <div class="wordmark">EIGENSTATE <span>RESEARCH</span></div>
-  <div class="nav-links">
-    <a href="https://paragraph.com/@eigenstate">Articles</a>
-    <a href="https://geniusflow-rwa.vercel.app">Registry</a>
-    <a href="https://geniusflow-rwa.vercel.app/reports">Signal reports</a>
-  </div>
-</nav>
-
-<div class="hero">
-  <div class="hero-label">Topology Signal Reports</div>
-  <h1>The information field,<br>made visible.</h1>
-  <p>196 entities. 296 connections. Real-time curl detection across the tokenized settlement layer. Weekly reports for funds, research desks, and infrastructure teams.</p>
-  <div class="eq">G = ∮E·dl &nbsp;·&nbsp; E = ΔI/A &nbsp;·&nbsp; Kirandeep Kaur, 2026</div>
-  <div class="cta-row">
-    <a href="#request"><button class="btn-primary">Request a report</button></a>
-    <a href="https://paragraph.com/@eigenstate" class="btn-secondary">Read sample analysis →</a>
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<section>
-  <div class="section-label">Field state — live</div>
-
-  <div class="field-box">
-    <span class="label">entities</span>     <span class="val">196</span> &nbsp;tracked across tokenized settlement layer<br>
-    <span class="label">connections</span>  <span class="val">296</span> &nbsp;topology edges<br>
-    <span class="label">curl state</span>   <span class="val">NEW</span> &nbsp;— OCC/GENIUS Act loop forming<br>
-    <span class="label">G_total</span>      <span class="val">0.89</span> &nbsp;— field approaching classical threshold (1/φ = 0.618)<br>
-    <span class="label">coverage</span>     <span class="val">3%</span> &nbsp;— 6/196 entities with active signal<br>
-    <span class="label">dominant loop</span><span class="val">OCC → US_JURISDICTION → SEC → TOKENIZED_TREASURY_POOL → OCC</span>
-  </div>
-
-  <div class="metrics">
-    <div class="metric">
-      <div class="metric-val">196</div>
-      <div class="metric-label">entities tracked</div>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span id="loadingText"></span>
+                <span class="loading-cursor">_</span>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
     </div>
-    <div class="metric">
-      <div class="metric-val">$500B</div>
-      <div class="metric-label">stablecoin market — 2026 forecast</div>
-    </div>
-    <div class="metric">
-      <div class="metric-val">30 days</div>
-      <div class="metric-label">GENIUS Act registration window</div>
-    </div>
-  </div>
-</section>
 
-<div class="divider"></div>
+    <!-- Navigation -->
+    <nav class="main-nav nav-hidden" id="mainNav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">EIGENSTATE</a>
+            <div class="nav-links">
+                <a href="#pattern">The Pattern</a>
+                <a href="#intelligence">Intelligence</a>
+                <a href="#access">Access</a>
+            </div>
+            <a href="#access" class="nav-cta">Request Access</a>
+        </div>
+    </nav>
 
-<section>
-  <div class="section-label">Reports</div>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <!-- Background Layers -->
+        <div class="hero-bg-layers">
+            <!-- Binary Rain Canvas -->
+            <canvas id="binary-rain-canvas" class="layer-binary-rain"></canvas>
+            
+            <!-- Cluster Network Canvas -->
+            <canvas id="clusterNetworkCanvas" class="layer-cluster"></canvas>
+            
+            <!-- Particle System Canvas -->
+            <canvas id="particleCanvas" class="layer-particles"></canvas>
+            
+            <!-- Binary Wave at Bottom -->
+            <div class="binary-wave">
+                <canvas id="binary-wave-canvas"></canvas>
+            </div>
+        </div>
 
-  <div class="tiers">
-    <div class="tier">
-      <div>
-        <div class="tier-name">Signal report — single entity</div>
-        <div class="tier-desc">Full topology analysis of one entity: extraction pressure (Γ), loop membership, curl state, N+1 trajectory. Delivered as PDF + raw JSON.</div>
-      </div>
-      <div>
-        <div class="tier-price">$59</div>
-        <div class="tier-cadence">per entity</div>
-      </div>
-    </div>
-    <div class="tier">
-      <div>
-        <div class="tier-name">Sector report — information flow</div>
-        <div class="tier-desc">Full analysis of the information flow sector: 164 entities, 158 currently breaking, Φ_S scores, loop velocity, recommended positions. Weekly update.</div>
-      </div>
-      <div>
-        <div class="tier-price">$490</div>
-        <div class="tier-cadence">per month</div>
-      </div>
-    </div>
-    <div class="tier">
-      <div>
-        <div class="tier-name">Custom topology briefing</div>
-        <div class="tier-desc">Bespoke analysis for your specific investment thesis, regulatory question, or infrastructure positioning. Includes methodology session.</div>
-      </div>
-      <div>
-        <div class="tier-price">$2,400</div>
-        <div class="tier-cadence">per engagement</div>
-      </div>
-    </div>
-  </div>
-</section>
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <p class="company-name">EIGENSTATE RESEARCH</p>
+            <h1>
+                <span class="white">STRUCTURAL</span>
+                <span class="orange">INTELLIGENCE</span>
+            </h1>
+            <p class="tagline">Randomness is just encrypted order.</p>
+            <a href="#access" class="btn-hero">Request Briefing</a>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="arrow"></div>
+        </div>
+    </section>
 
-<div class="divider"></div>
+    <!-- The Pattern Section -->
+    <section id="pattern" class="pattern-section">
+        <div class="pattern-container">
+            
+            <!-- MAIN TITLE (First on mobile) -->
+            <div class="pattern-title-block">
+                <span class="section-label">STRUCTURAL CONVERGENCE</span>
+                <h2 class="pattern-title">
+                    <span class="title-white">THE</span><br>
+                    <span class="title-orange">PATTERN</span>
+                </h2>
+            </div>
+            
+            <!-- VIZ LABEL (Above animation on mobile) -->
+            <div class="pattern-viz-header">
+                <span class="section-label">STRUCTURAL CONVERGENCE</span>
+            </div>
+            
+            <!-- LEFT COLUMN: Text Content -->
+            <div class="pattern-content">
+                
+                <!-- STATS -->
+                <div class="pattern-block stats-inline">
+                    <div class="inline-stat">
+                        <span class="stat-big">40%</span>
+                        <span class="stat-context">Wave 6 Progress</span>
+                    </div>
+                    <div class="inline-stat">
+                        <span class="stat-big cyan">90%</span>
+                        <span class="stat-context">Concentration Probability</span>
+                    </div>
+                </div>
+                
+                <!-- THE PATTERN Section Content -->
+                <div class="pattern-block">
+                    <p class="pattern-text primary">Every major technological wave has produced visible winners: railroads, oil, telecom, internet. Yet the mechanisms that empowered their dominance remained encrypted.</p>
+                </div>
+                
+                <div class="pattern-block">
+                    <p class="pattern-text primary-light">After simulating 160 years of systems evolution, we found the interface between capital flows and physical infrastructure follows a non-obvious but predictable structure. We've mapped it.</p>
+                </div>
+                
+                <div class="pattern-block">
+                    <p class="pattern-text secondary">The mechanisms underlying each wave remain consistent, but the layers of complexity concealing them deepen and expand in scale and scope with every cycle.</p>
+                </div>
+                
+                <div class="pattern-block">
+                    <p class="pattern-text secondary">Legacy frameworks, built on legacy variables, have lost the ability to decrypt them.</p>
+                </div>
+                
+                <div class="pattern-block featured">
+                    <p class="pattern-text">HFT optimized for speed. One variable.</p>
+                    <p class="pattern-text punchline">This wave requires four.</p>
+                </div>
+                
+                <div class="pattern-block">
+                    <p class="pattern-text insight">Here's what they're missing: each wave creates new consolidation, which allows more predictability, not less. But separating signal from noise demands adaptive tools and new dimensions.</p>
+                </div>
+                
+                <!-- Power Law Visual -->
+                <div class="pattern-block power-law-block">
+                    <p class="power-law-title">POWER LAW ACCELERATION</p>
+                    
+                    <!-- Data Table -->
+                    <div class="power-law-data">
+                        <div class="power-law-row">
+                            <span class="wave-label">Wave 1</span>
+                            <span class="wave-stat">Top 10% captured</span>
+                            <span class="wave-value">62%</span>
+                        </div>
+                        <div class="power-law-row">
+                            <span class="wave-label">Wave 3</span>
+                            <span class="wave-stat">Top 10% captured</span>
+                            <span class="wave-value">74%</span>
+                        </div>
+                        <div class="power-law-row">
+                            <span class="wave-label">Wave 5</span>
+                            <span class="wave-stat">Top 10% captured</span>
+                            <span class="wave-value">86%</span>
+                        </div>
+                        <div class="power-law-row highlight">
+                            <span class="wave-label">Wave 6</span>
+                            <span class="wave-stat">Projected</span>
+                            <span class="wave-value">90%+</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Network Comparison -->
+                    <div class="network-comparison">
+                        
+                        <div class="network-state">
+                            <p class="network-label">Initial State</p>
+                            <div class="nodes-container distributed">
+                                <svg viewBox="0 0 120 80" class="nodes-svg">
+                                    <!-- Distributed nodes - many equal sizes -->
+                                    <circle cx="20" cy="20" r="6" class="node"/>
+                                    <circle cx="45" cy="15" r="6" class="node"/>
+                                    <circle cx="70" cy="22" r="6" class="node"/>
+                                    <circle cx="95" cy="18" r="6" class="node"/>
+                                    <circle cx="30" cy="40" r="6" class="node"/>
+                                    <circle cx="55" cy="38" r="6" class="node"/>
+                                    <circle cx="80" cy="42" r="6" class="node"/>
+                                    <circle cx="15" cy="60" r="6" class="node"/>
+                                    <circle cx="40" cy="62" r="6" class="node"/>
+                                    <circle cx="65" cy="58" r="6" class="node"/>
+                                    <circle cx="90" cy="65" r="6" class="node"/>
+                                    <circle cx="105" cy="45" r="6" class="node"/>
+                                    <!-- Connection lines -->
+                                    <line x1="20" y1="20" x2="45" y2="15" class="connection"/>
+                                    <line x1="45" y1="15" x2="70" y2="22" class="connection"/>
+                                    <line x1="70" y1="22" x2="95" y2="18" class="connection"/>
+                                    <line x1="30" y1="40" x2="55" y2="38" class="connection"/>
+                                    <line x1="55" y1="38" x2="80" y2="42" class="connection"/>
+                                    <line x1="20" y1="20" x2="30" y2="40" class="connection"/>
+                                    <line x1="45" y1="15" x2="55" y2="38" class="connection"/>
+                                    <line x1="70" y1="22" x2="80" y2="42" class="connection"/>
+                                    <line x1="30" y1="40" x2="40" y2="62" class="connection"/>
+                                    <line x1="55" y1="38" x2="65" y2="58" class="connection"/>
+                                    <line x1="80" y1="42" x2="90" y2="65" class="connection"/>
+                                    <line x1="95" y1="18" x2="105" y2="45" class="connection"/>
+                                </svg>
+                            </div>
+                            <p class="network-caption">Distributed</p>
+                        </div>
+                        
+                        <div class="network-arrow">
+                            <svg viewBox="0 0 24 24" class="arrow-svg">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="network-state">
+                            <p class="network-label">After Compounding</p>
+                            <div class="nodes-container concentrated">
+                                <svg viewBox="0 0 120 80" class="nodes-svg">
+                                    <!-- Concentrated nodes - one huge, few medium, many tiny -->
+                                    <!-- Dominant node -->
+                                    <circle cx="60" cy="35" r="22" class="node dominant"/>
+                                    <!-- Medium nodes -->
+                                    <circle cx="25" cy="50" r="8" class="node medium"/>
+                                    <circle cx="95" cy="45" r="6" class="node medium"/>
+                                    <!-- Small nodes -->
+                                    <circle cx="15" cy="70" r="3" class="node small"/>
+                                    <circle cx="35" cy="72" r="2.5" class="node small"/>
+                                    <circle cx="55" cy="75" r="2" class="node small"/>
+                                    <circle cx="75" cy="73" r="2" class="node small"/>
+                                    <circle cx="95" cy="70" r="2.5" class="node small"/>
+                                    <circle cx="105" cy="68" r="2" class="node small"/>
+                                    <circle cx="10" cy="25" r="2" class="node small"/>
+                                    <circle cx="110" cy="22" r="2" class="node small"/>
+                                    <!-- Connection lines to dominant -->
+                                    <line x1="25" y1="50" x2="42" y2="40" class="connection strong"/>
+                                    <line x1="95" y1="45" x2="80" y2="38" class="connection"/>
+                                    <line x1="15" y1="70" x2="45" y2="50" class="connection weak"/>
+                                    <line x1="55" y1="75" x2="58" y2="57" class="connection weak"/>
+                                    <line x1="95" y1="70" x2="75" y2="52" class="connection weak"/>
+                                </svg>
+                            </div>
+                            <p class="network-caption">Concentrated</p>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+                <!-- Alpha Migration Line -->
+                <div class="pattern-block">
+                    <p class="pattern-text punchline">When everyone sees the curve, the curve stops paying. Alpha migrates to higher dimensions.</p>
+                </div>
+                
+                <div class="pattern-block">
+                    <p class="pattern-text primary-light">We built a proprietary four-dimensional framework, tracking the vectors that precede price.</p>
+                </div>
+                
+                <div class="pattern-block">
+                    <p class="pattern-text punchline-highlight">Our quantitative model indicates alignment will outperform competition in Wave 6 (90% confidence). The asymmetry will compound.</p>
+                </div>
+                
+                <div class="pattern-block urgency-line">
+                    <p class="urgency-text">Positioning is finite. First movers set the next wave.</p>
+                </div>
+                
+                <div class="pattern-block cta-block">
+                    <p class="cta-hook">Alpha decays with distribution.</p>
+                    <p class="cta-scarcity">Limited briefing slots Q1 2026</p>
+                    <a href="#access" class="btn-request solid">Request Access</a>
+                    <p class="cta-qualifier">For institutional allocators ($50M+ AUM)</p>
+                </div>
+                
+                <div class="pattern-credentials-block">
+                    <p class="pattern-credentials">Quantitative research • Applied Mathematics PhD</p>
+                    <p class="pattern-qualifier">Briefings limited to qualified allocators.</p>
+                </div>
+                
+            </div>
+            
+            <!-- RIGHT COLUMN: Sticky Visualization -->
+            <div class="pattern-visualization-wrapper">
+                <div class="pattern-visualization">
+                    <canvas id="network-canvas"></canvas>
+                </div>
+            </div>
+            
+            <!-- STATS (Separate container for mobile ordering) -->
+            <div class="pattern-stats-mobile">
+                <div class="stats-inline">
+                    <div class="inline-stat">
+                        <span class="stat-big">40%</span>
+                        <span class="stat-context">Wave 6 progress</span>
+                    </div>
+                    <div class="inline-stat">
+                        <span class="stat-big accent">90%</span>
+                        <span class="stat-context">Concentration probability</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
 
-<section>
-  <div class="section-label">Recent intelligence</div>
+    <!-- Access Section -->
+    <section id="access" class="access-section">
+        <div class="access-container">
+            
+            <div class="access-header">
+                <h2 class="access-title">REQUEST<br>ACCESS</h2>
+                <p class="access-subtitle">For institutional allocators managing $50M+ AUM.</p>
+            </div>
+            
+            <form class="access-form" id="accessForm">
+                
+                <div class="form-group">
+                    <label for="name">NAME</label>
+                    <input type="text" id="name" name="name" placeholder="Full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">EMAIL</label>
+                    <input type="email" id="email" name="email" placeholder="Professional email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="organization">ORGANIZATION</label>
+                    <input type="text" id="organization" name="organization" placeholder="Firm name" required>
+                </div>
+                
+                <button type="submit" class="btn-submit">Request Access</button>
+                
+            </form>
+            
+        </div>
+    </section>
 
-  <div class="articles">
-    <a href="https://paragraph.com/@eigenstate/how-the-genius-act-registration-window-changes-the-stablecoin-topology" class="article">
-      <div>
-        <div class="article-title">How the GENIUS Act Registration Window Changes the Stablecoin Topology</div>
-        <div class="article-sub">OCC loop · Circle · Coinbase · $500B field</div>
-      </div>
-      <div class="article-date">Apr 6, 2026</div>
-    </a>
-    <a href="https://paragraph.com/@eigenstate/how-stripes-acquisition-of-bridge-restructures-the-tokenized-settlement-layer" class="article">
-      <div>
-        <div class="article-title">How Stripe's Acquisition of Bridge Restructures the Tokenized Settlement Layer</div>
-        <div class="article-sub">RING · CABLE · HIGHWAY · MINT</div>
-      </div>
-      <div class="article-date">Apr 1, 2026</div>
-    </a>
-    <a href="https://paragraph.com/@eigenstate/how-stripes-bridge-acquisition-reshapes-the-stablecoin-settlement" class="article">
-      <div>
-        <div class="article-title">How Stripe's Bridge Acquisition Reshapes the Stablecoin Settlement</div>
-        <div class="article-sub">Circle · Tether · Coinbase · $274B RWA infrastructure</div>
-      </div>
-      <div class="article-date">Mar 27, 2026</div>
-    </a>
-  </div>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p class="footer-logo">EIGENSTATE</p>
+            <p class="footer-copyright">© 2025 Eigenstate Research. All rights reserved.</p>
+        </div>
+    </footer>
 
-  <div class="intel-links">
-    <a href="https://geniusflow-rwa.vercel.app">RWA Registry →</a>
-    <a class="gold" href="https://geniusflow-rwa.vercel.app/reports">Signal reports →</a>
-    <a href="https://zenodo.org">Methodology →</a>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<section id="request">
-  <div class="section-label">Request a report</div>
-
-  <div class="form-wrap">
-    <h3>Get the topology read on your entity or sector.</h3>
-    <p>Tell us what you're tracking. We'll send a sample signal report and pricing within 24 hours.</p>
-    <div class="form-row">
-      <input type="email" id="email-input" placeholder="your@email.com" />
-      <button type="submit" onclick="handleSubmit()">Request →</button>
-    </div>
-    <div class="success-msg" id="success-msg">
-      Received. Expect a response within 24 hours. — Eigenstate Research
-    </div>
-    <p style="margin-top:1rem; font-size:12px; color:#555;">
-      Or email directly: <a href="mailto:research@eigenstate.xyz">research@eigenstate.xyz</a>
-    </p>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-row">
-    <div class="footer-left">© 2026 Eigenstate Research &nbsp;·&nbsp; Kirandeep Kaur</div>
-    <div class="footer-links">
-      <a href="https://paragraph.com/@eigenstate">Articles</a>
-      <a href="https://geniusflow-rwa.vercel.app">Registry</a>
-      <a href="https://geniusflow-rwa.vercel.app/reports">Signal reports</a>
-      <a href="https://giveth.io/project/eigenstate-rwa-verification-infrastructure">Giveth</a>
-      <a href="https://zenodo.org">Paper</a>
-    </div>
-  </div>
-  <div class="footer-eq">
-    G = ∮E·dl → fb40dcc8d8dedcfd &nbsp;·&nbsp; E = ΔI/A &nbsp;·&nbsp; Kirandeep Kaur, 2026
-  </div>
-</footer>
-
-<script>
-/** Create a form at https://formspree.io — paste the form id (the part after /f/) */
-const FORMSPREE_FORM_ID = 'YOUR_FORM_ID';
-
-async function handleSubmit() {
-  const email = document.getElementById('email-input').value.trim();
-  if (!email || !email.includes('@')) {
-    document.getElementById('email-input').focus();
-    return;
-  }
-  const msg = document.getElementById('success-msg');
-  if (FORMSPREE_FORM_ID === 'YOUR_FORM_ID') {
-    msg.textContent = 'Set FORMSPREE_FORM_ID in index.html (Formspree), or email research@eigenstate.xyz';
-    msg.style.display = 'block';
-    msg.style.color = '#c9a84c';
-    return;
-  }
-  try {
-    const r = await fetch('https://formspree.io/f/' + FORMSPREE_FORM_ID, {
-      method: 'POST',
-      headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email,
-        _subject: 'Eigenstate — signal report request',
-      }),
-    });
-    if (r.ok) {
-      msg.style.color = '';
-      msg.textContent = 'Received. Expect a response within 24 hours. — Eigenstate Research';
-      msg.style.display = 'block';
-      document.getElementById('email-input').value = '';
-    } else {
-      const err = await r.json().catch(() => ({}));
-      msg.textContent = (err.error || 'Send failed') + ' — try research@eigenstate.xyz';
-      msg.style.color = '#c9a84c';
-      msg.style.display = 'block';
-    }
-  } catch (e) {
-    msg.textContent = 'Network error — email research@eigenstate.xyz';
-    msg.style.color = '#c9a84c';
-    msg.style.display = 'block';
-  }
-}
-
-// Allow enter key
-document.addEventListener('DOMContentLoaded', () => {
-  const input = document.getElementById('email-input');
-  if (input) {
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') handleSubmit();
-    });
-  }
-});
-</script>
-
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
 </body>
 </html>
