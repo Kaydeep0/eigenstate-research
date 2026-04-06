@@ -338,7 +338,8 @@ async function submit(){
                 email:e,
                 organization:document.getElementById('fo').value,
                 report_type:document.getElementById('ft').value,
-                entity_interest:document.getElementById('fent').value
+                entity_interest:document.getElementById('fent').value,
+                _subject:'Eigenstate — signal report request'
             })
         });
         if(r.ok){msg.textContent='Received. Expect a response within 24 hours. — Eigenstate Research';msg.className='form-msg ok';}
