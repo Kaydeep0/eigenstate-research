@@ -230,8 +230,19 @@ section { padding: 100px 40px; }
 <section class="intel-bg">
     <div class="container">
         <div class="eyebrow">RECENT INTELLIGENCE</div>
-        <h2 class="section-title">Sample <span class="grad">Analysis</span></h2>
+        <h2 class="section-title">Latest <span class="grad">Signal Reports</span></h2>
         <div class="divider"></div>
+
+        <!-- Engine-generated signal reports (loaded from manifest.json) -->
+        <div class="articles" id="signal-reports-list">
+            <div class="art-loading">Loading reports…</div>
+        </div>
+
+        <div style="margin-top:1px;">
+            <div class="eyebrow" style="padding:24px 30px 8px; font-size:10px; opacity:0.6;">ANALYSIS — PARAGRAPH</div>
+        </div>
+
+        <!-- Curated Paragraph articles (static) -->
         <div class="articles">
             <a href="https://paragraph.com/@eigenstate/how-the-genius-act-registration-window-changes-the-stablecoin-topology" class="article" target="_blank" rel="noopener">
                 <div><div class="art-title">How the GENIUS Act Registration Window Changes the Stablecoin Topology</div><div class="art-sub">OCC loop · Circle · Coinbase · $500B field</div></div>
@@ -248,6 +259,48 @@ section { padding: 100px 40px; }
         </div>
     </div>
 </section>
+
+<style>
+.art-loading { padding:24px 30px; font-family:var(--font-mono); font-size:12px; color:var(--text-dim); letter-spacing:0.1em; }
+.art-phi { font-family:var(--font-mono); font-size:11px; color:var(--orange-primary); margin-left:12px; opacity:0.8; }
+.art-kappa { font-family:var(--font-mono); font-size:11px; color:var(--cyan-dim); margin-left:8px; opacity:0.8; }
+</style>
+
+<script>
+(async function loadSignalReports() {
+    const container = document.getElementById('signal-reports-list');
+    try {
+        const resp = await fetch('./manifest.json?_=' + Date.now());
+        if (!resp.ok) throw new Error('manifest not found');
+        const data = await resp.json();
+        const reports = (data.reports || []).slice(0, 8); // show latest 8
+        if (!reports.length) {
+            container.innerHTML = '<div class="art-loading">No reports published yet.</div>';
+            return;
+        }
+        container.innerHTML = reports.map(r => {
+            const phi  = r.phi_s  != null ? `<span class="art-phi">φ_S=${Number(r.phi_s).toFixed(2)}</span>`  : '';
+            const kap  = r.kappa  != null ? `<span class="art-kappa">κ=${Number(r.kappa).toFixed(3)}</span>`  : '';
+            const date = r.date   || r.date_iso || '';
+            // Format date for display: "April 07, 2026" → "APR 7, 2026"
+            let dateDisplay = date;
+            try {
+                const d = new Date(r.date_iso || date);
+                if (!isNaN(d)) dateDisplay = d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase();
+            } catch(_) {}
+            return `<a href="${r.url}" class="article">
+                <div>
+                    <div class="art-title">${r.entity_display}: Field Position Report${phi}${kap}</div>
+                    <div class="art-sub">Signal report · topology measurement · E = ΔI/A</div>
+                </div>
+                <div class="art-date">${dateDisplay}</div>
+            </a>`;
+        }).join('');
+    } catch(e) {
+        container.innerHTML = '<div class="art-loading">Signal reports loading…</div>';
+    }
+})();
+</script>
 
 <section id="request">
     <div class="container" style="max-width:800px;">
