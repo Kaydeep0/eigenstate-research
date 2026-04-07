@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Map — GeniusFlow OS | Eigenstate Research</title>
+<meta name="description" content="Live architecture map of the GeniusFlow information-field engine. 8 layers from core equations to public platforms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<style>
+  :root {
+    --bg: #030712;
+    --bg-card: rgba(15, 23, 42, 0.9);
+    --cyan: #00d9ff;
+    --orange: #ff6b35;
+    --green: #10b981;
+    --yellow: #f59e0b;
+    --gray: #475569;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --dim: #475569;
+    --font-h: 'Orbitron', sans-serif;
+    --font-b: 'Inter', sans-serif;
+    --font-m: 'JetBrains Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-b);
+    min-height: 100vh;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 28px;
+    background: rgba(3,7,18,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--cyan);
+  }
+  .nav-logo { font-family: var(--font-h); font-size: 16px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: 0.08em; }
+  .nav-logo:hover { color: var(--cyan); }
+  nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
+  nav a:hover { color: var(--cyan); }
+  .nav-links { display: flex; gap: 20px; align-items: center; }
+
+  /* ── HEADER ── */
+  .page-header {
+    padding: 100px 24px 32px;
+    max-width: 1100px; margin: 0 auto; text-align: center;
+  }
+  .page-header .eyebrow {
+    font-family: var(--font-h); font-size: 0.6rem; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--orange); margin-bottom: 12px;
+  }
+  .page-header h1 {
+    font-family: var(--font-h); font-size: clamp(22px, 3vw, 36px);
+    font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em;
+    background: linear-gradient(180deg, #ffaa80, #ff6b35, #e55520);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; margin-bottom: 12px;
+  }
+  .page-header .sub {
+    color: var(--muted); font-size: 14px; max-width: 560px; margin: 0 auto 24px;
+  }
+  .equation-badge {
+    display: inline-block;
+    font-family: var(--font-m); font-size: 13px;
+    padding: 8px 20px;
+    border: 1px solid var(--cyan); border-radius: 999px;
+    color: var(--cyan); background: rgba(0,217,255,0.06);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── STATS ROW ── */
+  .stats-row {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    max-width: 900px; margin: 0 auto 40px; padding: 0 24px;
+  }
+  .stat-chip {
+    padding: 8px 18px;
+    background: rgba(15,23,42,0.8); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px; font-family: var(--font-m); font-size: 12px;
+    color: var(--muted);
+  }
+  .stat-chip strong { color: var(--text); }
+
+  /* ── SVG MAP ── */
+  #map-container {
+    width: 100%; max-width: 900px; margin: 0 auto;
+    padding: 0 24px 20px;
+  }
+  #map-svg { width: 100%; height: 640px; cursor: default; }
+
+  /* ── TOOLTIP ── */
+  #tooltip {
+    position: fixed; z-index: 200;
+    background: var(--bg-card); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px; padding: 14px 18px;
+    pointer-events: none; opacity: 0; transition: opacity 0.15s;
+    max-width: 280px; font-size: 13px;
+  }
+  #tooltip .tt-name { font-family: var(--font-h); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
+  #tooltip .tt-status { font-size: 11px; margin-bottom: 4px; }
+  #tooltip .tt-desc { color: var(--muted); font-size: 12px; line-height: 1.5; }
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    max-width: 700px; margin: 0 auto 48px; padding: 0 24px;
+    font-size: 12px; color: var(--muted);
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+  /* ── LAYER TABLE ── */
+  .layer-table-wrap {
+    max-width: 900px; margin: 0 auto; padding: 0 24px 80px;
+  }
+  .layer-table-wrap h2 {
+    font-family: var(--font-h); font-size: 14px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 20px;
+  }
+  .layer-row {
+    display: grid; grid-template-columns: 80px 1fr 100px 100px;
+    gap: 12px; align-items: start;
+    padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .layer-row:first-of-type { border-top: 1px solid rgba(255,255,255,0.05); }
+  .layer-num { font-family: var(--font-m); font-size: 11px; color: var(--dim); }
+  .layer-name { font-family: var(--font-h); font-size: 12px; letter-spacing: 0.08em; }
+  .layer-what { font-size: 12px; color: var(--muted); line-height: 1.4; margin-top: 4px; }
+  .layer-count { font-family: var(--font-m); font-size: 12px; color: var(--muted); text-align: right; }
+  .status-badge {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 10px; font-family: var(--font-h); letter-spacing: 0.1em;
+    text-transform: uppercase; text-align: center;
+  }
+  .status-active { background: rgba(16,185,129,0.15); color: var(--green); }
+  .status-building { background: rgba(255,107,53,0.15); color: var(--orange); }
+  .status-stable { background: rgba(0,217,255,0.12); color: var(--cyan); }
+  .status-planned { background: rgba(71,85,105,0.2); color: var(--dim); }
+
+  @media (max-width: 600px) {
+    .layer-row { grid-template-columns: 60px 1fr; }
+    .layer-count, .layer-row > :nth-child(4) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">EIGENSTATE</a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="reports/">Signal Reports</a>
+    <a href="map.html" style="color:var(--cyan)">System Map</a>
+    <a href="https://geniusflow-rwa.vercel.app" target="_blank" rel="noopener">Registry</a>
+    <a href="https://github.com/Kaydeep0/eigenstate-research" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="eyebrow">GeniusFlow OS</div>
+  <h1>System Architecture Map</h1>
+  <p class="sub">8 concentric layers from core equations to public platforms. Every component exists to maximize ΔI per unit of action.</p>
+  <span class="equation-badge">E = ΔI / A — Kirandeep's Law</span>
+</div>
+
+<div class="stats-row" id="statsRow">
+  <div class="stat-chip">PT <strong id="statPT">—</strong></div>
+  <div class="stat-chip">κ <strong id="statKappa">—</strong></div>
+  <div class="stat-chip">Coverage <strong id="statCoverage">—</strong></div>
+  <div class="stat-chip">Vault <strong id="statVault">—</strong> records</div>
+  <div class="stat-chip">Reports <strong id="statReports">—</strong> published</div>
+  <div class="stat-chip">Mode <strong id="statMode">—</strong></div>
+</div>
+
+<div id="map-container">
+  <svg id="map-svg"></svg>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#10b981"></div> Active</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#ff6b35"></div> Building</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#00d9ff"></div> Stable (core)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#475569"></div> Planned</div>
+  <div class="legend-item" style="font-size:11px">Click any node for details</div>
+</div>
+
+<div class="layer-table-wrap">
+  <h2>Layer Reference</h2>
+
+  <div class="layer-row">
+    <div class="layer-num">LAYER 0</div>
+    <div>
+      <div class="layer-name">Core Equations</div>
+      <div class="layer-what">E=ΔI/A, G=∮E·dl, PT→1/φ, κ, Γ, Φ_S — the axioms</div>
+    </div>
+    <div class="layer-count">equation_constants.py</div>
+    <div><span class="status-badge status-stable">STABLE</span></div>
+  </div>
+
+  <div class="layer-row">
+    <div class="layer-num">LAYER 1</div>
+    <div>
+      <div class="layer-name">Sensors</div>
+      <div class="layer-what">HN, SEC EDGAR, Fed H.8, DefiLlama, GitHub, cultural bridge</div>
+    </div>
+    <div class="layer-count">23 modules</div>
+    <div><span class="status-badge status-active">ACTIVE</span></div>
+  </div>
+
+  <div class="layer-row">
+    <div class="layer-num">LAYER 2</div>
+    <div>
+      <div class="layer-name">Topology</div>
+      <div class="layer-what">200 entities, curl detection, N+1 power ranking, Φ_S per entity</div>
+    </div>
+    <div class="layer-count">200 entities</div>
+    <div><span class="status-badge status-active">ACTIVE</span></div>
+  </div>
+
+  <div class="layer-row">
+    <div class="layer-num">LAYER 3</div>
+    <div>
+      <div class="layer-name">Vault</div>
+      <div class="layer-what">SHA256-chained observations, EAS attestations on Base, helixhash</div>
+    </div>
+    <div class="layer-count" id="vaultCount">68 records</div>
+    <div><span class="status-badge status-active">ACTIVE</span></div>
+  </div>
+
+  <div class="layer-row">
+    <div class="layer-num">LAYER 4</div>
+    <div>
+      <div class="layer-name">Engine Cycle</div>
+      <div class="layer-what">2h autonomous heartbeat: parkash → daemon → memory chain</div>
+    </div>
+    <div class="layer-count">5 crontab jobs</div>
+    <div><span class="status-badge status-active">ACTIVE</span></div>
+  </div>
+
+  <div class="layer-row">
+    <div class="layer-num">LAYER 5</div>
+    <div>
+      <div class="layer-name">Signal Reports</div>
+      <div class="layer-what">Per-entity field position reports, auto-staged to GitHub Pages</div>
+    </div>
+    <div class="layer-count" id="reportCount">— published</div>
+    <div><span class="status-badge status-active">ACTIVE</span></div>
+  </div>
+
+  <div class="layer-row">
+    <div class="layer-num">LAYER 6</div>
+    <div>
+      <div class="layer-name">Platform Dispatch</div>
+      <div class="layer-what">8-river content model: Farcaster → Twitter → LinkedIn → Medium</div>
+    </div>
+    <div class="layer-count">4 connectors</div>
+    <div><span class="status-badge status-building">BUILDING</span></div>
+  </div>
+
+  <div class="layer-row">
+    <div class="layer-num">LAYER 7</div>
+    <div>
+      <div class="layer-name">Registry API</div>
+      <div class="layer-what">Live RWA Registry on Base · public API · field state JSON</div>
+    </div>
+    <div class="layer-count">4 endpoints</div>
+    <div><span class="status-badge status-active">ACTIVE</span></div>
+  </div>
+
+  <div class="layer-row">
+    <div class="layer-num">LAYER 8</div>
+    <div>
+      <div class="layer-name">Public Platforms</div>
+      <div class="layer-what">Farcaster → Twitter → LinkedIn → Medium → Paragraph → GitHub</div>
+    </div>
+    <div class="layer-count">6 platforms</div>
+    <div><span class="status-badge status-active">ACTIVE</span></div>
+  </div>
+</div>
+
+<div id="tooltip">
+  <div class="tt-name" id="ttName"></div>
+  <div class="tt-status" id="ttStatus"></div>
+  <div class="tt-desc" id="ttDesc"></div>
+</div>
+
+<script>
+// ── Data ──────────────────────────────────────────────────────────────────
+
+const LAYERS = [
+  { id: 0, name: "CORE\nEQUATIONS", color: "#00d9ff", status: "stable",
+    desc: "E=ΔI/A, G=∮E·dl, PT→1/φ, κ, Γ, Φ_S\nThe axioms. Everything derives from these.",
+    nodes: ["E=ΔI/A", "G=∮E·dl", "PT→0.618", "κ", "Φ_S"] },
+  { id: 1, name: "SENSORS", color: "#10b981", status: "active",
+    desc: "23 sensor modules\nHN API, SEC EDGAR, Fed H.8, DefiLlama,\nGitHub, cultural bridge, RSS, Twitter",
+    nodes: ["HN API", "SEC EDGAR", "Fed H.8", "DefiLlama", "Cultural Bridge"] },
+  { id: 2, name: "TOPOLOGY", color: "#10b981", status: "active",
+    desc: "200 entities, topology graph\nCurl detection (closed loops)\nN+1 power ranking, Φ_S per entity",
+    nodes: ["200 entities", "Curl detect", "N+1 rank", "Φ_S queue"] },
+  { id: 3, name: "VAULT", color: "#10b981", status: "active",
+    desc: "68 attested observations\nSHA256-chained via helixhash\nEAS attestations on Base mainnet",
+    nodes: ["68 records", "helixhash", "EAS attest", "Coverage 4%"] },
+  { id: 4, name: "ENGINE\nCYCLE", color: "#10b981", status: "active",
+    desc: "2h autonomous heartbeat\nparkash → daemon → dispatch\n5 crontab tiers (30min to daily)",
+    nodes: ["parkash", "daemon", "memory", "crontab"] },
+  { id: 5, name: "SIGNAL\nREPORTS", color: "#10b981", status: "active",
+    desc: "Per-entity field position reports\n9 published on GitHub Pages\nAuto-staged after parkash",
+    nodes: ["SEC report", "OCC report", "Base report", "9 published"] },
+  { id: 6, name: "DISPATCH", color: "#ff6b35", status: "building",
+    desc: "8-river content distribution\nFarcaster (AUTO) · Twitter (AUTO)\nLinkedIn (PENDING) · Medium (MANUAL)",
+    nodes: ["Farcaster", "Twitter", "LinkedIn", "8 rivers"] },
+  { id: 7, name: "REGISTRY\nAPI", color: "#10b981", status: "active",
+    desc: "RWA Registry on Base (8453)\ngeniusflow-rwa.vercel.app\n4 public API endpoints",
+    nodes: ["field-state", "intelligence", "entities", "registry UI"] },
+  { id: 8, name: "PUBLIC", color: "#10b981", status: "active",
+    desc: "Maximum audience reach\nFarcaster → Twitter → LinkedIn\nMedium → Paragraph → GitHub Pages",
+    nodes: ["Farcaster", "Twitter/X", "LinkedIn", "Medium", "Paragraph"] },
+];
+
+const FLOW_EDGES = [
+  [0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8]
+];
+
+// ── Load live data ─────────────────────────────────────────────────────────
+
+async function loadStats() {
+  try {
+    const r = await fetch('https://geniusflow-rwa.vercel.app/api/intelligence.json?t=' + Date.now());
+    if (r.ok) {
+      const d = await r.json();
+      document.getElementById('statPT').textContent = d.protocol_truth != null ? Number(d.protocol_truth).toFixed(3) : '—';
+      document.getElementById('statKappa').textContent = d.kappa != null ? Number(d.kappa).toFixed(3) : '—';
+      document.getElementById('statCoverage').textContent = d.coverage_pct != null ? d.coverage_pct + '%' : '—';
+      document.getElementById('statMode').textContent = d.mode_display || d.mode || '—';
+    }
+  } catch(e) {}
+  try {
+    const r2 = await fetch('https://geniusflow-rwa.vercel.app/api/entities.json?t=' + Date.now());
+    if (r2.ok) {
+      const d2 = await r2.json();
+      document.getElementById('statVault').textContent = d2.entities_with_vault_records || '—';
+    }
+  } catch(e) {}
+  try {
+    const r3 = await fetch('https://geniusflow-rwa.vercel.app/api/reports.json?t=' + Date.now());
+    if (r3.ok) {
+      const d3 = await r3.json();
+      const n = d3.reports_count || (Array.isArray(d3.reports) ? d3.reports.length : 0);
+      document.getElementById('statReports').textContent = n;
+      document.getElementById('reportCount').textContent = n + ' published';
+    }
+  } catch(e) {}
+}
+
+// ── D3 map ─────────────────────────────────────────────────────────────────
+
+function buildMap() {
+  const svg = d3.select('#map-svg');
+  const W = document.getElementById('map-svg').clientWidth || 860;
+  const H = 640;
+  svg.attr('viewBox', `0 0 ${W} ${H}`);
+
+  const cx = W / 2;
+  const cy = H / 2;
+  const maxR = Math.min(cx, cy) - 60;
+
+  // Radii for each layer (0 = center, 8 = outer)
+  const radii = LAYERS.map((_, i) => i === 0 ? 0 : (i / 8) * maxR);
+
+  // Compute node positions — distribute nodes on each ring
+  const allNodes = [];
+  const layerCenters = [];
+
+  LAYERS.forEach((layer, li) => {
+    const r = radii[li];
+    const label_angle = -Math.PI / 2; // top for label
+
+    if (li === 0) {
+      // Center node
+      layerCenters.push({ x: cx, y: cy, layer: li });
+      layer.nodes.forEach((n, ni) => {
+        const angle = (ni / layer.nodes.length) * Math.PI * 2 - Math.PI / 2;
+        allNodes.push({
+          id: `${li}-${ni}`, label: n, layer: li,
+          x: cx + r * Math.cos(angle) * 0.5,
+          y: cy + r * Math.sin(angle) * 0.5,
+          r: 18,
+        });
+      });
+    } else {
+      const nodeCount = layer.nodes.length;
+      layer.nodes.forEach((n, ni) => {
+        const angle = (ni / nodeCount) * Math.PI * 2 - Math.PI / 2 + (li * 0.25);
+        allNodes.push({
+          id: `${li}-${ni}`, label: n, layer: li,
+          x: cx + r * Math.cos(angle),
+          y: cy + r * Math.sin(angle),
+          r: Math.max(10, 18 - li),
+        });
+      });
+      layerCenters.push({ x: cx, y: cy, layer: li });
+    }
+  });
+
+  // Draw ring backgrounds
+  const defs = svg.append('defs');
+  LAYERS.forEach((layer, li) => {
+    if (li === 0) return;
+    const grad = defs.append('radialGradient')
+      .attr('id', `ring-grad-${li}`)
+      .attr('cx', '50%').attr('cy', '50%').attr('r', '50%');
+    grad.append('stop').attr('offset', li === 1 ? '85%' : '88%').attr('stop-color', layer.color).attr('stop-opacity', 0.02);
+    grad.append('stop').attr('offset', '100%').attr('stop-color', layer.color).attr('stop-opacity', 0.06);
+  });
+
+  // Rings
+  LAYERS.slice(1).forEach((layer, i) => {
+    const li = i + 1;
+    const rOuter = radii[li];
+    const rInner = radii[li - 1];
+    svg.append('circle')
+      .attr('cx', cx).attr('cy', cy)
+      .attr('r', rOuter)
+      .attr('fill', `url(#ring-grad-${li})`)
+      .attr('stroke', layer.color)
+      .attr('stroke-width', 0.5)
+      .attr('stroke-opacity', 0.25);
+  });
+
+  // Flow arrows (animated)
+  const arrowMarker = defs.append('marker')
+    .attr('id', 'arrow')
+    .attr('viewBox', '0 0 8 8')
+    .attr('refX', 4).attr('refY', 4)
+    .attr('markerWidth', 6).attr('markerHeight', 6)
+    .attr('orient', 'auto');
+  arrowMarker.append('path')
+    .attr('d', 'M 0 0 L 8 4 L 0 8 z')
+    .attr('fill', 'rgba(0,217,255,0.4)');
+
+  // Draw animated flow pulses along rings
+  LAYERS.slice(1).forEach((layer, i) => {
+    const li = i + 1;
+    const r = radii[li];
+    const circumference = 2 * Math.PI * r;
+    // Animated dashed circle
+    svg.append('circle')
+      .attr('cx', cx).attr('cy', cy)
+      .attr('r', r)
+      .attr('fill', 'none')
+      .attr('stroke', layer.color)
+      .attr('stroke-width', 1)
+      .attr('stroke-opacity', 0.15)
+      .attr('stroke-dasharray', `${circumference * 0.04} ${circumference * 0.96}`)
+      .attr('stroke-dashoffset', 0)
+      .style('animation', `spin ${12 + li * 4}s linear infinite`);
+  });
+
+  // Layer labels (on rings)
+  LAYERS.slice(1).forEach((layer, i) => {
+    const li = i + 1;
+    const r = radii[li] - 8;
+    const angle = -Math.PI / 2 + (li * 0.12);
+    const lx = cx + r * Math.cos(angle);
+    const ly = cy + r * Math.sin(angle);
+    svg.append('text')
+      .attr('x', lx).attr('y', ly)
+      .attr('text-anchor', 'middle')
+      .attr('dominant-baseline', 'middle')
+      .attr('font-family', 'Orbitron, sans-serif')
+      .attr('font-size', li <= 2 ? 8 : 7)
+      .attr('fill', layer.color)
+      .attr('opacity', 0.7)
+      .attr('letter-spacing', '0.1em')
+      .text(`L${li}`);
+  });
+
+  // Center label (Layer 0)
+  svg.append('circle')
+    .attr('cx', cx).attr('cy', cy).attr('r', 28)
+    .attr('fill', 'rgba(0,217,255,0.08)')
+    .attr('stroke', '#00d9ff').attr('stroke-width', 1.5).attr('stroke-opacity', 0.6);
+  svg.append('text')
+    .attr('x', cx).attr('y', cy - 4)
+    .attr('text-anchor', 'middle').attr('dominant-baseline', 'middle')
+    .attr('font-family', 'Orbitron, sans-serif').attr('font-size', 8)
+    .attr('fill', '#00d9ff').attr('letter-spacing', '0.1em')
+    .text('E=ΔI/A');
+  svg.append('text')
+    .attr('x', cx).attr('y', cy + 8)
+    .attr('text-anchor', 'middle').attr('dominant-baseline', 'middle')
+    .attr('font-family', 'JetBrains Mono, monospace').attr('font-size', 7)
+    .attr('fill', 'rgba(0,217,255,0.7)')
+    .text('CORE');
+
+  // Nodes
+  const tooltip = document.getElementById('tooltip');
+  const nodeGroups = svg.selectAll('.node').data(allNodes).enter()
+    .append('g').attr('class', 'node')
+    .attr('transform', d => `translate(${d.x},${d.y})`)
+    .style('cursor', 'pointer');
+
+  nodeGroups.append('circle')
+    .attr('r', d => d.r)
+    .attr('fill', d => {
+      const layer = LAYERS[d.layer];
+      return layer.color + '18';
+    })
+    .attr('stroke', d => LAYERS[d.layer].color)
+    .attr('stroke-width', 1.2)
+    .attr('stroke-opacity', 0.7);
+
+  nodeGroups.append('text')
+    .attr('text-anchor', 'middle')
+    .attr('dominant-baseline', 'middle')
+    .attr('font-family', 'JetBrains Mono, monospace')
+    .attr('font-size', d => d.r > 14 ? 8 : 7)
+    .attr('fill', d => LAYERS[d.layer].color)
+    .attr('fill-opacity', 0.9)
+    .text(d => d.label.length > 10 ? d.label.slice(0, 10) : d.label);
+
+  nodeGroups
+    .on('mouseover', function(event, d) {
+      const layer = LAYERS[d.layer];
+      document.getElementById('ttName').textContent = `Layer ${d.layer} — ${layer.name.replace('\n', ' ')}`;
+      document.getElementById('ttStatus').innerHTML =
+        `<span style="color:${layer.color}">${layer.status.toUpperCase()}</span> — ${d.label}`;
+      document.getElementById('ttDesc').textContent = layer.desc;
+      tooltip.style.opacity = '1';
+      d3.select(this).select('circle').attr('stroke-width', 2.5).attr('stroke-opacity', 1);
+    })
+    .on('mousemove', function(event) {
+      const tp = document.getElementById('tooltip');
+      let tx = event.clientX + 14;
+      let ty = event.clientY - 10;
+      if (tx + 290 > window.innerWidth) tx = event.clientX - 290;
+      tp.style.left = tx + 'px';
+      tp.style.top = ty + 'px';
+    })
+    .on('mouseout', function() {
+      tooltip.style.opacity = '0';
+      d3.select(this).select('circle').attr('stroke-width', 1.2).attr('stroke-opacity', 0.7);
+    });
+
+  // Radial flow indicators
+  for (let li = 0; li < 8; li++) {
+    const angle = -Math.PI / 2;
+    const r1 = radii[li] + 2;
+    const r2 = radii[li + 1] - 2;
+    if (r2 <= r1) continue;
+    const x1 = cx + r1 * Math.cos(angle);
+    const y1 = cy + r1 * Math.sin(angle);
+    const x2 = cx + r2 * Math.cos(angle);
+    const y2 = cy + r2 * Math.sin(angle);
+    svg.append('line')
+      .attr('x1', x1).attr('y1', y1)
+      .attr('x2', x2).attr('y2', y2)
+      .attr('stroke', 'rgba(0,217,255,0.3)')
+      .attr('stroke-width', 1.5)
+      .attr('marker-end', 'url(#arrow)');
+  }
+}
+
+// ── CSS animation keyframe ─────────────────────────────────────────────────
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes spin {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: -628; }
+  }
+`;
+document.head.appendChild(style);
+
+// ── Init ───────────────────────────────────────────────────────────────────
+window.addEventListener('load', () => {
+  buildMap();
+  loadStats();
+});
+window.addEventListener('resize', () => {
+  document.getElementById('map-svg').innerHTML = '';
+  buildMap();
+});
+</script>
+</body>
+</html>
