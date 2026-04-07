@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <style>
 :root {
   --bg-primary: #030712;
@@ -142,6 +143,37 @@ body { font-family:var(--font-body); font-weight:300; background:var(--bg-primar
 .rf-right { font-family:var(--font-mono); font-size:11px; color:var(--text-dim); text-align:right; line-height:1.8; }
 .rf-right a { color:var(--cyan-dim); text-decoration:none; }
 
+/* ── Topology graph ── */
+.topo-section { padding:32px 40px 0; max-width:1100px; margin:0 auto; }
+.topo-header { font-family:var(--font-mono); font-size:10px; font-weight:600; letter-spacing:0.2em; color:var(--text-dim); text-transform:uppercase; margin-bottom:12px; }
+.topo-wrap { position:relative; background:var(--bg-secondary); border:1px solid var(--border); border-radius:2px; overflow:hidden; height:600px; }
+@media(max-width:768px){ .topo-wrap{ height:300px; } .topo-section{ padding:24px 20px 0; } }
+.topo-wrap svg { width:100%; height:100%; }
+
+/* Nodes */
+.topo-node circle { stroke-width:1.5px; cursor:pointer; transition:r 0.2s; }
+.topo-node.center circle { stroke-width:2.5px; filter:drop-shadow(0 0 12px currentColor); }
+.topo-node.high-pressure circle { stroke:rgba(255,107,53,0.7); }
+.topo-node.low-pressure circle { stroke:rgba(0,217,255,0.7); }
+.topo-node.equilibrium circle { stroke:rgba(34,197,94,0.7); }
+.topo-node text { font-family:var(--font-mono); font-size:10px; fill:rgba(248,250,252,0.7); pointer-events:none; }
+.topo-node.center text { font-size:12px; font-weight:600; fill:var(--text-primary); }
+
+/* Links */
+.topo-link { stroke:rgba(14,165,233,0.25); stroke-linecap:round; }
+
+/* Pulse markers */
+@keyframes pulse-flow {
+  0%   { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -60; }
+}
+.topo-pulse { stroke-linecap:round; fill:none; stroke-dasharray:4 56; animation:pulse-flow linear infinite; }
+
+/* Legend */
+.topo-legend { position:absolute; bottom:14px; left:16px; display:flex; gap:18px; }
+.tl-item { display:flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:10px; color:var(--text-dim); }
+.tl-dot { width:10px; height:10px; border-radius:50%; }
+
 /* ── Loading / error states ── */
 #loading { padding:120px 40px; text-align:center; font-family:var(--font-mono); font-size:13px; color:var(--text-dim); letter-spacing:0.2em; }
 #error-state { display:none; padding:120px 40px; text-align:center; }
@@ -197,6 +229,20 @@ body { font-family:var(--font-body); font-weight:300; background:var(--bg-primar
     <div class="report-divider"></div>
   </div>
 
+  <!-- Topology field graph — placed above metrics cards -->
+  <div class="topo-section" id="topo-section" style="display:none;">
+    <div class="topo-header">TOPOLOGY · SETTLEMENT FIELD MAP</div>
+    <div class="topo-wrap">
+      <svg id="topo-svg"></svg>
+      <div class="topo-legend">
+        <div class="tl-item"><div class="tl-dot" style="background:#ff6b35;"></div>High pressure</div>
+        <div class="tl-item"><div class="tl-dot" style="background:#00d9ff;"></div>Low pressure</div>
+        <div class="tl-item"><div class="tl-dot" style="background:#22c55e;"></div>Equilibrium</div>
+        <div class="tl-item" style="color:rgba(248,250,252,0.35);">Edge thickness = connection strength · Pulse speed = pressure</div>
+      </div>
+    </div>
+  </div>
+
   <div class="metrics-section">
     <div class="metrics-grid" id="metrics-grid">
       <!-- populated by JS -->
@@ -216,16 +262,22 @@ body { font-family:var(--font-body); font-weight:300; background:var(--bg-primar
     </div>
     <div class="rf-right">
       <div style="display:flex;gap:16px;justify-content:flex-end;flex-wrap:wrap;margin-bottom:6px;">
-        <a href="https://paragraph.com/@eigenstate" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);text-decoration:none;">paragraph.com/@eigenstate</a>
-        <a href="https://github.com/Kaydeep0/eigenstate-research" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);text-decoration:none;">github.com/Kaydeep0/eigenstate-research</a>
+        <a href="https://paragraph.com/@eigenstate" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);text-decoration:none;">Paragraph</a>
+        <a href="https://github.com/Kaydeep0/eigenstate-research" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);text-decoration:none;">GitHub</a>
         <a href="https://geniusflow-rwa.vercel.app" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);text-decoration:none;">Registry</a>
       </div>
       <div style="display:flex;gap:16px;justify-content:flex-end;flex-wrap:wrap;margin-bottom:6px;">
-        <a href="https://warpcast.com/kdeep34539544" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);text-decoration:none;">Farcaster: @kdeep34539544</a>
-        <a href="https://linkedin.com/in/kirandeep-kaur-sekhon" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);text-decoration:none;">LinkedIn</a>
+        <a href="https://farcaster.xyz/kdeep34539544" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);text-decoration:none;">Farcaster @kdeep34539544</a>
+        <a href="https://x.com/GeniusFlow_" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);text-decoration:none;">X @GeniusFlow_</a>
+        <a href="https://www.linkedin.com/in/ksekhon44/" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);text-decoration:none;">LinkedIn</a>
+        <a href="https://medium.com/@kiran_43771" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);text-decoration:none;">Medium</a>
         <a href="mailto:ksekhon9851@Gmail.com" style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim);text-decoration:none;">ksekhon9851@Gmail.com</a>
       </div>
-      <div style="font-family:var(--font-mono);font-size:10px;color:var(--cyan-dim);margin-top:4px;text-align:right;">E = ΔI/A · G = ∮E·dl · Protocol Truth → 1/φ = 0.618</div>
+      <div style="display:flex;gap:16px;justify-content:flex-end;flex-wrap:wrap;margin-bottom:4px;">
+        <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7054180694628995073" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:10px;color:rgba(14,165,233,0.5);text-decoration:none;">Money in Motion ↗</a>
+        <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7273059005898338305" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:10px;color:rgba(14,165,233,0.5);text-decoration:none;">Bitcoin &amp; Digital Assets Talk ↗</a>
+      </div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--cyan-dim);margin-top:4px;text-align:right;"><a href="https://doi.org/10.5281/zenodo.18413995" target="_blank" rel="noopener" style="color:var(--cyan-dim);text-decoration:none;">E = ΔI/A</a> · G = ∮E·dl · Protocol Truth → 1/φ = 0.618</div>
       <div id="footer-generated" style="font-family:var(--font-mono);font-size:10px;color:var(--text-dim);margin-top:4px;text-align:right;">—</div>
     </div>
   </div>
@@ -377,6 +429,193 @@ async function loadReport() {
   document.getElementById('report-body').innerHTML = doc.innerHTML;
   document.getElementById('loading').style.display = 'none';
   document.getElementById('report-content').style.display = 'block';
+
+  // 9. Load topology graph (non-blocking)
+  const phiRaw  = document.querySelector('.mc-value.orange');
+  const kapRaw  = document.querySelector('.mc-value.cyan');
+  const phiVal  = phiRaw  ? parseFloat(phiRaw.textContent)  : 0;
+  const kapVal  = kapRaw  ? parseFloat(kapRaw.textContent)  : 0;
+  loadTopologyGraph(id, phiVal, kapVal);
+}
+
+// ── Topology Field Graph ────────────────────────────────────────────────────
+
+// Colour by Φ_S pressure value
+function pressureColor(phi_s) {
+  if (phi_s === undefined || phi_s === null) return '#0ea5e9';
+  if (phi_s < 0.1) return '#22c55e';      // equilibrium — green
+  if (phi_s < 1.0) return '#00d9ff';      // low — cyan
+  if (phi_s < 3.0) return '#f59e0b';      // medium — amber
+  return '#ff6b35';                        // high — orange
+}
+
+// Pressure class for node styling
+function pressureClass(phi_s) {
+  if (!phi_s || phi_s < 0.1) return 'equilibrium';
+  if (phi_s < 1.0) return 'low-pressure';
+  return 'high-pressure';
+}
+
+// Pulse animation speed — higher pressure = faster pulse
+function pulseSpeed(phi_s) {
+  const base = (phi_s || 0);
+  if (base < 0.1) return '6s';
+  if (base < 0.5) return '4s';
+  if (base < 1.5) return '2.5s';
+  return '1.2s';
+}
+
+function buildTopologyGraph(centerName, centerPhiS, centerKappa, connections) {
+  const wrap = document.getElementById('topo-svg');
+  if (!wrap) return;
+
+  const isMobile = window.innerWidth < 768;
+  const W = wrap.parentElement.clientWidth || 900;
+  const H = isMobile ? 300 : 600;
+  wrap.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+  // Build nodes + links from connections array
+  // connections = [{name, phi_s, strength}, ...]
+  const centerNode = {
+    id: 'center',
+    label: centerName,
+    phi_s: centerPhiS,
+    kappa: centerKappa,
+    isCenter: true,
+    r: isMobile ? 20 : 28,
+  };
+
+  const connNodes = (connections || []).slice(0, isMobile ? 8 : 14).map((c, i) => ({
+    id: `conn_${i}`,
+    label: c.name || c.id || `Node ${i}`,
+    phi_s: c.phi_s !== undefined ? c.phi_s : null,
+    strength: c.strength || 1,
+    isCenter: false,
+    r: Math.max(8, Math.min(18, 8 + (c.strength || 1) * 2)),
+  }));
+
+  const nodes = [centerNode, ...connNodes];
+  const links = connNodes.map(n => ({
+    source: 'center',
+    target: n.id,
+    strength: n.strength || 1,
+  }));
+
+  const svg = d3.select('#topo-svg');
+  svg.selectAll('*').remove();
+  svg.attr('width', W).attr('height', H);
+
+  // Arrow / glow defs
+  const defs = svg.append('defs');
+  defs.append('filter').attr('id', 'glow-center')
+    .append('feGaussianBlur').attr('stdDeviation', '4').attr('result', 'blur');
+
+  // Force simulation
+  const sim = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(links).id(d => d.id).distance(isMobile ? 90 : 160).strength(0.7))
+    .force('charge', d3.forceManyBody().strength(-220))
+    .force('center', d3.forceCenter(W / 2, H / 2))
+    .force('collision', d3.forceCollide(d => d.r + 10));
+
+  // Draw links
+  const linkGroup = svg.append('g').attr('class', 'links');
+
+  const linkBase = linkGroup.selectAll('.topo-link')
+    .data(links).enter().append('line')
+    .attr('class', 'topo-link')
+    .attr('stroke-width', d => Math.max(1, Math.min(4, d.strength)));
+
+  // Pulse overlays on links
+  const pulseLines = linkGroup.selectAll('.topo-pulse')
+    .data(links).enter().append('line')
+    .attr('class', 'topo-pulse')
+    .attr('stroke', d => {
+      const src = nodes.find(n => n.id === (d.source.id || d.source));
+      return pressureColor(src ? src.phi_s : centerPhiS);
+    })
+    .attr('stroke-width', d => Math.max(1, Math.min(3, d.strength)))
+    .attr('stroke-opacity', 0.6)
+    .style('animation-duration', pulseSpeed(centerPhiS));
+
+  // Draw nodes
+  const nodeGroup = svg.append('g').attr('class', 'nodes');
+
+  const nodeEl = nodeGroup.selectAll('.topo-node')
+    .data(nodes).enter().append('g')
+    .attr('class', d => `topo-node ${d.isCenter ? 'center' : ''} ${pressureClass(d.phi_s)}`)
+    .call(d3.drag()
+      .on('start', (event, d) => { if (!event.active) sim.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+      .on('drag',  (event, d) => { d.fx = event.x; d.fy = event.y; })
+      .on('end',   (event, d) => { if (!event.active) sim.alphaTarget(0); d.fx = null; d.fy = null; })
+    );
+
+  nodeEl.append('circle')
+    .attr('r', d => d.r)
+    .attr('fill', d => {
+      const c = pressureColor(d.phi_s);
+      return d.isCenter ? c + '33' : c + '1a';
+    })
+    .attr('stroke', d => pressureColor(d.phi_s));
+
+  // Labels — center above, others below
+  nodeEl.append('text')
+    .attr('dy', d => d.isCenter ? -(d.r + 8) : (d.r + 13))
+    .attr('text-anchor', 'middle')
+    .text(d => {
+      const label = d.label || '';
+      return label.length > 16 ? label.slice(0, 15) + '…' : label;
+    });
+
+  // Phi_S label inside center node
+  nodeEl.filter(d => d.isCenter).append('text')
+    .attr('dy', '0.35em')
+    .attr('text-anchor', 'middle')
+    .attr('font-family', 'JetBrains Mono, monospace')
+    .attr('font-size', isMobile ? '9px' : '11px')
+    .attr('fill', pressureColor(centerPhiS))
+    .text(d => `Φ_S=${(d.phi_s||0).toFixed(3)}`);
+
+  // Tick
+  sim.on('tick', () => {
+    linkBase
+      .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+    pulseLines
+      .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+    nodeEl.attr('transform', d => `translate(${d.x},${d.y})`);
+  });
+
+  document.getElementById('topo-section').style.display = '';
+}
+
+// Build topology from manifest + report metadata
+async function loadTopologyGraph(entityId, phi_s, kappa) {
+  // Try to load manifest for topology connections
+  try {
+    const resp = await fetch(`./manifest.json?_=${Date.now()}`);
+    if (!resp.ok) return;
+    const manifest = await resp.json();
+
+    // Find this entity in manifest
+    const entry = manifest.find(m => m.id === entityId || entityId.startsWith(m.id));
+
+    // Build connection nodes from manifest (other entities as connections)
+    // Show all other manifest entries as connected nodes with varying strength
+    const connections = manifest
+      .filter(m => m.id !== (entry ? entry.id : entityId))
+      .map(m => ({
+        name: m.entity_display || m.id,
+        phi_s: m.phi_s || 0,
+        strength: Math.max(1, Math.min(5, Math.round((m.phi_s || 0) * 3 + 1))),
+      }))
+      .sort((a, b) => b.phi_s - a.phi_s);
+
+    const centerName = entry ? entry.entity_display : entityId;
+    buildTopologyGraph(centerName, phi_s, kappa, connections);
+  } catch(e) {
+    // Topology graph is non-critical — fail silently
+  }
 }
 
 loadReport();
