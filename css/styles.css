@@ -1908,31 +1908,81 @@ body {
    ============================================ */
 
 .site-footer {
-    background: #0a0a0f;
-    padding: 3rem 1.5rem;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: #0a0e27;
+    padding: 48px 40px;
+    border-top: 1px solid rgba(14,165,233,0.15);
 }
 
 .footer-content {
-    max-width: 400px;
+    max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
 }
+
+.footer-left {}
 
 .footer-logo {
     font-family: 'Orbitron', monospace;
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.2em;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 8px;
 }
 
+.footer-copy {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #64748b;
+}
+
+/* Legacy — keep so nothing breaks */
 .footer-copyright {
-    font-family: 'Inter', -apple-system, sans-serif;
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.35);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #64748b;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.footer-links {
+    display: flex;
+    gap: 18px;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover { color: #00d9ff; }
+
+.footer-eq {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #0ea5e9;
+    margin-top: 10px;
+    text-align: right;
+}
+
+@media (max-width: 640px) {
+    .site-footer { padding: 36px 20px; }
+    .footer-content { flex-direction: column; }
+    .footer-right { text-align: left; }
+    .footer-links { justify-content: flex-start; }
+    .footer-eq { text-align: left; }
 }
 
 /* ============================================

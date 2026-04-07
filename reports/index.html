@@ -3,402 +3,382 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Signal Reports - Eigenstate Research</title>
-<meta name="description" content="Topology signal reports for the tokenized settlement layer. 196 entities, real-time curl detection.">
+<title>Signal Reports — Eigenstate Research</title>
+<meta name="description" content="Topology signal reports for the tokenized settlement layer. 200 entities, real-time settlement pressure and curl detection. E = ΔI/A.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800;900&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root {
-    --bg-primary: #030712;
-    --bg-secondary: #0a0e27;
-    --bg-card: rgba(15, 23, 42, 0.8);
-    --cyan-bright: #00ffff;
-    --cyan-primary: #00d9ff;
-    --cyan-dim: #0ea5e9;
-    --orange-primary: #ff6b35;
-    --red-primary: #dc2626;
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --text-dim: #64748b;
-    --font-header: 'Orbitron', sans-serif;
-    --font-body: 'Inter', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
-    --container-max: 1400px;
+  --bg: #030712;
+  --bg2: #0a0e27;
+  --bgcard: #0f172a;
+  --cyan: #00d9ff;
+  --cyan2: #0ea5e9;
+  --orange: #ff6b35;
+  --red: #dc2626;
+  --green: #22c55e;
+  --t1: #f8fafc;
+  --t2: #94a3b8;
+  --t3: #64748b;
+  --border: rgba(14,165,233,0.15);
+  --border2: rgba(14,165,233,0.3);
+  --fh: 'Orbitron', sans-serif;
+  --fb: 'Inter', sans-serif;
+  --fm: 'JetBrains Mono', monospace;
 }
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--font-body); font-weight: 300; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; cursor: none; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--fb);font-weight:300;background:var(--bg);color:var(--t1);line-height:1.7;}
 
-.custom-cursor { position: fixed; width: 10px; height: 10px; background: #ff6b35; border-radius: 50%; pointer-events: none; z-index: 10000; transform: translate(-50%,-50%); box-shadow: 0 0 15px #ff6b35, 0 0 30px #ff6b35; }
-.custom-cursor-trail { position: fixed; width: 5px; height: 5px; background: #ff6b35; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); opacity: 0.4; transition: opacity 0.1s; }
+/* ── Nav ── */
+.nav{position:sticky;top:0;z-index:100;background:rgba(3,7,18,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:18px 40px;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-family:var(--fh);font-size:16px;font-weight:700;letter-spacing:0.2em;color:var(--t1);text-decoration:none;}
+.nav-links{display:flex;gap:32px;align-items:center;}
+.nav-links a{font-family:var(--fm);font-size:12px;letter-spacing:0.05em;color:var(--t2);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--cyan);}
+.nav-cta{font-family:var(--fm);font-size:12px;font-weight:600;letter-spacing:0.1em;padding:10px 22px;background:var(--red);color:#fff;text-decoration:none;border-radius:3px;transition:all 0.2s;}
+.nav-cta:hover{background:#ef4444;transform:translateY(-1px);}
 
-.loading-screen { position: fixed; top:0; left:0; width:100%; height:100%; background: var(--bg-primary); display:flex; align-items:center; justify-content:center; z-index:9999; animation: fadeOutLoading 0.8s ease-out 2.5s forwards; }
-.loading-logo { font-family: var(--font-mono); font-size: 20px; font-weight: 600; letter-spacing: 0.3em; color: var(--cyan-bright); margin-bottom: 30px; text-shadow: 0 0 30px var(--cyan-bright); }
-.loading-cursor { animation: blink 0.6s infinite; }
-.loading-bar { width: 250px; height: 2px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
-.loading-progress { height: 100%; width: 0%; background: linear-gradient(90deg, var(--cyan-primary), var(--orange-primary)); animation: loadProgress 2s ease-out forwards; }
-@keyframes loadProgress { 0%{width:0%} 100%{width:100%} }
-@keyframes fadeOutLoading { to{opacity:0;visibility:hidden;pointer-events:none} }
-@keyframes blink { 0%,50%{opacity:1} 51%,100%{opacity:0} }
-@keyframes fadeIn { from{opacity:0} to{opacity:1} }
-@keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+/* ── Page hero ── */
+.page-hero{padding:80px 40px 64px;text-align:center;border-bottom:1px solid var(--border);background:linear-gradient(180deg,rgba(10,14,39,0.6) 0%,transparent 100%);}
+.page-hero .eyebrow{font-family:var(--fm);font-size:11px;font-weight:600;letter-spacing:0.3em;color:var(--orange);margin-bottom:16px;text-transform:uppercase;}
+.page-hero h1{font-family:var(--fh);font-size:56px;font-weight:900;letter-spacing:0.08em;line-height:1;margin-bottom:24px;background:linear-gradient(135deg,var(--t1) 0%,var(--cyan) 60%,var(--t1) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.page-hero .explainer{font-size:17px;color:var(--t2);max-width:640px;margin:0 auto 36px;line-height:1.7;}
+.cta-btn{display:inline-block;font-family:var(--fm);font-size:13px;font-weight:600;letter-spacing:0.12em;padding:16px 36px;background:var(--red);color:#fff;text-decoration:none;border-radius:3px;transition:all 0.25s;box-shadow:0 4px 20px rgba(220,38,38,0.35);}
+.cta-btn:hover{background:#ef4444;transform:translateY(-2px);box-shadow:0 6px 28px rgba(220,38,38,0.45);}
 
-.main-nav { position: fixed; top:0; left:0; width:100%; padding: 20px 40px; z-index:1000; background: rgba(3,7,18,0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(14,165,233,0.2); }
-.nav-container { max-width: var(--container-max); margin: 0 auto; display:flex; align-items:center; justify-content:space-between; }
-.nav-logo { font-family: var(--font-header); font-size: 18px; font-weight: 700; letter-spacing: 0.2em; color: var(--text-primary); text-decoration: none; }
-.nav-links { display:flex; gap: 40px; }
-.nav-links a { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.05em; color: var(--text-secondary); text-decoration: none; transition: color 0.3s; }
-.nav-links a:hover, .nav-links a.active { color: var(--cyan-primary); }
-.nav-cta { font-family: var(--font-mono); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; padding: 10px 24px; background: var(--red-primary); color: white; text-decoration: none; border-radius: 4px; transition: all 0.3s; }
-.nav-cta:hover { background: #ef4444; transform: translateY(-2px); }
+/* ── Sections ── */
+section{padding:64px 40px;}
+.container{max-width:1200px;margin:0 auto;}
+.eyebrow{font-family:var(--fm);font-size:10px;font-weight:600;letter-spacing:0.25em;color:var(--cyan);text-transform:uppercase;margin-bottom:12px;}
+.section-title{font-family:var(--fh);font-size:32px;font-weight:800;letter-spacing:0.05em;margin-bottom:8px;}
+.section-sub{font-size:14px;color:var(--t3);margin-bottom:40px;font-family:var(--fm);}
+.divider{width:60px;height:2px;background:linear-gradient(90deg,var(--cyan2),transparent);margin-bottom:40px;}
+.grad{background:linear-gradient(135deg,var(--orange),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
-.hero { position: relative; min-height: 100vh; display:flex; align-items:center; justify-content:center; overflow:hidden; }
-.hero canvas { position:absolute; top:0; left:0; width:100%; height:100%; z-index:1; opacity:0.6; }
-.hero-content { position:relative; z-index:10; text-align:center; padding: 0 20px; }
-.hero-eyebrow { font-family: var(--font-mono); font-size: 13px; font-weight: 600; letter-spacing: 0.3em; color: var(--orange-primary); margin-bottom: 20px; opacity:0; animation: fadeIn 0.8s ease-out 2.8s forwards; text-shadow: 0 0 20px rgba(255,107,53,0.5); }
-.hero-title { font-family: var(--font-header); font-size: 64px; font-weight: 700; letter-spacing: 0.1em; line-height: 1.1; margin-bottom: 25px; opacity:0; animation: fadeInUp 1s ease-out 3s forwards; background: linear-gradient(135deg, #f8fafc 0%, #00d9ff 40%, #f8fafc 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.hero-sub { font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 20px; opacity:0; animation: fadeInUp 0.8s ease-out 3.2s forwards; line-height: 1.9; }
-.hero-eq { font-family: var(--font-mono); font-size: 13px; color: var(--cyan-primary); margin-bottom: 40px; opacity:0; animation: fadeInUp 0.8s ease-out 3.4s forwards; text-shadow: 0 0 20px rgba(0,217,255,0.4); }
-.hero-cta { display:inline-block; font-family: var(--font-mono); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; padding: 16px 36px; background: var(--red-primary); color: white; text-decoration: none; border-radius: 4px; opacity:0; animation: fadeInUp 0.8s ease-out 3.6s forwards; transition: all 0.3s; box-shadow: 0 4px 20px rgba(220,38,38,0.4); }
-.hero-cta:hover { background: #ef4444; transform: translateY(-3px); }
+/* ── Featured hero card ── */
+.featured-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.featured-loading{font-family:var(--fm);font-size:12px;color:var(--t3);letter-spacing:0.15em;}
+.featured-card{background:var(--bgcard);border:1px solid var(--border2);border-left:4px solid var(--orange);padding:48px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;text-decoration:none;transition:border-color 0.2s;}
+.featured-card:hover{border-left-color:var(--red);}
+.fc-badge{font-family:var(--fm);font-size:10px;font-weight:600;letter-spacing:0.2em;color:var(--orange);text-transform:uppercase;margin-bottom:16px;}
+.fc-entity{font-family:var(--fh);font-size:40px;font-weight:800;letter-spacing:0.04em;color:var(--t1);margin-bottom:20px;line-height:1.1;}
+.fc-meta{display:flex;gap:32px;align-items:center;flex-wrap:wrap;}
+.fc-phi{font-family:var(--fm);font-size:28px;font-weight:600;color:var(--orange);text-shadow:0 0 20px rgba(255,107,53,0.3);}
+.fc-kappa{font-family:var(--fm);font-size:24px;font-weight:600;color:var(--cyan);text-shadow:0 0 20px rgba(0,217,255,0.2);}
+.fc-vault{font-family:var(--fm);font-size:18px;color:var(--green);}
+.fc-label{font-family:var(--fm);font-size:10px;color:var(--t3);letter-spacing:0.1em;margin-bottom:4px;}
+.fc-right{text-align:right;}
+.fc-date{font-family:var(--fm);font-size:12px;color:var(--t3);margin-bottom:20px;}
+.fc-read{font-family:var(--fm);font-size:13px;font-weight:600;letter-spacing:0.1em;padding:14px 28px;background:var(--orange);color:#fff;text-decoration:none;display:inline-block;border-radius:3px;transition:all 0.2s;}
+.fc-read:hover{background:#e85a20;transform:translateY(-1px);}
 
-section { padding: 100px 40px; }
-.container { max-width: 1100px; margin: 0 auto; }
-.eyebrow { font-family: var(--font-mono); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; color: var(--cyan-primary); margin-bottom: 15px; }
-.section-title { font-family: var(--font-header); font-size: 48px; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
-.grad { background: linear-gradient(135deg, var(--orange-primary), var(--red-primary)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.divider { width: 80px; height: 3px; background: linear-gradient(90deg, var(--cyan-primary), transparent); margin-bottom: 50px; }
+/* ── Reports grid ── */
+.reports-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.report-card{background:var(--bg);padding:28px;text-decoration:none;display:block;border-left:3px solid transparent;transition:all 0.2s;}
+.report-card:hover{background:var(--bgcard);border-left-color:var(--orange);}
+.rc-entity{font-family:var(--fh);font-size:14px;font-weight:700;letter-spacing:0.04em;color:var(--t1);margin-bottom:14px;line-height:1.3;}
+.rc-metrics{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+.rc-phi{font-family:var(--fm);font-size:11px;font-weight:600;color:var(--orange);background:rgba(255,107,53,0.1);padding:3px 8px;border-radius:2px;}
+.rc-kappa{font-family:var(--fm);font-size:11px;color:var(--cyan);background:rgba(0,217,255,0.08);padding:3px 8px;border-radius:2px;}
+.rc-vault{font-family:var(--fm);font-size:11px;color:var(--green);background:rgba(34,197,94,0.08);padding:3px 8px;border-radius:2px;}
+.rc-footer{display:flex;justify-content:space-between;align-items:center;}
+.rc-date{font-family:var(--fm);font-size:10px;color:var(--t3);}
+.rc-cta{font-family:var(--fm);font-size:11px;color:var(--cyan2);}
+.reports-loading{padding:32px;font-family:var(--fm);font-size:12px;color:var(--t3);letter-spacing:0.1em;}
 
-.field-bg { background: var(--bg-secondary); border-top: 1px solid rgba(14,165,233,0.15); }
-.field-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(14,165,233,0.12); border:1px solid rgba(14,165,233,0.12); margin-bottom:30px; }
-.field-cell { background: var(--bg-primary); padding: 28px 24px; }
-.fc-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.15em; color: var(--text-dim); text-transform:uppercase; margin-bottom: 8px; }
-.fc-val { font-family: var(--font-mono); font-size: 24px; font-weight: 600; color: var(--cyan-primary); text-shadow: 0 0 15px rgba(0,217,255,0.3); }
-.fc-val.o { color: var(--orange-primary); text-shadow: 0 0 15px rgba(255,107,53,0.3); }
-.fc-val.g { color: #22c55e; text-shadow: 0 0 15px rgba(34,197,94,0.3); }
-.fc-sub { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); margin-top:4px; }
-.field-loop { background: var(--bg-primary); border: 1px solid rgba(14,165,233,0.2); border-left: 3px solid var(--cyan-primary); padding: 20px 24px; font-family: var(--font-mono); font-size: 13px; color: var(--text-dim); line-height: 2; }
-.field-loop code { display:block; font-size: 12px; color: var(--text-secondary); margin: 10px 0; padding: 12px; background: rgba(0,0,0,0.3); border-radius: 4px; line-height: 1.8; }
-.fl { color: var(--orange-primary); margin-right: 6px; }
-.fv { color: var(--cyan-primary); }
+/* ── Tiers ── */
+.tiers-section{background:var(--bg2);border-top:1px solid var(--border);}
+.tiers-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);}
+.tier{background:var(--bg);padding:32px 36px;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start;border-left:3px solid transparent;transition:all 0.2s;}
+.tier:hover{background:var(--bgcard);border-left-color:var(--cyan2);}
+.tier-name{font-family:var(--fh);font-size:14px;font-weight:700;letter-spacing:0.05em;color:var(--t1);margin-bottom:10px;}
+.tier-desc{font-size:14px;color:var(--t2);line-height:1.7;max-width:640px;}
+.tier-inc{font-family:var(--fm);font-size:11px;color:var(--t3);margin-top:10px;letter-spacing:0.03em;}
+.tier-price{font-family:var(--fm);font-size:28px;font-weight:600;color:var(--orange);white-space:nowrap;text-align:right;text-shadow:0 0 15px rgba(255,107,53,0.2);}
+.tier-unit{font-family:var(--fm);font-size:11px;color:var(--t3);text-align:right;margin-top:4px;}
 
-.tiers { display:flex; flex-direction:column; gap:1px; background:rgba(14,165,233,0.1); border:1px solid rgba(14,165,233,0.1); }
-.tier { background: var(--bg-card); padding: 32px 36px; display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:start; border-left: 3px solid transparent; transition: all 0.3s; }
-.tier:hover { background: rgba(15,23,42,1); border-left-color: var(--orange-primary); }
-.tier-name { font-family: var(--font-header); font-size: 15px; font-weight: 700; letter-spacing: 0.05em; color: var(--text-primary); margin-bottom: 10px; }
-.tier-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
-.tier-inc { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); margin-top: 10px; letter-spacing: 0.04em; }
-.tier-price { font-family: var(--font-mono); font-size: 26px; font-weight: 600; color: var(--orange-primary); white-space:nowrap; text-align:right; text-shadow: 0 0 15px rgba(255,107,53,0.3); }
-.tier-cad { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); text-align:right; margin-top:4px; }
+/* ── Request form ── */
+.request-section{border-top:1px solid var(--border);}
+.form-wrap{background:var(--bgcard);border:1px solid var(--border2);border-radius:4px;padding:48px;max-width:760px;margin:0 auto;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.form-group{display:flex;flex-direction:column;margin-bottom:20px;}
+.form-group label{font-family:var(--fm);font-size:10px;letter-spacing:0.15em;color:var(--t3);margin-bottom:8px;text-transform:uppercase;}
+.form-group input,.form-group select,.form-group textarea{font-family:var(--fb);font-size:15px;padding:14px 16px;background:rgba(3,7,18,0.8);border:1px solid rgba(148,163,184,0.2);border-radius:3px;color:var(--t1);transition:border-color 0.2s;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--cyan2);box-shadow:0 0 0 3px rgba(14,165,233,0.1);}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--t3);}
+.form-group select{cursor:pointer;}
+.form-group select option{background:var(--bgcard);}
+.btn-submit{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:18px;font-family:var(--fm);font-size:13px;font-weight:600;letter-spacing:0.12em;background:var(--red);color:#fff;border:none;border-radius:3px;cursor:pointer;transition:all 0.2s;margin-top:8px;}
+.btn-submit:hover{background:#ef4444;transform:translateY(-1px);}
+.form-msg{text-align:center;margin-top:16px;font-family:var(--fm);font-size:13px;min-height:20px;}
+.form-msg.ok{color:var(--green);}
+.form-msg.err{color:var(--orange);}
+.form-note{text-align:center;margin-top:20px;font-family:var(--fm);font-size:12px;color:var(--t3);}
+.form-note a{color:var(--cyan2);text-decoration:none;}
 
-.intel-bg { background: var(--bg-secondary); }
-.articles { display:flex; flex-direction:column; gap:1px; background:rgba(14,165,233,0.1); border:1px solid rgba(14,165,233,0.1); }
-.article { background: var(--bg-card); padding: 24px 30px; display:grid; grid-template-columns:1fr auto; gap:1rem; align-items:center; text-decoration:none; border-left: 3px solid transparent; transition: all 0.3s; }
-.article:hover { background: rgba(15,23,42,1); border-left-color: var(--cyan-primary); }
-.art-title { font-size: 15px; color: var(--text-primary); line-height: 1.4; margin-bottom: 6px; }
-.art-sub { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.05em; }
-.art-date { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); white-space:nowrap; }
+/* ── Footer ── */
+.site-footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 40px;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;}
+.footer-left .footer-logo{font-family:var(--fh);font-size:16px;font-weight:700;letter-spacing:0.2em;color:var(--t1);margin-bottom:8px;}
+.footer-left .footer-copy{font-family:var(--fm);font-size:11px;color:var(--t3);}
+.footer-right{text-align:right;}
+.footer-links{display:flex;gap:18px;justify-content:flex-end;margin-bottom:8px;flex-wrap:wrap;}
+.footer-links a{font-family:var(--fm);font-size:11px;color:var(--t3);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--cyan);}
+.footer-eq{font-family:var(--fm);font-size:10px;color:var(--cyan2);margin-top:10px;}
 
-.form-wrap { background: var(--bg-card); border: 1px solid rgba(14,165,233,0.2); border-radius: 8px; padding: 50px; }
-.form-row { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-.form-group { display:flex; flex-direction:column; margin-bottom: 20px; }
-.form-group label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--text-dim); margin-bottom: 8px; text-transform:uppercase; }
-.form-group input, .form-group select, .form-group textarea { font-family: var(--font-body); font-size: 15px; padding: 14px 18px; background: rgba(3,7,18,0.6); border: 1px solid rgba(148,163,184,0.2); border-radius: 4px; color: var(--text-primary); transition: all 0.3s; }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color: var(--cyan-primary); box-shadow: 0 0 0 3px rgba(0,217,255,0.1); }
-.form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-dim); }
-.btn-submit { display:flex; align-items:center; justify-content:center; gap:12px; width:100%; padding:18px; font-family: var(--font-mono); font-size: 14px; font-weight: 600; letter-spacing: 0.1em; background: var(--red-primary); color:white; border:none; border-radius:4px; cursor:pointer; transition: all 0.3s; margin-top: 10px; }
-.btn-submit:hover { background: #ef4444; transform: translateY(-2px); }
-.form-msg { text-align:center; margin-top:20px; font-family: var(--font-mono); font-size:13px; min-height:20px; }
-.form-msg.ok { color: #22c55e; }
-.form-msg.err { color: var(--orange-primary); }
-
-.footer { padding: 60px 40px; background: var(--bg-secondary); border-top: 1px solid rgba(14,165,233,0.1); }
-.footer-inner { max-width: var(--container-max); margin: 0 auto; display:flex; justify-content:space-between; align-items:center; }
-.footer-logo { font-family: var(--font-header); font-size: 16px; font-weight: 700; letter-spacing: 0.2em; }
-.footer-right { text-align:right; }
-.footer-right p { font-size: 13px; color: var(--text-dim); }
-.footer-eq { color: var(--cyan-dim); margin-top: 5px; font-family: var(--font-mono); font-size: 11px; }
-
-@media(max-width:768px) {
-    body { cursor:auto; }
-    .custom-cursor, .custom-cursor-trail { display:none; }
-    .hero-title { font-size: 36px; }
-    .section-title { font-size: 32px; }
-    .field-grid { grid-template-columns: 1fr 1fr; }
-    .tier { grid-template-columns: 1fr; }
-    .tier-price { text-align:left; }
-    .form-row { grid-template-columns: 1fr; }
-    .form-wrap { padding: 30px 20px; }
-    .nav-links { display:none; }
-    .footer-inner { flex-direction:column; gap:20px; text-align:center; }
-    .footer-right { text-align:center; }
+/* ── Responsive ── */
+@media(max-width:900px){.reports-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){
+  .nav{padding:14px 20px;}
+  .nav-links{display:none;}
+  .page-hero{padding:56px 20px 48px;}
+  .page-hero h1{font-size:36px;}
+  section{padding:48px 20px;}
+  .featured-card{grid-template-columns:1fr;gap:24px;}
+  .fc-right{text-align:left;}
+  .fc-entity{font-size:28px;}
+  .reports-grid{grid-template-columns:1fr;}
+  .tier{grid-template-columns:1fr;}
+  .tier-price{text-align:left;}
+  .form-row{grid-template-columns:1fr;}
+  .form-wrap{padding:28px 20px;}
+  .footer-inner{flex-direction:column;}
+  .footer-right{text-align:left;}
+  .footer-links{justify-content:flex-start;}
 }
 </style>
 </head>
 <body>
 
-<div class="custom-cursor" id="cursor"></div>
-<div class="custom-cursor-trail" id="trail"></div>
-
-<div class="loading-screen">
-    <div>
-        <div class="loading-logo">EIGENSTATE_REPORTS<span class="loading-cursor">_</span></div>
-        <div class="loading-bar"><div class="loading-progress"></div></div>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-logo">EIGENSTATE</a>
+    <div class="nav-links">
+      <a href="../">Home</a>
+      <a href="https://paragraph.com/@eigenstate" target="_blank" rel="noopener">Articles</a>
+      <a href="./" class="active">Signal Reports</a>
+      <a href="https://geniusflow-rwa.vercel.app" target="_blank" rel="noopener">Registry</a>
+      <a href="https://github.com/Kaydeep0/eigenstate-research" target="_blank" rel="noopener">GitHub</a>
     </div>
-</div>
-
-<nav class="main-nav">
-    <div class="nav-container">
-        <a href="../" class="nav-logo">EIGENSTATE</a>
-        <div class="nav-links">
-            <a href="../">Home</a>
-            <a href="https://paragraph.com/@eigenstate" target="_blank" rel="noopener">Articles</a>
-            <a href="https://geniusflow-rwa.vercel.app" target="_blank" rel="noopener">Registry</a>
-            <a href="#request" class="active">Signal reports</a>
-        </div>
-        <a href="#request" class="nav-cta">Request Report</a>
-    </div>
+    <a href="#request" class="nav-cta">Request Report</a>
+  </div>
 </nav>
 
-<section class="hero">
-    <canvas id="pc"></canvas>
-    <div class="hero-content">
-        <div class="hero-eyebrow">EIGENSTATE RESEARCH</div>
-        <h1 class="hero-title">SIGNAL<br>REPORTS</h1>
-        <p class="hero-sub">196 entities. 296 connections.<br>Real-time curl detection across the tokenized settlement layer.</p>
-        <div class="hero-eq">G = ∮E·dl &nbsp;·&nbsp; E = ΔI/A &nbsp;·&nbsp; PT → 1/φ = 0.618</div>
-        <a href="#request" class="hero-cta">Request a Report</a>
-    </div>
+<!-- ── Page hero ── -->
+<div class="page-hero">
+  <div class="eyebrow">EIGENSTATE RESEARCH · TOPOLOGY SIGNAL REPORTS</div>
+  <h1>SIGNAL REPORTS</h1>
+  <p class="explainer">Real-time topology measurements of the tokenized settlement layer — settlement pressure, field coherence, and information flow quantified across 200 entities and 301 connections.</p>
+  <a href="#request" class="cta-btn">Request a Report →</a>
+</div>
+
+<!-- ── Featured: highest Φ_S ── -->
+<section class="featured-section">
+  <div class="container">
+    <div class="eyebrow">HIGHEST SETTLEMENT PRESSURE · FEATURED REPORT</div>
+    <div id="featured-container" class="featured-loading">Loading field data…</div>
+  </div>
 </section>
 
-<section class="field-bg">
-    <div class="container">
-        <div class="eyebrow">FIELD STATE - LIVE</div>
-        <div class="field-grid">
-            <div class="field-cell"><div class="fc-label">Entities tracked</div><div class="fc-val">196</div><div class="fc-sub">tokenized settlement layer</div></div>
-            <div class="field-cell"><div class="fc-label">G_total</div><div class="fc-val o">0.89</div><div class="fc-sub">approaching 1/φ = 0.618</div></div>
-            <div class="field-cell"><div class="fc-label">Curl wave state</div><div class="fc-val g">NEW</div><div class="fc-sub">Landauer stable · loop forming</div></div>
-            <div class="field-cell"><div class="fc-label">Connections</div><div class="fc-val">296</div><div class="fc-sub">topology edges</div></div>
-            <div class="field-cell"><div class="fc-label">Dominant frequency</div><div class="fc-val">0.125</div><div class="fc-sub">8-step Fibonacci period</div></div>
-            <div class="field-cell"><div class="fc-label">Stablecoin market</div><div class="fc-val o">$500B</div><div class="fc-sub">2026 forecast · GENIUS Act live</div></div>
-        </div>
-        <div class="field-loop">
-            <span class="fl">dominant loop</span>
-            <code>OCC → Treasury → SEC → Tokenized Treasuries → Stablecoin Issuers → OCC</code>
-            <span class="fl">∇×G</span><span class="fv">16,278</span> &nbsp;&nbsp;
-            <span class="fl">dcurl/dt</span><span class="fv">+8,003 (accelerating)</span> &nbsp;&nbsp;
-            <span class="fl">helix</span><span class="fv">fb40dcc8d8dedcfd</span>
-        </div>
-    </div>
-</section>
-
+<!-- ── All reports list ── -->
 <section>
-    <div class="container">
-        <div class="eyebrow">TOPOLOGY SIGNAL REPORTS</div>
-        <h2 class="section-title">The <span class="grad">information field,</span><br>made visible.</h2>
-        <div class="divider"></div>
-        <div class="tiers">
-            <div class="tier">
-                <div>
-                    <div class="tier-name">SINGLE ENTITY REPORT</div>
-                    <div class="tier-desc">Full topology analysis of one entity: extraction pressure (Γ), loop membership, curl wave state, N+1 trajectory, settlement pain (Φ_S). Delivered as PDF + raw JSON within 24 hours.</div>
-                    <div class="tier-inc">Includes: Γ score · loop velocity · curl state · N+1 prediction · settlement path</div>
-                </div>
-                <div><div class="tier-price">$59</div><div class="tier-cad">per entity</div></div>
-            </div>
-            <div class="tier">
-                <div>
-                    <div class="tier-name">SECTOR REPORT - INFORMATION FLOW</div>
-                    <div class="tier-desc">Full analysis of the information flow sector: 164 entities, 158 currently breaking, Φ_S scores, loop velocity rankings, recommended positions. Updated weekly on atomic cycle.</div>
-                    <div class="tier-inc">Includes: full sector map · weekly Δ · top breaking entities · forming loops · field equations</div>
-                </div>
-                <div><div class="tier-price">$490</div><div class="tier-cad">per month</div></div>
-            </div>
-            <div class="tier">
-                <div>
-                    <div class="tier-name">CUSTOM TOPOLOGY BRIEFING</div>
-                    <div class="tier-desc">Bespoke analysis for your specific investment thesis, regulatory question, or infrastructure positioning. Includes methodology session and engine output for the engagement period.</div>
-                    <div class="tier-inc">Includes: custom entity set · methodology session · engine output · follow-up Q&A</div>
-                </div>
-                <div><div class="tier-price">$2,400</div><div class="tier-cad">per engagement</div></div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="eyebrow">ALL SIGNAL REPORTS</div>
+    <h2 class="section-title">Latest <span class="grad">measurements</span></h2>
+    <div class="section-sub">Engine-generated field position reports. Updated each cycle.</div>
+    <div id="reports-grid" class="reports-grid">
+      <div class="reports-loading">Loading reports from manifest…</div>
     </div>
+  </div>
 </section>
 
-<section class="intel-bg">
-    <div class="container">
-        <div class="eyebrow">RECENT INTELLIGENCE</div>
-        <h2 class="section-title">Latest <span class="grad">Signal Reports</span></h2>
-        <div class="divider"></div>
-
-        <!-- Engine-generated signal reports (loaded from manifest.json) -->
-        <div class="articles" id="signal-reports-list">
-            <div class="art-loading">Loading reports…</div>
+<!-- ── Pricing tiers ── -->
+<section class="tiers-section">
+  <div class="container">
+    <div class="eyebrow">REPORTS</div>
+    <h2 class="section-title">The information field, <span class="grad">made visible.</span></h2>
+    <div class="divider"></div>
+    <div class="tiers-list">
+      <div class="tier">
+        <div>
+          <div class="tier-name">SINGLE ENTITY REPORT</div>
+          <div class="tier-desc">Full topology analysis of one entity: extraction pressure (Γ), loop membership, curl wave state, N+1 trajectory, settlement pain (Φ_S). PDF + raw JSON within 24 hours.</div>
+          <div class="tier-inc">Includes: Γ score · loop velocity · curl state · N+1 prediction · settlement path · EAS attestation</div>
         </div>
-
-        <div style="margin-top:1px;">
-            <div class="eyebrow" style="padding:24px 30px 8px; font-size:10px; opacity:0.6;">ANALYSIS — PARAGRAPH</div>
+        <div><div class="tier-price">$59</div><div class="tier-unit">per entity</div></div>
+      </div>
+      <div class="tier">
+        <div>
+          <div class="tier-name">SECTOR REPORT — INFORMATION FLOW</div>
+          <div class="tier-desc">Full analysis of the information flow sector: 164 entities, 158 currently breaking, Φ_S scores, loop velocity rankings, recommended positions. Updated weekly on atomic cycle.</div>
+          <div class="tier-inc">Includes: full sector map · weekly Δ · top breaking entities · forming loops · field equations</div>
         </div>
-
-        <!-- Curated Paragraph articles (static) -->
-        <div class="articles">
-            <a href="https://paragraph.com/@eigenstate/how-the-genius-act-registration-window-changes-the-stablecoin-topology" class="article" target="_blank" rel="noopener">
-                <div><div class="art-title">How the GENIUS Act Registration Window Changes the Stablecoin Topology</div><div class="art-sub">OCC loop · Circle · Coinbase · $500B field</div></div>
-                <div class="art-date">APR 6, 2026</div>
-            </a>
-            <a href="https://paragraph.com/@eigenstate/how-stripes-acquisition-of-bridge-restructures-the-tokenized-settlement-layer" class="article" target="_blank" rel="noopener">
-                <div><div class="art-title">How Stripe's Acquisition of Bridge Restructures the Tokenized Settlement Layer</div><div class="art-sub">Stripe · Bridge · Settlement · Issuance - information flow</div></div>
-                <div class="art-date">APR 1, 2026</div>
-            </a>
-            <a href="https://paragraph.com/@eigenstate/how-stripes-bridge-acquisition-reshapes-the-stablecoin-settlement" class="article" target="_blank" rel="noopener">
-                <div><div class="art-title">How Stripe's Bridge Acquisition Reshapes the Stablecoin Settlement</div><div class="art-sub">Circle · Tether · Coinbase · $274B RWA infrastructure</div></div>
-                <div class="art-date">MAR 27, 2026</div>
-            </a>
+        <div><div class="tier-price">$490</div><div class="tier-unit">per month</div></div>
+      </div>
+      <div class="tier">
+        <div>
+          <div class="tier-name">CUSTOM TOPOLOGY BRIEFING</div>
+          <div class="tier-desc">Bespoke analysis for your investment thesis, regulatory question, or infrastructure positioning. Includes methodology session and engine output for the engagement period.</div>
+          <div class="tier-inc">Includes: custom entity set · methodology session · engine output · follow-up Q&A</div>
         </div>
+        <div><div class="tier-price">$2,400</div><div class="tier-unit">per engagement</div></div>
+      </div>
     </div>
+  </div>
 </section>
 
-<style>
-.art-loading { padding:24px 30px; font-family:var(--font-mono); font-size:12px; color:var(--text-dim); letter-spacing:0.1em; }
-.art-phi { font-family:var(--font-mono); font-size:11px; color:var(--orange-primary); margin-left:12px; opacity:0.8; }
-.art-kappa { font-family:var(--font-mono); font-size:11px; color:var(--cyan-dim); margin-left:8px; opacity:0.8; }
-</style>
-
-<script>
-(async function loadSignalReports() {
-    const container = document.getElementById('signal-reports-list');
-    try {
-        const resp = await fetch('./manifest.json?_=' + Date.now());
-        if (!resp.ok) throw new Error('manifest not found');
-        const data = await resp.json();
-        const reports = (data.reports || []).slice(0, 8); // show latest 8
-        if (!reports.length) {
-            container.innerHTML = '<div class="art-loading">No reports published yet.</div>';
-            return;
-        }
-        container.innerHTML = reports.map(r => {
-            const phi  = r.phi_s  != null ? `<span class="art-phi">φ_S=${Number(r.phi_s).toFixed(2)}</span>`  : '';
-            const kap  = r.kappa  != null ? `<span class="art-kappa">κ=${Number(r.kappa).toFixed(3)}</span>`  : '';
-            const date = r.date   || r.date_iso || '';
-            // Format date for display: "April 07, 2026" → "APR 7, 2026"
-            let dateDisplay = date;
-            try {
-                const d = new Date(r.date_iso || date);
-                if (!isNaN(d)) dateDisplay = d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase();
-            } catch(_) {}
-            return `<a href="${r.url}" class="article">
-                <div>
-                    <div class="art-title">${r.entity_display}: Field Position Report${phi}${kap}</div>
-                    <div class="art-sub">Signal report · topology measurement · E = ΔI/A</div>
-                </div>
-                <div class="art-date">${dateDisplay}</div>
-            </a>`;
-        }).join('');
-    } catch(e) {
-        container.innerHTML = '<div class="art-loading">Signal reports loading…</div>';
-    }
-})();
-</script>
-
-<section id="request">
-    <div class="container" style="max-width:800px;">
-        <div class="eyebrow" style="text-align:center;">REQUEST A REPORT</div>
-        <h2 class="section-title" style="text-align:center;font-size:40px;">Get the topology read on<br><span class="grad">your entity or sector.</span></h2>
-        <div class="divider" style="margin:20px auto 30px;"></div>
-        <p style="text-align:center;font-size:16px;color:var(--text-secondary);margin-bottom:50px;line-height:1.8;">Tell us what you're tracking. We'll send a sample signal report and pricing within 24 hours.</p>
-        <div class="form-wrap">
-            <div class="form-row">
-                <div class="form-group"><label>Name</label><input type="text" id="fn" placeholder="Your name"/></div>
-                <div class="form-group"><label>Email</label><input type="email" id="fe" placeholder="your@email.com"/></div>
-            </div>
-            <div class="form-group"><label>Organization</label><input type="text" id="fo" placeholder="Fund / firm / independent"/></div>
-            <div class="form-group">
-                <label>Report type</label>
-                <select id="ft">
-                    <option value="" disabled selected>Select report type</option>
-                    <option>Single entity - $59</option>
-                    <option>Sector report - $490/month</option>
-                    <option>Custom briefing - $2,400</option>
-                    <option>Not sure - send me a sample</option>
-                </select>
-            </div>
-            <div class="form-group"><label>Entity or sector of interest</label><textarea id="fent" rows="3" placeholder="e.g. Circle, Coinbase, OCC regulatory loop, GENIUS Act implementation, stablecoin issuance layer..."></textarea></div>
-            <button class="btn-submit" onclick="submit()">
-                REQUEST REPORT
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M9 3l6 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="form-msg" id="msg"></div>
-            <p style="text-align:center;margin-top:1.5rem;font-family:var(--font-mono);font-size:12px;color:var(--text-dim);">Or email: <a href="mailto:research@eigenstate.xyz" style="color:var(--cyan-dim);">research@eigenstate.xyz</a></p>
-        </div>
+<!-- ── Request a Report ── -->
+<section class="request-section" id="request">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div class="eyebrow" style="justify-content:center;display:flex;">REQUEST A REPORT</div>
+      <h2 class="section-title" style="font-size:36px;">Get the topology read on<br><span class="grad">your entity or sector.</span></h2>
+      <p style="font-size:15px;color:var(--t2);margin-top:12px;line-height:1.8;">Tell us what you're tracking. Response within 24 hours.</p>
     </div>
+    <div class="form-wrap">
+      <div class="form-row">
+        <div class="form-group"><label>Name</label><input type="text" id="fn" placeholder="Your name"></div>
+        <div class="form-group"><label>Email</label><input type="email" id="fe" placeholder="your@email.com" required></div>
+      </div>
+      <div class="form-group"><label>Organization</label><input type="text" id="fo" placeholder="Fund / firm / independent"></div>
+      <div class="form-group">
+        <label>Report type</label>
+        <select id="ft">
+          <option value="" disabled selected>Select report type</option>
+          <option>Single entity report — $59</option>
+          <option>Sector report — $490/month</option>
+          <option>Custom briefing — $2,400</option>
+          <option>Not sure — send me a sample</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Entity or sector of interest</label><textarea id="fent" rows="3" placeholder="e.g. Circle, Coinbase, OCC regulatory loop, GENIUS Act implementation, stablecoin issuance layer…"></textarea></div>
+      <button class="btn-submit" onclick="submitForm()">
+        REQUEST REPORT
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="form-msg" id="msg"></div>
+      <p class="form-note">Or email: <a href="mailto:ksekhon9851@Gmail.com">ksekhon9851@Gmail.com</a></p>
+    </div>
+  </div>
 </section>
 
-<footer class="footer">
-    <div class="footer-inner">
-        <div class="footer-logo">EIGENSTATE</div>
-        <div class="footer-right">
-            <p>© 2026 Eigenstate Research · Kirandeep Kaur</p>
-            <p class="footer-eq">G = ∮E·dl → fb40dcc8d8dedcfd · E = ΔI/A</p>
-        </div>
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-logo">EIGENSTATE</div>
+      <div class="footer-copy">© 2026 Eigenstate Research · Kirandeep Kaur Sekhon</div>
     </div>
+    <div class="footer-right">
+      <div class="footer-links">
+        <a href="https://paragraph.com/@eigenstate" target="_blank" rel="noopener">paragraph.com/@eigenstate</a>
+        <a href="https://github.com/Kaydeep0/eigenstate-research" target="_blank" rel="noopener">github.com/Kaydeep0/eigenstate-research</a>
+        <a href="https://geniusflow-rwa.vercel.app" target="_blank" rel="noopener">Registry</a>
+      </div>
+      <div class="footer-links">
+        <a href="https://warpcast.com/kdeep34539544" target="_blank" rel="noopener">Farcaster: @kdeep34539544</a>
+        <a href="https://linkedin.com/in/kirandeep-kaur-sekhon" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:ksekhon9851@Gmail.com">ksekhon9851@Gmail.com</a>
+      </div>
+      <div class="footer-eq">E = ΔI/A · G = ∮E·dl · Protocol Truth → 1/φ = 0.618</div>
+    </div>
+  </div>
 </footer>
 
 <script>
-const cursor = document.getElementById('cursor');
-const trail = document.getElementById('trail');
-let mx=0,my=0,tx=0,ty=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
-setInterval(()=>{tx+=(mx-tx)*0.15;ty+=(my-ty)*0.15;trail.style.left=tx+'px';trail.style.top=ty+'px';},16);
+async function loadReports() {
+  let data;
+  try {
+    const r = await fetch('./manifest.json?_=' + Date.now());
+    if (!r.ok) throw new Error('no manifest');
+    data = await r.json();
+  } catch(_) {
+    document.getElementById('featured-container').textContent = '';
+    document.getElementById('reports-grid').innerHTML = '<div class="reports-loading">No reports published yet.</div>';
+    return;
+  }
 
-// Particles
-const canvas=document.getElementById('pc');
-const ctx=canvas.getContext('2d');
-let W,H,pts=[];
-function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
-resize();window.addEventListener('resize',resize);
-for(let i=0;i<120;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:Math.random()*1.5+.5,c:Math.random()>.6?'#ff6b35':'#00d9ff',o:Math.random()*.6+.2});
-function draw(){
-    ctx.clearRect(0,0,W,H);
-    pts.forEach(p=>{
-        p.x+=p.vx;p.y+=p.vy;
-        if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
-        ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle=p.c;ctx.globalAlpha=p.o;ctx.fill();
+  const reports = (data.reports || []).filter(r => r.id && r.url);
+  if (!reports.length) {
+    document.getElementById('featured-container').textContent = '';
+    document.getElementById('reports-grid').innerHTML = '<div class="reports-loading">No reports published yet.</div>';
+    return;
+  }
+
+  // Sort by date_iso descending (newest first)
+  const sorted = [...reports].sort((a, b) => (b.date_iso || '').localeCompare(a.date_iso || ''));
+
+  // Featured: highest phi_s
+  const featured = reports.reduce((best, r) =>
+    (r.phi_s != null && (best == null || r.phi_s > best.phi_s)) ? r : best, null);
+
+  if (featured) {
+    const phi  = featured.phi_s  != null ? Number(featured.phi_s).toFixed(4)  : '—';
+    const kap  = featured.kappa  != null ? Number(featured.kappa).toFixed(4)  : '—';
+    const vaul = featured.vault_records != null ? featured.vault_records : 0;
+    let dateDisplay = featured.date || featured.date_iso || '';
+    try { const d = new Date(featured.date_iso); if (!isNaN(d)) dateDisplay = d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}); } catch(_){}
+    document.getElementById('featured-container').innerHTML = `
+      <a href="${featured.url}" class="featured-card">
+        <div>
+          <div class="fc-badge">Settlement Pressure · Top Entity</div>
+          <div class="fc-entity">${featured.entity_display}</div>
+          <div class="fc-meta">
+            <div><div class="fc-label">Settlement Pressure</div><div class="fc-phi">Φ_S = ${phi}</div></div>
+            <div><div class="fc-label">Field Coherence</div><div class="fc-kappa">κ = ${kap}</div></div>
+            <div><div class="fc-label">Vault Records</div><div class="fc-vault">${vaul} observations</div></div>
+          </div>
+        </div>
+        <div class="fc-right">
+          <div class="fc-date">${dateDisplay}</div>
+          <span class="fc-read">Read Report →</span>
+        </div>
+      </a>`;
+  }
+
+  // All reports grid (exclude featured from top position, show all)
+  document.getElementById('reports-grid').innerHTML = sorted.map(r => {
+    const phi  = r.phi_s  != null ? `<span class="rc-phi">Φ_S ${Number(r.phi_s).toFixed(3)}</span>` : '';
+    const kap  = r.kappa  != null ? `<span class="rc-kappa">κ ${Number(r.kappa).toFixed(3)}</span>` : '';
+    const vaul = r.vault_records ? `<span class="rc-vault">${r.vault_records} obs</span>` : '';
+    let dateDisplay = r.date || r.date_iso || '';
+    try { const d = new Date(r.date_iso); if(!isNaN(d)) dateDisplay = d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase(); } catch(_){}
+    return `<a href="${r.url}" class="report-card">
+      <div class="rc-entity">${r.entity_display}</div>
+      <div class="rc-metrics">${phi}${kap}${vaul}</div>
+      <div class="rc-footer"><span class="rc-date">${dateDisplay}</span><span class="rc-cta">Read →</span></div>
+    </a>`;
+  }).join('');
+}
+
+async function submitForm() {
+  const e = document.getElementById('fe').value.trim();
+  const msg = document.getElementById('msg');
+  if (!e || !e.includes('@')) { msg.textContent='Please enter a valid email.'; msg.className='form-msg err'; return; }
+  msg.textContent='Sending…'; msg.className='form-msg';
+  try {
+    const r = await fetch('https://formspree.io/f/xgoprgww', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({
+        name: document.getElementById('fn').value,
+        email: e,
+        organization: document.getElementById('fo').value,
+        report_type: document.getElementById('ft').value,
+        entity_interest: document.getElementById('fent').value,
+        _subject: 'Eigenstate — signal report request'
+      })
     });
-    ctx.globalAlpha=1;
-    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
-        const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
-        if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='#00d9ff';ctx.globalAlpha=(1-d/120)*.15;ctx.lineWidth=.5;ctx.stroke();}
-    }
-    ctx.globalAlpha=1;requestAnimationFrame(draw);
+    if (r.ok) { msg.textContent='Received. Response within 24 hours. — Eigenstate Research'; msg.className='form-msg ok'; }
+    else { msg.textContent='Something went wrong. Email ksekhon9851@Gmail.com directly.'; msg.className='form-msg err'; }
+  } catch(_) { msg.textContent='Network error. Email ksekhon9851@Gmail.com directly.'; msg.className='form-msg err'; }
 }
-draw();
 
-// Form
-async function submit(){
-    const e=document.getElementById('fe').value.trim();
-    const msg=document.getElementById('msg');
-    if(!e||!e.includes('@')){msg.textContent='Please enter a valid email.';msg.className='form-msg err';return;}
-    msg.textContent='Sending...';msg.className='form-msg';
-    try{
-        const r=await fetch('https://formspree.io/f/xgoprgww',{
-            method:'POST',
-            headers:{'Content-Type':'application/json','Accept':'application/json'},
-            body:JSON.stringify({
-                name:document.getElementById('fn').value,
-                email:e,
-                organization:document.getElementById('fo').value,
-                report_type:document.getElementById('ft').value,
-                entity_interest:document.getElementById('fent').value,
-                _subject:'Eigenstate - signal report request'
-            })
-        });
-        if(r.ok){msg.textContent='Received. Expect a response within 24 hours. - Eigenstate Research';msg.className='form-msg ok';}
-        else{msg.textContent='Something went wrong. Email research@eigenstate.xyz directly.';msg.className='form-msg err';}
-    }catch{msg.textContent='Network error. Email research@eigenstate.xyz directly.';msg.className='form-msg err';}
-}
+loadReports();
 </script>
 </body>
 </html>

@@ -2272,12 +2272,12 @@ function initForm() {
                 messageDiv.innerHTML =
                     '<span style="color: #f87171;">' +
                     (err.error || 'Send failed') +
-                    '. Email research@eigenstate.xyz</span>';
+                    '. Email ksekhon9851@Gmail.com</span>';
                 messageDiv.className = 'form-message';
             }
         } catch {
             messageDiv.innerHTML =
-                '<span style="color: #f87171;">Network error. Email research@eigenstate.xyz</span>';
+                '<span style="color: #f87171;">Network error. Email ksekhon9851@Gmail.com</span>';
             messageDiv.className = 'form-message';
         }
 
