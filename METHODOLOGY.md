@@ -33,7 +33,7 @@ After each parkash cycle, the engine computes a fingerprint of the entire vault 
 
 Why Base mainnet? Because the block timestamp is immutable and publicly verifiable. Any claim about the state of the field at a given time can be verified against the on-chain fingerprint.
 
-How to verify: find the block number in the article footer, look it up at basescan.org/block/[number], confirm the block exists at the stated time.
+How to verify: find the block number in the article footer and look it up at basescan.org/block/XXXXXXXX. For example, the first engine commit is at https://basescan.org/block/44546204
 
 The vault is at: [On-Chain Proof Index](onchain/)
 
