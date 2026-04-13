@@ -5,6 +5,8 @@ pip install helixhash requests
 python3 demo/eigenstate_demo.py
 ```
 
+HelixHash source and documentation: https://github.com/Kaydeep0/helixhash
+
 This runs three live observations (SOFR rate, BlackRock BUIDL TVL, Ethereum GitHub stars),
 chains them cryptographically via SHA-256, and prints the fingerprint.
 Then click the Basescan link to verify the same fingerprint is on a public blockchain.
