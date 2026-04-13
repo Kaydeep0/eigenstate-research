@@ -4,7 +4,7 @@
 
 **E = ΔI / A**
 
-E is information efficiency. ΔI is the change in mutual information between an entity's observed state and the structural field it participates in. A is the activation threshold — the minimum signal required for the observation to count as real.
+E is information efficiency. ΔI is the log-ratio surprise of each observation: the information gained when the observed state differs from the expected state, measured in bits. A is the observation cost — the computational effort required to make the observation (API calls, processing steps, time elapsed).
 
 In plain terms: the engine measures how much new information each entity generates per unit of structural change. High E means the entity is producing signal that isn't yet priced into the surrounding field. Low E means the entity is moving with the field, not driving it.
 
@@ -12,7 +12,7 @@ This is not a financial metric. It is a structural one. The field is the topolog
 
 ## The vault
 
-Every observation that passes the activation threshold gets written to the vault. The vault is an append-only chain of field measurements. Each record contains:
+Every observation whose information gain exceeds the minimum observation cost gets written to the vault. The vault is an append-only chain of field measurements. Each record contains:
 
 - Entity codename and display name
 - Timestamp of observation
@@ -70,7 +70,7 @@ Each entity has a field state: φ_S (signal pressure), κ (coherence), coverage 
 
 ## The gap detector
 
-The engine looks for entities that are structurally necessary but not yet priced as such. LIBOR_EQUIVALENT (the benchmark gap) was identified this way: the field showed that SOFR-linked tokenized products were treating overnight rate exposure as equivalent to term rate exposure, which is structurally false.
+The engine looks for entities that are structurally necessary but not yet priced as such. The SOFR benchmark gap was identified this way: the field showed that SOFR-linked tokenized products were treating overnight rate exposure as equivalent to term rate exposure, which is structurally false.
 
 The gap detector measures the distance between what a topology requires to function correctly and what the current pricing and product design assumes. When that distance is large and persistent, it is a structural gap.
 
