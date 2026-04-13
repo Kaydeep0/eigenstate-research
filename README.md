@@ -25,7 +25,7 @@ The measurement is not prediction. It is observation with a timestamp. The on-ch
 
 ## How to verify any claim
 
-Every published claim has an on-chain timestamp. Find the block number in the article footer and look it up at basescan.org. Example: block 44655363 is at https://basescan.org/block/44655363
+Every published claim has an on-chain timestamp. The transaction hash in the article footer links directly to the specific transaction on Basescan. Example: https://basescan.org/tx/26a24d5aebcd2e15911618f6b5593956baf3d95e0fd05db6fb622779c0b5cbb4
 
 All fact-check audit trails are public. The audit JSON for each article is committed alongside the article.
 
