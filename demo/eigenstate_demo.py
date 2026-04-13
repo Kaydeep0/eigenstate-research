@@ -161,14 +161,14 @@ def observe_eth_github():
 # ── Latest on-chain commit (from helix_commits.json in this repo) ─────────────
 
 LATEST_COMMIT = {
-    "block": 44655363,
-    "tx_hash": "26a24d5aebcd2e15911618f6b5593956baf3d95e0fd05db6fb622779c0b5cbb4",
-    "claim_id": 8,
-    "committed_at": "2026-04-13T17:07:51 UTC",
+    "block": 44655585,
+    "tx_hash": "8bbb3cd5d6e3dfb54a8f7fe957d0ae4e0f3a5ae52ba4e927aefa6808c781c017",
+    "claim_id": 10,
+    "committed_at": "2026-04-13T17:15:16 UTC",
     "n_crossings": 63,
     "basescan_url": (
         "https://basescan.org/tx/"
-        "26a24d5aebcd2e15911618f6b5593956baf3d95e0fd05db6fb622779c0b5cbb4"
+        "8bbb3cd5d6e3dfb54a8f7fe957d0ae4e0f3a5ae52ba4e927aefa6808c781c017"
     ),
 }
 
