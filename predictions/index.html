@@ -151,12 +151,12 @@ body{font-family:var(--fb);font-weight:300;background:var(--bg);color:var(--t1);
   <div class="stats-row">
     <div class="stat-pill">
       <div class="label">Total</div>
-      <div class="value">4</div>
+      <div class="value">3</div>
       <div class="note">formal predictions</div>
     </div>
     <div class="stat-pill">
       <div class="label">Pending</div>
-      <div class="value" style="color:var(--amber);">4</div>
+      <div class="value" style="color:var(--amber);">3</div>
       <div class="note">awaiting outcome</div>
     </div>
     <div class="stat-pill">
@@ -176,8 +176,8 @@ body{font-family:var(--fb);font-weight:300;background:var(--bg);color:var(--t1);
     </div>
     <div class="stat-pill">
       <div class="label">Markets Covered</div>
-      <div class="value" style="color:var(--t1);">4</div>
-      <div class="note">US · FX · India · DeFi</div>
+      <div class="value" style="color:var(--t1);">3</div>
+      <div class="note">US rates · India derivatives</div>
     </div>
   </div>
 
@@ -399,115 +399,6 @@ body{font-family:var(--fb);font-weight:300;background:var(--bg);color:var(--t1);
 
   </div><!-- end FED_EXTRACTION_001 -->
 
-  <!-- PREDICTION: CURRENCY_FIX_001 -->
-  <div class="prediction-card status-pending">
-
-    <div class="pred-top">
-      <div class="pred-id">ID: CURRENCY_FIX_001 &nbsp;·&nbsp; Logged 2026-04-14</div>
-      <span class="pred-status pending">PENDING</span>
-    </div>
-
-    <h2 class="pred-title">FX Settlement Gap: WM/Reuters Fix Window Exposed in COINBASE/BASE/CIRCLE Tokenized Loop</h2>
-
-    <p class="pred-claim">
-      The COINBASE/BASE/CIRCLE loop has created a 25:1 gap ratio in the FX settlement layer.
-      Five temporal curl loops have been confirmed by the engine around this cluster (top loop: ONDO, COINBASE, FIREBLOCKS).
-      The WM/Reuters Fix window — a 5-minute sampling window that prices $7.5T in daily FX volume — has no settlement mechanism
-      for tokenized FX positions that close within the Base block time (2 seconds).
-      This structural mismatch will produce a Fix disruption event or trigger BIS/FSB acknowledgment of the gap.
-    </p>
-
-    <div class="falsifiable-block">
-      <div class="falsifiable-label">Falsifiable Condition · 180-Day Window</div>
-      <div class="falsifiable-text">
-        WM/Reuters Fix window produces a disruption event attributable to tokenized FX settlement mismatch
-        OR BIS/FSB publishes acknowledgment of FX settlement gap in tokenized markets
-        within 180 days of 2026-04-14 (expires 2026-10-11).
-      </div>
-    </div>
-
-    <div class="pred-meta">
-      <div class="meta-item">
-        <div class="meta-label">Primary Entity</div>
-        <div class="meta-value highlight">COINBASE / BASE / CIRCLE</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Gap ID</div>
-        <div class="meta-value">CURRENCY_FIX</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Logged At</div>
-        <div class="meta-value">2026-04-14 03:36 UTC</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Window</div>
-        <div class="meta-value">180 days (expires 2026-10-11)</div>
-      </div>
-    </div>
-
-    <div class="signal-grid">
-      <div class="signal-chip">
-        <div class="s-label">Gap Score</div>
-        <div class="s-value amber">5.0 / 10</div>
-      </div>
-      <div class="signal-chip">
-        <div class="s-label">Gap Ratio</div>
-        <div class="s-value amber">25:1</div>
-      </div>
-      <div class="signal-chip">
-        <div class="s-label">Curl Loops</div>
-        <div class="s-value" style="color:var(--green);">5 confirmed</div>
-      </div>
-      <div class="signal-chip">
-        <div class="s-label">Top Loop</div>
-        <div class="s-value">ONDO·COINBASE·FIREBLOCKS</div>
-      </div>
-      <div class="signal-chip">
-        <div class="s-label">Curl Confirmed</div>
-        <div class="s-value" style="color:var(--green);">YES</div>
-      </div>
-      <div class="signal-chip">
-        <div class="s-label">Flag</div>
-        <div class="s-value" style="color:#a855f7;">ACTIVE_EXTRACTION</div>
-      </div>
-    </div>
-
-    <div class="onchain-strip">
-      <div class="onchain-label">On-Chain Proof (Base Mainnet, logged before publication)</div>
-      <div class="onchain-fields">
-        <div class="onchain-field">
-          <div class="f-label">Claim ID</div>
-          <div class="f-value">20</div>
-        </div>
-        <div class="onchain-field">
-          <div class="f-label">Block</div>
-          <div class="f-value">44673968</div>
-        </div>
-        <div class="onchain-field">
-          <div class="f-label">Committed At</div>
-          <div class="f-value">2026-04-14 03:28 UTC</div>
-        </div>
-        <div class="onchain-field">
-          <div class="f-label">Vault Fingerprint</div>
-          <div class="f-value">913aab95f15701a8</div>
-        </div>
-        <div class="onchain-field">
-          <div class="f-label">Transaction</div>
-          <div class="f-value">
-            <a href="https://basescan.org/tx/e94369954e8ef797c6ee56d7251a3330f458911a9a07452d60de30d042dc174d" target="_blank" rel="noopener">
-              e94369954e8ef797...c174d ↗
-            </a>
-          </div>
-        </div>
-        <div class="onchain-field">
-          <div class="f-label">Overlay Entities</div>
-          <div class="f-value">COINBASE, BASE, CIRCLE, ONDO, FIREBLOCKS</div>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- end CURRENCY_FIX_001 -->
-
   <!-- PREDICTION: INDIA_BANKNIFTY_001 -->
   <div class="prediction-card status-pending">
 
@@ -558,7 +449,7 @@ body{font-family:var(--fb);font-weight:300;background:var(--bg);color:var(--t1);
     <div class="signal-grid">
       <div class="signal-chip">
         <div class="s-label">Gap Score</div>
-        <div class="s-value red">9.8 / 10</div>
+        <div class="s-value amber">3.65 / 10</div>
       </div>
       <div class="signal-chip">
         <div class="s-label">Gap Ratio</div>
@@ -574,7 +465,7 @@ body{font-family:var(--fb);font-weight:300;background:var(--bg);color:var(--t1);
       </div>
       <div class="signal-chip">
         <div class="s-label">Curl Confirmed</div>
-        <div class="s-value" style="color:var(--t3);">NO</div>
+        <div class="s-value amber" title="liquidity_gap_detector internal flag only">DETECTOR FLAG</div>
       </div>
       <div class="signal-chip">
         <div class="s-label">Flag</div>

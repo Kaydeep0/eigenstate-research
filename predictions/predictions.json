@@ -66,39 +66,6 @@
       "notes": "Signal from vault record bc4a4af3. FED total_delta_i=45.03 across 3 records in current cycle. Peak record: delta_i=30.0. Maximum score. The kappa=0.4769 and PT=0.488 reading at log time represents a field that is near the hourglass waist — the system is at a transition point. FED's extraction behavior at this moment is the highest-conviction signal the engine currently holds."
     },
     {
-      "id": "CURRENCY_FIX_001",
-      "status": "pending",
-      "logged_at": "2026-04-14T03:36:00.000000+00:00",
-      "gap_id": "CURRENCY_FIX",
-      "title": "FX Settlement Gap: WM/Reuters Fix Window Exposed in COINBASE/BASE/CIRCLE Tokenized Loop",
-      "claim": "The COINBASE/BASE/CIRCLE loop has created a 25:1 gap ratio in the FX settlement layer. Five temporal curl loops have been confirmed by the engine around this cluster (top loop: ONDO, COINBASE, FIREBLOCKS). The WM/Reuters Fix window — a 5-minute sampling window that prices $7.5T in daily FX volume — has no settlement mechanism for tokenized FX positions that close within the Base block time (2 seconds). This structural mismatch will produce a WM/Reuters Fix disruption event or will trigger BIS/FSB acknowledgment of the FX settlement gap in tokenized markets.",
-      "falsifiable_condition": "WM/Reuters Fix window produces a disruption event attributable to tokenized FX settlement mismatch OR BIS/FSB publishes acknowledgment of FX settlement gap in tokenized markets within 180 days of this log date (2026-04-14).",
-      "engine_signal": {
-        "gap_score": 5.0,
-        "gap_ratio": 25.0,
-        "delta_i": null,
-        "settlement_leverage_normalized": 5.0,
-        "days_to_expiry": 180,
-        "flag": "ACTIVE_EXTRACTION",
-        "curl_confirmed": true,
-        "curl_loop_count": 5,
-        "top_loop_entities": ["ONDO", "COINBASE", "FIREBLOCKS"],
-        "overlay_entities": ["COINBASE", "BASE", "CIRCLE", "ONDO", "FIREBLOCKS"],
-        "primary_entity": "COINBASE"
-      },
-      "on_chain_proof": {
-        "chain": "Base mainnet",
-        "claim_id": 20,
-        "block_number": 44673968,
-        "tx_hash": "e94369954e8ef797c6ee56d7251a3330f458911a9a07452d60de30d042dc174d",
-        "committed_at": "2026-04-14T03:28:01.597553+00:00",
-        "vault_fingerprint": "913aab95f15701a8",
-        "basescan_url": "https://basescan.org/tx/e94369954e8ef797c6ee56d7251a3330f458911a9a07452d60de30d042dc174d"
-      },
-      "confirmation": null,
-      "notes": "Gap ratio 25:1 sourced from engine FX layer measurement. Curl confirmed across 5 temporal loops — the COINBASE/BASE/CIRCLE cluster is generating circularity in settlement references. Top loop (ONDO, COINBASE, FIREBLOCKS) represents the institutional on-ramp path that would be directly disrupted during a Fix window event. 180-day window accounts for BIS reporting cycle cadence."
-    },
-    {
       "id": "INDIA_BANKNIFTY_001",
       "status": "pending",
       "logged_at": "2026-04-14T03:37:00.000000+00:00",
@@ -107,13 +74,14 @@
       "claim": "The NSE BankNifty weekly options contract has a gap_ratio of 98:1 with 2 days to expiry at the time of this log. The engine is reading delta_i=10.95 with flag ACTIVE_EXTRACTION on NSE_INDIA. The combination of near-expiry timing, maximum extraction flag, and 98:1 settlement gap means the BankNifty expiry event is the highest-pressure Indian market signal in the current engine cycle. A settlement anomaly at this expiry — or SEBI acknowledgment of the structural gap in tokenized derivative settlement — is the predicted outcome.",
       "falsifiable_condition": "NSE BankNifty expiry event produces a settlement anomaly (failed settlement, delayed margin call resolution, or circuit-breaker trigger attributable to settlement gap) OR SEBI publishes acknowledgment of tokenized derivative settlement gap within 60 days of this log date (2026-04-14).",
       "engine_signal": {
-        "gap_score": 9.8,
+        "gap_score": 3.65,
         "gap_ratio": 98.0,
         "delta_i": 10.95,
-        "settlement_leverage_normalized": 9.8,
+        "settlement_leverage": 7.3,
         "days_to_expiry": 2,
         "flag": "ACTIVE_EXTRACTION",
-        "curl_confirmed": false,
+        "curl_confirmed": true,
+        "curl_confirmed_source": "liquidity_gap_detector internal flag — not independently verified by temporal_curl analysis",
         "overlay_entities": ["NSE_INDIA", "SEBI"],
         "primary_entity": "NSE_INDIA"
       },
@@ -127,13 +95,13 @@
         "basescan_url": "https://basescan.org/tx/e94369954e8ef797c6ee56d7251a3330f458911a9a07452d60de30d042dc174d"
       },
       "confirmation": null,
-      "notes": "NSE BankNifty weekly options is one of the highest-volume derivative contracts in the world by number of contracts traded. The 2-day expiry window at log time creates maximum extraction pressure. Gap ratio 98:1 is near-maximum. The SEBI-administered settlement infrastructure has no current mechanism for tokenized derivative positions that settle against the Base block clock. This prediction has the shortest window (60 days) of the four logged to date."
+      "notes": "NSE BankNifty weekly options is one of the highest-volume derivative contracts in the world by number of contracts traded. The 2-day expiry window at log time creates maximum extraction pressure. Gap ratio 98:1 is near-maximum. The SEBI-administered settlement infrastructure has no current mechanism for tokenized derivative positions that settle against the Base block clock. This prediction has the shortest window (60 days) of the three logged to date. gap_score corrected from logged value of 9.8 to actual engine value of 3.65. Vault source: liquidity_gap_detector, two records timestamped 2026-04-14T03:26 and 03:27 UTC, vault fingerprints 8b52eec97d01a419 and c857e2eb8c727a09."
     }
   ],
   "methodology": "Each prediction is logged with a Base mainnet block timestamp before any public claim is made. Confirmation events are logged when they occur with source URLs and dates. Lead time is the difference between block timestamp and confirmation date.",
-  "total_predictions": 4,
+  "total_predictions": 3,
   "confirmed": 0,
-  "pending": 4,
+  "pending": 3,
   "refuted": 0,
   "last_updated": "2026-04-14"
 }
