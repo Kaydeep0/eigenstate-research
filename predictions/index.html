@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Predictions — Eigenstate Research</title>
+<meta name="description" content="Structural gap predictions logged before outcome is known. Each entry is timestamped and committed to Base mainnet before publication. Falsifiable claims about the tokenized finance settlement layer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #030712;
+  --bg2: #0a0e27;
+  --bgcard: #0f172a;
+  --cyan: #00d9ff;
+  --cyan2: #0ea5e9;
+  --orange: #ff6b35;
+  --red: #dc2626;
+  --green: #22c55e;
+  --amber: #f59e0b;
+  --t1: #f8fafc;
+  --t2: #94a3b8;
+  --t3: #64748b;
+  --border: rgba(14,165,233,0.15);
+  --border2: rgba(14,165,233,0.3);
+  --fh: 'Orbitron', sans-serif;
+  --fb: 'Inter', sans-serif;
+  --fm: 'JetBrains Mono', monospace;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--fb);font-weight:300;background:var(--bg);color:var(--t1);line-height:1.7;}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:100;background:rgba(3,7,18,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:18px 40px;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-family:var(--fh);font-size:16px;font-weight:700;letter-spacing:0.2em;color:var(--t1);text-decoration:none;}
+.nav-links{display:flex;gap:32px;align-items:center;}
+.nav-links a{font-family:var(--fm);font-size:12px;letter-spacing:0.05em;color:var(--t2);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--cyan);}
+
+/* Layout */
+.container{max-width:1100px;margin:0 auto;padding:60px 40px;}
+.page-header{margin-bottom:48px;}
+.page-title{font-family:var(--fh);font-size:clamp(22px,3vw,34px);font-weight:800;letter-spacing:0.08em;margin-bottom:8px;}
+.page-sub{color:var(--t2);font-size:15px;max-width:680px;line-height:1.6;margin-top:12px;}
+
+/* Stats row */
+.stats-row{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:48px;}
+.stat-pill{background:var(--bgcard);border:1px solid var(--border);border-radius:8px;padding:16px 24px;display:flex;flex-direction:column;gap:4px;min-width:140px;}
+.stat-pill .label{font-family:var(--fm);font-size:10px;letter-spacing:0.08em;color:var(--t3);text-transform:uppercase;}
+.stat-pill .value{font-family:var(--fh);font-size:22px;font-weight:700;color:var(--cyan);}
+.stat-pill .note{font-size:11px;color:var(--t3);}
+
+/* Prediction card */
+.prediction-card{background:var(--bgcard);border:1px solid var(--border);border-radius:14px;padding:32px;margin-bottom:24px;position:relative;overflow:hidden;}
+.prediction-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--amber);}
+.prediction-card.status-pending::before{background:var(--amber);}
+.prediction-card.status-confirmed::before{background:var(--green);}
+.prediction-card.status-refuted::before{background:var(--red);}
+
+.pred-top{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:20px;}
+.pred-id{font-family:var(--fm);font-size:11px;letter-spacing:0.06em;color:var(--t3);}
+.pred-status{font-family:var(--fm);font-size:11px;font-weight:600;padding:4px 12px;border-radius:4px;letter-spacing:0.05em;}
+.pred-status.pending{background:#1c1003;color:var(--amber);border:1px solid rgba(245,158,11,0.3);}
+.pred-status.confirmed{background:#052e16;color:var(--green);border:1px solid rgba(34,197,94,0.3);}
+.pred-status.refuted{background:#1a0000;color:var(--red);border:1px solid rgba(220,38,38,0.3);}
+
+.pred-title{font-family:var(--fh);font-size:clamp(16px,2vw,20px);font-weight:700;letter-spacing:0.04em;margin-bottom:10px;line-height:1.3;}
+.pred-claim{font-size:14px;color:var(--t2);line-height:1.7;margin-bottom:20px;}
+
+.pred-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px;}
+.meta-item{display:flex;flex-direction:column;gap:4px;}
+.meta-label{font-family:var(--fm);font-size:10px;letter-spacing:0.07em;color:var(--t3);text-transform:uppercase;}
+.meta-value{font-family:var(--fm);font-size:13px;color:var(--t1);}
+.meta-value.highlight{color:var(--cyan);}
+.meta-value.amber{color:var(--amber);}
+.meta-value.green{color:var(--green);}
+
+/* Falsifiable block */
+.falsifiable-block{background:rgba(0,0,0,0.3);border:1px solid rgba(245,158,11,0.2);border-radius:8px;padding:20px;margin-bottom:20px;}
+.falsifiable-label{font-family:var(--fm);font-size:10px;letter-spacing:0.08em;color:var(--amber);text-transform:uppercase;margin-bottom:8px;}
+.falsifiable-text{font-size:13px;color:var(--t2);line-height:1.6;}
+
+/* Signal grid */
+.signal-grid{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;}
+.signal-chip{background:rgba(0,217,255,0.05);border:1px solid var(--border);border-radius:6px;padding:8px 14px;display:flex;flex-direction:column;gap:2px;}
+.signal-chip .s-label{font-family:var(--fm);font-size:9px;letter-spacing:0.08em;color:var(--t3);text-transform:uppercase;}
+.signal-chip .s-value{font-family:var(--fm);font-size:14px;font-weight:600;color:var(--cyan);}
+.signal-chip .s-value.red{color:#ef4444;}
+.signal-chip .s-value.amber{color:var(--amber);}
+
+/* On-chain strip */
+.onchain-strip{background:rgba(0,217,255,0.03);border:1px solid rgba(0,217,255,0.15);border-radius:10px;padding:18px 22px;}
+.onchain-label{font-family:var(--fm);font-size:10px;letter-spacing:0.08em;color:var(--t3);text-transform:uppercase;margin-bottom:12px;}
+.onchain-fields{display:flex;flex-wrap:wrap;gap:20px;}
+.onchain-field{display:flex;flex-direction:column;gap:3px;}
+.onchain-field .f-label{font-family:var(--fm);font-size:9px;letter-spacing:0.07em;color:var(--t3);text-transform:uppercase;}
+.onchain-field .f-value{font-family:var(--fm);font-size:11px;color:var(--cyan);word-break:break-all;}
+.onchain-field .f-value a{color:var(--cyan);text-decoration:none;}
+.onchain-field .f-value a:hover{text-decoration:underline;}
+
+/* Methodology */
+.method-block{background:var(--bgcard);border:1px solid var(--border);border-radius:12px;padding:32px;margin-top:48px;}
+.method-block h3{font-family:var(--fh);font-size:14px;font-weight:700;letter-spacing:0.08em;margin-bottom:18px;color:var(--t2);text-transform:uppercase;}
+.method-block p{font-size:14px;color:var(--t2);line-height:1.7;margin-bottom:14px;}
+.method-block p:last-child{margin-bottom:0;}
+.method-block code{font-family:var(--fm);font-size:12px;color:var(--cyan);background:rgba(0,217,255,0.06);padding:2px 6px;border-radius:4px;}
+
+/* Section heading */
+.section-title{font-family:var(--fh);font-size:13px;font-weight:700;letter-spacing:0.1em;color:var(--t3);text-transform:uppercase;margin-bottom:20px;margin-top:48px;border-top:1px solid var(--border);padding-top:32px;}
+
+/* Footer */
+.footer{margin-top:80px;padding:32px 40px;border-top:1px solid var(--border);text-align:center;}
+.footer p{font-family:var(--fm);font-size:11px;color:var(--t3);}
+
+@media(max-width:640px){
+  .nav{padding:14px 20px;}
+  .container{padding:40px 20px;}
+  .pred-top{flex-direction:column;}
+  .pred-meta{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/eigenstate-research/" class="nav-logo">EIGENSTATE</a>
+    <div class="nav-links">
+      <a href="/eigenstate-research/">Research</a>
+      <a href="/eigenstate-research/reports/">Reports</a>
+      <a href="/eigenstate-research/track-record/">Track Record</a>
+      <a href="/eigenstate-research/predictions/" class="active">Predictions</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="page-header">
+    <h1 class="page-title">STRUCTURAL PREDICTIONS</h1>
+    <p class="page-sub">
+      Gap-level predictions logged before any public claim is made.
+      Each entry is timestamped, falsifiable, and committed to Base mainnet before publication.
+      The engine does not post-explain events. It names them first.
+    </p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-pill">
+      <div class="label">Total</div>
+      <div class="value">1</div>
+      <div class="note">formal predictions</div>
+    </div>
+    <div class="stat-pill">
+      <div class="label">Pending</div>
+      <div class="value" style="color:var(--amber);">1</div>
+      <div class="note">awaiting outcome</div>
+    </div>
+    <div class="stat-pill">
+      <div class="label">Confirmed</div>
+      <div class="value" style="color:var(--green);">0</div>
+      <div class="note">&nbsp;</div>
+    </div>
+    <div class="stat-pill">
+      <div class="label">Refuted</div>
+      <div class="value" style="color:var(--t3);">0</div>
+      <div class="note">&nbsp;</div>
+    </div>
+    <div class="stat-pill">
+      <div class="label">Max Gap Score</div>
+      <div class="value">10.0</div>
+      <div class="note">LIBOR_EQUIVALENT</div>
+    </div>
+  </div>
+
+  <div class="section-title">Active Predictions</div>
+
+  <!-- PREDICTION: LIBOR_EQUIVALENT_001 -->
+  <div class="prediction-card status-pending">
+
+    <div class="pred-top">
+      <div class="pred-id">ID: LIBOR_EQUIVALENT_001 &nbsp;·&nbsp; Logged 2026-04-13</div>
+      <span class="pred-status pending">PENDING</span>
+    </div>
+
+    <h2 class="pred-title">$300 Trillion Structural Gap: SOFR Transition Left No Model</h2>
+
+    <p class="pred-claim">
+      The LIBOR/SOFR transition did not resolve the underlying benchmark fragility.
+      The $300T derivatives market settles against SOFR using the ISDA 2020 fallback protocol
+      with no sovereign-backed rate model for term structure.
+      This gap (ratio 300:1 against daily interbank volume) will surface as a pricing dislocation
+      event during the next liquidity contraction.
+    </p>
+
+    <div class="falsifiable-block">
+      <div class="falsifiable-label">Falsifiable Condition</div>
+      <div class="falsifiable-text">
+        A SOFR-referenced instrument misprices or fails settlement during a liquidity stress event,
+        triggering ISDA fallback invocation at scale.
+        Alternatively: regulatory acknowledgment of the benchmark gap by FSOC, FSB, or BIS in a published report.
+      </div>
+    </div>
+
+    <div class="pred-meta">
+      <div class="meta-item">
+        <div class="meta-label">Primary Entity</div>
+        <div class="meta-value highlight">Federal Reserve (FED)</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Gap ID</div>
+        <div class="meta-value">LIBOR_EQUIVALENT</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Logged At</div>
+        <div class="meta-value">2026-04-13 23:25 UTC</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Expiry Cadence</div>
+        <div class="meta-value">Daily (SOFR 08:00 ET)</div>
+      </div>
+    </div>
+
+    <div class="signal-grid">
+      <div class="signal-chip">
+        <div class="s-label">Gap Score</div>
+        <div class="s-value red">10.0 / 10</div>
+      </div>
+      <div class="signal-chip">
+        <div class="s-label">Gap Ratio</div>
+        <div class="s-value amber">300:1</div>
+      </div>
+      <div class="signal-chip">
+        <div class="s-label">Settlement Leverage</div>
+        <div class="s-value amber">10×</div>
+      </div>
+      <div class="signal-chip">
+        <div class="s-label">Delta_I</div>
+        <div class="s-value">30.0</div>
+      </div>
+      <div class="signal-chip">
+        <div class="s-label">Curl Confirmed</div>
+        <div class="s-value" style="color:var(--green);">YES</div>
+      </div>
+      <div class="signal-chip">
+        <div class="s-label">Flag</div>
+        <div class="s-value" style="color:#a855f7;">ACTIVE_EXTRACTION</div>
+      </div>
+    </div>
+
+    <div class="onchain-strip">
+      <div class="onchain-label">On-Chain Proof (Base Mainnet, logged before publication)</div>
+      <div class="onchain-fields">
+        <div class="onchain-field">
+          <div class="f-label">Claim ID</div>
+          <div class="f-value">10</div>
+        </div>
+        <div class="onchain-field">
+          <div class="f-label">Block</div>
+          <div class="f-value">44655585</div>
+        </div>
+        <div class="onchain-field">
+          <div class="f-label">Committed At</div>
+          <div class="f-value">2026-04-13 17:15 UTC</div>
+        </div>
+        <div class="onchain-field">
+          <div class="f-label">Vault Fingerprint</div>
+          <div class="f-value">a918a01b73e077eb</div>
+        </div>
+        <div class="onchain-field">
+          <div class="f-label">Transaction</div>
+          <div class="f-value">
+            <a href="https://basescan.org/tx/8bbb3cd5d6e3dfb54a8f7fe957d0ae4e0f3a5ae52ba4e927aefa6808c781c017" target="_blank" rel="noopener">
+              8bbb3cd5...c017 ↗
+            </a>
+          </div>
+        </div>
+        <div class="onchain-field">
+          <div class="f-label">Overlay Entities</div>
+          <div class="f-value">FED, BLACKROCK, ONDO, SEC</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end prediction card -->
+
+  <div class="method-block">
+    <h3>Methodology</h3>
+    <p>
+      <strong style="color:var(--t1);">What is a structural prediction?</strong>
+      A structural prediction identifies a gap between what a market structure currently prices
+      and what the underlying settlement mechanics require. It is not a price call.
+      It is a claim that a specific structural fragility exists and will manifest during stress.
+      The engine surfaces these via <code>liquidity_gap_detector.py</code>,
+      which computes gap_ratio = notional exposure / daily settlement volume.
+    </p>
+    <p>
+      <strong style="color:var(--t1);">Logging protocol</strong>
+      Each prediction is written to <code>predictions/predictions.json</code> before any
+      public statement is made. The engine state at that moment is committed to Base mainnet
+      via the GeniusFlow Settlement Contract. The on-chain block timestamp is the proof of
+      priority: the prediction existed before the outcome was observable.
+    </p>
+    <p>
+      <strong style="color:var(--t1);">Falsifiability requirement</strong>
+      Every entry must include an explicit falsifiable condition: a specific observable event
+      that would either confirm or refute the prediction. Entries without a falsifiable
+      condition are not logged. The prediction window is open-ended for structural predictions
+      (no arbitrary 30-day cutoff, since these gaps can persist for years before resolution).
+    </p>
+    <p>
+      <strong style="color:var(--t1);">Gap score</strong>
+      Normalized 0-10 scale. 10.0 is the maximum, assigned when gap_ratio exceeds 100:1 and
+      settlement_leverage_normalized exceeds 8×. LIBOR_EQUIVALENT is the first prediction
+      logged at maximum score.
+      The score is derived from: <code>E = ΔI / A</code> (Kirandeep's Law of Emergence).
+      <em>ΔI</em> = information differential between observable rate and implied settlement rate.
+      <em>A</em> = action cost to correct (proxied by regulatory response lag).
+    </p>
+    <p>
+      <strong style="color:var(--t1);">Relationship to Track Record</strong>
+      The <a href="/eigenstate-research/track-record/" style="color:var(--cyan);">Track Record page</a>
+      shows entity-level Φ_S (settlement pressure) readings.
+      Predictions here are gap-level: they name a structural fragility in the global
+      settlement layer, not an entity's pressure reading on a given day.
+      They are the engine's highest-conviction, lowest-frequency outputs.
+    </p>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>Eigenstate Research · Node 34539544 · E = ΔI/A · DOI 10.5281/zenodo.18413995</p>
+  <p style="margin-top:6px;">Predictions are logged before outcomes are known. This is not financial advice.</p>
+</footer>
+
+</body>
+</html>
