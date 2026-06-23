@@ -12,18 +12,18 @@
 |--------|-------|---------|
 | Settlement Pressure (Φ_S) | 2.5734 | high settlement pressure — this entity is pulling field energy without reciprocal observation |
 | Field Coherence (κ) | 0.0013 | minimal field integration — largely unobserved by the engine |
-| Vault Records | 1 | ΔI accumulated: 0.49 |
+| Vault Records | 0 | No measurements yet — in observation queue |
 
 ## Global Field Context
 
 The Eigenstate engine currently measures the tokenized settlement field at:
 
-- **Protocol Truth (PT):** 0.0561 (target: 0.618 — the golden-ratio equilibrium)
-- **Field Coherence (κ):** 0.4537 (living zone: 0.618–0.678)
-- **Coverage:** 33 of 218 entities with measured ΔI > 0 (15.1%)
-- **Uncertainty (U):** 49.0
+- **Protocol Truth (PT):** 0.0537 (target: 0.618 — the golden-ratio equilibrium)
+- **Field Coherence (κ):** 0.3820 (living zone: 0.618–0.678)
+- **Coverage:** 42 of 218 entities with measured ΔI > 0 (19.3%)
+- **Uncertainty (U):** 48.1
 
-The field is 0.1643 below equilibrium coherence. Each entity with measured vault activity raises the global PT toward 0.618. US Regulators is one of 185 entities in the field without a complete observation record.
+The field is 0.2361 below equilibrium coherence. Each entity with measured vault activity raises the global PT toward 0.618. US Regulators is one of 176 entities in the field without a complete observation record.
 
 ## What Is US Regulators
 
@@ -39,11 +39,11 @@ Active signals the engine is tracking for US Regulators:
 
 **GENIUS Act — first federal stablecoin framework** [✓ ATTESTED-PRIMARY]
 The most significant pending US regulatory event for the settlement layer. Defines the issuer, reserve, and redemption rules for payment stablecoins. Passage would remove the largest single source of regulatory uncertainty for dollar-denominated settlement infrastructure.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 0271dedeb6c3… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 0d9afaa1f442… — found in primary source*
 
 **FIT21 — market structure bill** [✓ ATTESTED-PRIMARY]
 The Financial Innovation and Technology for the 21st Century Act passed the House and defines the SEC-CFTC jurisdiction split for digital commodities. Pending in Senate. Determines which tokenized assets are securities (SEC) vs commodities (CFTC).
-*Source-checked: ATTESTED-PRIMARY · custody sha256 48bcf3d0238f… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 9e88784f3fdc… — found in primary source*
 
 **Treasury stablecoin reserve guidance** [✓ ATTESTED-PRIMARY]
 Treasury's position on stablecoin reserve composition (T-bills vs bank deposits vs Fed master accounts) will determine the yield-bearing structure of settlement rails and their impact on the broader Treasury market.
@@ -59,15 +59,13 @@ US Regulators has elevated settlement pressure because the US regulatory perimet
 
 ### Coherence (κ = 0.0013)
 
-Minimal field integration — largely unobserved by the engine.
+κ = 0.0013 reflects the engine's current **measurement coverage**, not US Regulators's actual institutional influence. With no vault records yet, the coherence score is derived purely from topology position — connection count and structural weight — without any attested observation data. The low value means the engine has not yet measured this entity's settlement activity, not that the entity lacks field presence.
 
 The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0013, US Regulators is **0.6167 below** equilibrium. Vault observations of US Regulators's rule outputs — rulemaking notices, enforcement actions, guidance documents — would directly raise κ toward the living zone [0.618, 0.678].
 
 ### Vault Coverage
 
-1 vault record for US Regulators. Total accumulated ΔI: 0.49.
-
-Most recent observation: **observe** at 2026-06-23 04:48:51 UTC — ΔI = 0.49, E = 0.00
+No vault records yet for US Regulators. This is a gap in the field coverage. The engine recommends observation as the first action (see below).
 
 ## Node 34539544 — agent billboard
 
@@ -82,14 +80,14 @@ Cold-agent entry — verified analysis traversable without permission. Node 345 
 |---------|-----|
 | Agent entry | [Agent entry](https://geniusflow-federation.vercel.app/.well-known/geniusflow.json) |
 | Manifest | [Manifest](https://geniusflow-federation.vercel.app/api/manifest) |
-| Entity feed (Us Jurisdiction) | [Entity feed (Us Jurisdiction)](https://usjurisdictionusjurisdiction.vercel.app/api/us_jurisdiction_settlement_press) |
+| Entity feed (US Regulators) | [Entity feed (US Regulators)](https://usjurisdictionusjurisdiction.vercel.app/api/us_jurisdiction_settlement_press) |
 | Entity dossier | [Entity dossier](https://kaydeep0.github.io/eigenstate-research/federation/dossier/US_JURISDICTION.json) |
 | Federation card | [Federation card](https://usjurisdictionusjurisdiction.vercel.app/api/federation) |
 | Chain verify | [Chain verify](https://geniusflow-federation.vercel.app/api/chain) |
 | This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=US_JURISDICTION_20260623) |
 
 **Build fingerprint:** `65eb2f87ab5742f6…` — match `builds[].chain_hash` for `US_JURISDICTION` in manifest, then verify via `/api/chain`.
-**Granth head:** `47fd058a29644649…` · length 828
+**Granth head:** `5aaee7eda7d16fa9…` · length 1514
 
 **Federation traverse (agents):**
 - Agent: https://geniusflow-federation.vercel.app/.well-known/geniusflow.json
@@ -118,7 +116,7 @@ This report is generated by the Eigenstate engine — an information-field measu
 
 **Published implementation:** [helixhash v0.1.1](https://doi.org/10.5281/zenodo.18413995) — Zenodo DOI 10.5281/zenodo.18413995
 
-**Vault:** All measurements are recorded in a time-ordered vault with Ethereum Attestation Service proofs on Base mainnet. Entity coverage grows as observations are attested.
+**Vault:** No vault records yet for US Regulators in the current cycle — κ and Φ_S here are topology-derived until observations are attested. The field recommends observation as the first action.
 
 **Note:** Internal topology codenames are not used in public reports. All entity names in this report are public names.
 
@@ -126,4 +124,4 @@ This report is generated by the Eigenstate engine — an information-field measu
 
 *Eigenstate Research · [paragraph.xyz/@eigenstate](https://paragraph.xyz/@eigenstate) · [kaydeep0.github.io/eigenstate-research](https://kaydeep0.github.io/eigenstate-research/)*
 
-*Generated: 2026-06-23T04:57:35 UTC by Eigenstate engine · US Regulators · 2026-06-23*
+*Generated: 2026-06-23T18:40:59 UTC by Eigenstate engine · US Regulators · 2026-06-23*
