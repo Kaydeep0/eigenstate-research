@@ -1,0 +1,226 @@
+{
+  "entity": "DTCC",
+  "node": "34539544",
+  "compiled_at": "2026-06-23T05:57:50.341825+00:00",
+  "digest": "sha256:9ca8deb1e7354979236d5ff3aa9b7db1d7f5f6ea364c1e5897d1c728e732ca1f",
+  "own_numbers": {
+    "phi_s": 0.02,
+    "kappa": 0.1756,
+    "mass": 0.240306,
+    "power": 0.0,
+    "extraction": 141711.5104,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": 43.0,
+    "mass_type": "infrastructure"
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.240306,
+      "rank": 11,
+      "of": 199
+    },
+    "power": {
+      "value": 0.0,
+      "rank": 20,
+      "of": 45
+    },
+    "gravity": {
+      "value": 43.0,
+      "rank": 26,
+      "of": 61
+    },
+    "extraction": {
+      "value": 141711.5104,
+      "rank": 11,
+      "of": 45
+    },
+    "share_of_whole": {
+      "mass": 0.01502,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "CIRCLE_RESERVE_FUND",
+        "power": 0.0
+      },
+      {
+        "entity": "DEFI_IS_DEAD",
+        "power": 0.0
+      },
+      {
+        "entity": "DTCC",
+        "power": 0.0
+      },
+      {
+        "entity": "EAS",
+        "power": 0.0
+      },
+      {
+        "entity": "ETHEREUM",
+        "power": 0.0
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 4,
+    "out_degree": 14,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 5.5,
+        "in": 1.5
+      },
+      "Information": {
+        "out": 1.5,
+        "in": 1.0
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "CANTON_NETWORK",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CITI_TREASURY_SERVICES",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CITIGROUP",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "CANTON_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "GOLDMAN",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "CANTON_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "PRIMARY_DEALER_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "FED",
+        "mass": 114.0,
+        "hops": 1,
+        "pull": 4902.0
+      },
+      {
+        "entity": "CITIGROUP",
+        "mass": 100.0,
+        "hops": 1,
+        "pull": 4300.0
+      },
+      {
+        "entity": "CANTON_NETWORK",
+        "mass": 41.0,
+        "hops": 1,
+        "pull": 1763.0
+      },
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 2,
+        "pull": 1279.25
+      },
+      {
+        "entity": "FINRA",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 1118.0
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.624,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "watch",
+    "headline": "phi_s -33% over 3 cycles",
+    "cycles": 3,
+    "delta_last_cycle": {
+      "phi_s": 3.2362,
+      "kappa": -0.1756,
+      "power": 0.0,
+      "extraction": 0.0,
+      "gravity_mass": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live_at_request",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live_at_request",
+        "series_id": "GDP",
+        "label": "settlement_volume_gdp_proxy",
+        "last_observed_at": "2026-05-15T21:49:59.337213+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": null
+  },
+  "relative_to_node": {
+    "node_field_G_345": 3.910289352069878e+88,
+    "is_current_operator_target": true,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 0.2,
+    "operator_move": null,
+    "observed_by_node": false
+  }
+}

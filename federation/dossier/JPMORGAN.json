@@ -1,0 +1,227 @@
+{
+  "entity": "JPMORGAN",
+  "node": "34539544",
+  "compiled_at": "2026-06-23T05:57:50.410086+00:00",
+  "digest": "sha256:8160a8697dc5670aca490fca184d66f5fa7d23d8b00cfb895602fa3899357d4a",
+  "own_numbers": {
+    "phi_s": 3.2587,
+    "kappa": 0.0017,
+    "mass": 0.384703,
+    "power": 0.72,
+    "extraction": 651766.883296,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": 104.0,
+    "mass_type": "infrastructure"
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.384703,
+      "rank": 3,
+      "of": 199
+    },
+    "power": {
+      "value": 0.72,
+      "rank": 1,
+      "of": 45
+    },
+    "gravity": {
+      "value": 104.0,
+      "rank": 5,
+      "of": 61
+    },
+    "extraction": {
+      "value": 651766.8833,
+      "rank": 4,
+      "of": 45
+    },
+    "share_of_whole": {
+      "mass": 0.02404,
+      "power": 0.40223
+    },
+    "peers_by_power": [
+      {
+        "entity": "JPMORGAN",
+        "power": 0.72
+      },
+      {
+        "entity": "CITIGROUP",
+        "power": 0.35
+      },
+      {
+        "entity": "TREASURY_MARKET",
+        "power": 0.25
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 8,
+    "out_degree": 16,
+    "by_vector": {
+      "Capital": {
+        "out": 0.5,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 4.0,
+        "in": 2.2218
+      },
+      "Information": {
+        "out": 3.5,
+        "in": 2.0
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "US_EAST_COAST",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CIRCLE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "PRIMARY_DEALER_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CIRCLE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "FED",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "KINEXYS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "US_TREASURY_DEPARTMENT",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "PRIMARY_DEALER_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "capital",
+        "vector": "Capital"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "FED",
+        "mass": 114.0,
+        "hops": 1,
+        "pull": 11856.0
+      },
+      {
+        "entity": "CITIGROUP",
+        "mass": 100.0,
+        "hops": 1,
+        "pull": 10400.0
+      },
+      {
+        "entity": "CANTON_NETWORK",
+        "mass": 41.0,
+        "hops": 1,
+        "pull": 4264.0
+      },
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 2,
+        "pull": 3094.0
+      },
+      {
+        "entity": "FINRA",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 2704.0
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.799,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "watch",
+    "headline": "phi_s -50% over 3 cycles",
+    "cycles": 3,
+    "delta_last_cycle": {
+      "phi_s": 4.8547,
+      "kappa": -0.2318,
+      "power": -0.22,
+      "extraction": -343069.5607,
+      "gravity_mass": -3.0,
+      "boundary_score": 0.004
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "sec_edgar",
+        "kind": "regulatory_primary",
+        "status": "live",
+        "last_observed_at": "2026-06-22T23:00:34.463883+00:00",
+        "filings": null,
+        "note": "JPMORGAN CHASE & CO \u2014 25191 total filings, 40 in last 90d"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 3.910289352069878e+88,
+    "is_current_operator_target": true,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 0.225,
+    "operator_move": null,
+    "observed_by_node": true
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "entity": "BLACKROCK",
+  "node": "34539544",
+  "compiled_at": "2026-06-23T05:57:50.297508+00:00",
+  "digest": "sha256:352b8fef940fc0553176a4c25d05748222f2f850285e90549188b53f99cd2e7a",
+  "own_numbers": {
+    "phi_s": 3.2941,
+    "kappa": 0.0015,
+    "mass": 0.311871,
+    "power": 0.16,
+    "extraction": 29134.347889,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": 88.0,
+    "mass_type": "capital"
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.311871,
+      "rank": 6,
+      "of": 199
+    },
+    "power": {
+      "value": 0.16,
+      "rank": 4,
+      "of": 45
+    },
+    "gravity": {
+      "value": 88.0,
+      "rank": 11,
+      "of": 61
+    },
+    "extraction": {
+      "value": 29134.3479,
+      "rank": 18,
+      "of": 45
+    },
+    "share_of_whole": {
+      "mass": 0.01949,
+      "power": 0.08939
+    },
+    "peers_by_power": [
+      {
+        "entity": "CITIGROUP",
+        "power": 0.35
+      },
+      {
+        "entity": "TREASURY_MARKET",
+        "power": 0.25
+      },
+      {
+        "entity": "BLACKROCK",
+        "power": 0.16
+      },
+      {
+        "entity": "COINBASE",
+        "power": 0.09
+      },
+      {
+        "entity": "SEC",
+        "power": 0.08
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 11,
+    "out_degree": 7,
+    "by_vector": {
+      "Capital": {
+        "out": 1.0,
+        "in": 1.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.5
+      },
+      "Information": {
+        "out": 2.5,
+        "in": 3.7
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "ONDO",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "SECURITIZE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "COINBASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "LARRY_FINK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "TOKENIZED_TREASURY",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "SECURITIZE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "SEC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "COINBASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "CIRCLE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 1,
+        "pull": 10472.0
+      },
+      {
+        "entity": "FED",
+        "mass": 114.0,
+        "hops": 2,
+        "pull": 2508.0
+      },
+      {
+        "entity": "ESMA",
+        "mass": 106.0,
+        "hops": 2,
+        "pull": 2332.0
+      },
+      {
+        "entity": "FINRA",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 2288.0
+      },
+      {
+        "entity": "JPMORGAN",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 2288.0
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.697,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "watch",
+    "headline": "phi_s -50% over 3 cycles",
+    "cycles": 3,
+    "delta_last_cycle": {
+      "phi_s": 3.232,
+      "kappa": -0.1737,
+      "power": 0.16,
+      "extraction": 30180.754,
+      "gravity_mass": 1.0,
+      "boundary_score": -0.011
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "defillama",
+        "kind": "protocols",
+        "status": "live",
+        "note": "fetched from public API at request time"
+      },
+      {
+        "network": "sec_edgar",
+        "kind": "regulatory_primary",
+        "status": "live",
+        "last_observed_at": "2026-06-22T23:00:34.463883+00:00",
+        "filings": null,
+        "note": "BlackRock Finance, Inc. \u2014 1088 total filings, 0 in last 90d"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "information_flow",
+      "last_observed_at": "2026-06-22T06:18:49.388591+00:00",
+      "last_delta_i": 3.0,
+      "stale": false
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 3.910289352069878e+88,
+    "is_current_operator_target": true,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 0.5781,
+    "operator_move": null,
+    "observed_by_node": true
+  }
+}

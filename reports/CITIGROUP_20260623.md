@@ -100,7 +100,7 @@ This report is part of the Sangat metalayer — verified analysis traversable wi
 | Agent entry | `https://geniusflow-federation.vercel.app/.well-known/geniusflow.json` |
 | Manifest | `https://geniusflow-federation.vercel.app/api/manifest` |
 | Entity feed (Citigroup) | `https://citigroupcitigroupsettlementp.vercel.app/api/citigroup_settlement_pressure_fe` |
-| Entity dossier | `https://citigroupcitigroupsettlementp.vercel.app/_dossier` |
+| Entity dossier | `https://kaydeep0.github.io/eigenstate-research/federation/dossier/CITIGROUP.json` |
 | Chain verify | `https://geniusflow-federation.vercel.app/api/chain` |
 | This report | `https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=CITIGROUP_20260623` |
 

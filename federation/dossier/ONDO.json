@@ -1,0 +1,205 @@
+{
+  "entity": "ONDO",
+  "node": "34539544",
+  "compiled_at": "2026-06-23T05:57:50.422831+00:00",
+  "digest": "sha256:0a798f926e660ef7a07ff59cadaba71f504dbda9ac39237bdd9c3e05ad08be0e",
+  "own_numbers": {
+    "phi_s": 1.6427,
+    "kappa": 0.0002,
+    "mass": 0.215301,
+    "power": 0.0,
+    "extraction": 508.3831,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.215301,
+      "rank": 14,
+      "of": 199
+    },
+    "power": {
+      "value": 0.0,
+      "rank": 32,
+      "of": 45
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 508.3831,
+      "rank": 36,
+      "of": 45
+    },
+    "share_of_whole": {
+      "mass": 0.01346,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "MAPLE",
+        "power": 0.0
+      },
+      {
+        "entity": "NATIONAL_CITY_BANK",
+        "power": 0.0
+      },
+      {
+        "entity": "ONDO",
+        "power": 0.0
+      },
+      {
+        "entity": "OUSG",
+        "power": 0.0
+      },
+      {
+        "entity": "RIVER",
+        "power": 0.0
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 7,
+    "out_degree": 6,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.5
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 3.0,
+        "in": 3.0
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "SECURITIZE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "COINBASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "FIREBLOCKS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "BITGO",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "NATHAN_ALLMAN",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "SEC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "BLACKROCK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "COINBASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "OUSG",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": []
+  },
+  "monetary_position": {
+    "position": 0.483,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 3,
+    "delta_last_cycle": {
+      "phi_s": 3.2363,
+      "kappa": -0.1267,
+      "power": 0.0,
+      "extraction": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "defillama",
+        "kind": "protocols",
+        "status": "live",
+        "note": "fetched from public API at request time"
+      },
+      {
+        "network": "sec_edgar",
+        "kind": "regulatory_primary",
+        "status": "live",
+        "last_observed_at": "2026-06-22T23:00:34.463883+00:00",
+        "filings": null,
+        "note": "Ondo I LP \u2014 4 total filings, 0 in last 90d"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "defi_llama_tvl",
+      "last_observed_at": "2026-03-26T21:57:42.158014+00:00",
+      "last_delta_i": 0.05607167461585789,
+      "stale": true
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 3.910289352069878e+88,
+    "is_current_operator_target": false,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 0.2462,
+    "operator_move": null,
+    "observed_by_node": true
+  }
+}

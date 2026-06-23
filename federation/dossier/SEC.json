@@ -1,0 +1,237 @@
+{
+  "entity": "SEC",
+  "node": "34539544",
+  "compiled_at": "2026-06-23T05:57:50.440017+00:00",
+  "digest": "sha256:a19592bdc876ebea44a6930b4e65ee29fa0fd6ce1521b0861fbe373a9908aaea",
+  "own_numbers": {
+    "phi_s": 6.7923,
+    "kappa": 0.0007,
+    "mass": 0.433364,
+    "power": 0.08,
+    "extraction": 222278.857337,
+    "memory_mass": 94.6,
+    "X_natural": 14.7011,
+    "gravity_mass": 119.0,
+    "mass_type": "regulatory"
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.433364,
+      "rank": 2,
+      "of": 199
+    },
+    "power": {
+      "value": 0.08,
+      "rank": 6,
+      "of": 45
+    },
+    "gravity": {
+      "value": 119.0,
+      "rank": 1,
+      "of": 61
+    },
+    "extraction": {
+      "value": 222278.8573,
+      "rank": 8,
+      "of": 45
+    },
+    "share_of_whole": {
+      "mass": 0.02709,
+      "power": 0.04469
+    },
+    "peers_by_power": [
+      {
+        "entity": "BLACKROCK",
+        "power": 0.16
+      },
+      {
+        "entity": "COINBASE",
+        "power": 0.09
+      },
+      {
+        "entity": "SEC",
+        "power": 0.08
+      },
+      {
+        "entity": "TOKENIZED_TREASURY",
+        "power": 0.05
+      },
+      {
+        "entity": "34539544",
+        "power": 0.03
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 11,
+    "out_degree": 8,
+    "by_vector": {
+      "Capital": {
+        "out": 0.5,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.5
+      },
+      "Information": {
+        "out": 3.5,
+        "in": 4.6
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "BLACKROCK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "COINBASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "SECURITIZE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "ONDO",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "HESTER_PEIRCE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "REG_D",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "REG_S",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "REG_A_PLUS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "US_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "CFTC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "ESMA",
+        "mass": 106.0,
+        "hops": 1,
+        "pull": 12614.0
+      },
+      {
+        "entity": "CFTC",
+        "mass": 102.0,
+        "hops": 1,
+        "pull": 12138.0
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 88.0,
+        "hops": 1,
+        "pull": 10472.0
+      },
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 51.75,
+        "hops": 1,
+        "pull": 6158.25
+      },
+      {
+        "entity": "FED",
+        "mass": 114.0,
+        "hops": 2,
+        "pull": 3391.5
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.822,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "watch",
+    "headline": "phi_s -26% over 3 cycles",
+    "cycles": 3,
+    "delta_last_cycle": {
+      "phi_s": 1.5005,
+      "kappa": -0.1595,
+      "power": 0.0,
+      "extraction": -9261.619,
+      "gravity_mass": 0.0,
+      "memory_mass": -0.27,
+      "boundary_score": -0.005
+    }
+  },
+  "network_plugs": {
+    "freshness": "live_at_request",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live_at_request",
+        "series_id": "GDP",
+        "label": "securities_market_gdp_proxy",
+        "last_observed_at": "2026-05-15T21:49:59.337213+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "information_flow",
+      "last_observed_at": "2026-05-19T21:06:55.037631+00:00",
+      "last_delta_i": 1.0,
+      "stale": true
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 3.910289352069878e+88,
+    "is_current_operator_target": true,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 0.3759,
+    "operator_move": null,
+    "observed_by_node": true
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "entity": "CIRCLE",
+  "node": "34539544",
+  "compiled_at": "2026-06-23T05:57:50.319002+00:00",
+  "digest": "sha256:0ce7a27ac792c111f5afe1f6967964a0eabd641f40a5e790850a441150421ef6",
+  "own_numbers": {
+    "phi_s": 8.1599,
+    "kappa": 0.0015,
+    "mass": 0.261446,
+    "power": 0.02,
+    "extraction": 146178.398438,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.261446,
+      "rank": 10,
+      "of": 199
+    },
+    "power": {
+      "value": 0.02,
+      "rank": 10,
+      "of": 45
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 146178.3984,
+      "rank": 10,
+      "of": 45
+    },
+    "share_of_whole": {
+      "mass": 0.01634,
+      "power": 0.01117
+    },
+    "peers_by_power": [
+      {
+        "entity": "34539544",
+        "power": 0.03
+      },
+      {
+        "entity": "BASE",
+        "power": 0.03
+      },
+      {
+        "entity": "CIRCLE",
+        "power": 0.02
+      },
+      {
+        "entity": "CITI_TREASURY_SERVICES",
+        "power": 0.01
+      },
+      {
+        "entity": "AAVE_FORUM",
+        "power": 0.0
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 6,
+    "out_degree": 9,
+    "by_vector": {
+      "Capital": {
+        "out": 1.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 1.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 2.5,
+        "in": 3.0
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "BLACKROCK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "JEREMY_ALLAIRE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "STABLECOIN_POOL",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "RWA_SOLVES_YIELD",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "STABLECOIN_DOMINANCE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "US_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "CIRCLE_RESERVE_FUND",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "BNY_MELLON",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "JPMORGAN",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "JPMORGAN",
+        "mass": 104.0,
+        "hops": 1,
+        "pull": 2.08
+      },
+      {
+        "entity": "CITIGROUP",
+        "mass": 100.0,
+        "hops": 1,
+        "pull": 2.0
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 88.0,
+        "hops": 1,
+        "pull": 1.76
+      },
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 51.75,
+        "hops": 1,
+        "pull": 1.035
+      },
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 2,
+        "pull": 0.595
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.535,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 3,
+    "delta_last_cycle": {
+      "phi_s": 11.3269,
+      "kappa": -0.1448,
+      "power": 0.0,
+      "extraction": 14089.4842,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "defillama",
+        "kind": "stablecoins",
+        "status": "live",
+        "note": "fetched from public API at request time"
+      },
+      {
+        "network": "sec_edgar",
+        "kind": "regulatory_primary",
+        "status": "live",
+        "last_observed_at": "2026-06-22T23:00:34.463883+00:00",
+        "filings": null,
+        "note": "Circle Internet Group, Inc. \u2014 351 total filings, 40 in last 90d"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 3.910289352069878e+88,
+    "is_current_operator_target": false,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 0.6929,
+    "operator_move": null,
+    "observed_by_node": true
+  }
+}

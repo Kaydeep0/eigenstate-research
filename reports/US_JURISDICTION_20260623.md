@@ -78,7 +78,7 @@ This report is part of the Sangat metalayer — verified analysis traversable wi
 | Agent entry | `https://geniusflow-federation.vercel.app/.well-known/geniusflow.json` |
 | Manifest | `https://geniusflow-federation.vercel.app/api/manifest` |
 | Entity feed (US Regulators) | `https://usjurisdictionusjurisdiction.vercel.app/api/us_jurisdiction_settlement_press` |
-| Entity dossier | `https://usjurisdictionusjurisdiction.vercel.app/_dossier` |
+| Entity dossier | `https://kaydeep0.github.io/eigenstate-research/federation/dossier/US_JURISDICTION.json` |
 | Chain verify | `https://geniusflow-federation.vercel.app/api/chain` |
 | This report | `https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=US_JURISDICTION_20260623` |
 

@@ -1,0 +1,171 @@
+{
+  "entity": "OCC",
+  "node": "34539544",
+  "compiled_at": "2026-06-23T05:57:50.417318+00:00",
+  "digest": "sha256:afef271c69df3cdfec1a6790fb207c6b146c8a6543c9647d8c20e82664c912b9",
+  "own_numbers": {
+    "phi_s": 3.3084,
+    "kappa": 0.0,
+    "mass": 0.285617,
+    "power": null,
+    "extraction": null,
+    "memory_mass": 3.61,
+    "X_natural": 0.0,
+    "gravity_mass": 103.0,
+    "mass_type": "regulatory"
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.285617,
+      "rank": 8,
+      "of": 199
+    },
+    "power": null,
+    "gravity": {
+      "value": 103.0,
+      "rank": 6,
+      "of": 61
+    },
+    "extraction": null,
+    "share_of_whole": {
+      "mass": 0.01785,
+      "power": null
+    },
+    "peers_by_power": []
+  },
+  "relationships": {
+    "in_degree": 2,
+    "out_degree": 1,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 0.5,
+        "in": 1.0
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "ANCHORAGE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "STABLECOIN_POOL",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "US_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 51.75,
+        "hops": 1,
+        "pull": 5330.25
+      },
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 2,
+        "pull": 3064.25
+      },
+      {
+        "entity": "FED",
+        "mass": 114.0,
+        "hops": 2,
+        "pull": 2935.5
+      },
+      {
+        "entity": "FINRA",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 2678.0
+      },
+      {
+        "entity": "CFTC",
+        "mass": 102.0,
+        "hops": 2,
+        "pull": 2626.5
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.8,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "flag",
+    "headline": "phi_s +98% over 3 cycles",
+    "cycles": 3,
+    "delta_last_cycle": {
+      "phi_s": 6.4725,
+      "kappa": -0.0293,
+      "gravity_mass": 0.0,
+      "memory_mass": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live_at_request",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live_at_request",
+        "series_id": "W006RC1A027NBEA",
+        "label": "tax_receipts_proxy",
+        "last_observed_at": "2026-05-15T21:49:59.337213+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 3.910289352069878e+88,
+    "is_current_operator_target": false,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 0.2,
+    "operator_move": null,
+    "observed_by_node": true
+  }
+}

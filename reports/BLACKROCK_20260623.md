@@ -100,7 +100,7 @@ This report is part of the Sangat metalayer — verified analysis traversable wi
 | Agent entry | `https://geniusflow-federation.vercel.app/.well-known/geniusflow.json` |
 | Manifest | `https://geniusflow-federation.vercel.app/api/manifest` |
 | Entity feed (BlackRock) | `https://blackrockblackrocktvlfeed.vercel.app/api/blackrock_tvl_feed` |
-| Entity dossier | `https://blackrockblackrocktvlfeed.vercel.app/_dossier` |
+| Entity dossier | `https://kaydeep0.github.io/eigenstate-research/federation/dossier/BLACKROCK.json` |
 | Chain verify | `https://geniusflow-federation.vercel.app/api/chain` |
 | This report | `https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=BLACKROCK_20260623` |
 

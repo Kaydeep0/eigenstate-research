@@ -1,0 +1,231 @@
+{
+  "entity": "TOKENIZED_TREASURY",
+  "node": "34539544",
+  "compiled_at": "2026-06-23T05:57:50.461890+00:00",
+  "digest": "sha256:8ef09d5eb39f23d07f96eb842a10b25dec84b9168622eca88b5f93a36ec48dc1",
+  "own_numbers": {
+    "phi_s": 1.6497,
+    "kappa": 0.0017,
+    "mass": 0.230802,
+    "power": 0.05,
+    "extraction": 384268.332609,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.230802,
+      "rank": 13,
+      "of": 199
+    },
+    "power": {
+      "value": 0.05,
+      "rank": 7,
+      "of": 45
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 384268.3326,
+      "rank": 7,
+      "of": 45
+    },
+    "share_of_whole": {
+      "mass": 0.01443,
+      "power": 0.02793
+    },
+    "peers_by_power": [
+      {
+        "entity": "COINBASE",
+        "power": 0.09
+      },
+      {
+        "entity": "SEC",
+        "power": 0.08
+      },
+      {
+        "entity": "TOKENIZED_TREASURY",
+        "power": 0.05
+      },
+      {
+        "entity": "34539544",
+        "power": 0.03
+      },
+      {
+        "entity": "BASE",
+        "power": 0.03
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 12,
+    "out_degree": 5,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 1.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 2.0
+      },
+      "Information": {
+        "out": 2.5,
+        "in": 3.0
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "TREASURY_MARKET",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "STABLECOIN_POOL",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "VC_FUNDING_POOL",
+        "conn_type": "funding",
+        "vector": "Capital"
+      },
+      {
+        "source": "GRANT_POOL",
+        "conn_type": "funding",
+        "vector": "Capital"
+      },
+      {
+        "source": "INSTITUTIONAL_CUSTODY_POOL",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "BLACKROCK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "ETHEREUM",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "BASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "SEC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 1,
+        "pull": 5.95
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 88.0,
+        "hops": 1,
+        "pull": 4.4
+      },
+      {
+        "entity": "DTCC",
+        "mass": 43.0,
+        "hops": 1,
+        "pull": 2.15
+      },
+      {
+        "entity": "CANTON_NETWORK",
+        "mass": 41.0,
+        "hops": 1,
+        "pull": 2.05
+      },
+      {
+        "entity": "FED",
+        "mass": 114.0,
+        "hops": 2,
+        "pull": 1.425
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.525,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "watch",
+    "headline": "power +25% over 3 cycles",
+    "cycles": 3,
+    "delta_last_cycle": {
+      "phi_s": 3.2363,
+      "kappa": -0.1653,
+      "power": 0.0,
+      "extraction": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live_at_request",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live_at_request",
+        "series_id": "DGS10",
+        "label": "treasury_10y_pct",
+        "last_observed_at": "2026-05-15T21:49:59.337213+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 3.910289352069878e+88,
+    "is_current_operator_target": false,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 0.3154,
+    "operator_move": null,
+    "observed_by_node": true
+  }
+}

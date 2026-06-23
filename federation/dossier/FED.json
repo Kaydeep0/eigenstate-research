@@ -1,0 +1,242 @@
+{
+  "entity": "FED",
+  "node": "34539544",
+  "compiled_at": "2026-06-23T05:57:50.386977+00:00",
+  "digest": "sha256:0dd7ab461bb6d7ba6653986ed547cbcbd1064886f559e719b9e10d8fee366d79",
+  "own_numbers": {
+    "phi_s": 10.3497,
+    "kappa": 0.0,
+    "mass": 0.360753,
+    "power": 0.0,
+    "extraction": 140515.4896,
+    "memory_mass": 32.05,
+    "X_natural": 0.0,
+    "gravity_mass": 114.0,
+    "mass_type": "regulatory"
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.360753,
+      "rank": 4,
+      "of": 199
+    },
+    "power": {
+      "value": 0.0,
+      "rank": 24,
+      "of": 45
+    },
+    "gravity": {
+      "value": 114.0,
+      "rank": 2,
+      "of": 61
+    },
+    "extraction": {
+      "value": 140515.4896,
+      "rank": 12,
+      "of": 45
+    },
+    "share_of_whole": {
+      "mass": 0.02255,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "ETHEREUM",
+        "power": 0.0
+      },
+      {
+        "entity": "FARCASTER",
+        "power": 0.0
+      },
+      {
+        "entity": "FED",
+        "power": 0.0
+      },
+      {
+        "entity": "FED_RRP",
+        "power": 0.0
+      },
+      {
+        "entity": "GOLDMAN",
+        "power": 0.0
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 8,
+    "out_degree": 6,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 1.0,
+        "in": 3.5
+      },
+      "Information": {
+        "out": 2.0,
+        "in": 0.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "US_EAST_COAST",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "BENJAMIN_STRONG",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "JPMORGAN",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "JEKYLL_ISLAND",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CITIGROUP",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "US_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "FED_RRP",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "FED_RRP",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "JPMORGAN",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "JPMORGAN",
+        "mass": 104.0,
+        "hops": 1,
+        "pull": 11856.0
+      },
+      {
+        "entity": "CITIGROUP",
+        "mass": 100.0,
+        "hops": 1,
+        "pull": 11400.0
+      },
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 51.75,
+        "hops": 1,
+        "pull": 5899.5
+      },
+      {
+        "entity": "DTCC",
+        "mass": 43.0,
+        "hops": 1,
+        "pull": 4902.0
+      },
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 2,
+        "pull": 3391.5
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.854,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "watch",
+    "headline": "phi_s +36% over 3 cycles",
+    "cycles": 3,
+    "delta_last_cycle": {
+      "phi_s": 17.7984,
+      "kappa": -0.1365,
+      "power": 0.0,
+      "extraction": 0.0,
+      "gravity_mass": 0.0,
+      "memory_mass": -0.05,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live_at_request",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live_at_request",
+        "series_id": "M2SL",
+        "label": "m2_billions",
+        "last_observed_at": "2026-05-15T21:49:59.337213+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 3.910289352069878e+88,
+    "is_current_operator_target": false,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 0.2,
+    "operator_move": {
+      "rank": 4,
+      "of": 9,
+      "vector": "infrastructure",
+      "power_gain_estimate": 27.4275
+    },
+    "observed_by_node": true
+  }
+}

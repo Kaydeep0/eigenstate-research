@@ -1,0 +1,185 @@
+{
+  "entity": "BNY_MELLON",
+  "node": "34539544",
+  "compiled_at": "2026-06-23T05:57:50.303010+00:00",
+  "digest": "sha256:5f385ec5dce7ceaed2ccf9d49bb2daa607b7391a669df8187216bc576ff63ada",
+  "own_numbers": {
+    "phi_s": 0.0583,
+    "kappa": 0.0878,
+    "mass": null,
+    "power": 0.0,
+    "extraction": 5457.3214,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": null,
+    "power": {
+      "value": 0.0,
+      "rank": 15,
+      "of": 45
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 5457.3214,
+      "rank": 27,
+      "of": 45
+    },
+    "share_of_whole": {
+      "mass": null,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "ARBITRUM",
+        "power": 0.0
+      },
+      {
+        "entity": "BASE_GRANTS",
+        "power": 0.0
+      },
+      {
+        "entity": "BNY_MELLON",
+        "power": 0.0
+      },
+      {
+        "entity": "CANTON_NETWORK",
+        "power": 0.0
+      },
+      {
+        "entity": "CANTOR_FITZGERALD",
+        "power": 0.0
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 4,
+    "out_degree": 5,
+    "by_vector": {
+      "Capital": {
+        "out": 1.5,
+        "in": 0.5
+      },
+      "Infrastructure": {
+        "out": 1.0,
+        "in": 1.5
+      },
+      "Information": {
+        "out": 0.0,
+        "in": 0.0
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "CIRCLE",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "PRIMARY_DEALER_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "GOLDMAN",
+        "conn_type": "ownership",
+        "vector": "Capital"
+      },
+      {
+        "source": "CANTON_NETWORK",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "CIRCLE_RESERVE_FUND",
+        "conn_type": "ownership",
+        "vector": "Capital"
+      },
+      {
+        "target": "BLACKROCK",
+        "conn_type": "ownership",
+        "vector": "Capital"
+      },
+      {
+        "target": "US_TREASURY_DEPARTMENT",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "PRIMARY_DEALER_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "capital",
+        "vector": "Capital"
+      }
+    ],
+    "gravity_pairs": []
+  },
+  "monetary_position": {
+    "position": 0.28,
+    "well": "boundary"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 3,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "power": 0.0,
+      "extraction": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live_at_request",
+    "inbound": [
+      {
+        "network": "sec_edgar",
+        "kind": "regulatory_primary",
+        "status": "live_at_request",
+        "last_observed_at": "2026-06-22T23:00:34.463883+00:00",
+        "filings": null,
+        "note": "CIK 0001390777 \u2014 live on feed + parkash sensor"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": null
+  },
+  "relative_to_node": {
+    "node_field_G_345": 3.910289352069878e+88,
+    "is_current_operator_target": false,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 0.5825,
+    "operator_move": null,
+    "observed_by_node": false
+  }
+}

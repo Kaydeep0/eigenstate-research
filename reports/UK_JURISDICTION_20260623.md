@@ -75,6 +75,7 @@ This report is part of the Sangat metalayer — verified analysis traversable wi
 |---------|-----|
 | Agent entry | `https://geniusflow-federation.vercel.app/.well-known/geniusflow.json` |
 | Manifest | `https://geniusflow-federation.vercel.app/api/manifest` |
+| Entity dossier | `https://kaydeep0.github.io/eigenstate-research/federation/dossier/UK_JURISDICTION.json` |
 | Chain verify | `https://geniusflow-federation.vercel.app/api/chain` |
 | This report | `https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=UK_JURISDICTION_20260623` |
 

@@ -1,0 +1,200 @@
+{
+  "entity": "SECURITIZE",
+  "node": "34539544",
+  "compiled_at": "2026-06-23T05:57:50.445573+00:00",
+  "digest": "sha256:6c9398dc0b5e7fe70b6a845d172256564305c467c6c5de9a8d396af193ce51f6",
+  "own_numbers": {
+    "phi_s": 0.02,
+    "kappa": 0.0976,
+    "mass": 0.157785,
+    "power": 0.0,
+    "extraction": 10267.4688,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.157785,
+      "rank": 25,
+      "of": 199
+    },
+    "power": {
+      "value": 0.0,
+      "rank": 38,
+      "of": 45
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 10267.4688,
+      "rank": 22,
+      "of": 45
+    },
+    "share_of_whole": {
+      "mass": 0.00986,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "RWA_SOLVES_YIELD",
+        "power": 0.0
+      },
+      {
+        "entity": "RWA_XYZ_DATA",
+        "power": 0.0
+      },
+      {
+        "entity": "SECURITIZE",
+        "power": 0.0
+      },
+      {
+        "entity": "STABLECOIN_POOL",
+        "power": 0.0
+      },
+      {
+        "entity": "STANI_KULECHOV",
+        "power": 0.0
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 4,
+    "out_degree": 6,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 1.0,
+        "in": 0.5
+      },
+      "Information": {
+        "out": 2.0,
+        "in": 1.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "BLACKROCK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CARLOS_DOMINGO",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "TOKENIZATION_INEVITABLE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "OUSG",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "SEC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "FINRA",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "BLACKROCK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "ONDO",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "SEC",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      }
+    ],
+    "gravity_pairs": []
+  },
+  "monetary_position": {
+    "position": 0.662,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 3,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": -0.0098,
+      "power": 0.0,
+      "extraction": -4298.3646,
+      "boundary_score": 0.011
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "defillama",
+        "kind": "protocols",
+        "status": "live",
+        "note": "fetched from public API at request time"
+      },
+      {
+        "network": "sec_edgar",
+        "kind": "regulatory_primary",
+        "status": "live",
+        "last_observed_at": "2026-06-22T23:00:34.463883+00:00",
+        "filings": null,
+        "note": "Atlas St. Ventures Fund III, LP \u2014 1 total filings, 0 in last 90d"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 3.910289352069878e+88,
+    "is_current_operator_target": false,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 0.2,
+    "operator_move": null,
+    "observed_by_node": true
+  }
+}

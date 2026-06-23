@@ -1,0 +1,187 @@
+{
+  "entity": "ETHEREUM",
+  "node": "34539544",
+  "compiled_at": "2026-06-23T05:57:50.362428+00:00",
+  "digest": "sha256:472ca27e1e2d49c156f13ce5e7efc3a5f08a6a7c9c94c889b25844c9640a94c2",
+  "own_numbers": {
+    "phi_s": 1.6381,
+    "kappa": 0.0014,
+    "mass": 0.240302,
+    "power": 0.0,
+    "extraction": 8959661.3333,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.240302,
+      "rank": 12,
+      "of": 199
+    },
+    "power": {
+      "value": 0.0,
+      "rank": 22,
+      "of": 45
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 8959661.3333,
+      "rank": 1,
+      "of": 45
+    },
+    "share_of_whole": {
+      "mass": 0.01502,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "DTCC",
+        "power": 0.0
+      },
+      {
+        "entity": "EAS",
+        "power": 0.0
+      },
+      {
+        "entity": "ETHEREUM",
+        "power": 0.0
+      },
+      {
+        "entity": "FARCASTER",
+        "power": 0.0
+      },
+      {
+        "entity": "FED",
+        "power": 0.0
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 29,
+    "out_degree": 3,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.5,
+        "in": 2.0
+      },
+      "Information": {
+        "out": 1.0,
+        "in": 12.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "OPENZEPPELIN_CONTRACTS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CHAINLINK_ORACLES",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "EAS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "TRAIL_OF_BITS",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "SHERLOCK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "BASE",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "ARBITRUM",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "POLYGON",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": []
+  },
+  "monetary_position": {
+    "position": 0.5,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 3,
+    "delta_last_cycle": {
+      "phi_s": 3.2362,
+      "kappa": -0.3117,
+      "power": 0.0,
+      "extraction": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "defillama",
+        "kind": "chains",
+        "status": "live",
+        "note": "fetched from public API at request time"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "infrastructure",
+      "last_observed_at": "2026-05-27T21:00:54.240963+00:00",
+      "last_delta_i": 4.0,
+      "stale": true
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 3.910289352069878e+88,
+    "is_current_operator_target": true,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 0.2,
+    "operator_move": null,
+    "observed_by_node": true
+  }
+}

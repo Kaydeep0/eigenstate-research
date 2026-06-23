@@ -1,0 +1,191 @@
+{
+  "entity": "ESMA",
+  "node": "34539544",
+  "compiled_at": "2026-06-23T05:57:50.354022+00:00",
+  "digest": "sha256:22936abbe6e00d5d2e50847ce2ee4befdac135d0ca99b8c2adb56ec35b5573cd",
+  "own_numbers": {
+    "phi_s": 1.8783,
+    "kappa": 0.0001,
+    "mass": 0.186397,
+    "power": null,
+    "extraction": null,
+    "memory_mass": 13.01,
+    "X_natural": 0.0,
+    "gravity_mass": 106.0,
+    "mass_type": "regulatory"
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.186397,
+      "rank": 17,
+      "of": 199
+    },
+    "power": null,
+    "gravity": {
+      "value": 106.0,
+      "rank": 3,
+      "of": 61
+    },
+    "extraction": null,
+    "share_of_whole": {
+      "mass": 0.01165,
+      "power": null
+    },
+    "peers_by_power": []
+  },
+  "relationships": {
+    "in_degree": 3,
+    "out_degree": 3,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 1.5,
+        "in": 1.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "SEC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "FCA",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "EU_WESTERN",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "MICA",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "DORA",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "EU_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 1,
+        "pull": 12614.0
+      },
+      {
+        "entity": "FCA",
+        "mass": 102.0,
+        "hops": 1,
+        "pull": 10812.0
+      },
+      {
+        "entity": "CFTC",
+        "mass": 102.0,
+        "hops": 2,
+        "pull": 2703.0
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 88.0,
+        "hops": 2,
+        "pull": 2332.0
+      },
+      {
+        "entity": "EU_JURISDICTION",
+        "mass": 14.61,
+        "hops": 1,
+        "pull": 1548.66
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.867,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 3,
+    "delta_last_cycle": {
+      "phi_s": 3.2362,
+      "kappa": -0.0585,
+      "gravity_mass": 0.0,
+      "memory_mass": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live_at_request",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live_at_request",
+        "series_id": "GDP",
+        "label": "eu_regulatory_gdp_proxy",
+        "last_observed_at": "2026-05-15T21:49:59.337213+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 3.910289352069878e+88,
+    "is_current_operator_target": false,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 0.2,
+    "operator_move": {
+      "rank": 6,
+      "of": 9,
+      "vector": "infrastructure",
+      "power_gain_estimate": 17.272800000000004
+    },
+    "observed_by_node": true
+  }
+}

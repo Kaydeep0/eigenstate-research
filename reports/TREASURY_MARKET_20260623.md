@@ -83,7 +83,7 @@ This report is part of the Sangat metalayer — verified analysis traversable wi
 | Agent entry | `https://geniusflow-federation.vercel.app/.well-known/geniusflow.json` |
 | Manifest | `https://geniusflow-federation.vercel.app/api/manifest` |
 | Entity feed (US Treasury Market) | `https://treasurymarkettreasurymarket.vercel.app/api/treasury_market_settlement_press` |
-| Entity dossier | `https://treasurymarkettreasurymarket.vercel.app/_dossier` |
+| Entity dossier | `https://kaydeep0.github.io/eigenstate-research/federation/dossier/TREASURY_MARKET.json` |
 | Chain verify | `https://geniusflow-federation.vercel.app/api/chain` |
 | This report | `https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=TREASURY_MARKET_20260623` |
 

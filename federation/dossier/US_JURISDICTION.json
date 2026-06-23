@@ -1,0 +1,186 @@
+{
+  "entity": "US_JURISDICTION",
+  "node": "34539544",
+  "compiled_at": "2026-06-23T05:57:50.484000+00:00",
+  "digest": "sha256:c169080048d31fb83b869cc3af86b8c2c506c766ee5800fa7ce62aed45d6f09a",
+  "own_numbers": {
+    "phi_s": 2.5734,
+    "kappa": 0.0013,
+    "mass": 0.552528,
+    "power": null,
+    "extraction": null,
+    "memory_mass": 51.75,
+    "X_natural": 0.0,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.552528,
+      "rank": 1,
+      "of": 199
+    },
+    "power": null,
+    "gravity": null,
+    "extraction": null,
+    "share_of_whole": {
+      "mass": 0.03453,
+      "power": null
+    },
+    "peers_by_power": []
+  },
+  "relationships": {
+    "in_degree": 11,
+    "out_degree": 2,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 1.0,
+        "in": 5.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "SEC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CFTC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "FINRA",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "OCC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "FED",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "EU_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "SINGAPORE_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 1,
+        "pull": 6158.25
+      },
+      {
+        "entity": "FED",
+        "mass": 114.0,
+        "hops": 1,
+        "pull": 5899.5
+      },
+      {
+        "entity": "FINRA",
+        "mass": 104.0,
+        "hops": 1,
+        "pull": 5382.0
+      },
+      {
+        "entity": "OCC",
+        "mass": 103.0,
+        "hops": 1,
+        "pull": 5330.25
+      },
+      {
+        "entity": "CFTC",
+        "mass": 102.0,
+        "hops": 1,
+        "pull": 5278.5
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.562,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 3,
+    "delta_last_cycle": {
+      "phi_s": 3.2363,
+      "kappa": -0.1263,
+      "memory_mass": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live_at_request",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live_at_request",
+        "series_id": "GDP",
+        "label": "gdp_billions",
+        "last_observed_at": "2026-05-15T21:49:59.337213+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "propagated",
+      "last_observed_at": "2026-04-06T18:12:44.230259+00:00",
+      "last_delta_i": 3.8686861427370127,
+      "stale": true
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 3.910289352069878e+88,
+    "is_current_operator_target": false,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 0.1846,
+    "operator_move": null,
+    "observed_by_node": true
+  }
+}

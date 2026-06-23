@@ -1,0 +1,236 @@
+{
+  "entity": "COINBASE",
+  "node": "34539544",
+  "compiled_at": "2026-06-23T05:57:50.331236+00:00",
+  "digest": "sha256:c8b925dcc00843212c3795fb4ae56879323aafe58fd7a99eec909fe7055ca854",
+  "own_numbers": {
+    "phi_s": 6.5102,
+    "kappa": 0.0027,
+    "mass": 0.314644,
+    "power": 0.09,
+    "extraction": 7949822.890625,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.314644,
+      "rank": 5,
+      "of": 199
+    },
+    "power": {
+      "value": 0.09,
+      "rank": 5,
+      "of": 45
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 7949822.8906,
+      "rank": 2,
+      "of": 45
+    },
+    "share_of_whole": {
+      "mass": 0.01967,
+      "power": 0.05028
+    },
+    "peers_by_power": [
+      {
+        "entity": "TREASURY_MARKET",
+        "power": 0.25
+      },
+      {
+        "entity": "BLACKROCK",
+        "power": 0.16
+      },
+      {
+        "entity": "COINBASE",
+        "power": 0.09
+      },
+      {
+        "entity": "SEC",
+        "power": 0.08
+      },
+      {
+        "entity": "TOKENIZED_TREASURY",
+        "power": 0.05
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 14,
+    "out_degree": 7,
+    "by_vector": {
+      "Capital": {
+        "out": 0.5,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 2.0
+      },
+      "Information": {
+        "out": 3.0,
+        "in": 5.1
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "BLACKROCK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "ONDO",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "BACKED",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "FIREBLOCKS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "ANCHORAGE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "BASE_CHAIN",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "SEC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "BLACKROCK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "ONDO",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "BASE",
+        "conn_type": "ownership",
+        "vector": "Capital"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 1,
+        "pull": 10.71
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 88.0,
+        "hops": 1,
+        "pull": 7.92
+      },
+      {
+        "entity": "ESMA",
+        "mass": 106.0,
+        "hops": 2,
+        "pull": 2.385
+      },
+      {
+        "entity": "FINRA",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 2.34
+      },
+      {
+        "entity": "JPMORGAN",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 2.34
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.223,
+    "well": "boundary"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 3,
+    "delta_last_cycle": {
+      "phi_s": 6.4725,
+      "kappa": -0.0176,
+      "power": 0.0,
+      "extraction": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "defillama",
+        "kind": "protocols",
+        "status": "live",
+        "note": "fetched from public API at request time"
+      },
+      {
+        "network": "sec_edgar",
+        "kind": "regulatory_primary",
+        "status": "live",
+        "last_observed_at": "2026-06-22T23:00:34.463883+00:00",
+        "filings": null,
+        "note": "Coinbase Global, Inc. \u2014 1000 total filings, 37 in last 90d"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "information_flow",
+      "last_observed_at": "2026-06-23T01:09:04.351091+00:00",
+      "last_delta_i": 7.0,
+      "stale": false
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 3.910289352069878e+88,
+    "is_current_operator_target": true,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 0.3767,
+    "operator_move": null,
+    "observed_by_node": true
+  }
+}

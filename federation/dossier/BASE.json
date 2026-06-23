@@ -1,0 +1,208 @@
+{
+  "entity": "BASE",
+  "node": "34539544",
+  "compiled_at": "2026-06-23T05:57:50.281158+00:00",
+  "digest": "sha256:638bebaee7c1c1e52a76f9076e031df1b7b064c30078240f6a621c04847e8af4",
+  "own_numbers": {
+    "phi_s": 1.6479,
+    "kappa": 0.0,
+    "mass": 0.195659,
+    "power": 0.03,
+    "extraction": 774154.146954,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.195659,
+      "rank": 16,
+      "of": 199
+    },
+    "power": {
+      "value": 0.03,
+      "rank": 9,
+      "of": 45
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 774154.147,
+      "rank": 3,
+      "of": 45
+    },
+    "share_of_whole": {
+      "mass": 0.01223,
+      "power": 0.01676
+    },
+    "peers_by_power": [
+      {
+        "entity": "TOKENIZED_TREASURY",
+        "power": 0.05
+      },
+      {
+        "entity": "34539544",
+        "power": 0.03
+      },
+      {
+        "entity": "BASE",
+        "power": 0.03
+      },
+      {
+        "entity": "CIRCLE",
+        "power": 0.02
+      },
+      {
+        "entity": "CITI_TREASURY_SERVICES",
+        "power": 0.01
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 20,
+    "out_degree": 1,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.5
+      },
+      "Infrastructure": {
+        "out": 0.5,
+        "in": 1.0
+      },
+      "Information": {
+        "out": 0.0,
+        "in": 9.0
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "ETHEREUM",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "OPENZEPPELIN_CONTRACTS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CHAINLINK_ORACLES",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "THIRDWEB",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "EAS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "COINBASE",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 2,
+        "pull": 0.8925
+      },
+      {
+        "entity": "JPMORGAN",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 0.78
+      },
+      {
+        "entity": "CITIGROUP",
+        "mass": 100.0,
+        "hops": 2,
+        "pull": 0.75
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 88.0,
+        "hops": 2,
+        "pull": 0.66
+      },
+      {
+        "entity": "HIGHWAY",
+        "mass": 61.0,
+        "hops": 2,
+        "pull": 0.4575
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.471,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "flag",
+    "headline": "phi_s -98% over 3 cycles",
+    "cycles": 3,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": -0.2049,
+      "power": 0.0,
+      "extraction": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "defillama",
+        "kind": "chains",
+        "status": "live",
+        "note": "fetched from public API at request time"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "infrastructure",
+      "last_observed_at": "2026-06-23T05:52:44.707003+00:00",
+      "last_delta_i": 4.0,
+      "stale": false
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 3.910289352069878e+88,
+    "is_current_operator_target": true,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 0.2982,
+    "operator_move": null,
+    "observed_by_node": true
+  }
+}
