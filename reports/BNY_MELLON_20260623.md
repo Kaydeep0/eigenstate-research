@@ -73,13 +73,12 @@ This report is part of the Sangat metalayer — verified analysis traversable wi
 
 | Surface | URL |
 |---------|-----|
-| Agent entry | `https://geniusflow-federation.vercel.app/.well-known/geniusflow.json` |
-| Manifest | `https://geniusflow-federation.vercel.app/api/manifest` |
-| Entity feed (BNY Mellon) | `https://bnymellonbnymellonsettlement.vercel.app/api/bny_mellon_settlement_pressure_f` |
-| Entity dossier | `https://kaydeep0.github.io/eigenstate-research/federation/dossier/BNY_MELLON.json` |
-| Chain verify | `https://geniusflow-federation.vercel.app/api/chain` |
-| This report | `https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=BNY_MELLON_20260623` |
-
+| Agent entry | [Agent entry](https://geniusflow-federation.vercel.app/.well-known/geniusflow.json) |
+| Manifest | [Manifest](https://geniusflow-federation.vercel.app/api/manifest) |
+| Entity feed (BNY Mellon) | [Entity feed (BNY Mellon)](https://bnymellonbnymellonsettlement.vercel.app/api/bny_mellon_settlement_pressure_f) |
+| Entity dossier | [Entity dossier](https://kaydeep0.github.io/eigenstate-research/federation/dossier/BNY_MELLON.json) |
+| Chain verify | [Chain verify](https://geniusflow-federation.vercel.app/api/chain) |
+| This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=BNY_MELLON_20260623) |
 **Build fingerprint:** `3416372c99a95ebb…` (verify against manifest + `/api/chain`)
 **Granth head:** `e76fdd181f369ef2…` · length 669
 

@@ -80,13 +80,12 @@ This report is part of the Sangat metalayer — verified analysis traversable wi
 
 | Surface | URL |
 |---------|-----|
-| Agent entry | `https://geniusflow-federation.vercel.app/.well-known/geniusflow.json` |
-| Manifest | `https://geniusflow-federation.vercel.app/api/manifest` |
-| Entity feed (US Treasury Market) | `https://treasurymarkettreasurymarket.vercel.app/api/treasury_market_settlement_press` |
-| Entity dossier | `https://kaydeep0.github.io/eigenstate-research/federation/dossier/TREASURY_MARKET.json` |
-| Chain verify | `https://geniusflow-federation.vercel.app/api/chain` |
-| This report | `https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=TREASURY_MARKET_20260623` |
-
+| Agent entry | [Agent entry](https://geniusflow-federation.vercel.app/.well-known/geniusflow.json) |
+| Manifest | [Manifest](https://geniusflow-federation.vercel.app/api/manifest) |
+| Entity feed (US Treasury Market) | [Entity feed (US Treasury Market)](https://treasurymarkettreasurymarket.vercel.app/api/treasury_market_settlement_press) |
+| Entity dossier | [Entity dossier](https://kaydeep0.github.io/eigenstate-research/federation/dossier/TREASURY_MARKET.json) |
+| Chain verify | [Chain verify](https://geniusflow-federation.vercel.app/api/chain) |
+| This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=TREASURY_MARKET_20260623) |
 **Build fingerprint:** `85e8bc93f9ccc422…` (verify against manifest + `/api/chain`)
 **Granth head:** `2a5dc2822867808c…` · length 709
 

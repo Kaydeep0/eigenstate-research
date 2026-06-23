@@ -97,13 +97,12 @@ This report is part of the Sangat metalayer — verified analysis traversable wi
 
 | Surface | URL |
 |---------|-----|
-| Agent entry | `https://geniusflow-federation.vercel.app/.well-known/geniusflow.json` |
-| Manifest | `https://geniusflow-federation.vercel.app/api/manifest` |
-| Entity feed (Citigroup) | `https://citigroupcitigroupsettlementp.vercel.app/api/citigroup_settlement_pressure_fe` |
-| Entity dossier | `https://kaydeep0.github.io/eigenstate-research/federation/dossier/CITIGROUP.json` |
-| Chain verify | `https://geniusflow-federation.vercel.app/api/chain` |
-| This report | `https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=CITIGROUP_20260623` |
-
+| Agent entry | [Agent entry](https://geniusflow-federation.vercel.app/.well-known/geniusflow.json) |
+| Manifest | [Manifest](https://geniusflow-federation.vercel.app/api/manifest) |
+| Entity feed (Citigroup) | [Entity feed (Citigroup)](https://citigroupcitigroupsettlementp.vercel.app/api/citigroup_settlement_pressure_fe) |
+| Entity dossier | [Entity dossier](https://kaydeep0.github.io/eigenstate-research/federation/dossier/CITIGROUP.json) |
+| Chain verify | [Chain verify](https://geniusflow-federation.vercel.app/api/chain) |
+| This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=CITIGROUP_20260623) |
 **Build fingerprint:** `64a573a383d9b781…` (verify against manifest + `/api/chain`)
 **Granth head:** `ffdb273cfddbd30a…` · length 626
 

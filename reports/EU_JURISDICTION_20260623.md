@@ -75,13 +75,12 @@ This report is part of the Sangat metalayer — verified analysis traversable wi
 
 | Surface | URL |
 |---------|-----|
-| Agent entry | `https://geniusflow-federation.vercel.app/.well-known/geniusflow.json` |
-| Manifest | `https://geniusflow-federation.vercel.app/api/manifest` |
-| Entity feed (EU Regulators) | `https://eujurisdictioneujurisdiction.vercel.app/api/eu_jurisdiction_settlement_press` |
-| Entity dossier | `https://kaydeep0.github.io/eigenstate-research/federation/dossier/EU_JURISDICTION.json` |
-| Chain verify | `https://geniusflow-federation.vercel.app/api/chain` |
-| This report | `https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=EU_JURISDICTION_20260623` |
-
+| Agent entry | [Agent entry](https://geniusflow-federation.vercel.app/.well-known/geniusflow.json) |
+| Manifest | [Manifest](https://geniusflow-federation.vercel.app/api/manifest) |
+| Entity feed (EU Regulators) | [Entity feed (EU Regulators)](https://eujurisdictioneujurisdiction.vercel.app/api/eu_jurisdiction_settlement_press) |
+| Entity dossier | [Entity dossier](https://kaydeep0.github.io/eigenstate-research/federation/dossier/EU_JURISDICTION.json) |
+| Chain verify | [Chain verify](https://geniusflow-federation.vercel.app/api/chain) |
+| This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=EU_JURISDICTION_20260623) |
 **Build fingerprint:** `4c6ec7f71835f920…` (verify against manifest + `/api/chain`)
 **Granth head:** `96d87bf9cba1a4c1…` · length 662
 
