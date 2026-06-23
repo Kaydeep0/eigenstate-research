@@ -10,29 +10,29 @@
 
 | Metric | Value | Context |
 |--------|-------|---------|
-| Settlement Pressure (Φ_S) | 3.2596 | high settlement pressure — this entity is pulling field energy without reciprocal observation |
+| Settlement Pressure (Φ_S) | 1.6411 | high settlement pressure — this entity is pulling field energy without reciprocal observation |
 | Field Coherence (κ) | 0.0000 | minimal field integration — largely unobserved by the engine |
-| Vault Records | 1 | ΔI accumulated: 0.35 |
-| Topology Connections | 18 | Direct information flow links |
-| Power Concentration Rank | #3 of 218 | Score: 0.28 |
-| Gravitational Mass | 98.0 (infrastructure) | Reach: 5 layers |
+| Vault Records | 0 | No measurements yet — in observation queue |
+| Topology Connections | 20 | Direct information flow links |
+| Power Concentration Rank | #2 of 218 | Score: 0.35 |
+| Gravitational Mass | 100.0 (infrastructure) | Reach: 5 layers |
 
 ## Global Field Context
 
 The Eigenstate engine currently measures the tokenized settlement field at:
 
-- **Protocol Truth (PT):** 0.0574 (target: 0.618 — the golden-ratio equilibrium)
-- **Field Coherence (κ):** 0.5386 (living zone: 0.618–0.678)
-- **Coverage:** 35 of 218 entities with measured ΔI > 0 (16.1%)
-- **Uncertainty (U):** 47.0
+- **Protocol Truth (PT):** 0.0537 (target: 0.618 — the golden-ratio equilibrium)
+- **Field Coherence (κ):** 0.3820 (living zone: 0.618–0.678)
+- **Coverage:** 41 of 218 entities with measured ΔI > 0 (18.8%)
+- **Uncertainty (U):** 45.1
 
-The field is 0.0794 below equilibrium coherence. Each entity with measured vault activity raises the global PT toward 0.618. Citigroup is one of 183 entities in the field without a complete observation record.
+The field is 0.2361 below equilibrium coherence. Each entity with measured vault activity raises the global PT toward 0.618. Citigroup is one of 177 entities in the field without a complete observation record.
 
 ## What Is Citigroup
 
 Citigroup is a global bank holding company operating institutional banking, markets, services, and treasury/custody businesses worldwide. For the tokenized settlement layer, Citigroup sits on the same tier as JPMorgan and BNY Mellon — a correspondent-bank and custodian node whose balance sheet, FX rails, and securities services backstop how tokenized assets, stablecoin reserves, and RWA funds clear between issuers, exchanges, and regulated custodians.
 
-The engine maps **18 direct connections** from Citigroup in the settlement topology — regulatory, custody, funding, and information-flow relationships that determine how rule signals propagate to downstream issuers and custodians.
+The engine maps **20 direct connections** from Citigroup in the settlement topology — regulatory, custody, funding, and information-flow relationships that determine how rule signals propagate to downstream issuers and custodians.
 
 ## Current Field Events
 
@@ -56,7 +56,7 @@ Citigroup's services businesses page documents offerings for institutional clien
 
 ## Field Position Analysis
 
-### Settlement Pressure (Φ_S = 3.2596)
+### Settlement Pressure (Φ_S = 1.6411)
 
 High settlement pressure — this entity is pulling field energy without reciprocal observation.
 
@@ -64,32 +64,30 @@ Citigroup's settlement pressure is elevated because tokenized RWA and stablecoin
 
 ### Coherence (κ = 0.0000)
 
-Minimal field integration — largely unobserved by the engine.
+κ = 0.0000 reflects the engine's current **measurement coverage**, not Citigroup's actual institutional influence. With no vault records yet, the coherence score is derived purely from topology position — connection count and structural weight — without any attested observation data. The low value means the engine has not yet measured this entity's settlement activity, not that the entity lacks field presence.
 
 The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0000, Citigroup is **0.6180 below** equilibrium. Vault observations of Citigroup's rule outputs — rulemaking notices, enforcement actions, guidance documents — would directly raise κ toward the living zone [0.618, 0.678].
 
 ### Vault Coverage
 
-1 vault record for Citigroup. Total accumulated ΔI: 0.35.
-
-Most recent observation: **observe** at 2026-06-23 03:08:27 UTC — ΔI = 0.35, E = 0.00
+No vault records yet for Citigroup. This is a gap in the field coverage. The engine recommends observation as the first action (see below).
 
 ## Engine Recommendations
 
 The following actions are ranked by capital-adjusted score from the current photon queue:
 
-**1. Publish network analysis of Citigroup and its 18 connections**
+**1. Publish network analysis of Citigroup and its 20 connections**
 
-- E = 5.13 (ΔI = 120.76 / A = 3.20)
-- Capital-adjusted score: 99,165,069
+- E = 4.25 (ΔI = 119.92 / A = 3.20)
+- Capital-adjusted score: 97,076,110
 - Estimated effort: 4h
 - Action type: `connect`
 
 ## Concentration Analysis
 
-Citigroup ranks **#3** in the field's power concentration with a score of 0.28 (field total: 1.67).
+Citigroup ranks **#2** in the field's power concentration with a score of 0.35 (field total: 1.79).
 
-The top 5 entities control 86.2% of field power (Gini = 0.88). High concentration with low vault coverage (16.1%) is the primary source of PT = 0.0574 vs target 0.618.
+The top 5 entities control 87.7% of field power (Gini = 0.90). High concentration with low vault coverage (18.8%) is the primary source of PT = 0.0537 vs target 0.618.
 
 ## Node 34539544 — agent billboard
 
@@ -111,7 +109,7 @@ Cold-agent entry — verified analysis traversable without permission. Node 345 
 | This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=CITIGROUP_20260623) |
 
 **Build fingerprint:** `05e6f0a00f920841…` — match `builds[].chain_hash` for `CITIGROUP` in manifest, then verify via `/api/chain`.
-**Granth head:** `47fd058a29644649…` · length 828
+**Granth head:** `c07590588450aad5…` · length 1386
 
 **Federation traverse (agents):**
 - Agent: https://geniusflow-federation.vercel.app/.well-known/geniusflow.json
@@ -140,7 +138,7 @@ This report is generated by the Eigenstate engine — an information-field measu
 
 **Published implementation:** [helixhash v0.1.1](https://doi.org/10.5281/zenodo.18413995) — Zenodo DOI 10.5281/zenodo.18413995
 
-**Vault:** All measurements are recorded in a time-ordered vault with Ethereum Attestation Service proofs on Base mainnet. Entity coverage grows as observations are attested.
+**Vault:** No vault records yet for Citigroup in the current cycle — κ and Φ_S here are topology-derived until observations are attested. The field recommends observation as the first action.
 
 **Note:** Internal topology codenames are not used in public reports. All entity names in this report are public names.
 
@@ -148,4 +146,4 @@ This report is generated by the Eigenstate engine — an information-field measu
 
 *Eigenstate Research · [paragraph.xyz/@eigenstate](https://paragraph.xyz/@eigenstate) · [kaydeep0.github.io/eigenstate-research](https://kaydeep0.github.io/eigenstate-research/)*
 
-*Generated: 2026-06-23T04:04:15 UTC by Eigenstate engine · Citigroup · 2026-06-23*
+*Generated: 2026-06-23T17:23:39 UTC by Eigenstate engine · Citigroup · 2026-06-23*
