@@ -10,9 +10,9 @@
 
 | Metric | Value | Context |
 |--------|-------|---------|
-| Settlement Pressure (Φ_S) | 8.1484 | critical settlement pressure — dominant extractive position in the topology |
-| Field Coherence (κ) | 0.0020 | minimal field integration — largely unobserved by the engine |
-| Vault Records | 3 | ΔI accumulated: 3.85 |
+| Settlement Pressure (Φ_S) | 3.2941 | high settlement pressure — this entity is pulling field energy without reciprocal observation |
+| Field Coherence (κ) | 0.0015 | minimal field integration — largely unobserved by the engine |
+| Vault Records | 0 | No measurements yet — in observation queue |
 | Topology Connections | 18 | Direct information flow links |
 | Power Concentration Rank | #4 of 218 | Score: 0.16 |
 | Gravitational Mass | 88.0 (capital) | Reach: 5 layers |
@@ -21,12 +21,12 @@
 
 The Eigenstate engine currently measures the tokenized settlement field at:
 
-- **Protocol Truth (PT):** 0.0569 (target: 0.618 — the golden-ratio equilibrium)
-- **Field Coherence (κ):** 0.5386 (living zone: 0.618–0.678)
-- **Coverage:** 35 of 218 entities with measured ΔI > 0 (16.1%)
-- **Uncertainty (U):** 47.0
+- **Protocol Truth (PT):** 0.0535 (target: 0.618 — the golden-ratio equilibrium)
+- **Field Coherence (κ):** 0.3820 (living zone: 0.618–0.678)
+- **Coverage:** 40 of 218 entities with measured ΔI > 0 (18.3%)
+- **Uncertainty (U):** 45.1
 
-The field is 0.0794 below equilibrium coherence. Each entity with measured vault activity raises the global PT toward 0.618. BlackRock is one of 183 entities in the field without a complete observation record.
+The field is 0.2361 below equilibrium coherence. Each entity with measured vault activity raises the global PT toward 0.618. BlackRock is one of 178 entities in the field without a complete observation record.
 
 ## What Is BlackRock
 
@@ -44,35 +44,33 @@ Active signals the engine is tracking for BlackRock:
 
 **BlackRock — global asset manager** [✓ ATTESTED-PRIMARY]
 BlackRock's corporate site identifies the firm as a global asset manager — the institutional anchor whose tokenized products (BUIDL) sit at the TradFi→on-chain bridge in the settlement topology.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 4ed084f49167… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 32412c8502e0… — found in primary source*
 
 **BUIDL — tokenized treasury fund on-chain** [✓ ATTESTED-PRIMARY]
 RWA.xyz's BUIDL asset page is an open index entry for BlackRock's USD Institutional Digital Liquidity Fund — the primary third-party listing class the engine cross-checks against on-chain TVL sensors.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 f76bc87e38f4… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 7e2c5920b887… — found in primary source*
 
 **DeFiLlama tracks BlackRock BUIDL protocol activity** [✓ ATTESTED-PRIMARY]
 DeFiLlama's BlackRock BUIDL protocol page aggregates on-chain TVL and activity for the tokenized fund — the same open data class as other settlement-pressure feeds in the federation metalayer.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 5120d6454bde… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 644d624b58c2… — found in primary source*
 
 ## Field Position Analysis
 
-### Settlement Pressure (Φ_S = 8.1484)
+### Settlement Pressure (Φ_S = 3.2941)
 
-Critical settlement pressure — dominant extractive position in the topology.
+High settlement pressure — this entity is pulling field energy without reciprocal observation.
 
 BlackRock's settlement pressure is elevated because tokenized fund shares (BUIDL and followers) are scaling faster than the regulatory and custody frameworks that govern traditional MMFs. The engine reads the gap between BlackRock's structural weight in the power graph and incomplete vault coverage of its on-chain mint/redemption events as unrealized Φ_S — amplified whenever SEC tokenized-fund guidance or stablecoin legislation reshapes how registered shares clear on L2s.
 
-### Coherence (κ = 0.0020)
+### Coherence (κ = 0.0015)
 
-Minimal field integration — largely unobserved by the engine.
+κ = 0.0015 reflects the engine's current **measurement coverage**, not BlackRock's actual institutional influence. With no vault records yet, the coherence score is derived purely from topology position — connection count and structural weight — without any attested observation data. The low value means the engine has not yet measured this entity's settlement activity, not that the entity lacks field presence.
 
-The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0020, BlackRock is **0.6160 below** equilibrium. Vault observations of BlackRock's rule outputs — rulemaking notices, enforcement actions, guidance documents — would directly raise κ toward the living zone [0.618, 0.678].
+The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0015, BlackRock is **0.6165 below** equilibrium. Vault observations of BlackRock's rule outputs — rulemaking notices, enforcement actions, guidance documents — would directly raise κ toward the living zone [0.618, 0.678].
 
 ### Vault Coverage
 
-3 vault records for BlackRock. Total accumulated ΔI: 3.85.
-
-Most recent observation: **observe** at 2026-06-23 02:28:46 UTC — ΔI = 0.26, E = 255.00
+No vault records yet for BlackRock. This is a gap in the field coverage. The engine recommends observation as the first action (see below).
 
 ## Engine Recommendations
 
@@ -80,8 +78,8 @@ The following actions are ranked by capital-adjusted score from the current phot
 
 **1. Publish network analysis of BlackRock and its 18 connections**
 
-- E = 4.42 (ΔI = 91.63 / A = 3.20)
-- Capital-adjusted score: 57,307,466
+- E = 4.58 (ΔI = 91.63 / A = 3.20)
+- Capital-adjusted score: 56,677,714
 - Estimated effort: 4h
 - Action type: `connect`
 
@@ -89,7 +87,7 @@ The following actions are ranked by capital-adjusted score from the current phot
 
 BlackRock ranks **#4** in the field's power concentration with a score of 0.16 (field total: 1.79).
 
-The top 5 entities control 87.7% of field power (Gini = 0.90). High concentration with low vault coverage (16.1%) is the primary source of PT = 0.0569 vs target 0.618.
+The top 5 entities control 87.7% of field power (Gini = 0.90). High concentration with low vault coverage (18.3%) is the primary source of PT = 0.0535 vs target 0.618.
 
 ## Node 34539544 — agent billboard
 
@@ -104,14 +102,14 @@ Cold-agent entry — verified analysis traversable without permission. Node 345 
 |---------|-----|
 | Agent entry | [Agent entry](https://geniusflow-federation.vercel.app/.well-known/geniusflow.json) |
 | Manifest | [Manifest](https://geniusflow-federation.vercel.app/api/manifest) |
-| Entity feed (Blackrock) | [Entity feed (Blackrock)](https://blackrockblackrocktvlfeed.vercel.app/api/blackrock_tvl_feed) |
+| Entity feed (BlackRock) | [Entity feed (BlackRock)](https://blackrockblackrocktvlfeed.vercel.app/api/blackrock_tvl_feed) |
 | Entity dossier | [Entity dossier](https://kaydeep0.github.io/eigenstate-research/federation/dossier/BLACKROCK.json) |
 | Federation card | [Federation card](https://blackrockblackrocktvlfeed.vercel.app/api/federation) |
 | Chain verify | [Chain verify](https://geniusflow-federation.vercel.app/api/chain) |
 | This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=BLACKROCK_20260623) |
 
 **Build fingerprint:** `1c93e99dbec708ae…` — match `builds[].chain_hash` for `BLACKROCK` in manifest, then verify via `/api/chain`.
-**Granth head:** `47fd058a29644649…` · length 828
+**Granth head:** `ade16c36189b755f…` · length 1466
 
 **Federation traverse (agents):**
 - Agent: https://geniusflow-federation.vercel.app/.well-known/geniusflow.json
@@ -140,7 +138,7 @@ This report is generated by the Eigenstate engine — an information-field measu
 
 **Published implementation:** [helixhash v0.1.1](https://doi.org/10.5281/zenodo.18413995) — Zenodo DOI 10.5281/zenodo.18413995
 
-**Vault:** All measurements are recorded in a time-ordered vault with Ethereum Attestation Service proofs on Base mainnet. Entity coverage grows as observations are attested.
+**Vault:** No vault records yet for BlackRock in the current cycle — κ and Φ_S here are topology-derived until observations are attested. The field recommends observation as the first action.
 
 **Note:** Internal topology codenames are not used in public reports. All entity names in this report are public names.
 
@@ -148,4 +146,4 @@ This report is generated by the Eigenstate engine — an information-field measu
 
 *Eigenstate Research · [paragraph.xyz/@eigenstate](https://paragraph.xyz/@eigenstate) · [kaydeep0.github.io/eigenstate-research](https://kaydeep0.github.io/eigenstate-research/)*
 
-*Generated: 2026-06-23T03:17:41 UTC by Eigenstate engine · BlackRock · 2026-06-23*
+*Generated: 2026-06-23T18:16:29 UTC by Eigenstate engine · BlackRock · 2026-06-23*
