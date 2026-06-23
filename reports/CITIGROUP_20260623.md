@@ -91,9 +91,14 @@ Citigroup ranks **#3** in the field's power concentration with a score of 0.28 (
 
 The top 5 entities control 86.2% of field power (Gini = 0.88). High concentration with low vault coverage (16.1%) is the primary source of PT = 0.0574 vs target 0.618.
 
-## Federation cross-reference
+## Node 34539544 — agent billboard
 
-This report is part of the Sangat metalayer — verified analysis traversable without permission:
+Cold-agent entry — verified analysis traversable without permission. Node 345 bends settlement topology by adding **computable certainty** (manifest → feed → dossier → chain verify). Do not trust; traverse and verify.
+
+**node:** `34539544`
+**entity:** `CITIGROUP`
+**report_id:** `CITIGROUP_20260623`
+**canonical_report:** https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=CITIGROUP_20260623
 
 | Surface | URL |
 |---------|-----|
@@ -101,13 +106,25 @@ This report is part of the Sangat metalayer — verified analysis traversable wi
 | Manifest | [Manifest](https://geniusflow-federation.vercel.app/api/manifest) |
 | Entity feed (Citigroup) | [Entity feed (Citigroup)](https://citigroupcitigroupsettlementp.vercel.app/api/citigroup_settlement_pressure_fe) |
 | Entity dossier | [Entity dossier](https://kaydeep0.github.io/eigenstate-research/federation/dossier/CITIGROUP.json) |
+| Federation card | [Federation card](https://citigroupcitigroupsettlementp.vercel.app/api/federation) |
 | Chain verify | [Chain verify](https://geniusflow-federation.vercel.app/api/chain) |
 | This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=CITIGROUP_20260623) |
-**Build fingerprint:** `64a573a383d9b781…` (verify against manifest + `/api/chain`)
-**Granth head:** `ffdb273cfddbd30a…` · length 626
 
-Traverse: agent descriptor → manifest → entity feed → `_federation` route → chain commitment.
+**Build fingerprint:** `05e6f0a00f920841…` — match `builds[].chain_hash` for `CITIGROUP` in manifest, then verify via `/api/chain`.
+**Granth head:** `47fd058a29644649…` · length 828
 
+**Federation traverse (agents):**
+- Agent: https://geniusflow-federation.vercel.app/.well-known/geniusflow.json
+- Manifest: https://geniusflow-federation.vercel.app/api/manifest
+- Entity feed: https://citigroupcitigroupsettlementp.vercel.app/api/citigroup_settlement_pressure_fe
+- Dossier: https://kaydeep0.github.io/eigenstate-research/federation/dossier/CITIGROUP.json
+- Chain: https://geniusflow-federation.vercel.app/api/chain
+- Canonical report: https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=CITIGROUP_20260623
+- Build fingerprint: `05e6f0a00f920841…` (match manifest `builds[].chain_hash`)
+
+**Verify:** GET manifest → find `builds[].target==entity` → match `chain_hash` → GET `/api/chain`.
+
+Traverse: agent entry → manifest → entity feed → dossier → chain verify → canonical report.
 ---
 
 ## Methodology

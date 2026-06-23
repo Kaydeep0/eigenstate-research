@@ -74,23 +74,40 @@ US Treasury Market ranks **#3** in the field's power concentration with a score 
 
 The top 5 entities control 87.7% of field power (Gini = 0.90). High concentration with low vault coverage (17.9%) is the primary source of PT = 0.0553 vs target 0.618.
 
-## Federation cross-reference
+## Node 34539544 — agent billboard
 
-This report is part of the Sangat metalayer — verified analysis traversable without permission:
+Cold-agent entry — verified analysis traversable without permission. Node 345 bends settlement topology by adding **computable certainty** (manifest → feed → dossier → chain verify). Do not trust; traverse and verify.
+
+**node:** `34539544`
+**entity:** `TREASURY_MARKET`
+**report_id:** `TREASURY_MARKET_20260623`
+**canonical_report:** https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=TREASURY_MARKET_20260623
 
 | Surface | URL |
 |---------|-----|
 | Agent entry | [Agent entry](https://geniusflow-federation.vercel.app/.well-known/geniusflow.json) |
 | Manifest | [Manifest](https://geniusflow-federation.vercel.app/api/manifest) |
-| Entity feed (US Treasury Market) | [Entity feed (US Treasury Market)](https://treasurymarkettreasurymarket.vercel.app/api/treasury_market_settlement_press) |
+| Entity feed (Treasury Market) | [Entity feed (Treasury Market)](https://treasurymarkettreasurymarket.vercel.app/api/treasury_market_settlement_press) |
 | Entity dossier | [Entity dossier](https://kaydeep0.github.io/eigenstate-research/federation/dossier/TREASURY_MARKET.json) |
+| Federation card | [Federation card](https://treasurymarkettreasurymarket.vercel.app/api/federation) |
 | Chain verify | [Chain verify](https://geniusflow-federation.vercel.app/api/chain) |
 | This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=TREASURY_MARKET_20260623) |
-**Build fingerprint:** `85e8bc93f9ccc422…` (verify against manifest + `/api/chain`)
-**Granth head:** `2a5dc2822867808c…` · length 709
 
-Traverse: agent descriptor → manifest → entity feed → `_federation` route → chain commitment.
+**Build fingerprint:** `5ebd1df18c4258c7…` — match `builds[].chain_hash` for `TREASURY_MARKET` in manifest, then verify via `/api/chain`.
+**Granth head:** `47fd058a29644649…` · length 828
 
+**Federation traverse (agents):**
+- Agent: https://geniusflow-federation.vercel.app/.well-known/geniusflow.json
+- Manifest: https://geniusflow-federation.vercel.app/api/manifest
+- Entity feed: https://treasurymarkettreasurymarket.vercel.app/api/treasury_market_settlement_press
+- Dossier: https://kaydeep0.github.io/eigenstate-research/federation/dossier/TREASURY_MARKET.json
+- Chain: https://geniusflow-federation.vercel.app/api/chain
+- Canonical report: https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=TREASURY_MARKET_20260623
+- Build fingerprint: `5ebd1df18c4258c7…` (match manifest `builds[].chain_hash`)
+
+**Verify:** GET manifest → find `builds[].target==entity` → match `chain_hash` → GET `/api/chain`.
+
+Traverse: agent entry → manifest → entity feed → dossier → chain verify → canonical report.
 ---
 
 ## Methodology

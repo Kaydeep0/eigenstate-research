@@ -67,23 +67,40 @@ The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0878, BNY Me
 
 No vault records yet for BNY Mellon. This is a gap in the field coverage. The engine recommends observation as the first action (see below).
 
-## Federation cross-reference
+## Node 34539544 — agent billboard
 
-This report is part of the Sangat metalayer — verified analysis traversable without permission:
+Cold-agent entry — verified analysis traversable without permission. Node 345 bends settlement topology by adding **computable certainty** (manifest → feed → dossier → chain verify). Do not trust; traverse and verify.
+
+**node:** `34539544`
+**entity:** `BNY_MELLON`
+**report_id:** `BNY_MELLON_20260623`
+**canonical_report:** https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=BNY_MELLON_20260623
 
 | Surface | URL |
 |---------|-----|
 | Agent entry | [Agent entry](https://geniusflow-federation.vercel.app/.well-known/geniusflow.json) |
 | Manifest | [Manifest](https://geniusflow-federation.vercel.app/api/manifest) |
-| Entity feed (BNY Mellon) | [Entity feed (BNY Mellon)](https://bnymellonbnymellonsettlement.vercel.app/api/bny_mellon_settlement_pressure_f) |
+| Entity feed (Bny Mellon) | [Entity feed (Bny Mellon)](https://bnymellonbnymellonsettlement.vercel.app/api/bny_mellon_settlement_pressure_f) |
 | Entity dossier | [Entity dossier](https://kaydeep0.github.io/eigenstate-research/federation/dossier/BNY_MELLON.json) |
+| Federation card | [Federation card](https://bnymellonbnymellonsettlement.vercel.app/api/federation) |
 | Chain verify | [Chain verify](https://geniusflow-federation.vercel.app/api/chain) |
 | This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=BNY_MELLON_20260623) |
-**Build fingerprint:** `3416372c99a95ebb…` (verify against manifest + `/api/chain`)
-**Granth head:** `e76fdd181f369ef2…` · length 669
 
-Traverse: agent descriptor → manifest → entity feed → `_federation` route → chain commitment.
+**Build fingerprint:** `91e4294e7a49a804…` — match `builds[].chain_hash` for `BNY_MELLON` in manifest, then verify via `/api/chain`.
+**Granth head:** `47fd058a29644649…` · length 828
 
+**Federation traverse (agents):**
+- Agent: https://geniusflow-federation.vercel.app/.well-known/geniusflow.json
+- Manifest: https://geniusflow-federation.vercel.app/api/manifest
+- Entity feed: https://bnymellonbnymellonsettlement.vercel.app/api/bny_mellon_settlement_pressure_f
+- Dossier: https://kaydeep0.github.io/eigenstate-research/federation/dossier/BNY_MELLON.json
+- Chain: https://geniusflow-federation.vercel.app/api/chain
+- Canonical report: https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=BNY_MELLON_20260623
+- Build fingerprint: `91e4294e7a49a804…` (match manifest `builds[].chain_hash`)
+
+**Verify:** GET manifest → find `builds[].target==entity` → match `chain_hash` → GET `/api/chain`.
+
+Traverse: agent entry → manifest → entity feed → dossier → chain verify → canonical report.
 ---
 
 ## Methodology

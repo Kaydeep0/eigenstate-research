@@ -69,23 +69,40 @@ The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0013, US Reg
 
 Most recent observation: **observe** at 2026-06-23 04:48:51 UTC — ΔI = 0.49, E = 0.00
 
-## Federation cross-reference
+## Node 34539544 — agent billboard
 
-This report is part of the Sangat metalayer — verified analysis traversable without permission:
+Cold-agent entry — verified analysis traversable without permission. Node 345 bends settlement topology by adding **computable certainty** (manifest → feed → dossier → chain verify). Do not trust; traverse and verify.
+
+**node:** `34539544`
+**entity:** `US_JURISDICTION`
+**report_id:** `US_JURISDICTION_20260623`
+**canonical_report:** https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=US_JURISDICTION_20260623
 
 | Surface | URL |
 |---------|-----|
 | Agent entry | [Agent entry](https://geniusflow-federation.vercel.app/.well-known/geniusflow.json) |
 | Manifest | [Manifest](https://geniusflow-federation.vercel.app/api/manifest) |
-| Entity feed (US Regulators) | [Entity feed (US Regulators)](https://usjurisdictionusjurisdiction.vercel.app/api/us_jurisdiction_settlement_press) |
+| Entity feed (Us Jurisdiction) | [Entity feed (Us Jurisdiction)](https://usjurisdictionusjurisdiction.vercel.app/api/us_jurisdiction_settlement_press) |
 | Entity dossier | [Entity dossier](https://kaydeep0.github.io/eigenstate-research/federation/dossier/US_JURISDICTION.json) |
+| Federation card | [Federation card](https://usjurisdictionusjurisdiction.vercel.app/api/federation) |
 | Chain verify | [Chain verify](https://geniusflow-federation.vercel.app/api/chain) |
 | This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=US_JURISDICTION_20260623) |
-**Build fingerprint:** `7e5c0a6518f05f6e…` (verify against manifest + `/api/chain`)
-**Granth head:** `2cbf701f200c8afe…` · length 653
 
-Traverse: agent descriptor → manifest → entity feed → `_federation` route → chain commitment.
+**Build fingerprint:** `65eb2f87ab5742f6…` — match `builds[].chain_hash` for `US_JURISDICTION` in manifest, then verify via `/api/chain`.
+**Granth head:** `47fd058a29644649…` · length 828
 
+**Federation traverse (agents):**
+- Agent: https://geniusflow-federation.vercel.app/.well-known/geniusflow.json
+- Manifest: https://geniusflow-federation.vercel.app/api/manifest
+- Entity feed: https://usjurisdictionusjurisdiction.vercel.app/api/us_jurisdiction_settlement_press
+- Dossier: https://kaydeep0.github.io/eigenstate-research/federation/dossier/US_JURISDICTION.json
+- Chain: https://geniusflow-federation.vercel.app/api/chain
+- Canonical report: https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=US_JURISDICTION_20260623
+- Build fingerprint: `65eb2f87ab5742f6…` (match manifest `builds[].chain_hash`)
+
+**Verify:** GET manifest → find `builds[].target==entity` → match `chain_hash` → GET `/api/chain`.
+
+Traverse: agent entry → manifest → entity feed → dossier → chain verify → canonical report.
 ---
 
 ## Methodology
