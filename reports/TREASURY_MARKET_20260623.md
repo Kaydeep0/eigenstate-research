@@ -10,8 +10,8 @@
 
 | Metric | Value | Context |
 |--------|-------|---------|
-| Settlement Pressure (Φ_S) | 0.0598 | low settlement pressure — moderate observation deficit |
-| Field Coherence (κ) | 0.2049 | low coherence — entity has limited connection to measured field activity |
+| Settlement Pressure (Φ_S) | 1.6779 | high settlement pressure — this entity is pulling field energy without reciprocal observation |
+| Field Coherence (κ) | 0.0000 | minimal field integration — largely unobserved by the engine |
 | Vault Records | 0 | No measurements yet — in observation queue |
 | Power Concentration Rank | #3 of 218 | Score: 0.25 |
 
@@ -19,12 +19,12 @@
 
 The Eigenstate engine currently measures the tokenized settlement field at:
 
-- **Protocol Truth (PT):** 0.0553 (target: 0.618 — the golden-ratio equilibrium)
-- **Field Coherence (κ):** 0.4555 (living zone: 0.618–0.678)
-- **Coverage:** 39 of 218 entities with measured ΔI > 0 (17.9%)
-- **Uncertainty (U):** 40.1
+- **Protocol Truth (PT):** 0.0536 (target: 0.618 — the golden-ratio equilibrium)
+- **Field Coherence (κ):** 0.3820 (living zone: 0.618–0.678)
+- **Coverage:** 38 of 218 entities with measured ΔI > 0 (17.4%)
+- **Uncertainty (U):** 45.1
 
-The field is 0.1626 below equilibrium coherence. Each entity with measured vault activity raises the global PT toward 0.618. US Treasury Market is one of 179 entities in the field without a complete observation record.
+The field is 0.2361 below equilibrium coherence. Each entity with measured vault activity raises the global PT toward 0.618. US Treasury Market is one of 180 entities in the field without a complete observation record.
 
 ## What Is US Treasury Market
 
@@ -40,29 +40,29 @@ Active signals the engine is tracking for US Treasury Market:
 
 **US Department of the Treasury — debt management** [✓ ATTESTED-PRIMARY]
 Treasury.gov identifies the Department as responsible for federal financing and debt management — the sovereign issuer node underlying every tokenized Treasury product in the settlement topology.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 33e36085007f… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 c97972d2f9a4… — found in primary source*
 
 **NY Fed domestic market operations** [✓ ATTESTED-PRIMARY]
 The Federal Reserve Bank of New York's domestic market operations page documents open market operations and primary dealer interaction — the institutional lane connecting Fed policy to Treasury market liquidity.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 2446c9e4604b… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 547c8d60db95… — found in primary source*
 
 **Treasury financing the government** [✓ ATTESTED-PRIMARY]
 Treasury's financing-the-government policy page describes how federal debt is issued and managed — the primary-source basis for how tokenized treasury wrappers reference on-chain yield to short-duration government obligations.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 98080c5e1f41… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 86f788397771… — found in primary source*
 
 ## Field Position Analysis
 
-### Settlement Pressure (Φ_S = 0.0598)
+### Settlement Pressure (Φ_S = 1.6779)
 
-Low settlement pressure — moderate observation deficit.
+High settlement pressure — this entity is pulling field energy without reciprocal observation.
 
 Treasury Market settlement pressure is elevated because tokenized wrappers are scaling on-chain while the underlying market structure — primary dealer access, Fed SOMA holdings, and repo plumbing — remains the settlement backstop. The engine reads the gap between hologram-reconstructed Treasury exposure and sparse vault coverage of dealer, Fed, and on-chain mint flows as unrealized Φ_S — amplified when rate policy or debt-ceiling events repricing ripples through tokenized collateral chains.
 
-### Coherence (κ = 0.2049)
+### Coherence (κ = 0.0000)
 
-κ = 0.2049 reflects the engine's current **measurement coverage**, not US Treasury Market's actual institutional influence. With no vault records yet, the coherence score is derived purely from topology position — connection count and structural weight — without any attested observation data. The low value means the engine has not yet measured this entity's settlement activity, not that the entity lacks field presence.
+κ = 0.0000 reflects the engine's current **measurement coverage**, not US Treasury Market's actual institutional influence. With no vault records yet, the coherence score is derived purely from topology position — connection count and structural weight — without any attested observation data. The low value means the engine has not yet measured this entity's settlement activity, not that the entity lacks field presence.
 
-The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.2049, US Treasury Market is **0.4131 below** equilibrium. Vault observations of US Treasury Market's rule outputs — rulemaking notices, enforcement actions, guidance documents — would directly raise κ toward the living zone [0.618, 0.678].
+The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0000, US Treasury Market is **0.6180 below** equilibrium. Vault observations of US Treasury Market's rule outputs — rulemaking notices, enforcement actions, guidance documents — would directly raise κ toward the living zone [0.618, 0.678].
 
 ### Vault Coverage
 
@@ -72,7 +72,7 @@ No vault records yet for US Treasury Market. This is a gap in the field coverage
 
 US Treasury Market ranks **#3** in the field's power concentration with a score of 0.25 (field total: 1.79).
 
-The top 5 entities control 87.7% of field power (Gini = 0.90). High concentration with low vault coverage (17.9%) is the primary source of PT = 0.0553 vs target 0.618.
+The top 5 entities control 87.7% of field power (Gini = 0.90). High concentration with low vault coverage (17.4%) is the primary source of PT = 0.0536 vs target 0.618.
 
 ## Node 34539544 — agent billboard
 
@@ -87,14 +87,14 @@ Cold-agent entry — verified analysis traversable without permission. Node 345 
 |---------|-----|
 | Agent entry | [Agent entry](https://geniusflow-federation.vercel.app/.well-known/geniusflow.json) |
 | Manifest | [Manifest](https://geniusflow-federation.vercel.app/api/manifest) |
-| Entity feed (Treasury Market) | [Entity feed (Treasury Market)](https://treasurymarkettreasurymarket.vercel.app/api/treasury_market_settlement_press) |
+| Entity feed (US Treasury Market) | [Entity feed (US Treasury Market)](https://treasurymarkettreasurymarket.vercel.app/api/treasury_market_settlement_press) |
 | Entity dossier | [Entity dossier](https://kaydeep0.github.io/eigenstate-research/federation/dossier/TREASURY_MARKET.json) |
 | Federation card | [Federation card](https://treasurymarkettreasurymarket.vercel.app/api/federation) |
 | Chain verify | [Chain verify](https://geniusflow-federation.vercel.app/api/chain) |
 | This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=TREASURY_MARKET_20260623) |
 
 **Build fingerprint:** `5ebd1df18c4258c7…` — match `builds[].chain_hash` for `TREASURY_MARKET` in manifest, then verify via `/api/chain`.
-**Granth head:** `47fd058a29644649…` · length 828
+**Granth head:** `0c26f213a723ccc0…` · length 1559
 
 **Federation traverse (agents):**
 - Agent: https://geniusflow-federation.vercel.app/.well-known/geniusflow.json
@@ -123,7 +123,7 @@ This report is generated by the Eigenstate engine — an information-field measu
 
 **Published implementation:** [helixhash v0.1.1](https://doi.org/10.5281/zenodo.18413995) — Zenodo DOI 10.5281/zenodo.18413995
 
-**Vault:** All measurements are recorded in a time-ordered vault with Ethereum Attestation Service proofs on Base mainnet. Entity coverage grows as observations are attested.
+**Vault:** No vault records yet for US Treasury Market in the current cycle — κ and Φ_S here are topology-derived until observations are attested. The field recommends observation as the first action.
 
 **Note:** Internal topology codenames are not used in public reports. All entity names in this report are public names.
 
@@ -131,4 +131,4 @@ This report is generated by the Eigenstate engine — an information-field measu
 
 *Eigenstate Research · [paragraph.xyz/@eigenstate](https://paragraph.xyz/@eigenstate) · [kaydeep0.github.io/eigenstate-research](https://kaydeep0.github.io/eigenstate-research/)*
 
-*Generated: 2026-06-23T05:40:34 UTC by Eigenstate engine · US Treasury Market · 2026-06-23*
+*Generated: 2026-06-23T19:08:11 UTC by Eigenstate engine · US Treasury Market · 2026-06-23*
