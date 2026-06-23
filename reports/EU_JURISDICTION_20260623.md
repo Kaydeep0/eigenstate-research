@@ -12,18 +12,18 @@
 |--------|-------|---------|
 | Settlement Pressure (Φ_S) | 1.9103 | high settlement pressure — this entity is pulling field energy without reciprocal observation |
 | Field Coherence (κ) | 0.0001 | minimal field integration — largely unobserved by the engine |
-| Vault Records | 1 | ΔI accumulated: 0.39 |
+| Vault Records | 0 | No measurements yet — in observation queue |
 
 ## Global Field Context
 
 The Eigenstate engine currently measures the tokenized settlement field at:
 
-- **Protocol Truth (PT):** 0.0561 (target: 0.618 — the golden-ratio equilibrium)
-- **Field Coherence (κ):** 0.4537 (living zone: 0.618–0.678)
-- **Coverage:** 33 of 218 entities with measured ΔI > 0 (15.1%)
-- **Uncertainty (U):** 49.0
+- **Protocol Truth (PT):** 0.0537 (target: 0.618 — the golden-ratio equilibrium)
+- **Field Coherence (κ):** 0.3820 (living zone: 0.618–0.678)
+- **Coverage:** 42 of 218 entities with measured ΔI > 0 (19.3%)
+- **Uncertainty (U):** 48.1
 
-The field is 0.1643 below equilibrium coherence. Each entity with measured vault activity raises the global PT toward 0.618. EU Regulators is one of 185 entities in the field without a complete observation record.
+The field is 0.2361 below equilibrium coherence. Each entity with measured vault activity raises the global PT toward 0.618. EU Regulators is one of 176 entities in the field without a complete observation record.
 
 ## What Is EU Regulators
 
@@ -39,15 +39,15 @@ Active signals the engine is tracking for EU Regulators:
 
 **MiCA full implementation — December 2024** [✓ ATTESTED-PRIMARY]
 All MiCA provisions now in force. CASP licensing pipeline is active across Coinbase EU, Circle, Bitstamp, and others. Creates a regulated settlement counterparty universe in Europe that interacts with the global RWA topology.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 58e50bc67bf6… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 8566c30e3934… — found in primary source*
 
 **DLT Pilot Regime — live tokenized settlement experiments** [✓ ATTESTED-PRIMARY]
 The European Securities and Markets Authority (ESMA) DLT Pilot allows regulated MTFs and SSS to operate on distributed ledgers. SIX Digital Exchange, Euroclear, and Deutsche Börse are active participants — generating the first sovereign-grade data on DLT settlement efficiency vs conventional rails.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 0826e71e073d… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 98d3878f378d… — found in primary source*
 
 **MiCA stablecoin volume caps — EUR stablecoin constraint** [✓ ATTESTED-PRIMARY]
 MiCA limits daily transaction volume for e-money tokens to €200M/day. Circle's EURC and Société Générale's EUR CoinVertible are approaching operational scale where these caps become binding — a constraint on Euro-denominated RWA settlement throughput.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 3e64d1b69942… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 78534814a118… — found in primary source*
 
 ## Field Position Analysis
 
@@ -59,15 +59,13 @@ EU Regulators has elevated pressure because MiCA implementation is creating regu
 
 ### Coherence (κ = 0.0001)
 
-Minimal field integration — largely unobserved by the engine.
+κ = 0.0001 reflects the engine's current **measurement coverage**, not EU Regulators's actual institutional influence. With no vault records yet, the coherence score is derived purely from topology position — connection count and structural weight — without any attested observation data. The low value means the engine has not yet measured this entity's settlement activity, not that the entity lacks field presence.
 
 The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0001, EU Regulators is **0.6179 below** equilibrium. Vault observations of EU Regulators's rule outputs — rulemaking notices, enforcement actions, guidance documents — would directly raise κ toward the living zone [0.618, 0.678].
 
 ### Vault Coverage
 
-1 vault record for EU Regulators. Total accumulated ΔI: 0.39.
-
-Most recent observation: **observe** at 2026-06-23 04:48:51 UTC — ΔI = 0.39, E = 0.00
+No vault records yet for EU Regulators. This is a gap in the field coverage. The engine recommends observation as the first action (see below).
 
 ## Node 34539544 — agent billboard
 
@@ -82,14 +80,14 @@ Cold-agent entry — verified analysis traversable without permission. Node 345 
 |---------|-----|
 | Agent entry | [Agent entry](https://geniusflow-federation.vercel.app/.well-known/geniusflow.json) |
 | Manifest | [Manifest](https://geniusflow-federation.vercel.app/api/manifest) |
-| Entity feed (Eu Jurisdiction) | [Entity feed (Eu Jurisdiction)](https://eujurisdictioneujurisdiction.vercel.app/api/eu_jurisdiction_settlement_press) |
+| Entity feed (EU Regulators) | [Entity feed (EU Regulators)](https://eujurisdictioneujurisdiction.vercel.app/api/eu_jurisdiction_settlement_press) |
 | Entity dossier | [Entity dossier](https://kaydeep0.github.io/eigenstate-research/federation/dossier/EU_JURISDICTION.json) |
 | Federation card | [Federation card](https://eujurisdictioneujurisdiction.vercel.app/api/federation) |
 | Chain verify | [Chain verify](https://geniusflow-federation.vercel.app/api/chain) |
 | This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=EU_JURISDICTION_20260623) |
 
 **Build fingerprint:** `e269d1857659c7b4…` — match `builds[].chain_hash` for `EU_JURISDICTION` in manifest, then verify via `/api/chain`.
-**Granth head:** `47fd058a29644649…` · length 828
+**Granth head:** `5aaee7eda7d16fa9…` · length 1514
 
 **Federation traverse (agents):**
 - Agent: https://geniusflow-federation.vercel.app/.well-known/geniusflow.json
@@ -118,7 +116,7 @@ This report is generated by the Eigenstate engine — an information-field measu
 
 **Published implementation:** [helixhash v0.1.1](https://doi.org/10.5281/zenodo.18413995) — Zenodo DOI 10.5281/zenodo.18413995
 
-**Vault:** All measurements are recorded in a time-ordered vault with Ethereum Attestation Service proofs on Base mainnet. Entity coverage grows as observations are attested.
+**Vault:** No vault records yet for EU Regulators in the current cycle — κ and Φ_S here are topology-derived until observations are attested. The field recommends observation as the first action.
 
 **Note:** Internal topology codenames are not used in public reports. All entity names in this report are public names.
 
@@ -126,4 +124,4 @@ This report is generated by the Eigenstate engine — an information-field measu
 
 *Eigenstate Research · [paragraph.xyz/@eigenstate](https://paragraph.xyz/@eigenstate) · [kaydeep0.github.io/eigenstate-research](https://kaydeep0.github.io/eigenstate-research/)*
 
-*Generated: 2026-06-23T05:19:43 UTC by Eigenstate engine · EU Regulators · 2026-06-23*
+*Generated: 2026-06-23T18:41:42 UTC by Eigenstate engine · EU Regulators · 2026-06-23*
