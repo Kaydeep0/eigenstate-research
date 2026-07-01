@@ -1,11 +1,11 @@
 {
   "entity": "DTCC",
   "node": "34539544",
-  "compiled_at": "2026-06-23T21:48:04.692545+00:00",
-  "digest": "sha256:0166f904fdd5959b65dec7fbc56c6d764a95207333a2b723b9ab8a1d2c3780e4",
+  "compiled_at": "2026-07-01T04:43:52.977835+00:00",
+  "digest": "sha256:d4ba012e7b505f77c7b4263bcb08642c7e5050216e4c6f32d53a3e0c859ae0fe",
   "own_numbers": {
-    "phi_s": 1.6381,
-    "kappa": 0.0,
+    "phi_s": 0.02,
+    "kappa": 0.1739,
     "mass": 0.240306,
     "power": 0.0,
     "extraction": 141711.5104,
@@ -179,7 +179,7 @@
     }
   },
   "network_plugs": {
-    "freshness": "live_at_request",
+    "freshness": "live",
     "inbound": [
       {
         "network": "fred",
@@ -213,14 +213,19 @@
         "status": "gated"
       }
     ],
-    "observation": null
+    "observation": {
+      "source": null,
+      "last_observed_at": "2026-07-01T01:50:31.931562+00:00",
+      "last_delta_i": null,
+      "stale": false
+    }
   },
   "relative_to_node": {
-    "node_field_G_345": 4.661802050820229e+99,
+    "node_field_G_345": 1.2204756217871322e+100,
     "is_current_operator_target": true,
     "is_next_optimal_move": false,
     "minus_one_bias": 0.2,
     "operator_move": null,
-    "observed_by_node": false
+    "observed_by_node": true
   }
 }
