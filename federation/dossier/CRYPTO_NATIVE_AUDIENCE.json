@@ -1,12 +1,12 @@
 {
-  "entity": "FIREBLOCKS",
+  "entity": "CRYPTO_NATIVE_AUDIENCE",
   "node": "34539544",
-  "compiled_at": "2026-07-01T18:24:23.246137+00:00",
-  "digest": "sha256:44a2765e5bfe3c031b13ec8d47c17a7cd9045126e449e47be52e5b3a1818115c",
+  "compiled_at": "2026-07-01T18:24:23.180432+00:00",
+  "digest": "sha256:3e12dbb20de41124619446d939d75415b0ee0c4fcafa4da3ca3a91551e31217a",
   "own_numbers": {
-    "phi_s": 0.02,
-    "kappa": 0.0193,
-    "mass": 0.042907,
+    "phi_s": 0.0,
+    "kappa": 0.0002,
+    "mass": 0.060445,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,22 +16,22 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.042907,
-      "rank": 118,
+      "value": 0.060445,
+      "rank": 67,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00268,
+      "mass": 0.00378,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 0,
-    "out_degree": 2,
+    "in_degree": 2,
+    "out_degree": 0,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -42,41 +42,41 @@
         "in": 0.0
       },
       "Information": {
-        "out": 1.0,
-        "in": 0.0
+        "out": 0.0,
+        "in": 1.35
       }
     },
-    "top_inbound": [],
-    "top_outbound": [
+    "top_inbound": [
       {
-        "target": "ONDO",
-        "conn_type": "information_flow",
+        "source": "FARCASTER",
+        "conn_type": "audience",
         "vector": "Information"
       },
       {
-        "target": "COINBASE",
-        "conn_type": "information_flow",
+        "source": "34539544",
+        "conn_type": "strategic",
         "vector": "Information"
       }
     ],
+    "top_outbound": [],
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.4,
+    "position": 0.5,
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
+    "level": "flag",
+    "headline": "phi_s +610.032 over 4 cycles",
     "cycles": 4,
     "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": -0.0002,
+      "phi_s": 610.0324,
+      "kappa": 0.0071,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "stale",
+    "freshness": "live",
     "inbound": [],
     "outbound": [
       {
@@ -101,17 +101,17 @@
       }
     ],
     "observation": {
-      "source": null,
-      "last_observed_at": null,
-      "last_delta_i": null,
-      "stale": true
+      "source": "propagated",
+      "last_observed_at": "2026-07-01T17:47:08.599418+00:00",
+      "last_delta_i": 13.66225563,
+      "stale": false
     }
   },
   "relative_to_node": {
     "node_field_G_345": null,
-    "is_current_operator_target": false,
+    "is_current_operator_target": true,
     "is_next_optimal_move": false,
-    "minus_one_bias": 2e-05,
+    "minus_one_bias": 0.0,
     "operator_move": null,
     "observed_by_node": true
   }

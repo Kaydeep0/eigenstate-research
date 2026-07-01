@@ -1,37 +1,37 @@
 {
-  "entity": "FIREBLOCKS",
+  "entity": "BAFIN",
   "node": "34539544",
-  "compiled_at": "2026-07-01T18:24:23.246137+00:00",
-  "digest": "sha256:44a2765e5bfe3c031b13ec8d47c17a7cd9045126e449e47be52e5b3a1818115c",
+  "compiled_at": "2026-07-01T18:24:23.079827+00:00",
+  "digest": "sha256:abf753bae19a5eb3726bd1d6b2d1dc844cb8996776a7981cf669afacfc61a8d7",
   "own_numbers": {
-    "phi_s": 0.02,
-    "kappa": 0.0193,
-    "mass": 0.042907,
+    "phi_s": 3.2522,
+    "kappa": 0.0,
+    "mass": 0.093675,
     "power": null,
     "extraction": null,
-    "memory_mass": null,
-    "X_natural": null,
+    "memory_mass": 0.8,
+    "X_natural": 0.0,
     "gravity_mass": null,
     "mass_type": null
   },
   "vs_whole": {
     "mass": {
-      "value": 0.042907,
-      "rank": 118,
+      "value": 0.093675,
+      "rank": 46,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00268,
+      "mass": 0.00585,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
     "in_degree": 0,
-    "out_degree": 2,
+    "out_degree": 1,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -42,27 +42,53 @@
         "in": 0.0
       },
       "Information": {
-        "out": 1.0,
+        "out": 0.5,
         "in": 0.0
       }
     },
     "top_inbound": [],
     "top_outbound": [
       {
-        "target": "ONDO",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "target": "COINBASE",
+        "target": "EU_JURISDICTION",
         "conn_type": "information_flow",
         "vector": "Information"
       }
     ],
-    "gravity_pairs": []
+    "gravity_pairs": [
+      {
+        "entity": "ESMA",
+        "mass": 106.0,
+        "hops": 2,
+        "pull": 21.2
+      },
+      {
+        "entity": "EU_JURISDICTION",
+        "mass": 14.61,
+        "hops": 1,
+        "pull": 11.688
+      },
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 3,
+        "pull": 10.5778
+      },
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 51.23,
+        "hops": 2,
+        "pull": 10.246
+      },
+      {
+        "entity": "FED",
+        "mass": 114.0,
+        "hops": 3,
+        "pull": 10.1333
+      }
+    ]
   },
   "monetary_position": {
-    "position": 0.4,
+    "position": 0.5,
     "well": "fiat"
   },
   "drift": {
@@ -71,13 +97,24 @@
     "cycles": 4,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0002,
+      "kappa": -0.0001,
+      "memory_mass": 0.0,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "stale",
-    "inbound": [],
+    "freshness": "live_at_request",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live_at_request",
+        "series_id": "GDP",
+        "label": "de_regulatory_gdp_proxy",
+        "last_observed_at": "2026-05-15T21:49:59.337213+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
     "outbound": [
       {
         "network": "helixhash",
@@ -101,9 +138,9 @@
       }
     ],
     "observation": {
-      "source": null,
-      "last_observed_at": null,
-      "last_delta_i": null,
+      "source": "defi_llama_tvl",
+      "last_observed_at": "2026-03-26T21:57:42.105205+00:00",
+      "last_delta_i": 0.05607167461585789,
       "stale": true
     }
   },

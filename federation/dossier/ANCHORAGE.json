@@ -1,12 +1,12 @@
 {
-  "entity": "FIREBLOCKS",
+  "entity": "ANCHORAGE",
   "node": "34539544",
-  "compiled_at": "2026-07-01T18:24:23.246137+00:00",
-  "digest": "sha256:44a2765e5bfe3c031b13ec8d47c17a7cd9045126e449e47be52e5b3a1818115c",
+  "compiled_at": "2026-07-01T18:24:23.073511+00:00",
+  "digest": "sha256:83e079b5e932b4558bf90335b03f1adc8bfff112dd6ca586fcfef11b9356820c",
   "own_numbers": {
     "phi_s": 0.02,
     "kappa": 0.0193,
-    "mass": 0.042907,
+    "mass": 0.114146,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,15 +16,15 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.042907,
-      "rank": 118,
+      "value": 0.114146,
+      "rank": 34,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00268,
+      "mass": 0.00713,
       "power": null
     },
     "peers_by_power": []
@@ -49,7 +49,7 @@
     "top_inbound": [],
     "top_outbound": [
       {
-        "target": "ONDO",
+        "target": "OCC",
         "conn_type": "information_flow",
         "vector": "Information"
       },
@@ -62,7 +62,7 @@
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.4,
+    "position": 0.5,
     "well": "fiat"
   },
   "drift": {
@@ -76,8 +76,17 @@
     }
   },
   "network_plugs": {
-    "freshness": "stale",
-    "inbound": [],
+    "freshness": "live_at_request",
+    "inbound": [
+      {
+        "network": "sec_edgar",
+        "kind": "regulatory_primary",
+        "status": "live_at_request",
+        "last_observed_at": "2026-06-22T23:00:34.463883+00:00",
+        "filings": null,
+        "note": "AKUMIN INC. \u2014 214 total filings, 0 in last 90d"
+      }
+    ],
     "outbound": [
       {
         "network": "helixhash",
