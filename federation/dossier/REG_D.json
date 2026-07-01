@@ -1,0 +1,161 @@
+{
+  "entity": "REG_D",
+  "node": "34539544",
+  "compiled_at": "2026-07-01T23:10:36.437790+00:00",
+  "digest": "sha256:41eca3820abc540666a8aa7b3406461ea66984a0d0ce22d80fc8cca3a3a9c8ac",
+  "own_numbers": {
+    "phi_s": 1.6661,
+    "kappa": 0.0002,
+    "mass": 0.097804,
+    "power": null,
+    "extraction": null,
+    "memory_mass": 2.4,
+    "X_natural": 0.0,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.097804,
+      "rank": 43,
+      "of": 199
+    },
+    "power": null,
+    "gravity": null,
+    "extraction": null,
+    "share_of_whole": {
+      "mass": 0.00611,
+      "power": null
+    },
+    "peers_by_power": []
+  },
+  "relationships": {
+    "in_degree": 1,
+    "out_degree": 1,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 0.5,
+        "in": 0.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "SEC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "REG_S",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 1,
+        "pull": 285.6
+      },
+      {
+        "entity": "ESMA",
+        "mass": 106.0,
+        "hops": 2,
+        "pull": 63.6
+      },
+      {
+        "entity": "CFTC",
+        "mass": 102.0,
+        "hops": 2,
+        "pull": 61.2
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 89.0,
+        "hops": 2,
+        "pull": 53.4
+      },
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 3,
+        "pull": 30.6667
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.6,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 4,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": -0.0002,
+      "memory_mass": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live",
+        "series_id": "GDP",
+        "label": "private_placement_gdp_proxy",
+        "last_observed_at": "2026-07-01T22:56:32.943672+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 9689373.667049592,
+    "is_current_operator_target": false,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 2e-05,
+    "operator_move": null,
+    "observed_by_node": true
+  }
+}

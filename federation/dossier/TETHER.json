@@ -1,0 +1,182 @@
+{
+  "entity": "TETHER",
+  "node": "34539544",
+  "compiled_at": "2026-07-01T23:10:36.519380+00:00",
+  "digest": "sha256:7d001c2c47577f8d5fe5da56aefbd86d7e0a719f14f5713eab2f1c957841a3f7",
+  "own_numbers": {
+    "phi_s": 0.0788,
+    "kappa": 0.0746,
+    "mass": 0.186113,
+    "power": 0.0,
+    "extraction": 7901.1541,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.186113,
+      "rank": 18,
+      "of": 199
+    },
+    "power": {
+      "value": 0.0,
+      "rank": 46,
+      "of": 49
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 7901.1541,
+      "rank": 22,
+      "of": 49
+    },
+    "share_of_whole": {
+      "mass": 0.01163,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "STANI_KULECHOV",
+        "power": 0.0
+      },
+      {
+        "entity": "STRONGHOLD",
+        "power": 0.0
+      },
+      {
+        "entity": "TETHER",
+        "power": 0.0
+      },
+      {
+        "entity": "USDY",
+        "power": 0.0
+      },
+      {
+        "entity": "US_EAST_COAST",
+        "power": 0.0
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 6,
+    "out_degree": 2,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 1.0,
+        "in": 0.5
+      },
+      "Information": {
+        "out": 0.0,
+        "in": 2.2
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "STABLECOIN_POOL",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "STABLECOIN_DOMINANCE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CAYMAN_BVI",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CIRCLE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CANTOR_FITZGERALD",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "CANTOR_FITZGERALD",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
+      }
+    ],
+    "gravity_pairs": []
+  },
+  "monetary_position": {
+    "position": 0.5,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 4,
+    "delta_last_cycle": {
+      "phi_s": -1.6229,
+      "kappa": 0.0773,
+      "power": 0.0,
+      "extraction": 3694.6315,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "defillama",
+        "kind": "stablecoins",
+        "status": "live",
+        "note": "fetched from public API at request time"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "propagated",
+      "last_observed_at": "2026-07-01T21:57:39.518018+00:00",
+      "last_delta_i": 0.0,
+      "stale": false
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 9689373.667049592,
+    "is_current_operator_target": true,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 7.9e-05,
+    "operator_move": null,
+    "observed_by_node": true
+  }
+}

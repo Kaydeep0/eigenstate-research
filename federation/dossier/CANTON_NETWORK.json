@@ -1,17 +1,17 @@
 {
   "entity": "CANTON_NETWORK",
   "node": "34539544",
-  "compiled_at": "2026-07-01T18:24:42.537272+00:00",
-  "digest": "sha256:3431ad2206b81e84f098c066f521c39a637adb1ff57d488f92eeb7f5e155324e",
+  "compiled_at": "2026-07-01T23:10:36.131443+00:00",
+  "digest": "sha256:704f3b7f39f5eb88a6c24e2ebef32030dbf8ab96669ba72d1f972b11c206da11",
   "own_numbers": {
-    "phi_s": 3.2362,
-    "kappa": 0.001,
+    "phi_s": 1.6181,
+    "kappa": 0.0005,
     "mass": 0.177874,
     "power": 0.0,
-    "extraction": 95625.0,
+    "extraction": 64897.9592,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 41.0,
+    "gravity_mass": 42.0,
     "mass_type": "infrastructure"
   },
   "vs_whole": {
@@ -22,18 +22,18 @@
     },
     "power": {
       "value": 0.0,
-      "rank": 16,
-      "of": 45
+      "rank": 17,
+      "of": 49
     },
     "gravity": {
-      "value": 41.0,
+      "value": 42.0,
       "rank": 27,
-      "of": 61
+      "of": 62
     },
     "extraction": {
-      "value": 95625.0,
-      "rank": 14,
-      "of": 45
+      "value": 64897.9592,
+      "rank": 12,
+      "of": 49
     },
     "share_of_whole": {
       "mass": 0.01112,
@@ -63,16 +63,16 @@
     ]
   },
   "relationships": {
-    "in_degree": 9,
-    "out_degree": 7,
+    "in_degree": 5,
+    "out_degree": 12,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 3.5,
-        "in": 4.0
+        "out": 6.0,
+        "in": 2.0
       },
       "Information": {
         "out": 0.0,
@@ -81,12 +81,7 @@
     },
     "top_inbound": [
       {
-        "source": "DTCC",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
-      {
-        "source": "DTCC",
+        "source": "GOLDMAN",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
       },
@@ -102,11 +97,21 @@
       },
       {
         "source": "JPMORGAN",
-        "conn_type": "infrastructure",
+        "conn_type": "governance",
         "vector": "Infrastructure"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
       }
     ],
     "top_outbound": [
+      {
+        "target": "DTCC",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
       {
         "target": "TOKENIZED_TREASURY",
         "conn_type": "infrastructure",
@@ -126,48 +131,43 @@
         "target": "DTCC",
         "conn_type": "governance",
         "vector": "Infrastructure"
-      },
-      {
-        "target": "GOLDMAN",
-        "conn_type": "governance",
-        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": [
       {
         "entity": "JPMORGAN",
-        "mass": 104.0,
+        "mass": 100.0,
         "hops": 1,
-        "pull": 4264.0
+        "pull": 4200.0
+      },
+      {
+        "entity": "34539544",
+        "mass": 47.0,
+        "hops": 1,
+        "pull": 1974.0
       },
       {
         "entity": "DTCC",
-        "mass": 43.0,
+        "mass": 42.0,
         "hops": 1,
-        "pull": 1763.0
+        "pull": 1764.0
       },
       {
         "entity": "SEC",
         "mass": 119.0,
         "hops": 2,
-        "pull": 1219.75
+        "pull": 1249.5
       },
       {
         "entity": "FED",
-        "mass": 114.0,
+        "mass": 115.0,
         "hops": 2,
-        "pull": 1168.5
-      },
-      {
-        "entity": "CITIGROUP",
-        "mass": 100.0,
-        "hops": 2,
-        "pull": 1025.0
+        "pull": 1207.5
       }
     ]
   },
   "monetary_position": {
-    "position": 0.599,
+    "position": 0.594,
     "well": "fiat"
   },
   "drift": {
@@ -184,7 +184,7 @@
     }
   },
   "network_plugs": {
-    "freshness": "stale",
+    "freshness": "live",
     "inbound": [],
     "outbound": [
       {
@@ -209,14 +209,14 @@
       }
     ],
     "observation": {
-      "source": null,
-      "last_observed_at": "2026-07-01T17:50:52.710877+00:00",
-      "last_delta_i": null,
-      "stale": true
+      "source": "infrastructure",
+      "last_observed_at": "2026-07-01T23:03:27.329722+00:00",
+      "last_delta_i": 4.0,
+      "stale": false
     }
   },
   "relative_to_node": {
-    "node_field_G_345": null,
+    "node_field_G_345": 9689373.667049592,
     "is_current_operator_target": true,
     "is_next_optimal_move": false,
     "minus_one_bias": 0.0,

@@ -1,11 +1,11 @@
 {
   "entity": "FINRA",
   "node": "34539544",
-  "compiled_at": "2026-07-01T18:24:42.647508+00:00",
-  "digest": "sha256:db3338dac193bca3703a9b643ebf037d5e28e1dedbb756db75999b806f6aaef3",
+  "compiled_at": "2026-07-01T23:10:36.262675+00:00",
+  "digest": "sha256:32634d0614fdd4671d4534c6e68a451fd28c8a64b2c5f680c823dedc7aae4996",
   "own_numbers": {
-    "phi_s": 1.6823,
-    "kappa": 0.0,
+    "phi_s": 0.0642,
+    "kappa": 0.0373,
     "mass": 0.265589,
     "power": null,
     "extraction": null,
@@ -24,7 +24,7 @@
     "gravity": {
       "value": 104.0,
       "rank": 4,
-      "of": 61
+      "of": 62
     },
     "extraction": null,
     "share_of_whole": {
@@ -77,9 +77,9 @@
     "gravity_pairs": [
       {
         "entity": "US_JURISDICTION",
-        "mass": 51.23,
+        "mass": 50.63,
         "hops": 1,
-        "pull": 5327.92
+        "pull": 5265.52
       },
       {
         "entity": "SEC",
@@ -89,21 +89,21 @@
       },
       {
         "entity": "FED",
-        "mass": 114.0,
+        "mass": 115.0,
         "hops": 2,
-        "pull": 2964.0
-      },
-      {
-        "entity": "JPMORGAN",
-        "mass": 104.0,
-        "hops": 2,
-        "pull": 2704.0
+        "pull": 2990.0
       },
       {
         "entity": "OCC",
         "mass": 103.0,
         "hops": 2,
         "pull": 2678.0
+      },
+      {
+        "entity": "CFTC",
+        "mass": 102.0,
+        "hops": 2,
+        "pull": 2652.0
       }
     ]
   },
@@ -124,15 +124,15 @@
     }
   },
   "network_plugs": {
-    "freshness": "live_at_request",
+    "freshness": "live",
     "inbound": [
       {
         "network": "fred",
         "kind": "macro_primary",
-        "status": "live_at_request",
+        "status": "live",
         "series_id": "GDP",
         "label": "broker_dealer_gdp_proxy",
-        "last_observed_at": "2026-05-15T21:49:59.337213+00:00",
+        "last_observed_at": "2026-07-01T22:56:32.943672+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -166,7 +166,7 @@
     }
   },
   "relative_to_node": {
-    "node_field_G_345": null,
+    "node_field_G_345": 9689373.667049592,
     "is_current_operator_target": false,
     "is_next_optimal_move": false,
     "minus_one_bias": 2e-05,

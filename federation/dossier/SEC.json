@@ -1,16 +1,16 @@
 {
   "entity": "SEC",
   "node": "34539544",
-  "compiled_at": "2026-07-01T18:24:42.696122+00:00",
-  "digest": "sha256:356d303a737d8d543f1a3fb104ceb6bc5ffa01c9795d47a49d7753740efc72ea",
+  "compiled_at": "2026-07-01T23:10:36.472789+00:00",
+  "digest": "sha256:eb2ecbdc2795c12f983dddfa4192881dff91235ae95456c7b8e8c21c3f67d951",
   "own_numbers": {
-    "phi_s": 5.099,
+    "phi_s": 4.9956,
     "kappa": 0.0018,
     "mass": 0.433364,
-    "power": 0.08,
-    "extraction": 214506.869318,
-    "memory_mass": 92.6,
-    "X_natural": 23.8255,
+    "power": 0.05,
+    "extraction": 106480.270035,
+    "memory_mass": 92.66,
+    "X_natural": 14.891,
     "gravity_mass": 119.0,
     "mass_type": "regulatory"
   },
@@ -21,54 +21,54 @@
       "of": 199
     },
     "power": {
-      "value": 0.08,
-      "rank": 6,
-      "of": 45
+      "value": 0.05,
+      "rank": 7,
+      "of": 49
     },
     "gravity": {
       "value": 119.0,
       "rank": 1,
-      "of": 61
+      "of": 62
     },
     "extraction": {
-      "value": 214506.8693,
+      "value": 106480.27,
       "rank": 8,
-      "of": 45
+      "of": 49
     },
     "share_of_whole": {
       "mass": 0.02709,
-      "power": 0.0442
+      "power": 0.04902
     },
     "peers_by_power": [
       {
-        "entity": "BLACKROCK",
-        "power": 0.16
-      },
-      {
-        "entity": "COINBASE",
-        "power": 0.09
-      },
-      {
-        "entity": "SEC",
-        "power": 0.08
-      },
-      {
-        "entity": "TOKENIZED_TREASURY",
+        "entity": "34539544",
         "power": 0.05
       },
       {
-        "entity": "34539544",
-        "power": 0.04
+        "entity": "COINBASE",
+        "power": 0.05
+      },
+      {
+        "entity": "SEC",
+        "power": 0.05
+      },
+      {
+        "entity": "TOKENIZED_TREASURY",
+        "power": 0.03
+      },
+      {
+        "entity": "CIRCLE",
+        "power": 0.02
       }
     ]
   },
   "relationships": {
-    "in_degree": 11,
-    "out_degree": 8,
+    "in_degree": 12,
+    "out_degree": 7,
     "by_vector": {
       "Capital": {
-        "out": 0.5,
-        "in": 0.0
+        "out": 0.0,
+        "in": 0.5
       },
       "Infrastructure": {
         "out": 0.0,
@@ -148,26 +148,26 @@
       },
       {
         "entity": "BLACKROCK",
-        "mass": 88.0,
+        "mass": 89.0,
         "hops": 1,
-        "pull": 10472.0
+        "pull": 10591.0
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 51.23,
+        "mass": 50.63,
         "hops": 1,
-        "pull": 6096.37
+        "pull": 6024.97
       },
       {
-        "entity": "FED",
-        "mass": 114.0,
-        "hops": 2,
-        "pull": 3391.5
+        "entity": "34539544",
+        "mass": 47.0,
+        "hops": 1,
+        "pull": 5593.0
       }
     ]
   },
   "monetary_position": {
-    "position": 0.822,
+    "position": 0.827,
     "well": "fiat"
   },
   "drift": {
@@ -185,15 +185,15 @@
     }
   },
   "network_plugs": {
-    "freshness": "live_at_request",
+    "freshness": "live",
     "inbound": [
       {
         "network": "fred",
         "kind": "macro_primary",
-        "status": "live_at_request",
+        "status": "live",
         "series_id": "GDP",
         "label": "securities_market_gdp_proxy",
-        "last_observed_at": "2026-05-15T21:49:59.337213+00:00",
+        "last_observed_at": "2026-07-01T22:56:32.943672+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -220,17 +220,17 @@
       }
     ],
     "observation": {
-      "source": "information_flow",
-      "last_observed_at": "2026-05-19T21:06:55.037631+00:00",
-      "last_delta_i": 1.0,
-      "stale": true
+      "source": "propagated",
+      "last_observed_at": "2026-07-01T23:08:48.652053+00:00",
+      "last_delta_i": 2.9867411425033374,
+      "stale": false
     }
   },
   "relative_to_node": {
-    "node_field_G_345": null,
+    "node_field_G_345": 9689373.667049592,
     "is_current_operator_target": true,
     "is_next_optimal_move": false,
-    "minus_one_bias": 3.8e-05,
+    "minus_one_bias": 3.6e-05,
     "operator_move": null,
     "observed_by_node": true
   }

@@ -1,0 +1,161 @@
+{
+  "entity": "MAS",
+  "node": "34539544",
+  "compiled_at": "2026-07-01T23:10:36.358944+00:00",
+  "digest": "sha256:ef36616ce7bd0cc6f79148c971f901532a3a0fd4c75d2fa6b9fb62e5ac043d6f",
+  "own_numbers": {
+    "phi_s": 1.6821,
+    "kappa": 0.0,
+    "mass": 0.100867,
+    "power": null,
+    "extraction": null,
+    "memory_mass": 3.2,
+    "X_natural": 0.0,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.100867,
+      "rank": 39,
+      "of": 199
+    },
+    "power": null,
+    "gravity": null,
+    "extraction": null,
+    "share_of_whole": {
+      "mass": 0.0063,
+      "power": null
+    },
+    "peers_by_power": []
+  },
+  "relationships": {
+    "in_degree": 1,
+    "out_degree": 1,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 0.5,
+        "in": 0.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "SINGAPORE_REGION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "SINGAPORE_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 3,
+        "pull": 42.3111
+      },
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 3,
+        "pull": 40.8889
+      },
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 50.63,
+        "hops": 2,
+        "pull": 40.504
+      },
+      {
+        "entity": "FINRA",
+        "mass": 104.0,
+        "hops": 3,
+        "pull": 36.9778
+      },
+      {
+        "entity": "OCC",
+        "mass": 103.0,
+        "hops": 3,
+        "pull": 36.6222
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.5,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 4,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": -0.0002,
+      "memory_mass": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live",
+        "series_id": "GDP",
+        "label": "sg_regulatory_gdp_proxy",
+        "last_observed_at": "2026-07-01T22:56:32.943672+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 9689373.667049592,
+    "is_current_operator_target": false,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 2e-05,
+    "operator_move": null,
+    "observed_by_node": true
+  }
+}

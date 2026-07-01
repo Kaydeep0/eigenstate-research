@@ -1,10 +1,10 @@
 {
   "entity": "BAFIN",
   "node": "34539544",
-  "compiled_at": "2026-07-01T18:24:42.497273+00:00",
-  "digest": "sha256:abf753bae19a5eb3726bd1d6b2d1dc844cb8996776a7981cf669afacfc61a8d7",
+  "compiled_at": "2026-07-01T23:10:36.080024+00:00",
+  "digest": "sha256:02dc70425f33f40dfe2769533d5d50689ea54be2b7d78ce0ca3f06a2806991ef",
   "own_numbers": {
-    "phi_s": 3.2522,
+    "phi_s": 1.6341,
     "kappa": 0.0,
     "mass": 0.093675,
     "power": null,
@@ -63,9 +63,9 @@
       },
       {
         "entity": "EU_JURISDICTION",
-        "mass": 14.61,
+        "mass": 14.59,
         "hops": 1,
-        "pull": 11.688
+        "pull": 11.672
       },
       {
         "entity": "SEC",
@@ -74,16 +74,16 @@
         "pull": 10.5778
       },
       {
-        "entity": "US_JURISDICTION",
-        "mass": 51.23,
-        "hops": 2,
-        "pull": 10.246
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 3,
+        "pull": 10.2222
       },
       {
-        "entity": "FED",
-        "mass": 114.0,
-        "hops": 3,
-        "pull": 10.1333
+        "entity": "US_JURISDICTION",
+        "mass": 50.63,
+        "hops": 2,
+        "pull": 10.126
       }
     ]
   },
@@ -103,15 +103,15 @@
     }
   },
   "network_plugs": {
-    "freshness": "live_at_request",
+    "freshness": "live",
     "inbound": [
       {
         "network": "fred",
         "kind": "macro_primary",
-        "status": "live_at_request",
+        "status": "live",
         "series_id": "GDP",
         "label": "de_regulatory_gdp_proxy",
-        "last_observed_at": "2026-05-15T21:49:59.337213+00:00",
+        "last_observed_at": "2026-07-01T22:56:32.943672+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -145,7 +145,7 @@
     }
   },
   "relative_to_node": {
-    "node_field_G_345": null,
+    "node_field_G_345": 9689373.667049592,
     "is_current_operator_target": false,
     "is_next_optimal_move": false,
     "minus_one_bias": 2e-05,

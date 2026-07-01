@@ -1,0 +1,164 @@
+{
+  "entity": "HK_JURISDICTION",
+  "node": "34539544",
+  "compiled_at": "2026-07-01T23:10:36.291985+00:00",
+  "digest": "sha256:d7e5a05dc5f9ee890045b88ddf7dbd1291d165d3902937404fae3465cccb74a0",
+  "own_numbers": {
+    "phi_s": 0.12,
+    "kappa": 0.028,
+    "mass": 0.170262,
+    "power": null,
+    "extraction": null,
+    "memory_mass": 6.0,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.170262,
+      "rank": 20,
+      "of": 199
+    },
+    "power": null,
+    "gravity": null,
+    "extraction": null,
+    "share_of_whole": {
+      "mass": 0.01064,
+      "power": null
+    },
+    "peers_by_power": []
+  },
+  "relationships": {
+    "in_degree": 3,
+    "out_degree": 0,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 0.0,
+        "in": 1.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "HKMA",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "JFSA",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "SINGAPORE_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [],
+    "gravity_pairs": [
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 3,
+        "pull": 79.3333
+      },
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 3,
+        "pull": 76.6667
+      },
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 50.63,
+        "hops": 2,
+        "pull": 75.945
+      },
+      {
+        "entity": "FINRA",
+        "mass": 104.0,
+        "hops": 3,
+        "pull": 69.3333
+      },
+      {
+        "entity": "OCC",
+        "mass": 103.0,
+        "hops": 3,
+        "pull": 68.6667
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.5,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "flag",
+    "headline": "phi_s -93% over 4 cycles",
+    "cycles": 4,
+    "delta_last_cycle": {
+      "phi_s": -1.6181,
+      "kappa": 0.029,
+      "memory_mass": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live",
+        "last_observed_at": "2026-07-01T22:56:32.943672+00:00",
+        "source": "FRED_HK_PROXY",
+        "note": "HK GDP proxy"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "relative_to_node": {
+    "node_field_G_345": 9689373.667049592,
+    "is_current_operator_target": false,
+    "is_next_optimal_move": false,
+    "minus_one_bias": 2e-05,
+    "operator_move": null,
+    "observed_by_node": true
+  }
+}

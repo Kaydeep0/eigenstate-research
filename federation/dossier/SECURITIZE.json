@@ -1,14 +1,14 @@
 {
   "entity": "SECURITIZE",
   "node": "34539544",
-  "compiled_at": "2026-07-01T18:24:42.701825+00:00",
-  "digest": "sha256:4941b09e56829d7c026ee4dd34c0ba73d73edae3ebb91e2a9b9e7ac172728601",
+  "compiled_at": "2026-07-01T23:10:36.478505+00:00",
+  "digest": "sha256:0c4f820f4f5897a4f3fbbbd6609a52f62eefd0907aca692f7588c24bc069c21b",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0966,
+    "kappa": 0.0839,
     "mass": 0.157785,
     "power": 0.0,
-    "extraction": 10267.4688,
+    "extraction": 3516.5079,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -22,14 +22,14 @@
     },
     "power": {
       "value": 0.0,
-      "rank": 38,
-      "of": 45
+      "rank": 42,
+      "of": 49
     },
     "gravity": null,
     "extraction": {
-      "value": 10267.4688,
-      "rank": 23,
-      "of": 45
+      "value": 3516.5079,
+      "rank": 28,
+      "of": 49
     },
     "share_of_whole": {
       "mass": 0.00986,
@@ -59,16 +59,16 @@
     ]
   },
   "relationships": {
-    "in_degree": 4,
-    "out_degree": 6,
+    "in_degree": 5,
+    "out_degree": 4,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 1.0,
-        "in": 0.5
+        "out": 0.0,
+        "in": 1.0
       },
       "Information": {
         "out": 2.0,
@@ -90,6 +90,11 @@
         "source": "TOKENIZATION_INEVITABLE",
         "conn_type": "information_flow",
         "vector": "Information"
+      },
+      {
+        "source": "BLACKROCK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
       },
       {
         "source": "OUSG",
@@ -117,17 +122,12 @@
         "target": "ONDO",
         "conn_type": "information_flow",
         "vector": "Information"
-      },
-      {
-        "target": "SEC",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.662,
+    "position": 0.651,
     "well": "fiat"
   },
   "drift": {
@@ -190,7 +190,7 @@
     }
   },
   "relative_to_node": {
-    "node_field_G_345": null,
+    "node_field_G_345": 9689373.667049592,
     "is_current_operator_target": false,
     "is_next_optimal_move": false,
     "minus_one_bias": 2e-05,

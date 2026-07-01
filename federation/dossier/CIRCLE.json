@@ -1,14 +1,14 @@
 {
   "entity": "CIRCLE",
   "node": "34539544",
-  "compiled_at": "2026-07-01T18:24:42.559893+00:00",
-  "digest": "sha256:b549478a568063fc71e26cbc49934dec6a3aecb043368dfe65bee76f0c8064db",
+  "compiled_at": "2026-07-01T23:10:36.154002+00:00",
+  "digest": "sha256:3d79618525288853dadd986d95918ca6f811c3fcf2e0a25eb9a59980617fdc8a",
   "own_numbers": {
-    "phi_s": 8.1585,
-    "kappa": 0.0015,
+    "phi_s": 4.9223,
+    "kappa": 0.0014,
     "mass": 0.261446,
-    "power": 0.03,
-    "extraction": 163261.241379,
+    "power": 0.02,
+    "extraction": 88201.192412,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -21,46 +21,46 @@
       "of": 199
     },
     "power": {
-      "value": 0.03,
-      "rank": 10,
-      "of": 45
+      "value": 0.02,
+      "rank": 9,
+      "of": 49
     },
     "gravity": null,
     "extraction": {
-      "value": 163261.2414,
+      "value": 88201.1924,
       "rank": 10,
-      "of": 45
+      "of": 49
     },
     "share_of_whole": {
       "mass": 0.01634,
-      "power": 0.01657
+      "power": 0.01961
     },
     "peers_by_power": [
       {
-        "entity": "34539544",
-        "power": 0.04
+        "entity": "SEC",
+        "power": 0.05
       },
       {
-        "entity": "BASE",
+        "entity": "TOKENIZED_TREASURY",
         "power": 0.03
       },
       {
         "entity": "CIRCLE",
-        "power": 0.03
+        "power": 0.02
+      },
+      {
+        "entity": "BASE",
+        "power": 0.01
       },
       {
         "entity": "CITI_TREASURY_SERVICES",
         "power": 0.01
-      },
-      {
-        "entity": "AAVE_FORUM",
-        "power": 0.0
       }
     ]
   },
   "relationships": {
-    "in_degree": 7,
-    "out_degree": 9,
+    "in_degree": 6,
+    "out_degree": 10,
     "by_vector": {
       "Capital": {
         "out": 1.0,
@@ -71,8 +71,8 @@
         "in": 0.0
       },
       "Information": {
-        "out": 2.5,
-        "in": 3.7
+        "out": 3.0,
+        "in": 3.2
       }
     },
     "top_inbound": [
@@ -109,6 +109,11 @@
         "vector": "Information"
       },
       {
+        "target": "TETHER",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
         "target": "CIRCLE_RESERVE_FUND",
         "conn_type": "information_flow",
         "vector": "Information"
@@ -122,43 +127,38 @@
         "target": "JPMORGAN",
         "conn_type": "information_flow",
         "vector": "Information"
-      },
-      {
-        "target": "TREASURY_MARKET",
-        "conn_type": "custody",
-        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": [
       {
         "entity": "JPMORGAN",
-        "mass": 104.0,
+        "mass": 100.0,
         "hops": 1,
-        "pull": 3.12
+        "pull": 2.0
       },
       {
         "entity": "CITIGROUP",
-        "mass": 100.0,
+        "mass": 98.0,
         "hops": 1,
-        "pull": 3.0
+        "pull": 1.96
       },
       {
         "entity": "BLACKROCK",
-        "mass": 88.0,
+        "mass": 89.0,
         "hops": 1,
-        "pull": 2.64
+        "pull": 1.78
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 51.23,
+        "mass": 50.63,
         "hops": 1,
-        "pull": 1.5369
+        "pull": 1.0126
       },
       {
-        "entity": "SEC",
-        "mass": 119.0,
-        "hops": 2,
-        "pull": 0.8925
+        "entity": "34539544",
+        "mass": 47.0,
+        "hops": 1,
+        "pull": 0.94
       }
     ]
   },
@@ -220,13 +220,13 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-07-01T17:47:08.599418+00:00",
-      "last_delta_i": 10.113021049429571,
+      "last_observed_at": "2026-07-01T23:08:48.652053+00:00",
+      "last_delta_i": 17603363.509985022,
       "stale": false
     }
   },
   "relative_to_node": {
-    "node_field_G_345": null,
+    "node_field_G_345": 9689373.667049592,
     "is_current_operator_target": true,
     "is_next_optimal_move": false,
     "minus_one_bias": 6.8e-05,

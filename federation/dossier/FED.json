@@ -1,17 +1,17 @@
 {
   "entity": "FED",
   "node": "34539544",
-  "compiled_at": "2026-07-01T18:24:42.636005+00:00",
-  "digest": "sha256:d430cd2c299107252f6f85d7d33a91a1929c18c8c55962ccca74f950fe7d2b8c",
+  "compiled_at": "2026-07-01T23:10:36.245666+00:00",
+  "digest": "sha256:50612cd8ff082cd9ee4f13fdd0ddc2e31131e2476a08efd1ac728723f139fada",
   "own_numbers": {
-    "phi_s": 7.1125,
-    "kappa": 0.0002,
+    "phi_s": 2.2981,
+    "kappa": 0.0014,
     "mass": 0.360753,
     "power": 0.0,
-    "extraction": 140515.4896,
-    "memory_mass": 32.0,
+    "extraction": 102937.1429,
+    "memory_mass": 34.0,
     "X_natural": 0.0,
-    "gravity_mass": 114.0,
+    "gravity_mass": 115.0,
     "mass_type": "regulatory"
   },
   "vs_whole": {
@@ -22,18 +22,18 @@
     },
     "power": {
       "value": 0.0,
-      "rank": 24,
-      "of": 45
+      "rank": 27,
+      "of": 49
     },
     "gravity": {
-      "value": 114.0,
+      "value": 115.0,
       "rank": 2,
-      "of": 61
+      "of": 62
     },
     "extraction": {
-      "value": 140515.4896,
-      "rank": 12,
-      "of": 45
+      "value": 102937.1429,
+      "rank": 9,
+      "of": 49
     },
     "share_of_whole": {
       "mass": 0.02255,
@@ -57,14 +57,14 @@
         "power": 0.0
       },
       {
-        "entity": "GOLDMAN",
+        "entity": "GCP_INFRASTRUCTURE",
         "power": 0.0
       }
     ]
   },
   "relationships": {
-    "in_degree": 8,
-    "out_degree": 6,
+    "in_degree": 10,
+    "out_degree": 5,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -75,13 +75,18 @@
         "in": 3.5
       },
       "Information": {
-        "out": 2.0,
-        "in": 0.5
+        "out": 1.5,
+        "in": 1.1
       }
     },
     "top_inbound": [
       {
         "source": "US_EAST_COAST",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "FED_RRP",
         "conn_type": "information_flow",
         "vector": "Information"
       },
@@ -97,11 +102,6 @@
       },
       {
         "source": "JEKYLL_ISLAND",
-        "conn_type": "governance",
-        "vector": "Infrastructure"
-      },
-      {
-        "source": "CITIGROUP",
         "conn_type": "governance",
         "vector": "Infrastructure"
       }
@@ -123,12 +123,12 @@
         "vector": "Information"
       },
       {
-        "target": "FED_RRP",
-        "conn_type": "information_flow",
-        "vector": "Information"
+        "target": "JPMORGAN",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
       },
       {
-        "target": "JPMORGAN",
+        "target": "CITIGROUP",
         "conn_type": "governance",
         "vector": "Infrastructure"
       }
@@ -136,38 +136,38 @@
     "gravity_pairs": [
       {
         "entity": "JPMORGAN",
-        "mass": 104.0,
+        "mass": 100.0,
         "hops": 1,
-        "pull": 11856.0
+        "pull": 11500.0
       },
       {
         "entity": "CITIGROUP",
-        "mass": 100.0,
+        "mass": 98.0,
         "hops": 1,
-        "pull": 11400.0
+        "pull": 11270.0
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 51.23,
+        "mass": 50.63,
         "hops": 1,
-        "pull": 5840.22
+        "pull": 5822.45
+      },
+      {
+        "entity": "34539544",
+        "mass": 47.0,
+        "hops": 1,
+        "pull": 5405.0
       },
       {
         "entity": "DTCC",
-        "mass": 43.0,
+        "mass": 42.0,
         "hops": 1,
-        "pull": 4902.0
-      },
-      {
-        "entity": "SEC",
-        "mass": 119.0,
-        "hops": 2,
-        "pull": 3391.5
+        "pull": 4830.0
       }
     ]
   },
   "monetary_position": {
-    "position": 0.854,
+    "position": 0.851,
     "well": "fiat"
   },
   "drift": {
@@ -185,15 +185,15 @@
     }
   },
   "network_plugs": {
-    "freshness": "live_at_request",
+    "freshness": "live",
     "inbound": [
       {
         "network": "fred",
         "kind": "macro_primary",
-        "status": "live_at_request",
+        "status": "live",
         "series_id": "M2SL",
         "label": "m2_billions",
-        "last_observed_at": "2026-05-15T21:49:59.337213+00:00",
+        "last_observed_at": "2026-07-01T22:56:32.943672+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -220,23 +220,18 @@
       }
     ],
     "observation": {
-      "source": null,
-      "last_observed_at": null,
-      "last_delta_i": null,
-      "stale": true
+      "source": "information_flow",
+      "last_observed_at": "2026-07-01T22:54:18.621953+00:00",
+      "last_delta_i": 1.0,
+      "stale": false
     }
   },
   "relative_to_node": {
-    "node_field_G_345": null,
-    "is_current_operator_target": false,
+    "node_field_G_345": 9689373.667049592,
+    "is_current_operator_target": true,
     "is_next_optimal_move": false,
     "minus_one_bias": 2e-05,
-    "operator_move": {
-      "rank": 4,
-      "of": 9,
-      "vector": "infrastructure",
-      "power_gain_estimate": 27.4275
-    },
+    "operator_move": null,
     "observed_by_node": true
   }
 }
