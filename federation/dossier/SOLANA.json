@@ -1,12 +1,12 @@
 {
-  "entity": "RING",
+  "entity": "SOLANA",
   "node": "34539544",
-  "compiled_at": "2026-07-02T02:44:21.516443+00:00",
-  "digest": "sha256:663458d0e50c54b94f07f6d84050366a258a47622335ab3262cf1ac81e6dfb71",
+  "compiled_at": "2026-07-02T02:44:21.573887+00:00",
+  "digest": "sha256:0cd8f1ecf6ad8314a1de8d980152113b4ec3fce4bac8fba15f9f2a8747d96c73",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0006,
-    "mass": 0.092845,
+    "kappa": 0.037,
+    "mass": 0.13131,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,21 +16,21 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.092845,
-      "rank": 49,
+      "value": 0.13131,
+      "rank": 30,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.0058,
+      "mass": 0.00821,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 6,
+    "in_degree": 4,
     "out_degree": 0,
     "by_vector": {
       "Capital": {
@@ -43,33 +43,28 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 3.0
+        "in": 2.0
       }
     },
     "top_inbound": [
       {
-        "source": "RWA_INFLUENCER_1",
-        "conn_type": "influence",
-        "vector": "Information"
-      },
-      {
-        "source": "RWA_INFLUENCER_2",
-        "conn_type": "influence",
-        "vector": "Information"
-      },
-      {
-        "source": "TWITTER_RWA",
+        "source": "BLACKROCK_BUIDL",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "source": "RWA_TELEGRAM",
+        "source": "MAPLE",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "source": "TWITTER_RWA",
-        "conn_type": "audience",
+        "source": "ONDO_YIELD_ASSETS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "KAMINO_LEND",
+        "conn_type": "information_flow",
         "vector": "Information"
       }
     ],
@@ -77,29 +72,22 @@
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.2,
-    "well": "boundary"
+    "position": 0.5,
+    "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "phi_s +8090% over 4 cycles",
+    "level": "steady",
+    "headline": null,
     "cycles": 4,
     "delta_last_cycle": {
-      "phi_s": 1.6181,
-      "kappa": 1.1994,
+      "phi_s": 0.0,
+      "kappa": -0.0004,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
-    "inbound": [
-      {
-        "network": "defillama",
-        "kind": "stablecoins",
-        "status": "live",
-        "note": "fetched from public API at request time"
-      }
-    ],
+    "freshness": "stale",
+    "inbound": [],
     "outbound": [
       {
         "network": "helixhash",
@@ -123,15 +111,15 @@
       }
     ],
     "observation": {
-      "source": "information_flow",
-      "last_observed_at": "2026-07-02T02:35:17.031587+00:00",
-      "last_delta_i": 6.0,
-      "stale": false
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
     }
   },
   "relative_to_node": {
     "node_field_G_345": 9689373.667049592,
-    "is_current_operator_target": true,
+    "is_current_operator_target": false,
     "is_next_optimal_move": false,
     "minus_one_bias": 2e-05,
     "operator_move": null,
