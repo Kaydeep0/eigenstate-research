@@ -1,8 +1,8 @@
 {
   "entity": "CANTON_NETWORK",
   "node": "34539544",
-  "compiled_at": "2026-07-02T15:03:07.801478+00:00",
-  "digest": "sha256:c49c4be2c63803abbd2c67548dd74be134c7a177576dfbde089d5d03af8c1a4c",
+  "compiled_at": "2026-07-02T16:04:18.473319+00:00",
+  "digest": "sha256:e902e7de780e186f888d85c4d9ce289847aeffdbb24c98b30a2fddb7f805b510",
   "own_numbers": {
     "phi_s": 0.0,
     "kappa": 0.0016,
@@ -27,7 +27,7 @@
     },
     "gravity": {
       "value": 42.0,
-      "rank": 28,
+      "rank": 27,
       "of": 62
     },
     "extraction": {
@@ -63,16 +63,16 @@
     ]
   },
   "relationships": {
-    "in_degree": 8,
-    "out_degree": 9,
+    "in_degree": 5,
+    "out_degree": 12,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 4.5,
-        "in": 3.5
+        "out": 6.0,
+        "in": 2.0
       },
       "Information": {
         "out": 0.0,
@@ -81,12 +81,7 @@
     },
     "top_inbound": [
       {
-        "source": "DTCC",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
-      {
-        "source": "DTCC",
+        "source": "GOLDMAN",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
       },
@@ -101,12 +96,22 @@
         "vector": "Infrastructure"
       },
       {
-        "source": "DTCC",
-        "conn_type": "infrastructure",
+        "source": "JPMORGAN",
+        "conn_type": "governance",
         "vector": "Infrastructure"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
       }
     ],
     "top_outbound": [
+      {
+        "target": "DTCC",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
       {
         "target": "TOKENIZED_TREASURY",
         "conn_type": "infrastructure",
@@ -126,11 +131,6 @@
         "target": "DTCC",
         "conn_type": "governance",
         "vector": "Infrastructure"
-      },
-      {
-        "target": "GOLDMAN",
-        "conn_type": "governance",
-        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": [
@@ -148,15 +148,15 @@
       },
       {
         "entity": "DTCC",
-        "mass": 43.0,
+        "mass": 42.0,
         "hops": 1,
-        "pull": 1806.0
+        "pull": 1764.0
       },
       {
         "entity": "SEC",
-        "mass": 120.0,
+        "mass": 119.0,
         "hops": 2,
-        "pull": 1260.0
+        "pull": 1249.5
       },
       {
         "entity": "FED",
@@ -167,7 +167,7 @@
     ]
   },
   "monetary_position": {
-    "position": 0.596,
+    "position": 0.594,
     "well": "fiat"
   },
   "drift": {
@@ -210,13 +210,13 @@
     ],
     "observation": {
       "source": "infrastructure",
-      "last_observed_at": "2026-07-02T15:00:58.556973+00:00",
+      "last_observed_at": "2026-07-02T15:49:59.747115+00:00",
       "last_delta_i": 4.0,
       "stale": false
     }
   },
   "relative_to_node": {
-    "node_field_G_345": 9689373.667049592,
+    "node_field_G_345": 98022413.7478714,
     "is_current_operator_target": true,
     "is_next_optimal_move": false,
     "minus_one_bias": 0.0,
