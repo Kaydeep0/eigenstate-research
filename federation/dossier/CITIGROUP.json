@@ -1,52 +1,52 @@
 {
   "entity": "CITIGROUP",
   "node": "34539544",
-  "compiled_at": "2026-07-02T22:46:08.643766+00:00",
-  "digest": "sha256:88092530967053b2d8f716fa83aea5f07487bbd1f87494b011b065d93f153e21",
+  "compiled_at": "2026-07-02T22:47:30.067483+00:00",
+  "digest": "sha256:26dcba1d2ed4e964ba571f41ed514c5f85bb522e984ac192f5d09fda3866f0aa",
   "own_numbers": {
-    "phi_s": 0.023,
-    "kappa": 0.1835,
+    "phi_s": 0.0233,
+    "kappa": 0.1651,
     "mass": null,
-    "power": 0.19,
-    "extraction": 86364.24823,
+    "power": 0.14,
+    "extraction": 37544.582313,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 100.0,
+    "gravity_mass": 98.0,
     "mass_type": "infrastructure"
   },
   "vs_whole": {
     "mass": null,
     "power": {
-      "value": 0.19,
+      "value": 0.14,
       "rank": 2,
       "of": 51
     },
     "gravity": {
-      "value": 100.0,
-      "rank": 9,
+      "value": 98.0,
+      "rank": 10,
       "of": 62
     },
     "extraction": {
-      "value": 86364.2482,
-      "rank": 8,
+      "value": 37544.5823,
+      "rank": 16,
       "of": 51
     },
     "share_of_whole": {
       "mass": null,
-      "power": 0.19588
+      "power": 0.17722
     },
     "peers_by_power": [
       {
         "entity": "JPMORGAN",
-        "power": 0.37
+        "power": 0.23
       },
       {
         "entity": "CITIGROUP",
-        "power": 0.19
+        "power": 0.14
       },
       {
         "entity": "TREASURY_MARKET",
-        "power": 0.13
+        "power": 0.12
       },
       {
         "entity": "BLACKROCK",
@@ -55,8 +55,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 9,
-    "out_degree": 11,
+    "in_degree": 11,
+    "out_degree": 7,
     "by_vector": {
       "Capital": {
         "out": 0.5,
@@ -67,8 +67,8 @@
         "in": 0.5
       },
       "Information": {
-        "out": 3.0,
-        "in": 4.0
+        "out": 1.0,
+        "in": 5.0
       }
     },
     "top_inbound": [
@@ -88,12 +88,12 @@
         "vector": "Infrastructure"
       },
       {
-        "source": "JPMORGAN",
+        "source": "CITI_TREASURY_SERVICES",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "source": "JANE_FRASER",
+        "source": "CITI_TREASURY_SERVICES",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -120,7 +120,7 @@
         "vector": "Infrastructure"
       },
       {
-        "target": "EAS",
+        "target": "JANE_FRASER",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -130,36 +130,36 @@
         "entity": "FED",
         "mass": 115.0,
         "hops": 1,
-        "pull": 11500.0
-      },
-      {
-        "entity": "JPMORGAN",
-        "mass": 104.0,
-        "hops": 1,
-        "pull": 10400.0
+        "pull": 11270.0
       },
       {
         "entity": "DTCC",
         "mass": 43.0,
         "hops": 1,
-        "pull": 4300.0
+        "pull": 4214.0
       },
       {
         "entity": "SEC",
-        "mass": 119.0,
+        "mass": 120.0,
         "hops": 2,
-        "pull": 2975.0
+        "pull": 2940.0
+      },
+      {
+        "entity": "JPMORGAN",
+        "mass": 100.0,
+        "hops": 2,
+        "pull": 2450.0
       },
       {
         "entity": "BLACKROCK",
         "mass": 88.0,
         "hops": 2,
-        "pull": 2200.0
+        "pull": 2156.0
       }
     ]
   },
   "monetary_position": {
-    "position": 0.807,
+    "position": 0.801,
     "well": "fiat"
   },
   "drift": {
@@ -225,7 +225,7 @@
       "rank": 1,
       "of": 6,
       "vector": "infrastructure",
-      "power_gain_estimate": 119.92349999999999
+      "power_gain_estimate": 120.7605
     },
     "observed_by_node": true
   }

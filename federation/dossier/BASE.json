@@ -1,14 +1,14 @@
 {
   "entity": "BASE",
   "node": "34539544",
-  "compiled_at": "2026-07-02T22:46:08.467542+00:00",
-  "digest": "sha256:7387777dcc0262b045a63af53e337cb5012594003f349c17c68c1cdc91a43ebf",
+  "compiled_at": "2026-07-02T22:47:29.898779+00:00",
+  "digest": "sha256:6d05dd7633b2071861884ca3eaf63d80280a6e5c352af9f88a944e9d8ea5886e",
   "own_numbers": {
     "phi_s": 0.0298,
     "kappa": 0.1927,
     "mass": 0.195659,
     "power": 0.01,
-    "extraction": 301790.106122,
+    "extraction": 283022.158163,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,22 +27,22 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 301790.1061,
+      "value": 283022.1582,
       "rank": 4,
       "of": 51
     },
     "share_of_whole": {
       "mass": 0.01223,
-      "power": 0.01031
+      "power": 0.01266
     },
     "peers_by_power": [
       {
-        "entity": "SEC",
+        "entity": "COINBASE",
         "power": 0.04
       },
       {
         "entity": "TOKENIZED_TREASURY",
-        "power": 0.03
+        "power": 0.02
       },
       {
         "entity": "BASE",
@@ -59,8 +59,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 20,
-    "out_degree": 1,
+    "in_degree": 19,
+    "out_degree": 2,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -71,8 +71,8 @@
         "in": 1.0
       },
       "Information": {
-        "out": 0.0,
-        "in": 9.0
+        "out": 0.5,
+        "in": 8.5
       }
     },
     "top_inbound": [
@@ -107,6 +107,11 @@
         "target": "COINBASE",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
+      },
+      {
+        "target": "COINBASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
       }
     ],
     "gravity_pairs": [
@@ -118,9 +123,9 @@
       },
       {
         "entity": "SEC",
-        "mass": 119.0,
+        "mass": 120.0,
         "hops": 2,
-        "pull": 0.2975
+        "pull": 0.3
       },
       {
         "entity": "FED",
@@ -130,15 +135,15 @@
       },
       {
         "entity": "JPMORGAN",
-        "mass": 104.0,
-        "hops": 2,
-        "pull": 0.26
-      },
-      {
-        "entity": "CITIGROUP",
         "mass": 100.0,
         "hops": 2,
         "pull": 0.25
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 88.0,
+        "hops": 2,
+        "pull": 0.22
       }
     ]
   },
