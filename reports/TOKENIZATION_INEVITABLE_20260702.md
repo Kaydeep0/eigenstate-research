@@ -11,7 +11,7 @@
 | Metric | Value | Context |
 |--------|-------|---------|
 | Settlement Pressure (Φ_S) | 0.0200 | near-zero settlement pressure — this entity is close to field equilibrium |
-| Field Coherence (κ) | 0.0464 | minimal field integration — largely unobserved by the engine |
+| Field Coherence (κ) | 0.0463 | minimal field integration — largely unobserved by the engine |
 | Vault Records | 0 | No measurements yet — in observation queue |
 
 ## Global Field Context
@@ -20,10 +20,10 @@ The Eigenstate engine currently measures the tokenized settlement field at:
 
 - **Protocol Truth (PT):** 0.0568 (target: 0.618 — the golden-ratio equilibrium)
 - **Field Coherence (κ):** 0.5009 (living zone: 0.618–0.678)
-- **Coverage:** 14 of 218 entities with measured ΔI > 0 (6.4%)
+- **Coverage:** 15 of 218 entities with measured ΔI > 0 (6.9%)
 - **Uncertainty (U):** 26.0
 
-The field is 0.1172 below equilibrium coherence. Each entity with measured vault activity raises the global PT toward 0.618. Tokenization Is Inevitable is one of 204 entities in the field without a complete observation record.
+The field is 0.1172 below equilibrium coherence. Each entity with measured vault activity raises the global PT toward 0.618. Tokenization Is Inevitable is one of 203 entities in the field without a complete observation record.
 
 ## What Is Tokenization Is Inevitable
 
@@ -39,7 +39,7 @@ Active signals the engine is tracking for Tokenization Is Inevitable:
 
 **BlackRock corporate platform** [✓ ATTESTED-PRIMARY]
 BlackRock's corporate homepage documents the world's largest asset manager — primary anchor for tokenization-inevitable institutional claims.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 ea23c08eb61f… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 630963cf8b34… — found in primary source*
 
 **Securitize — regulated tokenization** [✓ ATTESTED-PRIMARY]
 Securitize's homepage documents regulated tokenization infrastructure — cross-check for platform-side inevitability claims in settlement topology.
@@ -47,7 +47,7 @@ Securitize's homepage documents regulated tokenization infrastructure — cross-
 
 **Ondo Finance — on-chain RWAs** [✓ ATTESTED-PRIMARY]
 Ondo Finance's homepage documents tokenized real-world asset products — verifiable issuer signal for tokenization-inevitable narrative nodes.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 9392b269f3ca… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 1cb725c08aaf… — found in primary source*
 
 ## Field Position Analysis
 
@@ -57,11 +57,11 @@ Near-zero settlement pressure — this entity is close to field equilibrium.
 
 Tokenization-inevitable narrative pressure is elevated because BlackRock, Securitize, and Ondo-scale issuers publish tokenized-product signals faster than vault attestation indexes cross-issuer adoption. The engine reads unrealized Φ_S when inevitability narrative centrality exceeds measured primary-source evidence of tokenized settlement throughput.
 
-### Coherence (κ = 0.0464)
+### Coherence (κ = 0.0463)
 
-κ = 0.0464 reflects the engine's current **measurement coverage**, not Tokenization Is Inevitable's actual institutional influence. With no vault records yet, the coherence score is derived purely from topology position — connection count and structural weight — without any attested observation data. The low value means the engine has not yet measured this entity's settlement activity, not that the entity lacks field presence.
+κ = 0.0463 reflects the engine's current **measurement coverage**, not Tokenization Is Inevitable's actual institutional influence. With no vault records yet, the coherence score is derived purely from topology position — connection count and structural weight — without any attested observation data. The low value means the engine has not yet measured this entity's settlement activity, not that the entity lacks field presence.
 
-The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0464, Tokenization Is Inevitable is **0.5716 below** equilibrium. Vault observations of Tokenization Is Inevitable's rule outputs — rulemaking notices, enforcement actions, guidance documents — would directly raise κ toward the living zone [0.618, 0.678].
+The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0463, Tokenization Is Inevitable is **0.5717 below** equilibrium. Vault observations of Tokenization Is Inevitable's rule outputs — rulemaking notices, enforcement actions, guidance documents — would directly raise κ toward the living zone [0.618, 0.678].
 
 ### Vault Coverage
 
@@ -84,7 +84,7 @@ Cold-agent entry — verified analysis traversable without permission. Node 345 
 | Chain verify | [Chain verify](https://geniusflow-federation.vercel.app/api/chain) |
 | This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=TOKENIZATION_INEVITABLE_20260702) |
 
-**Granth head:** `4f8e1ec0f67122bf…` · length 2535
+**Granth head:** `c5e6ea7fde367ce9…` · length 2610
 
 **Federation traverse (agents):**
 - Agent: https://geniusflow-federation.vercel.app/.well-known/geniusflow.json
@@ -119,4 +119,4 @@ This report is generated by the Eigenstate engine — an information-field measu
 
 *Eigenstate Research · [paragraph.xyz/@eigenstate](https://paragraph.xyz/@eigenstate) · [kaydeep0.github.io/eigenstate-research](https://kaydeep0.github.io/eigenstate-research/)*
 
-*Generated: 2026-07-02T01:21:29 UTC by Eigenstate engine · Tokenization Is Inevitable · 2026-07-02*
+*Generated: 2026-07-02T03:55:04 UTC by Eigenstate engine · Tokenization Is Inevitable · 2026-07-02*
