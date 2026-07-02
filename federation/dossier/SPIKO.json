@@ -1,12 +1,12 @@
 {
-  "entity": "BINANCE",
+  "entity": "SPIKO",
   "node": "34539544",
-  "compiled_at": "2026-07-02T04:01:46.676948+00:00",
-  "digest": "sha256:5ed23dc404959e968483c0a47d9dc7f2e929535f429489296708146dea69141c",
+  "compiled_at": "2026-07-02T04:01:47.147253+00:00",
+  "digest": "sha256:848b71a6db2ea31a77cbaad7eb5271f8ba5b37196ee115ecaca986b6c263a5f2",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0093,
-    "mass": 0.050448,
+    "kappa": 0.0185,
+    "mass": 0.04655,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,21 +16,21 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.050448,
-      "rank": 85,
+      "value": 0.04655,
+      "rank": 98,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00315,
+      "mass": 0.00291,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 0,
+    "in_degree": 1,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -43,13 +43,19 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.0
+        "in": 0.5
       }
     },
-    "top_inbound": [],
+    "top_inbound": [
+      {
+        "source": "EU_WESTERN",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
     "top_outbound": [
       {
-        "target": "US_JURISDICTION",
+        "target": "EU_JURISDICTION",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -57,8 +63,8 @@
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.2,
-    "well": "boundary"
+    "position": 0.5,
+    "well": "fiat"
   },
   "drift": {
     "level": "steady",
@@ -66,7 +72,7 @@
     "cycles": 4,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0001,
+      "kappa": -0.0002,
       "boundary_score": 0.0
     }
   },
