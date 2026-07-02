@@ -11,7 +11,7 @@
 | Metric | Value | Context |
 |--------|-------|---------|
 | Settlement Pressure (Φ_S) | 0.0200 | near-zero settlement pressure — this entity is close to field equilibrium |
-| Field Coherence (κ) | 0.0742 | minimal field integration — largely unobserved by the engine |
+| Field Coherence (κ) | 0.0741 | minimal field integration — largely unobserved by the engine |
 | Vault Records | 0 | No measurements yet — in observation queue |
 
 ## Global Field Context
@@ -39,7 +39,7 @@ Active signals the engine is tracking for Coinbase Advanced Trade (spot):
 
 **Coinbase Advanced Trade — spot** [✓ ATTESTED-PRIMARY]
 Coinbase Advanced Trade spot documents the regulated cash trading product — primary for Coinbase spot venue claims.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 a5e1b3e6af31… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 0dc8dffcfbcd… — found in primary source*
 
 **Coinbase user agreement** [✓ ATTESTED-PRIMARY]
 Coinbase's user agreement documents spot trading terms and customer obligations — regulatory cross-check for spot-market conduct in spread-capture topology.
@@ -47,7 +47,7 @@ Coinbase's user agreement documents spot trading terms and customer obligations 
 
 **Coinbase Prime institutional platform** [✓ ATTESTED-PRIMARY]
 Coinbase Prime documents institutional trading and custody — the institutional lane paired with spot on-ramps in spread-capture overlay graphs.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 2b2dd53e647b… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 a5b853d04d87… — found in primary source*
 
 ## Field Position Analysis
 
@@ -57,11 +57,11 @@ Near-zero settlement pressure — this entity is close to field equilibrium.
 
 Coinbase spot settlement pressure is elevated because capture-class stablecoin issuers retain reserve yield while spot on-ramps route through regulated exchanges that must attest fee and spread disclosure. Until spot-market conduct attests alongside Circle and tokenized-treasury nodes, spread-capture asymmetry stays unmodeled in the settlement graph.
 
-### Coherence (κ = 0.0742)
+### Coherence (κ = 0.0741)
 
-κ = 0.0742 reflects the engine's current **measurement coverage**, not Coinbase Advanced Trade (spot)'s actual institutional influence. With no vault records yet, the coherence score is derived purely from topology position — connection count and structural weight — without any attested observation data. The low value means the engine has not yet measured this entity's settlement activity, not that the entity lacks field presence.
+κ = 0.0741 reflects the engine's current **measurement coverage**, not Coinbase Advanced Trade (spot)'s actual institutional influence. With no vault records yet, the coherence score is derived purely from topology position — connection count and structural weight — without any attested observation data. The low value means the engine has not yet measured this entity's settlement activity, not that the entity lacks field presence.
 
-The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0742, Coinbase Advanced Trade (spot) is **0.5438 below** equilibrium. Vault observations of Coinbase Advanced Trade (spot)'s rule outputs — rulemaking notices, enforcement actions, guidance documents — would directly raise κ toward the living zone [0.618, 0.678].
+The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0741, Coinbase Advanced Trade (spot) is **0.5439 below** equilibrium. Vault observations of Coinbase Advanced Trade (spot)'s rule outputs — rulemaking notices, enforcement actions, guidance documents — would directly raise κ toward the living zone [0.618, 0.678].
 
 ### Vault Coverage
 
@@ -80,18 +80,23 @@ Cold-agent entry — verified analysis traversable without permission. Node 345 
 |---------|-----|
 | Agent entry | [Agent entry](https://geniusflow-federation.vercel.app/.well-known/geniusflow.json) |
 | Manifest | [Manifest](https://geniusflow-federation.vercel.app/api/manifest) |
+| Entity feed (Coinbase Advanced Trade (spot)) | [Entity feed (Coinbase Advanced Trade (spot))](https://coinbasespotcoinbasespotsett.vercel.app/api/coinbase_spot_settlement_pressur) |
 | Entity dossier | [Entity dossier](https://kaydeep0.github.io/eigenstate-research/federation/dossier/COINBASE_SPOT.json) |
+| Federation card | [Federation card](https://coinbasespotcoinbasespotsett.vercel.app/api/federation) |
 | Chain verify | [Chain verify](https://geniusflow-federation.vercel.app/api/chain) |
 | This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=COINBASE_SPOT_20260702) |
 
-**Granth head:** `a30533c904762876…` · length 2508
+**Build fingerprint:** `1d2e7772a1421da5…` — match `builds[].chain_hash` for `COINBASE_SPOT` in manifest, then verify via `/api/chain`.
+**Granth head:** `a83feb168684c449…` · length 2676
 
 **Federation traverse (agents):**
 - Agent: https://geniusflow-federation.vercel.app/.well-known/geniusflow.json
 - Manifest: https://geniusflow-federation.vercel.app/api/manifest
+- Entity feed: https://coinbasespotcoinbasespotsett.vercel.app/api/coinbase_spot_settlement_pressur
 - Dossier: https://kaydeep0.github.io/eigenstate-research/federation/dossier/COINBASE_SPOT.json
 - Chain: https://geniusflow-federation.vercel.app/api/chain
 - Canonical report: https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=COINBASE_SPOT_20260702
+- Build fingerprint: `1d2e7772a1421da5…` (match manifest `builds[].chain_hash`)
 
 **Verify:** GET manifest → find `builds[].target==entity` → match `chain_hash` → GET `/api/chain`.
 
@@ -119,4 +124,4 @@ This report is generated by the Eigenstate engine — an information-field measu
 
 *Eigenstate Research · [paragraph.xyz/@eigenstate](https://paragraph.xyz/@eigenstate) · [kaydeep0.github.io/eigenstate-research](https://kaydeep0.github.io/eigenstate-research/)*
 
-*Generated: 2026-07-02T00:25:44 UTC by Eigenstate engine · Coinbase Advanced Trade (spot) · 2026-07-02*
+*Generated: 2026-07-02T06:39:00 UTC by Eigenstate engine · Coinbase Advanced Trade (spot) · 2026-07-02*
