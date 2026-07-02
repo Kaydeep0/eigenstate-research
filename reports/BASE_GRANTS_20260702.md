@@ -11,7 +11,7 @@
 | Metric | Value | Context |
 |--------|-------|---------|
 | Settlement Pressure (Φ_S) | 0.0200 | near-zero settlement pressure — this entity is close to field equilibrium |
-| Field Coherence (κ) | 0.0186 | minimal field integration — largely unobserved by the engine |
+| Field Coherence (κ) | 0.0185 | minimal field integration — largely unobserved by the engine |
 | Vault Records | 0 | No measurements yet — in observation queue |
 
 ## Global Field Context
@@ -39,7 +39,7 @@ Active signals the engine is tracking for Base Builder Grants:
 
 **Base Ecosystem Fund — strategic investment arm** [✓ ATTESTED-PRIMARY]
 Base's official ecosystem fund page identifies the Base Ecosystem Fund as the strategic investment arm of Base — primary for grant-catalyst claims in settlement topology.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 eb975f2a47db… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 416937f9bb95… — found in primary source*
 
 **Base Ecosystem Fund invests in Base builders** [✓ ATTESTED-PRIMARY]
 Base's launch blog announces the Base Ecosystem Fund, which invests in and supports early-stage projects building on Base.
@@ -57,11 +57,11 @@ Near-zero settlement pressure — this entity is close to field equilibrium.
 
 Base grant settlement pressure is elevated because ecosystem funding accelerates on-chain RWA and DeFi deployment faster than VERIFY attestation layers catalog grant recipients. The engine reads unrealized Φ_S when grant-linked builder signals exceed vault evidence on funded settlement rails.
 
-### Coherence (κ = 0.0186)
+### Coherence (κ = 0.0185)
 
-κ = 0.0186 reflects the engine's current **measurement coverage**, not Base Builder Grants's actual institutional influence. With no vault records yet, the coherence score is derived purely from topology position — connection count and structural weight — without any attested observation data. The low value means the engine has not yet measured this entity's settlement activity, not that the entity lacks field presence.
+κ = 0.0185 reflects the engine's current **measurement coverage**, not Base Builder Grants's actual institutional influence. With no vault records yet, the coherence score is derived purely from topology position — connection count and structural weight — without any attested observation data. The low value means the engine has not yet measured this entity's settlement activity, not that the entity lacks field presence.
 
-The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0186, Base Builder Grants is **0.5994 below** equilibrium. Vault observations of Base Builder Grants's rule outputs — rulemaking notices, enforcement actions, guidance documents — would directly raise κ toward the living zone [0.618, 0.678].
+The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0185, Base Builder Grants is **0.5995 below** equilibrium. Vault observations of Base Builder Grants's rule outputs — rulemaking notices, enforcement actions, guidance documents — would directly raise κ toward the living zone [0.618, 0.678].
 
 ### Vault Coverage
 
@@ -80,18 +80,23 @@ Cold-agent entry — verified analysis traversable without permission. Node 345 
 |---------|-----|
 | Agent entry | [Agent entry](https://geniusflow-federation.vercel.app/.well-known/geniusflow.json) |
 | Manifest | [Manifest](https://geniusflow-federation.vercel.app/api/manifest) |
+| Entity feed (Base Builder Grants) | [Entity feed (Base Builder Grants)](https://basegrantsbasegrantssettleme.vercel.app/api/base_grants_settlement_pressure_) |
 | Entity dossier | [Entity dossier](https://kaydeep0.github.io/eigenstate-research/federation/dossier/BASE_GRANTS.json) |
+| Federation card | [Federation card](https://basegrantsbasegrantssettleme.vercel.app/api/federation) |
 | Chain verify | [Chain verify](https://geniusflow-federation.vercel.app/api/chain) |
 | This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=BASE_GRANTS_20260702) |
 
-**Granth head:** `74dfec7024321c3e…` · length 2517
+**Build fingerprint:** `f1a474f330483b56…` — match `builds[].chain_hash` for `BASE_GRANTS` in manifest, then verify via `/api/chain`.
+**Granth head:** `c5e6ea7fde367ce9…` · length 2610
 
 **Federation traverse (agents):**
 - Agent: https://geniusflow-federation.vercel.app/.well-known/geniusflow.json
 - Manifest: https://geniusflow-federation.vercel.app/api/manifest
+- Entity feed: https://basegrantsbasegrantssettleme.vercel.app/api/base_grants_settlement_pressure_
 - Dossier: https://kaydeep0.github.io/eigenstate-research/federation/dossier/BASE_GRANTS.json
 - Chain: https://geniusflow-federation.vercel.app/api/chain
 - Canonical report: https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=BASE_GRANTS_20260702
+- Build fingerprint: `f1a474f330483b56…` (match manifest `builds[].chain_hash`)
 
 **Verify:** GET manifest → find `builds[].target==entity` → match `chain_hash` → GET `/api/chain`.
 
@@ -119,4 +124,4 @@ This report is generated by the Eigenstate engine — an information-field measu
 
 *Eigenstate Research · [paragraph.xyz/@eigenstate](https://paragraph.xyz/@eigenstate) · [kaydeep0.github.io/eigenstate-research](https://kaydeep0.github.io/eigenstate-research/)*
 
-*Generated: 2026-07-02T00:43:21 UTC by Eigenstate engine · Base Builder Grants · 2026-07-02*
+*Generated: 2026-07-02T03:55:02 UTC by Eigenstate engine · Base Builder Grants · 2026-07-02*
