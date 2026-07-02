@@ -1,14 +1,14 @@
 {
-  "entity": "OPENZEPPELIN_CONTRACTS",
+  "entity": "US_EAST_COAST",
   "node": "34539544",
-  "compiled_at": "2026-07-02T03:33:16.117129+00:00",
-  "digest": "sha256:4ce0f2d0c24c3cb05db1616fb76da6085e0f94ce57c8068f57347f2eb86395f6",
+  "compiled_at": "2026-07-02T03:33:16.297794+00:00",
+  "digest": "sha256:31c8d7143f75916c9cfb4a1d8d4565f5c94f4014eb18c8cc9562f9694fdb97fb",
   "own_numbers": {
-    "phi_s": 0.016,
-    "kappa": 0.0463,
-    "mass": 0.053159,
-    "power": null,
-    "extraction": null,
+    "phi_s": 0.0415,
+    "kappa": 0.0926,
+    "mass": 0.101648,
+    "power": 0.0,
+    "extraction": 14421.2346,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -16,61 +16,96 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.053159,
-      "rank": 81,
+      "value": 0.101648,
+      "rank": 38,
       "of": 199
     },
-    "power": null,
-    "gravity": null,
-    "extraction": null,
-    "share_of_whole": {
-      "mass": 0.00332,
-      "power": null
+    "power": {
+      "value": 0.0,
+      "rank": 50,
+      "of": 51
     },
-    "peers_by_power": []
+    "gravity": null,
+    "extraction": {
+      "value": 14421.2346,
+      "rank": 20,
+      "of": 51
+    },
+    "share_of_whole": {
+      "mass": 0.00635,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "TRAIL_OF_BITS",
+        "power": 0.0
+      },
+      {
+        "entity": "USDY",
+        "power": 0.0
+      },
+      {
+        "entity": "US_EAST_COAST",
+        "power": 0.0
+      },
+      {
+        "entity": "US_TREASURY_DEPARTMENT",
+        "power": 0.0
+      }
+    ]
   },
   "relationships": {
-    "in_degree": 1,
-    "out_degree": 4,
+    "in_degree": 2,
+    "out_degree": 8,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 0.0,
+        "out": 0.5,
         "in": 0.5
       },
       "Information": {
-        "out": 2.0,
-        "in": 0.0
+        "out": 3.5,
+        "in": 0.5
       }
     },
     "top_inbound": [
       {
-        "source": "OPENZEPPELIN_AUDIT",
-        "conn_type": "audit",
+        "source": "CAYMAN_BVI",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "DTCC",
+        "conn_type": "infrastructure",
         "vector": "Infrastructure"
       }
     ],
     "top_outbound": [
       {
-        "target": "ETHEREUM",
+        "target": "SEC",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "target": "BASE",
+        "target": "FED",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "target": "ARBITRUM",
+        "target": "FINRA",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "target": "CHAINLINK_ORACLES",
+        "target": "BLACKROCK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "JPMORGAN",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -78,16 +113,18 @@
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.5,
+    "position": 0.596,
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
+    "level": "flag",
+    "headline": "phi_s -98% over 4 cycles",
     "cycles": 4,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0005,
+      "kappa": -0.001,
+      "power": 0.0,
+      "extraction": -1746.1335,
       "boundary_score": 0.0
     }
   },
@@ -127,7 +164,7 @@
     "node_field_G_345": 9689373.667049592,
     "is_current_operator_target": false,
     "is_next_optimal_move": false,
-    "minus_one_bias": 1.6e-05,
+    "minus_one_bias": 4.1e-05,
     "operator_move": null,
     "observed_by_node": true
   }
