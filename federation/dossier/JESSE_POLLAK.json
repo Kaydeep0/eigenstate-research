@@ -1,12 +1,12 @@
 {
-  "entity": "DEFI_AUDIENCE",
+  "entity": "JESSE_POLLAK",
   "node": "34539544",
-  "compiled_at": "2026-07-02T01:00:51.346120+00:00",
-  "digest": "sha256:8ee577781d69d267e116b908e23d9bffb0ab241d4a4c169898ef677a69961d17",
+  "compiled_at": "2026-07-02T01:00:51.467639+00:00",
+  "digest": "sha256:1e92d5119ff309c170eae47d645885a888cc461712ea2abf0d3cfb7b5f262455",
   "own_numbers": {
-    "phi_s": 0.0,
-    "kappa": 0.0002,
-    "mass": 0.06041,
+    "phi_s": 0.02,
+    "kappa": 0.0557,
+    "mass": 0.061267,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,22 +16,22 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.06041,
-      "rank": 68,
+      "value": 0.061267,
+      "rank": 66,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00378,
+      "mass": 0.00383,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 2,
-    "out_degree": 0,
+    "in_degree": 0,
+    "out_degree": 6,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -42,27 +42,42 @@
         "in": 0.0
       },
       "Information": {
-        "out": 0.0,
-        "in": 1.35
+        "out": 3.0,
+        "in": 0.0
       }
     },
-    "top_inbound": [
+    "top_inbound": [],
+    "top_outbound": [
       {
-        "source": "LENS_PROTOCOL",
-        "conn_type": "audience",
+        "target": "COINBASE",
+        "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "source": "34539544",
-        "conn_type": "strategic",
+        "target": "LARRY_FINK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "FARCASTER",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "RIVER",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "MINT",
+        "conn_type": "information_flow",
         "vector": "Information"
       }
     ],
-    "top_outbound": [],
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.5,
+    "position": 0.4,
     "well": "fiat"
   },
   "drift": {
@@ -71,12 +86,12 @@
     "cycles": 4,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0191,
+      "kappa": -0.0005,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "stale",
     "inbound": [],
     "outbound": [
       {
@@ -101,17 +116,17 @@
       }
     ],
     "observation": {
-      "source": "propagated",
-      "last_observed_at": "2026-07-02T00:57:02.875212+00:00",
-      "last_delta_i": 14.6513899,
-      "stale": false
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
     }
   },
   "relative_to_node": {
     "node_field_G_345": 9689373.667049592,
-    "is_current_operator_target": true,
+    "is_current_operator_target": false,
     "is_next_optimal_move": false,
-    "minus_one_bias": 0.0,
+    "minus_one_bias": 2e-05,
     "operator_move": null,
     "observed_by_node": true
   }
