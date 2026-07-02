@@ -1,14 +1,14 @@
 {
   "entity": "FED",
   "node": "34539544",
-  "compiled_at": "2026-07-01T23:17:38.041360+00:00",
-  "digest": "sha256:50612cd8ff082cd9ee4f13fdd0ddc2e31131e2476a08efd1ac728723f139fada",
+  "compiled_at": "2026-07-02T00:26:08.394440+00:00",
+  "digest": "sha256:9153b5f695c8c01812c61da90357efed8643a8c0f6fa61b31e7692e2ffaf71e9",
   "own_numbers": {
-    "phi_s": 2.2981,
+    "phi_s": 0.68,
     "kappa": 0.0014,
     "mass": 0.360753,
     "power": 0.0,
-    "extraction": 102937.1429,
+    "extraction": 94768.8998,
     "memory_mass": 34.0,
     "X_natural": 0.0,
     "gravity_mass": 115.0,
@@ -23,7 +23,7 @@
     "power": {
       "value": 0.0,
       "rank": 27,
-      "of": 49
+      "of": 51
     },
     "gravity": {
       "value": 115.0,
@@ -31,9 +31,9 @@
       "of": 62
     },
     "extraction": {
-      "value": 102937.1429,
+      "value": 94768.8998,
       "rank": 9,
-      "of": 49
+      "of": 51
     },
     "share_of_whole": {
       "mass": 0.02255,
@@ -63,8 +63,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 10,
-    "out_degree": 5,
+    "in_degree": 9,
+    "out_degree": 6,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -75,18 +75,13 @@
         "in": 3.5
       },
       "Information": {
-        "out": 1.5,
-        "in": 1.1
+        "out": 2.0,
+        "in": 0.6
       }
     },
     "top_inbound": [
       {
         "source": "US_EAST_COAST",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "FED_RRP",
         "conn_type": "information_flow",
         "vector": "Information"
       },
@@ -102,6 +97,11 @@
       },
       {
         "source": "JEKYLL_ISLAND",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CITIGROUP",
         "conn_type": "governance",
         "vector": "Infrastructure"
       }
@@ -123,12 +123,12 @@
         "vector": "Information"
       },
       {
-        "target": "JPMORGAN",
-        "conn_type": "governance",
-        "vector": "Infrastructure"
+        "target": "FED_RRP",
+        "conn_type": "information_flow",
+        "vector": "Information"
       },
       {
-        "target": "CITIGROUP",
+        "target": "JPMORGAN",
         "conn_type": "governance",
         "vector": "Infrastructure"
       }
@@ -148,21 +148,21 @@
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 50.63,
+        "mass": 50.76,
         "hops": 1,
-        "pull": 5822.45
+        "pull": 5837.4
       },
       {
         "entity": "34539544",
-        "mass": 47.0,
+        "mass": 49.0,
         "hops": 1,
-        "pull": 5405.0
+        "pull": 5635.0
       },
       {
         "entity": "DTCC",
-        "mass": 42.0,
+        "mass": 43.0,
         "hops": 1,
-        "pull": 4830.0
+        "pull": 4945.0
       }
     ]
   },
@@ -221,7 +221,7 @@
     ],
     "observation": {
       "source": "information_flow",
-      "last_observed_at": "2026-07-01T22:54:18.621953+00:00",
+      "last_observed_at": "2026-07-02T00:22:45.080771+00:00",
       "last_delta_i": 1.0,
       "stale": false
     }

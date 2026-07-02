@@ -1,14 +1,14 @@
 {
   "entity": "CIRCLE",
   "node": "34539544",
-  "compiled_at": "2026-07-01T23:17:37.950368+00:00",
-  "digest": "sha256:3d79618525288853dadd986d95918ca6f811c3fcf2e0a25eb9a59980617fdc8a",
+  "compiled_at": "2026-07-02T00:26:08.290979+00:00",
+  "digest": "sha256:1b748eb2c7bbf9d28fb6b8e6754e01efa49fecd47a57715b5a3b3a77f4925157",
   "own_numbers": {
-    "phi_s": 4.9223,
-    "kappa": 0.0014,
+    "phi_s": 0.0668,
+    "kappa": 0.1485,
     "mass": 0.261446,
-    "power": 0.02,
-    "extraction": 88201.192412,
+    "power": 0.01,
+    "extraction": 79862.25719,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -21,58 +21,58 @@
       "of": 199
     },
     "power": {
-      "value": 0.02,
-      "rank": 9,
-      "of": 49
+      "value": 0.01,
+      "rank": 10,
+      "of": 51
     },
     "gravity": null,
     "extraction": {
-      "value": 88201.1924,
-      "rank": 10,
-      "of": 49
+      "value": 79862.2572,
+      "rank": 11,
+      "of": 51
     },
     "share_of_whole": {
       "mass": 0.01634,
-      "power": 0.01961
+      "power": 0.01099
     },
     "peers_by_power": [
       {
-        "entity": "SEC",
-        "power": 0.05
-      },
-      {
         "entity": "TOKENIZED_TREASURY",
         "power": 0.03
-      },
-      {
-        "entity": "CIRCLE",
-        "power": 0.02
       },
       {
         "entity": "BASE",
         "power": 0.01
       },
       {
+        "entity": "CIRCLE",
+        "power": 0.01
+      },
+      {
         "entity": "CITI_TREASURY_SERVICES",
         "power": 0.01
+      },
+      {
+        "entity": "AAVE_FORUM",
+        "power": 0.0
       }
     ]
   },
   "relationships": {
-    "in_degree": 6,
-    "out_degree": 10,
+    "in_degree": 8,
+    "out_degree": 8,
     "by_vector": {
       "Capital": {
-        "out": 1.0,
-        "in": 0.0
+        "out": 0.5,
+        "in": 0.5
       },
       "Infrastructure": {
         "out": 1.0,
         "in": 0.0
       },
       "Information": {
-        "out": 3.0,
-        "in": 3.2
+        "out": 2.5,
+        "in": 3.7
       }
     },
     "top_inbound": [
@@ -109,11 +109,6 @@
         "vector": "Information"
       },
       {
-        "target": "TETHER",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
         "target": "CIRCLE_RESERVE_FUND",
         "conn_type": "information_flow",
         "vector": "Information"
@@ -127,6 +122,11 @@
         "target": "JPMORGAN",
         "conn_type": "information_flow",
         "vector": "Information"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": [
@@ -134,31 +134,31 @@
         "entity": "JPMORGAN",
         "mass": 100.0,
         "hops": 1,
-        "pull": 2.0
+        "pull": 1.0
       },
       {
         "entity": "CITIGROUP",
         "mass": 98.0,
         "hops": 1,
-        "pull": 1.96
+        "pull": 0.98
       },
       {
         "entity": "BLACKROCK",
-        "mass": 89.0,
+        "mass": 88.0,
         "hops": 1,
-        "pull": 1.78
+        "pull": 0.88
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 50.63,
+        "mass": 50.76,
         "hops": 1,
-        "pull": 1.0126
+        "pull": 0.5076
       },
       {
         "entity": "34539544",
-        "mass": 47.0,
+        "mass": 49.0,
         "hops": 1,
-        "pull": 0.94
+        "pull": 0.49
       }
     ]
   },
@@ -220,8 +220,8 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-07-01T23:08:48.652053+00:00",
-      "last_delta_i": 17603363.509985022,
+      "last_observed_at": "2026-07-02T00:18:30.804628+00:00",
+      "last_delta_i": 49639365818.699814,
       "stale": false
     }
   },
@@ -229,7 +229,7 @@
     "node_field_G_345": 9689373.667049592,
     "is_current_operator_target": true,
     "is_next_optimal_move": false,
-    "minus_one_bias": 6.8e-05,
+    "minus_one_bias": 6.7e-05,
     "operator_move": null,
     "observed_by_node": true
   }

@@ -1,14 +1,14 @@
 {
   "entity": "TETHER",
   "node": "34539544",
-  "compiled_at": "2026-07-01T23:17:38.266076+00:00",
-  "digest": "sha256:7d001c2c47577f8d5fe5da56aefbd86d7e0a719f14f5713eab2f1c957841a3f7",
+  "compiled_at": "2026-07-02T00:26:08.627672+00:00",
+  "digest": "sha256:1a89a7ec6e3ddbb1ec840d0b11c416701b508f602e6e7872d66064455e9890ff",
   "own_numbers": {
     "phi_s": 0.0788,
-    "kappa": 0.0746,
+    "kappa": 0.0742,
     "mass": 0.186113,
     "power": 0.0,
-    "extraction": 7901.1541,
+    "extraction": 7317.2116,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -22,14 +22,14 @@
     },
     "power": {
       "value": 0.0,
-      "rank": 46,
-      "of": 49
+      "rank": 47,
+      "of": 51
     },
     "gravity": null,
     "extraction": {
-      "value": 7901.1541,
-      "rank": 22,
-      "of": 49
+      "value": 7317.2116,
+      "rank": 23,
+      "of": 51
     },
     "share_of_whole": {
       "mass": 0.01163,
@@ -49,18 +49,18 @@
         "power": 0.0
       },
       {
-        "entity": "USDY",
+        "entity": "TRAIL_OF_BITS",
         "power": 0.0
       },
       {
-        "entity": "US_EAST_COAST",
+        "entity": "USDY",
         "power": 0.0
       }
     ]
   },
   "relationships": {
-    "in_degree": 6,
-    "out_degree": 2,
+    "in_degree": 5,
+    "out_degree": 3,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -71,8 +71,8 @@
         "in": 0.5
       },
       "Information": {
-        "out": 0.0,
-        "in": 2.2
+        "out": 0.5,
+        "in": 1.7
       }
     },
     "top_inbound": [
@@ -92,17 +92,22 @@
         "vector": "Information"
       },
       {
-        "source": "CIRCLE",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
         "source": "CANTOR_FITZGERALD",
         "conn_type": "custody",
         "vector": "Infrastructure"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
       }
     ],
     "top_outbound": [
+      {
+        "target": "CIRCLE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
       {
         "target": "CANTOR_FITZGERALD",
         "conn_type": "custody",

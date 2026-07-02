@@ -1,14 +1,14 @@
 {
   "entity": "BASE",
   "node": "34539544",
-  "compiled_at": "2026-07-01T23:17:37.884623+00:00",
-  "digest": "sha256:a042e88d60c13963cb7650ae91b96c36ba7a1c823ace3cbd6bbaecf7d81f26c3",
+  "compiled_at": "2026-07-02T00:26:08.218881+00:00",
+  "digest": "sha256:00096326eac108d6e6a254729346589491ea9393a0dd71ccfc3e71d2084f25e4",
   "own_numbers": {
     "phi_s": 0.0298,
-    "kappa": 0.002,
+    "kappa": 0.1949,
     "mass": 0.195659,
     "power": 0.01,
-    "extraction": 378909.446721,
+    "extraction": 353785.819322,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -22,45 +22,45 @@
     },
     "power": {
       "value": 0.01,
-      "rank": 10,
-      "of": 49
+      "rank": 9,
+      "of": 51
     },
     "gravity": null,
     "extraction": {
-      "value": 378909.4467,
+      "value": 353785.8193,
       "rank": 4,
-      "of": 49
+      "of": 51
     },
     "share_of_whole": {
       "mass": 0.01223,
-      "power": 0.0098
+      "power": 0.01099
     },
     "peers_by_power": [
       {
-        "entity": "TOKENIZED_TREASURY",
-        "power": 0.03
+        "entity": "COINBASE",
+        "power": 0.05
       },
       {
-        "entity": "CIRCLE",
-        "power": 0.02
+        "entity": "TOKENIZED_TREASURY",
+        "power": 0.03
       },
       {
         "entity": "BASE",
         "power": 0.01
       },
       {
-        "entity": "CITI_TREASURY_SERVICES",
+        "entity": "CIRCLE",
         "power": 0.01
       },
       {
-        "entity": "AAVE_FORUM",
-        "power": 0.0
+        "entity": "CITI_TREASURY_SERVICES",
+        "power": 0.01
       }
     ]
   },
   "relationships": {
-    "in_degree": 20,
-    "out_degree": 1,
+    "in_degree": 19,
+    "out_degree": 2,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -71,8 +71,8 @@
         "in": 1.0
       },
       "Information": {
-        "out": 0.0,
-        "in": 9.0
+        "out": 0.5,
+        "in": 8.5
       }
     },
     "top_inbound": [
@@ -107,20 +107,25 @@
         "target": "COINBASE",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
+      },
+      {
+        "target": "COINBASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
       }
     ],
     "gravity_pairs": [
       {
         "entity": "34539544",
-        "mass": 47.0,
+        "mass": 49.0,
         "hops": 1,
-        "pull": 0.47
+        "pull": 0.49
       },
       {
         "entity": "SEC",
-        "mass": 119.0,
+        "mass": 120.0,
         "hops": 2,
-        "pull": 0.2975
+        "pull": 0.3
       },
       {
         "entity": "FED",
@@ -135,10 +140,10 @@
         "pull": 0.25
       },
       {
-        "entity": "CITIGROUP",
-        "mass": 98.0,
+        "entity": "BLACKROCK",
+        "mass": 88.0,
         "hops": 2,
-        "pull": 0.245
+        "pull": 0.22
       }
     ]
   },

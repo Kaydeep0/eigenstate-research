@@ -1,17 +1,17 @@
 {
   "entity": "SEC",
   "node": "34539544",
-  "compiled_at": "2026-07-01T23:17:38.220402+00:00",
-  "digest": "sha256:eb2ecbdc2795c12f983dddfa4192881dff91235ae95456c7b8e8c21c3f67d951",
+  "compiled_at": "2026-07-02T00:26:08.580403+00:00",
+  "digest": "sha256:9bf5acf813b36b47e2f39d200fe37a00f4be2882c44770f2262d00258e70f18e",
   "own_numbers": {
-    "phi_s": 4.9956,
-    "kappa": 0.0018,
+    "phi_s": 3.4735,
+    "kappa": 0.1856,
     "mass": 0.433364,
-    "power": 0.05,
-    "extraction": 106480.270035,
-    "memory_mass": 92.66,
-    "X_natural": 14.891,
-    "gravity_mass": 119.0,
+    "power": 0.09,
+    "extraction": 207649.55274,
+    "memory_mass": 104.53,
+    "X_natural": 5.6075,
+    "gravity_mass": 120.0,
     "mass_type": "regulatory"
   },
   "vs_whole": {
@@ -21,25 +21,37 @@
       "of": 199
     },
     "power": {
-      "value": 0.05,
-      "rank": 7,
-      "of": 49
+      "value": 0.09,
+      "rank": 5,
+      "of": 51
     },
     "gravity": {
-      "value": 119.0,
+      "value": 120.0,
       "rank": 1,
       "of": 62
     },
     "extraction": {
-      "value": 106480.27,
-      "rank": 8,
-      "of": 49
+      "value": 207649.5527,
+      "rank": 6,
+      "of": 51
     },
     "share_of_whole": {
       "mass": 0.02709,
-      "power": 0.04902
+      "power": 0.0989
     },
     "peers_by_power": [
+      {
+        "entity": "TREASURY_MARKET",
+        "power": 0.14
+      },
+      {
+        "entity": "BLACKROCK",
+        "power": 0.09
+      },
+      {
+        "entity": "SEC",
+        "power": 0.09
+      },
       {
         "entity": "34539544",
         "power": 0.05
@@ -47,32 +59,20 @@
       {
         "entity": "COINBASE",
         "power": 0.05
-      },
-      {
-        "entity": "SEC",
-        "power": 0.05
-      },
-      {
-        "entity": "TOKENIZED_TREASURY",
-        "power": 0.03
-      },
-      {
-        "entity": "CIRCLE",
-        "power": 0.02
       }
     ]
   },
   "relationships": {
-    "in_degree": 12,
-    "out_degree": 7,
+    "in_degree": 10,
+    "out_degree": 10,
     "by_vector": {
       "Capital": {
-        "out": 0.0,
-        "in": 0.5
+        "out": 0.5,
+        "in": 0.0
       },
       "Infrastructure": {
-        "out": 0.0,
-        "in": 0.5
+        "out": 1.0,
+        "in": 0.0
       },
       "Information": {
         "out": 3.5,
@@ -138,36 +138,36 @@
         "entity": "ESMA",
         "mass": 106.0,
         "hops": 1,
-        "pull": 12614.0
+        "pull": 12720.0
       },
       {
         "entity": "CFTC",
         "mass": 102.0,
         "hops": 1,
-        "pull": 12138.0
+        "pull": 12240.0
       },
       {
         "entity": "BLACKROCK",
-        "mass": 89.0,
+        "mass": 88.0,
         "hops": 1,
-        "pull": 10591.0
+        "pull": 10560.0
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 50.63,
+        "mass": 50.76,
         "hops": 1,
-        "pull": 6024.97
+        "pull": 6091.2
       },
       {
         "entity": "34539544",
-        "mass": 47.0,
+        "mass": 49.0,
         "hops": 1,
-        "pull": 5593.0
+        "pull": 5880.0
       }
     ]
   },
   "monetary_position": {
-    "position": 0.827,
+    "position": 0.828,
     "well": "fiat"
   },
   "drift": {
@@ -221,8 +221,8 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-07-01T23:08:48.652053+00:00",
-      "last_delta_i": 2.9867411425033374,
+      "last_observed_at": "2026-07-02T00:18:30.804628+00:00",
+      "last_delta_i": 8880.094215875479,
       "stale": false
     }
   },
@@ -230,7 +230,7 @@
     "node_field_G_345": 9689373.667049592,
     "is_current_operator_target": true,
     "is_next_optimal_move": false,
-    "minus_one_bias": 3.6e-05,
+    "minus_one_bias": 3.3e-05,
     "operator_move": null,
     "observed_by_node": true
   }
