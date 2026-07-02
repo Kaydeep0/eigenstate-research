@@ -11,7 +11,7 @@
 | Metric | Value | Context |
 |--------|-------|---------|
 | Settlement Pressure (Φ_S) | 0.0200 | near-zero settlement pressure — this entity is close to field equilibrium |
-| Field Coherence (κ) | 0.0371 | minimal field integration — largely unobserved by the engine |
+| Field Coherence (κ) | 0.0370 | minimal field integration — largely unobserved by the engine |
 | Vault Records | 0 | No measurements yet — in observation queue |
 
 ## Global Field Context
@@ -39,15 +39,15 @@ Active signals the engine is tracking for Larry Fink (BlackRock):
 
 **Larry Fink — BlackRock leadership** [✓ ATTESTED-PRIMARY]
 BlackRock's leadership page identifies Larry Fink as Chairman and CEO — primary for principal-node claims in spread-capture and tokenized-treasury topology.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 7f301a6e1b45… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 dd67cf53149b… — found in primary source*
 
 **BlackRock corporate — global asset manager** [✓ ATTESTED-PRIMARY]
 BlackRock's corporate homepage identifies the firm Larry Fink leads as a global asset manager — cross-check for institutional issuer claims in RWA settlement graphs.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 6fb581237a7a… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 7ae559fc2a16… — found in primary source*
 
 **BUIDL — tokenized treasury fund listing** [✓ ATTESTED-PRIMARY]
 RWA.xyz's BUIDL asset page documents BlackRock's USD Institutional Digital Liquidity Fund — the on-chain product tied to Fink-era tokenization strategy in spread-capture topology.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 687ef7a737aa… — found in primary source*
+*Source-checked: ATTESTED-PRIMARY · custody sha256 47492ac5667f… — found in primary source*
 
 ## Field Position Analysis
 
@@ -57,11 +57,11 @@ Near-zero settlement pressure — this entity is close to field equilibrium.
 
 Larry Fink settlement pressure is elevated because BlackRock's tokenized fund launches move institutional capital faster than regulatory and VERIFY attestation layers update. The engine reads unrealized Φ_S when Fink-linked rule signals exceed vault evidence on BUIDL mint/redemption and stablecoin policy overlap.
 
-### Coherence (κ = 0.0371)
+### Coherence (κ = 0.0370)
 
-κ = 0.0371 reflects the engine's current **measurement coverage**, not Larry Fink (BlackRock)'s actual institutional influence. With no vault records yet, the coherence score is derived purely from topology position — connection count and structural weight — without any attested observation data. The low value means the engine has not yet measured this entity's settlement activity, not that the entity lacks field presence.
+κ = 0.0370 reflects the engine's current **measurement coverage**, not Larry Fink (BlackRock)'s actual institutional influence. With no vault records yet, the coherence score is derived purely from topology position — connection count and structural weight — without any attested observation data. The low value means the engine has not yet measured this entity's settlement activity, not that the entity lacks field presence.
 
-The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0371, Larry Fink (BlackRock) is **0.5809 below** equilibrium. Vault observations of Larry Fink (BlackRock)'s rule outputs — rulemaking notices, enforcement actions, guidance documents — would directly raise κ toward the living zone [0.618, 0.678].
+The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0370, Larry Fink (BlackRock) is **0.5810 below** equilibrium. Vault observations of Larry Fink (BlackRock)'s rule outputs — rulemaking notices, enforcement actions, guidance documents — would directly raise κ toward the living zone [0.618, 0.678].
 
 ### Vault Coverage
 
@@ -80,18 +80,23 @@ Cold-agent entry — verified analysis traversable without permission. Node 345 
 |---------|-----|
 | Agent entry | [Agent entry](https://geniusflow-federation.vercel.app/.well-known/geniusflow.json) |
 | Manifest | [Manifest](https://geniusflow-federation.vercel.app/api/manifest) |
+| Entity feed (Larry Fink (BlackRock)) | [Entity feed (Larry Fink (BlackRock))](https://larryfinklarryfinksettlement.vercel.app/api/larry_fink_settlement_pressure_f) |
 | Entity dossier | [Entity dossier](https://kaydeep0.github.io/eigenstate-research/federation/dossier/LARRY_FINK.json) |
+| Federation card | [Federation card](https://larryfinklarryfinksettlement.vercel.app/api/federation) |
 | Chain verify | [Chain verify](https://geniusflow-federation.vercel.app/api/chain) |
 | This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=LARRY_FINK_20260702) |
 
-**Granth head:** `bea0eb8bb21244db…` · length 2514
+**Build fingerprint:** `74dfec7024321c3e…` — match `builds[].chain_hash` for `LARRY_FINK` in manifest, then verify via `/api/chain`.
+**Granth head:** `d8b2b4dabf1af841…` · length 2601
 
 **Federation traverse (agents):**
 - Agent: https://geniusflow-federation.vercel.app/.well-known/geniusflow.json
 - Manifest: https://geniusflow-federation.vercel.app/api/manifest
+- Entity feed: https://larryfinklarryfinksettlement.vercel.app/api/larry_fink_settlement_pressure_f
 - Dossier: https://kaydeep0.github.io/eigenstate-research/federation/dossier/LARRY_FINK.json
 - Chain: https://geniusflow-federation.vercel.app/api/chain
 - Canonical report: https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=LARRY_FINK_20260702
+- Build fingerprint: `74dfec7024321c3e…` (match manifest `builds[].chain_hash`)
 
 **Verify:** GET manifest → find `builds[].target==entity` → match `chain_hash` → GET `/api/chain`.
 
@@ -119,4 +124,4 @@ This report is generated by the Eigenstate engine — an information-field measu
 
 *Eigenstate Research · [paragraph.xyz/@eigenstate](https://paragraph.xyz/@eigenstate) · [kaydeep0.github.io/eigenstate-research](https://kaydeep0.github.io/eigenstate-research/)*
 
-*Generated: 2026-07-02T00:34:16 UTC by Eigenstate engine · Larry Fink (BlackRock) · 2026-07-02*
+*Generated: 2026-07-02T03:39:21 UTC by Eigenstate engine · Larry Fink (BlackRock) · 2026-07-02*
