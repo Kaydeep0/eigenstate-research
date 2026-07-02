@@ -1,12 +1,12 @@
 {
-  "entity": "UNISWAP",
+  "entity": "DEFI_AUDIENCE",
   "node": "34539544",
-  "compiled_at": "2026-07-02T00:45:08.198555+00:00",
-  "digest": "sha256:c0681ffaebfbee57a8aeba281b3d736d82743a43eda26843be5f3aa41255615c",
+  "compiled_at": "2026-07-02T00:45:07.849081+00:00",
+  "digest": "sha256:86d7cb1bf44458d18630a32381c61943172d5802f4702ca6c48a773d21fb6f89",
   "own_numbers": {
-    "phi_s": 0.02,
-    "kappa": 0.065,
-    "mass": 0.062229,
+    "phi_s": 0.0,
+    "kappa": 0.0002,
+    "mass": 0.06041,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,22 +16,22 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.062229,
-      "rank": 64,
+      "value": 0.06041,
+      "rank": 68,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00389,
+      "mass": 0.00378,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 4,
-    "out_degree": 3,
+    "in_degree": 2,
+    "out_degree": 0,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -42,49 +42,23 @@
         "in": 0.0
       },
       "Information": {
-        "out": 1.5,
-        "in": 2.0
+        "out": 0.0,
+        "in": 1.35
       }
     },
     "top_inbound": [
       {
-        "source": "COINBASE_SPOT",
-        "conn_type": "information_flow",
+        "source": "LENS_PROTOCOL",
+        "conn_type": "audience",
         "vector": "Information"
       },
       {
-        "source": "WINTERMUTE",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "JUMP_TRADING",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "MORPHO",
-        "conn_type": "information_flow",
+        "source": "34539544",
+        "conn_type": "strategic",
         "vector": "Information"
       }
     ],
-    "top_outbound": [
-      {
-        "target": "CURVE",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "target": "ETHEREUM",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "target": "BASE",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      }
-    ],
+    "top_outbound": [],
     "gravity_pairs": []
   },
   "monetary_position": {
@@ -97,20 +71,13 @@
     "cycles": 4,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0007,
+      "kappa": 0.0191,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
     "freshness": "live",
-    "inbound": [
-      {
-        "network": "defillama",
-        "kind": "protocols",
-        "status": "live",
-        "note": "fetched from public API at request time"
-      }
-    ],
+    "inbound": [],
     "outbound": [
       {
         "network": "helixhash",
@@ -134,17 +101,17 @@
       }
     ],
     "observation": {
-      "source": null,
-      "last_observed_at": null,
-      "last_delta_i": null,
-      "stale": true
+      "source": "propagated",
+      "last_observed_at": "2026-07-02T00:37:50.600636+00:00",
+      "last_delta_i": 14.577115,
+      "stale": false
     }
   },
   "relative_to_node": {
     "node_field_G_345": 9689373.667049592,
-    "is_current_operator_target": false,
+    "is_current_operator_target": true,
     "is_next_optimal_move": false,
-    "minus_one_bias": 2e-05,
+    "minus_one_bias": 0.0,
     "operator_move": null,
     "observed_by_node": true
   }
