@@ -1,37 +1,37 @@
 {
-  "entity": "MAS",
+  "entity": "COINBASE_SPOT",
   "node": "34539544",
-  "compiled_at": "2026-07-02T00:30:41.671253+00:00",
-  "digest": "sha256:1245675df0c56cda87ce8dc055a81448b7ec6925050992813542560c2a59374b",
+  "compiled_at": "2026-07-02T00:30:41.520602+00:00",
+  "digest": "sha256:a7dd0d1f191ab2c66932539afe1ae8651f1a76209e6c5d613d871b46cdb547db",
   "own_numbers": {
-    "phi_s": 0.064,
-    "kappa": 0.0186,
-    "mass": 0.100867,
+    "phi_s": 0.02,
+    "kappa": 0.0742,
+    "mass": 0.072048,
     "power": null,
     "extraction": null,
-    "memory_mass": 3.2,
-    "X_natural": 0.0,
+    "memory_mass": null,
+    "X_natural": null,
     "gravity_mass": null,
     "mass_type": null
   },
   "vs_whole": {
     "mass": {
-      "value": 0.100867,
-      "rank": 39,
+      "value": 0.072048,
+      "rank": 63,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.0063,
+      "mass": 0.0045,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 1,
-    "out_degree": 1,
+    "in_degree": 4,
+    "out_degree": 4,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -42,59 +42,58 @@
         "in": 0.0
       },
       "Information": {
-        "out": 0.5,
-        "in": 0.5
+        "out": 2.0,
+        "in": 2.0
       }
     },
     "top_inbound": [
       {
-        "source": "SINGAPORE_REGION",
+        "source": "COINBASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "WINTERMUTE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "GSR",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "COINGECKO_DATA",
         "conn_type": "information_flow",
         "vector": "Information"
       }
     ],
     "top_outbound": [
       {
-        "target": "SINGAPORE_JURISDICTION",
+        "target": "UNISWAP",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "AERODROME",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "SEC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "FINRA",
         "conn_type": "information_flow",
         "vector": "Information"
       }
     ],
-    "gravity_pairs": [
-      {
-        "entity": "SEC",
-        "mass": 120.0,
-        "hops": 3,
-        "pull": 42.6667
-      },
-      {
-        "entity": "FED",
-        "mass": 115.0,
-        "hops": 3,
-        "pull": 40.8889
-      },
-      {
-        "entity": "US_JURISDICTION",
-        "mass": 50.76,
-        "hops": 2,
-        "pull": 40.608
-      },
-      {
-        "entity": "FINRA",
-        "mass": 104.0,
-        "hops": 3,
-        "pull": 36.9778
-      },
-      {
-        "entity": "OCC",
-        "mass": 103.0,
-        "hops": 3,
-        "pull": 36.6222
-      }
-    ]
+    "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.5,
+    "position": 0.525,
     "well": "fiat"
   },
   "drift": {
@@ -103,24 +102,13 @@
     "cycles": 4,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0002,
-      "memory_mass": 0.0,
+      "kappa": -0.0007,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
-    "inbound": [
-      {
-        "network": "fred",
-        "kind": "macro_primary",
-        "status": "live",
-        "series_id": "GDP",
-        "label": "sg_regulatory_gdp_proxy",
-        "last_observed_at": "2026-07-01T22:56:32.943672+00:00",
-        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
-      }
-    ],
+    "freshness": "stale",
+    "inbound": [],
     "outbound": [
       {
         "network": "helixhash",
