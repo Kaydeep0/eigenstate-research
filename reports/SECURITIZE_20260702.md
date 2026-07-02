@@ -11,7 +11,7 @@
 | Metric | Value | Context |
 |--------|-------|---------|
 | Settlement Pressure (Φ_S) | 0.0200 | near-zero settlement pressure — this entity is close to field equilibrium |
-| Field Coherence (κ) | 0.0835 | minimal field integration — largely unobserved by the engine |
+| Field Coherence (κ) | 0.0833 | minimal field integration — largely unobserved by the engine |
 | Vault Records | 0 | No measurements yet — in observation queue |
 
 ## Global Field Context
@@ -42,12 +42,12 @@ Securitize's homepage identifies the firm as a real-world asset tokenization pla
 *Source-checked: ATTESTED-PRIMARY · custody sha256 a10fd5fa9299… — found in primary source*
 
 **Securitize platform title** [✓ ATTESTED-PRIMARY]
-Securitize's page title documents the leading tokenization platform positioning — cross-check for Securitize entity resolution in settlement graphs.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 a10fd5fa9299… — found in primary source*
+RWA.xyz's Securitize platform page documents the tokenization infrastructure provider — cross-check for Securitize entity resolution in settlement graphs.
+*Source-checked: ATTESTED-PRIMARY · custody sha256 f4a1e9afe5dc… — found in primary source*
 
 **Securitize RWA solutions** [✓ ATTESTED-PRIMARY]
-Securitize meta description documents solutions for asset managers and Web3 firms — the product lane for tokenized fund issuance in passthrough-class topology.
-*Source-checked: ATTESTED-PRIMARY · custody sha256 a10fd5fa9299… — found in primary source*
+DeFiLlama's Securitize protocol page indexes tokenization platform activity — the open data lane for tokenized fund issuance in passthrough-class topology.
+*Source-checked: ATTESTED-PRIMARY · custody sha256 93f5c4a2683c… — found in primary source*
 
 ## Field Position Analysis
 
@@ -57,11 +57,11 @@ Near-zero settlement pressure — this entity is close to field equilibrium.
 
 Securitize settlement pressure is elevated because tokenized Treasury passthrough products depend on issuance rails that must attest reserve, transfer-agent, and compliance rules while capture-class stablecoins retain yield off-chain. Until Securitize infrastructure attests alongside tokenized-treasury and BlackRock nodes, passthrough yield mechanics stay under-specified in graphs.
 
-### Coherence (κ = 0.0835)
+### Coherence (κ = 0.0833)
 
-κ = 0.0835 reflects the engine's current **measurement coverage**, not Securitize's actual institutional influence. With no vault records yet, the coherence score is derived purely from topology position — connection count and structural weight — without any attested observation data. The low value means the engine has not yet measured this entity's settlement activity, not that the entity lacks field presence.
+κ = 0.0833 reflects the engine's current **measurement coverage**, not Securitize's actual institutional influence. With no vault records yet, the coherence score is derived purely from topology position — connection count and structural weight — without any attested observation data. The low value means the engine has not yet measured this entity's settlement activity, not that the entity lacks field presence.
 
-The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0835, Securitize is **0.5345 below** equilibrium. Vault observations of Securitize's rule outputs — rulemaking notices, enforcement actions, guidance documents — would directly raise κ toward the living zone [0.618, 0.678].
+The equilibrium attractor is κ = 1/φ ≈ 0.618. At current κ = 0.0833, Securitize is **0.5347 below** equilibrium. Vault observations of Securitize's rule outputs — rulemaking notices, enforcement actions, guidance documents — would directly raise κ toward the living zone [0.618, 0.678].
 
 ### Vault Coverage
 
@@ -86,8 +86,8 @@ Cold-agent entry — verified analysis traversable without permission. Node 345 
 | Chain verify | [Chain verify](https://geniusflow-federation.vercel.app/api/chain) |
 | This report | [This report](https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=SECURITIZE_20260702) |
 
-**Build fingerprint:** `8e69b967afe6ef90…` — match `builds[].chain_hash` for `SECURITIZE` in manifest, then verify via `/api/chain`.
-**Granth head:** `a30533c904762876…` · length 2508
+**Build fingerprint:** `2cfc9a5cc910927f…` — match `builds[].chain_hash` for `SECURITIZE` in manifest, then verify via `/api/chain`.
+**Granth head:** `a6851420e4ae7f30…` · length 2625
 
 **Federation traverse (agents):**
 - Agent: https://geniusflow-federation.vercel.app/.well-known/geniusflow.json
@@ -96,7 +96,7 @@ Cold-agent entry — verified analysis traversable without permission. Node 345 
 - Dossier: https://kaydeep0.github.io/eigenstate-research/federation/dossier/SECURITIZE.json
 - Chain: https://geniusflow-federation.vercel.app/api/chain
 - Canonical report: https://kaydeep0.github.io/eigenstate-research/reports/report.html?id=SECURITIZE_20260702
-- Build fingerprint: `8e69b967afe6ef90…` (match manifest `builds[].chain_hash`)
+- Build fingerprint: `2cfc9a5cc910927f…` (match manifest `builds[].chain_hash`)
 
 **Verify:** GET manifest → find `builds[].target==entity` → match `chain_hash` → GET `/api/chain`.
 
@@ -124,4 +124,4 @@ This report is generated by the Eigenstate engine — an information-field measu
 
 *Eigenstate Research · [paragraph.xyz/@eigenstate](https://paragraph.xyz/@eigenstate) · [kaydeep0.github.io/eigenstate-research](https://kaydeep0.github.io/eigenstate-research/)*
 
-*Generated: 2026-07-02T00:25:45 UTC by Eigenstate engine · Securitize · 2026-07-02*
+*Generated: 2026-07-02T04:33:35 UTC by Eigenstate engine · Securitize · 2026-07-02*
