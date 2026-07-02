@@ -1,11 +1,11 @@
 {
   "entity": "ANCHORAGE",
   "node": "34539544",
-  "compiled_at": "2026-07-02T01:53:51.444862+00:00",
-  "digest": "sha256:509f3b30ba248e94ac3b02884557caaacf396099cbe1c5b6c8bb187d43a72d9c",
+  "compiled_at": "2026-07-02T01:57:05.818722+00:00",
+  "digest": "sha256:a14c1ee75946176ed69b5fc30393b3e6556d652e01f3d2de60cd55a03c7186ac",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0186,
+    "kappa": 0.0003,
     "mass": 0.114146,
     "power": null,
     "extraction": null,
@@ -30,7 +30,7 @@
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 0,
+    "in_degree": 1,
     "out_degree": 2,
     "by_vector": {
       "Capital": {
@@ -43,10 +43,16 @@
       },
       "Information": {
         "out": 1.0,
-        "in": 0.0
+        "in": 0.1
       }
     },
-    "top_inbound": [],
+    "top_inbound": [
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
+      }
+    ],
     "top_outbound": [
       {
         "target": "OCC",
@@ -118,7 +124,7 @@
   },
   "relative_to_node": {
     "node_field_G_345": 9689373.667049592,
-    "is_current_operator_target": false,
+    "is_current_operator_target": true,
     "is_next_optimal_move": false,
     "minus_one_bias": 2e-05,
     "operator_move": null,
