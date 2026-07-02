@@ -1,37 +1,37 @@
 {
-  "entity": "HK_JURISDICTION",
+  "entity": "AERODROME",
   "node": "34539544",
-  "compiled_at": "2026-07-02T16:26:47.674419+00:00",
-  "digest": "sha256:458dfeba066ea513d880ce0fa187440c0b0d4540b5ecab0ca5da01faa3200eeb",
+  "compiled_at": "2026-07-02T16:26:47.264297+00:00",
+  "digest": "sha256:40169940c00cd4caf9942536098d72a6ce25651ecdc0c0a7dc890f8006476d38",
   "own_numbers": {
-    "phi_s": 0.12,
-    "kappa": 0.0277,
-    "mass": 0.170262,
+    "phi_s": 0.02,
+    "kappa": 0.0,
+    "mass": 0.043019,
     "power": null,
     "extraction": null,
-    "memory_mass": 6.0,
+    "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
     "mass_type": null
   },
   "vs_whole": {
     "mass": {
-      "value": 0.170262,
-      "rank": 20,
+      "value": 0.043019,
+      "rank": 116,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.01064,
+      "mass": 0.00269,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 3,
-    "out_degree": 0,
+    "in_degree": 1,
+    "out_degree": 1,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -42,88 +42,43 @@
         "in": 0.0
       },
       "Information": {
-        "out": 0.0,
-        "in": 1.5
+        "out": 0.5,
+        "in": 0.5
       }
     },
     "top_inbound": [
       {
-        "source": "HKMA",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "JFSA",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "SINGAPORE_JURISDICTION",
+        "source": "COINBASE_SPOT",
         "conn_type": "information_flow",
         "vector": "Information"
       }
     ],
-    "top_outbound": [],
-    "gravity_pairs": [
+    "top_outbound": [
       {
-        "entity": "SEC",
-        "mass": 119.0,
-        "hops": 3,
-        "pull": 79.3333
-      },
-      {
-        "entity": "FED",
-        "mass": 115.0,
-        "hops": 3,
-        "pull": 76.6667
-      },
-      {
-        "entity": "US_JURISDICTION",
-        "mass": 50.7,
-        "hops": 2,
-        "pull": 76.05
-      },
-      {
-        "entity": "FINRA",
-        "mass": 104.0,
-        "hops": 3,
-        "pull": 69.3333
-      },
-      {
-        "entity": "OCC",
-        "mass": 103.0,
-        "hops": 3,
-        "pull": 68.6667
+        "target": "BASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
       }
-    ]
+    ],
+    "gravity_pairs": []
   },
   "monetary_position": {
     "position": 0.5,
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "phi_s -93% over 5 cycles",
+    "level": "steady",
+    "headline": null,
     "cycles": 5,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0012,
-      "memory_mass": 0.0,
+      "kappa": -0.0008,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
-    "inbound": [
-      {
-        "network": "fred",
-        "kind": "macro_primary",
-        "status": "live",
-        "last_observed_at": "2026-07-02T16:21:33.959154+00:00",
-        "source": "FRED_HK_PROXY",
-        "note": "HK GDP proxy"
-      }
-    ],
+    "freshness": "stale",
+    "inbound": [],
     "outbound": [
       {
         "network": "helixhash",

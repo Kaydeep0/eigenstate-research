@@ -1,8 +1,8 @@
 {
   "entity": "FINRA",
   "node": "34539544",
-  "compiled_at": "2026-07-02T16:04:54.768905+00:00",
-  "digest": "sha256:9059a7afceafc445e0225a23d5a89c58af1ca8afc64a6e1f6fd406228c506b0f",
+  "compiled_at": "2026-07-02T16:26:47.650949+00:00",
+  "digest": "sha256:b5ba6e2d425fb6b8337683865c219d7be7c1dc98e66fa2bfcffd84b5d00b8f60",
   "own_numbers": {
     "phi_s": 0.0642,
     "kappa": 0.037,
@@ -77,9 +77,9 @@
     "gravity_pairs": [
       {
         "entity": "US_JURISDICTION",
-        "mass": 50.63,
+        "mass": 50.7,
         "hops": 1,
-        "pull": 5265.52
+        "pull": 5272.8
       },
       {
         "entity": "SEC",
@@ -94,16 +94,16 @@
         "pull": 2990.0
       },
       {
+        "entity": "JPMORGAN",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 2704.0
+      },
+      {
         "entity": "OCC",
         "mass": 103.0,
         "hops": 2,
         "pull": 2678.0
-      },
-      {
-        "entity": "CFTC",
-        "mass": 102.0,
-        "hops": 2,
-        "pull": 2652.0
       }
     ]
   },
@@ -112,12 +112,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "phi_s +2520% over 4 cycles",
-    "cycles": 4,
+    "level": "steady",
+    "headline": null,
+    "cycles": 5,
     "delta_last_cycle": {
-      "phi_s": 1.6181,
-      "kappa": -0.0351,
+      "phi_s": -1.6181,
+      "kappa": 0.0331,
       "gravity_mass": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
@@ -132,7 +132,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "broker_dealer_gdp_proxy",
-        "last_observed_at": "2026-07-02T15:58:53.293670+00:00",
+        "last_observed_at": "2026-07-02T16:21:33.959154+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -166,7 +166,7 @@
     }
   },
   "relative_to_node": {
-    "node_field_G_345": 98022413.7478714,
+    "node_field_G_345": 294594332.7338429,
     "is_current_operator_target": false,
     "is_next_optimal_move": false,
     "minus_one_bias": 2e-05,

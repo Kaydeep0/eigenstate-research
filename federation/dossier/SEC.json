@@ -1,16 +1,16 @@
 {
   "entity": "SEC",
   "node": "34539544",
-  "compiled_at": "2026-07-02T16:04:54.990366+00:00",
-  "digest": "sha256:974b596b0a01247ea4093d641e1c01300b16813f990c7a02d99e11aadddfaa81",
+  "compiled_at": "2026-07-02T16:26:47.872046+00:00",
+  "digest": "sha256:22b82853cbc3d220ace207a055101f980d4360416a216e802d8509b9b116708e",
   "own_numbers": {
-    "phi_s": 4.9956,
+    "phi_s": 5.0967,
     "kappa": 0.0018,
     "mass": 0.433364,
-    "power": 0.04,
-    "extraction": 95706.304348,
-    "memory_mass": 92.66,
-    "X_natural": 11.9128,
+    "power": 0.05,
+    "extraction": 97410.449905,
+    "memory_mass": 92.54,
+    "X_natural": 14.891,
     "gravity_mass": 119.0,
     "mass_type": "regulatory"
   },
@@ -21,7 +21,7 @@
       "of": 199
     },
     "power": {
-      "value": 0.04,
+      "value": 0.05,
       "rank": 7,
       "of": 51
     },
@@ -31,13 +31,13 @@
       "of": 62
     },
     "extraction": {
-      "value": 95706.3043,
+      "value": 97410.4499,
       "rank": 8,
       "of": 51
     },
     "share_of_whole": {
       "mass": 0.02709,
-      "power": 0.04396
+      "power": 0.04762
     },
     "peers_by_power": [
       {
@@ -50,7 +50,7 @@
       },
       {
         "entity": "SEC",
-        "power": 0.04
+        "power": 0.05
       },
       {
         "entity": "TOKENIZED_TREASURY",
@@ -63,12 +63,12 @@
     ]
   },
   "relationships": {
-    "in_degree": 12,
-    "out_degree": 7,
+    "in_degree": 11,
+    "out_degree": 8,
     "by_vector": {
       "Capital": {
-        "out": 0.0,
-        "in": 0.5
+        "out": 0.5,
+        "in": 0.0
       },
       "Infrastructure": {
         "out": 0.0,
@@ -153,16 +153,16 @@
         "pull": 10472.0
       },
       {
-        "entity": "US_JURISDICTION",
-        "mass": 50.63,
+        "entity": "34539544",
+        "mass": 51.0,
         "hops": 1,
-        "pull": 6024.97
+        "pull": 6069.0
       },
       {
-        "entity": "34539544",
-        "mass": 50.0,
+        "entity": "US_JURISDICTION",
+        "mass": 50.7,
         "hops": 1,
-        "pull": 5950.0
+        "pull": 6033.3
       }
     ]
   },
@@ -171,17 +171,17 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "watch",
-    "headline": "phi_s -49% over 4 cycles",
-    "cycles": 4,
+    "level": "flag",
+    "headline": "extraction -49% over 5 cycles",
+    "cycles": 5,
     "delta_last_cycle": {
-      "phi_s": -1.5757,
-      "kappa": -0.0259,
-      "power": 0.0,
-      "extraction": -19824.7051,
+      "phi_s": 1.5148,
+      "kappa": 0.0018,
+      "power": -0.04,
+      "extraction": -97486.2289,
       "gravity_mass": 0.0,
-      "memory_mass": -1.73,
-      "boundary_score": 0.0
+      "memory_mass": 0.06,
+      "boundary_score": 0.005
     }
   },
   "network_plugs": {
@@ -193,7 +193,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "securities_market_gdp_proxy",
-        "last_observed_at": "2026-07-02T15:58:53.293670+00:00",
+        "last_observed_at": "2026-07-02T16:21:33.959154+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -227,10 +227,10 @@
     }
   },
   "relative_to_node": {
-    "node_field_G_345": 98022413.7478714,
+    "node_field_G_345": 294594332.7338429,
     "is_current_operator_target": true,
     "is_next_optimal_move": false,
-    "minus_one_bias": 3.6e-05,
+    "minus_one_bias": 3.8e-05,
     "operator_move": null,
     "observed_by_node": true
   }

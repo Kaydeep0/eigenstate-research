@@ -1,11 +1,11 @@
 {
   "entity": "LARRY_FINK",
   "node": "34539544",
-  "compiled_at": "2026-07-02T16:04:54.833588+00:00",
-  "digest": "sha256:a9b9db2a2b464298ed806eb8f396c928ca7340d8f06a94b0c4e630477f952cb1",
+  "compiled_at": "2026-07-02T16:26:47.724541+00:00",
+  "digest": "sha256:d378dbf605897b4e562cbbde164504af7eb700024e118b3db35264bfbd1dcd57",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.037,
+    "kappa": 0.0005,
     "mass": 0.154686,
     "power": null,
     "extraction": null,
@@ -30,7 +30,7 @@
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 2,
+    "in_degree": 3,
     "out_degree": 2,
     "by_vector": {
       "Capital": {
@@ -43,7 +43,7 @@
       },
       "Information": {
         "out": 1.0,
-        "in": 1.0
+        "in": 1.1
       }
     },
     "top_inbound": [
@@ -55,6 +55,11 @@
       {
         "source": "CARLOS_DOMINGO",
         "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
         "vector": "Information"
       }
     ],
@@ -73,16 +78,16 @@
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.535,
+    "position": 0.528,
     "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 4,
+    "cycles": 5,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0004,
+      "kappa": -0.0016,
       "boundary_score": 0.0
     }
   },
@@ -121,15 +126,15 @@
       }
     ],
     "observation": {
-      "source": "propagated",
-      "last_observed_at": "2026-07-02T16:04:44.985622+00:00",
-      "last_delta_i": 1.842668513739967e+20,
+      "source": "information_flow",
+      "last_observed_at": "2026-07-02T16:08:34.925286+00:00",
+      "last_delta_i": 1.0,
       "stale": false
     }
   },
   "relative_to_node": {
-    "node_field_G_345": 98022413.7478714,
-    "is_current_operator_target": false,
+    "node_field_G_345": 294594332.7338429,
+    "is_current_operator_target": true,
     "is_next_optimal_move": false,
     "minus_one_bias": 2e-05,
     "operator_move": null,
