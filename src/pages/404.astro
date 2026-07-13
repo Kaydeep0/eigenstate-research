@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="404 — Page Not Found — Eigenstate Research" description="This page doesn't exist.">
+  <Fragment slot="head">
+    <style>
+      body {
+        background: #030712;
+        color: #f8fafc;
+        font-family: 'JetBrains Mono', 'Courier New', monospace;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .code {
+        font-size: 4rem;
+        font-weight: 700;
+        color: #00d9ff;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        color: #94a3b8;
+        margin-bottom: 1.5rem;
+      }
+
+      a {
+        color: #00d9ff;
+        text-decoration: none;
+        border-bottom: 1px solid rgb(0 217 255 / 40%);
+      }
+
+      a:hover {
+        border-bottom-color: #00d9ff;
+      }
+    </style>
+  </Fragment>
+
+  <main id="main">
+    <div class="code">404</div>
+    <p>This field position doesn't exist.</p>
+    <a href={base}>← Back to Eigenstate Research</a>
+  </main>
+</Layout>

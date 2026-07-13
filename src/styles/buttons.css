@@ -1,0 +1,87 @@
+/*
+  Canonical button system — replaces 5 previously-bespoke buttons
+  (.nav-cta, .btn-hero, .btn-request.solid, .cta-btn, .btn-submit) that each
+  had their own height/padding/radius/color. One base, three sizes, one
+  color (orange — the site-wide CTA color), one gradient variant reserved
+  for the single hero-level "big swing" CTA per page.
+*/
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background: var(--orange);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--orange-light);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-sm {
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  padding: 10px 20px;
+}
+
+.btn-md {
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wider);
+  padding: 14px 28px;
+}
+
+.btn-lg {
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wider);
+  padding: 18px 36px;
+}
+
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+/* Reserved for the one hero-level CTA per page — everything else uses the
+   flat .btn color so there's still a visual "this is the main ask" signal. */
+.btn-gradient {
+  background: linear-gradient(180deg, var(--orange-light) 0%, var(--orange) 50%, var(--orange-dark) 100%);
+  border: 1px solid rgb(255 140 80 / 40%);
+  box-shadow:
+    0 0 30px rgb(255 107 53 / 40%),
+    0 0 60px rgb(255 107 53 / 20%),
+    0 4px 20px rgb(0 0 0 / 40%),
+    inset 0 1px 0 rgb(255 255 255 / 15%);
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(180deg, var(--orange-lighter) 0%, var(--orange-mid) 50%, var(--orange) 100%);
+  box-shadow:
+    0 0 40px rgb(255 107 53 / 60%),
+    0 0 80px rgb(255 107 53 / 30%),
+    0 8px 30px rgb(0 0 0 / 40%),
+    inset 0 1px 0 rgb(255 255 255 / 20%);
+}

@@ -1,0 +1,318 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { slugFor } from '../../lib/reports';
+
+export async function getStaticPaths() {
+  const reports = await getCollection('reports');
+  return reports.map((entry) => ({
+    params: { slug: slugFor(entry.id) },
+    props: { entry, allReports: reports },
+  }));
+}
+
+const { entry, allReports } = Astro.props;
+const { Content } = await render(entry);
+const { entity_display, date, phi_s, kappa, vault_records } = entry.data;
+
+const siblings = allReports
+  .filter((r) => r.id !== entry.id)
+  .sort((a, b) => b.data.phi_s - a.data.phi_s)
+  .slice(0, 6)
+  .map((r) => ({ ...r, slug: slugFor(r.id) }));
+
+const fonts =
+  'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap';
+
+const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.toFixed(4)}, coherence κ = ${kappa.toFixed(4)}. Topology signal report from Eigenstate Research.`;
+---
+
+<Layout title={`${entity_display} — Signal Report — Eigenstate Research`} description={description} fonts={fonts}>
+  <Fragment slot="head">
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-body);
+        font-weight: 300;
+        background: var(--bg);
+        color: var(--text-primary);
+        line-height: 1.7;
+      }
+
+      .report-hero {
+        padding: 56px 40px 40px;
+        border-bottom: 1px solid var(--border);
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .report-back {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--cyan-dim);
+        text-decoration: none;
+        display: inline-block;
+        margin-bottom: 24px;
+      }
+
+      .report-entity {
+        font-family: var(--font-heading);
+        font-size: clamp(28px, 4vw, 44px);
+        font-weight: 800;
+        letter-spacing: 0.03em;
+        margin-bottom: 8px;
+      }
+
+      .report-date {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+        margin-bottom: 28px;
+      }
+
+      .metrics-row {
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
+      }
+
+      .metric {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .metric-label {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.1em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+      }
+
+      .metric-value {
+        font-family: var(--font-mono);
+        font-size: var(--text-xl);
+        font-weight: 600;
+        color: var(--orange);
+      }
+
+      .metric-value.cyan {
+        color: var(--cyan);
+      }
+
+      .metric-value.green {
+        color: var(--status-success);
+      }
+
+      .report-body {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 48px 40px;
+        font-size: var(--text-base);
+        color: var(--text-secondary);
+      }
+
+      .report-body :global(h1) {
+        display: none;
+      }
+
+      .report-body :global(h2) {
+        font-family: var(--font-heading);
+        font-size: var(--text-lg);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 40px 0 16px;
+        letter-spacing: 0.02em;
+      }
+
+      .report-body :global(h3) {
+        font-family: var(--font-heading);
+        font-size: var(--text-base);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 28px 0 12px;
+      }
+
+      .report-body :global(p) {
+        margin-bottom: 16px;
+        line-height: 1.8;
+      }
+
+      .report-body :global(strong) {
+        color: var(--text-primary);
+      }
+
+      .report-body :global(a) {
+        color: var(--cyan);
+      }
+
+      .report-body :global(ul),
+      .report-body :global(ol) {
+        margin: 0 0 16px 20px;
+      }
+
+      .report-body :global(li) {
+        margin-bottom: 6px;
+      }
+
+      .report-body :global(code) {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--cyan);
+        background: rgb(0 217 255 / 6%);
+        padding: 2px 6px;
+        border-radius: var(--radius-sm);
+      }
+
+      .report-body :global(table) {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0 28px;
+        font-size: var(--text-sm);
+      }
+
+      .report-body :global(th) {
+        text-align: left;
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--border-strong);
+      }
+
+      .report-body :global(td) {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+      }
+
+      .report-body :global(hr) {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 32px 0;
+      }
+
+      .report-body :global(em) {
+        color: var(--text-muted);
+      }
+
+      .topology-section {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 40px 64px;
+      }
+
+      .topology-title {
+        font-family: var(--font-heading);
+        font-size: var(--text-sm);
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        border-top: 1px solid var(--border);
+        padding-top: 32px;
+      }
+
+      .topology-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        background: var(--border);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+      }
+
+      .topology-row {
+        background: var(--bg);
+        padding: 16px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+        transition: background 0.2s;
+      }
+
+      .topology-row:hover {
+        background: var(--bg-card);
+      }
+
+      .topology-entity {
+        font-family: var(--font-heading);
+        font-size: var(--text-sm);
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .topology-phi {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--orange);
+      }
+
+      @media (width <= 640px) {
+        .report-hero,
+        .report-body,
+        .topology-section {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+    </style>
+  </Fragment>
+
+  <Nav active="reports" extended />
+
+  <div class="report-hero" id="main">
+    <a href={`${import.meta.env.BASE_URL}reports/`} class="report-back">← All signal reports</a>
+    <h1 class="report-entity">{entity_display}</h1>
+    <p class="report-date">{date}</p>
+    <div class="metrics-row">
+      <div class="metric">
+        <div class="metric-label">Settlement Pressure</div>
+        <div class="metric-value">Φ_S {phi_s.toFixed(4)}</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Field Coherence</div>
+        <div class="metric-value cyan">κ {kappa.toFixed(4)}</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Vault Records</div>
+        <div class="metric-value green">{vault_records}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="report-body">
+    <Content />
+  </div>
+
+  <div class="topology-section">
+    <div class="topology-title">Other tracked entities · by settlement pressure</div>
+    <div class="topology-list">
+      {
+        siblings.map((s) => (
+          <a href={`${import.meta.env.BASE_URL}reports/${s.slug}/`} class="topology-row">
+            <span class="topology-entity">{s.data.entity_display}</span>
+            <span class="topology-phi">Φ_S {s.data.phi_s.toFixed(3)}</span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <Footer variant="full" />
+</Layout>

@@ -1,0 +1,142 @@
+---
+interface EngineSignal {
+  gap_score: number;
+  gap_ratio: number;
+  delta_i: number;
+  settlement_leverage_normalized?: number;
+  settlement_leverage?: number;
+  days_to_expiry: number;
+  flag: string;
+  curl_confirmed: boolean;
+  curl_confirmed_source?: string;
+  overlay_entities: string[];
+  primary_entity: string;
+}
+
+interface OnChainProof {
+  claim_id: number;
+  block_number: number;
+  committed_at: string;
+  vault_fingerprint: string;
+  tx_hash: string;
+  basescan_url: string;
+}
+
+interface Props {
+  id: string;
+  status: 'pending' | 'confirmed' | 'refuted';
+  logged_at: string;
+  title: string;
+  claim: string;
+  falsifiable_condition: string;
+  gap_id: string;
+  engine_signal: EngineSignal;
+  on_chain_proof: OnChainProof;
+}
+
+const { id, status, logged_at, title, claim, falsifiable_condition, gap_id, engine_signal, on_chain_proof } =
+  Astro.props;
+
+const loggedDate = new Date(logged_at);
+const loggedDisplay = isNaN(loggedDate.getTime())
+  ? logged_at
+  : loggedDate.toISOString().slice(0, 10);
+
+const leverage = engine_signal.settlement_leverage_normalized ?? engine_signal.settlement_leverage;
+const txShort = `${on_chain_proof.tx_hash.slice(0, 8)}...${on_chain_proof.tx_hash.slice(-4)}`;
+---
+
+<div class={`prediction-card status-${status}`}>
+  <div class="pred-top">
+    <div class="pred-id">ID: {id} &nbsp;·&nbsp; Logged {loggedDisplay}</div>
+    <span class={`pred-status ${status}`}>{status.toUpperCase()}</span>
+  </div>
+
+  <h2 class="pred-title">{title}</h2>
+
+  <p class="pred-claim">{claim}</p>
+
+  <div class="falsifiable-block">
+    <div class="falsifiable-label">Falsifiable Condition</div>
+    <div class="falsifiable-text">{falsifiable_condition}</div>
+  </div>
+
+  <div class="pred-meta">
+    <div class="meta-item">
+      <div class="meta-label">Primary Entity</div>
+      <div class="meta-value highlight">{engine_signal.primary_entity}</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Gap ID</div>
+      <div class="meta-value">{gap_id}</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Days to Expiry</div>
+      <div class="meta-value">{engine_signal.days_to_expiry}</div>
+    </div>
+  </div>
+
+  <div class="signal-grid">
+    <div class="signal-chip">
+      <div class="s-label">Gap Score</div>
+      <div class="s-value red">{engine_signal.gap_score.toFixed(1)} / 10</div>
+    </div>
+    <div class="signal-chip">
+      <div class="s-label">Gap Ratio</div>
+      <div class="s-value amber">{engine_signal.gap_ratio.toFixed(0)}:1</div>
+    </div>
+    {
+      leverage != null && (
+        <div class="signal-chip">
+          <div class="s-label">Settlement Leverage</div>
+          <div class="s-value amber">{leverage}×</div>
+        </div>
+      )
+    }
+    <div class="signal-chip">
+      <div class="s-label">Delta_I</div>
+      <div class="s-value">{engine_signal.delta_i}</div>
+    </div>
+    <div class="signal-chip">
+      <div class="s-label">Curl Confirmed</div>
+      {
+        engine_signal.curl_confirmed_source ? (
+          <div class="s-value amber" title={engine_signal.curl_confirmed_source}>
+            DETECTOR FLAG
+          </div>
+        ) : (
+          <div class="s-value green">YES</div>
+        )
+      }
+    </div>
+    <div class="signal-chip">
+      <div class="s-label">Flag</div>
+      <div class="s-value purple">{engine_signal.flag}</div>
+    </div>
+  </div>
+
+  <div class="onchain-strip">
+    <div class="onchain-label">On-Chain Proof (Base Mainnet, logged before publication)</div>
+    <div class="onchain-fields">
+      <div class="onchain-field"><div class="f-label">Claim ID</div><div class="f-value">{on_chain_proof.claim_id}</div></div>
+      <div class="onchain-field"><div class="f-label">Block</div><div class="f-value">{on_chain_proof.block_number}</div></div>
+      <div class="onchain-field">
+        <div class="f-label">Committed At</div>
+        <div class="f-value">{new Date(on_chain_proof.committed_at).toISOString().slice(0, 16).replace('T', ' ')} UTC</div>
+      </div>
+      <div class="onchain-field">
+        <div class="f-label">Vault Fingerprint</div><div class="f-value">{on_chain_proof.vault_fingerprint}</div>
+      </div>
+      <div class="onchain-field">
+        <div class="f-label">Transaction</div>
+        <div class="f-value">
+          <a href={on_chain_proof.basescan_url} target="_blank" rel="noopener">{txShort} ↗</a>
+        </div>
+      </div>
+      <div class="onchain-field">
+        <div class="f-label">Overlay Entities</div>
+        <div class="f-value">{engine_signal.overlay_entities.join(', ')}</div>
+      </div>
+    </div>
+  </div>
+</div>

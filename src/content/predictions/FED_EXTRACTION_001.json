@@ -1,0 +1,36 @@
+{
+  "id": "FED_EXTRACTION_001",
+  "status": "pending",
+  "logged_at": "2026-04-14T03:35:00.000000+00:00",
+  "gap_id": "FED_EXTRACTION",
+  "title": "Federal Reserve Active Extraction: Emergency Rate Action or $6T Balance Sheet Expansion Within 90 Days",
+  "claim": "The engine is reading delta_i=30.0 on FED with flag ACTIVE_EXTRACTION. This is the maximum signal value observed in the current cycle. The Federal Reserve is in an extraction regime: the gap between its stated policy posture and the settlement pressure accumulating in the underlying field (kappa=0.4769, PT=0.488) is at maximum measurable divergence. A correction event — either an emergency rate action or a balance sheet expansion above $6T — is structurally required within 90 days.",
+  "falsifiable_condition": "Federal Reserve announces emergency rate action (inter-meeting cut or hike) OR Federal Reserve balance sheet expands above $6T within 90 days of this log date (2026-04-14). Either event confirms the extraction signal. No action within 90 days refutes the prediction.",
+  "engine_signal": {
+    "gap_score": 10,
+    "gap_ratio": 300,
+    "delta_i": 30,
+    "settlement_leverage_normalized": 10,
+    "days_to_expiry": 90,
+    "flag": "ACTIVE_EXTRACTION",
+    "curl_confirmed": true,
+    "vault_record_ref": "bc4a4af3",
+    "overlay_entities": [
+      "FED",
+      "BLACKROCK",
+      "SEC"
+    ],
+    "primary_entity": "FED"
+  },
+  "on_chain_proof": {
+    "chain": "Base mainnet",
+    "claim_id": 20,
+    "block_number": 44673968,
+    "tx_hash": "e94369954e8ef797c6ee56d7251a3330f458911a9a07452d60de30d042dc174d",
+    "committed_at": "2026-04-14T03:28:01.597553+00:00",
+    "vault_fingerprint": "913aab95f15701a8",
+    "basescan_url": "https://basescan.org/tx/e94369954e8ef797c6ee56d7251a3330f458911a9a07452d60de30d042dc174d"
+  },
+  "confirmation": null,
+  "notes": "Signal from vault record bc4a4af3. FED total_delta_i=45.03 across 3 records in current cycle. Peak record: delta_i=30.0. Maximum score. The kappa=0.4769 and PT=0.488 reading at log time represents a field that is near the hourglass waist — the system is at a transition point. FED's extraction behavior at this moment is the highest-conviction signal the engine currently holds."
+}
