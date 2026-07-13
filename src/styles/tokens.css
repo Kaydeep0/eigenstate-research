@@ -1,0 +1,73 @@
+/*
+  Canonical design tokens for the whole site. Loaded once via a real <link>
+  in Layout.astro (not an Astro-scoped \3c style> block) so every page gets it
+  regardless of how its markup is composed — see Nav.astro/Footer.astro for
+  why that distinction matters here.
+
+  Supersedes the two previously-separate token vocabularies: the homepage's
+  --text-primary/--cyan-primary family and the inner pages' --t1/--cyan
+  family. Both resolved to the same values; this is the one name for each.
+*/
+
+:root {
+  /* Surfaces */
+  --bg: #030712;
+  --bg2: #0a0e27;
+  --bg-card: #0f172a;
+
+  /* Text */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  /* Cyan — secondary/data accent */
+  --cyan: #00d9ff;
+  --cyan-bright: #0ff;
+  --cyan-dim: #0ea5e9;
+  --cyan-text: #5eedff;
+
+  /* Orange — the one primary accent/CTA color site-wide */
+  --orange: #ff6b35;
+  --orange-light: #ff8050;
+  --orange-lighter: #ff9060;
+  --orange-mid: #ff7b4a;
+  --orange-dark: #e55520;
+  --orange-text: #ffaa80;
+
+  /* Status colors — reserved for state, never a primary CTA */
+  --status-success: #22c55e;
+  --status-warning: #f59e0b;
+  --status-error: #dc2626;
+
+  /* Borders */
+  --border: rgb(14 165 233 / 15%);
+  --border-strong: rgb(14 165 233 / 30%);
+
+  /* Fonts */
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Type scale — 1.25 ratio from a 13px base */
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 16px;
+  --text-lg: 20px;
+  --text-xl: 25px;
+  --text-2xl: 32px;
+  --text-3xl: 40px;
+  --text-4xl: 50px;
+  --text-5xl: 62px;
+
+  /* Letter-spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
+  --tracking-widest: 0.2em;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}

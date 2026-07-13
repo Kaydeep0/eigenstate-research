@@ -1,0 +1,575 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+
+const fonts =
+  "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap";
+---
+
+<Layout
+  title="Structural Intelligence — Eigenstate Research"
+  description="Where patterns persist across technological waves. Intelligence research identifying power concentration mechanisms."
+  fonts={fonts}
+>
+  <Fragment slot="head">
+    <link rel="stylesheet" href={`${import.meta.env.BASE_URL}css/styles.css`} />
+  </Fragment>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span id="loadingText"></span>
+                <span class="loading-cursor">_</span>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">EIGENSTATE</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="#pattern">The Pattern</a>
+                <a href="#intelligence">Intelligence</a>
+                <a href="#access">Access</a>
+                <a href="https://paragraph.com/@eigenstate" target="_blank" rel="noopener">Articles</a>
+                <a href="reports/">Signal Reports</a>
+                <a href="onchain/">On-Chain Proof</a>
+                <a href="track-record/">Track Record</a>
+                <a href="predictions/">Predictions</a>
+                <a href="https://geniusflow-rwa.vercel.app" target="_blank" rel="noopener">Registry</a>
+                <a href="https://github.com/Kaydeep0/eigenstate-research" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <a href="#access" class="btn btn-sm">Request Access</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="main">
+        <!-- Background Layers -->
+        <div class="hero-bg-layers">
+            <!-- Binary Rain Canvas -->
+            <canvas id="binary-rain-canvas" class="layer-binary-rain" aria-hidden="true"></canvas>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <p class="company-name">EIGENSTATE RESEARCH</p>
+            <h1>
+                <span class="white">STRUCTURAL</span>
+                <span class="orange">INTELLIGENCE</span>
+            </h1>
+            <p class="tagline">Randomness is just encrypted order.</p>
+            <a href="#access" class="btn btn-lg btn-gradient">Request Briefing</a>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="arrow"></div>
+        </div>
+    </section>
+
+    <!-- The Pattern Section -->
+    <section id="pattern" class="pattern-section">
+        <div class="pattern-container">
+
+            <!-- MAIN TITLE (First on mobile) -->
+            <div class="pattern-title-block">
+                <span class="section-label">STRUCTURAL CONVERGENCE</span>
+                <h2 class="pattern-title">
+                    <span class="title-white">THE</span><br>
+                    <span class="title-orange">PATTERN</span>
+                </h2>
+            </div>
+
+            <!-- VIZ LABEL (Above animation on mobile) -->
+            <div class="pattern-viz-header">
+                <span class="section-label">STRUCTURAL CONVERGENCE</span>
+            </div>
+
+            <!-- LEFT COLUMN: Text Content -->
+            <div class="pattern-content">
+
+                <!-- STATS -->
+                <div class="pattern-block stats-inline">
+                    <div class="inline-stat">
+                        <span class="stat-big">40%</span>
+                        <span class="stat-context">Wave 6 Progress</span>
+                    </div>
+                    <div class="inline-stat">
+                        <span class="stat-big cyan">90%</span>
+                        <span class="stat-context">Concentration Probability</span>
+                    </div>
+                </div>
+
+                <!-- THE PATTERN Section Content -->
+                <div class="pattern-block">
+                    <p class="pattern-text primary">Every major technological wave has produced visible winners: railroads, oil, telecom, internet. Yet the mechanisms that empowered their dominance remained encrypted.</p>
+                </div>
+
+                <div class="pattern-block">
+                    <p class="pattern-text primary-light">After simulating 160 years of systems evolution, we found the interface between capital flows and physical infrastructure follows a non-obvious but predictable structure. We've mapped it.</p>
+                </div>
+
+                <div class="pattern-block">
+                    <p class="pattern-text secondary">The mechanisms underlying each wave remain consistent, but the layers of complexity concealing them deepen and expand in scale and scope with every cycle.</p>
+                </div>
+
+                <div class="pattern-block">
+                    <p class="pattern-text secondary">Legacy frameworks, built on legacy variables, have lost the ability to decrypt them.</p>
+                </div>
+
+                <div class="pattern-block featured">
+                    <p class="pattern-text">HFT optimized for speed. One variable.</p>
+                    <p class="pattern-text punchline">This wave requires four.</p>
+                </div>
+
+                <div class="pattern-block">
+                    <p class="pattern-text insight">Here's what they're missing: each wave creates new consolidation, which allows more predictability, not less. But separating signal from noise demands adaptive tools and new dimensions.</p>
+                </div>
+
+                <!-- Power Law Visual -->
+                <div class="pattern-block power-law-block">
+                    <p class="power-law-title">POWER LAW ACCELERATION</p>
+
+                    <!-- Bar chart: top-10% capture share by wave -->
+                    <svg
+                        class="power-law-chart"
+                        viewBox="0 0 320 150"
+                        role="img"
+                        aria-label="Top 10% capture share by technological wave: Wave 1 62%, Wave 3 74%, Wave 5 86%, Wave 6 projected 90% or higher"
+                    >
+                        <line x1="20" y1="115" x2="300" y2="115" class="chart-baseline" />
+
+                        <text x="45" y="53" class="chart-value">62%</text>
+                        <rect x="30" y="58" width="50" height="57" rx="3" class="chart-bar" />
+                        <text x="45" y="132" class="chart-label">Wave 1</text>
+
+                        <text x="115" y="41" class="chart-value">74%</text>
+                        <rect x="100" y="46" width="50" height="69" rx="3" class="chart-bar" />
+                        <text x="115" y="132" class="chart-label">Wave 3</text>
+
+                        <text x="185" y="29" class="chart-value">86%</text>
+                        <rect x="170" y="34" width="50" height="81" rx="3" class="chart-bar" />
+                        <text x="185" y="132" class="chart-label">Wave 5</text>
+
+                        <text x="255" y="24" class="chart-value chart-value-projected">90%+</text>
+                        <rect x="240" y="29" width="50" height="86" rx="3" class="chart-bar chart-bar-projected" />
+                        <text x="255" y="132" class="chart-label">Wave 6</text>
+                        <text x="255" y="144" class="chart-label chart-label-muted">projected</text>
+                    </svg>
+
+                    <!-- Network Comparison -->
+                    <div class="network-comparison">
+
+                        <div class="network-state">
+                            <p class="network-label">Initial State</p>
+                            <div class="nodes-container distributed">
+                                <svg viewBox="0 0 120 80" class="nodes-svg">
+                                    <!-- Distributed nodes - many equal sizes -->
+                                    <circle cx="20" cy="20" r="6" class="node"/>
+                                    <circle cx="45" cy="15" r="6" class="node"/>
+                                    <circle cx="70" cy="22" r="6" class="node"/>
+                                    <circle cx="95" cy="18" r="6" class="node"/>
+                                    <circle cx="30" cy="40" r="6" class="node"/>
+                                    <circle cx="55" cy="38" r="6" class="node"/>
+                                    <circle cx="80" cy="42" r="6" class="node"/>
+                                    <circle cx="15" cy="60" r="6" class="node"/>
+                                    <circle cx="40" cy="62" r="6" class="node"/>
+                                    <circle cx="65" cy="58" r="6" class="node"/>
+                                    <circle cx="90" cy="65" r="6" class="node"/>
+                                    <circle cx="105" cy="45" r="6" class="node"/>
+                                    <!-- Connection lines -->
+                                    <line x1="20" y1="20" x2="45" y2="15" class="connection"/>
+                                    <line x1="45" y1="15" x2="70" y2="22" class="connection"/>
+                                    <line x1="70" y1="22" x2="95" y2="18" class="connection"/>
+                                    <line x1="30" y1="40" x2="55" y2="38" class="connection"/>
+                                    <line x1="55" y1="38" x2="80" y2="42" class="connection"/>
+                                    <line x1="20" y1="20" x2="30" y2="40" class="connection"/>
+                                    <line x1="45" y1="15" x2="55" y2="38" class="connection"/>
+                                    <line x1="70" y1="22" x2="80" y2="42" class="connection"/>
+                                    <line x1="30" y1="40" x2="40" y2="62" class="connection"/>
+                                    <line x1="55" y1="38" x2="65" y2="58" class="connection"/>
+                                    <line x1="80" y1="42" x2="90" y2="65" class="connection"/>
+                                    <line x1="95" y1="18" x2="105" y2="45" class="connection"/>
+                                </svg>
+                            </div>
+                            <p class="network-caption">Distributed</p>
+                        </div>
+
+                        <div class="network-arrow">
+                            <svg viewBox="0 0 24 24" class="arrow-svg">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <div class="network-state">
+                            <p class="network-label">After Compounding</p>
+                            <div class="nodes-container concentrated">
+                                <svg viewBox="0 0 120 80" class="nodes-svg">
+                                    <!-- Concentrated nodes - one huge, few medium, many tiny -->
+                                    <!-- Dominant node -->
+                                    <circle cx="60" cy="35" r="22" class="node dominant"/>
+                                    <!-- Medium nodes -->
+                                    <circle cx="25" cy="50" r="8" class="node medium"/>
+                                    <circle cx="95" cy="45" r="6" class="node medium"/>
+                                    <!-- Small nodes -->
+                                    <circle cx="15" cy="70" r="3" class="node small"/>
+                                    <circle cx="35" cy="72" r="2.5" class="node small"/>
+                                    <circle cx="55" cy="75" r="2" class="node small"/>
+                                    <circle cx="75" cy="73" r="2" class="node small"/>
+                                    <circle cx="95" cy="70" r="2.5" class="node small"/>
+                                    <circle cx="105" cy="68" r="2" class="node small"/>
+                                    <circle cx="10" cy="25" r="2" class="node small"/>
+                                    <circle cx="110" cy="22" r="2" class="node small"/>
+                                    <!-- Connection lines to dominant -->
+                                    <line x1="25" y1="50" x2="42" y2="40" class="connection strong"/>
+                                    <line x1="95" y1="45" x2="80" y2="38" class="connection"/>
+                                    <line x1="15" y1="70" x2="45" y2="50" class="connection weak"/>
+                                    <line x1="55" y1="75" x2="58" y2="57" class="connection weak"/>
+                                    <line x1="95" y1="70" x2="75" y2="52" class="connection weak"/>
+                                </svg>
+                            </div>
+                            <p class="network-caption">Concentrated</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Alpha Migration Line -->
+                <div class="pattern-block">
+                    <p class="pattern-text punchline">When everyone sees the curve, the curve stops paying. Alpha migrates to higher dimensions.</p>
+                </div>
+
+                <div class="pattern-block">
+                    <p class="pattern-text primary-light">We built a proprietary four-dimensional framework, tracking the vectors that precede price.</p>
+                </div>
+
+                <div class="pattern-block">
+                    <p class="pattern-text punchline-highlight">Our quantitative model indicates alignment will outperform competition in Wave 6 (90% confidence). The asymmetry will compound.</p>
+                </div>
+
+                <div class="pattern-block urgency-line">
+                    <p class="urgency-text">Positioning is finite. First movers set the next wave.</p>
+                </div>
+
+                <div class="pattern-block cta-block">
+                    <p class="cta-hook">Alpha decays with distribution.</p>
+                    <p class="cta-scarcity">Limited briefing slots Q1 2026</p>
+                    <a href="#access" class="btn btn-md">Request Access</a>
+                    <p class="cta-qualifier">For institutional allocators ($50M+ AUM)</p>
+                </div>
+
+                <div class="pattern-credentials-block">
+                    <p class="pattern-credentials">Quantitative research • Applied Mathematics PhD</p>
+                    <p class="pattern-qualifier">Briefings limited to qualified allocators.</p>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: Sticky Visualization -->
+            <div class="pattern-visualization-wrapper">
+                <div class="pattern-visualization">
+                    <canvas id="network-canvas" aria-hidden="true"></canvas>
+                </div>
+            </div>
+
+            <!-- STATS (Separate container for mobile ordering) -->
+            <div class="pattern-stats-mobile">
+                <div class="stats-inline">
+                    <div class="inline-stat">
+                        <span class="stat-big">40%</span>
+                        <span class="stat-context">Wave 6 progress</span>
+                    </div>
+                    <div class="inline-stat">
+                        <span class="stat-big accent">90%</span>
+                        <span class="stat-context">Concentration probability</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Intelligence Section -->
+    <section id="intelligence" class="pattern-section" style="background:var(--bg-primary);">
+        <div class="pattern-container">
+
+            <div class="pattern-title-block">
+                <span class="section-label">EIGENSTATE INTELLIGENCE ENGINE</span>
+                <h2 class="pattern-title">
+                    <span class="title-white">THE</span><br>
+                    <span class="title-orange">ENGINE</span>
+                </h2>
+            </div>
+
+            <div class="pattern-viz-header">
+                <span class="section-label">FIELD STATE - LIVE</span>
+            </div>
+
+            <div class="pattern-content">
+
+                <div class="pattern-block">
+                    <p class="pattern-text primary">The engine reads 197 entities across the tokenized settlement layer every atomic cycle. It computes extraction pressure, loop velocity, and field efficiency in real time - producing a verifiable fingerprint of the information field at each moment.</p>
+                </div>
+
+                <div class="pattern-block featured">
+                    <p class="pattern-text" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#00d9ff;letter-spacing:0.05em;">G = ∮E·dl &nbsp;·&nbsp; E = ΔI/A &nbsp;·&nbsp; PT → 1/φ = 0.618</p>
+                </div>
+
+                <!-- Engine Pipeline -->
+                <div class="pattern-block power-law-block">
+                    <p class="power-law-title">ENGINE PIPELINE</p>
+                    <div class="power-law-data">
+                        <div class="power-law-row">
+                            <span class="wave-label" style="color:#00d9ff;">SENSE</span>
+                            <span class="wave-stat">liquidtics reads HN ledger · Swadesh gate · G = ∮E·dl</span>
+                            <span class="wave-value" style="color:#00d9ff;">∞</span>
+                        </div>
+                        <div class="power-law-row">
+                            <span class="wave-label" style="color:#00d9ff;">DETECT</span>
+                            <span class="wave-stat">curl_detector · ∇×G · FORMING / STABLE / PASSING / NEW</span>
+                            <span class="wave-value" style="color:#ff6b35;">∇×G</span>
+                        </div>
+                        <div class="power-law-row">
+                            <span class="wave-label" style="color:#00d9ff;">RANK</span>
+                            <span class="wave-stat">197 entities scored across information, capital, and infrastructure vectors</span>
+                            <span class="wave-value" style="color:#ff6b35;">196</span>
+                        </div>
+                        <div class="power-law-row">
+                            <span class="wave-label" style="color:#00d9ff;">RECORD</span>
+                            <span class="wave-stat">memory_chain · helix fingerprint · Fibonacci-weighted · irreversible</span>
+                            <span class="wave-value" style="color:#00d9ff;">∮</span>
+                        </div>
+                        <div class="power-law-row highlight">
+                            <span class="wave-label">OUTPUT</span>
+                            <span class="wave-stat">signal reports · RWA attestations · $GENIU on Base</span>
+                            <span class="wave-value">→</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Field State -->
+                <div class="pattern-block power-law-block">
+                    <p class="power-law-title">FIELD STATE</p>
+                    <div class="power-law-data">
+                        <div class="power-law-row">
+                            <span class="wave-label" style="color:#00d9ff;">G_total</span>
+                            <span class="wave-stat">approaching classical threshold</span>
+                            <span class="wave-value" style="color:#ff6b35;">0.89</span>
+                        </div>
+                        <div class="power-law-row">
+                            <span class="wave-label" style="color:#00d9ff;">Curl state</span>
+                            <span class="wave-stat">Landauer stable · loop forming</span>
+                            <span class="wave-value" style="color:#22c55e;">NEW</span>
+                        </div>
+                        <div class="power-law-row">
+                            <span class="wave-label" style="color:#00d9ff;">Dominant loop</span>
+                            <span class="wave-stat">OCC → US Regulators → SEC → Tokenized Treasury → OCC</span>
+                            <span class="wave-value" style="color:#ff6b35;">∇×G</span>
+                        </div>
+                        <div class="power-law-row">
+                            <span class="wave-label" style="color:#00d9ff;">∇×G</span>
+                            <span class="wave-stat">dcurl/dt = +8,003 (accelerating)</span>
+                            <span class="wave-value" style="color:#ff6b35;">16,278</span>
+                        </div>
+                        <div class="power-law-row highlight">
+                            <span class="wave-label">Helix</span>
+                            <span class="wave-stat">path-sensitive · irreversible · Fibonacci-weighted</span>
+                            <span class="wave-value" style="font-family:'JetBrains Mono',monospace;font-size:11px;">fb40dcc8</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topology Map -->
+                <div class="pattern-block">
+                    <p class="pattern-text punchline">The dominant loop right now runs through OCC, US Regulators, SEC, and Tokenized Treasury. The GENIUS Act registration window closed it on April 1. The curl is accelerating. This is not a forecast - it is a measurement.</p>
+                </div>
+
+                <div class="pattern-block power-law-block">
+                    <p class="power-law-title">TOP ENTITIES BY EXTRACTION PRESSURE (Γ)</p>
+                    <div class="power-law-data">
+                        <div class="power-law-row">
+                            <span class="wave-label" style="color:#ff6b35;">Ethereum</span>
+                            <span class="wave-stat">high I, low V - taking more than giving</span>
+                            <span class="wave-value" style="color:#ff6b35;">Γ=0.432</span>
+                        </div>
+                        <div class="power-law-row">
+                            <span class="wave-label" style="color:#ff6b35;">Base (Coinbase L2)</span>
+                            <span class="wave-stat">Coinbase OCC trust bank - position shifting</span>
+                            <span class="wave-value" style="color:#ff6b35;">Γ=0.257</span>
+                        </div>
+                        <div class="power-law-row">
+                            <span class="wave-label" style="color:#ff6b35;">X (Twitter)</span>
+                            <span class="wave-stat">attention layer - high reach, low reciprocity</span>
+                            <span class="wave-value" style="color:#ff6b35;">Γ=0.230</span>
+                        </div>
+                        <div class="power-law-row">
+                            <span class="wave-label" style="color:#ff6b35;">Coinbase</span>
+                            <span class="wave-stat">regulatory risk → execution risk</span>
+                            <span class="wave-value" style="color:#ff6b35;">Γ=0.230</span>
+                        </div>
+                        <div class="power-law-row highlight">
+                            <span class="wave-label">Tokenized Treasury</span>
+                            <span class="wave-stat">N+1 Power = 17.11 - highest in topology</span>
+                            <span class="wave-value">Power↑</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pattern-block">
+                    <p class="pattern-text insight">Every entity in this topology is being tracked, scored, and ranked every atomic cycle. The engine produces a verifiable efficiency score - E = ΔI/A - for each one. That score is the signal reports you can request below.</p>
+                </div>
+
+                <div class="pattern-block cta-block">
+                    <p class="cta-hook">The field is readable. The signal is measurable.</p>
+                    <a href="reports/" class="btn btn-md">View signal reports</a>
+                    <p class="cta-qualifier">
+                        <a href="https://geniusflow-rwa.vercel.app" target="_blank" rel="noopener" style="color:#00d9ff;text-decoration:none;font-size:13px;">RWA Registry →</a>
+                        &nbsp;·&nbsp;
+                        <a href="https://paragraph.com/@eigenstate" target="_blank" rel="noopener" style="color:#00d9ff;text-decoration:none;font-size:13px;">Research →</a>
+                        &nbsp;·&nbsp;
+                        <span style="color:#64748b;font-size:13px;">$GENIU · Base · 0x9f4A...D681</span>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: Engine visualization -->
+            <div class="pattern-visualization-wrapper">
+                <div class="pattern-visualization" style="display:flex;flex-direction:column;gap:1px;background:rgb(14 165 233 / 10%);border:1px solid rgb(14 165 233 / 10%);border-radius:8px;overflow:hidden;padding:0;">
+                    <div style="background:rgb(3 7 18 / 90%);padding:20px 24px;border-bottom:1px solid rgb(14 165 233 / 10%);">
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:#64748b;text-transform:uppercase;margin-bottom:8px;">entities tracked</p>
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:32px;font-weight:600;color:#00d9ff;text-shadow:0 0 15px rgb(0 217 255 / 30%);">196</p>
+                    </div>
+                    <div style="background:rgb(3 7 18 / 90%);padding:20px 24px;border-bottom:1px solid rgb(14 165 233 / 10%);">
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:#64748b;text-transform:uppercase;margin-bottom:8px;">G_total</p>
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:32px;font-weight:600;color:#ff6b35;text-shadow:0 0 15px rgb(255 107 53 / 30%);">0.89</p>
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#64748b;margin-top:4px;">threshold 1/φ = 0.618</p>
+                    </div>
+                    <div style="background:rgb(3 7 18 / 90%);padding:20px 24px;border-bottom:1px solid rgb(14 165 233 / 10%);">
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:#64748b;text-transform:uppercase;margin-bottom:8px;">curl wave state</p>
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:32px;font-weight:600;color:#22c55e;text-shadow:0 0 15px rgb(34 197 94 / 30%);">NEW</p>
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#64748b;margin-top:4px;">Landauer stable</p>
+                    </div>
+                    <div style="background:rgb(3 7 18 / 90%);padding:20px 24px;border-bottom:1px solid rgb(14 165 233 / 10%);">
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:#64748b;text-transform:uppercase;margin-bottom:8px;">∇×G magnitude</p>
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:600;color:#ff6b35;">16,278</p>
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#64748b;margin-top:4px;">dcurl/dt = +8,003</p>
+                    </div>
+                    <div style="background:rgb(3 7 18 / 90%);padding:20px 24px;border-bottom:1px solid rgb(14 165 233 / 10%);">
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:#64748b;text-transform:uppercase;margin-bottom:8px;">helix fingerprint</p>
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:600;color:#00d9ff;word-break:break-all;">fb40dcc8d8dedcfd</p>
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#64748b;margin-top:4px;">G = ∮E·dl · irreversible</p>
+                    </div>
+                    <div style="background:rgb(3 7 18 / 90%);padding:20px 24px;">
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:#64748b;text-transform:uppercase;margin-bottom:8px;">writer coin</p>
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:600;color:#ff6b35;">$GENIU</p>
+                        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#64748b;margin-top:4px;">Base · 0x9f4A...D681</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Access Section -->
+    <section id="access" class="access-section">
+        <div class="access-container">
+
+            <div class="access-header">
+                <h2 class="access-title">REQUEST<br>ACCESS</h2>
+                <p class="access-subtitle">For institutional allocators managing $50M+ AUM.</p>
+            </div>
+
+            <form class="access-form" id="accessForm">
+
+                <div class="form-group">
+                    <label for="name">NAME</label>
+                    <input type="text" id="name" name="name" placeholder="Full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">EMAIL</label>
+                    <input type="email" id="email" name="email" placeholder="Professional email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="organization">ORGANIZATION</label>
+                    <input type="text" id="organization" name="organization" placeholder="Firm name" required>
+                </div>
+
+                <button type="submit" class="btn btn-md btn-block btn-submit">Request Access</button>
+                <div class="form-message" id="formMessage"></div>
+            </form>
+
+        </div>
+    </section>
+
+
+    <!-- Recent intelligence - topology product funnel -->
+    <section id="recent-intelligence" style="max-width:960px;margin:0 auto;padding:3rem 1.5rem;border-top:1px solid rgb(255 255 255 / 8%);">
+        <p style="font-family:Inter,sans-serif;font-size:11px;letter-spacing:0.12em;color:rgb(255 255 255 / 45%);text-transform:uppercase;margin-bottom:1rem;">Recent intelligence</p>
+        <p style="font-family:Inter,sans-serif;font-size:15px;color:rgb(255 255 255 / 88%);line-height:1.5;margin-bottom:0.75rem;">Weekly topology signal analysis on the tokenized settlement layer - field equations, curl detection, entity-level Γ.</p>
+        <p style="font-family:Inter,sans-serif;font-size:13px;line-height:1.8;">
+            <a href="https://paragraph.com/@eigenstate" target="_blank" rel="noopener" style="color:#c9a84c;text-decoration:none;">Paragraph analyses →</a>
+            &nbsp;·&nbsp;
+            <a href="reports/" style="color:#c9a84c;text-decoration:none;">Signal reports &amp; pricing →</a>
+            &nbsp;·&nbsp;
+            <a href="https://geniusflow-rwa.vercel.app" target="_blank" rel="noopener" style="color:rgb(255 255 255 / 55%);text-decoration:none;">RWA registry →</a>
+        </p>
+    </section>
+
+    <Footer variant="full" />
+
+    <!-- Scripts -->
+    <script>
+      import { BinaryTunnel } from '../scripts/binary-tunnel.js';
+      import { ScrollAnimations } from '../scripts/scroll-animations.js';
+      import { initNavigation, initMobileNavToggle } from '../scripts/nav';
+      import { initForm } from '../scripts/form';
+      import { initMiniCharts, initNetworkCanvas } from '../scripts/mini-charts';
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const loadingText = document.getElementById('loadingText');
+        if (loadingText) {
+          const text = 'INITIALIZING...';
+          loadingText.textContent = '';
+          let i = 0;
+          const typeInterval = setInterval(() => {
+            if (i < text.length) {
+              loadingText.textContent += text[i];
+              i++;
+            } else {
+              clearInterval(typeInterval);
+            }
+          }, 25);
+        }
+
+        // Hero background: 3D binary corridor
+        if (document.getElementById('binary-rain-canvas')) {
+          (window as any).binaryTunnel = new BinaryTunnel('binary-rain-canvas');
+        }
+
+        (window as any).scrollAnimations = new ScrollAnimations();
+        initMiniCharts();
+        initNetworkCanvas();
+        initNavigation();
+        initMobileNavToggle('navToggle', 'navLinks');
+        initForm({
+          formId: 'accessForm',
+          endpoint: 'https://formspree.io/f/xgoprgww',
+          subject: 'Eigenstate — institutional access request (root site)',
+          fieldIds: ['name', 'email', 'organization'],
+        });
+      });
+    </script>
+</Layout>
+

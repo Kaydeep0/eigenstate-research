@@ -1,0 +1,38 @@
+{
+  "id": "LIBOR_EQUIVALENT_001",
+  "status": "pending",
+  "logged_at": "2026-04-13T23:25:21.916180+00:00",
+  "gap_id": "LIBOR_EQUIVALENT",
+  "title": "$300 Trillion Structural Gap: SOFR Transition Left No Model",
+  "claim": "The LIBOR/SOFR transition did not resolve the underlying benchmark fragility. The $300T derivatives market settles against SOFR using ISDA fallback protocol with no sovereign-backed rate model. This gap (ratio 300:1 against daily interbank volume) will surface as a pricing dislocation event during the next liquidity contraction.",
+  "falsifiable_condition": "A SOFR-referenced instrument misprices or fails settlement during a liquidity stress event, triggering ISDA fallback invocation at scale. Alternatively: regulatory acknowledgment of the benchmark gap by FSOC, FSB, or BIS in a published report.",
+  "engine_signal": {
+    "gap_score": 10,
+    "gap_ratio": 300,
+    "delta_i": 30,
+    "settlement_leverage_normalized": 10,
+    "days_to_expiry": 1,
+    "flag": "ACTIVE_EXTRACTION",
+    "curl_confirmed": true,
+    "expiry_schedule": "daily",
+    "extraction_window": "Daily: SOFR published 08:00 ET by NY Fed. Derivatives settling against SOFR use ISDA fallback protocol.",
+    "overlay_entities": [
+      "FED",
+      "BLACKROCK",
+      "ONDO",
+      "SEC"
+    ],
+    "primary_entity": "FED"
+  },
+  "on_chain_proof": {
+    "chain": "Base mainnet",
+    "claim_id": 10,
+    "block_number": 44655585,
+    "tx_hash": "8bbb3cd5d6e3dfb54a8f7fe957d0ae4e0f3a5ae52ba4e927aefa6808c781c017",
+    "committed_at": "2026-04-13T17:15:16.295677+00:00",
+    "vault_fingerprint": "a918a01b73e077eb",
+    "basescan_url": "https://basescan.org/tx/8bbb3cd5d6e3dfb54a8f7fe957d0ae4e0f3a5ae52ba4e927aefa6808c781c017"
+  },
+  "confirmation": null,
+  "notes": "First formal prediction logged to the tracker. Signal surfaced autonomously by engine cycle on 2026-04-13. Gap ratio 300:1 is the highest score in the LIBOR_EQUIVALENT detector — denominator is $1T daily interbank volume against $300T derivatives notional. The ISDA 2020 fallback protocol is the current \"fix\" — no published sovereign rate model replaces LIBOR's term structure."
+}

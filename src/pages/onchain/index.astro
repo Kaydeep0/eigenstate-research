@@ -1,0 +1,244 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import commits from '../../data/helix_commits.json';
+
+const base = import.meta.env.BASE_URL;
+
+interface Commit {
+  block_number: number | null;
+  committed_at: string;
+  n_crossings: number | null;
+  chain_valid: boolean | null;
+  tx_hash: string | null;
+  basescan_url?: string;
+}
+
+function formatDate(iso: string): string {
+  const d = new Date(iso);
+  return isNaN(d.getTime()) ? iso || '—' : d.toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+}
+
+function shortHash(h: string | null): string {
+  if (!h) return '—';
+  return h.slice(0, 8) + '…' + h.slice(-6);
+}
+
+const sorted = [...(commits as Commit[])].sort(
+  (a, b) => new Date(b.committed_at || 0).getTime() - new Date(a.committed_at || 0).getTime()
+);
+---
+
+<Layout title="On-Chain Proof Index — Eigenstate Research">
+  <Fragment slot="head">
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Courier New', monospace;
+        background: #0a0a0a;
+        color: #c8c8c8;
+        min-height: 100vh;
+        padding: 2rem 1rem;
+      }
+
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 1.3rem;
+        color: #00d4aa;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.4rem;
+      }
+
+      .subtitle {
+        font-size: 0.8rem;
+        color: #666;
+        margin-bottom: 2rem;
+      }
+
+      .subtitle a {
+        color: #00d4aa;
+        text-decoration: none;
+      }
+
+      .subtitle a:hover {
+        text-decoration: underline;
+      }
+
+      .explanation {
+        font-size: 0.78rem;
+        color: #888;
+        border-left: 2px solid #00d4aa;
+        padding: 0.8rem 1rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.75rem;
+      }
+
+      thead th {
+        text-align: left;
+        color: #00d4aa;
+        padding: 0.5rem 0.6rem;
+        border-bottom: 1px solid #222;
+        font-weight: normal;
+        letter-spacing: 0.04em;
+      }
+
+      tbody tr {
+        border-bottom: 1px solid #181818;
+      }
+
+      tbody tr:hover {
+        background: #111;
+      }
+
+      td {
+        padding: 0.55rem 0.6rem;
+        vertical-align: top;
+      }
+
+      .block {
+        color: #fff;
+        font-weight: bold;
+      }
+
+      .date {
+        color: #888;
+        white-space: nowrap;
+      }
+
+      .crossings {
+        color: #aaa;
+        text-align: right;
+      }
+
+      .hash {
+        font-size: 0.68rem;
+        color: #555;
+        font-family: monospace;
+      }
+
+      .basescan-link {
+        color: #00d4aa;
+        text-decoration: none;
+        font-size: 0.7rem;
+      }
+
+      .basescan-link:hover {
+        text-decoration: underline;
+      }
+
+      .valid {
+        color: #00c853;
+      }
+
+      .invalid {
+        color: #f44;
+      }
+
+      .no-data {
+        color: #555;
+        font-style: italic;
+        padding: 2rem;
+      }
+
+      .footer {
+        margin-top: 2rem;
+        font-size: 0.72rem;
+        color: #444;
+      }
+
+      .footer a {
+        color: #555;
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        color: #888;
+      }
+    </style>
+  </Fragment>
+
+  <div class="container" id="main">
+    <h1>On-Chain Proof Index</h1>
+    <p class="subtitle">
+      Eigenstate Research &mdash;
+      <a href={base}>Home</a> &middot;
+      <a href={`${base}reports/`}>Reports</a>
+    </p>
+
+    <div class="explanation">
+      Each row is a fingerprint committed to Base mainnet. The fingerprint is a SHA-256 hash of the
+      observation state at the time of measurement: entity field values, loop detections, and
+      cycle metrics. Publishing the fingerprint before external confirmation means the timestamp
+      is immutable. Verify any claim by looking up the block on Basescan.
+      <br /><br />
+      Contract: <code>0x3A2d6599d5409c1A87609c38dB9b1619e47F6b02</code> (Base)
+    </div>
+
+    <table id="commits-table">
+      <thead>
+        <tr>
+          <th>Block</th>
+          <th>Date (UTC)</th>
+          <th>Crossings</th>
+          <th>Chain</th>
+          <th>Transaction</th>
+          <th>Basescan</th>
+        </tr>
+      </thead>
+      <tbody id="commits-tbody">
+        {
+          sorted.length === 0 ? (
+            <tr><td colspan="6" class="no-data">No commits recorded yet.</td></tr>
+          ) : (
+            sorted.map((c) => {
+              const valid = c.chain_valid;
+              const url = c.basescan_url || (c.tx_hash ? 'https://basescan.org/tx/' + c.tx_hash : '#');
+              return (
+                <tr>
+                  <td class="block">{c.block_number ?? '—'}</td>
+                  <td class="date">{formatDate(c.committed_at)}</td>
+                  <td class="crossings">{c.n_crossings ?? '—'}</td>
+                  <td>
+                    {valid === true ? (
+                      <span class="valid">✓ valid</span>
+                    ) : valid === false ? (
+                      <span class="invalid">✗ invalid</span>
+                    ) : (
+                      <span class="hash">—</span>
+                    )}
+                  </td>
+                  <td class="hash" title={c.tx_hash ?? ''}>{shortHash(c.tx_hash)}</td>
+                  <td><a class="basescan-link" href={url} target="_blank" rel="noopener">view ↗</a></td>
+                </tr>
+              );
+            })
+          )
+        }
+      </tbody>
+    </table>
+
+    <div class="footer">
+      <p>Data source: <a href={`${base}api/onchain.json`}>onchain.json</a> &mdash; updated each parkash cycle.</p>
+      <p>
+        Methodology: <a href={`${base}METHODOLOGY.md`}>METHODOLOGY.md</a> &mdash;
+        <a href="https://github.com/Kaydeep0/eigenstate-research" target="_blank">GitHub</a>
+      </p>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,173 @@
+---
+interface Props {
+  active?: 'reports' | 'track-record' | 'predictions' | 'onchain' | null;
+  extended?: boolean;
+  cta?: { label: string; href: string };
+}
+
+const { active = null, extended = false, cta } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href={base} class="nav-logo">EIGENSTATE</a>
+    <button
+      class="nav-toggle"
+      id="innerNavToggle"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="innerNavLinks"
+    >
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="innerNavLinks">
+      <a href={base}>Research</a>
+      {extended && (
+        <a href="https://paragraph.com/@eigenstate" target="_blank" rel="noopener">Articles</a>
+      )}
+      <a href={`${base}reports/`} class={active === 'reports' ? 'active' : ''}>Signal Reports</a>
+      <a href={`${base}track-record/`} class={active === 'track-record' ? 'active' : ''}>Track Record</a>
+      <a href={`${base}predictions/`} class={active === 'predictions' ? 'active' : ''}>Predictions</a>
+      {extended && (
+        <a href={`${base}onchain/`} class={active === 'onchain' ? 'active' : ''}>On-Chain Proof</a>
+      )}
+      {extended && (
+        <>
+          <a href="https://geniusflow-rwa.vercel.app" target="_blank" rel="noopener">Registry</a>
+          <a href="https://github.com/Kaydeep0/eigenstate-research" target="_blank" rel="noopener">GitHub</a>
+        </>
+      )}
+    </div>
+    {cta && <a href={cta.href} class="btn btn-sm">{cta.label}</a>}
+  </div>
+</nav>
+
+<style>
+  /*
+    Astro's style scoping doesn't reach into markup rendered by a child
+    component, so this must be self-contained here rather than in each
+    page — var(--token) still resolves fine since tokens.css is loaded
+    globally by Layout.astro and :root itself is never scoped.
+  */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgb(3 7 18 / 96%);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 40px;
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--font-heading);
+    font-size: var(--text-base);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--cyan);
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: var(--radius-sm);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .nav-toggle[aria-expanded='true'] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-toggle[aria-expanded='true'] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle[aria-expanded='true'] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  @media (width <= 640px) {
+    .nav {
+      padding: 14px 20px;
+    }
+
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      background: rgb(3 7 18 / 98%);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 20px 16px;
+    }
+
+    .nav-links.open {
+      display: flex;
+    }
+
+    .nav-links a {
+      padding: 14px 0;
+      border-bottom: 1px solid rgb(255 255 255 / 6%);
+    }
+  }
+</style>
+
+<script>
+  import { initMobileNavToggle } from '../scripts/nav';
+
+  initMobileNavToggle('innerNavToggle', 'innerNavLinks');
+</script>
