@@ -19,6 +19,8 @@ That is the engine, demonstrated simply.
 
 Measuring capital field dynamics in tokenized settlement. Every observation is hash-chained and committed to Base mainnet.
 
+**Institution role:** public research site + report Pages for Node 34539544. Runtime: [`geniusflow-engine`](https://github.com/Kaydeep0/geniusflow-engine). Spec: [`sangat-canon`](https://github.com/Kaydeep0/sangat-canon). Libs: [`helixhash`](https://github.com/Kaydeep0/helixhash) · [`witnessfield`](https://github.com/Kaydeep0/witnessfield). Full map: [`sangat-architecture/INSTITUTION_REPOSITORY_MAP.md`](https://github.com/Kaydeep0/sangat-architecture/blob/main/INSTITUTION_REPOSITORY_MAP.md).
+
 ## What this is
 
 Independent research on SOFR, RWA settlement, and the infrastructure underneath tokenized fixed income. The engine watches 197 entities across the tokenized settlement topology and measures structural gaps before they surface in market prices.
