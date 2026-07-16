@@ -110,7 +110,7 @@ body {
     z-index: 1000;
     background: rgba(3, 7, 18, 0.9);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(14, 165, 233, 0.2);
+    border-bottom: 1px solid var(--border-strong);
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -269,7 +269,7 @@ body {
 
 /* ---- 4. BRAND (Peripheral - trust, not focus) ---- */
 .hero .company-name {
-    font-family: 'Orbitron', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.55rem;
     font-weight: 500;
     letter-spacing: 0.4em;
@@ -283,7 +283,7 @@ body {
 
 /* ---- 1. TITLE (First fixation - largest, boldest) ---- */
 .hero h1 {
-    font-family: 'Orbitron', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 800;
     font-size: 2.2rem;
     line-height: 0.9;
@@ -441,6 +441,114 @@ body {
     height: 100%;
 }
 
+/* Engine section stat panel — replaces what used to be per-tile inline
+   styles; .bracket marks this as a live-measurement module. */
+.engine-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    padding: 0;
+}
+
+.engine-tile {
+    background: rgb(3 7 18 / 90%);
+    padding: 20px 24px;
+}
+
+.engine-tile-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.engine-tile-value {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xl);
+    font-weight: 600;
+}
+
+.engine-tile-value.cyan {
+    color: var(--cyan);
+    text-shadow: 0 0 15px rgb(0 217 255 / 30%);
+}
+
+.engine-tile-value.orange {
+    color: var(--orange);
+    text-shadow: 0 0 15px rgb(255 107 53 / 30%);
+}
+
+.engine-tile-value.green {
+    color: var(--status-success);
+    text-shadow: 0 0 15px rgb(34 197 94 / 30%);
+}
+
+.engine-tile-value.small {
+    font-size: var(--text-base);
+    word-break: break-all;
+}
+
+.engine-tile-note {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* Proof strip: live numbers shown right after the hero, before any
+   narrative copy — see DESIGN.md discussion on surfacing proof early. */
+.proof-strip-section {
+    position: relative;
+    z-index: 10;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 0;
+    text-align: center;
+}
+
+.proof-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.proof-tile {
+    flex: 1 1 160px;
+    background: rgb(3 7 18 / 90%);
+    padding: 20px 24px;
+    text-align: center;
+}
+
+.proof-strip-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.05em;
+    color: var(--cyan);
+    text-decoration: none;
+}
+
+.proof-strip-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+    .proof-strip-section {
+        padding: 24px 20px 0;
+    }
+}
+
 /* ---- CONTENT BLOCKS ---- */
 .pattern-block {
     margin-bottom: 1.25rem;
@@ -581,7 +689,7 @@ body {
 }
 
 .urgency-text {
-    font-family: 'Orbitron', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.02em;
@@ -615,7 +723,7 @@ body {
 /* STRUCTURAL CONVERGENCE LABEL - Subtle but Visible */
 .pattern-section .section-label,
 .pattern-viz-header .section-label {
-    font-family: 'Orbitron', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.2em;
@@ -633,7 +741,7 @@ body {
 
 /* TITLE */
 .pattern-title {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 4.5rem;
     font-weight: 800;
     letter-spacing: -0.02em;
@@ -667,6 +775,40 @@ body {
 
 .pattern-text:last-child {
     margin-bottom: 0;
+}
+
+/* Beats: three scannable steps instead of four continuous paragraphs */
+.pattern-beats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pattern-beat {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 16px;
+    align-items: start;
+}
+
+.beat-marker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--orange);
+    letter-spacing: 0.05em;
+    padding-top: 2px;
+}
+
+@media (max-width: 640px) {
+    .pattern-beat {
+        grid-template-columns: 24px 1fr;
+        gap: 12px;
+    }
+
+    .beat-marker {
+        font-size: 0.65rem;
+    }
 }
 
 /* PRIMARY - Key statements, claims (Hook - Bold) */
@@ -774,7 +916,7 @@ body {
 
 /* URGENCY - Orange, action-oriented */
 .pattern-text.urgency {
-    font-family: 'Orbitron', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     color: var(--orange);
     font-weight: 600;
     font-size: 1rem;
@@ -839,7 +981,7 @@ body {
 }
 
 .stat-big {
-    font-family: 'Orbitron', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 3rem;
     font-weight: 800;
     line-height: 1;
@@ -869,18 +1011,13 @@ body {
 }
 
 .stat-context {
-    font-family: 'Orbitron', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.6rem;
     font-weight: 500;
     letter-spacing: 0.15em;
     color: rgba(255, 255, 255, 0.6);
     text-transform: uppercase;
     display: block;
-}
-
-/* Mobile stats container (hidden on desktop) */
-.pattern-stats-mobile {
-    display: none;
 }
 
 /* ---- CTA ELEMENTS (Conversion Optimized) ---- */
@@ -896,7 +1033,7 @@ body {
 }
 
 .cta-scarcity {
-    font-family: 'Orbitron', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -937,7 +1074,7 @@ body {
 }
 
 .power-law-title {
-    font-family: 'Orbitron', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.65rem;
     font-weight: 600;
     letter-spacing: 0.2em;
@@ -998,6 +1135,66 @@ body {
     text-transform: uppercase;
 }
 
+/* Entity extraction-pressure chart: horizontal bars (long entity-name
+   labels read better than the vertical Power Law chart's layout).
+   Same sequential orange hue, same "measured, not illustrative" intent. */
+.entity-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 1.25rem;
+}
+
+.entity-bar-row {
+    display: grid;
+    grid-template-columns: 150px 1fr 64px;
+    align-items: center;
+    gap: 12px;
+}
+
+.entity-bar-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.entity-bar-track {
+    display: block;
+    height: 8px;
+    background: var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.entity-bar-fill {
+    display: block;
+    height: 100%;
+    background: var(--orange);
+    border-radius: var(--radius-sm);
+}
+
+.entity-bar-value {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--orange);
+    text-align: right;
+}
+
+@media (max-width: 640px) {
+    .entity-bar-row {
+        grid-template-columns: 96px 1fr 52px;
+        gap: 8px;
+    }
+
+    .entity-bar-label {
+        font-size: 10px;
+    }
+}
+
 /* Data Rows */
 .power-law-data {
     margin-bottom: 1.25rem;
@@ -1024,7 +1221,7 @@ body {
 }
 
 .wave-label {
-    font-family: 'Orbitron', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.05em;
@@ -1050,7 +1247,7 @@ body {
 }
 
 .wave-value {
-    font-family: 'Orbitron', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.9rem;
     font-weight: 700;
     color: rgba(255, 255, 255, 0.85);
@@ -1083,7 +1280,7 @@ body {
 }
 
 .network-label {
-    font-family: 'Orbitron', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.55rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -1219,7 +1416,7 @@ body {
 }
 
 .viz-stat-number {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 2rem;
     font-weight: 700;
     color: var(--orange);
@@ -1237,7 +1434,7 @@ body {
 }
 
 .viz-stat-label {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.6rem;
     font-weight: 500;
     letter-spacing: 0.2em;
@@ -1334,12 +1531,6 @@ body {
     }
     
     /* Stats */
-    .pattern-stats-mobile {
-        display: block;
-        order: 4;
-    }
-    
-    .pattern-stats-mobile .stats-inline,
     .stats-inline {
         display: flex;
         flex-direction: row;
@@ -1349,29 +1540,25 @@ body {
         margin-bottom: 1.5rem;
         padding: 0;
     }
-    
+
     .inline-stat {
         text-align: left;
     }
-    
+
     .stat-big {
         font-size: 2.2rem;
         color: var(--orange);
     }
-    
+
     .stat-big.accent {
         color: var(--cyan);
     }
-    
+
     .stat-context {
         font-size: 0.55rem;
         color: rgba(255, 255, 255, 0.5);
     }
-    
-    .pattern-content .stats-inline {
-        display: none;
-    }
-    
+
     /* Content */
     .pattern-content {
         order: 5;
@@ -1645,7 +1832,7 @@ body {
 }
 
 .access-title {
-    font-family: 'Orbitron', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 2rem;
     font-weight: 800;
     letter-spacing: -0.02em;
@@ -1691,7 +1878,7 @@ body {
 
 .form-group label {
     display: block;
-    font-family: 'Orbitron', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.6rem;
     font-weight: 500;
     letter-spacing: 0.15em;
@@ -1752,7 +1939,7 @@ body {
 .site-footer {
     background: #0a0e27;
     padding: 48px 40px;
-    border-top: 1px solid rgba(14,165,233,0.15);
+    border-top: 1px solid var(--border);
 }
 
 .footer-inner {
@@ -1768,7 +1955,7 @@ body {
 .footer-left {}
 
 .footer-logo {
-    font-family: 'Orbitron', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: 0.2em;
@@ -1858,9 +2045,45 @@ body {
     .hero-title {
         font-size: 42px;
     }
-    
+
     .section-title {
         font-size: 48px;
+    }
+}
+
+/* Nav switches to the hamburger menu earlier than other 1024px-tier
+   breakpoints: 6 links + logo + CTA start wrapping/crowding above 1024px,
+   so this gets its own wider threshold instead of reusing that block. */
+@media (max-width: 1200px) {
+    .main-nav {
+        padding: 15px 20px;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: rgb(3 7 18 / 98%);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border-strong);
+        padding: 8px 20px 16px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 14px 0;
+        border-bottom: 1px solid rgb(255 255 255 / 6%);
     }
 }
 
@@ -1966,37 +2189,6 @@ body {
     .nodes-svg {
         max-width: 140px;
         height: 70px;
-    }
-    
-    .main-nav {
-        padding: 15px 20px;
-    }
-
-    .nav-toggle {
-        display: flex;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        gap: 0;
-        background: rgb(3 7 18 / 98%);
-        backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgb(14 165 233 / 20%);
-        padding: 8px 20px 16px;
-    }
-
-    .nav-links.open {
-        display: flex;
-    }
-
-    .nav-links a {
-        padding: 14px 0;
-        border-bottom: 1px solid rgb(255 255 255 / 6%);
     }
 }
 

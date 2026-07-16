@@ -4,7 +4,7 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 
 const fonts =
-  'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap';
+  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
 ---
 
 <Layout
@@ -112,6 +112,54 @@ const fonts =
         margin-top: 48px;
       }
 
+      .claims-filter-bar {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .claims-search {
+        flex: 1;
+        min-width: 200px;
+        font-family: var(--font-body);
+        font-size: var(--text-sm);
+        padding: 12px 16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        color: var(--text-primary);
+      }
+
+      .claims-search::placeholder {
+        color: var(--text-muted);
+      }
+
+      .claims-search:focus {
+        outline: none;
+        border-color: var(--orange);
+        box-shadow: 0 0 0 3px rgb(255 107 53 / 15%);
+      }
+
+      .claims-status {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        padding: 12px 16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        color: var(--text-primary);
+        cursor: pointer;
+      }
+
+      .claims-empty {
+        padding: 32px;
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+      }
+
       .table-wrap {
         overflow-x: auto;
         border: 1px solid var(--border);
@@ -125,7 +173,7 @@ const fonts =
       }
 
       thead tr {
-        background: rgb(14 165 233 / 8%);
+        background: rgb(148 163 184 / 6%);
       }
 
       th {
@@ -142,7 +190,7 @@ const fonts =
 
       td {
         padding: 14px 16px;
-        border-bottom: 1px solid rgb(14 165 233 / 7%);
+        border-bottom: 1px solid var(--border);
         vertical-align: middle;
       }
 
@@ -151,7 +199,7 @@ const fonts =
       }
 
       tr:hover td {
-        background: rgb(14 165 233 / 4%);
+        background: rgb(148 163 184 / 5%);
       }
 
       .cell-date {
@@ -386,6 +434,23 @@ const fonts =
     </div>
 
     <div class="section-title">Claim History</div>
+
+    <div class="claims-filter-bar">
+      <input
+        type="text"
+        id="claimsSearch"
+        class="claims-search"
+        placeholder="Search by entity name…"
+        aria-label="Search claims by entity name"
+      />
+      <select id="claimsStatus" class="claims-status" aria-label="Filter by outcome status">
+        <option value="">All outcomes</option>
+        <option value="pending">Pending</option>
+        <option value="logged">Logged</option>
+        <option value="confirmed">Confirmed</option>
+      </select>
+    </div>
+
     <div class="table-wrap">
       <table>
         <thead>
@@ -399,8 +464,8 @@ const fonts =
             <th>Outcome</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
+        <tbody id="claimsBody">
+          <tr data-entity="TOPOLOGY_FIELD" data-status="pending">
             <td class="cell-date">2026-04-11</td>
             <td class="cell-entity">TOPOLOGY_FIELD</td>
             <td class="cell-metric-amber">3.236</td>
@@ -409,7 +474,7 @@ const fonts =
             <td><span class="signal-amber">BUILDING</span></td>
             <td><span class="badge badge-pending">Pending</span></td>
           </tr>
-          <tr>
+          <tr data-entity="Securities and Exchange Commission" data-status="pending">
             <td class="cell-date">2026-04-11</td>
             <td class="cell-entity">Securities and Exchange Commission</td>
             <td class="cell-metric-cyan">2.895</td>
@@ -418,7 +483,7 @@ const fonts =
             <td><span class="signal-cyan">ELEVATED</span></td>
             <td><span class="badge badge-pending">Pending</span></td>
           </tr>
-          <tr>
+          <tr data-entity="34539544" data-status="pending">
             <td class="cell-date">2026-04-11</td>
             <td class="cell-entity">34539544</td>
             <td class="cell-metric-amber">4.874</td>
@@ -427,7 +492,7 @@ const fonts =
             <td><span class="signal-amber">BUILDING</span></td>
             <td><span class="badge badge-pending">Pending</span></td>
           </tr>
-          <tr>
+          <tr data-entity="Federal Reserve" data-status="pending">
             <td class="cell-date">2026-04-11</td>
             <td class="cell-entity">Federal Reserve</td>
             <td class="cell-metric-amber">6.505</td>
@@ -436,7 +501,7 @@ const fonts =
             <td><span class="signal-amber">BUILDING</span></td>
             <td><span class="badge badge-pending">Pending</span></td>
           </tr>
-          <tr>
+          <tr data-entity="Ethereum" data-status="logged">
             <td class="cell-date">2026-04-11</td>
             <td class="cell-entity">
               Ethereum
@@ -448,7 +513,7 @@ const fonts =
             <td><span class="signal-purple">INFRA_FLOW</span></td>
             <td><span class="badge badge-logged">Logged</span></td>
           </tr>
-          <tr>
+          <tr data-entity="Coinbase" data-status="logged">
             <td class="cell-date">2026-04-11</td>
             <td class="cell-entity">
               Coinbase
@@ -460,7 +525,7 @@ const fonts =
             <td><span class="signal-purple">INFRA_FLOW</span></td>
             <td><span class="badge badge-logged">Logged</span></td>
           </tr>
-          <tr>
+          <tr data-entity="Base" data-status="logged">
             <td class="cell-date">2026-04-11</td>
             <td class="cell-entity">Base</td>
             <td class="cell-metric-purple">535,305</td>
@@ -469,7 +534,7 @@ const fonts =
             <td><span class="signal-purple">INFRA_FLOW</span></td>
             <td><span class="badge badge-logged">Logged</span></td>
           </tr>
-          <tr>
+          <tr data-entity="Securities and Exchange Commission" data-status="confirmed">
             <td class="cell-date">2026-04-10</td>
             <td class="cell-entity">Securities and Exchange Commission</td>
             <td class="cell-metric-cyan">2.858</td>
@@ -478,7 +543,7 @@ const fonts =
             <td><span class="signal-cyan">ELEVATED</span></td>
             <td><span class="badge badge-confirmed">Confirmed ✓</span></td>
           </tr>
-          <tr>
+          <tr data-entity="X (Twitter)" data-status="confirmed">
             <td class="cell-date">2026-04-09</td>
             <td class="cell-entity">X (Twitter)</td>
             <td class="cell-metric-muted">0.050</td>
@@ -487,7 +552,7 @@ const fonts =
             <td><span class="signal-muted">LOW</span></td>
             <td><span class="badge badge-confirmed">Quiet confirmed ✓</span></td>
           </tr>
-          <tr>
+          <tr data-entity="Tokenized Treasury Pool" data-status="confirmed">
             <td class="cell-date">2026-04-09</td>
             <td class="cell-entity">Tokenized Treasury Pool</td>
             <td class="cell-metric-muted">0.052</td>
@@ -496,7 +561,7 @@ const fonts =
             <td><span class="signal-muted">LOW</span></td>
             <td><span class="badge badge-confirmed">Quiet confirmed ✓</span></td>
           </tr>
-          <tr>
+          <tr data-entity="Securities and Exchange Commission" data-status="confirmed">
             <td class="cell-date">2026-04-09</td>
             <td class="cell-entity">
               Securities and Exchange Commission
@@ -510,6 +575,7 @@ const fonts =
           </tr>
         </tbody>
       </table>
+      <p class="claims-empty" id="claimsEmpty" style="display: none;">No claims match your search.</p>
     </div>
 
     <div class="method-block">
@@ -582,4 +648,21 @@ const fonts =
     variant="minimal"
     note="This page is generated automatically from engine output. Not financial advice."
   />
+
+  <script>
+    import { initReveal } from '../../scripts/reveal';
+    import { initFilterList } from '../../scripts/filter-list';
+
+    initReveal({ selector: '.stat-card' });
+
+    initFilterList({
+      containerSelector: '#claimsBody',
+      itemSelector: 'tr',
+      searchInputSelector: '#claimsSearch',
+      searchFields: ['entity'],
+      filterSelectSelector: '#claimsStatus',
+      filterField: 'status',
+      emptyStateSelector: '#claimsEmpty',
+    });
+  </script>
 </Layout>

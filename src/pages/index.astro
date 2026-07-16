@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
 
 const fonts =
-  "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap";
+  "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap";
 ---
 
 <Layout
@@ -38,14 +38,10 @@ const fonts =
             <div class="nav-links" id="navLinks">
                 <a href="#pattern">The Pattern</a>
                 <a href="#intelligence">Intelligence</a>
-                <a href="#access">Access</a>
-                <a href="https://paragraph.com/@eigenstate" target="_blank" rel="noopener">Articles</a>
                 <a href="reports/">Signal Reports</a>
                 <a href="onchain/">On-Chain Proof</a>
                 <a href="track-record/">Track Record</a>
                 <a href="predictions/">Predictions</a>
-                <a href="https://geniusflow-rwa.vercel.app" target="_blank" rel="noopener">Registry</a>
-                <a href="https://github.com/Kaydeep0/eigenstate-research" target="_blank" rel="noopener">GitHub</a>
             </div>
             <a href="#access" class="btn btn-sm">Request Access</a>
         </div>
@@ -76,6 +72,26 @@ const fonts =
         </div>
     </section>
 
+    <!-- Proof Strip: live numbers, before any narrative -->
+    <section class="proof-strip-section" aria-label="Live engine status">
+        <div class="proof-strip bracket">
+            <div class="proof-tile">
+                <p class="engine-tile-label">entities tracked</p>
+                <p class="engine-tile-value cyan">196</p>
+            </div>
+            <div class="proof-tile">
+                <p class="engine-tile-label">G_total</p>
+                <p class="engine-tile-value orange">0.89</p>
+            </div>
+            <div class="proof-tile">
+                <p class="engine-tile-label">signal accuracy</p>
+                <p class="engine-tile-value green">100%</p>
+                <p class="engine-tile-note">141 cycles logged</p>
+            </div>
+        </div>
+        <a href="track-record/" class="proof-strip-link">See the full track record →</a>
+    </section>
+
     <!-- The Pattern Section -->
     <section id="pattern" class="pattern-section">
         <div class="pattern-container">
@@ -97,33 +113,23 @@ const fonts =
             <!-- LEFT COLUMN: Text Content -->
             <div class="pattern-content">
 
-                <!-- STATS -->
-                <div class="pattern-block stats-inline">
-                    <div class="inline-stat">
-                        <span class="stat-big">40%</span>
-                        <span class="stat-context">Wave 6 Progress</span>
+                <!-- THE PATTERN Section Content: three scannable beats instead of
+                     four continuous paragraphs -->
+                <div class="pattern-block pattern-beats">
+                    <div class="pattern-beat">
+                        <span class="beat-marker">01</span>
+                        <p class="pattern-text primary">Every major technological wave has produced visible winners: railroads, oil, telecom, internet. Yet the mechanisms that empowered their dominance remained encrypted.</p>
                     </div>
-                    <div class="inline-stat">
-                        <span class="stat-big cyan">90%</span>
-                        <span class="stat-context">Concentration Probability</span>
+
+                    <div class="pattern-beat">
+                        <span class="beat-marker">02</span>
+                        <p class="pattern-text primary-light">After simulating 160 years of systems evolution, we found the interface between capital flows and physical infrastructure follows a non-obvious but predictable structure. <strong>We've mapped it.</strong></p>
                     </div>
-                </div>
 
-                <!-- THE PATTERN Section Content -->
-                <div class="pattern-block">
-                    <p class="pattern-text primary">Every major technological wave has produced visible winners: railroads, oil, telecom, internet. Yet the mechanisms that empowered their dominance remained encrypted.</p>
-                </div>
-
-                <div class="pattern-block">
-                    <p class="pattern-text primary-light">After simulating 160 years of systems evolution, we found the interface between capital flows and physical infrastructure follows a non-obvious but predictable structure. We've mapped it.</p>
-                </div>
-
-                <div class="pattern-block">
-                    <p class="pattern-text secondary">The mechanisms underlying each wave remain consistent, but the layers of complexity concealing them deepen and expand in scale and scope with every cycle.</p>
-                </div>
-
-                <div class="pattern-block">
-                    <p class="pattern-text secondary">Legacy frameworks, built on legacy variables, have lost the ability to decrypt them.</p>
+                    <div class="pattern-beat">
+                        <span class="beat-marker">03</span>
+                        <p class="pattern-text secondary">The mechanisms underlying each wave remain consistent, but the layers of complexity concealing them deepen with every cycle — and legacy frameworks, built on legacy variables, have lost the ability to decrypt them.</p>
+                    </div>
                 </div>
 
                 <div class="pattern-block featured">
@@ -137,6 +143,16 @@ const fonts =
 
                 <!-- Power Law Visual -->
                 <div class="pattern-block power-law-block">
+                    <div class="stats-inline">
+                        <div class="inline-stat">
+                            <span class="stat-big">40%</span>
+                            <span class="stat-context">Wave 6 Progress</span>
+                        </div>
+                        <div class="inline-stat">
+                            <span class="stat-big cyan">90%</span>
+                            <span class="stat-context">Concentration Probability</span>
+                        </div>
+                    </div>
                     <p class="power-law-title">POWER LAW ACCELERATION</p>
 
                     <!-- Bar chart: top-10% capture share by wave -->
@@ -282,20 +298,6 @@ const fonts =
                 </div>
             </div>
 
-            <!-- STATS (Separate container for mobile ordering) -->
-            <div class="pattern-stats-mobile">
-                <div class="stats-inline">
-                    <div class="inline-stat">
-                        <span class="stat-big">40%</span>
-                        <span class="stat-context">Wave 6 progress</span>
-                    </div>
-                    <div class="inline-stat">
-                        <span class="stat-big accent">90%</span>
-                        <span class="stat-context">Concentration probability</span>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
     <!-- Intelligence Section -->
@@ -395,30 +397,36 @@ const fonts =
 
                 <div class="pattern-block power-law-block">
                     <p class="power-law-title">TOP ENTITIES BY EXTRACTION PRESSURE (Γ)</p>
+                    <div
+                        class="entity-chart"
+                        role="img"
+                        aria-label="Extraction pressure by entity: Ethereum 0.432, Base (Coinbase L2) 0.257, X (Twitter) 0.230, Coinbase 0.230"
+                    >
+                        <div class="entity-bar-row">
+                            <span class="entity-bar-label" title="Ethereum — high I, low V, taking more than giving">Ethereum</span>
+                            <span class="entity-bar-track"><span class="entity-bar-fill" style="width:100%;"></span></span>
+                            <span class="entity-bar-value">Γ 0.432</span>
+                        </div>
+                        <div class="entity-bar-row">
+                            <span class="entity-bar-label" title="Base (Coinbase L2) — Coinbase OCC trust bank, position shifting">Base (Coinbase L2)</span>
+                            <span class="entity-bar-track"><span class="entity-bar-fill" style="width:59%;"></span></span>
+                            <span class="entity-bar-value">Γ 0.257</span>
+                        </div>
+                        <div class="entity-bar-row">
+                            <span class="entity-bar-label" title="X (Twitter) — attention layer, high reach, low reciprocity">X (Twitter)</span>
+                            <span class="entity-bar-track"><span class="entity-bar-fill" style="width:53%;"></span></span>
+                            <span class="entity-bar-value">Γ 0.230</span>
+                        </div>
+                        <div class="entity-bar-row">
+                            <span class="entity-bar-label" title="Coinbase — regulatory risk transitioning to execution risk">Coinbase</span>
+                            <span class="entity-bar-track"><span class="entity-bar-fill" style="width:53%;"></span></span>
+                            <span class="entity-bar-value">Γ 0.230</span>
+                        </div>
+                    </div>
                     <div class="power-law-data">
-                        <div class="power-law-row">
-                            <span class="wave-label" style="color:#ff6b35;">Ethereum</span>
-                            <span class="wave-stat">high I, low V - taking more than giving</span>
-                            <span class="wave-value" style="color:#ff6b35;">Γ=0.432</span>
-                        </div>
-                        <div class="power-law-row">
-                            <span class="wave-label" style="color:#ff6b35;">Base (Coinbase L2)</span>
-                            <span class="wave-stat">Coinbase OCC trust bank - position shifting</span>
-                            <span class="wave-value" style="color:#ff6b35;">Γ=0.257</span>
-                        </div>
-                        <div class="power-law-row">
-                            <span class="wave-label" style="color:#ff6b35;">X (Twitter)</span>
-                            <span class="wave-stat">attention layer - high reach, low reciprocity</span>
-                            <span class="wave-value" style="color:#ff6b35;">Γ=0.230</span>
-                        </div>
-                        <div class="power-law-row">
-                            <span class="wave-label" style="color:#ff6b35;">Coinbase</span>
-                            <span class="wave-stat">regulatory risk → execution risk</span>
-                            <span class="wave-value" style="color:#ff6b35;">Γ=0.230</span>
-                        </div>
                         <div class="power-law-row highlight">
                             <span class="wave-label">Tokenized Treasury</span>
-                            <span class="wave-stat">N+1 Power = 17.11 - highest in topology</span>
+                            <span class="wave-stat">N+1 Power = 17.11 - highest in topology (different metric, not Γ)</span>
                             <span class="wave-value">Power↑</span>
                         </div>
                     </div>
@@ -430,8 +438,9 @@ const fonts =
 
                 <div class="pattern-block cta-block">
                     <p class="cta-hook">The field is readable. The signal is measurable.</p>
-                    <a href="reports/" class="btn btn-md">View signal reports</a>
                     <p class="cta-qualifier">
+                        <a href="reports/" style="color:#00d9ff;text-decoration:none;font-size:13px;">View signal reports →</a>
+                        &nbsp;·&nbsp;
                         <a href="https://geniusflow-rwa.vercel.app" target="_blank" rel="noopener" style="color:#00d9ff;text-decoration:none;font-size:13px;">RWA Registry →</a>
                         &nbsp;·&nbsp;
                         <a href="https://paragraph.com/@eigenstate" target="_blank" rel="noopener" style="color:#00d9ff;text-decoration:none;font-size:13px;">Research →</a>
@@ -444,35 +453,35 @@ const fonts =
 
             <!-- RIGHT COLUMN: Engine visualization -->
             <div class="pattern-visualization-wrapper">
-                <div class="pattern-visualization" style="display:flex;flex-direction:column;gap:1px;background:rgb(14 165 233 / 10%);border:1px solid rgb(14 165 233 / 10%);border-radius:8px;overflow:hidden;padding:0;">
-                    <div style="background:rgb(3 7 18 / 90%);padding:20px 24px;border-bottom:1px solid rgb(14 165 233 / 10%);">
-                        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:#64748b;text-transform:uppercase;margin-bottom:8px;">entities tracked</p>
-                        <p style="font-family:'JetBrains Mono',monospace;font-size:32px;font-weight:600;color:#00d9ff;text-shadow:0 0 15px rgb(0 217 255 / 30%);">196</p>
+                <div class="pattern-visualization engine-panel bracket">
+                    <div class="engine-tile">
+                        <p class="engine-tile-label">entities tracked</p>
+                        <p class="engine-tile-value cyan">196</p>
                     </div>
-                    <div style="background:rgb(3 7 18 / 90%);padding:20px 24px;border-bottom:1px solid rgb(14 165 233 / 10%);">
-                        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:#64748b;text-transform:uppercase;margin-bottom:8px;">G_total</p>
-                        <p style="font-family:'JetBrains Mono',monospace;font-size:32px;font-weight:600;color:#ff6b35;text-shadow:0 0 15px rgb(255 107 53 / 30%);">0.89</p>
-                        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#64748b;margin-top:4px;">threshold 1/φ = 0.618</p>
+                    <div class="engine-tile">
+                        <p class="engine-tile-label">G_total</p>
+                        <p class="engine-tile-value orange">0.89</p>
+                        <p class="engine-tile-note">threshold 1/φ = 0.618</p>
                     </div>
-                    <div style="background:rgb(3 7 18 / 90%);padding:20px 24px;border-bottom:1px solid rgb(14 165 233 / 10%);">
-                        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:#64748b;text-transform:uppercase;margin-bottom:8px;">curl wave state</p>
-                        <p style="font-family:'JetBrains Mono',monospace;font-size:32px;font-weight:600;color:#22c55e;text-shadow:0 0 15px rgb(34 197 94 / 30%);">NEW</p>
-                        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#64748b;margin-top:4px;">Landauer stable</p>
+                    <div class="engine-tile">
+                        <p class="engine-tile-label">curl wave state</p>
+                        <p class="engine-tile-value green">NEW</p>
+                        <p class="engine-tile-note">Landauer stable</p>
                     </div>
-                    <div style="background:rgb(3 7 18 / 90%);padding:20px 24px;border-bottom:1px solid rgb(14 165 233 / 10%);">
-                        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:#64748b;text-transform:uppercase;margin-bottom:8px;">∇×G magnitude</p>
-                        <p style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:600;color:#ff6b35;">16,278</p>
-                        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#64748b;margin-top:4px;">dcurl/dt = +8,003</p>
+                    <div class="engine-tile">
+                        <p class="engine-tile-label">∇×G magnitude</p>
+                        <p class="engine-tile-value orange">16,278</p>
+                        <p class="engine-tile-note">dcurl/dt = +8,003</p>
                     </div>
-                    <div style="background:rgb(3 7 18 / 90%);padding:20px 24px;border-bottom:1px solid rgb(14 165 233 / 10%);">
-                        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:#64748b;text-transform:uppercase;margin-bottom:8px;">helix fingerprint</p>
-                        <p style="font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:600;color:#00d9ff;word-break:break-all;">fb40dcc8d8dedcfd</p>
-                        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#64748b;margin-top:4px;">G = ∮E·dl · irreversible</p>
+                    <div class="engine-tile">
+                        <p class="engine-tile-label">helix fingerprint</p>
+                        <p class="engine-tile-value cyan small">fb40dcc8d8dedcfd</p>
+                        <p class="engine-tile-note">G = ∮E·dl · irreversible</p>
                     </div>
-                    <div style="background:rgb(3 7 18 / 90%);padding:20px 24px;">
-                        <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.15em;color:#64748b;text-transform:uppercase;margin-bottom:8px;">writer coin</p>
-                        <p style="font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:600;color:#ff6b35;">$GENIU</p>
-                        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#64748b;margin-top:4px;">Base · 0x9f4A...D681</p>
+                    <div class="engine-tile">
+                        <p class="engine-tile-label">writer coin</p>
+                        <p class="engine-tile-value orange">$GENIU</p>
+                        <p class="engine-tile-note">Base · 0x9f4A...D681</p>
                     </div>
                 </div>
             </div>

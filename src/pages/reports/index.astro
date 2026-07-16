@@ -6,7 +6,7 @@ import Footer from '../../components/Footer.astro';
 import { slugFor } from '../../lib/reports';
 
 const fonts =
-  'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap';
+  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
 
 const reports = (await getCollection('reports')).map((r) => ({ ...r, slug: slugFor(r.id) }));
 const sorted = [...reports].sort((a, b) => b.data.date_iso.localeCompare(a.data.date_iso));
@@ -256,6 +256,57 @@ function formatShort(iso: string): string {
         transform: translateY(-1px);
       }
 
+      /* ── Reports filter bar ── */
+      .reports-filter-bar {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+      }
+
+      .reports-search {
+        flex: 1;
+        min-width: 200px;
+        font-family: var(--font-body);
+        font-size: var(--text-sm);
+        padding: 12px 16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        color: var(--text-primary);
+      }
+
+      .reports-search::placeholder {
+        color: var(--text-muted);
+      }
+
+      .reports-search:focus {
+        outline: none;
+        border-color: var(--orange);
+        box-shadow: 0 0 0 3px rgb(255 107 53 / 15%);
+      }
+
+      .reports-sort {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        padding: 12px 16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        color: var(--text-primary);
+        cursor: pointer;
+      }
+
+      .reports-empty {
+        padding: 48px;
+        text-align: center;
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+        border: 1px solid var(--border);
+        border-top: none;
+      }
+
       /* ── Reports grid ── */
       .reports-grid {
         display: grid;
@@ -487,8 +538,8 @@ function formatShort(iso: string): string {
       .form-group select:focus,
       .form-group textarea:focus {
         outline: none;
-        border-color: var(--cyan-dim);
-        box-shadow: 0 0 0 3px rgb(14 165 233 / 10%);
+        border-color: var(--orange);
+        box-shadow: 0 0 0 3px rgb(255 107 53 / 15%);
       }
 
       .form-group input::placeholder,
@@ -648,11 +699,34 @@ function formatShort(iso: string): string {
     <div class="container">
       <div class="eyebrow">ALL SIGNAL REPORTS</div>
       <h2 class="section-title">Latest <span class="grad">measurements</span></h2>
-      <div class="section-sub">Engine-generated field position reports. Updated each cycle.</div>
-      <div class="reports-grid">
+      <div class="section-sub">
+        Engine-generated field position reports. Updated each cycle. {sorted.length} published.
+      </div>
+
+      <div class="reports-filter-bar">
+        <input
+          type="text"
+          id="reportsSearch"
+          class="reports-search"
+          placeholder="Search by entity name…"
+          aria-label="Search reports by entity name"
+        />
+        <select id="reportsSort" class="reports-sort" aria-label="Sort reports">
+          <option value="newest">Newest first</option>
+          <option value="phi-desc">Highest Φ_S</option>
+        </select>
+      </div>
+
+      <div class="reports-grid" id="reportsGrid">
         {
           sorted.map((r) => (
-            <a href={`${base}reports/${r.slug}/`} class="report-card">
+            <a
+              href={`${base}reports/${r.slug}/`}
+              class="report-card"
+              data-entity={r.data.entity_display}
+              data-phi-s={r.data.phi_s}
+              data-date-iso={r.data.date_iso}
+            >
               <div class="rc-entity">{r.data.entity_display}</div>
               <div class="rc-metrics">
                 <span class="rc-phi">Φ_S {r.data.phi_s.toFixed(3)}</span>
@@ -667,6 +741,7 @@ function formatShort(iso: string): string {
           ))
         }
       </div>
+      <div class="reports-empty" id="reportsEmpty" style="display: none;">No reports match your search.</div>
     </div>
   </section>
 
@@ -783,6 +858,24 @@ function formatShort(iso: string): string {
   <Footer variant="full" />
 
   <script>
+    import { initReveal } from '../../scripts/reveal';
+    import { initFilterList } from '../../scripts/filter-list';
+
+    initReveal({ selector: '.featured-card, .report-card' });
+
+    initFilterList({
+      containerSelector: '#reportsGrid',
+      itemSelector: '.report-card',
+      searchInputSelector: '#reportsSearch',
+      searchFields: ['entity'],
+      sortSelectSelector: '#reportsSort',
+      sortOptions: {
+        newest: { field: 'dateIso', direction: 'desc', type: 'string' },
+        'phi-desc': { field: 'phiS', direction: 'desc', type: 'number' },
+      },
+      emptyStateSelector: '#reportsEmpty',
+    });
+
     async function submitForm() {
       const eInput = document.getElementById('fe') as HTMLInputElement;
       const e = eInput.value.trim();

@@ -276,7 +276,7 @@ export class NetworkFormation {
 
         const labelPulse = 0.9 + Math.sin(this.centerNode.pulsePhase * 2) * 0.1;
         this.ctx.fillStyle = `rgba(255, 255, 255, ${labelPulse})`;
-        this.ctx.font = `${size * 0.25}px 'Orbitron', sans-serif`;
+        this.ctx.font = `${size * 0.25}px 'Space Grotesk', sans-serif`;
         this.ctx.textAlign = 'center';
         this.ctx.textBaseline = 'middle';
         this.ctx.shadowBlur = 8;
@@ -372,7 +372,7 @@ export class NetworkFormation {
         this.ctx.strokeRect(boxX, boxY, boxWidth, boxHeight);
 
         this.ctx.fillStyle = '#00d9ff';
-        this.ctx.font = 'bold 10px "Orbitron", sans-serif';
+        this.ctx.font = 'bold 10px "Space Grotesk", sans-serif';
         this.ctx.textAlign = 'left';
         this.ctx.textBaseline = 'middle';
         this.ctx.fillText(currentLabel, boxX + 12, boxY + boxHeight / 2 - 2);
