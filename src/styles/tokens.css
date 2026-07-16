@@ -20,7 +20,10 @@
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
 
-  /* Cyan — secondary/data accent */
+  /* Cyan — reserved for "this is live/active right now" signals only
+     (Engine live stats, active nav state, currently-updating data) —
+     not a decorative accent. See --border-live below for the one place
+     it's still used structurally, on purpose. */
   --cyan: #00d9ff;
   --cyan-bright: #0ff;
   --cyan-dim: #0ea5e9;
@@ -39,12 +42,17 @@
   --status-warning: #f59e0b;
   --status-error: #dc2626;
 
-  /* Borders */
-  --border: rgb(14 165 233 / 15%);
-  --border-strong: rgb(14 165 233 / 30%);
+  /* Borders — neutral by default. Every card/table/section border in the
+     site uses these, which is why they were cyan-tinted before; that read
+     as decorative "everything is live" noise. Reserve --border-live for
+     the specific modules that are actually live (Phase 3 instrument
+     details), not as the default. */
+  --border: rgb(148 163 184 / 12%);
+  --border-strong: rgb(148 163 184 / 24%);
+  --border-live: rgb(14 165 233 / 30%);
 
   /* Fonts */
-  --font-heading: 'Orbitron', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 

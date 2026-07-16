@@ -24,7 +24,7 @@ const siblings = allReports
   .map((r) => ({ ...r, slug: slugFor(r.id) }));
 
 const fonts =
-  'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;800;900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap';
+  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
 
 const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.toFixed(4)}, coherence κ = ${kappa.toFixed(4)}. Topology signal report from Eigenstate Research.`;
 ---
@@ -302,7 +302,7 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
 
   <div class="topology-section">
     <div class="topology-title">Other tracked entities · by settlement pressure</div>
-    <div class="topology-list">
+    <div class="topology-list bracket">
       {
         siblings.map((s) => (
           <a href={`${import.meta.env.BASE_URL}reports/${s.slug}/`} class="topology-row">
