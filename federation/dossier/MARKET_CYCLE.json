@@ -1,0 +1,164 @@
+{
+  "entity": "MARKET_CYCLE",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:29.487071+00:00",
+  "digest": "sha256:da9b54dea980e78084415832efefce9954cb59823e402bdc16f804c02d6ebe85",
+  "own_numbers": {
+    "phi_s": 0.024,
+    "kappa": 0.0092,
+    "mass": 0.038302,
+    "power": null,
+    "extraction": null,
+    "memory_mass": 1.2,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.038302,
+      "rank": 168,
+      "of": 199
+    },
+    "power": null,
+    "gravity": null,
+    "extraction": null,
+    "share_of_whole": {
+      "mass": 0.00239,
+      "power": null
+    },
+    "peers_by_power": []
+  },
+  "relationships": {
+    "in_degree": 1,
+    "out_degree": 0,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 0.0,
+        "in": 0.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "FOMC_NEXT",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [],
+    "gravity_pairs": [
+      {
+        "entity": "FOMC_NEXT",
+        "mass": 1.2,
+        "hops": 1,
+        "pull": 1.44
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.5,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "flag",
+    "headline": "phi_s -99% over 52 cycles",
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "memory_mass": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "stale",
+    "inbound": [],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "2820c5d7-33a2-49f8-99b5-0aee2c952b29",
+      "claim_text": "DeFiLlama \u2014 protocol TVL index",
+      "grounding": {
+        "source_url": "https://defillama.com/",
+        "expected": "DeFi",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "onchain_secondary",
+      "witness_weight": 0.62,
+      "report_id": "MARKET_CYCLE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/market-cycle-20260702/",
+      "verified_at": "2026-07-02T01:48:03.495145+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "d50b92be-0b41-4186-bf8b-93294e94e787",
+      "claim_text": "CoinMarketCap \u2014 market charts",
+      "grounding": {
+        "source_url": "https://coinmarketcap.com/charts/",
+        "expected": "market",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "MARKET_CYCLE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/market-cycle-20260702/",
+      "verified_at": "2026-07-02T01:48:03.621286+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "d3321976-ac95-4573-85d7-d716e9225522",
+      "claim_text": "US Treasury \u2014 fiscal and market context",
+      "grounding": {
+        "source_url": "https://home.treasury.gov/",
+        "expected": "Treasury",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "macro_primary",
+      "witness_weight": 0.88,
+      "report_id": "MARKET_CYCLE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/market-cycle-20260702/",
+      "verified_at": "2026-07-02T01:48:12.997289+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/MARKET_CYCLE.json"
+}

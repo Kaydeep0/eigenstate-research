@@ -1,0 +1,209 @@
+{
+  "entity": "MICA",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:29.608631+00:00",
+  "digest": "sha256:a19ba40b30d72a5a6f80793a6ef2a68377df4e339e7f27954a29177d6f517ea9",
+  "own_numbers": {
+    "phi_s": 6.5685,
+    "kappa": 0.0001,
+    "mass": 0.100767,
+    "power": null,
+    "extraction": null,
+    "memory_mass": 4.8,
+    "X_natural": 0.0,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.100767,
+      "rank": 40,
+      "of": 199
+    },
+    "power": null,
+    "gravity": null,
+    "extraction": null,
+    "share_of_whole": {
+      "mass": 0.0063,
+      "power": null
+    },
+    "peers_by_power": []
+  },
+  "relationships": {
+    "in_degree": 2,
+    "out_degree": 1,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 0.5,
+        "in": 1.0
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "ESMA",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "DORA",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "TRAVEL_RULE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "ESMA",
+        "mass": 106.0,
+        "hops": 1,
+        "pull": 508.8
+      },
+      {
+        "entity": "SEC",
+        "mass": 120.0,
+        "hops": 2,
+        "pull": 144.0
+      },
+      {
+        "entity": "FCA",
+        "mass": 102.0,
+        "hops": 2,
+        "pull": 122.4
+      },
+      {
+        "entity": "CFTC",
+        "mass": 102.0,
+        "hops": 3,
+        "pull": 54.4
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 88.0,
+        "hops": 3,
+        "pull": 46.9333
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.567,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "flag",
+    "headline": "phi_s +6742% over 52 cycles",
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 3.2363,
+      "kappa": 0.0001,
+      "memory_mass": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live",
+        "series_id": "GDP",
+        "label": "eu_crypto_regulatory_gdp_proxy",
+        "last_observed_at": "2026-07-17T18:06:38.750811+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "ff5b096f-5152-4a76-a30f-6520138c16b1",
+      "claim_text": "MiCA \u2014 uniform EU crypto-asset market rules",
+      "grounding": {
+        "source_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+        "expected": "MiCA",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "MICA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/mica-20260702/",
+      "verified_at": "2026-07-02T05:19:58.709481+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "5c5a4d9f-b1e4-456c-acb0-e383a07f1689",
+      "claim_text": "MiCA CASP authorisation and supervision",
+      "grounding": {
+        "source_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+        "expected": "authorisation",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "MICA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/mica-20260702/",
+      "verified_at": "2026-07-02T05:19:58.849075+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "75a7c4ed-bb9c-4081-a6cd-881750eafc1a",
+      "claim_text": "MiCA interim register of authorised CASPs",
+      "grounding": {
+        "source_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+        "expected": "crypto-asset service",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "MICA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/mica-20260702/",
+      "verified_at": "2026-07-02T05:19:58.909328+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/MICA.json"
+}

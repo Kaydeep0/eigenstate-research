@@ -1,0 +1,225 @@
+{
+  "entity": "TETHER",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:31.408680+00:00",
+  "digest": "sha256:d8b6920337887bc8340c5dc63b3ebf5034f38395f0f1bc88d5e1bbf8bddffc65",
+  "own_numbers": {
+    "phi_s": 0.0788,
+    "kappa": 0.0734,
+    "mass": 0.186113,
+    "power": 0.0,
+    "extraction": 6137.9993,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.186113,
+      "rank": 18,
+      "of": 199
+    },
+    "power": {
+      "value": 0.0,
+      "rank": 47,
+      "of": 51
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 6137.9993,
+      "rank": 23,
+      "of": 51
+    },
+    "share_of_whole": {
+      "mass": 0.01163,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "STANI_KULECHOV",
+        "power": 0.0
+      },
+      {
+        "entity": "STRONGHOLD",
+        "power": 0.0
+      },
+      {
+        "entity": "TETHER",
+        "power": 0.0
+      },
+      {
+        "entity": "TRAIL_OF_BITS",
+        "power": 0.0
+      },
+      {
+        "entity": "USDY",
+        "power": 0.0
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 6,
+    "out_degree": 2,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 1.0,
+        "in": 0.5
+      },
+      "Information": {
+        "out": 0.0,
+        "in": 2.2
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "STABLECOIN_POOL",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "STABLECOIN_DOMINANCE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CAYMAN_BVI",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CIRCLE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CANTOR_FITZGERALD",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "CANTOR_FITZGERALD",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
+      }
+    ],
+    "gravity_pairs": []
+  },
+  "monetary_position": {
+    "position": 0.5,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "power": 0.0,
+      "extraction": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "defillama",
+        "kind": "stablecoins",
+        "status": "live",
+        "note": "fetched from public API at request time"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "propagated",
+      "last_observed_at": "2026-07-01T21:57:39.518018+00:00",
+      "last_delta_i": 0.0,
+      "stale": true
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "906b8660-eef6-4ac9-a873-8ff88ddbc508",
+      "claim_text": "Tether \u2014 global leader in stablecoin issuance",
+      "grounding": {
+        "source_url": "https://tether.to/en/about-us",
+        "expected": "stablecoin",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "TETHER_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tether-20260702/",
+      "verified_at": "2026-07-02T04:27:07.933114+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "f2c7815b-02dd-4bab-ae83-3d0094a1af8a",
+      "claim_text": "USDT transparency \u2014 reserves and issuance",
+      "grounding": {
+        "source_url": "https://tether.to/en/transparency",
+        "expected": "USDT",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "TETHER_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tether-20260702/",
+      "verified_at": "2026-07-02T04:27:08.359640+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "d8565588-ebc8-4b4d-9c2a-9d1b6f4e4766",
+      "claim_text": "How Tether works \u2014 pegged digital dollar",
+      "grounding": {
+        "source_url": "https://tether.to/en/how-it-works",
+        "expected": "USD",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "TETHER_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tether-20260702/",
+      "verified_at": "2026-07-02T04:27:08.795383+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/TETHER.json"
+}

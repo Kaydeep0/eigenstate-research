@@ -1,0 +1,162 @@
+{
+  "entity": "FIAT_OFFRAMP",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:28.191589+00:00",
+  "digest": "sha256:ad5a254f8820becdd18221a17b300031198d01f6f829beca16f503ef4e405c75",
+  "own_numbers": {
+    "phi_s": 0.02,
+    "kappa": 0.0183,
+    "mass": 0.056016,
+    "power": null,
+    "extraction": null,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.056016,
+      "rank": 76,
+      "of": 199
+    },
+    "power": null,
+    "gravity": null,
+    "extraction": null,
+    "share_of_whole": {
+      "mass": 0.0035,
+      "power": null
+    },
+    "peers_by_power": []
+  },
+  "relationships": {
+    "in_degree": 1,
+    "out_degree": 1,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 0.5,
+        "in": 0.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "STABLECOIN_POOL",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "US_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": []
+  },
+  "monetary_position": {
+    "position": 0.5,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "stale",
+    "inbound": [],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "bce29db7-aee4-4b91-bf86-2e03fd2bfc9e",
+      "claim_text": "Coinbase \u2014 sell crypto for cash",
+      "grounding": {
+        "source_url": "https://www.coinbase.com/",
+        "expected": "sell",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "FIAT_OFFRAMP_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260702/",
+      "verified_at": "2026-07-02T17:59:23.477384+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "ad4ceb62-f26b-4e7b-89a5-c146e8aa5cf9",
+      "claim_text": "Circle USDC \u2014 redemption for dollars",
+      "grounding": {
+        "source_url": "https://www.circle.com/en/usdc",
+        "expected": "redeem",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "FIAT_OFFRAMP_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260702/",
+      "verified_at": "2026-07-02T17:59:23.725116+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "c50feba7-5c50-4c35-afaf-30b5e855d1ce",
+      "claim_text": "Paxos \u2014 regulated redemption services",
+      "grounding": {
+        "source_url": "https://paxos.com/",
+        "expected": "redeem",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "FIAT_OFFRAMP_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260702/",
+      "verified_at": "2026-07-02T17:59:24.029450+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/FIAT_OFFRAMP.json"
+}

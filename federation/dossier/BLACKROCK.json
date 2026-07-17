@@ -1,0 +1,284 @@
+{
+  "entity": "BLACKROCK",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:25.927705+00:00",
+  "digest": "sha256:5026c5dd8648f84f7b4ff573c97b4f3797138f4a82cf20f2e74b5aa607e55ed2",
+  "own_numbers": {
+    "phi_s": 4.911,
+    "kappa": 0.0017,
+    "mass": 0.311871,
+    "power": 0.08,
+    "extraction": 9905.76001,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": 88.0,
+    "mass_type": "capital"
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.311871,
+      "rank": 6,
+      "of": 199
+    },
+    "power": {
+      "value": 0.08,
+      "rank": 4,
+      "of": 51
+    },
+    "gravity": {
+      "value": 88.0,
+      "rank": 11,
+      "of": 62
+    },
+    "extraction": {
+      "value": 9905.76,
+      "rank": 21,
+      "of": 51
+    },
+    "share_of_whole": {
+      "mass": 0.01949,
+      "power": 0.08511
+    },
+    "peers_by_power": [
+      {
+        "entity": "CITIGROUP",
+        "power": 0.17
+      },
+      {
+        "entity": "TREASURY_MARKET",
+        "power": 0.12
+      },
+      {
+        "entity": "BLACKROCK",
+        "power": 0.08
+      },
+      {
+        "entity": "SEC",
+        "power": 0.08
+      },
+      {
+        "entity": "34539544",
+        "power": 0.05
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 13,
+    "out_degree": 5,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 2.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.5
+      },
+      "Information": {
+        "out": 2.5,
+        "in": 3.7
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "ONDO",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "SECURITIZE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "COINBASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "LARRY_FINK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "TOKENIZED_TREASURY",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "SECURITIZE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "SEC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "COINBASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "CIRCLE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "SEC",
+        "mass": 120.0,
+        "hops": 1,
+        "pull": 10560.0
+      },
+      {
+        "entity": "34539544",
+        "mass": 54.0,
+        "hops": 1,
+        "pull": 4752.0
+      },
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 2,
+        "pull": 2530.0
+      },
+      {
+        "entity": "ESMA",
+        "mass": 106.0,
+        "hops": 2,
+        "pull": 2332.0
+      },
+      {
+        "entity": "JPMORGAN",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 2288.0
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.706,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "flag",
+    "headline": "extraction -81% over 52 cycles",
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 1.6169,
+      "kappa": 0.0003,
+      "power": 0.0,
+      "extraction": -487.1685,
+      "gravity_mass": 0.0,
+      "boundary_score": -0.009
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "defillama",
+        "kind": "protocols",
+        "status": "live",
+        "note": "fetched from public API at request time"
+      },
+      {
+        "network": "sec_edgar",
+        "kind": "regulatory_primary",
+        "status": "live_at_request",
+        "last_observed_at": "2026-06-22T23:00:34.463883+00:00",
+        "filings": null,
+        "note": "BlackRock Finance, Inc. \u2014 1088 total filings, 0 in last 90d"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "defi_llama_tvl",
+      "last_observed_at": "2026-07-16T15:00:29.137327+00:00",
+      "last_delta_i": 0.07445768655538913,
+      "stale": false
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "1385ea3f-d2f4-4e00-a656-8a1acba29e9e",
+      "claim_text": "BlackRock \u2014 global asset manager",
+      "grounding": {
+        "source_url": "https://www.blackrock.com/corporate",
+        "expected": "BlackRock",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "BLACKROCK_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/blackrock-20260702/",
+      "verified_at": "2026-07-02T04:15:18.506370+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "a63cb92e-b7c1-445a-a26a-4159fc3a63be",
+      "claim_text": "BUIDL \u2014 tokenized treasury fund on-chain",
+      "grounding": {
+        "source_url": "https://rwa.xyz/assets/buidl",
+        "expected": "BUIDL",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "BLACKROCK_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/blackrock-20260702/",
+      "verified_at": "2026-07-02T04:15:18.686946+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "88bdd200-7762-48f3-bd00-18f7b02031e9",
+      "claim_text": "DeFiLlama tracks BlackRock BUIDL protocol activity",
+      "grounding": {
+        "source_url": "https://defillama.com/protocol/blackrock-buidl",
+        "expected": "BlackRock",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "onchain_secondary",
+      "witness_weight": 0.62,
+      "report_id": "BLACKROCK_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/blackrock-20260702/",
+      "verified_at": "2026-07-02T04:15:18.796410+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/BLACKROCK.json"
+}

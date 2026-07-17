@@ -1,0 +1,270 @@
+{
+  "entity": "CITIGROUP",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:26.515851+00:00",
+  "digest": "sha256:e24cec724b50656a8380c5666f30a4a9b4cda4ccd0af9cda1bce4b25e8535f0e",
+  "own_numbers": {
+    "phi_s": 0.023,
+    "kappa": 0.1835,
+    "mass": null,
+    "power": 0.17,
+    "extraction": 80982.64369,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": 100.0,
+    "mass_type": "infrastructure"
+  },
+  "vs_whole": {
+    "mass": null,
+    "power": {
+      "value": 0.17,
+      "rank": 2,
+      "of": 51
+    },
+    "gravity": {
+      "value": 100.0,
+      "rank": 9,
+      "of": 62
+    },
+    "extraction": {
+      "value": 80982.6437,
+      "rank": 9,
+      "of": 51
+    },
+    "share_of_whole": {
+      "mass": null,
+      "power": 0.18085
+    },
+    "peers_by_power": [
+      {
+        "entity": "JPMORGAN",
+        "power": 0.35
+      },
+      {
+        "entity": "CITIGROUP",
+        "power": 0.17
+      },
+      {
+        "entity": "TREASURY_MARKET",
+        "power": 0.12
+      },
+      {
+        "entity": "BLACKROCK",
+        "power": 0.08
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 6,
+    "out_degree": 14,
+    "by_vector": {
+      "Capital": {
+        "out": 0.5,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 2.0,
+        "in": 0.5
+      },
+      "Information": {
+        "out": 4.5,
+        "in": 2.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "NATIONAL_CITY_BANK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CIRCLE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "FED",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "JPMORGAN",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "JANE_FRASER",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "US_TREASURY_DEPARTMENT",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "PRIMARY_DEALER_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "capital",
+        "vector": "Capital"
+      },
+      {
+        "target": "FED",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "EAS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 1,
+        "pull": 11500.0
+      },
+      {
+        "entity": "JPMORGAN",
+        "mass": 104.0,
+        "hops": 1,
+        "pull": 10400.0
+      },
+      {
+        "entity": "DTCC",
+        "mass": 42.0,
+        "hops": 1,
+        "pull": 4200.0
+      },
+      {
+        "entity": "SEC",
+        "mass": 120.0,
+        "hops": 2,
+        "pull": 3000.0
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 88.0,
+        "hops": 2,
+        "pull": 2200.0
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.807,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "flag",
+    "headline": "phi_s -100% over 52 cycles",
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": -0.0003,
+      "kappa": 0.0184,
+      "power": 0.02,
+      "extraction": 32591.8487,
+      "gravity_mass": 2.0,
+      "boundary_score": -0.006
+    }
+  },
+  "network_plugs": {
+    "freshness": "live_at_request",
+    "inbound": [
+      {
+        "network": "sec_edgar",
+        "kind": "regulatory_primary",
+        "status": "live_at_request",
+        "last_observed_at": "2026-06-22T23:00:34.463883+00:00",
+        "filings": null,
+        "note": "CIK 0000831001 \u2014 live on feed + parkash sensor"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "ecae6760-1e73-49b6-b194-532484ecc187",
+      "claim_text": "Citigroup \u2014 global financial services",
+      "grounding": {
+        "source_url": "https://www.citigroup.com/",
+        "expected": "financial services",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CITIGROUP_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/citigroup-20260702/",
+      "verified_at": "2026-07-02T04:07:35.185160+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "7456ab5c-94f5-4991-8f67-6b05d45f8855",
+      "claim_text": "Citigroup global presence and institutional role",
+      "grounding": {
+        "source_url": "https://www.citigroup.com/global/about-us",
+        "expected": "Citigroup",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CITIGROUP_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/citigroup-20260702/",
+      "verified_at": "2026-07-02T04:07:35.735069+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "6fddcf6b-5cbf-4c3b-ad5d-8cdd24a86331",
+      "claim_text": "Services for institutional clients \u2014 custody and markets",
+      "grounding": {
+        "source_url": "https://www.citigroup.com/global/businesses/services",
+        "expected": "Institutional Clients",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CITIGROUP_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/citigroup-20260702/",
+      "verified_at": "2026-07-02T04:07:35.997789+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/CITIGROUP.json"
+}

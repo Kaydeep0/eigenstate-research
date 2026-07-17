@@ -1,0 +1,279 @@
+{
+  "entity": "DTCC",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:27.601971+00:00",
+  "digest": "sha256:df9c170abe7c4ac0da590bb15603468ad817f255edc185b6fb6af73d10414ff5",
+  "own_numbers": {
+    "phi_s": 4.8744,
+    "kappa": 0.0016,
+    "mass": 0.240306,
+    "power": 0.0,
+    "extraction": 46699.9144,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": 42.0,
+    "mass_type": "infrastructure"
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.240306,
+      "rank": 11,
+      "of": 199
+    },
+    "power": {
+      "value": 0.0,
+      "rank": 23,
+      "of": 51
+    },
+    "gravity": {
+      "value": 42.0,
+      "rank": 28,
+      "of": 62
+    },
+    "extraction": {
+      "value": 46699.9144,
+      "rank": 13,
+      "of": 51
+    },
+    "share_of_whole": {
+      "mass": 0.01502,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "DEFI_IS_DEAD",
+        "power": 0.0
+      },
+      {
+        "entity": "DEX_SETTLEMENT",
+        "power": 0.0
+      },
+      {
+        "entity": "DTCC",
+        "power": 0.0
+      },
+      {
+        "entity": "EAS",
+        "power": 0.0
+      },
+      {
+        "entity": "ETHEREUM",
+        "power": 0.0
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 11,
+    "out_degree": 6,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 3.0,
+        "in": 3.5
+      },
+      "Information": {
+        "out": 0.0,
+        "in": 2.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "CANTON_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CANTON_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CANTON_NETWORK",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CANTON_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CANTON_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "PRIMARY_DEALER_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "TOKENIZED_TREASURY",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "FED",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "US_EAST_COAST",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 1,
+        "pull": 4830.0
+      },
+      {
+        "entity": "CITIGROUP",
+        "mass": 100.0,
+        "hops": 1,
+        "pull": 4200.0
+      },
+      {
+        "entity": "34539544",
+        "mass": 54.0,
+        "hops": 1,
+        "pull": 2268.0
+      },
+      {
+        "entity": "CANTON_NETWORK",
+        "mass": 42.0,
+        "hops": 1,
+        "pull": 1764.0
+      },
+      {
+        "entity": "SEC",
+        "mass": 120.0,
+        "hops": 2,
+        "pull": 1260.0
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.628,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 1.6182,
+      "kappa": 0.0003,
+      "power": 0.0,
+      "extraction": -14509.0228,
+      "gravity_mass": -1.0,
+      "boundary_score": -0.004
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live",
+        "series_id": "GDP",
+        "label": "settlement_volume_gdp_proxy",
+        "last_observed_at": "2026-07-17T18:06:38.750811+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": "2026-07-01T01:50:31.931562+00:00",
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "05887599-614f-4dd3-8599-90012959ec40",
+      "claim_text": "DTCC \u2014 financial market infrastructure",
+      "grounding": {
+        "source_url": "https://www.dtcc.com/about",
+        "expected": "DTCC",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "DTCC_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/dtcc-20260702/",
+      "verified_at": "2026-07-02T05:20:07.465607+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "cd694002-ad95-4029-8c63-3080da48b149",
+      "claim_text": "Clearing and settlement services",
+      "grounding": {
+        "source_url": "https://www.dtcc.com/clearing-and-settlement-services",
+        "expected": "clearing",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "DTCC_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/dtcc-20260702/",
+      "verified_at": "2026-07-02T05:20:07.987448+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "083a95e7-a2d7-4aa6-8159-a1b821a5c8a6",
+      "claim_text": "The Depository Trust Company (DTC)",
+      "grounding": {
+        "source_url": "https://www.dtcc.com/about/businesses-and-subsidiaries/dtc",
+        "expected": "Depository Trust Company",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "DTCC_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/dtcc-20260702/",
+      "verified_at": "2026-07-02T05:20:08.422506+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/DTCC.json"
+}

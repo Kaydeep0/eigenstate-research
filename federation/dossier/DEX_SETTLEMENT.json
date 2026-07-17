@@ -1,0 +1,197 @@
+{
+  "entity": "DEX_SETTLEMENT",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:27.525098+00:00",
+  "digest": "sha256:ddcea7b7f6beb5d227ce9a2b7f41c72ba459bae5977eeb916a10879a8acebcf9",
+  "own_numbers": {
+    "phi_s": 0.0,
+    "kappa": 0.0275,
+    "mass": 0.045037,
+    "power": 0.0,
+    "extraction": 331.3328,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.045037,
+      "rank": 112,
+      "of": 199
+    },
+    "power": {
+      "value": 0.0,
+      "rank": 22,
+      "of": 51
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 331.3328,
+      "rank": 38,
+      "of": 51
+    },
+    "share_of_whole": {
+      "mass": 0.00281,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "CROSS_CHAIN_BRIDGE",
+        "power": 0.0
+      },
+      {
+        "entity": "DEFI_IS_DEAD",
+        "power": 0.0
+      },
+      {
+        "entity": "DEX_SETTLEMENT",
+        "power": 0.0
+      },
+      {
+        "entity": "DTCC",
+        "power": 0.0
+      },
+      {
+        "entity": "EAS",
+        "power": 0.0
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 3,
+    "out_degree": 0,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 1.0
+      },
+      "Information": {
+        "out": 0.0,
+        "in": 0.4
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "STABLECOIN_POOL",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CROSS_CHAIN_BRIDGE",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [],
+    "gravity_pairs": []
+  },
+  "monetary_position": {
+    "position": 0.5,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "power": 0.0,
+      "extraction": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "propagated",
+      "last_observed_at": "2026-07-17T18:43:27.450726+00:00",
+      "last_delta_i": 3.950573006265929e+56,
+      "stale": false
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "c12d60bf-5174-45d1-8530-15bfd31a730c",
+      "claim_text": "DeFiLlama \u2014 DEX volume dashboard",
+      "grounding": {
+        "source_url": "https://defillama.com/dexs",
+        "expected": "DEX",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "onchain_secondary",
+      "witness_weight": 0.62,
+      "report_id": "DEX_SETTLEMENT_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/dex-settlement-20260702/",
+      "verified_at": "2026-07-02T17:51:50.535960+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "dfa87cb5-9dd6-455b-ac83-1c546faa55f3",
+      "claim_text": "DEX trading volume metrics",
+      "grounding": {
+        "source_url": "https://defillama.com/dexs",
+        "expected": "volume",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "onchain_secondary",
+      "witness_weight": 0.62,
+      "report_id": "DEX_SETTLEMENT_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/dex-settlement-20260702/",
+      "verified_at": "2026-07-02T17:51:50.657680+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "c4c91976-e25d-4071-bd1d-f0f7a9e022f8",
+      "claim_text": "Uniswap \u2014 leading DEX protocol",
+      "grounding": {
+        "source_url": "https://docs.uniswap.org/",
+        "expected": "Uniswap",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "DEX_SETTLEMENT_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/dex-settlement-20260702/",
+      "verified_at": "2026-07-02T17:51:51.763240+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/DEX_SETTLEMENT.json"
+}

@@ -1,0 +1,296 @@
+{
+  "entity": "SEC",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:30.878273+00:00",
+  "digest": "sha256:aec7425a72321e4ea725462321e063118dd3cf1e00d2c624aaae681b84dcd790",
+  "own_numbers": {
+    "phi_s": 5.0963,
+    "kappa": 0.0018,
+    "mass": 0.433364,
+    "power": 0.08,
+    "extraction": 164220.477926,
+    "memory_mass": 104.67,
+    "X_natural": 23.8255,
+    "gravity_mass": 120.0,
+    "mass_type": "regulatory"
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.433364,
+      "rank": 2,
+      "of": 199
+    },
+    "power": {
+      "value": 0.08,
+      "rank": 5,
+      "of": 51
+    },
+    "gravity": {
+      "value": 120.0,
+      "rank": 1,
+      "of": 62
+    },
+    "extraction": {
+      "value": 164220.4779,
+      "rank": 8,
+      "of": 51
+    },
+    "share_of_whole": {
+      "mass": 0.02709,
+      "power": 0.08511
+    },
+    "peers_by_power": [
+      {
+        "entity": "TREASURY_MARKET",
+        "power": 0.12
+      },
+      {
+        "entity": "BLACKROCK",
+        "power": 0.08
+      },
+      {
+        "entity": "SEC",
+        "power": 0.08
+      },
+      {
+        "entity": "34539544",
+        "power": 0.05
+      },
+      {
+        "entity": "COINBASE",
+        "power": 0.04
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 10,
+    "out_degree": 10,
+    "by_vector": {
+      "Capital": {
+        "out": 0.5,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 1.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 3.5,
+        "in": 4.6
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "BLACKROCK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "COINBASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "SECURITIZE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "ONDO",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "HESTER_PEIRCE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "REG_D",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "REG_S",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "REG_A_PLUS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "US_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "CFTC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "ESMA",
+        "mass": 106.0,
+        "hops": 1,
+        "pull": 12720.0
+      },
+      {
+        "entity": "CFTC",
+        "mass": 102.0,
+        "hops": 1,
+        "pull": 12240.0
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 88.0,
+        "hops": 1,
+        "pull": 10560.0
+      },
+      {
+        "entity": "34539544",
+        "mass": 54.0,
+        "hops": 1,
+        "pull": 6480.0
+      },
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 50.63,
+        "hops": 1,
+        "pull": 6075.6
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.828,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "watch",
+    "headline": "phi_s -25% over 52 cycles",
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": -0.0004,
+      "kappa": 0.0001,
+      "power": 0.04,
+      "extraction": 85077.4143,
+      "gravity_mass": 1.0,
+      "memory_mass": 12.13,
+      "boundary_score": -0.006
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live",
+        "series_id": "GDP",
+        "label": "securities_market_gdp_proxy",
+        "last_observed_at": "2026-07-17T18:06:38.750811+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "information_flow",
+      "last_observed_at": "2026-07-17T18:46:57.335693+00:00",
+      "last_delta_i": 1.0,
+      "stale": false
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "26ab31ce-2e82-45f9-8c76-0934c6c5d5aa",
+      "claim_text": "SAB 121 rescinded via Staff Accounting Bulletin 122 (January 2025)",
+      "grounding": {
+        "source_url": "https://www.sec.gov/rules-regulations/staff-guidance/staff-accounting-bulletins/staff-accounting-bulletin-122",
+        "expected": "SAB 121",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "SEC_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/sec-20260702/",
+      "verified_at": "2026-07-02T05:03:00.265094+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "21f0b004-d668-4500-b76c-e5692c873a07",
+      "claim_text": "SEC mission \u2014 investor protection and securities markets",
+      "grounding": {
+        "source_url": "https://www.sec.gov/about",
+        "expected": "protect investors",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "SEC_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/sec-20260702/",
+      "verified_at": "2026-07-02T05:03:00.343764+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "b1d8b7bf-b867-42f0-8c11-f22d5cc8a78a",
+      "claim_text": "Howey test \u2014 investment contract jurisdiction for tokenized assets",
+      "grounding": {
+        "source_url": "https://www.sec.gov/corpfin/framework-investment-contract-analysis-digital-assets",
+        "expected": "investment contract",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "SEC_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/sec-20260702/",
+      "verified_at": "2026-07-02T05:03:16.258813+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "c4dcc178-6a32-4c7e-918b-1fb0fff3840f",
+      "claim_text": "Howey test \u2014 investment contract jurisdiction for tokenized assets",
+      "grounding": {
+        "source_url": "https://www.law.cornell.edu/wex/howey_test",
+        "expected": "investment contract",
+        "location": ""
+      },
+      "status_at_publish": "UNVERIFIED-PENDING",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "SEC_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/sec-20260702/",
+      "verified_at": "2026-07-02T05:03:00.763222+00:00",
+      "allows_canonical": false
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/SEC.json"
+}

@@ -1,0 +1,201 @@
+{
+  "entity": "US_TREASURY_DEPARTMENT",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:31.929723+00:00",
+  "digest": "sha256:6c1b6c77467a5ed925a1e5c1bd2e72d4b50735931b555fe5ac2db0ba7cca2dc0",
+  "own_numbers": {
+    "phi_s": 0.006,
+    "kappa": 0.0917,
+    "mass": null,
+    "power": 0.0,
+    "extraction": 34165.74344,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": null,
+    "power": {
+      "value": 0.0,
+      "rank": 51,
+      "of": 51
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 34165.7434,
+      "rank": 16,
+      "of": 51
+    },
+    "share_of_whole": {
+      "mass": null,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "USDY",
+        "power": 0.0
+      },
+      {
+        "entity": "US_EAST_COAST",
+        "power": 0.0
+      },
+      {
+        "entity": "US_TREASURY_DEPARTMENT",
+        "power": 0.0
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 9,
+    "out_degree": 1,
+    "by_vector": {
+      "Capital": {
+        "out": 0.5,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 4.0
+      },
+      "Information": {
+        "out": 0.0,
+        "in": 0.4
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "CANTOR_FITZGERALD",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "BNY_MELLON",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "JPMORGAN",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "GOLDMAN",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "PRIMARY_DEALER_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "capital",
+        "vector": "Capital"
+      }
+    ],
+    "gravity_pairs": []
+  },
+  "monetary_position": {
+    "position": 0.52,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "power": 0.0,
+      "extraction": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "stale",
+    "inbound": [],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "infrastructure",
+      "last_observed_at": "2026-07-02T18:49:57.370152+00:00",
+      "last_delta_i": 4.0,
+      "stale": true
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "04ac30fb-89c5-4a7b-912e-771a26282ccb",
+      "claim_text": "TreasuryDirect \u2014 US Treasury securities",
+      "grounding": {
+        "source_url": "https://www.treasurydirect.gov/",
+        "expected": "Treasury",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "US_TREASURY_DEPARTMENT_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/us-treasury-department-20260702/",
+      "verified_at": "2026-07-02T18:36:35.382433+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "69b88842-6d26-40d8-9294-86e514605f45",
+      "claim_text": "US Department of the Treasury \u2014 homepage",
+      "grounding": {
+        "source_url": "https://home.treasury.gov/",
+        "expected": "Department of the Treasury",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "macro_primary",
+      "witness_weight": 0.88,
+      "report_id": "US_TREASURY_DEPARTMENT_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/us-treasury-department-20260702/",
+      "verified_at": "2026-07-02T18:36:45.635271+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "d2b5b9e9-9e47-4d2a-9e63-cff7bd1ff967",
+      "claim_text": "NY Fed \u2014 Treasury auction counterparties",
+      "grounding": {
+        "source_url": "https://www.newyorkfed.org/markets/primarydealers",
+        "expected": "Treasury auctions",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "US_TREASURY_DEPARTMENT_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/us-treasury-department-20260702/",
+      "verified_at": "2026-07-02T18:36:45.837416+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/US_TREASURY_DEPARTMENT.json"
+}

@@ -1,0 +1,214 @@
+{
+  "entity": "OCC",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:29.899216+00:00",
+  "digest": "sha256:703b2af68df5b6bdb747f76c09e1389dba1d518e1a8ffac5ecd29d281d6e19d3",
+  "own_numbers": {
+    "phi_s": 1.6901,
+    "kappa": 0.0,
+    "mass": 0.285617,
+    "power": null,
+    "extraction": null,
+    "memory_mass": 3.6,
+    "X_natural": 0.0,
+    "gravity_mass": 103.0,
+    "mass_type": "regulatory"
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.285617,
+      "rank": 8,
+      "of": 199
+    },
+    "power": null,
+    "gravity": {
+      "value": 103.0,
+      "rank": 6,
+      "of": 62
+    },
+    "extraction": null,
+    "share_of_whole": {
+      "mass": 0.01785,
+      "power": null
+    },
+    "peers_by_power": []
+  },
+  "relationships": {
+    "in_degree": 2,
+    "out_degree": 1,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 0.5,
+        "in": 1.0
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "ANCHORAGE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "STABLECOIN_POOL",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "US_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 50.63,
+        "hops": 1,
+        "pull": 5214.89
+      },
+      {
+        "entity": "SEC",
+        "mass": 120.0,
+        "hops": 2,
+        "pull": 3090.0
+      },
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 2,
+        "pull": 2961.25
+      },
+      {
+        "entity": "FINRA",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 2678.0
+      },
+      {
+        "entity": "CFTC",
+        "mass": 102.0,
+        "hops": 2,
+        "pull": 2626.5
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.8,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "watch",
+    "headline": "phi_s -49% over 52 cycles",
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "gravity_mass": 0.0,
+      "memory_mass": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live",
+        "series_id": "W006RC1A027NBEA",
+        "label": "tax_receipts_proxy",
+        "last_observed_at": "2026-07-17T18:06:38.750811+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "7ce60bdb-8ea2-42b8-8b2a-bdb60e465011",
+      "claim_text": "OCC charters and supervises national banks",
+      "grounding": {
+        "source_url": "https://www.occ.gov/about/who-we-are/index-who-we-are.html",
+        "expected": "national banks",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "OCC_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/occ-20260702/",
+      "verified_at": "2026-07-02T05:12:21.981436+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "63e42e8d-b580-4a41-b1f8-f48344e19dc0",
+      "claim_text": "Interpretive Letter \u2014 national banks may provide crypto custody",
+      "grounding": {
+        "source_url": "https://www.occ.gov/news-issuances/news-releases/2020/nr-occ-2020-98.html",
+        "expected": "cryptocurrency custody",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "OCC_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/occ-20260702/",
+      "verified_at": "2026-07-02T05:12:52.499262+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "6c55c68b-ca69-4035-9ee9-c9ddcc6604b6",
+      "claim_text": "Interpretive Letter \u2014 banks may use stablecoins for payment activities",
+      "grounding": {
+        "source_url": "https://www.occ.gov/news-issuances/news-releases/2021/nr-occ-2021-2.html",
+        "expected": "stablecoins",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "OCC_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/occ-20260702/",
+      "verified_at": "2026-07-02T05:13:23.291684+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/OCC.json"
+}

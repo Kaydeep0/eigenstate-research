@@ -1,0 +1,193 @@
+{
+  "entity": "UK_JURISDICTION",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:31.751668+00:00",
+  "digest": "sha256:18cf1742981cd2ef5f5a6d1b2ae7f9721a0131cc32a567e139ef18de56afcb48",
+  "own_numbers": {
+    "phi_s": 0.048,
+    "kappa": 0.0183,
+    "mass": 0.046435,
+    "power": null,
+    "extraction": null,
+    "memory_mass": 2.4,
+    "X_natural": 0.0,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.046435,
+      "rank": 99,
+      "of": 199
+    },
+    "power": null,
+    "gravity": null,
+    "extraction": null,
+    "share_of_whole": {
+      "mass": 0.0029,
+      "power": null
+    },
+    "peers_by_power": []
+  },
+  "relationships": {
+    "in_degree": 2,
+    "out_degree": 0,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 0.0,
+        "in": 1.0
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "FCA",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "EU_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [],
+    "gravity_pairs": [
+      {
+        "entity": "FCA",
+        "mass": 102.0,
+        "hops": 1,
+        "pull": 244.8
+      },
+      {
+        "entity": "ESMA",
+        "mass": 106.0,
+        "hops": 2,
+        "pull": 63.6
+      },
+      {
+        "entity": "EU_JURISDICTION",
+        "mass": 14.59,
+        "hops": 1,
+        "pull": 35.016
+      },
+      {
+        "entity": "SEC",
+        "mass": 120.0,
+        "hops": 3,
+        "pull": 32.0
+      },
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 3,
+        "pull": 30.6667
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.6,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "flag",
+    "headline": "phi_s -97% over 52 cycles",
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "memory_mass": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "propagated",
+      "last_observed_at": "2026-07-17T18:43:27.450726+00:00",
+      "last_delta_i": 1.6388831351196257e+18,
+      "stale": false
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "26d5aed0-66a8-454d-b8c4-40e20cbfd8f0",
+      "claim_text": "Financial Conduct Authority \u2014 UK markets regulator",
+      "grounding": {
+        "source_url": "https://www.fca.org.uk/",
+        "expected": "Financial Conduct Authority",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "UK_JURISDICTION_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/uk-jurisdiction-20260702/",
+      "verified_at": "2026-07-02T05:13:39.701333+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "a251f0cd-dfed-4159-8f1b-ee81bcba1ba6",
+      "claim_text": "FCA cryptoasset regime for firms",
+      "grounding": {
+        "source_url": "https://www.fca.org.uk/firms/cryptoassets",
+        "expected": "crypto",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "UK_JURISDICTION_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/uk-jurisdiction-20260702/",
+      "verified_at": "2026-07-02T05:13:39.785817+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "246c2274-4cd7-44a1-813a-189edb7530e5",
+      "claim_text": "Bank of England \u2014 UK central bank",
+      "grounding": {
+        "source_url": "https://www.bankofengland.co.uk/",
+        "expected": "Bank of England",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "UK_JURISDICTION_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/uk-jurisdiction-20260702/",
+      "verified_at": "2026-07-02T05:13:39.944993+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/UK_JURISDICTION.json"
+}

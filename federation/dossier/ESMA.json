@@ -1,0 +1,229 @@
+{
+  "entity": "ESMA",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:27.782623+00:00",
+  "digest": "sha256:fc4b151ceef312091723d369dfb5bbc0e4c781ad73ce47dd2fd170b08a5f0c1d",
+  "own_numbers": {
+    "phi_s": 1.8775,
+    "kappa": 0.0001,
+    "mass": 0.186397,
+    "power": null,
+    "extraction": null,
+    "memory_mass": 12.97,
+    "X_natural": 0.0,
+    "gravity_mass": 106.0,
+    "mass_type": "regulatory"
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.186397,
+      "rank": 17,
+      "of": 199
+    },
+    "power": null,
+    "gravity": {
+      "value": 106.0,
+      "rank": 3,
+      "of": 62
+    },
+    "extraction": null,
+    "share_of_whole": {
+      "mass": 0.01165,
+      "power": null
+    },
+    "peers_by_power": []
+  },
+  "relationships": {
+    "in_degree": 3,
+    "out_degree": 3,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 1.5,
+        "in": 1.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "SEC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "FCA",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "EU_WESTERN",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "MICA",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "DORA",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "EU_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "SEC",
+        "mass": 120.0,
+        "hops": 1,
+        "pull": 12720.0
+      },
+      {
+        "entity": "FCA",
+        "mass": 102.0,
+        "hops": 1,
+        "pull": 10812.0
+      },
+      {
+        "entity": "CFTC",
+        "mass": 102.0,
+        "hops": 2,
+        "pull": 2703.0
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 88.0,
+        "hops": 2,
+        "pull": 2332.0
+      },
+      {
+        "entity": "EU_JURISDICTION",
+        "mass": 14.59,
+        "hops": 1,
+        "pull": 1546.54
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.867,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "watch",
+    "headline": "phi_s -46% over 52 cycles",
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "gravity_mass": 0.0,
+      "memory_mass": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live",
+        "series_id": "GDP",
+        "label": "eu_regulatory_gdp_proxy",
+        "last_observed_at": "2026-07-17T18:06:38.750811+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "d62de558-df3b-45ad-89f4-10ac476b3373",
+      "claim_text": "ESMA \u2014 European securities markets regulator",
+      "grounding": {
+        "source_url": "https://www.esma.europa.eu/about-esma",
+        "expected": "ESMA",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "ESMA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/esma-20260702/",
+      "verified_at": "2026-07-02T05:16:27.347110+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "19186da7-92b1-4d52-a72f-5091c80e66a4",
+      "claim_text": "MiCA \u2014 Markets in Crypto-Assets Regulation",
+      "grounding": {
+        "source_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+        "expected": "MiCA",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "ESMA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/esma-20260702/",
+      "verified_at": "2026-07-02T05:16:27.440042+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "accc5117-7f5b-4d70-9ad3-eaf19fbe247d",
+      "claim_text": "DLT Pilot Regime \u2014 blockchain settlement sandbox",
+      "grounding": {
+        "source_url": "https://www.esma.europa.eu/press-news/esma-news/esma-publishes-final-report-dlt-pilot-regime",
+        "expected": "DLT Pilot",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "ESMA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/esma-20260702/",
+      "verified_at": "2026-07-02T05:16:27.531684+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/ESMA.json"
+}

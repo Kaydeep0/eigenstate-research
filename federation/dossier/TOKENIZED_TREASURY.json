@@ -1,0 +1,274 @@
+{
+  "entity": "TOKENIZED_TREASURY",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:31.561704+00:00",
+  "digest": "sha256:5b1b13ee04cadf1cf6e920723bbfa40ca66f9fc95b495b941175ec93b184a9ab",
+  "own_numbers": {
+    "phi_s": 1.6497,
+    "kappa": 0.0016,
+    "mass": 0.230802,
+    "power": 0.02,
+    "extraction": 166615.222208,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.230802,
+      "rank": 13,
+      "of": 199
+    },
+    "power": {
+      "value": 0.02,
+      "rank": 8,
+      "of": 51
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 166615.2222,
+      "rank": 7,
+      "of": 51
+    },
+    "share_of_whole": {
+      "mass": 0.01443,
+      "power": 0.02128
+    },
+    "peers_by_power": [
+      {
+        "entity": "34539544",
+        "power": 0.05
+      },
+      {
+        "entity": "COINBASE",
+        "power": 0.04
+      },
+      {
+        "entity": "TOKENIZED_TREASURY",
+        "power": 0.02
+      },
+      {
+        "entity": "BASE",
+        "power": 0.01
+      },
+      {
+        "entity": "CIRCLE",
+        "power": 0.01
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 12,
+    "out_degree": 5,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 1.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 2.0
+      },
+      "Information": {
+        "out": 2.5,
+        "in": 3.0
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "TREASURY_MARKET",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "STABLECOIN_POOL",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "VC_FUNDING_POOL",
+        "conn_type": "funding",
+        "vector": "Capital"
+      },
+      {
+        "source": "GRANT_POOL",
+        "conn_type": "funding",
+        "vector": "Capital"
+      },
+      {
+        "source": "INSTITUTIONAL_CUSTODY_POOL",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "BLACKROCK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "ETHEREUM",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "BASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "SEC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "SEC",
+        "mass": 120.0,
+        "hops": 1,
+        "pull": 2.4
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 88.0,
+        "hops": 1,
+        "pull": 1.76
+      },
+      {
+        "entity": "CANTON_NETWORK",
+        "mass": 42.0,
+        "hops": 1,
+        "pull": 0.84
+      },
+      {
+        "entity": "DTCC",
+        "mass": 42.0,
+        "hops": 1,
+        "pull": 0.84
+      },
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 2,
+        "pull": 0.575
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.525,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "flag",
+    "headline": "power -50% over 52 cycles",
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "power": 0.0,
+      "extraction": 6942.3009,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live",
+        "series_id": "DGS10",
+        "label": "treasury_10y_pct",
+        "last_observed_at": "2026-07-17T18:06:38.750811+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": "2026-07-13T19:50:25.145908+00:00",
+      "last_delta_i": null,
+      "stale": false
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "517acda6-399f-4262-9845-db6c5150c594",
+      "claim_text": "BlackRock BUIDL \u2014 tokenized Treasury fund on RWA.xyz",
+      "grounding": {
+        "source_url": "https://rwa.xyz/assets/buidl",
+        "expected": "BUIDL",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "TOKENIZED_TREASURY_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tokenized-treasury-20260702/",
+      "verified_at": "2026-07-02T04:54:34.802881+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "90fe5634-fc1f-4160-a0b2-311c09b715e6",
+      "claim_text": "Ondo OUSG \u2014 institutional tokenized Treasuries",
+      "grounding": {
+        "source_url": "https://rwa.xyz/assets/ousg",
+        "expected": "OUSG",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "TOKENIZED_TREASURY_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tokenized-treasury-20260702/",
+      "verified_at": "2026-07-02T04:54:34.984248+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "439c1e7a-fbc0-4694-8c7d-e44bb437dcf9",
+      "claim_text": "RWA market index \u2014 tokenized real-world assets",
+      "grounding": {
+        "source_url": "https://rwa.xyz/",
+        "expected": "RWA",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "TOKENIZED_TREASURY_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tokenized-treasury-20260702/",
+      "verified_at": "2026-07-02T04:54:35.570319+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/TOKENIZED_TREASURY.json"
+}

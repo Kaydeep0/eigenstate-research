@@ -1,0 +1,228 @@
+{
+  "entity": "BNY_MELLON",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:25.978659+00:00",
+  "digest": "sha256:c5b92e7fd1fa4056e0dc6447c7a88cb6ad0fab1b4b8185a61c55a38069d4b473",
+  "own_numbers": {
+    "phi_s": 4.9138,
+    "kappa": 0.0006,
+    "mass": null,
+    "power": 0.0,
+    "extraction": 2486.5675,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": null,
+    "power": {
+      "value": 0.0,
+      "rank": 16,
+      "of": 51
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 2486.5675,
+      "rank": 28,
+      "of": 51
+    },
+    "share_of_whole": {
+      "mass": null,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "AWS_INFRASTRUCTURE",
+        "power": 0.0
+      },
+      {
+        "entity": "BASE_GRANTS",
+        "power": 0.0
+      },
+      {
+        "entity": "BNY_MELLON",
+        "power": 0.0
+      },
+      {
+        "entity": "CANTON_NETWORK",
+        "power": 0.0
+      },
+      {
+        "entity": "CANTOR_FITZGERALD",
+        "power": 0.0
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 3,
+    "out_degree": 6,
+    "by_vector": {
+      "Capital": {
+        "out": 2.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 1.0,
+        "in": 1.5
+      },
+      "Information": {
+        "out": 0.0,
+        "in": 0.0
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "CIRCLE",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "PRIMARY_DEALER_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CANTON_NETWORK",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "CIRCLE_RESERVE_FUND",
+        "conn_type": "ownership",
+        "vector": "Capital"
+      },
+      {
+        "target": "BLACKROCK",
+        "conn_type": "ownership",
+        "vector": "Capital"
+      },
+      {
+        "target": "US_TREASURY_DEPARTMENT",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "PRIMARY_DEALER_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "capital",
+        "vector": "Capital"
+      }
+    ],
+    "gravity_pairs": []
+  },
+  "monetary_position": {
+    "position": 0.28,
+    "well": "boundary"
+  },
+  "drift": {
+    "level": "flag",
+    "headline": "phi_s +8172% over 52 cycles",
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 1.6182,
+      "kappa": 0.0002,
+      "power": 0.0,
+      "extraction": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live_at_request",
+    "inbound": [
+      {
+        "network": "sec_edgar",
+        "kind": "regulatory_primary",
+        "status": "live_at_request",
+        "last_observed_at": "2026-06-22T23:00:34.463883+00:00",
+        "filings": null,
+        "note": "CIK 0001390777 \u2014 live on feed + parkash sensor"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "aed7d1e6-a6ba-4cbd-9e1a-30cba22bb678",
+      "claim_text": "BNY Mellon \u2014 global investments company",
+      "grounding": {
+        "source_url": "https://www.bnymellon.com/us/en/about-us.html",
+        "expected": "Bank of New York Mellon",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "BNY_MELLON_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/bny-mellon-20260702/",
+      "verified_at": "2026-07-02T05:28:53.304891+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "78ec7dfb-51b8-4070-8da0-6e2e7be34ada",
+      "claim_text": "Digital assets solutions \u2014 institutional custody",
+      "grounding": {
+        "source_url": "https://www.bnymellon.com/us/en/solutions/digital-assets.html",
+        "expected": "digital",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "BNY_MELLON_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/bny-mellon-20260702/",
+      "verified_at": "2026-07-02T05:28:53.964868+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "fe2b7ee7-8a2c-40a7-954e-c4dfcd70b0db",
+      "claim_text": "Securities Services \u2014 global custody",
+      "grounding": {
+        "source_url": "https://www.bnymellon.com/us/en/solutions/securities-services.html",
+        "expected": "custody",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "BNY_MELLON_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/bny-mellon-20260702/",
+      "verified_at": "2026-07-02T05:28:54.674692+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/BNY_MELLON.json"
+}

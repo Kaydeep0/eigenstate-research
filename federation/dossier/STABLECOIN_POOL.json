@@ -1,0 +1,218 @@
+{
+  "entity": "STABLECOIN_POOL",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:31.152158+00:00",
+  "digest": "sha256:f1753f870c4aed6bf78ddd2060aa10a83391b1a69a0b59a4cc92724509b40faa",
+  "own_numbers": {
+    "phi_s": 0.0267,
+    "kappa": 0.0826,
+    "mass": 0.16839,
+    "power": 0.0,
+    "extraction": 7748.2439,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.16839,
+      "rank": 21,
+      "of": 199
+    },
+    "power": {
+      "value": 0.0,
+      "rank": 44,
+      "of": 51
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 7748.2439,
+      "rank": 22,
+      "of": 51
+    },
+    "share_of_whole": {
+      "mass": 0.01052,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "RWA_XYZ_DATA",
+        "power": 0.0
+      },
+      {
+        "entity": "SECURITIZE",
+        "power": 0.0
+      },
+      {
+        "entity": "STABLECOIN_POOL",
+        "power": 0.0
+      },
+      {
+        "entity": "STANI_KULECHOV",
+        "power": 0.0
+      },
+      {
+        "entity": "STRONGHOLD",
+        "power": 0.0
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 2,
+    "out_degree": 7,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.5
+      },
+      "Infrastructure": {
+        "out": 0.5,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 3.0,
+        "in": 0.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "FIAT_ONRAMP",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "FED_RRP",
+        "conn_type": "capital",
+        "vector": "Capital"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "DEFI_TVL_POOL",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "TOKENIZED_TREASURY",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "FIAT_OFFRAMP",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "DEX_SETTLEMENT",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "CIRCLE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": []
+  },
+  "monetary_position": {
+    "position": 0.261,
+    "well": "boundary"
+  },
+  "drift": {
+    "level": "flag",
+    "headline": "phi_s -98% over 52 cycles",
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "power": 0.0,
+      "extraction": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": "2026-07-13T19:50:25.145908+00:00",
+      "last_delta_i": null,
+      "stale": false
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "9adf0a1c-3dc7-4e77-b6d4-101105ea9dc5",
+      "claim_text": "DeFiLlama \u2014 stablecoin market dashboard",
+      "grounding": {
+        "source_url": "https://defillama.com/stablecoins",
+        "expected": "stablecoin",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "onchain_secondary",
+      "witness_weight": 0.62,
+      "report_id": "STABLECOIN_POOL_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/stablecoin-pool-20260702/",
+      "verified_at": "2026-07-02T17:49:00.446865+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "93c61bbb-df73-4656-82b8-80e5e6e5784a",
+      "claim_text": "Stablecoin market \u2014 USDC and USDT dominance",
+      "grounding": {
+        "source_url": "https://defillama.com/stablecoins",
+        "expected": "USDC",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "onchain_secondary",
+      "witness_weight": 0.62,
+      "report_id": "STABLECOIN_POOL_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/stablecoin-pool-20260702/",
+      "verified_at": "2026-07-02T17:49:00.554490+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "a847d322-b641-40df-be9f-ae4d122293d1",
+      "claim_text": "Circle USDC \u2014 regulated dollar stablecoin",
+      "grounding": {
+        "source_url": "https://www.circle.com/usdc",
+        "expected": "USDC",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "STABLECOIN_POOL_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/stablecoin-pool-20260702/",
+      "verified_at": "2026-07-02T17:49:00.694546+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/STABLECOIN_POOL.json"
+}

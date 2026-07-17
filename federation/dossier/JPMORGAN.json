@@ -1,0 +1,270 @@
+{
+  "entity": "JPMORGAN",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:29.254536+00:00",
+  "digest": "sha256:8e64597a83e1c93456ecf6df93d18615f66b4aabc5e855e222f14659f22eee5f",
+  "own_numbers": {
+    "phi_s": 4.8769,
+    "kappa": 0.0019,
+    "mass": 0.384703,
+    "power": 0.35,
+    "extraction": 214319.688785,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": 104.0,
+    "mass_type": "infrastructure"
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.384703,
+      "rank": 3,
+      "of": 199
+    },
+    "power": {
+      "value": 0.35,
+      "rank": 1,
+      "of": 51
+    },
+    "gravity": {
+      "value": 104.0,
+      "rank": 5,
+      "of": 62
+    },
+    "extraction": {
+      "value": 214319.6888,
+      "rank": 6,
+      "of": 51
+    },
+    "share_of_whole": {
+      "mass": 0.02404,
+      "power": 0.37234
+    },
+    "peers_by_power": [
+      {
+        "entity": "JPMORGAN",
+        "power": 0.35
+      },
+      {
+        "entity": "CITIGROUP",
+        "power": 0.17
+      },
+      {
+        "entity": "TREASURY_MARKET",
+        "power": 0.12
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 8,
+    "out_degree": 16,
+    "by_vector": {
+      "Capital": {
+        "out": 0.5,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 4.0,
+        "in": 2.2218
+      },
+      "Information": {
+        "out": 3.5,
+        "in": 2.0
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "US_EAST_COAST",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CIRCLE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "PRIMARY_DEALER_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CIRCLE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "FED",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "KINEXYS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "US_TREASURY_DEPARTMENT",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "PRIMARY_DEALER_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "capital",
+        "vector": "Capital"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 1,
+        "pull": 11960.0
+      },
+      {
+        "entity": "CITIGROUP",
+        "mass": 100.0,
+        "hops": 1,
+        "pull": 10400.0
+      },
+      {
+        "entity": "34539544",
+        "mass": 54.0,
+        "hops": 1,
+        "pull": 5616.0
+      },
+      {
+        "entity": "CANTON_NETWORK",
+        "mass": 42.0,
+        "hops": 1,
+        "pull": 4368.0
+      },
+      {
+        "entity": "SEC",
+        "mass": 120.0,
+        "hops": 2,
+        "pull": 3120.0
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.799,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "watch",
+    "headline": "phi_s -50% over 52 cycles",
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 1.6177,
+      "kappa": 0.0006,
+      "power": 0.12,
+      "extraction": 131892.9569,
+      "gravity_mass": 4.0,
+      "boundary_score": -0.003
+    }
+  },
+  "network_plugs": {
+    "freshness": "live_at_request",
+    "inbound": [
+      {
+        "network": "sec_edgar",
+        "kind": "regulatory_primary",
+        "status": "live_at_request",
+        "last_observed_at": "2026-06-22T23:00:34.463883+00:00",
+        "filings": null,
+        "note": "JPMORGAN CHASE & CO \u2014 25191 total filings, 40 in last 90d"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "eb944cad-736c-4366-855b-c65907ad1802",
+      "claim_text": "JPMorgan \u2014 global financial services institution",
+      "grounding": {
+        "source_url": "https://www.jpmorgan.com/",
+        "expected": "financial services",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "JPMORGAN_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/jpmorgan-20260702/",
+      "verified_at": "2026-07-02T04:07:18.474591+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "623eab57-7ff0-44cf-ada3-f750e2ab31ec",
+      "claim_text": "Kinexys \u2014 blockchain-based payment and tokenization platform",
+      "grounding": {
+        "source_url": "https://www.jpmorgan.com/kinexys",
+        "expected": "Kinexys",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "JPMORGAN_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/jpmorgan-20260702/",
+      "verified_at": "2026-07-02T04:07:18.838716+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "57a556e2-4a76-4cb1-859a-6e84dd245e29",
+      "claim_text": "JPM Coin \u2014 wholesale digital cash for intraday settlement",
+      "grounding": {
+        "source_url": "https://www.jpmorgan.com/kinexys/digital-payments",
+        "expected": "JPM Coin",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "JPMORGAN_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/jpmorgan-20260702/",
+      "verified_at": "2026-07-02T04:07:19.116636+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/JPMORGAN.json"
+}

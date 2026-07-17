@@ -1,0 +1,219 @@
+{
+  "entity": "FINRA",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:28.265300+00:00",
+  "digest": "sha256:a401870ba85917a12d9606b442077f7d05bc03c5aada36ee3f6a5e5a91110c52",
+  "own_numbers": {
+    "phi_s": 0.0642,
+    "kappa": 0.0367,
+    "mass": 0.265589,
+    "power": null,
+    "extraction": null,
+    "memory_mass": 3.21,
+    "X_natural": 0.0,
+    "gravity_mass": 104.0,
+    "mass_type": "regulatory"
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.265589,
+      "rank": 9,
+      "of": 199
+    },
+    "power": null,
+    "gravity": {
+      "value": 104.0,
+      "rank": 4,
+      "of": 62
+    },
+    "extraction": null,
+    "share_of_whole": {
+      "mass": 0.0166,
+      "power": null
+    },
+    "peers_by_power": []
+  },
+  "relationships": {
+    "in_degree": 3,
+    "out_degree": 1,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 0.5,
+        "in": 1.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "SECURITIZE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "COINBASE_SPOT",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "US_EAST_COAST",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "US_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 50.63,
+        "hops": 1,
+        "pull": 5265.52
+      },
+      {
+        "entity": "SEC",
+        "mass": 120.0,
+        "hops": 2,
+        "pull": 3120.0
+      },
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 2,
+        "pull": 2990.0
+      },
+      {
+        "entity": "JPMORGAN",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 2704.0
+      },
+      {
+        "entity": "OCC",
+        "mass": 103.0,
+        "hops": 2,
+        "pull": 2678.0
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.81,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "gravity_mass": 0.0,
+      "memory_mass": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live",
+        "series_id": "GDP",
+        "label": "broker_dealer_gdp_proxy",
+        "last_observed_at": "2026-07-17T18:06:38.750811+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "ba06019f-e453-4252-8dd1-fa39388760d3",
+      "claim_text": "FINRA mission \u2014 protect investors and safeguard capital markets",
+      "grounding": {
+        "source_url": "https://www.finra.org/about",
+        "expected": "protect investors",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "FINRA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/finra-20260702/",
+      "verified_at": "2026-07-02T05:16:34.800612+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "a81b0525-37c4-4b0f-8b40-4812ff93d212",
+      "claim_text": "FINRA crypto asset oversight for member firms",
+      "grounding": {
+        "source_url": "https://www.finra.org/rules-guidance/key-topics/crypto-assets",
+        "expected": "crypto asset",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "FINRA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/finra-20260702/",
+      "verified_at": "2026-07-02T05:16:35.009486+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "da7184a5-4ac1-4499-b747-046b601dc75f",
+      "claim_text": "FINRA investor protection resources",
+      "grounding": {
+        "source_url": "https://www.finra.org/investors",
+        "expected": "FINRA",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "FINRA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/finra-20260702/",
+      "verified_at": "2026-07-02T05:16:35.171632+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/FINRA.json"
+}

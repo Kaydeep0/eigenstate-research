@@ -1,0 +1,198 @@
+{
+  "entity": "REG_A_PLUS",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:30.402995+00:00",
+  "digest": "sha256:86cfa6f5b734343c887b72175ad3ad0cb80971e278fcd50c42cd36349ea2c58c",
+  "own_numbers": {
+    "phi_s": 4.8704,
+    "kappa": 0.0001,
+    "mass": 0.092687,
+    "power": null,
+    "extraction": null,
+    "memory_mass": 0.8,
+    "X_natural": 0.0,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.092687,
+      "rank": 50,
+      "of": 199
+    },
+    "power": null,
+    "gravity": null,
+    "extraction": null,
+    "share_of_whole": {
+      "mass": 0.00579,
+      "power": null
+    },
+    "peers_by_power": []
+  },
+  "relationships": {
+    "in_degree": 1,
+    "out_degree": 0,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 0.0,
+        "in": 0.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "SEC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [],
+    "gravity_pairs": [
+      {
+        "entity": "SEC",
+        "mass": 120.0,
+        "hops": 1,
+        "pull": 96.0
+      },
+      {
+        "entity": "ESMA",
+        "mass": 106.0,
+        "hops": 2,
+        "pull": 21.2
+      },
+      {
+        "entity": "CFTC",
+        "mass": 102.0,
+        "hops": 2,
+        "pull": 20.4
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 88.0,
+        "hops": 2,
+        "pull": 17.6
+      },
+      {
+        "entity": "34539544",
+        "mass": 54.0,
+        "hops": 2,
+        "pull": 10.8
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.7,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "flag",
+    "headline": "phi_s +30340% over 52 cycles",
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 1.6182,
+      "kappa": 0.0,
+      "memory_mass": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live",
+        "series_id": "GDP",
+        "label": "rega_offering_gdp_proxy",
+        "last_observed_at": "2026-07-17T18:06:38.750811+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": "2026-07-17T18:42:20.710763+00:00",
+      "last_delta_i": null,
+      "stale": false
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "67e16636-b559-456f-ba0f-a6e86ebe1a1e",
+      "claim_text": "SEC Regulation A+ offering exemption",
+      "grounding": {
+        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings/rega",
+        "expected": "Regulation A",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "REG_A_PLUS_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-a-plus-20260702/",
+      "verified_at": "2026-07-02T07:24:17.755621+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "2d93925d-7511-423b-b0a1-372a53ced141",
+      "claim_text": "Reg A Tier 2 qualified offering limits",
+      "grounding": {
+        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings/rega",
+        "expected": "offering",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "REG_A_PLUS_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-a-plus-20260702/",
+      "verified_at": "2026-07-02T07:24:17.865089+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "8666135b-0f4c-48f5-bdbe-0af3fecaeef4",
+      "claim_text": "SEC exempt offerings hub \u2014 Reg A context",
+      "grounding": {
+        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings",
+        "expected": "Regulation A",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "REG_A_PLUS_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-a-plus-20260702/",
+      "verified_at": "2026-07-02T07:24:18.017512+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/REG_A_PLUS.json"
+}

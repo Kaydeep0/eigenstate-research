@@ -1,0 +1,280 @@
+{
+  "entity": "FED",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:28.114126+00:00",
+  "digest": "sha256:a3b2484bef32f411d23890dd021ae24f6957388ad1baaa18b22b442b2a5bd8fa",
+  "own_numbers": {
+    "phi_s": 5.5344,
+    "kappa": 0.0014,
+    "mass": 0.360753,
+    "power": 0.0,
+    "extraction": 78384.5335,
+    "memory_mass": 34.0,
+    "X_natural": 0.0,
+    "gravity_mass": 115.0,
+    "mass_type": "regulatory"
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.360753,
+      "rank": 4,
+      "of": 199
+    },
+    "power": {
+      "value": 0.0,
+      "rank": 27,
+      "of": 51
+    },
+    "gravity": {
+      "value": 115.0,
+      "rank": 2,
+      "of": 62
+    },
+    "extraction": {
+      "value": 78384.5335,
+      "rank": 10,
+      "of": 51
+    },
+    "share_of_whole": {
+      "mass": 0.02255,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "ETHEREUM",
+        "power": 0.0
+      },
+      {
+        "entity": "FARCASTER",
+        "power": 0.0
+      },
+      {
+        "entity": "FED",
+        "power": 0.0
+      },
+      {
+        "entity": "FED_RRP",
+        "power": 0.0
+      },
+      {
+        "entity": "GCP_INFRASTRUCTURE",
+        "power": 0.0
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 10,
+    "out_degree": 5,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 1.0,
+        "in": 3.5
+      },
+      "Information": {
+        "out": 1.5,
+        "in": 1.1
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "US_EAST_COAST",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "FED_RRP",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "BENJAMIN_STRONG",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "JPMORGAN",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "JEKYLL_ISLAND",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "US_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "FED_RRP",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "JPMORGAN",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "CITIGROUP",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "JPMORGAN",
+        "mass": 104.0,
+        "hops": 1,
+        "pull": 11960.0
+      },
+      {
+        "entity": "CITIGROUP",
+        "mass": 100.0,
+        "hops": 1,
+        "pull": 11500.0
+      },
+      {
+        "entity": "34539544",
+        "mass": 54.0,
+        "hops": 1,
+        "pull": 6210.0
+      },
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 50.63,
+        "hops": 1,
+        "pull": 5822.45
+      },
+      {
+        "entity": "DTCC",
+        "mass": 42.0,
+        "hops": 1,
+        "pull": 4830.0
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.851,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "watch",
+    "headline": "phi_s -59% over 52 cycles",
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.001,
+      "power": 0.0,
+      "extraction": 0.0,
+      "gravity_mass": 0.0,
+      "memory_mass": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live",
+        "series_id": "M2SL",
+        "label": "m2_billions",
+        "last_observed_at": "2026-07-17T18:06:38.750811+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "information_flow",
+      "last_observed_at": "2026-07-15T15:46:00.132069+00:00",
+      "last_delta_i": 2.0,
+      "stale": false
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "b0a58d49-527c-4544-99b0-eec441f34546",
+      "claim_text": "Federal Reserve \u2014 central bank of the United States",
+      "grounding": {
+        "source_url": "https://www.federalreserve.gov/aboutthefed.htm",
+        "expected": "Federal Reserve",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "macro_primary",
+      "witness_weight": 0.88,
+      "report_id": "FED_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fed-20260702/",
+      "verified_at": "2026-07-02T15:01:34.457693+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "28bab554-c93c-4167-94d0-c04c2dce92cb",
+      "claim_text": "FedNow \u2014 instant payment service",
+      "grounding": {
+        "source_url": "https://www.federalreserve.gov/paymentsystems/fednow_about.htm",
+        "expected": "FedNow",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "macro_primary",
+      "witness_weight": 0.88,
+      "report_id": "FED_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fed-20260702/",
+      "verified_at": "2026-07-02T15:01:34.639897+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "f813f799-48f6-4154-b3d5-2d0f8fa8da2f",
+      "claim_text": "FOMC \u2014 monetary policy decisions",
+      "grounding": {
+        "source_url": "https://www.federalreserve.gov/monetarypolicy/fomc.htm",
+        "expected": "FOMC",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "macro_primary",
+      "witness_weight": 0.88,
+      "report_id": "FED_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fed-20260702/",
+      "verified_at": "2026-07-02T15:01:34.814329+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/FED.json"
+}

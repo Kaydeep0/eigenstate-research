@@ -1,0 +1,203 @@
+{
+  "entity": "MICA_FULL_IMPLEMENTATION",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:29.636062+00:00",
+  "digest": "sha256:4432c213fa4a6bde510ec3ce6fbc8596ff7e26162f711ded85aa4e4a495bdeb8",
+  "own_numbers": {
+    "phi_s": 8.1326,
+    "kappa": 0.0001,
+    "mass": 0.098971,
+    "power": null,
+    "extraction": null,
+    "memory_mass": 4.2,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.098971,
+      "rank": 41,
+      "of": 199
+    },
+    "power": null,
+    "gravity": null,
+    "extraction": null,
+    "share_of_whole": {
+      "mass": 0.00619,
+      "power": null
+    },
+    "peers_by_power": []
+  },
+  "relationships": {
+    "in_degree": 0,
+    "out_degree": 2,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 1.0,
+        "in": 0.0
+      }
+    },
+    "top_inbound": [],
+    "top_outbound": [
+      {
+        "target": "EU_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "REGULATORY_DEADLINE",
+        "conn_type": "regulatory",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "ESMA",
+        "mass": 106.0,
+        "hops": 2,
+        "pull": 111.3
+      },
+      {
+        "entity": "EU_JURISDICTION",
+        "mass": 14.59,
+        "hops": 1,
+        "pull": 61.278
+      },
+      {
+        "entity": "SEC",
+        "mass": 120.0,
+        "hops": 3,
+        "pull": 56.0
+      },
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 3,
+        "pull": 53.6667
+      },
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 50.63,
+        "hops": 2,
+        "pull": 53.1615
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.5,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "flag",
+    "headline": "phi_s +19263% over 52 cycles",
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 3.2362,
+      "kappa": 0.0001,
+      "memory_mass": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live",
+        "series_id": "GDP",
+        "label": "mica_deadline_gdp_proxy",
+        "last_observed_at": "2026-07-17T18:06:38.750811+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "eb95ff9b-46e6-458f-895e-617debbce5fe",
+      "claim_text": "MiCA full application \u2014 December 2024",
+      "grounding": {
+        "source_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+        "expected": "December 2024",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "MICA_FULL_IMPLEMENTATION_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/mica-full-implementation-20260702/",
+      "verified_at": "2026-07-02T07:15:58.360746+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "0505a630-5c5f-407c-9df4-c5e4f0007f5b",
+      "claim_text": "MiCA grandfathering clause through July 2026",
+      "grounding": {
+        "source_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+        "expected": "1 July 2026",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "MICA_FULL_IMPLEMENTATION_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/mica-full-implementation-20260702/",
+      "verified_at": "2026-07-02T07:15:58.416842+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "1d383f9b-992a-40e6-ae38-e1351b06c11e",
+      "claim_text": "MiCA transitional authorisation convergence",
+      "grounding": {
+        "source_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+        "expected": "grandfathering",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "MICA_FULL_IMPLEMENTATION_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/mica-full-implementation-20260702/",
+      "verified_at": "2026-07-02T07:15:58.475404+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/MICA_FULL_IMPLEMENTATION.json"
+}

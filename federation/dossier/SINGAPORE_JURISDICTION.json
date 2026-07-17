@@ -1,0 +1,209 @@
+{
+  "entity": "SINGAPORE_JURISDICTION",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:30.948055+00:00",
+  "digest": "sha256:c46fec9857d7c0e7b5f779692f4931538712377086a45ff7d50ad924b7dc47ac",
+  "own_numbers": {
+    "phi_s": 0.096,
+    "kappa": 0.0275,
+    "mass": 0.115062,
+    "power": null,
+    "extraction": null,
+    "memory_mass": 4.8,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.115062,
+      "rank": 33,
+      "of": 199
+    },
+    "power": null,
+    "gravity": null,
+    "extraction": null,
+    "share_of_whole": {
+      "mass": 0.00719,
+      "power": null
+    },
+    "peers_by_power": []
+  },
+  "relationships": {
+    "in_degree": 2,
+    "out_degree": 1,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 0.5,
+        "in": 1.0
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "MAS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "US_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "HK_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 50.63,
+        "hops": 1,
+        "pull": 243.024
+      },
+      {
+        "entity": "SEC",
+        "mass": 120.0,
+        "hops": 2,
+        "pull": 144.0
+      },
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 2,
+        "pull": 138.0
+      },
+      {
+        "entity": "FINRA",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 124.8
+      },
+      {
+        "entity": "OCC",
+        "mass": 103.0,
+        "hops": 2,
+        "pull": 123.6
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.5,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "memory_mass": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "fred",
+        "kind": "macro_primary",
+        "status": "live",
+        "series_id": "GDP",
+        "label": "sg_jurisdiction_gdp_proxy",
+        "last_observed_at": "2026-07-17T18:06:38.750811+00:00",
+        "note": "fredgraph.csv at feed request time; parkash macro via population_field"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "5fa08dc8-23a4-4d64-9f88-682da03f7942",
+      "claim_text": "MAS \u2014 Singapore central bank and financial regulator",
+      "grounding": {
+        "source_url": "https://www.mas.gov.sg/",
+        "expected": "Monetary Authority",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "SINGAPORE_JURISDICTION_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/singapore-jurisdiction-20260702/",
+      "verified_at": "2026-07-02T07:30:17.785107+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "cde487ea-3540-452d-a3d7-e5a0733873e0",
+      "claim_text": "MAS digital assets policy",
+      "grounding": {
+        "source_url": "https://www.mas.gov.sg/development/fintech/digital-assets",
+        "expected": "Singapore",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "SINGAPORE_JURISDICTION_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/singapore-jurisdiction-20260702/",
+      "verified_at": "2026-07-02T07:30:18.136868+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "bcb93342-fcdd-4436-8ba6-059df1ae3a11",
+      "claim_text": "MAS FinTech and innovation hub",
+      "grounding": {
+        "source_url": "https://www.mas.gov.sg/development/fintech",
+        "expected": "Singapore",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "SINGAPORE_JURISDICTION_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/singapore-jurisdiction-20260702/",
+      "verified_at": "2026-07-02T07:30:18.541886+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/SINGAPORE_JURISDICTION.json"
+}

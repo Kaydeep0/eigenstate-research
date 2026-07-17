@@ -1,0 +1,256 @@
+{
+  "entity": "BASE",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:25.539506+00:00",
+  "digest": "sha256:1a90f7d7bcc8f4a489f9516dfa9feebfb1c8062d3d400421683552a1b98d4348",
+  "own_numbers": {
+    "phi_s": 0.0298,
+    "kappa": 0.1927,
+    "mass": 0.195659,
+    "power": 0.01,
+    "extraction": 283022.158163,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.195659,
+      "rank": 16,
+      "of": 199
+    },
+    "power": {
+      "value": 0.01,
+      "rank": 9,
+      "of": 51
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 283022.1582,
+      "rank": 4,
+      "of": 51
+    },
+    "share_of_whole": {
+      "mass": 0.01223,
+      "power": 0.01064
+    },
+    "peers_by_power": [
+      {
+        "entity": "COINBASE",
+        "power": 0.04
+      },
+      {
+        "entity": "TOKENIZED_TREASURY",
+        "power": 0.02
+      },
+      {
+        "entity": "BASE",
+        "power": 0.01
+      },
+      {
+        "entity": "CIRCLE",
+        "power": 0.01
+      },
+      {
+        "entity": "CITI_TREASURY_SERVICES",
+        "power": 0.01
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 19,
+    "out_degree": 2,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.5
+      },
+      "Infrastructure": {
+        "out": 0.5,
+        "in": 1.0
+      },
+      "Information": {
+        "out": 0.5,
+        "in": 8.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "ETHEREUM",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "OPENZEPPELIN_CONTRACTS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CHAINLINK_ORACLES",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "THIRDWEB",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "EAS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "COINBASE",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "COINBASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "34539544",
+        "mass": 54.0,
+        "hops": 1,
+        "pull": 0.54
+      },
+      {
+        "entity": "SEC",
+        "mass": 120.0,
+        "hops": 2,
+        "pull": 0.3
+      },
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 2,
+        "pull": 0.2875
+      },
+      {
+        "entity": "JPMORGAN",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 0.26
+      },
+      {
+        "entity": "CITIGROUP",
+        "mass": 100.0,
+        "hops": 2,
+        "pull": 0.25
+      }
+    ]
+  },
+  "monetary_position": {
+    "position": 0.471,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "flag",
+    "headline": "phi_s -98% over 52 cycles",
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "power": 0.0,
+      "extraction": 7447.9516,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "defillama",
+        "kind": "chains",
+        "status": "live",
+        "note": "fetched from public API at request time"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "infrastructure",
+      "last_observed_at": "2026-07-17T18:04:16.710801+00:00",
+      "last_delta_i": 4.0,
+      "stale": false
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "3e284f58-9541-40d6-9e0b-af8dddb42aea",
+      "claim_text": "Base is an Ethereum Layer 2 on the OP Stack",
+      "grounding": {
+        "source_url": "https://docs.base.org/get-started/base",
+        "expected": "Layer 2",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "BASE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/base-20260702/",
+      "verified_at": "2026-07-02T07:46:21.340152+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "ecfe56b1-e938-4648-9e00-36df8a3573d7",
+      "claim_text": "Base incubated by Coinbase",
+      "grounding": {
+        "source_url": "https://www.base.org/",
+        "expected": "Coinbase",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "BASE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/base-20260702/",
+      "verified_at": "2026-07-02T07:46:21.513637+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "6b159791-1f64-4282-843f-b73bf69acb22",
+      "claim_text": "DeFiLlama tracks Base chain TVL and protocol activity",
+      "grounding": {
+        "source_url": "https://defillama.com/chain/Base",
+        "expected": "Base",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "onchain_secondary",
+      "witness_weight": 0.62,
+      "report_id": "BASE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/base-20260702/",
+      "verified_at": "2026-07-02T07:46:21.718085+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/BASE.json"
+}

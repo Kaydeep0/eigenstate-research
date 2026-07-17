@@ -1,0 +1,169 @@
+{
+  "entity": "CURVE",
+  "node": "34539544",
+  "compiled_at": "2026-07-17T18:58:27.090604+00:00",
+  "digest": "sha256:e2543604210693bcc7faef30d3e74793d87e1ac3032e2574a3e5de24b1c35224",
+  "own_numbers": {
+    "phi_s": 0.02,
+    "kappa": 0.0183,
+    "mass": 0.042352,
+    "power": null,
+    "extraction": null,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.042352,
+      "rank": 120,
+      "of": 199
+    },
+    "power": null,
+    "gravity": null,
+    "extraction": null,
+    "share_of_whole": {
+      "mass": 0.00265,
+      "power": null
+    },
+    "peers_by_power": []
+  },
+  "relationships": {
+    "in_degree": 1,
+    "out_degree": 1,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 0.5,
+        "in": 0.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "UNISWAP",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "ETHEREUM",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": []
+  },
+  "monetary_position": {
+    "position": 0.5,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 52,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "defillama",
+        "kind": "protocols",
+        "status": "live",
+        "note": "fetched from public API at request time"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "b5a5e4d1-ffe7-4ab8-94db-4ee35434398e",
+      "claim_text": "Curve Finance \u2014 stableswap liquidity protocol",
+      "grounding": {
+        "source_url": "https://curve.fi/",
+        "expected": "Curve",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CURVE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260702/",
+      "verified_at": "2026-07-02T07:54:44.696389+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "b75317ce-3995-47ae-9579-3f6d27cf9044",
+      "claim_text": "Curve stablecoin liquidity pools on-chain",
+      "grounding": {
+        "source_url": "https://defillama.com/protocol/curve-dex",
+        "expected": "stablecoin",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "onchain_secondary",
+      "witness_weight": 0.62,
+      "report_id": "CURVE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260702/",
+      "verified_at": "2026-07-02T07:54:44.798122+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "d01a689c-9b02-4ede-afb4-ffc3ea2d48ec",
+      "claim_text": "DeFiLlama Curve DEX protocol index",
+      "grounding": {
+        "source_url": "https://defillama.com/protocol/curve-dex",
+        "expected": "Curve",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "onchain_secondary",
+      "witness_weight": 0.62,
+      "report_id": "CURVE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260702/",
+      "verified_at": "2026-07-02T07:54:44.909813+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/CURVE.json"
+}
