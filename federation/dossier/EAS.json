@@ -1,14 +1,14 @@
 {
   "entity": "EAS",
   "node": "34539544",
-  "compiled_at": "2026-07-17T18:58:27.661615+00:00",
-  "digest": "sha256:4919b6ad87ab604a851a155e8e453437aa94e638193f6906c7a2f4231797aefc",
+  "compiled_at": "2026-07-17T20:26:19.983883+00:00",
+  "digest": "sha256:761dba3d11f65b304416801c36c0d0285d010796dd14daa2a06113dd3256a3be",
   "own_numbers": {
     "phi_s": 0.02,
     "kappa": 0.055,
     "mass": 0.042233,
     "power": 0.0,
-    "extraction": 1055.9706,
+    "extraction": 994.8339,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,7 +27,7 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 1055.9706,
+      "value": 994.8339,
       "rank": 33,
       "of": 51
     },
@@ -59,16 +59,16 @@
     ]
   },
   "relationships": {
-    "in_degree": 3,
-    "out_degree": 3,
+    "in_degree": 4,
+    "out_degree": 2,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 0.5,
-        "in": 0.0
+        "out": 0.0,
+        "in": 0.5
       },
       "Information": {
         "out": 1.0,
@@ -77,17 +77,22 @@
     },
     "top_inbound": [
       {
-        "source": "CITIGROUP",
+        "source": "TOKENIZED_TREASURY",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CITI_TREASURY_SERVICES",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "source": "JPMORGAN",
+        "source": "KINEXYS",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "source": "CITIGROUP",
+        "source": "CITI_TREASURY_SERVICES",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -102,29 +107,24 @@
         "target": "ETHEREUM",
         "conn_type": "information_flow",
         "vector": "Information"
-      },
-      {
-        "target": "TOKENIZED_TREASURY",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.59,
+    "position": 0.5,
     "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 52,
+    "cycles": 53,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0459,
+      "kappa": 0.0,
       "power": 0.0,
-      "extraction": -3060.9937,
-      "boundary_score": -0.025
+      "extraction": -61.1367,
+      "boundary_score": 0.09
     }
   },
   "network_plugs": {

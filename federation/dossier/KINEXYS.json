@@ -1,14 +1,14 @@
 {
   "entity": "KINEXYS",
   "node": "34539544",
-  "compiled_at": "2026-07-17T18:58:29.371745+00:00",
-  "digest": "sha256:3cd24730a510793af3cade176d21a12b87126e1253364ecb326f508751d723d8",
+  "compiled_at": "2026-07-17T20:26:21.431799+00:00",
+  "digest": "sha256:c114c43ee637153acbe0cfe71320f15f225f76dd1994df7eb39080035e6471d8",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0642,
+    "kappa": 0.0917,
     "mass": 0.1118,
     "power": 0.0,
-    "extraction": 4656.7238,
+    "extraction": 14636.8033,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,8 +27,8 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 4656.7238,
-      "rank": 24,
+      "value": 14636.8033,
+      "rank": 19,
       "of": 51
     },
     "share_of_whole": {
@@ -59,8 +59,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 3,
-    "out_degree": 4,
+    "in_degree": 2,
+    "out_degree": 8,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -71,8 +71,8 @@
         "in": 0.5
       },
       "Information": {
-        "out": 0.0,
-        "in": 1.0
+        "out": 2.0,
+        "in": 0.5
       }
     },
     "top_inbound": [
@@ -82,14 +82,9 @@
         "vector": "Information"
       },
       {
-        "source": "JPMORGAN",
+        "source": "CANTON_NETWORK",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
-      },
-      {
-        "source": "JPMORGAN",
-        "conn_type": "information_flow",
-        "vector": "Information"
       }
     ],
     "top_outbound": [
@@ -104,32 +99,37 @@
         "vector": "Infrastructure"
       },
       {
-        "target": "PRIMARY_DEALER_NETWORK",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
+        "target": "CITI_TREASURY_SERVICES",
+        "conn_type": "information_flow",
+        "vector": "Information"
       },
       {
-        "target": "FED",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
+        "target": "EAS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "JPMORGAN",
+        "conn_type": "information_flow",
+        "vector": "Information"
       }
     ],
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.611,
+    "position": 0.582,
     "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 52,
+    "cycles": 53,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": 0.0275,
       "power": 0.0,
-      "extraction": -931.3447,
-      "boundary_score": -0.045
+      "extraction": 9980.0795,
+      "boundary_score": 0.029
     }
   },
   "network_plugs": {

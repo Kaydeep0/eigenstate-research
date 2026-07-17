@@ -1,14 +1,14 @@
 {
   "entity": "GOLDMAN",
   "node": "34539544",
-  "compiled_at": "2026-07-17T18:58:28.635865+00:00",
-  "digest": "sha256:82a954b2cc3af0fcab0d825ca1dad5a839af9e3761546a1556586811d4376e7b",
+  "compiled_at": "2026-07-17T20:26:20.752874+00:00",
+  "digest": "sha256:a02d5bd87f4c370d20f6644771a86b7913929ee16620e52831f98a6a05a07dba",
   "own_numbers": {
-    "phi_s": 0.0233,
+    "phi_s": 0.0245,
     "kappa": 0.0459,
     "mass": 0.037563,
     "power": 0.0,
-    "extraction": 1863.5173,
+    "extraction": 1754.4807,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,7 +27,7 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 1863.5173,
+      "value": 1754.4807,
       "rank": 29,
       "of": 51
     },
@@ -59,12 +59,12 @@
     ]
   },
   "relationships": {
-    "in_degree": 4,
-    "out_degree": 1,
+    "in_degree": 3,
+    "out_degree": 2,
     "by_vector": {
       "Capital": {
-        "out": 0.0,
-        "in": 0.5
+        "out": 0.5,
+        "in": 0.0
       },
       "Infrastructure": {
         "out": 0.5,
@@ -76,11 +76,6 @@
       }
     },
     "top_inbound": [
-      {
-        "source": "BNY_MELLON",
-        "conn_type": "ownership",
-        "vector": "Capital"
-      },
       {
         "source": "CANTON_NETWORK",
         "conn_type": "infrastructure",
@@ -102,6 +97,11 @@
         "target": "US_TREASURY_DEPARTMENT",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
+      },
+      {
+        "target": "BNY_MELLON",
+        "conn_type": "ownership",
+        "vector": "Capital"
       }
     ],
     "gravity_pairs": []
@@ -113,12 +113,12 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 52,
+    "cycles": 53,
     "delta_last_cycle": {
-      "phi_s": 0.0,
+      "phi_s": 0.0012,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": -465.8793,
+      "extraction": -109.0366,
       "boundary_score": 0.0
     }
   },

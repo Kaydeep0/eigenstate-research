@@ -1,14 +1,14 @@
 {
   "entity": "BNY_MELLON",
   "node": "34539544",
-  "compiled_at": "2026-07-17T18:58:25.978659+00:00",
-  "digest": "sha256:c5b92e7fd1fa4056e0dc6447c7a88cb6ad0fab1b4b8185a61c55a38069d4b473",
+  "compiled_at": "2026-07-17T20:26:18.746266+00:00",
+  "digest": "sha256:0141e6aa8b52936f399236bd25659a1cbf4970d2c9c1daca3a2255e3dc8b15d8",
   "own_numbers": {
-    "phi_s": 4.9138,
-    "kappa": 0.0006,
+    "phi_s": 3.2945,
+    "kappa": 0.0004,
     "mass": null,
     "power": 0.0,
-    "extraction": 2486.5675,
+    "extraction": 2340.7659,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -23,7 +23,7 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 2486.5675,
+      "value": 2340.7659,
       "rank": 28,
       "of": 51
     },
@@ -55,12 +55,12 @@
     ]
   },
   "relationships": {
-    "in_degree": 3,
-    "out_degree": 6,
+    "in_degree": 4,
+    "out_degree": 5,
     "by_vector": {
       "Capital": {
-        "out": 2.0,
-        "in": 0.0
+        "out": 1.5,
+        "in": 0.5
       },
       "Infrastructure": {
         "out": 1.0,
@@ -81,6 +81,11 @@
         "source": "PRIMARY_DEALER_NETWORK",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
+      },
+      {
+        "source": "GOLDMAN",
+        "conn_type": "ownership",
+        "vector": "Capital"
       },
       {
         "source": "CANTON_NETWORK",
@@ -123,13 +128,13 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +8172% over 52 cycles",
-    "cycles": 52,
+    "headline": "phi_s +5446% over 53 cycles",
+    "cycles": 53,
     "delta_last_cycle": {
-      "phi_s": 1.6182,
-      "kappa": 0.0002,
+      "phi_s": -1.6193,
+      "kappa": -0.0002,
       "power": 0.0,
-      "extraction": 0.0,
+      "extraction": -145.8016,
       "boundary_score": 0.0
     }
   },

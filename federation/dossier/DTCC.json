@@ -1,14 +1,14 @@
 {
   "entity": "DTCC",
   "node": "34539544",
-  "compiled_at": "2026-07-17T18:58:27.601971+00:00",
-  "digest": "sha256:df9c170abe7c4ac0da590bb15603468ad817f255edc185b6fb6af73d10414ff5",
+  "compiled_at": "2026-07-17T20:26:19.938752+00:00",
+  "digest": "sha256:1ab8db025eff03abafdad183abfaab28b3d30c1a87b84b2e3d6019e447a38f93",
   "own_numbers": {
-    "phi_s": 4.8744,
-    "kappa": 0.0016,
+    "phi_s": 3.2562,
+    "kappa": 0.0012,
     "mass": 0.240306,
     "power": 0.0,
-    "extraction": 46699.9144,
+    "extraction": 43956.2408,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": 42.0,
@@ -31,7 +31,7 @@
       "of": 62
     },
     "extraction": {
-      "value": 46699.9144,
+      "value": 43956.2408,
       "rank": 13,
       "of": 51
     },
@@ -63,8 +63,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 11,
-    "out_degree": 6,
+    "in_degree": 8,
+    "out_degree": 9,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -75,8 +75,8 @@
         "in": 3.5
       },
       "Information": {
-        "out": 0.0,
-        "in": 2.5
+        "out": 1.5,
+        "in": 1.0
       }
     },
     "top_inbound": [
@@ -142,9 +142,9 @@
       },
       {
         "entity": "CITIGROUP",
-        "mass": 100.0,
+        "mass": 98.0,
         "hops": 1,
-        "pull": 4200.0
+        "pull": 4116.0
       },
       {
         "entity": "34539544",
@@ -154,9 +154,9 @@
       },
       {
         "entity": "CANTON_NETWORK",
-        "mass": 42.0,
+        "mass": 43.0,
         "hops": 1,
-        "pull": 1764.0
+        "pull": 1806.0
       },
       {
         "entity": "SEC",
@@ -171,16 +171,16 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 52,
+    "level": "watch",
+    "headline": "phi_s -33% over 53 cycles",
+    "cycles": 53,
     "delta_last_cycle": {
-      "phi_s": 1.6182,
-      "kappa": 0.0003,
+      "phi_s": -1.6182,
+      "kappa": -0.0004,
       "power": 0.0,
-      "extraction": -14509.0228,
-      "gravity_mass": -1.0,
-      "boundary_score": -0.004
+      "extraction": -2743.6736,
+      "gravity_mass": 0.0,
+      "boundary_score": 0.0
     }
   },
   "network_plugs": {
@@ -192,7 +192,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "settlement_volume_gdp_proxy",
-        "last_observed_at": "2026-07-17T18:06:38.750811+00:00",
+        "last_observed_at": "2026-07-17T19:32:35.788402+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],

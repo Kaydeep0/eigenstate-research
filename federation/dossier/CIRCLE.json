@@ -1,14 +1,14 @@
 {
   "entity": "CIRCLE",
   "node": "34539544",
-  "compiled_at": "2026-07-17T18:58:26.416326+00:00",
-  "digest": "sha256:1070550eb1d3bfb9c0e04425be79750bf82dc704c7e3e8f681ad6c4f468010a1",
+  "compiled_at": "2026-07-17T20:26:19.053694+00:00",
+  "digest": "sha256:4cd5708c8191b70c1b52aedc3df91efded9d16eeeb0a13f19de40542fdfc9de8",
   "own_numbers": {
-    "phi_s": 9.7767,
-    "kappa": 0.0015,
+    "phi_s": 4.9223,
+    "kappa": 0.0013,
     "mass": 0.261446,
     "power": 0.01,
-    "extraction": 59758.793256,
+    "extraction": 59734.357743,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,13 +27,13 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 59758.7933,
-      "rank": 11,
+      "value": 59734.3577,
+      "rank": 10,
       "of": 51
     },
     "share_of_whole": {
       "mass": 0.01634,
-      "power": 0.01064
+      "power": 0.0137
     },
     "peers_by_power": [
       {
@@ -59,8 +59,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 6,
-    "out_degree": 10,
+    "in_degree": 7,
+    "out_degree": 9,
     "by_vector": {
       "Capital": {
         "out": 1.0,
@@ -71,8 +71,8 @@
         "in": 0.0
       },
       "Information": {
-        "out": 3.0,
-        "in": 3.2
+        "out": 2.5,
+        "in": 3.7
       }
     },
     "top_inbound": [
@@ -109,11 +109,6 @@
         "vector": "Information"
       },
       {
-        "target": "TETHER",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
         "target": "CIRCLE_RESERVE_FUND",
         "conn_type": "information_flow",
         "vector": "Information"
@@ -127,20 +122,25 @@
         "target": "JPMORGAN",
         "conn_type": "information_flow",
         "vector": "Information"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": [
       {
         "entity": "JPMORGAN",
-        "mass": 104.0,
-        "hops": 1,
-        "pull": 1.04
-      },
-      {
-        "entity": "CITIGROUP",
         "mass": 100.0,
         "hops": 1,
         "pull": 1.0
+      },
+      {
+        "entity": "CITIGROUP",
+        "mass": 98.0,
+        "hops": 1,
+        "pull": 0.98
       },
       {
         "entity": "BLACKROCK",
@@ -168,13 +168,13 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "extraction -58% over 52 cycles",
-    "cycles": 52,
+    "headline": "extraction -58% over 53 cycles",
+    "cycles": 53,
     "delta_last_cycle": {
-      "phi_s": 1.6193,
-      "kappa": 0.0,
+      "phi_s": -4.8544,
+      "kappa": -0.0002,
       "power": 0.0,
-      "extraction": -3677.4642,
+      "extraction": -24.4356,
       "boundary_score": 0.0
     }
   },

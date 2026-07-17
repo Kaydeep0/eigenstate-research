@@ -1,14 +1,14 @@
 {
   "entity": "CITI_TREASURY_SERVICES",
   "node": "34539544",
-  "compiled_at": "2026-07-17T18:58:26.564678+00:00",
-  "digest": "sha256:9a1cea98b3d6bea469fcc1e836b56e7f04c6b3f4d99b0189eb1883c499035385",
+  "compiled_at": "2026-07-17T20:26:19.153886+00:00",
+  "digest": "sha256:3979b663f807a8af25f48f4d19df9b7f7c32a62a47a52bdf430d33ace78254cd",
   "own_numbers": {
-    "phi_s": 0.0226,
-    "kappa": 0.1009,
+    "phi_s": 0.0224,
+    "kappa": 0.1193,
     "mass": null,
     "power": 0.01,
-    "extraction": 17957.5302,
+    "extraction": 31567.0876,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -23,13 +23,13 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 17957.5302,
-      "rank": 18,
+      "value": 31567.0876,
+      "rank": 17,
       "of": 51
     },
     "share_of_whole": {
       "mass": null,
-      "power": 0.01064
+      "power": 0.0137
     },
     "peers_by_power": [
       {
@@ -55,8 +55,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 5,
-    "out_degree": 6,
+    "in_degree": 3,
+    "out_degree": 10,
     "by_vector": {
       "Capital": {
         "out": 0.5,
@@ -67,23 +67,13 @@
         "in": 0.0
       },
       "Information": {
-        "out": 1.0,
-        "in": 2.5
+        "out": 3.0,
+        "in": 1.5
       }
     },
     "top_inbound": [
       {
-        "source": "CITIGROUP",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "JPMORGAN",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "CITIGROUP",
+        "source": "KINEXYS",
         "conn_type": "information_flow",
         "vector": "Information"
       },
@@ -100,29 +90,29 @@
     ],
     "top_outbound": [
       {
+        "target": "EAS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
         "target": "CITIGROUP",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "target": "PRIMARY_DEALER_NETWORK",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
+        "target": "EAS",
+        "conn_type": "information_flow",
+        "vector": "Information"
       },
       {
-        "target": "FED",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
+        "target": "CITIGROUP",
+        "conn_type": "information_flow",
+        "vector": "Information"
       },
       {
-        "target": "TREASURY_MARKET",
-        "conn_type": "capital",
-        "vector": "Capital"
-      },
-      {
-        "target": "DTCC",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
+        "target": "CITIGROUP",
+        "conn_type": "information_flow",
+        "vector": "Information"
       }
     ],
     "gravity_pairs": [
@@ -133,16 +123,10 @@
         "pull": 1.15
       },
       {
-        "entity": "JPMORGAN",
-        "mass": 104.0,
-        "hops": 1,
-        "pull": 1.04
-      },
-      {
         "entity": "CITIGROUP",
-        "mass": 100.0,
+        "mass": 98.0,
         "hops": 1,
-        "pull": 1.0
+        "pull": 0.98
       },
       {
         "entity": "US_JURISDICTION",
@@ -155,23 +139,29 @@
         "mass": 42.0,
         "hops": 1,
         "pull": 0.42
+      },
+      {
+        "entity": "SEC",
+        "mass": 120.0,
+        "hops": 2,
+        "pull": 0.3
       }
     ]
   },
   "monetary_position": {
-    "position": 0.604,
+    "position": 0.574,
     "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 52,
+    "cycles": 53,
     "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": 0.0,
+      "phi_s": -0.0002,
+      "kappa": 0.0184,
       "power": 0.0,
-      "extraction": 0.0,
-      "boundary_score": -0.049
+      "extraction": 13609.5574,
+      "boundary_score": 0.03
     }
   },
   "network_plugs": {

@@ -1,62 +1,62 @@
 {
   "entity": "CITIGROUP",
   "node": "34539544",
-  "compiled_at": "2026-07-17T18:58:26.515851+00:00",
-  "digest": "sha256:e24cec724b50656a8380c5666f30a4a9b4cda4ccd0af9cda1bce4b25e8535f0e",
+  "compiled_at": "2026-07-17T20:26:19.130852+00:00",
+  "digest": "sha256:df79de4d0019a9433b30e7b10d477bb13d2b588391ba4474f2d7d44e4fc69a4c",
   "own_numbers": {
-    "phi_s": 0.023,
-    "kappa": 0.1835,
+    "phi_s": 0.0233,
+    "kappa": 0.1651,
     "mass": null,
-    "power": 0.17,
-    "extraction": 80982.64369,
+    "power": 0.14,
+    "extraction": 46962.233494,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 100.0,
+    "gravity_mass": 98.0,
     "mass_type": "infrastructure"
   },
   "vs_whole": {
     "mass": null,
     "power": {
-      "value": 0.17,
+      "value": 0.14,
       "rank": 2,
       "of": 51
     },
     "gravity": {
-      "value": 100.0,
-      "rank": 9,
+      "value": 98.0,
+      "rank": 10,
       "of": 62
     },
     "extraction": {
-      "value": 80982.6437,
-      "rank": 9,
+      "value": 46962.2335,
+      "rank": 12,
       "of": 51
     },
     "share_of_whole": {
       "mass": null,
-      "power": 0.18085
+      "power": 0.19178
     },
     "peers_by_power": [
       {
         "entity": "JPMORGAN",
-        "power": 0.35
+        "power": 0.21
       },
       {
         "entity": "CITIGROUP",
-        "power": 0.17
+        "power": 0.14
       },
       {
         "entity": "TREASURY_MARKET",
-        "power": 0.12
+        "power": 0.11
       },
       {
         "entity": "BLACKROCK",
-        "power": 0.08
+        "power": 0.07
       }
     ]
   },
   "relationships": {
-    "in_degree": 6,
-    "out_degree": 14,
+    "in_degree": 11,
+    "out_degree": 7,
     "by_vector": {
       "Capital": {
         "out": 0.5,
@@ -67,8 +67,8 @@
         "in": 0.5
       },
       "Information": {
-        "out": 4.5,
-        "in": 2.5
+        "out": 1.0,
+        "in": 5.0
       }
     },
     "top_inbound": [
@@ -88,12 +88,12 @@
         "vector": "Infrastructure"
       },
       {
-        "source": "JPMORGAN",
+        "source": "CITI_TREASURY_SERVICES",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "source": "JANE_FRASER",
+        "source": "KINEXYS",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -120,7 +120,7 @@
         "vector": "Infrastructure"
       },
       {
-        "target": "EAS",
+        "target": "JANE_FRASER",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -130,49 +130,49 @@
         "entity": "FED",
         "mass": 115.0,
         "hops": 1,
-        "pull": 11500.0
-      },
-      {
-        "entity": "JPMORGAN",
-        "mass": 104.0,
-        "hops": 1,
-        "pull": 10400.0
+        "pull": 11270.0
       },
       {
         "entity": "DTCC",
         "mass": 42.0,
         "hops": 1,
-        "pull": 4200.0
+        "pull": 4116.0
       },
       {
         "entity": "SEC",
         "mass": 120.0,
         "hops": 2,
-        "pull": 3000.0
+        "pull": 2940.0
+      },
+      {
+        "entity": "JPMORGAN",
+        "mass": 100.0,
+        "hops": 2,
+        "pull": 2450.0
       },
       {
         "entity": "BLACKROCK",
         "mass": 88.0,
         "hops": 2,
-        "pull": 2200.0
+        "pull": 2156.0
       }
     ]
   },
   "monetary_position": {
-    "position": 0.807,
+    "position": 0.801,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -100% over 52 cycles",
-    "cycles": 52,
+    "headline": "phi_s -100% over 53 cycles",
+    "cycles": 53,
     "delta_last_cycle": {
-      "phi_s": -0.0003,
-      "kappa": 0.0184,
-      "power": 0.02,
-      "extraction": 32591.8487,
-      "gravity_mass": 2.0,
-      "boundary_score": -0.006
+      "phi_s": 0.0003,
+      "kappa": -0.0184,
+      "power": -0.03,
+      "extraction": -34020.4102,
+      "gravity_mass": -2.0,
+      "boundary_score": 0.006
     }
   },
   "network_plugs": {
