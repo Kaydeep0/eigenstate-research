@@ -1,14 +1,14 @@
 {
   "entity": "SECURITIZE",
   "node": "34539544",
-  "compiled_at": "2026-07-17T20:28:28.681579+00:00",
-  "digest": "sha256:aa742e682f93f4a235c792d5eddd540bbf34faa66aaeb80088bd8d1aeb9cd911",
+  "compiled_at": "2026-07-18T03:02:43.304068+00:00",
+  "digest": "sha256:511a75e0ffdf53c95c090309abb7eb6ded6415e8ff15e2eeb3a1be72a08edc4d",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0917,
+    "kappa": 0.1009,
     "mass": 0.157785,
     "power": 0.0,
-    "extraction": 3530.7053,
+    "extraction": 6737.3794,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,8 +27,8 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 3530.7053,
-      "rank": 25,
+      "value": 6737.3794,
+      "rank": 24,
       "of": 51
     },
     "share_of_whole": {
@@ -59,16 +59,16 @@
     ]
   },
   "relationships": {
-    "in_degree": 6,
-    "out_degree": 4,
+    "in_degree": 5,
+    "out_degree": 6,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 0.0,
-        "in": 1.0
+        "out": 1.0,
+        "in": 0.5
       },
       "Information": {
         "out": 2.0,
@@ -92,14 +92,14 @@
         "vector": "Information"
       },
       {
-        "source": "SEC",
+        "source": "OUSG",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
       },
       {
-        "source": "OUSG",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
       }
     ],
     "top_outbound": [
@@ -122,24 +122,29 @@
         "target": "ONDO",
         "conn_type": "information_flow",
         "vector": "Information"
+      },
+      {
+        "target": "SEC",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.648,
+    "position": 0.653,
     "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 53,
+    "cycles": 56,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": 0.0092,
       "power": 0.0,
-      "extraction": -218.8074,
-      "boundary_score": 0.0
+      "extraction": 2987.8667,
+      "boundary_score": -0.005
     }
   },
   "network_plugs": {

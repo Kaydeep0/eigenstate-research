@@ -1,17 +1,17 @@
 {
   "entity": "SEC",
   "node": "34539544",
-  "compiled_at": "2026-07-17T20:28:28.646602+00:00",
-  "digest": "sha256:c6ff4ca21e7545cc4e044b5dd0e5186d7024e5bc010a456523d29791871dee8e",
+  "compiled_at": "2026-07-18T03:02:43.282869+00:00",
+  "digest": "sha256:f0946f486bb50276510602a518f42fe9fb44298c5bf4365b7b8e0bb58ea6af51",
   "own_numbers": {
-    "phi_s": 6.5941,
-    "kappa": 0.0018,
+    "phi_s": 6.6093,
+    "kappa": 0.0017,
     "mass": 0.433364,
-    "power": 0.07,
-    "extraction": 154637.192836,
-    "memory_mass": 104.67,
-    "X_natural": 9.7913,
-    "gravity_mass": 120.0,
+    "power": 0.04,
+    "extraction": 84336.096128,
+    "memory_mass": 92.54,
+    "X_natural": 15.5507,
+    "gravity_mass": 119.0,
     "mass_type": "regulatory"
   },
   "vs_whole": {
@@ -21,58 +21,58 @@
       "of": 199
     },
     "power": {
-      "value": 0.07,
-      "rank": 5,
+      "value": 0.04,
+      "rank": 7,
       "of": 51
     },
     "gravity": {
-      "value": 120.0,
+      "value": 119.0,
       "rank": 1,
       "of": 62
     },
     "extraction": {
-      "value": 154637.1928,
-      "rank": 7,
+      "value": 84336.0961,
+      "rank": 8,
       "of": 51
     },
     "share_of_whole": {
       "mass": 0.02709,
-      "power": 0.09589
+      "power": 0.04938
     },
     "peers_by_power": [
       {
-        "entity": "TREASURY_MARKET",
-        "power": 0.11
-      },
-      {
-        "entity": "BLACKROCK",
-        "power": 0.07
-      },
-      {
-        "entity": "SEC",
-        "power": 0.07
-      },
-      {
         "entity": "34539544",
-        "power": 0.04
+        "power": 0.05
       },
       {
         "entity": "COINBASE",
+        "power": 0.05
+      },
+      {
+        "entity": "SEC",
         "power": 0.04
+      },
+      {
+        "entity": "TOKENIZED_TREASURY",
+        "power": 0.03
+      },
+      {
+        "entity": "BASE",
+        "power": 0.01
       }
     ]
   },
   "relationships": {
-    "in_degree": 11,
-    "out_degree": 9,
+    "in_degree": 12,
+    "out_degree": 7,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.5
       },
       "Infrastructure": {
-        "out": 1.0,
-        "in": 0.0
+        "out": 0.0,
+        "in": 0.5
       },
       "Information": {
         "out": 3.5,
@@ -138,50 +138,50 @@
         "entity": "ESMA",
         "mass": 106.0,
         "hops": 1,
-        "pull": 12720.0
+        "pull": 12614.0
       },
       {
         "entity": "CFTC",
         "mass": 102.0,
         "hops": 1,
-        "pull": 12240.0
+        "pull": 12138.0
       },
       {
         "entity": "BLACKROCK",
         "mass": 88.0,
         "hops": 1,
-        "pull": 10560.0
+        "pull": 10472.0
       },
       {
         "entity": "34539544",
         "mass": 54.0,
         "hops": 1,
-        "pull": 6480.0
+        "pull": 6426.0
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 50.63,
+        "mass": 50.7,
         "hops": 1,
-        "pull": 6075.6
+        "pull": 6033.3
       }
     ]
   },
   "monetary_position": {
-    "position": 0.828,
+    "position": 0.822,
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 53,
+    "level": "flag",
+    "headline": "extraction -55% over 56 cycles",
+    "cycles": 56,
     "delta_last_cycle": {
-      "phi_s": 1.4978,
-      "kappa": 0.0,
-      "power": -0.01,
-      "extraction": -9583.2851,
-      "gravity_mass": 0.0,
-      "memory_mass": 0.0,
-      "boundary_score": 0.0
+      "phi_s": -1.7233,
+      "kappa": -0.0001,
+      "power": -0.04,
+      "extraction": -79884.3818,
+      "gravity_mass": -1.0,
+      "memory_mass": -12.13,
+      "boundary_score": 0.006
     }
   },
   "network_plugs": {
@@ -193,7 +193,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "securities_market_gdp_proxy",
-        "last_observed_at": "2026-07-17T19:32:35.788402+00:00",
+        "last_observed_at": "2026-07-17T22:43:51.835873+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],

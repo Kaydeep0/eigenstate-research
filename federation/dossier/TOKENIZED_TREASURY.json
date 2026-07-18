@@ -1,14 +1,14 @@
 {
   "entity": "TOKENIZED_TREASURY",
   "node": "34539544",
-  "compiled_at": "2026-07-17T20:28:29.589560+00:00",
-  "digest": "sha256:ee844ad97332c3724eb0fd5d492f33647fd8613ba1d1dd793e649f709f51449d",
+  "compiled_at": "2026-07-18T03:02:43.956134+00:00",
+  "digest": "sha256:ee597ddf4fdf5df625f79e7aac76c6d59d91724804698518ef600d41c710b95c",
   "own_numbers": {
     "phi_s": 1.6497,
-    "kappa": 0.0031,
+    "kappa": 0.0016,
     "mass": 0.230802,
-    "power": 0.02,
-    "extraction": 156853.413107,
+    "power": 0.03,
+    "extraction": 170275.330612,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -21,32 +21,32 @@
       "of": 199
     },
     "power": {
-      "value": 0.02,
+      "value": 0.03,
       "rank": 8,
       "of": 51
     },
     "gravity": null,
     "extraction": {
-      "value": 156853.4131,
+      "value": 170275.3306,
       "rank": 6,
       "of": 51
     },
     "share_of_whole": {
       "mass": 0.01443,
-      "power": 0.0274
+      "power": 0.03704
     },
     "peers_by_power": [
       {
-        "entity": "34539544",
-        "power": 0.04
+        "entity": "COINBASE",
+        "power": 0.05
       },
       {
-        "entity": "COINBASE",
+        "entity": "SEC",
         "power": 0.04
       },
       {
         "entity": "TOKENIZED_TREASURY",
-        "power": 0.02
+        "power": 0.03
       },
       {
         "entity": "BASE",
@@ -59,16 +59,16 @@
     ]
   },
   "relationships": {
-    "in_degree": 11,
-    "out_degree": 6,
+    "in_degree": 12,
+    "out_degree": 5,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 1.0
       },
       "Infrastructure": {
-        "out": 0.5,
-        "in": 1.5
+        "out": 0.0,
+        "in": 2.0
       },
       "Information": {
         "out": 2.5,
@@ -132,33 +132,33 @@
     "gravity_pairs": [
       {
         "entity": "SEC",
-        "mass": 120.0,
+        "mass": 119.0,
         "hops": 1,
-        "pull": 2.4
+        "pull": 3.57
       },
       {
         "entity": "BLACKROCK",
         "mass": 88.0,
         "hops": 1,
-        "pull": 1.76
-      },
-      {
-        "entity": "CANTON_NETWORK",
-        "mass": 43.0,
-        "hops": 1,
-        "pull": 0.86
+        "pull": 2.64
       },
       {
         "entity": "DTCC",
         "mass": 42.0,
         "hops": 1,
-        "pull": 0.84
+        "pull": 1.26
+      },
+      {
+        "entity": "CANTON_NETWORK",
+        "mass": 41.0,
+        "hops": 1,
+        "pull": 1.23
       },
       {
         "entity": "FED",
         "mass": 115.0,
         "hops": 2,
-        "pull": 0.575
+        "pull": 0.8625
       }
     ]
   },
@@ -168,13 +168,13 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "extraction -52% over 53 cycles",
-    "cycles": 53,
+    "headline": "phi_s -50% over 56 cycles",
+    "cycles": 56,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0015,
-      "power": 0.0,
-      "extraction": -9761.8091,
+      "kappa": 0.0,
+      "power": 0.01,
+      "extraction": 6508.2318,
       "boundary_score": 0.0
     }
   },
@@ -187,7 +187,7 @@
         "status": "live",
         "series_id": "DGS10",
         "label": "treasury_10y_pct",
-        "last_observed_at": "2026-07-17T19:32:35.788402+00:00",
+        "last_observed_at": "2026-07-17T22:43:51.835873+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],

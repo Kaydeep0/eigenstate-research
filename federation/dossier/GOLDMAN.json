@@ -1,14 +1,14 @@
 {
   "entity": "GOLDMAN",
   "node": "34539544",
-  "compiled_at": "2026-07-17T20:28:25.401482+00:00",
-  "digest": "sha256:891ef7be8b9dffc2c4716ed0ededf4696e584b691091b129fcd8386a8a115dce",
+  "compiled_at": "2026-07-18T03:02:41.203669+00:00",
+  "digest": "sha256:011fe4c5ec46620dcd8f375af7e7926ac4a8337b2e113b2956a1c1932f114a33",
   "own_numbers": {
-    "phi_s": 0.0245,
-    "kappa": 0.0459,
+    "phi_s": 0.0199,
+    "kappa": 0.055,
     "mass": 0.037563,
     "power": 0.0,
-    "extraction": 1754.4807,
+    "extraction": 4248.7755,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,8 +27,8 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 1754.4807,
-      "rank": 29,
+      "value": 4248.7755,
+      "rank": 27,
       "of": 51
     },
     "share_of_whole": {
@@ -59,16 +59,16 @@
     ]
   },
   "relationships": {
-    "in_degree": 3,
-    "out_degree": 2,
+    "in_degree": 2,
+    "out_degree": 4,
     "by_vector": {
       "Capital": {
         "out": 0.5,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 0.5,
-        "in": 1.0
+        "out": 1.5,
+        "in": 0.5
       },
       "Information": {
         "out": 0.0,
@@ -76,11 +76,6 @@
       }
     },
     "top_inbound": [
-      {
-        "source": "CANTON_NETWORK",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
       {
         "source": "CANTON_NETWORK",
         "conn_type": "governance",
@@ -102,24 +97,34 @@
         "target": "BNY_MELLON",
         "conn_type": "ownership",
         "vector": "Capital"
+      },
+      {
+        "target": "DTCC",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "CANTON_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.484,
+    "position": 0.493,
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 53,
+    "level": "watch",
+    "headline": "phi_s -27% over 56 cycles",
+    "cycles": 56,
     "delta_last_cycle": {
-      "phi_s": 0.0012,
-      "kappa": 0.0,
+      "phi_s": -0.0046,
+      "kappa": 0.0091,
       "power": 0.0,
-      "extraction": -109.0366,
-      "boundary_score": 0.0
+      "extraction": 2385.2582,
+      "boundary_score": -0.009
     }
   },
   "network_plugs": {
