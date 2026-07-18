@@ -1,10 +1,10 @@
 {
   "entity": "RWA_XYZ_DATA",
   "node": "34539544",
-  "compiled_at": "2026-07-18T03:06:07.850737+00:00",
-  "digest": "sha256:fcd0e0c96857f47eab062965a649308c3adb2ae821d406ab4d1aae11b135aede",
+  "compiled_at": "2026-07-18T07:22:25.340303+00:00",
+  "digest": "sha256:23234bf85291603fb4e9f6d14a44be668bf92abab33038a91bf9f06238335590",
   "own_numbers": {
-    "phi_s": 0.0837,
+    "phi_s": 0.0825,
     "kappa": 0.0183,
     "mass": 0.091349,
     "power": 0.0,
@@ -59,12 +59,12 @@
     ]
   },
   "relationships": {
-    "in_degree": 0,
-    "out_degree": 2,
+    "in_degree": 1,
+    "out_degree": 1,
     "by_vector": {
       "Capital": {
-        "out": 0.5,
-        "in": 0.0
+        "out": 0.0,
+        "in": 0.5
       },
       "Infrastructure": {
         "out": 0.0,
@@ -75,17 +75,18 @@
         "in": 0.0
       }
     },
-    "top_inbound": [],
+    "top_inbound": [
+      {
+        "source": "SEC",
+        "conn_type": "ownership",
+        "vector": "Capital"
+      }
+    ],
     "top_outbound": [
       {
         "target": "TOKENIZED_TREASURY",
         "conn_type": "information_flow",
         "vector": "Information"
-      },
-      {
-        "target": "SEC",
-        "conn_type": "ownership",
-        "vector": "Capital"
       }
     ],
     "gravity_pairs": []
@@ -97,9 +98,9 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 56,
+    "cycles": 57,
     "delta_last_cycle": {
-      "phi_s": 0.0012,
+      "phi_s": -0.0012,
       "kappa": 0.0,
       "power": 0.0,
       "extraction": 0.0,

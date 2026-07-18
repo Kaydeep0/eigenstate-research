@@ -1,8 +1,8 @@
 {
   "entity": "FED",
   "node": "34539544",
-  "compiled_at": "2026-07-18T03:06:05.487536+00:00",
-  "digest": "sha256:79ccb934a2c30a3430f0b15926f58b258c59013e41938af06fa9fc756944c6a5",
+  "compiled_at": "2026-07-18T07:22:22.944087+00:00",
+  "digest": "sha256:051d8bedc745b95cbb980344c6dc4df6b7ad9041a64a16c52a9e5d119c5b354f",
   "own_numbers": {
     "phi_s": 2.2981,
     "kappa": 0.0014,
@@ -63,8 +63,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 10,
-    "out_degree": 5,
+    "in_degree": 9,
+    "out_degree": 6,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -75,18 +75,13 @@
         "in": 3.5
       },
       "Information": {
-        "out": 1.5,
-        "in": 1.1
+        "out": 2.0,
+        "in": 0.6
       }
     },
     "top_inbound": [
       {
         "source": "US_EAST_COAST",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "FED_RRP",
         "conn_type": "information_flow",
         "vector": "Information"
       },
@@ -102,6 +97,11 @@
       },
       {
         "source": "JEKYLL_ISLAND",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CITIGROUP",
         "conn_type": "governance",
         "vector": "Infrastructure"
       }
@@ -123,12 +123,12 @@
         "vector": "Information"
       },
       {
-        "target": "JPMORGAN",
-        "conn_type": "governance",
-        "vector": "Infrastructure"
+        "target": "FED_RRP",
+        "conn_type": "information_flow",
+        "vector": "Information"
       },
       {
-        "target": "CITIGROUP",
+        "target": "JPMORGAN",
         "conn_type": "governance",
         "vector": "Infrastructure"
       }
@@ -160,9 +160,9 @@
       },
       {
         "entity": "DTCC",
-        "mass": 42.0,
+        "mass": 43.0,
         "hops": 1,
-        "pull": 4830.0
+        "pull": 4945.0
       }
     ]
   },
@@ -172,13 +172,13 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -83% over 56 cycles",
-    "cycles": 56,
+    "headline": "phi_s -83% over 57 cycles",
+    "cycles": 57,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": 5216.3528,
+      "extraction": 0.0,
       "gravity_mass": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
@@ -193,7 +193,7 @@
         "status": "live",
         "series_id": "M2SL",
         "label": "m2_billions",
-        "last_observed_at": "2026-07-17T22:43:51.835873+00:00",
+        "last_observed_at": "2026-07-18T07:12:33.790913+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],

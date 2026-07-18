@@ -1,17 +1,17 @@
 {
   "entity": "DTCC",
   "node": "34539544",
-  "compiled_at": "2026-07-18T03:06:05.143188+00:00",
-  "digest": "sha256:8a0d2d314911e849807e4fa948a6819d6e14f57b4349def6d86031ebcb343cf8",
+  "compiled_at": "2026-07-18T07:22:22.594496+00:00",
+  "digest": "sha256:cf00e67803732244d1a4fca8490e82776b6daa5ad2c4b778f4c15880b1f6e777",
   "own_numbers": {
-    "phi_s": 3.2562,
-    "kappa": 0.0012,
+    "phi_s": 4.8744,
+    "kappa": 0.0017,
     "mass": 0.240306,
     "power": 0.0,
-    "extraction": 55343.7901,
+    "extraction": 65284.8702,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 42.0,
+    "gravity_mass": 43.0,
     "mass_type": "infrastructure"
   },
   "vs_whole": {
@@ -26,13 +26,13 @@
       "of": 51
     },
     "gravity": {
-      "value": 42.0,
+      "value": 43.0,
       "rank": 27,
       "of": 62
     },
     "extraction": {
-      "value": 55343.7901,
-      "rank": 11,
+      "value": 65284.8702,
+      "rank": 12,
       "of": 51
     },
     "share_of_whole": {
@@ -63,16 +63,16 @@
     ]
   },
   "relationships": {
-    "in_degree": 5,
-    "out_degree": 12,
+    "in_degree": 4,
+    "out_degree": 14,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 4.5,
-        "in": 2.0
+        "out": 5.5,
+        "in": 1.5
       },
       "Information": {
         "out": 1.5,
@@ -80,11 +80,6 @@
       }
     },
     "top_inbound": [
-      {
-        "source": "GOLDMAN",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
       {
         "source": "CANTON_NETWORK",
         "conn_type": "governance",
@@ -113,6 +108,16 @@
         "vector": "Infrastructure"
       },
       {
+        "target": "GOLDMAN",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "CANTON_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
         "target": "PRIMARY_DEALER_NETWORK",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
@@ -121,16 +126,6 @@
         "target": "TREASURY_MARKET",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
-      },
-      {
-        "target": "TOKENIZED_TREASURY",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
-      {
-        "target": "FED",
-        "conn_type": "governance",
-        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": [
@@ -138,48 +133,48 @@
         "entity": "FED",
         "mass": 115.0,
         "hops": 1,
-        "pull": 4830.0
+        "pull": 4945.0
       },
       {
         "entity": "CITIGROUP",
         "mass": 98.0,
         "hops": 1,
-        "pull": 4116.0
+        "pull": 4214.0
       },
       {
         "entity": "34539544",
         "mass": 54.0,
         "hops": 1,
-        "pull": 2268.0
+        "pull": 2322.0
       },
       {
         "entity": "CANTON_NETWORK",
         "mass": 41.0,
         "hops": 1,
-        "pull": 1722.0
+        "pull": 1763.0
       },
       {
         "entity": "SEC",
-        "mass": 119.0,
+        "mass": 120.0,
         "hops": 2,
-        "pull": 1249.5
+        "pull": 1290.0
       }
     ]
   },
   "monetary_position": {
-    "position": 0.626,
+    "position": 0.624,
     "well": "fiat"
   },
   "drift": {
-    "level": "watch",
-    "headline": "phi_s -33% over 56 cycles",
-    "cycles": 56,
+    "level": "steady",
+    "headline": null,
+    "cycles": 57,
     "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": 0.0,
+      "phi_s": 1.6182,
+      "kappa": 0.0005,
       "power": 0.0,
-      "extraction": 8643.8757,
-      "gravity_mass": 0.0,
+      "extraction": 9941.0801,
+      "gravity_mass": 1.0,
       "boundary_score": 0.002
     }
   },
@@ -192,7 +187,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "settlement_volume_gdp_proxy",
-        "last_observed_at": "2026-07-17T22:43:51.835873+00:00",
+        "last_observed_at": "2026-07-18T07:12:33.790913+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
