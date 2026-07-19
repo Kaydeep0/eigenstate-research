@@ -1,14 +1,14 @@
 {
   "entity": "OUSG",
   "node": "34539544",
-  "compiled_at": "2026-07-19T08:59:02.191056+00:00",
-  "digest": "sha256:bac14d8b440665e21bf6ad8ae952bb57b7cb505003c39bc57994c6f2b31a33b9",
+  "compiled_at": "2026-07-19T13:18:00.765593+00:00",
+  "digest": "sha256:2acfe28714a4a2a458362a8296fab745b5c866bdee3f4457717c7e6478c27f60",
   "own_numbers": {
-    "phi_s": 0.084,
+    "phi_s": 0.0828,
     "kappa": 0.0734,
     "mass": null,
     "power": 0.0,
-    "extraction": 3893.5327,
+    "extraction": 3652.0002,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -23,8 +23,8 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 3893.5327,
-      "rank": 27,
+      "value": 3652.0002,
+      "rank": 26,
       "of": 51
     },
     "share_of_whole": {
@@ -55,12 +55,12 @@
     ]
   },
   "relationships": {
-    "in_degree": 1,
-    "out_degree": 7,
+    "in_degree": 4,
+    "out_degree": 4,
     "by_vector": {
       "Capital": {
-        "out": 2.5,
-        "in": 0.0
+        "out": 1.0,
+        "in": 1.5
       },
       "Infrastructure": {
         "out": 1.0,
@@ -73,9 +73,24 @@
     },
     "top_inbound": [
       {
+        "source": "BLACKROCK",
+        "conn_type": "ownership",
+        "vector": "Capital"
+      },
+      {
+        "source": "CIRCLE",
+        "conn_type": "ownership",
+        "vector": "Capital"
+      },
+      {
         "source": "ONDO",
         "conn_type": "information_flow",
         "vector": "Information"
+      },
+      {
+        "source": "BLACKROCK",
+        "conn_type": "ownership",
+        "vector": "Capital"
       }
     ],
     "top_outbound": [
@@ -85,24 +100,19 @@
         "vector": "Capital"
       },
       {
-        "target": "CIRCLE",
-        "conn_type": "ownership",
-        "vector": "Capital"
-      },
-      {
-        "target": "BLACKROCK",
-        "conn_type": "ownership",
-        "vector": "Capital"
-      },
-      {
-        "target": "BLACKROCK",
-        "conn_type": "ownership",
-        "vector": "Capital"
-      },
-      {
         "target": "TREASURY_MARKET",
         "conn_type": "capital",
         "vector": "Capital"
+      },
+      {
+        "target": "COINBASE",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "SECURITIZE",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": []
@@ -114,12 +124,12 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 64,
+    "cycles": 65,
     "delta_last_cycle": {
-      "phi_s": 0.0012,
+      "phi_s": -0.0012,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": 454.6494,
+      "extraction": -241.5325,
       "boundary_score": 0.0
     }
   },

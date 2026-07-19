@@ -1,17 +1,17 @@
 {
   "entity": "CANTON_NETWORK",
   "node": "34539544",
-  "compiled_at": "2026-07-19T08:58:58.853562+00:00",
-  "digest": "sha256:97fee2d4e0316f8fb366933eb7a8682f2bdb2ffc245bc512e1350525ccb92cff",
+  "compiled_at": "2026-07-19T13:17:57.408033+00:00",
+  "digest": "sha256:c1a5d906893f18915176438229fd6753b86a3244c6dae422d9c4fa39dde1eea5",
   "own_numbers": {
     "phi_s": 3.2362,
-    "kappa": 0.0007,
+    "kappa": 0.0008,
     "mass": 0.177874,
     "power": 0.0,
-    "extraction": 44394.0025,
+    "extraction": 49254.4773,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 41.0,
+    "gravity_mass": 42.0,
     "mass_type": "infrastructure"
   },
   "vs_whole": {
@@ -26,13 +26,13 @@
       "of": 51
     },
     "gravity": {
-      "value": 41.0,
-      "rank": 28,
+      "value": 42.0,
+      "rank": 27,
       "of": 62
     },
     "extraction": {
-      "value": 44394.0025,
-      "rank": 15,
+      "value": 49254.4773,
+      "rank": 11,
       "of": 51
     },
     "share_of_whole": {
@@ -63,16 +63,16 @@
     ]
   },
   "relationships": {
-    "in_degree": 6,
-    "out_degree": 10,
+    "in_degree": 5,
+    "out_degree": 12,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 5.0,
-        "in": 2.5
+        "out": 6.0,
+        "in": 2.0
       },
       "Information": {
         "out": 0.0,
@@ -80,11 +80,6 @@
       }
     },
     "top_inbound": [
-      {
-        "source": "GOLDMAN",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
       {
         "source": "DTCC",
         "conn_type": "governance",
@@ -104,11 +99,26 @@
         "source": "JPMORGAN",
         "conn_type": "governance",
         "vector": "Infrastructure"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
       }
     ],
     "top_outbound": [
       {
         "target": "DTCC",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "DTCC",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "GOLDMAN",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
       },
@@ -121,16 +131,6 @@
         "target": "TREASURY_MARKET",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
-      },
-      {
-        "target": "PRIMARY_DEALER_NETWORK",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
-      {
-        "target": "DTCC",
-        "conn_type": "governance",
-        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": [
@@ -138,31 +138,31 @@
         "entity": "JPMORGAN",
         "mass": 104.0,
         "hops": 1,
-        "pull": 4264.0
+        "pull": 4368.0
       },
       {
         "entity": "34539544",
         "mass": 54.0,
         "hops": 1,
-        "pull": 2214.0
+        "pull": 2268.0
       },
       {
         "entity": "DTCC",
         "mass": 42.0,
         "hops": 1,
-        "pull": 1722.0
+        "pull": 1764.0
       },
       {
         "entity": "SEC",
-        "mass": 119.0,
+        "mass": 120.0,
         "hops": 2,
-        "pull": 1219.75
+        "pull": 1260.0
       },
       {
         "entity": "FED",
         "mass": 115.0,
         "hops": 2,
-        "pull": 1178.75
+        "pull": 1207.5
       }
     ]
   },
@@ -172,15 +172,15 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +3.236 over 64 cycles",
-    "cycles": 64,
+    "headline": "phi_s +3.236 over 65 cycles",
+    "cycles": 65,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0001,
+      "kappa": 0.0001,
       "power": 0.0,
-      "extraction": -9970.8455,
-      "gravity_mass": -2.0,
-      "boundary_score": -0.002
+      "extraction": 4860.4748,
+      "gravity_mass": 1.0,
+      "boundary_score": 0.0
     }
   },
   "network_plugs": {

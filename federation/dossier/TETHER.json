@@ -1,14 +1,14 @@
 {
   "entity": "TETHER",
   "node": "34539544",
-  "compiled_at": "2026-07-19T08:59:03.515252+00:00",
-  "digest": "sha256:684329a95b91ce9fdb6bffa477d53b71f6d18b6a11abc6c66120849510c81220",
+  "compiled_at": "2026-07-19T13:18:02.113567+00:00",
+  "digest": "sha256:47377b7eeb8b187c3058aaa7763d2beb01944049f20af21fc7df9075d26830af",
   "own_numbers": {
     "phi_s": 0.0788,
     "kappa": 0.0734,
     "mass": 0.186113,
     "power": 0.0,
-    "extraction": 6545.0262,
+    "extraction": 6137.9993,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,7 +27,7 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 6545.0262,
+      "value": 6137.9993,
       "rank": 23,
       "of": 51
     },
@@ -59,8 +59,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 5,
-    "out_degree": 3,
+    "in_degree": 6,
+    "out_degree": 2,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -71,8 +71,8 @@
         "in": 0.5
       },
       "Information": {
-        "out": 0.5,
-        "in": 1.7
+        "out": 0.0,
+        "in": 2.2
       }
     },
     "top_inbound": [
@@ -92,22 +92,17 @@
         "vector": "Information"
       },
       {
-        "source": "CANTOR_FITZGERALD",
-        "conn_type": "custody",
-        "vector": "Infrastructure"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
-      }
-    ],
-    "top_outbound": [
-      {
-        "target": "CIRCLE",
+        "source": "CIRCLE",
         "conn_type": "information_flow",
         "vector": "Information"
       },
+      {
+        "source": "CANTOR_FITZGERALD",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
+      }
+    ],
+    "top_outbound": [
       {
         "target": "CANTOR_FITZGERALD",
         "conn_type": "custody",
@@ -128,12 +123,12 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 64,
+    "cycles": 65,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": 766.1684,
+      "extraction": -407.0269,
       "boundary_score": 0.0
     }
   },

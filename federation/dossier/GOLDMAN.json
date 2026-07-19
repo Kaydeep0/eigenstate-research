@@ -1,14 +1,14 @@
 {
   "entity": "GOLDMAN",
   "node": "34539544",
-  "compiled_at": "2026-07-19T08:59:00.802631+00:00",
-  "digest": "sha256:a158375d934e5b1b7af0b63be3c828beb7b66793bfb3079399273555ff7ab03f",
+  "compiled_at": "2026-07-19T13:17:59.359317+00:00",
+  "digest": "sha256:80388781a4b16405c096d442f918f9fdc187ea11ca79d4bc702c9e0227a29979",
   "own_numbers": {
-    "phi_s": 0.0188,
-    "kappa": 0.055,
+    "phi_s": 0.0233,
+    "kappa": 0.0459,
     "mass": 0.037563,
     "power": 0.0,
-    "extraction": 4248.7755,
+    "extraction": 1863.5173,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,8 +27,8 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 4248.7755,
-      "rank": 25,
+      "value": 1863.5173,
+      "rank": 29,
       "of": 51
     },
     "share_of_whole": {
@@ -59,16 +59,16 @@
     ]
   },
   "relationships": {
-    "in_degree": 3,
-    "out_degree": 3,
+    "in_degree": 4,
+    "out_degree": 1,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.5
       },
       "Infrastructure": {
-        "out": 1.5,
-        "in": 0.5
+        "out": 0.5,
+        "in": 1.0
       },
       "Information": {
         "out": 0.0,
@@ -80,6 +80,11 @@
         "source": "BNY_MELLON",
         "conn_type": "ownership",
         "vector": "Capital"
+      },
+      {
+        "source": "CANTON_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
       },
       {
         "source": "CANTON_NETWORK",
@@ -97,34 +102,24 @@
         "target": "US_TREASURY_DEPARTMENT",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
-      },
-      {
-        "target": "CANTON_NETWORK",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
-      {
-        "target": "DTCC",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.493,
+    "position": 0.484,
     "well": "fiat"
   },
   "drift": {
-    "level": "watch",
-    "headline": "phi_s -31% over 64 cycles",
-    "cycles": 64,
+    "level": "steady",
+    "headline": null,
+    "cycles": 65,
     "delta_last_cycle": {
-      "phi_s": -0.0057,
-      "kappa": 0.0091,
+      "phi_s": 0.0045,
+      "kappa": -0.0091,
       "power": 0.0,
-      "extraction": 2494.2948,
-      "boundary_score": -0.009
+      "extraction": -2385.2582,
+      "boundary_score": 0.009
     }
   },
   "network_plugs": {

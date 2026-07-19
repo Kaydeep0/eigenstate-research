@@ -1,14 +1,14 @@
 {
   "entity": "CIRCLE",
   "node": "34539544",
-  "compiled_at": "2026-07-19T08:58:59.115460+00:00",
-  "digest": "sha256:c4a578c23d53ff560822591cc74e1437e7f25ea0cac63caac22dfd5a6dee8171",
+  "compiled_at": "2026-07-19T13:17:57.665968+00:00",
+  "digest": "sha256:f150c81e1d940c260556234e03c15799f98934900cc01f6eadbf6fb3541b02b4",
   "own_numbers": {
-    "phi_s": 8.1574,
+    "phi_s": 8.1585,
     "kappa": 0.0015,
     "mass": 0.261446,
     "power": 0.01,
-    "extraction": 63711.062999,
+    "extraction": 60637.59904,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,18 +27,18 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 63711.063,
-      "rank": 11,
+      "value": 60637.599,
+      "rank": 10,
       "of": 51
     },
     "share_of_whole": {
       "mass": 0.01634,
-      "power": 0.00943
+      "power": 0.01087
     },
     "peers_by_power": [
       {
         "entity": "TOKENIZED_TREASURY",
-        "power": 0.03
+        "power": 0.02
       },
       {
         "entity": "BASE",
@@ -59,20 +59,20 @@
     ]
   },
   "relationships": {
-    "in_degree": 8,
-    "out_degree": 8,
+    "in_degree": 6,
+    "out_degree": 10,
     "by_vector": {
       "Capital": {
-        "out": 0.5,
-        "in": 0.5
+        "out": 1.0,
+        "in": 0.0
       },
       "Infrastructure": {
         "out": 1.0,
         "in": 0.0
       },
       "Information": {
-        "out": 2.5,
-        "in": 3.7
+        "out": 3.0,
+        "in": 3.2
       }
     },
     "top_inbound": [
@@ -109,6 +109,11 @@
         "vector": "Information"
       },
       {
+        "target": "TETHER",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
         "target": "CIRCLE_RESERVE_FUND",
         "conn_type": "information_flow",
         "vector": "Information"
@@ -122,11 +127,6 @@
         "target": "JPMORGAN",
         "conn_type": "information_flow",
         "vector": "Information"
-      },
-      {
-        "target": "TREASURY_MARKET",
-        "conn_type": "custody",
-        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": [
@@ -138,15 +138,15 @@
       },
       {
         "entity": "CITIGROUP",
-        "mass": 100.0,
+        "mass": 98.0,
         "hops": 1,
-        "pull": 1.0
+        "pull": 0.98
       },
       {
         "entity": "BLACKROCK",
-        "mass": 89.0,
+        "mass": 88.0,
         "hops": 1,
-        "pull": 0.89
+        "pull": 0.88
       },
       {
         "entity": "34539544",
@@ -168,13 +168,13 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "extraction -55% over 64 cycles",
-    "cycles": 64,
+    "headline": "extraction -57% over 65 cycles",
+    "cycles": 65,
     "delta_last_cycle": {
-      "phi_s": -0.0011,
+      "phi_s": 0.0011,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": 3976.7053,
+      "extraction": -3073.464,
       "boundary_score": 0.0
     }
   },

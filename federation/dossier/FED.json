@@ -1,14 +1,14 @@
 {
   "entity": "FED",
   "node": "34539544",
-  "compiled_at": "2026-07-19T08:59:00.339043+00:00",
-  "digest": "sha256:77710f1ec5680648ea0cebf859868e1be4d5d3fe4f4095e36079b98c69af43a2",
+  "compiled_at": "2026-07-19T13:17:58.899973+00:00",
+  "digest": "sha256:4d7b2514cf2c49d50a05e50df43b5b4a25e282b068fd8fe2eb2546ea37630213",
   "own_numbers": {
-    "phi_s": 2.2981,
+    "phi_s": 5.5344,
     "kappa": 0.0014,
     "mass": 0.360753,
     "power": 0.0,
-    "extraction": 83600.8863,
+    "extraction": 78384.5335,
     "memory_mass": 34.0,
     "X_natural": 0.0,
     "gravity_mass": 115.0,
@@ -31,7 +31,7 @@
       "of": 62
     },
     "extraction": {
-      "value": 83600.8863,
+      "value": 78384.5335,
       "rank": 9,
       "of": 51
     },
@@ -63,8 +63,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 10,
-    "out_degree": 5,
+    "in_degree": 9,
+    "out_degree": 6,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -75,18 +75,13 @@
         "in": 3.5
       },
       "Information": {
-        "out": 1.5,
-        "in": 1.1
+        "out": 2.0,
+        "in": 0.6
       }
     },
     "top_inbound": [
       {
         "source": "US_EAST_COAST",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "FED_RRP",
         "conn_type": "information_flow",
         "vector": "Information"
       },
@@ -102,6 +97,11 @@
       },
       {
         "source": "JEKYLL_ISLAND",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CITIGROUP",
         "conn_type": "governance",
         "vector": "Infrastructure"
       }
@@ -123,12 +123,12 @@
         "vector": "Information"
       },
       {
-        "target": "JPMORGAN",
-        "conn_type": "governance",
-        "vector": "Infrastructure"
+        "target": "FED_RRP",
+        "conn_type": "information_flow",
+        "vector": "Information"
       },
       {
-        "target": "CITIGROUP",
+        "target": "JPMORGAN",
         "conn_type": "governance",
         "vector": "Infrastructure"
       }
@@ -142,9 +142,9 @@
       },
       {
         "entity": "CITIGROUP",
-        "mass": 100.0,
+        "mass": 98.0,
         "hops": 1,
-        "pull": 11500.0
+        "pull": 11270.0
       },
       {
         "entity": "34539544",
@@ -171,14 +171,14 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "phi_s -83% over 64 cycles",
-    "cycles": 64,
+    "level": "watch",
+    "headline": "phi_s -59% over 65 cycles",
+    "cycles": 65,
     "delta_last_cycle": {
-      "phi_s": -1.6181,
+      "phi_s": 3.2363,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": 9819.017,
+      "extraction": -5216.3528,
       "gravity_mass": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
@@ -193,7 +193,7 @@
         "status": "live",
         "series_id": "M2SL",
         "label": "m2_billions",
-        "last_observed_at": "2026-07-19T08:48:45.841890+00:00",
+        "last_observed_at": "2026-07-19T13:04:46.234895+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
