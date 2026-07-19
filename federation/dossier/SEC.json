@@ -1,17 +1,17 @@
 {
   "entity": "SEC",
   "node": "34539544",
-  "compiled_at": "2026-07-19T13:18:01.553444+00:00",
-  "digest": "sha256:3db1f976682e164a27a06dde4de55a2a7f5db229757753023c84784147e8a6b3",
+  "compiled_at": "2026-07-19T16:36:47.909484+00:00",
+  "digest": "sha256:48983a721212e9e6a958599951f1ff62a1c845c12c0b956f27096b797b8fc305",
   "own_numbers": {
-    "phi_s": 4.9759,
-    "kappa": 0.0018,
+    "phi_s": 8.3375,
+    "kappa": 0.0017,
     "mass": 0.433364,
-    "power": 0.08,
-    "extraction": 164220.477926,
-    "memory_mass": 104.67,
-    "X_natural": 23.8255,
-    "gravity_mass": 120.0,
+    "power": 0.04,
+    "extraction": 72393.505807,
+    "memory_mass": 92.66,
+    "X_natural": 5.5726,
+    "gravity_mass": 119.0,
     "mass_type": "regulatory"
   },
   "vs_whole": {
@@ -21,58 +21,58 @@
       "of": 199
     },
     "power": {
-      "value": 0.08,
-      "rank": 5,
+      "value": 0.04,
+      "rank": 7,
       "of": 51
     },
     "gravity": {
-      "value": 120.0,
+      "value": 119.0,
       "rank": 1,
       "of": 62
     },
     "extraction": {
-      "value": 164220.4779,
-      "rank": 8,
+      "value": 72393.5058,
+      "rank": 10,
       "of": 51
     },
     "share_of_whole": {
       "mass": 0.02709,
-      "power": 0.08696
+      "power": 0.04819
     },
     "peers_by_power": [
       {
-        "entity": "TREASURY_MARKET",
-        "power": 0.12
-      },
-      {
-        "entity": "BLACKROCK",
-        "power": 0.08
-      },
-      {
-        "entity": "SEC",
-        "power": 0.08
-      },
-      {
         "entity": "34539544",
-        "power": 0.05
+        "power": 0.04
       },
       {
         "entity": "COINBASE",
         "power": 0.04
+      },
+      {
+        "entity": "SEC",
+        "power": 0.04
+      },
+      {
+        "entity": "TOKENIZED_TREASURY",
+        "power": 0.02
+      },
+      {
+        "entity": "BASE",
+        "power": 0.01
       }
     ]
   },
   "relationships": {
     "in_degree": 11,
-    "out_degree": 9,
+    "out_degree": 8,
     "by_vector": {
       "Capital": {
-        "out": 0.0,
-        "in": 0.5
+        "out": 0.5,
+        "in": 0.0
       },
       "Infrastructure": {
-        "out": 1.0,
-        "in": 0.0
+        "out": 0.0,
+        "in": 0.5
       },
       "Information": {
         "out": 3.5,
@@ -138,50 +138,50 @@
         "entity": "ESMA",
         "mass": 106.0,
         "hops": 1,
-        "pull": 12720.0
+        "pull": 12614.0
       },
       {
         "entity": "CFTC",
         "mass": 102.0,
         "hops": 1,
-        "pull": 12240.0
+        "pull": 12138.0
       },
       {
         "entity": "BLACKROCK",
-        "mass": 88.0,
+        "mass": 89.0,
         "hops": 1,
-        "pull": 10560.0
+        "pull": 10591.0
       },
       {
         "entity": "34539544",
         "mass": 54.0,
         "hops": 1,
-        "pull": 6480.0
+        "pull": 6426.0
       },
       {
         "entity": "US_JURISDICTION",
         "mass": 50.63,
         "hops": 1,
-        "pull": 6075.6
+        "pull": 6024.97
       }
     ]
   },
   "monetary_position": {
-    "position": 0.828,
+    "position": 0.827,
     "well": "fiat"
   },
   "drift": {
-    "level": "watch",
-    "headline": "phi_s -27% over 65 cycles",
-    "cycles": 65,
+    "level": "flag",
+    "headline": "extraction -62% over 67 cycles",
+    "cycles": 67,
     "delta_last_cycle": {
-      "phi_s": -0.0197,
-      "kappa": 0.0001,
-      "power": 0.04,
-      "extraction": 82336.0125,
-      "gravity_mass": 1.0,
-      "memory_mass": 12.01,
-      "boundary_score": -0.001
+      "phi_s": 1.7282,
+      "kappa": 0.0,
+      "power": 0.0,
+      "extraction": -9490.9596,
+      "gravity_mass": 0.0,
+      "memory_mass": 0.12,
+      "boundary_score": 0.0
     }
   },
   "network_plugs": {
@@ -193,7 +193,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "securities_market_gdp_proxy",
-        "last_observed_at": "2026-07-19T13:04:46.234895+00:00",
+        "last_observed_at": "2026-07-19T16:27:30.442885+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],

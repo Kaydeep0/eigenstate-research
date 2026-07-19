@@ -1,14 +1,14 @@
 {
   "entity": "CITI_TREASURY_SERVICES",
   "node": "34539544",
-  "compiled_at": "2026-07-19T13:17:57.756055+00:00",
-  "digest": "sha256:ad8b794f2400e597ebe7f53e396aa19ff699175363a125fd8a9b971d04b19686",
+  "compiled_at": "2026-07-19T16:36:43.384354+00:00",
+  "digest": "sha256:a60aed7e0197fd3d158b93fe263ccc4f8b943498cda5c395a56a0bf3f330a492",
   "own_numbers": {
-    "phi_s": 0.0224,
-    "kappa": 0.1193,
+    "phi_s": 0.0226,
+    "kappa": 0.1009,
     "mass": null,
-    "power": 0.01,
-    "extraction": 31575.7625,
+    "power": 0.0,
+    "extraction": 14793.4625,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -17,46 +17,46 @@
   "vs_whole": {
     "mass": null,
     "power": {
-      "value": 0.01,
-      "rank": 11,
+      "value": 0.0,
+      "rank": 19,
       "of": 51
     },
     "gravity": null,
     "extraction": {
-      "value": 31575.7625,
-      "rank": 17,
+      "value": 14793.4625,
+      "rank": 19,
       "of": 51
     },
     "share_of_whole": {
       "mass": null,
-      "power": 0.01087
+      "power": 0.0
     },
     "peers_by_power": [
       {
-        "entity": "BASE",
-        "power": 0.01
-      },
-      {
-        "entity": "CIRCLE",
-        "power": 0.01
-      },
-      {
-        "entity": "CITI_TREASURY_SERVICES",
-        "power": 0.01
-      },
-      {
-        "entity": "AAVE_FORUM",
+        "entity": "CANTOR_FITZGERALD",
         "power": 0.0
       },
       {
-        "entity": "ARBITRUM",
+        "entity": "CIRCLE_RESERVE_FUND",
+        "power": 0.0
+      },
+      {
+        "entity": "CITI_TREASURY_SERVICES",
+        "power": 0.0
+      },
+      {
+        "entity": "CROSS_CHAIN_BRIDGE",
+        "power": 0.0
+      },
+      {
+        "entity": "DEFI_IS_DEAD",
         "power": 0.0
       }
     ]
   },
   "relationships": {
-    "in_degree": 3,
-    "out_degree": 10,
+    "in_degree": 5,
+    "out_degree": 6,
     "by_vector": {
       "Capital": {
         "out": 0.5,
@@ -67,13 +67,23 @@
         "in": 0.0
       },
       "Information": {
-        "out": 3.0,
-        "in": 1.5
+        "out": 1.0,
+        "in": 2.5
       }
     },
     "top_inbound": [
       {
-        "source": "JPMORGAN",
+        "source": "CITIGROUP",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CITIGROUP",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CITIGROUP",
         "conn_type": "information_flow",
         "vector": "Information"
       },
@@ -90,78 +100,47 @@
     ],
     "top_outbound": [
       {
-        "target": "EAS",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
         "target": "CITIGROUP",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "target": "EAS",
-        "conn_type": "information_flow",
-        "vector": "Information"
+        "target": "PRIMARY_DEALER_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
       },
       {
-        "target": "CITIGROUP",
-        "conn_type": "information_flow",
-        "vector": "Information"
+        "target": "FED",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
       },
       {
-        "target": "CITIGROUP",
-        "conn_type": "information_flow",
-        "vector": "Information"
+        "target": "TREASURY_MARKET",
+        "conn_type": "capital",
+        "vector": "Capital"
+      },
+      {
+        "target": "DTCC",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
       }
     ],
-    "gravity_pairs": [
-      {
-        "entity": "FED",
-        "mass": 115.0,
-        "hops": 1,
-        "pull": 1.15
-      },
-      {
-        "entity": "JPMORGAN",
-        "mass": 104.0,
-        "hops": 1,
-        "pull": 1.04
-      },
-      {
-        "entity": "CITIGROUP",
-        "mass": 98.0,
-        "hops": 1,
-        "pull": 0.98
-      },
-      {
-        "entity": "US_JURISDICTION",
-        "mass": 50.63,
-        "hops": 1,
-        "pull": 0.5063
-      },
-      {
-        "entity": "DTCC",
-        "mass": 42.0,
-        "hops": 1,
-        "pull": 0.42
-      }
-    ]
+    "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.588,
+    "position": 0.604,
     "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 65,
+    "cycles": 67,
     "delta_last_cycle": {
-      "phi_s": -0.0002,
-      "kappa": 0.0184,
-      "power": 0.0,
-      "extraction": 12427.421,
-      "boundary_score": 0.016
+      "phi_s": 0.0002,
+      "kappa": -0.0184,
+      "power": -0.01,
+      "extraction": -20958.8302,
+      "boundary_score": -0.03
     }
   },
   "network_plugs": {

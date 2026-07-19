@@ -1,14 +1,14 @@
 {
   "entity": "OUSG",
   "node": "34539544",
-  "compiled_at": "2026-07-19T13:18:00.765593+00:00",
-  "digest": "sha256:2acfe28714a4a2a458362a8296fab745b5c866bdee3f4457717c7e6478c27f60",
+  "compiled_at": "2026-07-19T16:36:46.979078+00:00",
+  "digest": "sha256:39e5d1f6c8130104b7da03990f3f0e430365ddcbf4408ee53ebd936e4c6e3448",
   "own_numbers": {
-    "phi_s": 0.0828,
+    "phi_s": 0.084,
     "kappa": 0.0734,
     "mass": null,
     "power": 0.0,
-    "extraction": 3652.0002,
+    "extraction": 3438.8833,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -23,7 +23,7 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 3652.0002,
+      "value": 3438.8833,
       "rank": 26,
       "of": 51
     },
@@ -55,12 +55,12 @@
     ]
   },
   "relationships": {
-    "in_degree": 4,
-    "out_degree": 4,
+    "in_degree": 3,
+    "out_degree": 5,
     "by_vector": {
       "Capital": {
-        "out": 1.0,
-        "in": 1.5
+        "out": 1.5,
+        "in": 1.0
       },
       "Infrastructure": {
         "out": 1.0,
@@ -78,11 +78,6 @@
         "vector": "Capital"
       },
       {
-        "source": "CIRCLE",
-        "conn_type": "ownership",
-        "vector": "Capital"
-      },
-      {
         "source": "ONDO",
         "conn_type": "information_flow",
         "vector": "Information"
@@ -94,6 +89,11 @@
       }
     ],
     "top_outbound": [
+      {
+        "target": "CIRCLE",
+        "conn_type": "ownership",
+        "vector": "Capital"
+      },
       {
         "target": "BLACKROCK",
         "conn_type": "ownership",
@@ -124,12 +124,12 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 65,
+    "cycles": 67,
     "delta_last_cycle": {
-      "phi_s": -0.0012,
+      "phi_s": 0.0012,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": -241.5325,
+      "extraction": -454.6494,
       "boundary_score": 0.0
     }
   },

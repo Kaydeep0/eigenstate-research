@@ -1,62 +1,62 @@
 {
   "entity": "CITIGROUP",
   "node": "34539544",
-  "compiled_at": "2026-07-19T13:17:57.733402+00:00",
-  "digest": "sha256:705ca337e0eb8a9ba12946be37c6adc36ee3b9d87a545c2c37dea46c9133eba5",
+  "compiled_at": "2026-07-19T16:36:43.357346+00:00",
+  "digest": "sha256:cc7fe5d9af792917030a91b4aa3c2dd6674526699ae91aba29a8111a6677c413",
   "own_numbers": {
-    "phi_s": 0.0233,
-    "kappa": 0.1651,
+    "phi_s": 0.0226,
+    "kappa": 0.211,
     "mass": null,
-    "power": 0.15,
-    "extraction": 46981.354351,
+    "power": 0.2,
+    "extraction": 138571.589424,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 98.0,
+    "gravity_mass": 103.0,
     "mass_type": "infrastructure"
   },
   "vs_whole": {
     "mass": null,
     "power": {
-      "value": 0.15,
+      "value": 0.2,
       "rank": 2,
       "of": 51
     },
     "gravity": {
-      "value": 98.0,
-      "rank": 10,
+      "value": 103.0,
+      "rank": 5,
       "of": 62
     },
     "extraction": {
-      "value": 46981.3544,
-      "rank": 12,
+      "value": 138571.5894,
+      "rank": 7,
       "of": 51
     },
     "share_of_whole": {
       "mass": null,
-      "power": 0.16304
+      "power": 0.24096
     },
     "peers_by_power": [
       {
         "entity": "JPMORGAN",
-        "power": 0.35
+        "power": 0.21
       },
       {
         "entity": "CITIGROUP",
+        "power": 0.2
+      },
+      {
+        "entity": "BLACKROCK",
         "power": 0.15
       },
       {
         "entity": "TREASURY_MARKET",
-        "power": 0.12
-      },
-      {
-        "entity": "BLACKROCK",
-        "power": 0.08
+        "power": 0.11
       }
     ]
   },
   "relationships": {
-    "in_degree": 11,
-    "out_degree": 7,
+    "in_degree": 5,
+    "out_degree": 18,
     "by_vector": {
       "Capital": {
         "out": 0.5,
@@ -67,8 +67,8 @@
         "in": 0.5
       },
       "Information": {
-        "out": 1.0,
-        "in": 5.0
+        "out": 6.5,
+        "in": 2.0
       }
     },
     "top_inbound": [
@@ -88,12 +88,12 @@
         "vector": "Infrastructure"
       },
       {
-        "source": "CITI_TREASURY_SERVICES",
+        "source": "JANE_FRASER",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "source": "JPMORGAN",
+        "source": "CITI_TREASURY_SERVICES",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -120,7 +120,7 @@
         "vector": "Infrastructure"
       },
       {
-        "target": "JANE_FRASER",
+        "target": "EAS",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -130,49 +130,49 @@
         "entity": "FED",
         "mass": 115.0,
         "hops": 1,
-        "pull": 11270.0
+        "pull": 11845.0
       },
       {
         "entity": "JPMORGAN",
-        "mass": 104.0,
+        "mass": 100.0,
         "hops": 1,
-        "pull": 10192.0
+        "pull": 10300.0
       },
       {
         "entity": "DTCC",
         "mass": 42.0,
         "hops": 1,
-        "pull": 4116.0
+        "pull": 4326.0
       },
       {
         "entity": "SEC",
-        "mass": 120.0,
+        "mass": 119.0,
         "hops": 2,
-        "pull": 2940.0
+        "pull": 3064.25
       },
       {
         "entity": "BLACKROCK",
-        "mass": 88.0,
+        "mass": 89.0,
         "hops": 2,
-        "pull": 2156.0
+        "pull": 2291.75
       }
     ]
   },
   "monetary_position": {
-    "position": 0.811,
+    "position": 0.802,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -100% over 65 cycles",
-    "cycles": 65,
+    "headline": "phi_s -100% over 67 cycles",
+    "cycles": 67,
     "delta_last_cycle": {
-      "phi_s": 0.0003,
-      "kappa": -0.0184,
-      "power": -0.04,
-      "extraction": -39382.8938,
-      "gravity_mass": -2.0,
-      "boundary_score": -0.004
+      "phi_s": -0.0007,
+      "kappa": 0.0459,
+      "power": 0.04,
+      "extraction": 85368.9633,
+      "gravity_mass": 5.0,
+      "boundary_score": -0.001
     }
   },
   "network_plugs": {
