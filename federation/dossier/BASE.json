@@ -1,8 +1,8 @@
 {
   "entity": "BASE",
   "node": "34539544",
-  "compiled_at": "2026-07-18T07:22:21.182350+00:00",
-  "digest": "sha256:602c42d7b8f40b1fd4b85bf30132325134da98e0f474dd663744c54e3eb056ea",
+  "compiled_at": "2026-07-19T08:58:58.492216+00:00",
+  "digest": "sha256:54c68d798f0df824731416edb4b48715784444a25ff57d5b4c00001b0c20690d",
   "own_numbers": {
     "phi_s": 0.0298,
     "kappa": 0.1927,
@@ -33,12 +33,12 @@
     },
     "share_of_whole": {
       "mass": 0.01223,
-      "power": 0.0119
+      "power": 0.00943
     },
     "peers_by_power": [
       {
-        "entity": "COINBASE",
-        "power": 0.05
+        "entity": "SEC",
+        "power": 0.04
       },
       {
         "entity": "TOKENIZED_TREASURY",
@@ -59,8 +59,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 20,
-    "out_degree": 1,
+    "in_degree": 19,
+    "out_degree": 2,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -71,8 +71,8 @@
         "in": 1.0
       },
       "Information": {
-        "out": 0.0,
-        "in": 9.0
+        "out": 0.5,
+        "in": 8.5
       }
     },
     "top_inbound": [
@@ -107,6 +107,11 @@
         "target": "COINBASE",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
+      },
+      {
+        "target": "COINBASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
       }
     ],
     "gravity_pairs": [
@@ -118,9 +123,9 @@
       },
       {
         "entity": "SEC",
-        "mass": 120.0,
+        "mass": 119.0,
         "hops": 2,
-        "pull": 0.3
+        "pull": 0.2975
       },
       {
         "entity": "FED",
@@ -130,15 +135,15 @@
       },
       {
         "entity": "JPMORGAN",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 0.26
+      },
+      {
+        "entity": "CITIGROUP",
         "mass": 100.0,
         "hops": 2,
         "pull": 0.25
-      },
-      {
-        "entity": "BLACKROCK",
-        "mass": 88.0,
-        "hops": 2,
-        "pull": 0.22
       }
     ]
   },
@@ -148,13 +153,13 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -98% over 57 cycles",
-    "cycles": 57,
+    "headline": "phi_s -98% over 64 cycles",
+    "cycles": 64,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": 7941.8449,
+      "extraction": 42340.0653,
       "boundary_score": 0.0
     }
   },
@@ -192,7 +197,7 @@
     ],
     "observation": {
       "source": "infrastructure",
-      "last_observed_at": "2026-07-18T07:10:18.520917+00:00",
+      "last_observed_at": "2026-07-19T08:46:43.264987+00:00",
       "last_delta_i": 4.0,
       "stale": false
     }

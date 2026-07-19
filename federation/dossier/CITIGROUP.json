@@ -1,62 +1,62 @@
 {
   "entity": "CITIGROUP",
   "node": "34539544",
-  "compiled_at": "2026-07-18T07:22:21.852361+00:00",
-  "digest": "sha256:fc8e9e294f7e60a975130b7192df8ad5f470f2843e2a4aaf66ed9283295cf07a",
+  "compiled_at": "2026-07-19T08:58:59.183767+00:00",
+  "digest": "sha256:4ac5a79168cb8f4520e184e3fc95cdc48642288b6a5b3d3878a8d0019ff621cd",
   "own_numbers": {
-    "phi_s": 0.0233,
-    "kappa": 0.1651,
+    "phi_s": 0.023,
+    "kappa": 0.1835,
     "mass": null,
-    "power": 0.15,
-    "extraction": 40039.562539,
+    "power": 0.19,
+    "extraction": 86364.24823,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 98.0,
+    "gravity_mass": 100.0,
     "mass_type": "infrastructure"
   },
   "vs_whole": {
     "mass": null,
     "power": {
-      "value": 0.15,
+      "value": 0.19,
       "rank": 2,
       "of": 51
     },
     "gravity": {
-      "value": 98.0,
-      "rank": 10,
+      "value": 100.0,
+      "rank": 9,
       "of": 62
     },
     "extraction": {
-      "value": 40039.5625,
-      "rank": 16,
+      "value": 86364.2482,
+      "rank": 8,
       "of": 51
     },
     "share_of_whole": {
       "mass": null,
-      "power": 0.17857
+      "power": 0.17925
     },
     "peers_by_power": [
       {
         "entity": "JPMORGAN",
-        "power": 0.24
+        "power": 0.37
       },
       {
         "entity": "CITIGROUP",
-        "power": 0.15
+        "power": 0.19
+      },
+      {
+        "entity": "BLACKROCK",
+        "power": 0.17
       },
       {
         "entity": "TREASURY_MARKET",
         "power": 0.13
-      },
-      {
-        "entity": "BLACKROCK",
-        "power": 0.08
       }
     ]
   },
   "relationships": {
-    "in_degree": 11,
-    "out_degree": 7,
+    "in_degree": 6,
+    "out_degree": 14,
     "by_vector": {
       "Capital": {
         "out": 0.5,
@@ -67,8 +67,8 @@
         "in": 0.5
       },
       "Information": {
-        "out": 1.0,
-        "in": 5.0
+        "out": 4.5,
+        "in": 2.5
       }
     },
     "top_inbound": [
@@ -88,12 +88,12 @@
         "vector": "Infrastructure"
       },
       {
-        "source": "CITI_TREASURY_SERVICES",
+        "source": "JPMORGAN",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "source": "CITI_TREASURY_SERVICES",
+        "source": "JANE_FRASER",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -120,7 +120,7 @@
         "vector": "Infrastructure"
       },
       {
-        "target": "JANE_FRASER",
+        "target": "EAS",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -130,49 +130,49 @@
         "entity": "FED",
         "mass": 115.0,
         "hops": 1,
-        "pull": 11270.0
-      },
-      {
-        "entity": "DTCC",
-        "mass": 43.0,
-        "hops": 1,
-        "pull": 4214.0
-      },
-      {
-        "entity": "SEC",
-        "mass": 120.0,
-        "hops": 2,
-        "pull": 2940.0
+        "pull": 11500.0
       },
       {
         "entity": "JPMORGAN",
-        "mass": 100.0,
+        "mass": 104.0,
+        "hops": 1,
+        "pull": 10400.0
+      },
+      {
+        "entity": "DTCC",
+        "mass": 42.0,
+        "hops": 1,
+        "pull": 4200.0
+      },
+      {
+        "entity": "SEC",
+        "mass": 119.0,
         "hops": 2,
-        "pull": 2450.0
+        "pull": 2975.0
       },
       {
         "entity": "BLACKROCK",
-        "mass": 88.0,
+        "mass": 89.0,
         "hops": 2,
-        "pull": 2156.0
+        "pull": 2225.0
       }
     ]
   },
   "monetary_position": {
-    "position": 0.801,
+    "position": 0.807,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -100% over 57 cycles",
-    "cycles": 57,
+    "headline": "phi_s -100% over 64 cycles",
+    "cycles": 64,
     "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": 0.0,
-      "power": -0.01,
-      "extraction": -11566.9848,
-      "gravity_mass": 0.0,
-      "boundary_score": 0.0
+      "phi_s": -0.0003,
+      "kappa": 0.0184,
+      "power": 0.05,
+      "extraction": 40810.8817,
+      "gravity_mass": 2.0,
+      "boundary_score": -0.006
     }
   },
   "network_plugs": {

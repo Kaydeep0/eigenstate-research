@@ -1,8 +1,8 @@
 {
   "entity": "FED_RRP",
   "node": "34539544",
-  "compiled_at": "2026-07-18T07:22:22.985975+00:00",
-  "digest": "sha256:0814c026ca6db1331af9551d48edf322bb0ef83a460de44d0e1dd23e6d465e4d",
+  "compiled_at": "2026-07-19T08:59:00.419383+00:00",
+  "digest": "sha256:018e60b632d4e470e55f4b6a78bb70bf0ede363973855e8de36483925d8f7195",
   "own_numbers": {
     "phi_s": 0.035,
     "kappa": 0.0367,
@@ -55,8 +55,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 3,
-    "out_degree": 1,
+    "in_degree": 2,
+    "out_degree": 2,
     "by_vector": {
       "Capital": {
         "out": 0.5,
@@ -67,8 +67,8 @@
         "in": 0.5
       },
       "Information": {
-        "out": 0.0,
-        "in": 1.0
+        "out": 0.5,
+        "in": 0.5
       }
     },
     "top_inbound": [
@@ -81,11 +81,6 @@
         "source": "TREASURY_MARKET",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
-      },
-      {
-        "source": "FED",
-        "conn_type": "information_flow",
-        "vector": "Information"
       }
     ],
     "top_outbound": [
@@ -93,6 +88,11 @@
         "target": "STABLECOIN_POOL",
         "conn_type": "capital",
         "vector": "Capital"
+      },
+      {
+        "target": "FED",
+        "conn_type": "information_flow",
+        "vector": "Information"
       }
     ],
     "gravity_pairs": []
@@ -103,13 +103,13 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -98% over 57 cycles",
-    "cycles": 57,
+    "headline": "phi_s -98% over 64 cycles",
+    "cycles": 64,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": 0.0,
+      "extraction": 52.2788,
       "boundary_score": 0.0
     }
   },
