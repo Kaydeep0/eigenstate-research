@@ -1,10 +1,10 @@
 {
   "entity": "OUSG",
   "node": "34539544",
-  "compiled_at": "2026-07-19T16:36:46.979078+00:00",
-  "digest": "sha256:39e5d1f6c8130104b7da03990f3f0e430365ddcbf4408ee53ebd936e4c6e3448",
+  "compiled_at": "2026-07-20T16:27:22.389304+00:00",
+  "digest": "sha256:290edf040406909ef03bb20386d1c8357f2d3a6dd794ba287e51d5ce86ccb655",
   "own_numbers": {
-    "phi_s": 0.084,
+    "phi_s": 0.0828,
     "kappa": 0.0734,
     "mass": null,
     "power": 0.0,
@@ -24,7 +24,7 @@
     "gravity": null,
     "extraction": {
       "value": 3438.8833,
-      "rank": 26,
+      "rank": 27,
       "of": 51
     },
     "share_of_whole": {
@@ -55,12 +55,12 @@
     ]
   },
   "relationships": {
-    "in_degree": 3,
-    "out_degree": 5,
+    "in_degree": 2,
+    "out_degree": 6,
     "by_vector": {
       "Capital": {
-        "out": 1.5,
-        "in": 1.0
+        "out": 2.0,
+        "in": 0.5
       },
       "Infrastructure": {
         "out": 1.0,
@@ -73,7 +73,7 @@
     },
     "top_inbound": [
       {
-        "source": "BLACKROCK",
+        "source": "CIRCLE",
         "conn_type": "ownership",
         "vector": "Capital"
       },
@@ -81,16 +81,16 @@
         "source": "ONDO",
         "conn_type": "information_flow",
         "vector": "Information"
-      },
-      {
-        "source": "BLACKROCK",
-        "conn_type": "ownership",
-        "vector": "Capital"
       }
     ],
     "top_outbound": [
       {
-        "target": "CIRCLE",
+        "target": "BLACKROCK",
+        "conn_type": "ownership",
+        "vector": "Capital"
+      },
+      {
+        "target": "BLACKROCK",
         "conn_type": "ownership",
         "vector": "Capital"
       },
@@ -108,11 +108,6 @@
         "target": "COINBASE",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
-      },
-      {
-        "target": "SECURITIZE",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": []
@@ -124,12 +119,12 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 67,
+    "cycles": 70,
     "delta_last_cycle": {
-      "phi_s": 0.0012,
+      "phi_s": -0.0012,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": -454.6494,
+      "extraction": -213.1169,
       "boundary_score": 0.0
     }
   },

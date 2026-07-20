@@ -1,8 +1,8 @@
 {
   "entity": "TETHER",
   "node": "34539544",
-  "compiled_at": "2026-07-19T16:36:48.572811+00:00",
-  "digest": "sha256:d8e8c4021070e7bd57da6c13c088678c893673c81efd26e4b4aeba4ef9f5ceb5",
+  "compiled_at": "2026-07-20T16:27:24.258714+00:00",
+  "digest": "sha256:cb21c9c8f79fb3a0afc89eb471db4f7b1c789d5af7441fc11b95ae7a2c95db14",
   "own_numbers": {
     "phi_s": 0.0788,
     "kappa": 0.0734,
@@ -28,7 +28,7 @@
     "gravity": null,
     "extraction": {
       "value": 5778.8578,
-      "rank": 23,
+      "rank": 24,
       "of": 51
     },
     "share_of_whole": {
@@ -59,8 +59,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 5,
-    "out_degree": 3,
+    "in_degree": 6,
+    "out_degree": 2,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -71,8 +71,8 @@
         "in": 0.5
       },
       "Information": {
-        "out": 0.5,
-        "in": 1.7
+        "out": 0.0,
+        "in": 2.2
       }
     },
     "top_inbound": [
@@ -92,22 +92,17 @@
         "vector": "Information"
       },
       {
-        "source": "CANTOR_FITZGERALD",
-        "conn_type": "custody",
-        "vector": "Infrastructure"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
-      }
-    ],
-    "top_outbound": [
-      {
-        "target": "CIRCLE",
+        "source": "CIRCLE",
         "conn_type": "information_flow",
         "vector": "Information"
       },
+      {
+        "source": "CANTOR_FITZGERALD",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
+      }
+    ],
+    "top_outbound": [
       {
         "target": "CANTOR_FITZGERALD",
         "conn_type": "custody",
@@ -128,12 +123,12 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 67,
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": -766.1684,
+      "extraction": -359.1415,
       "boundary_score": 0.0
     }
   },

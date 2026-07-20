@@ -1,39 +1,39 @@
 {
   "entity": "CITIGROUP",
   "node": "34539544",
-  "compiled_at": "2026-07-19T16:36:43.357346+00:00",
-  "digest": "sha256:cc7fe5d9af792917030a91b4aa3c2dd6674526699ae91aba29a8111a6677c413",
+  "compiled_at": "2026-07-20T16:27:18.686314+00:00",
+  "digest": "sha256:4ca184ed281064c5004f040c3156b887b264db35c44a394359ba4220cd36a034",
   "own_numbers": {
-    "phi_s": 0.0226,
-    "kappa": 0.211,
+    "phi_s": 0.0233,
+    "kappa": 0.1651,
     "mass": null,
-    "power": 0.2,
-    "extraction": 138571.589424,
+    "power": 0.14,
+    "extraction": 45553.366489,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 103.0,
+    "gravity_mass": 98.0,
     "mass_type": "infrastructure"
   },
   "vs_whole": {
     "mass": null,
     "power": {
-      "value": 0.2,
+      "value": 0.14,
       "rank": 2,
       "of": 51
     },
     "gravity": {
-      "value": 103.0,
-      "rank": 5,
+      "value": 98.0,
+      "rank": 10,
       "of": 62
     },
     "extraction": {
-      "value": 138571.5894,
-      "rank": 7,
+      "value": 45553.3665,
+      "rank": 12,
       "of": 51
     },
     "share_of_whole": {
       "mass": null,
-      "power": 0.24096
+      "power": 0.2
     },
     "peers_by_power": [
       {
@@ -42,21 +42,21 @@
       },
       {
         "entity": "CITIGROUP",
-        "power": 0.2
-      },
-      {
-        "entity": "BLACKROCK",
-        "power": 0.15
+        "power": 0.14
       },
       {
         "entity": "TREASURY_MARKET",
         "power": 0.11
+      },
+      {
+        "entity": "BLACKROCK",
+        "power": 0.07
       }
     ]
   },
   "relationships": {
-    "in_degree": 5,
-    "out_degree": 18,
+    "in_degree": 11,
+    "out_degree": 7,
     "by_vector": {
       "Capital": {
         "out": 0.5,
@@ -67,8 +67,8 @@
         "in": 0.5
       },
       "Information": {
-        "out": 6.5,
-        "in": 2.0
+        "out": 1.0,
+        "in": 5.0
       }
     },
     "top_inbound": [
@@ -88,12 +88,12 @@
         "vector": "Infrastructure"
       },
       {
-        "source": "JANE_FRASER",
+        "source": "EAS",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "source": "CITI_TREASURY_SERVICES",
+        "source": "EAS",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -120,7 +120,7 @@
         "vector": "Infrastructure"
       },
       {
-        "target": "EAS",
+        "target": "JANE_FRASER",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -130,49 +130,49 @@
         "entity": "FED",
         "mass": 115.0,
         "hops": 1,
-        "pull": 11845.0
-      },
-      {
-        "entity": "JPMORGAN",
-        "mass": 100.0,
-        "hops": 1,
-        "pull": 10300.0
+        "pull": 11270.0
       },
       {
         "entity": "DTCC",
         "mass": 42.0,
         "hops": 1,
-        "pull": 4326.0
+        "pull": 4116.0
       },
       {
         "entity": "SEC",
         "mass": 119.0,
         "hops": 2,
-        "pull": 3064.25
+        "pull": 2915.5
+      },
+      {
+        "entity": "JPMORGAN",
+        "mass": 100.0,
+        "hops": 2,
+        "pull": 2450.0
       },
       {
         "entity": "BLACKROCK",
-        "mass": 89.0,
+        "mass": 88.0,
         "hops": 2,
-        "pull": 2291.75
+        "pull": 2156.0
       }
     ]
   },
   "monetary_position": {
-    "position": 0.802,
+    "position": 0.801,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -100% over 67 cycles",
-    "cycles": 67,
+    "headline": "phi_s -100% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
-      "phi_s": -0.0007,
-      "kappa": 0.0459,
-      "power": 0.04,
-      "extraction": 85368.9633,
-      "gravity_mass": 5.0,
-      "boundary_score": -0.001
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "power": -0.01,
+      "extraction": -2837.4285,
+      "gravity_mass": 0.0,
+      "boundary_score": 0.0
     }
   },
   "network_plugs": {
