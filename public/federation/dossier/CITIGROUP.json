@@ -1,62 +1,62 @@
 {
   "entity": "CITIGROUP",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.541893+00:00",
-  "digest": "sha256:ec341691d642da038a28946a9f178d3b36bdb63a315d3d873a2ae6b9ceeff4b5",
+  "compiled_at": "2026-07-20T16:52:38.227767+00:00",
+  "digest": "sha256:4ca184ed281064c5004f040c3156b887b264db35c44a394359ba4220cd36a034",
   "own_numbers": {
-    "phi_s": 0.023,
-    "kappa": 0.1835,
+    "phi_s": 0.0233,
+    "kappa": 0.1651,
     "mass": null,
-    "power": 0.19,
-    "extraction": 86364.24823,
+    "power": 0.14,
+    "extraction": 45553.366489,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 100.0,
+    "gravity_mass": 98.0,
     "mass_type": "infrastructure"
   },
   "vs_whole": {
     "mass": null,
     "power": {
-      "value": 0.19,
+      "value": 0.14,
       "rank": 2,
       "of": 51
     },
     "gravity": {
-      "value": 100.0,
-      "rank": 9,
+      "value": 98.0,
+      "rank": 10,
       "of": 62
     },
     "extraction": {
-      "value": 86364.2482,
-      "rank": 8,
+      "value": 45553.3665,
+      "rank": 12,
       "of": 51
     },
     "share_of_whole": {
       "mass": null,
-      "power": 0.19588
+      "power": 0.2
     },
     "peers_by_power": [
       {
         "entity": "JPMORGAN",
-        "power": 0.37
+        "power": 0.21
       },
       {
         "entity": "CITIGROUP",
-        "power": 0.19
+        "power": 0.14
       },
       {
         "entity": "TREASURY_MARKET",
-        "power": 0.13
+        "power": 0.11
       },
       {
         "entity": "BLACKROCK",
-        "power": 0.08
+        "power": 0.07
       }
     ]
   },
   "relationships": {
-    "in_degree": 9,
-    "out_degree": 11,
+    "in_degree": 11,
+    "out_degree": 7,
     "by_vector": {
       "Capital": {
         "out": 0.5,
@@ -67,8 +67,8 @@
         "in": 0.5
       },
       "Information": {
-        "out": 3.0,
-        "in": 4.0
+        "out": 1.0,
+        "in": 5.0
       }
     },
     "top_inbound": [
@@ -88,12 +88,12 @@
         "vector": "Infrastructure"
       },
       {
-        "source": "JPMORGAN",
+        "source": "EAS",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "source": "JANE_FRASER",
+        "source": "EAS",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -120,7 +120,7 @@
         "vector": "Infrastructure"
       },
       {
-        "target": "EAS",
+        "target": "JANE_FRASER",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -130,49 +130,49 @@
         "entity": "FED",
         "mass": 115.0,
         "hops": 1,
-        "pull": 11500.0
-      },
-      {
-        "entity": "JPMORGAN",
-        "mass": 104.0,
-        "hops": 1,
-        "pull": 10400.0
+        "pull": 11270.0
       },
       {
         "entity": "DTCC",
-        "mass": 43.0,
+        "mass": 42.0,
         "hops": 1,
-        "pull": 4300.0
+        "pull": 4116.0
       },
       {
         "entity": "SEC",
         "mass": 119.0,
         "hops": 2,
-        "pull": 2975.0
+        "pull": 2915.5
+      },
+      {
+        "entity": "JPMORGAN",
+        "mass": 100.0,
+        "hops": 2,
+        "pull": 2450.0
       },
       {
         "entity": "BLACKROCK",
         "mass": 88.0,
         "hops": 2,
-        "pull": 2200.0
+        "pull": 2156.0
       }
     ]
   },
   "monetary_position": {
-    "position": 0.807,
+    "position": 0.801,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -100% over 5 cycles",
-    "cycles": 5,
+    "headline": "phi_s -100% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
-      "phi_s": -0.0007,
-      "kappa": 0.0391,
-      "power": -0.03,
-      "extraction": 87625.8693,
-      "gravity_mass": 5.0,
-      "boundary_score": -0.001
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "power": -0.01,
+      "extraction": -2837.4285,
+      "gravity_mass": 0.0,
+      "boundary_score": 0.0
     }
   },
   "network_plugs": {
@@ -216,17 +216,55 @@
       "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": true,
-    "minus_one_bias": 2.3e-05,
-    "operator_move": {
-      "rank": 1,
-      "of": 6,
-      "vector": "infrastructure",
-      "power_gain_estimate": 119.92349999999999
+  "claims": [
+    {
+      "claim_id": "ecae6760-1e73-49b6-b194-532484ecc187",
+      "claim_text": "Citigroup \u2014 global financial services",
+      "grounding": {
+        "source_url": "https://www.citigroup.com/",
+        "expected": "financial services",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CITIGROUP_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/citigroup-20260702/",
+      "verified_at": "2026-07-02T04:07:35.185160+00:00",
+      "allows_canonical": true
     },
-    "observed_by_node": true
-  }
+    {
+      "claim_id": "7456ab5c-94f5-4991-8f67-6b05d45f8855",
+      "claim_text": "Citigroup global presence and institutional role",
+      "grounding": {
+        "source_url": "https://www.citigroup.com/global/about-us",
+        "expected": "Citigroup",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CITIGROUP_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/citigroup-20260702/",
+      "verified_at": "2026-07-02T04:07:35.735069+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "6fddcf6b-5cbf-4c3b-ad5d-8cdd24a86331",
+      "claim_text": "Services for institutional clients \u2014 custody and markets",
+      "grounding": {
+        "source_url": "https://www.citigroup.com/global/businesses/services",
+        "expected": "Institutional Clients",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CITIGROUP_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/citigroup-20260702/",
+      "verified_at": "2026-07-02T04:07:35.997789+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/CITIGROUP.json"
 }

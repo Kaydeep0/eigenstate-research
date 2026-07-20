@@ -1,10 +1,10 @@
 {
   "entity": "OCC",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.851354+00:00",
-  "digest": "sha256:c175d9be09335fcf4d59417f5f78642e392998c9eb19d410c3a2509a97615d40",
+  "compiled_at": "2026-07-20T16:52:41.238925+00:00",
+  "digest": "sha256:3b9d42960fa68c22b7116ab9212e74d121308bcf9d311bec531b655c32e0a1a8",
   "own_numbers": {
-    "phi_s": 4.9264,
+    "phi_s": 1.6901,
     "kappa": 0.0,
     "mass": 0.285617,
     "power": null,
@@ -23,7 +23,7 @@
     "power": null,
     "gravity": {
       "value": 103.0,
-      "rank": 6,
+      "rank": 5,
       "of": 62
     },
     "extraction": null,
@@ -72,9 +72,9 @@
     "gravity_pairs": [
       {
         "entity": "US_JURISDICTION",
-        "mass": 50.7,
+        "mass": 50.63,
         "hops": 1,
-        "pull": 5222.1
+        "pull": 5214.89
       },
       {
         "entity": "SEC",
@@ -107,12 +107,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 5,
+    "level": "watch",
+    "headline": "phi_s -49% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
-      "phi_s": 3.2362,
-      "kappa": -0.029,
+      "phi_s": 0.0,
+      "kappa": 0.0,
       "gravity_mass": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
@@ -127,7 +127,7 @@
         "status": "live",
         "series_id": "W006RC1A027NBEA",
         "label": "tax_receipts_proxy",
-        "last_observed_at": "2026-07-03T00:52:41.200869+00:00",
+        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -160,12 +160,55 @@
       "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 2e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "7ce60bdb-8ea2-42b8-8b2a-bdb60e465011",
+      "claim_text": "OCC charters and supervises national banks",
+      "grounding": {
+        "source_url": "https://www.occ.gov/about/who-we-are/index-who-we-are.html",
+        "expected": "national banks",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "OCC_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/occ-20260702/",
+      "verified_at": "2026-07-02T05:12:21.981436+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "63e42e8d-b580-4a41-b1f8-f48344e19dc0",
+      "claim_text": "Interpretive Letter \u2014 national banks may provide crypto custody",
+      "grounding": {
+        "source_url": "https://www.occ.gov/news-issuances/news-releases/2020/nr-occ-2020-98.html",
+        "expected": "cryptocurrency custody",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "OCC_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/occ-20260702/",
+      "verified_at": "2026-07-02T05:12:52.499262+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "6c55c68b-ca69-4035-9ee9-c9ddcc6604b6",
+      "claim_text": "Interpretive Letter \u2014 banks may use stablecoins for payment activities",
+      "grounding": {
+        "source_url": "https://www.occ.gov/news-issuances/news-releases/2021/nr-occ-2021-2.html",
+        "expected": "stablecoins",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "OCC_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/occ-20260702/",
+      "verified_at": "2026-07-02T05:13:23.291684+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/OCC.json"
 }

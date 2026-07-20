@@ -1,11 +1,11 @@
 {
   "entity": "REG_D",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.897121+00:00",
-  "digest": "sha256:6de157375e056f5316bf2a0f7d31188bac6542c5274d606a8cd20c6e9785ae1c",
+  "compiled_at": "2026-07-20T16:52:41.826785+00:00",
+  "digest": "sha256:bf76c9399018218cc58986ffbacd5db48f5a2096b6a3afb1391d72df7c115e1c",
   "own_numbers": {
-    "phi_s": 0.048,
-    "kappa": 0.0183,
+    "phi_s": 6.5205,
+    "kappa": 0.0002,
     "mass": 0.097804,
     "power": null,
     "extraction": null,
@@ -98,12 +98,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 5,
+    "level": "flag",
+    "headline": "phi_s +13484% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0008,
+      "kappa": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -117,7 +117,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "private_placement_gdp_proxy",
-        "last_observed_at": "2026-07-03T00:52:41.200869+00:00",
+        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -145,17 +145,60 @@
     ],
     "observation": {
       "source": null,
-      "last_observed_at": null,
+      "last_observed_at": "2026-07-17T18:42:20.710763+00:00",
       "last_delta_i": null,
-      "stale": true
+      "stale": false
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 2e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "7c69bff9-08d5-48d6-879b-86ed0f2f0b13",
+      "claim_text": "SEC Regulation D exempt offerings",
+      "grounding": {
+        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings",
+        "expected": "Regulation D",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "REG_D_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-d-20260702/",
+      "verified_at": "2026-07-02T07:24:17.201330+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "f5735936-bb33-4a67-8941-f2336a99db40",
+      "claim_text": "Rule 506(b) and 506(c) private placements",
+      "grounding": {
+        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings",
+        "expected": "506",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "REG_D_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-d-20260702/",
+      "verified_at": "2026-07-02T07:24:17.363271+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "6afa862a-8c79-438f-bd98-97905c2ad7f9",
+      "claim_text": "SEC small business capital raising exemptions",
+      "grounding": {
+        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings",
+        "expected": "exempt",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "REG_D_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-d-20260702/",
+      "verified_at": "2026-07-02T07:24:17.528152+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/REG_D.json"
 }

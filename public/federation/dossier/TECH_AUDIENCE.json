@@ -1,8 +1,8 @@
 {
   "entity": "TECH_AUDIENCE",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:40.069323+00:00",
-  "digest": "sha256:d85bc80412ed10d87894618f3c4e6a146d98a49cb24250762c17fa3e22c2124b",
+  "compiled_at": "2026-07-20T16:52:42.914116+00:00",
+  "digest": "sha256:33e3369d0c812674afc943f1ee1e18ea80db6759e0689aa7c23ef0242bd18928",
   "own_numbers": {
     "phi_s": 0.0,
     "kappa": 0.0183,
@@ -68,15 +68,15 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 5,
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0095,
+      "kappa": 0.0,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "stale",
     "inbound": [],
     "outbound": [
       {
@@ -104,15 +104,58 @@
       "source": "audience",
       "last_observed_at": "2026-07-02T15:50:29.532510+00:00",
       "last_delta_i": 4.0,
-      "stale": false
+      "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": true,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 0.0,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "478e8abb-ca91-41d7-b489-8428de4476f5",
+      "claim_text": "GitHub \u2014 software collaboration platform",
+      "grounding": {
+        "source_url": "https://github.com/about",
+        "expected": "GitHub",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "code_primary",
+      "witness_weight": 0.78,
+      "report_id": "TECH_AUDIENCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tech-audience-20260702/",
+      "verified_at": "2026-07-02T00:54:04.519019+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "60064b15-5a51-4990-86ec-941ebe11f147",
+      "claim_text": "Ethereum developer ecosystem",
+      "grounding": {
+        "source_url": "https://ethereum.org/developers/",
+        "expected": "Ethereum",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "TECH_AUDIENCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tech-audience-20260702/",
+      "verified_at": "2026-07-02T00:54:04.770567+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "24d3547c-e9bb-49b4-b8e2-c36995bcb40e",
+      "claim_text": "Base builder outreach",
+      "grounding": {
+        "source_url": "https://blog.base.org/base-is-meeting-builders-around-the-world",
+        "expected": "builders",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "TECH_AUDIENCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tech-audience-20260702/",
+      "verified_at": "2026-07-02T00:54:05.468851+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/TECH_AUDIENCE.json"
 }

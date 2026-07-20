@@ -1,8 +1,8 @@
 {
   "entity": "ATTESTATION_EXPIRY",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.334818+00:00",
-  "digest": "sha256:9f685e5d29848ae03f8410e629be80067ee4bf2c25d36008a57982bde381b0a3",
+  "compiled_at": "2026-07-20T16:52:37.047657+00:00",
+  "digest": "sha256:11fd3d992f8dc31b06ccd0ccc945069141b6156bbeb896416f5296a3f80d2202",
   "own_numbers": {
     "phi_s": 0.0,
     "kappa": 0.0,
@@ -57,7 +57,7 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 5,
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -96,12 +96,55 @@
       "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 0.0,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "d417c6b4-244d-4491-a759-498cd62b7660",
+      "claim_text": "Ethereum.org \u2014 proof-of-stake attestations",
+      "grounding": {
+        "source_url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/attestations/",
+        "expected": "attestation",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "ATTESTATION_EXPIRY_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/attestation-expiry-20260702/",
+      "verified_at": "2026-07-02T01:48:01.650715+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "ac9d30d5-2f00-4329-862d-75123fd6ad39",
+      "claim_text": "Circle transparency \u2014 USDC reserves",
+      "grounding": {
+        "source_url": "https://www.circle.com/en/transparency",
+        "expected": "transparency",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "ATTESTATION_EXPIRY_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/attestation-expiry-20260702/",
+      "verified_at": "2026-07-02T01:48:01.891882+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "d0c1aa9a-8a56-4ba4-a20d-420833fcff5d",
+      "claim_text": "RWA.xyz \u2014 tokenized asset index",
+      "grounding": {
+        "source_url": "https://rwa.xyz/",
+        "expected": "tokenized",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "ATTESTATION_EXPIRY_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/attestation-expiry-20260702/",
+      "verified_at": "2026-07-02T01:48:02.503561+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/ATTESTATION_EXPIRY.json"
 }

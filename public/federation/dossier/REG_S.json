@@ -1,11 +1,11 @@
 {
   "entity": "REG_S",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.903914+00:00",
-  "digest": "sha256:f4edfdb09598223d768b32a0a3a4762151b0b91a897cd5134514c7f8f96721d5",
+  "compiled_at": "2026-07-20T16:52:41.854031+00:00",
+  "digest": "sha256:40c6841ecbd9ddbf9fdafb170b99a64025f3bea3e8ad113f6849bcf77bd8c5cc",
   "own_numbers": {
-    "phi_s": 0.048,
-    "kappa": 0.0183,
+    "phi_s": 6.5205,
+    "kappa": 0.0002,
     "mass": 0.097804,
     "power": null,
     "extraction": null,
@@ -97,18 +97,18 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 5,
+    "level": "flag",
+    "headline": "phi_s +13484% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0008,
+      "kappa": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "stale",
+    "freshness": "live",
     "inbound": [],
     "outbound": [
       {
@@ -134,17 +134,60 @@
     ],
     "observation": {
       "source": null,
-      "last_observed_at": null,
+      "last_observed_at": "2026-07-17T18:42:20.710763+00:00",
       "last_delta_i": null,
-      "stale": true
+      "stale": false
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 2e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "14e29192-f786-4e0f-a8cb-578c0f73c855",
+      "claim_text": "SEC exempt offerings framework",
+      "grounding": {
+        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings",
+        "expected": "Regulation",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "REG_S_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-s-20260702/",
+      "verified_at": "2026-07-02T06:07:47.126732+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "b48574e2-cd47-480b-aed6-8bb0bf6252d4",
+      "claim_text": "SEC securities offering exemptions overview",
+      "grounding": {
+        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings",
+        "expected": "securities",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "REG_S_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-s-20260702/",
+      "verified_at": "2026-07-02T06:07:47.372337+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "c39e7fac-ac71-42bc-8bff-8ba0147a458d",
+      "claim_text": "SEC capital raising exempt offering paths",
+      "grounding": {
+        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings",
+        "expected": "offering",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "REG_S_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-s-20260702/",
+      "verified_at": "2026-07-02T06:07:47.550664+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/REG_S.json"
 }

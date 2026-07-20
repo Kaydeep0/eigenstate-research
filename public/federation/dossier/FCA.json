@@ -1,11 +1,11 @@
 {
   "entity": "FCA",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.693024+00:00",
-  "digest": "sha256:8d5e19fee6cc4732c2b8c74dab1a50ad08f4c2a0562e6cac7c8ab36b6d5852ac",
+  "compiled_at": "2026-07-20T16:52:39.444390+00:00",
+  "digest": "sha256:d5a379cc1f42b2f8cea02c4e3b0a612b5a943c7986b01be9fb4268a14d3b5f52",
   "own_numbers": {
-    "phi_s": 0.048,
-    "kappa": 0.0183,
+    "phi_s": 1.6661,
+    "kappa": 0.0,
     "mass": 0.166623,
     "power": null,
     "extraction": null,
@@ -23,7 +23,7 @@
     "power": null,
     "gravity": {
       "value": 102.0,
-      "rank": 8,
+      "rank": 7,
       "of": 62
     },
     "extraction": null,
@@ -101,12 +101,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 5,
+    "level": "flag",
+    "headline": "phi_s +3371% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0008,
+      "kappa": 0.0,
       "gravity_mass": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
@@ -121,7 +121,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "uk_regulatory_gdp_proxy",
-        "last_observed_at": "2026-07-03T00:52:41.200869+00:00",
+        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -154,12 +154,55 @@
       "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 2e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "ea944bde-5dff-4420-9f6a-3712534524a9",
+      "claim_text": "FCA \u2014 UK financial conduct regulator",
+      "grounding": {
+        "source_url": "https://www.fca.org.uk/",
+        "expected": "Financial Conduct Authority",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "FCA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fca-20260702/",
+      "verified_at": "2026-07-02T07:46:22.587588+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "ab0a6165-0fb1-445e-bf3f-66fc6ea35dbf",
+      "claim_text": "FCA cryptoasset regime for firms",
+      "grounding": {
+        "source_url": "https://www.fca.org.uk/firms/cryptoassets",
+        "expected": "crypto",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "FCA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fca-20260702/",
+      "verified_at": "2026-07-02T07:46:22.700667+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "f5cacef2-3722-4e5b-a77f-24cca666be02",
+      "claim_text": "FCA about the authority",
+      "grounding": {
+        "source_url": "https://www.fca.org.uk/about",
+        "expected": "FCA",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "FCA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fca-20260702/",
+      "verified_at": "2026-07-02T07:46:25.526397+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/FCA.json"
 }

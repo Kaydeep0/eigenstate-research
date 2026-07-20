@@ -1,15 +1,15 @@
 {
   "entity": "US_JURISDICTION",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:40.158786+00:00",
-  "digest": "sha256:93e91d679282fc7b31e4e5d8e4630d735b3171be4310ac407384a75148eed8e5",
+  "compiled_at": "2026-07-20T16:52:43.496949+00:00",
+  "digest": "sha256:9f2fa437ca7be9cdc7d61deed64c71a77fc78b271bfc02b08f69001fbb3ad8a0",
   "own_numbers": {
-    "phi_s": 2.554,
-    "kappa": 0.0012,
+    "phi_s": 4.1709,
+    "kappa": 0.0018,
     "mass": 0.552528,
     "power": null,
     "extraction": null,
-    "memory_mass": 50.7,
+    "memory_mass": 50.63,
     "X_natural": 0.0,
     "gravity_mass": null,
     "mass_type": null
@@ -90,31 +90,31 @@
         "entity": "SEC",
         "mass": 119.0,
         "hops": 1,
-        "pull": 6033.3
+        "pull": 6024.97
       },
       {
         "entity": "FED",
         "mass": 115.0,
         "hops": 1,
-        "pull": 5830.5
+        "pull": 5822.45
       },
       {
         "entity": "FINRA",
         "mass": 104.0,
         "hops": 1,
-        "pull": 5272.8
+        "pull": 5265.52
       },
       {
         "entity": "OCC",
         "mass": 103.0,
         "hops": 1,
-        "pull": 5222.1
+        "pull": 5214.89
       },
       {
         "entity": "CFTC",
         "mass": 102.0,
         "hops": 1,
-        "pull": 5171.4
+        "pull": 5164.26
       }
     ]
   },
@@ -125,11 +125,11 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 5,
+    "cycles": 70,
     "delta_last_cycle": {
-      "phi_s": 3.2252,
-      "kappa": -0.1232,
-      "memory_mass": -0.6,
+      "phi_s": 1.6181,
+      "kappa": 0.0006,
+      "memory_mass": 0.0,
       "boundary_score": 0.0
     }
   },
@@ -142,7 +142,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "gdp_billions",
-        "last_observed_at": "2026-07-03T00:52:41.200869+00:00",
+        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -170,17 +170,60 @@
     ],
     "observation": {
       "source": "defi_llama_tvl",
-      "last_observed_at": "2026-07-02T22:37:51.993863+00:00",
-      "last_delta_i": 0.0841466325493046,
+      "last_observed_at": "2026-07-13T19:50:25.145908+00:00",
+      "last_delta_i": 0.06065080082278357,
       "stale": false
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 1.8e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "0f10fe60-0e80-46a1-ad23-ef90a06358ba",
+      "claim_text": "GENIUS Act \u2014 first federal stablecoin framework",
+      "grounding": {
+        "source_url": "https://home.treasury.gov/about/general-information",
+        "expected": "Department of the Treasury",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "macro_primary",
+      "witness_weight": 0.88,
+      "report_id": "US_JURISDICTION_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/us-jurisdiction-20260702/",
+      "verified_at": "2026-07-02T05:02:28.405518+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "9831eb83-ebf2-414a-a8b7-0851cc8aaf1b",
+      "claim_text": "FIT21 \u2014 market structure bill",
+      "grounding": {
+        "source_url": "https://www.cftc.gov/",
+        "expected": "CFTC",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "US_JURISDICTION_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/us-jurisdiction-20260702/",
+      "verified_at": "2026-07-02T05:02:28.492507+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "9e9fdd2b-34f4-41e8-95d5-1ea6784fdca1",
+      "claim_text": "Treasury stablecoin reserve guidance",
+      "grounding": {
+        "source_url": "https://www.occ.gov/about/index-about.html",
+        "expected": "Comptroller",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "US_JURISDICTION_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/us-jurisdiction-20260702/",
+      "verified_at": "2026-07-02T05:02:59.235654+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/US_JURISDICTION.json"
 }

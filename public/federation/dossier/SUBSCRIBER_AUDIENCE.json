@@ -1,8 +1,8 @@
 {
   "entity": "SUBSCRIBER_AUDIENCE",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:40.014711+00:00",
-  "digest": "sha256:2a2ca81766a03845b9d0d399f4ed49fdbec4646f71e5d7f4e48958276120b841",
+  "compiled_at": "2026-07-20T16:52:42.812119+00:00",
+  "digest": "sha256:2a4ba116bd2735932271870801fb1ba5c81c80a22fed6f6a9ed42d5a4e79f9a9",
   "own_numbers": {
     "phi_s": 0.0,
     "kappa": 0.0183,
@@ -68,15 +68,15 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 5,
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0095,
+      "kappa": 0.0,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "stale",
     "inbound": [],
     "outbound": [
       {
@@ -104,15 +104,58 @@
       "source": "audience",
       "last_observed_at": "2026-07-02T15:50:28.881145+00:00",
       "last_delta_i": 4.0,
-      "stale": false
+      "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": true,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 0.0,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "87c4a42b-7e50-4212-b5c7-53c44126b338",
+      "claim_text": "Paragraph \u2014 on-chain publishing",
+      "grounding": {
+        "source_url": "https://paragraph.com/",
+        "expected": "newsletter",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "publish_primary",
+      "witness_weight": 0.7,
+      "report_id": "SUBSCRIBER_AUDIENCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/subscriber-audience-20260702/",
+      "verified_at": "2026-07-02T01:03:47.571649+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "a016f817-90bf-4908-8173-3080a7d5eb34",
+      "claim_text": "Paragraph documentation",
+      "grounding": {
+        "source_url": "https://docs.paragraph.com/",
+        "expected": "publish",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "publish_primary",
+      "witness_weight": 0.7,
+      "report_id": "SUBSCRIBER_AUDIENCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/subscriber-audience-20260702/",
+      "verified_at": "2026-07-02T01:03:47.995132+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "a1fc3610-4643-49aa-bbf3-d58705aa2f7a",
+      "claim_text": "Substack \u2014 subscription publishing",
+      "grounding": {
+        "source_url": "https://substack.com/about",
+        "expected": "Substack",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "SUBSCRIBER_AUDIENCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/subscriber-audience-20260702/",
+      "verified_at": "2026-07-02T01:03:48.081470+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/SUBSCRIBER_AUDIENCE.json"
 }

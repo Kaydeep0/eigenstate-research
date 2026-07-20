@@ -1,11 +1,11 @@
 {
   "entity": "TRAVEL_RULE",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:40.126121+00:00",
-  "digest": "sha256:0b3c00a2747d6ab0acd957e7c9b6805cbac2381a131864b94447c5f563d66028",
+  "compiled_at": "2026-07-20T16:52:43.220557+00:00",
+  "digest": "sha256:66b71ab22739034ec1de34d5a18ab27f4ae7b6b3d884766df24031b6a8e168cd",
   "own_numbers": {
-    "phi_s": 0.024,
-    "kappa": 0.0092,
+    "phi_s": 3.2602,
+    "kappa": 0.0001,
     "mass": 0.091426,
     "power": null,
     "extraction": null,
@@ -92,18 +92,18 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 5,
+    "level": "flag",
+    "headline": "phi_s +13484% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0004,
+      "kappa": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "stale",
+    "freshness": "live",
     "inbound": [],
     "outbound": [
       {
@@ -129,17 +129,60 @@
     ],
     "observation": {
       "source": null,
-      "last_observed_at": null,
+      "last_observed_at": "2026-07-17T18:42:20.710763+00:00",
       "last_delta_i": null,
-      "stale": true
+      "stale": false
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 2e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "7f989197-56e6-434a-9e04-81f53a58fad3",
+      "claim_text": "FinCEN Funds Travel rule guidance",
+      "grounding": {
+        "source_url": "https://fincen.gov/resources/statutes-regulations/guidance/funds-travel-regulations-questions-answers",
+        "expected": "Travel",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "TRAVEL_RULE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/travel-rule-20260702/",
+      "verified_at": "2026-07-02T06:16:27.129110+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "764f6f6c-ab5e-4d2e-80d4-e414176be2fc",
+      "claim_text": "FinCEN transmittal of funds requirements",
+      "grounding": {
+        "source_url": "https://fincen.gov/resources/statutes-regulations/guidance/funds-travel-regulations-questions-answers",
+        "expected": "transmittal",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "TRAVEL_RULE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/travel-rule-20260702/",
+      "verified_at": "2026-07-02T06:16:44.294432+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "9fb6e6d2-e94c-48fd-a952-6efd33d84377",
+      "claim_text": "FinCEN Advisory Issue 7 \u2014 Travel rule",
+      "grounding": {
+        "source_url": "https://fincen.gov/resources/advisories/fincen-advisory-issue-7",
+        "expected": "Travel",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "TRAVEL_RULE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/travel-rule-20260702/",
+      "verified_at": "2026-07-02T06:17:00.619087+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/TRAVEL_RULE.json"
 }

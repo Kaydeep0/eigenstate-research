@@ -1,8 +1,8 @@
 {
   "entity": "BINANCE",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.417562+00:00",
-  "digest": "sha256:8ec019bbe67d0ebb6901eb98f0f09480627a6a63ba852528e9dca21102602c6c",
+  "compiled_at": "2026-07-20T16:52:37.541203+00:00",
+  "digest": "sha256:265ef97823934ae6e9f922e678d4a6313ac68db8528f00dcd30957d3eac65beb",
   "own_numbers": {
     "phi_s": 0.02,
     "kappa": 0.0092,
@@ -63,10 +63,10 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 5,
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0004,
+      "kappa": 0.0,
       "boundary_score": 0.0
     }
   },
@@ -102,12 +102,55 @@
       "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 2e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "dc9f7804-e3f7-4a07-8d6c-ba2b6fbfbaaf",
+      "claim_text": "Binance \u2014 largest crypto exchange by volume (CoinMarketCap index)",
+      "grounding": {
+        "source_url": "https://coinmarketcap.com/exchanges/binance/",
+        "expected": "Binance",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "BINANCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/binance-20260702/",
+      "verified_at": "2026-07-02T04:41:41.676426+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "03ede816-d6c6-4889-ab00-3a8fee4d3063",
+      "claim_text": "Binance spot trading venue (CoinGecko index)",
+      "grounding": {
+        "source_url": "https://www.coingecko.com/en/exchanges/binance",
+        "expected": "spot",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "BINANCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/binance-20260702/",
+      "verified_at": "2026-07-02T04:41:41.858218+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "7472a496-7439-44a9-91b9-2497fe195078",
+      "claim_text": "Binance CEX transparency (DeFiLlama)",
+      "grounding": {
+        "source_url": "https://defillama.com/cex/binance",
+        "expected": "Binance",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "onchain_secondary",
+      "witness_weight": 0.62,
+      "report_id": "BINANCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/binance-20260702/",
+      "verified_at": "2026-07-02T04:41:42.006369+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/BINANCE.json"
 }

@@ -1,8 +1,8 @@
 {
   "entity": "AAVE_GOVERNANCE",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.285609+00:00",
-  "digest": "sha256:9caf9671ec196f14883613cffb88926f58adee03fbee0779795001fadf8dfa4a",
+  "compiled_at": "2026-07-20T16:52:36.896288+00:00",
+  "digest": "sha256:78a92d09a0f1b4fe842a86a8d3a2c3e10be30317fd571755c0912492d1dae870",
   "own_numbers": {
     "phi_s": 0.0,
     "kappa": 0.0642,
@@ -94,15 +94,15 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 5,
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0028,
+      "kappa": 0.0,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "stale",
     "inbound": [],
     "outbound": [
       {
@@ -130,15 +130,58 @@
       "source": null,
       "last_observed_at": "2026-07-02T01:40:43.142748+00:00",
       "last_delta_i": null,
-      "stale": false
+      "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 0.0,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "51adf299-341f-414b-9e00-e2eaed6129d8",
+      "claim_text": "Aave governance forum",
+      "grounding": {
+        "source_url": "https://governance.aave.com/",
+        "expected": "governance",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "AAVE_GOVERNANCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/aave-governance-20260702/",
+      "verified_at": "2026-07-02T02:05:47.747159+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "1ca377d6-c062-421d-b8dd-8661b6695aa0",
+      "claim_text": "Aave \u2014 lending protocol homepage",
+      "grounding": {
+        "source_url": "https://aave.com/",
+        "expected": "Aave",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "AAVE_GOVERNANCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/aave-governance-20260702/",
+      "verified_at": "2026-07-02T02:05:47.892187+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "c624e456-fd6e-4686-8f9b-3b01e497c420",
+      "claim_text": "DeFiLlama \u2014 Aave v3 protocol page",
+      "grounding": {
+        "source_url": "https://defillama.com/protocol/aave-v3",
+        "expected": "Aave",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "onchain_secondary",
+      "witness_weight": 0.62,
+      "report_id": "AAVE_GOVERNANCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/aave-governance-20260702/",
+      "verified_at": "2026-07-02T02:05:48.024100+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/AAVE_GOVERNANCE.json"
 }

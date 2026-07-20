@@ -1,17 +1,17 @@
 {
   "entity": "JPMORGAN",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.791926+00:00",
-  "digest": "sha256:1a6430ff24c37ee469657cbce704b090c985a7e4051199696175ffd3971abd55",
+  "compiled_at": "2026-07-20T16:52:40.572726+00:00",
+  "digest": "sha256:f8f4596626cb39e8c40c7925b6fa222ec95071a0fcd1ac97455a88b8a5a84bc6",
   "own_numbers": {
-    "phi_s": 6.495,
-    "kappa": 0.0022,
+    "phi_s": 6.4955,
+    "kappa": 0.0018,
     "mass": 0.384703,
-    "power": 0.37,
-    "extraction": 228588.623747,
+    "power": 0.21,
+    "extraction": 77585.149978,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 104.0,
+    "gravity_mass": 100.0,
     "mass_type": "infrastructure"
   },
   "vs_whole": {
@@ -21,54 +21,54 @@
       "of": 199
     },
     "power": {
-      "value": 0.37,
+      "value": 0.21,
       "rank": 1,
       "of": 51
     },
     "gravity": {
-      "value": 104.0,
-      "rank": 5,
+      "value": 100.0,
+      "rank": 8,
       "of": 62
     },
     "extraction": {
-      "value": 228588.6237,
-      "rank": 6,
+      "value": 77585.15,
+      "rank": 7,
       "of": 51
     },
     "share_of_whole": {
       "mass": 0.02404,
-      "power": 0.38144
+      "power": 0.3
     },
     "peers_by_power": [
       {
         "entity": "JPMORGAN",
-        "power": 0.37
+        "power": 0.21
       },
       {
         "entity": "CITIGROUP",
-        "power": 0.19
+        "power": 0.14
       },
       {
         "entity": "TREASURY_MARKET",
-        "power": 0.13
+        "power": 0.11
       }
     ]
   },
   "relationships": {
-    "in_degree": 8,
-    "out_degree": 16,
+    "in_degree": 10,
+    "out_degree": 10,
     "by_vector": {
       "Capital": {
         "out": 0.5,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 4.0,
-        "in": 2.2218
+        "out": 3.0,
+        "in": 2.7218
       },
       "Information": {
-        "out": 3.5,
-        "in": 2.0
+        "out": 1.5,
+        "in": 2.5
       }
     },
     "top_inbound": [
@@ -130,49 +130,49 @@
         "entity": "FED",
         "mass": 115.0,
         "hops": 1,
-        "pull": 11960.0
-      },
-      {
-        "entity": "CITIGROUP",
-        "mass": 100.0,
-        "hops": 1,
-        "pull": 10400.0
+        "pull": 11500.0
       },
       {
         "entity": "34539544",
         "mass": 54.0,
         "hops": 1,
-        "pull": 5616.0
+        "pull": 5400.0
       },
       {
         "entity": "CANTON_NETWORK",
-        "mass": 41.0,
+        "mass": 43.0,
         "hops": 1,
-        "pull": 4264.0
+        "pull": 4300.0
       },
       {
         "entity": "SEC",
         "mass": 119.0,
         "hops": 2,
-        "pull": 3094.0
+        "pull": 2975.0
+      },
+      {
+        "entity": "FINRA",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 2600.0
       }
     ]
   },
   "monetary_position": {
-    "position": 0.799,
+    "position": 0.796,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -67% over 5 cycles",
-    "cycles": 5,
+    "headline": "extraction -66% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
-      "phi_s": 3.2362,
-      "kappa": -0.1918,
-      "power": -0.18,
-      "extraction": -130720.3494,
+      "phi_s": 0.0,
+      "kappa": -0.0005,
+      "power": -0.02,
+      "extraction": -4192.5525,
       "gravity_mass": 0.0,
-      "boundary_score": -0.009
+      "boundary_score": -0.002
     }
   },
   "network_plugs": {
@@ -216,12 +216,55 @@
       "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": true,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 2.3e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "eb944cad-736c-4366-855b-c65907ad1802",
+      "claim_text": "JPMorgan \u2014 global financial services institution",
+      "grounding": {
+        "source_url": "https://www.jpmorgan.com/",
+        "expected": "financial services",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "JPMORGAN_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/jpmorgan-20260702/",
+      "verified_at": "2026-07-02T04:07:18.474591+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "623eab57-7ff0-44cf-ada3-f750e2ab31ec",
+      "claim_text": "Kinexys \u2014 blockchain-based payment and tokenization platform",
+      "grounding": {
+        "source_url": "https://www.jpmorgan.com/kinexys",
+        "expected": "Kinexys",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "JPMORGAN_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/jpmorgan-20260702/",
+      "verified_at": "2026-07-02T04:07:18.838716+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "57a556e2-4a76-4cb1-859a-6e84dd245e29",
+      "claim_text": "JPM Coin \u2014 wholesale digital cash for intraday settlement",
+      "grounding": {
+        "source_url": "https://www.jpmorgan.com/kinexys/digital-payments",
+        "expected": "JPM Coin",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "JPMORGAN_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/jpmorgan-20260702/",
+      "verified_at": "2026-07-02T04:07:19.116636+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/JPMORGAN.json"
 }

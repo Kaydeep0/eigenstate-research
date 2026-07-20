@@ -1,8 +1,8 @@
 {
   "entity": "NSE_INDIA",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.831801+00:00",
-  "digest": "sha256:6d19071992ae70e0a3287e6c7c0bdc88c6e656412e5e97b26aa09e89e64ea6d3",
+  "compiled_at": "2026-07-20T16:52:41.162143+00:00",
+  "digest": "sha256:42626dd540d3d5b0c4fed2d10ba3ac1f99aec514cd6a8db9b8fd88142a9a6f86",
   "own_numbers": {
     "phi_s": null,
     "kappa": null,
@@ -37,7 +37,7 @@
     }
   },
   "network_plugs": {
-    "freshness": "stale",
+    "freshness": "live",
     "inbound": [],
     "outbound": [
       {
@@ -63,17 +63,108 @@
     ],
     "observation": {
       "source": null,
-      "last_observed_at": null,
+      "last_observed_at": "2026-07-13T19:50:25.145908+00:00",
       "last_delta_i": null,
-      "stale": true
+      "stale": false
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": null,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "6af2fbbb-e5e7-4352-908d-bf3fce40326f",
+      "claim_text": "NSE as SEBI-recognized market infrastructure",
+      "grounding": {
+        "source_url": "https://www.sebi.gov.in/",
+        "expected": "NSE",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "NSE_INDIA_verify",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/nse-india-verify/",
+      "verified_at": "2026-07-02T00:23:23.592205+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "fccf594c-00e2-45c7-92de-635bf145688c",
+      "claim_text": "NSE equity derivatives (direct primary when reachable)",
+      "grounding": {
+        "source_url": "https://www.nseindia.com/products-services/about-equity-derivatives",
+        "expected": "NIFTY Bank",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "NSE_INDIA_verify",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/nse-india-verify/",
+      "verified_at": "2026-07-02T00:23:27.431546+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "a82cf81e-66dc-49f6-9be8-731bfd487f70",
+      "claim_text": "India equity derivatives (NSE peer context)",
+      "grounding": {
+        "source_url": "https://www.bseindia.com/markets/Deriv/Deriv.aspx",
+        "expected": "BSE",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "NSE_INDIA_v3",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/nse-india-v3/",
+      "verified_at": "2026-07-02T00:24:06.304005+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "e3baf64f-bf60-48de-a9d2-113d79c6eb73",
+      "claim_text": "NSE equity derivatives market",
+      "grounding": {
+        "source_url": "https://www.nseindia.com/products-services/about-equity-derivatives",
+        "expected": "Equity Derivatives",
+        "location": ""
+      },
+      "status_at_publish": "UNVERIFIED-PENDING",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "NSE_INDIA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/nse-india-20260702/",
+      "verified_at": "2026-07-02T00:18:09.748332+00:00",
+      "allows_canonical": false
+    },
+    {
+      "claim_id": "724f5bd1-18cc-4aeb-80e9-8ae97bbe6d9c",
+      "claim_text": "NSE products and services",
+      "grounding": {
+        "source_url": "https://www.nseindia.com/products-services",
+        "expected": "Derivatives",
+        "location": ""
+      },
+      "status_at_publish": "UNVERIFIED-PENDING",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "NSE_INDIA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/nse-india-20260702/",
+      "verified_at": "2026-07-02T00:18:39.793109+00:00",
+      "allows_canonical": false
+    },
+    {
+      "claim_id": "e4878d12-8be3-4b0e-b377-bf5a1cf32adb",
+      "claim_text": "India equity derivatives (NSE peer context)",
+      "grounding": {
+        "source_url": "https://www.bseindia.com/markets/Deriv/Deriv.aspx",
+        "expected": "derivatives",
+        "location": ""
+      },
+      "status_at_publish": "HALLUCINATED",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "NSE_INDIA_verify",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/nse-india-verify/",
+      "verified_at": "2026-07-02T00:23:25.166008+00:00",
+      "allows_canonical": false
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/NSE_INDIA.json"
 }

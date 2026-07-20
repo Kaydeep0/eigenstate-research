@@ -1,11 +1,11 @@
 {
   "entity": "BAFIN",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.366028+00:00",
-  "digest": "sha256:6a13b26fe7fc7db7bf0379c817cf19d10a6ad2c5f94ec2f8e77045e83f399349",
+  "compiled_at": "2026-07-20T16:52:37.252385+00:00",
+  "digest": "sha256:cc14bf4fb97752be896bef3824a0398d92e3cd7d99ac9ce45ea63f083fc8ce5c",
   "own_numbers": {
-    "phi_s": 0.016,
-    "kappa": 0.0092,
+    "phi_s": 3.2522,
+    "kappa": 0.0,
     "mass": 0.093675,
     "power": null,
     "extraction": null,
@@ -81,9 +81,9 @@
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 50.7,
+        "mass": 50.63,
         "hops": 2,
-        "pull": 10.14
+        "pull": 10.126
       }
     ]
   },
@@ -92,12 +92,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 5,
+    "level": "flag",
+    "headline": "phi_s +20226% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0004,
+      "kappa": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -111,7 +111,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "de_regulatory_gdp_proxy",
-        "last_observed_at": "2026-07-03T00:52:41.200869+00:00",
+        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -144,12 +144,55 @@
       "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 2e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "eeaef582-cf63-45ea-bcca-73f744f798bd",
+      "claim_text": "BaFin \u2014 German financial supervisory authority",
+      "grounding": {
+        "source_url": "https://www.bafin.de/EN/Homepage/homepage_node.html",
+        "expected": "BaFin",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "BAFIN_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/bafin-20260702/",
+      "verified_at": "2026-07-02T07:16:03.416879+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "cdd56f88-bd4f-4d5a-a9a7-adca3f098347",
+      "claim_text": "BaFin financial supervision mandate",
+      "grounding": {
+        "source_url": "https://www.bafin.de/EN/Homepage/homepage_node.html",
+        "expected": "supervision",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "BAFIN_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/bafin-20260702/",
+      "verified_at": "2026-07-02T07:16:04.816314+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "32e450cd-4349-458c-ad53-795de43b6d9f",
+      "claim_text": "BaFin Germany EU financial regulation",
+      "grounding": {
+        "source_url": "https://www.bafin.de/EN/Homepage/homepage_node.html",
+        "expected": "Germany",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "BAFIN_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/bafin-20260702/",
+      "verified_at": "2026-07-02T07:16:06.216331+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/BAFIN.json"
 }

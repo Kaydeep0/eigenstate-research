@@ -1,11 +1,11 @@
 {
   "entity": "MAS",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.811997+00:00",
-  "digest": "sha256:af05f02c8a363129c1c9a67dd0b0b940ec6175bf008eecab3f76259040303a6e",
+  "compiled_at": "2026-07-20T16:52:40.853599+00:00",
+  "digest": "sha256:839feb68d6936e82efd2e9ae8a019bdbdcf10a1cdd821216ead86e1f2ce337b6",
   "own_numbers": {
-    "phi_s": 0.064,
-    "kappa": 0.0183,
+    "phi_s": 1.6821,
+    "kappa": 0.0,
     "mass": 0.100867,
     "power": null,
     "extraction": null,
@@ -75,9 +75,9 @@
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 50.7,
+        "mass": 50.63,
         "hops": 2,
-        "pull": 40.56
+        "pull": 40.504
       },
       {
         "entity": "FINRA",
@@ -98,12 +98,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 5,
+    "level": "flag",
+    "headline": "phi_s +2528% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0008,
+      "kappa": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -117,7 +117,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "sg_regulatory_gdp_proxy",
-        "last_observed_at": "2026-07-03T00:52:41.200869+00:00",
+        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -150,12 +150,55 @@
       "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 2e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "d5b857bc-ba6c-40b7-9911-0f452b21e9d7",
+      "claim_text": "MAS mission \u2014 central bank and financial regulator",
+      "grounding": {
+        "source_url": "https://www.mas.gov.sg/",
+        "expected": "Monetary Authority",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "MAS_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/mas-20260702/",
+      "verified_at": "2026-07-02T07:30:16.700979+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "d08ef187-650e-4693-9298-df764e749454",
+      "claim_text": "MAS digital assets and tokenisation",
+      "grounding": {
+        "source_url": "https://www.mas.gov.sg/development/fintech/digital-assets",
+        "expected": "Singapore",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "MAS_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/mas-20260702/",
+      "verified_at": "2026-07-02T07:30:17.012457+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "2c00b349-8b5e-4082-995b-0cf7b79a2c64",
+      "claim_text": "MAS FinTech innovation programmes",
+      "grounding": {
+        "source_url": "https://www.mas.gov.sg/development/fintech",
+        "expected": "Singapore",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "MAS_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/mas-20260702/",
+      "verified_at": "2026-07-02T07:30:17.345265+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/MAS.json"
 }

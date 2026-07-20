@@ -1,11 +1,11 @@
 {
   "entity": "REPUTATION",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.910432+00:00",
-  "digest": "sha256:6d7d8ada103354e71a419a7f07aa364d05a47c18ef4b9f52c608d4666662ba8c",
+  "compiled_at": "2026-07-20T16:52:41.904209+00:00",
+  "digest": "sha256:44f4da9b586e738e4b5407338ed19d444613729dce9a3f28428fba836401b3e9",
   "own_numbers": {
-    "phi_s": 6.4925,
-    "kappa": 0.0092,
+    "phi_s": 1.6381,
+    "kappa": 0.0,
     "mass": 0.039199,
     "power": null,
     "extraction": null,
@@ -61,12 +61,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "phi_s +149% over 5 cycles",
-    "cycles": 5,
+    "level": "watch",
+    "headline": "phi_s -50% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
-      "phi_s": 8.0906,
-      "kappa": -0.0004,
+      "phi_s": 1.6181,
+      "kappa": -0.0092,
       "boundary_score": 0.0
     }
   },
@@ -97,17 +97,60 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-07-02T23:04:25.723250+00:00",
-      "last_delta_i": 143991009199384.06,
+      "last_observed_at": "2026-07-20T16:03:49.917151+00:00",
+      "last_delta_i": 3.527156047123792e+25,
       "stale": false
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": true,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 2e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "261910c2-ec4e-427b-9e0e-3a6db0722a37",
+      "claim_text": "Eigenstate Research \u2014 attestation index",
+      "grounding": {
+        "source_url": "https://kaydeep0.github.io/eigenstate-research/",
+        "expected": "attestation",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "publish_primary",
+      "witness_weight": 0.7,
+      "report_id": "REPUTATION_20260703",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reputation-20260703/",
+      "verified_at": "2026-07-03T00:52:57.850360+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "bb827a6b-0092-4704-883d-6ef915110b2c",
+      "claim_text": "Eigenstate Research \u2014 RWA registry program",
+      "grounding": {
+        "source_url": "https://github.com/kaydeep0/eigenstate-research",
+        "expected": "RWA",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "code_primary",
+      "witness_weight": 0.78,
+      "report_id": "REPUTATION_20260703",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reputation-20260703/",
+      "verified_at": "2026-07-03T00:52:58.046947+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "0828c837-2e71-46a1-994a-39dbcaba462d",
+      "claim_text": "Base Docs \u2014 developer registry context",
+      "grounding": {
+        "source_url": "https://docs.base.org/",
+        "expected": "registry",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "REPUTATION_20260703",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reputation-20260703/",
+      "verified_at": "2026-07-03T00:52:58.290650+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/REPUTATION.json"
 }

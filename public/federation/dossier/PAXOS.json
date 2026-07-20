@@ -1,11 +1,11 @@
 {
   "entity": "PAXOS",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.877531+00:00",
-  "digest": "sha256:85c36e2f43e324b30e55a57bf6d5a218f01837866ba19706e03a7dc2ae98b973",
+  "compiled_at": "2026-07-20T16:52:41.596479+00:00",
+  "digest": "sha256:9699a385eebe1fba68cbd7a7d7d48fc8de2a708207dd0fd961717d644929161c",
   "own_numbers": {
     "phi_s": 6.4725,
-    "kappa": 0.299,
+    "kappa": 0.4678,
     "mass": null,
     "power": null,
     "extraction": null,
@@ -48,12 +48,12 @@
   },
   "monetary_position": null,
   "drift": {
-    "level": "watch",
-    "headline": "phi_s -50% over 3 cycles",
-    "cycles": 3,
+    "level": "steady",
+    "headline": null,
+    "cycles": 68,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0955
+      "kappa": 0.1178
     }
   },
   "network_plugs": {
@@ -65,7 +65,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "stablecoin_issuer_gdp_proxy",
-        "last_observed_at": "2026-07-03T00:52:41.200869+00:00",
+        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -98,12 +98,55 @@
       "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": null,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "1c40ee3d-d333-42ca-9dcb-2fa0a4c78d65",
+      "claim_text": "Paxos \u2014 regulated blockchain infrastructure",
+      "grounding": {
+        "source_url": "https://www.paxos.com/",
+        "expected": "Paxos",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "PAXOS_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/paxos-20260702/",
+      "verified_at": "2026-07-02T04:07:36.310732+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "719f073d-ff96-438a-9cf0-8ab1a42ba1f3",
+      "claim_text": "Paxos stablecoin issuance suite",
+      "grounding": {
+        "source_url": "https://www.paxos.com/",
+        "expected": "stablecoin",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "PAXOS_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/paxos-20260702/",
+      "verified_at": "2026-07-02T04:07:36.484621+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "3a9e6f12-906b-427d-9a49-9daa36cea519",
+      "claim_text": "PayPal USD (PYUSD) issued by Paxos",
+      "grounding": {
+        "source_url": "https://www.paxos.com/pyusd/",
+        "expected": "PYUSD",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "PAXOS_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/paxos-20260702/",
+      "verified_at": "2026-07-02T04:07:36.821150+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/PAXOS.json"
 }

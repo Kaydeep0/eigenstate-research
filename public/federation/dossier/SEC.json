@@ -1,16 +1,16 @@
 {
   "entity": "SEC",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.955572+00:00",
-  "digest": "sha256:f83f2cf787eb9920b9d3206207a4ff2a5bc792895176e23922c090b2106b6cdb",
+  "compiled_at": "2026-07-20T16:52:42.377580+00:00",
+  "digest": "sha256:06a8b848c62bf96f0eae85ca45f79e024b02ba7d304d5b029383f0834d9353b3",
   "own_numbers": {
-    "phi_s": 5.0967,
+    "phi_s": 5.1012,
     "kappa": 0.0017,
     "mass": 0.433364,
     "power": 0.04,
-    "extraction": 84336.096128,
-    "memory_mass": 92.54,
-    "X_natural": 11.9128,
+    "extraction": 74560.97604,
+    "memory_mass": 92.66,
+    "X_natural": 7.2025,
     "gravity_mass": 119.0,
     "mass_type": "regulatory"
   },
@@ -31,22 +31,22 @@
       "of": 62
     },
     "extraction": {
-      "value": 84336.0961,
-      "rank": 9,
+      "value": 74560.976,
+      "rank": 8,
       "of": 51
     },
     "share_of_whole": {
       "mass": 0.02709,
-      "power": 0.04124
+      "power": 0.05714
     },
     "peers_by_power": [
       {
         "entity": "34539544",
-        "power": 0.05
+        "power": 0.04
       },
       {
         "entity": "COINBASE",
-        "power": 0.05
+        "power": 0.04
       },
       {
         "entity": "SEC",
@@ -54,7 +54,7 @@
       },
       {
         "entity": "TOKENIZED_TREASURY",
-        "power": 0.03
+        "power": 0.02
       },
       {
         "entity": "BASE",
@@ -160,9 +160,9 @@
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 50.7,
+        "mass": 50.63,
         "hops": 1,
-        "pull": 6033.3
+        "pull": 6024.97
       }
     ]
   },
@@ -172,16 +172,16 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "extraction -49% over 5 cycles",
-    "cycles": 5,
+    "headline": "extraction -60% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
-      "phi_s": 1.5148,
-      "kappa": 0.0018,
-      "power": -0.04,
-      "extraction": -97486.2289,
+      "phi_s": -1.6181,
+      "kappa": 0.0,
+      "power": 0.0,
+      "extraction": -4582.0876,
       "gravity_mass": 0.0,
-      "memory_mass": 0.06,
-      "boundary_score": 0.005
+      "memory_mass": 0.0,
+      "boundary_score": 0.0
     }
   },
   "network_plugs": {
@@ -193,7 +193,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "securities_market_gdp_proxy",
-        "last_observed_at": "2026-07-03T00:52:41.200869+00:00",
+        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -221,17 +221,76 @@
     ],
     "observation": {
       "source": "information_flow",
-      "last_observed_at": "2026-05-19T21:06:55.037631+00:00",
+      "last_observed_at": "2026-07-19T18:57:02.512766+00:00",
       "last_delta_i": 1.0,
-      "stale": true
+      "stale": false
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": true,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 3.8e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "26ab31ce-2e82-45f9-8c76-0934c6c5d5aa",
+      "claim_text": "SAB 121 rescinded via Staff Accounting Bulletin 122 (January 2025)",
+      "grounding": {
+        "source_url": "https://www.sec.gov/rules-regulations/staff-guidance/staff-accounting-bulletins/staff-accounting-bulletin-122",
+        "expected": "SAB 121",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "SEC_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/sec-20260702/",
+      "verified_at": "2026-07-02T05:03:00.265094+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "21f0b004-d668-4500-b76c-e5692c873a07",
+      "claim_text": "SEC mission \u2014 investor protection and securities markets",
+      "grounding": {
+        "source_url": "https://www.sec.gov/about",
+        "expected": "protect investors",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "SEC_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/sec-20260702/",
+      "verified_at": "2026-07-02T05:03:00.343764+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "b1d8b7bf-b867-42f0-8c11-f22d5cc8a78a",
+      "claim_text": "Howey test \u2014 investment contract jurisdiction for tokenized assets",
+      "grounding": {
+        "source_url": "https://www.sec.gov/corpfin/framework-investment-contract-analysis-digital-assets",
+        "expected": "investment contract",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "SEC_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/sec-20260702/",
+      "verified_at": "2026-07-02T05:03:16.258813+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "c4dcc178-6a32-4c7e-918b-1fb0fff3840f",
+      "claim_text": "Howey test \u2014 investment contract jurisdiction for tokenized assets",
+      "grounding": {
+        "source_url": "https://www.law.cornell.edu/wex/howey_test",
+        "expected": "investment contract",
+        "location": ""
+      },
+      "status_at_publish": "UNVERIFIED-PENDING",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "SEC_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/sec-20260702/",
+      "verified_at": "2026-07-02T05:03:00.763222+00:00",
+      "allows_canonical": false
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/SEC.json"
 }

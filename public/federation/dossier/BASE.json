@@ -1,14 +1,14 @@
 {
   "entity": "BASE",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.379021+00:00",
-  "digest": "sha256:2df4fd9d4be007a3e2a8cf1518823ea63813c60a554e0b90d72eb23bba4b6427",
+  "compiled_at": "2026-07-20T16:52:37.346160+00:00",
+  "digest": "sha256:269818387bfcf1789f0b77cae10f246316747f8c3652586e479fea23a8d52a2e",
   "own_numbers": {
     "phi_s": 0.0298,
     "kappa": 0.1927,
     "mass": 0.195659,
     "power": 0.01,
-    "extraction": 301790.106122,
+    "extraction": 259450.040816,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,13 +27,13 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 301790.1061,
+      "value": 259450.0408,
       "rank": 4,
       "of": 51
     },
     "share_of_whole": {
       "mass": 0.01223,
-      "power": 0.01031
+      "power": 0.01429
     },
     "peers_by_power": [
       {
@@ -42,7 +42,7 @@
       },
       {
         "entity": "TOKENIZED_TREASURY",
-        "power": 0.03
+        "power": 0.02
       },
       {
         "entity": "BASE",
@@ -130,15 +130,15 @@
       },
       {
         "entity": "JPMORGAN",
-        "mass": 104.0,
-        "hops": 2,
-        "pull": 0.26
-      },
-      {
-        "entity": "CITIGROUP",
         "mass": 100.0,
         "hops": 2,
         "pull": 0.25
+      },
+      {
+        "entity": "CITIGROUP",
+        "mass": 98.0,
+        "hops": 2,
+        "pull": 0.245
       }
     ]
   },
@@ -148,13 +148,13 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -98% over 5 cycles",
-    "cycles": 5,
+    "headline": "phi_s -98% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.1944,
-      "power": -0.01,
-      "extraction": -370392.0011,
+      "kappa": 0.0,
+      "power": 0.0,
+      "extraction": -16124.1658,
       "boundary_score": 0.0
     }
   },
@@ -192,17 +192,60 @@
     ],
     "observation": {
       "source": "infrastructure",
-      "last_observed_at": "2026-07-03T00:51:21.996087+00:00",
+      "last_observed_at": "2026-07-20T16:13:38.712690+00:00",
       "last_delta_i": 4.0,
       "stale": false
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": true,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 3e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "3e284f58-9541-40d6-9e0b-af8dddb42aea",
+      "claim_text": "Base is an Ethereum Layer 2 on the OP Stack",
+      "grounding": {
+        "source_url": "https://docs.base.org/get-started/base",
+        "expected": "Layer 2",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "BASE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/base-20260702/",
+      "verified_at": "2026-07-02T07:46:21.340152+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "ecfe56b1-e938-4648-9e00-36df8a3573d7",
+      "claim_text": "Base incubated by Coinbase",
+      "grounding": {
+        "source_url": "https://www.base.org/",
+        "expected": "Coinbase",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "BASE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/base-20260702/",
+      "verified_at": "2026-07-02T07:46:21.513637+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "6b159791-1f64-4282-843f-b73bf69acb22",
+      "claim_text": "DeFiLlama tracks Base chain TVL and protocol activity",
+      "grounding": {
+        "source_url": "https://defillama.com/chain/Base",
+        "expected": "Base",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "onchain_secondary",
+      "witness_weight": 0.62,
+      "report_id": "BASE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/base-20260702/",
+      "verified_at": "2026-07-02T07:46:21.718085+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/BASE.json"
 }

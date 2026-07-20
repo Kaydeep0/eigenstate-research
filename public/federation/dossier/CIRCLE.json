@@ -1,14 +1,14 @@
 {
   "entity": "CIRCLE",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.529595+00:00",
-  "digest": "sha256:bf5f0c20c277357f7989a7846d741803ca985e6277aecf5927eace8f9674845e",
+  "compiled_at": "2026-07-20T16:52:38.107882+00:00",
+  "digest": "sha256:903b922c2ea458394faa0e2d2d39659251f72db9a76490296eab9be1a7a3a1bf",
   "own_numbers": {
-    "phi_s": 13.0129,
+    "phi_s": 6.5404,
     "kappa": 0.0015,
     "mass": 0.261446,
     "power": 0.01,
-    "extraction": 63711.062999,
+    "extraction": 59734.357743,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,18 +27,18 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 63711.063,
-      "rank": 12,
+      "value": 59734.3577,
+      "rank": 10,
       "of": 51
     },
     "share_of_whole": {
       "mass": 0.01634,
-      "power": 0.01031
+      "power": 0.01429
     },
     "peers_by_power": [
       {
         "entity": "TOKENIZED_TREASURY",
-        "power": 0.03
+        "power": 0.02
       },
       {
         "entity": "BASE",
@@ -59,8 +59,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 7,
-    "out_degree": 9,
+    "in_degree": 6,
+    "out_degree": 10,
     "by_vector": {
       "Capital": {
         "out": 1.0,
@@ -71,8 +71,8 @@
         "in": 0.0
       },
       "Information": {
-        "out": 2.5,
-        "in": 3.7
+        "out": 3.0,
+        "in": 3.2
       }
     },
     "top_inbound": [
@@ -109,6 +109,11 @@
         "vector": "Information"
       },
       {
+        "target": "TETHER",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
         "target": "CIRCLE_RESERVE_FUND",
         "conn_type": "information_flow",
         "vector": "Information"
@@ -122,25 +127,20 @@
         "target": "JPMORGAN",
         "conn_type": "information_flow",
         "vector": "Information"
-      },
-      {
-        "target": "TREASURY_MARKET",
-        "conn_type": "custody",
-        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": [
       {
         "entity": "JPMORGAN",
-        "mass": 104.0,
-        "hops": 1,
-        "pull": 1.04
-      },
-      {
-        "entity": "CITIGROUP",
         "mass": 100.0,
         "hops": 1,
         "pull": 1.0
+      },
+      {
+        "entity": "CITIGROUP",
+        "mass": 98.0,
+        "hops": 1,
+        "pull": 0.98
       },
       {
         "entity": "BLACKROCK",
@@ -156,9 +156,9 @@
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 50.7,
+        "mass": 50.63,
         "hops": 1,
-        "pull": 0.507
+        "pull": 0.5063
       }
     ]
   },
@@ -168,13 +168,13 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "power -50% over 5 cycles",
-    "cycles": 5,
+    "headline": "extraction -58% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
-      "phi_s": 8.0917,
-      "kappa": -0.1531,
-      "power": -0.01,
-      "extraction": -91264.3218,
+      "phi_s": -3.2351,
+      "kappa": 0.0,
+      "power": 0.0,
+      "extraction": -3701.8998,
       "boundary_score": 0.0
     }
   },
@@ -219,18 +219,61 @@
       }
     ],
     "observation": {
-      "source": "information_flow",
-      "last_observed_at": "2026-07-02T23:08:05.265817+00:00",
-      "last_delta_i": 5.0,
+      "source": "propagated",
+      "last_observed_at": "2026-07-20T16:03:49.917151+00:00",
+      "last_delta_i": 4109.138797139261,
       "stale": false
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": true,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 6.8e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "45d1b56c-b2c4-4b8c-b05b-e605cc9d622c",
+      "claim_text": "Circle issues USDC \u2014 regulated dollar stablecoin",
+      "grounding": {
+        "source_url": "https://www.circle.com/usdc",
+        "expected": "USDC",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CIRCLE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/circle-20260702/",
+      "verified_at": "2026-07-02T04:15:20.747453+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "88c1a6b6-55f4-42b8-8153-7e7f29fef457",
+      "claim_text": "Circle publishes monthly USDC reserve attestations",
+      "grounding": {
+        "source_url": "https://www.circle.com/en/transparency",
+        "expected": "attestation",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CIRCLE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/circle-20260702/",
+      "verified_at": "2026-07-02T04:15:21.017571+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "bb700331-8a3d-494c-8818-04972050822d",
+      "claim_text": "Cross-Chain Transfer Protocol (CCTP) for native USDC",
+      "grounding": {
+        "source_url": "https://www.circle.com/en/cross-chain-transfer-protocol",
+        "expected": "CCTP",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CIRCLE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/circle-20260702/",
+      "verified_at": "2026-07-02T04:15:21.265764+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/CIRCLE.json"
 }

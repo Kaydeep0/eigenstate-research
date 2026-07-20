@@ -1,8 +1,8 @@
 {
   "entity": "COMMUNITY_AUDIENCE",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.602458+00:00",
-  "digest": "sha256:d19ceb9f3bdeb53f39767afd3d080672fc12778b4146d3e1e0380c899b02be4a",
+  "compiled_at": "2026-07-20T16:52:38.577454+00:00",
+  "digest": "sha256:3caea2c719b7e55978f6034309180a64b3e885383c9e329712bfa951314c6aeb",
   "own_numbers": {
     "phi_s": 0.0,
     "kappa": 0.0275,
@@ -73,15 +73,15 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 5,
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.019,
+      "kappa": 0.0,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "stale",
     "inbound": [],
     "outbound": [
       {
@@ -107,17 +107,60 @@
     ],
     "observation": {
       "source": "defi_llama_tvl",
-      "last_observed_at": "2026-07-02T22:37:52.021214+00:00",
-      "last_delta_i": 0.0841466325493046,
-      "stale": false
+      "last_observed_at": "2026-07-03T15:41:54.754888+00:00",
+      "last_delta_i": 0.06065080082278357,
+      "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": true,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 0.0,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "c569327e-7916-4be0-a94e-0c5d12081d38",
+      "claim_text": "Ethereum community hub",
+      "grounding": {
+        "source_url": "https://ethereum.org/community/",
+        "expected": "community",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "COMMUNITY_AUDIENCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/community-audience-20260702/",
+      "verified_at": "2026-07-02T01:03:46.418590+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "d70d1fd8-0f5d-4588-b2a8-cd769e80b6de",
+      "claim_text": "Farcaster protocol homepage",
+      "grounding": {
+        "source_url": "https://farcaster.xyz/",
+        "expected": "Farcaster",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "social_secondary",
+      "witness_weight": 0.15,
+      "report_id": "COMMUNITY_AUDIENCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/community-audience-20260702/",
+      "verified_at": "2026-07-02T01:03:46.724774+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "a7b863ff-5472-4a5c-9771-56d126f05ae5",
+      "claim_text": "Farcaster developer documentation",
+      "grounding": {
+        "source_url": "https://www.farcaster.xyz/developers",
+        "expected": "Farcaster",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "social_secondary",
+      "witness_weight": 0.15,
+      "report_id": "COMMUNITY_AUDIENCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/community-audience-20260702/",
+      "verified_at": "2026-07-02T01:03:47.344411+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/COMMUNITY_AUDIENCE.json"
 }

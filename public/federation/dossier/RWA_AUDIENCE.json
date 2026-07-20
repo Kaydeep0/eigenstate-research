@@ -1,8 +1,8 @@
 {
   "entity": "RWA_AUDIENCE",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.936325+00:00",
-  "digest": "sha256:9db4ec3230761c2f6e3109efdccbc2a8c46a27e0dece12b8fd4f8f5eeacfc109",
+  "compiled_at": "2026-07-20T16:52:42.033259+00:00",
+  "digest": "sha256:0c7e1d39aff2b1ca381617c20c3a3b95386802ae4b784d64f29d0cb7f2b2c7f4",
   "own_numbers": {
     "phi_s": 0.0,
     "kappa": 0.0001,
@@ -63,10 +63,10 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 5,
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0096,
+      "kappa": 0.0,
       "boundary_score": 0.0
     }
   },
@@ -97,17 +97,60 @@
     ],
     "observation": {
       "source": "audience",
-      "last_observed_at": "2026-07-03T00:49:14.638716+00:00",
-      "last_delta_i": 8.3,
+      "last_observed_at": "2026-07-20T16:18:00.708267+00:00",
+      "last_delta_i": 7.0,
       "stale": false
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": true,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 0.0,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "1a8f824f-c902-42b8-a7d9-e406ea447c5c",
+      "claim_text": "RWA.xyz \u2014 tokenized asset index",
+      "grounding": {
+        "source_url": "https://rwa.xyz/",
+        "expected": "RWA",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "RWA_AUDIENCE_v",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/rwa-audience-v/",
+      "verified_at": "2026-07-02T00:33:58.583724+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "7bf8d85e-8448-4967-a71f-4957770103fd",
+      "claim_text": "RWA.xyz app \u2014 asset tracker",
+      "grounding": {
+        "source_url": "https://app.rwa.xyz/",
+        "expected": "tokenized",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "RWA_AUDIENCE_v",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/rwa-audience-v/",
+      "verified_at": "2026-07-02T00:33:59.034050+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "928f6745-21ce-4387-b7b8-a236f151937a",
+      "claim_text": "BlackRock BUIDL on DeFiLlama",
+      "grounding": {
+        "source_url": "https://defillama.com/protocol/blackrock-buidl",
+        "expected": "BlackRock",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "onchain_secondary",
+      "witness_weight": 0.62,
+      "report_id": "RWA_AUDIENCE_v",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/rwa-audience-v/",
+      "verified_at": "2026-07-02T00:34:00.024250+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/RWA_AUDIENCE.json"
 }

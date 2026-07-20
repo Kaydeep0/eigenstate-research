@@ -1,8 +1,8 @@
 {
   "entity": "FEDERAL_RESERVE",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.712989+00:00",
-  "digest": "sha256:00c845843c9c8a6d709f82151bd264d44c9afb908823a965360aaf55df88dcf0",
+  "compiled_at": "2026-07-20T16:52:39.521228+00:00",
+  "digest": "sha256:3068f231c0299404ed51da28bb079152a01cbc430f1ca3f290697b82e2cd4ddb",
   "own_numbers": {
     "phi_s": null,
     "kappa": null,
@@ -28,12 +28,12 @@
   "relationships": null,
   "monetary_position": null,
   "drift": {
-    "level": "watch",
-    "headline": "kappa -0.111 over last cycle",
-    "cycles": 2,
+    "level": "flag",
+    "headline": "phi_s -33% over 3 cycles",
+    "cycles": 3,
     "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": -0.1107
+      "phi_s": -1.6182,
+      "kappa": -0.1564
     }
   },
   "network_plugs": {
@@ -68,12 +68,55 @@
       "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": null,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "aa364838-a7be-4c92-8472-aa68f8bd633f",
+      "claim_text": "Federal Reserve \u2014 central bank of the United States",
+      "grounding": {
+        "source_url": "https://www.federalreserve.gov/aboutthefed.htm",
+        "expected": "Federal Reserve",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "macro_primary",
+      "witness_weight": 0.88,
+      "report_id": "FEDERAL_RESERVE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/federal-reserve-20260702/",
+      "verified_at": "2026-07-02T05:16:25.618958+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "da1a947e-465f-4f55-a096-1b74bdedf796",
+      "claim_text": "FedNow \u2014 instant payment service",
+      "grounding": {
+        "source_url": "https://www.federalreserve.gov/paymentsystems/fednow_about.htm",
+        "expected": "FedNow",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "macro_primary",
+      "witness_weight": 0.88,
+      "report_id": "FEDERAL_RESERVE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/federal-reserve-20260702/",
+      "verified_at": "2026-07-02T05:16:25.878914+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "0d792649-8dcd-4d83-b2d6-3661c61a2075",
+      "claim_text": "FOMC \u2014 monetary policy decisions",
+      "grounding": {
+        "source_url": "https://www.federalreserve.gov/monetarypolicy/fomc.htm",
+        "expected": "FOMC",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "macro_primary",
+      "witness_weight": 0.88,
+      "report_id": "FEDERAL_RESERVE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/federal-reserve-20260702/",
+      "verified_at": "2026-07-02T05:16:26.067397+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/FEDERAL_RESERVE.json"
 }

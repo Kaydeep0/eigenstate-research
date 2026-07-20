@@ -1,8 +1,8 @@
 {
   "entity": "COMPOUND_GOVERNANCE",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.614157+00:00",
-  "digest": "sha256:d62458bce11a80c558c225a7f727e4257dd9408265f4cf03ecb64ba39c7209bf",
+  "compiled_at": "2026-07-20T16:52:38.629279+00:00",
+  "digest": "sha256:5224cd29677a92359af9c927acbbb806f388337fabb8d43a952f982476944632",
   "own_numbers": {
     "phi_s": 0.0,
     "kappa": 0.0275,
@@ -73,15 +73,15 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 5,
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0012,
+      "kappa": 0.0,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "stale",
     "inbound": [],
     "outbound": [
       {
@@ -109,15 +109,58 @@
       "source": null,
       "last_observed_at": "2026-07-02T02:30:01.270811+00:00",
       "last_delta_i": null,
-      "stale": false
+      "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 0.0,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "3016af6f-5c5e-4775-888b-162d2d2fa722",
+      "claim_text": "Compound governance portal",
+      "grounding": {
+        "source_url": "https://compound.finance/governance",
+        "expected": "governance",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "COMPOUND_GOVERNANCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/compound-governance-20260702/",
+      "verified_at": "2026-07-02T02:05:48.316376+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "74eb8945-8f8c-4995-afae-39d83e2780f7",
+      "claim_text": "Compound \u2014 money markets homepage",
+      "grounding": {
+        "source_url": "https://compound.finance/",
+        "expected": "Compound",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "COMPOUND_GOVERNANCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/compound-governance-20260702/",
+      "verified_at": "2026-07-02T02:05:48.695404+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "e35463e0-ea9f-43a1-b5fa-12358dcabd10",
+      "claim_text": "Compound protocol site",
+      "grounding": {
+        "source_url": "https://www.compound.xyz/",
+        "expected": "Compound",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "COMPOUND_GOVERNANCE_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/compound-governance-20260702/",
+      "verified_at": "2026-07-02T02:05:49.001112+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/COMPOUND_GOVERNANCE.json"
 }

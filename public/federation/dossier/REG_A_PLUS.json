@@ -1,11 +1,11 @@
 {
   "entity": "REG_A_PLUS",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.890414+00:00",
-  "digest": "sha256:7c7e71d6fbddadf9b9438e76c831cf638cc117e315f901b988909b4ec50faa44",
+  "compiled_at": "2026-07-20T16:52:41.801517+00:00",
+  "digest": "sha256:c49a846dd9c609cd17bd070f170230df9aa0e0d375338fde06504e793047c664",
   "own_numbers": {
-    "phi_s": 0.016,
-    "kappa": 0.0092,
+    "phi_s": 3.2522,
+    "kappa": 0.0001,
     "mass": 0.092687,
     "power": null,
     "extraction": null,
@@ -92,12 +92,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 5,
+    "level": "flag",
+    "headline": "phi_s +20226% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0004,
+      "kappa": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -111,7 +111,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "rega_offering_gdp_proxy",
-        "last_observed_at": "2026-07-03T00:52:41.200869+00:00",
+        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -139,17 +139,60 @@
     ],
     "observation": {
       "source": null,
-      "last_observed_at": null,
+      "last_observed_at": "2026-07-17T18:42:20.710763+00:00",
       "last_delta_i": null,
-      "stale": true
+      "stale": false
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 2e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "67e16636-b559-456f-ba0f-a6e86ebe1a1e",
+      "claim_text": "SEC Regulation A+ offering exemption",
+      "grounding": {
+        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings/rega",
+        "expected": "Regulation A",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "REG_A_PLUS_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-a-plus-20260702/",
+      "verified_at": "2026-07-02T07:24:17.755621+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "2d93925d-7511-423b-b0a1-372a53ced141",
+      "claim_text": "Reg A Tier 2 qualified offering limits",
+      "grounding": {
+        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings/rega",
+        "expected": "offering",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "REG_A_PLUS_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-a-plus-20260702/",
+      "verified_at": "2026-07-02T07:24:17.865089+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "8666135b-0f4c-48f5-bdbe-0af3fecaeef4",
+      "claim_text": "SEC exempt offerings hub \u2014 Reg A context",
+      "grounding": {
+        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings",
+        "expected": "Regulation A",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "REG_A_PLUS_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-a-plus-20260702/",
+      "verified_at": "2026-07-02T07:24:18.017512+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/REG_A_PLUS.json"
 }

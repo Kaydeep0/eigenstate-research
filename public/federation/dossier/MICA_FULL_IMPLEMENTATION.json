@@ -1,11 +1,11 @@
 {
   "entity": "MICA_FULL_IMPLEMENTATION",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.825024+00:00",
-  "digest": "sha256:3020845c576a8545ef2b89b23bb5e01d2cc082bf048c41afa50bd776dd336aad",
+  "compiled_at": "2026-07-20T16:52:40.983319+00:00",
+  "digest": "sha256:0eae799325d69e5645d3f70a160b9c9f3eea7e673558b6b75bcfc1c533241243",
   "own_numbers": {
-    "phi_s": 0.042,
-    "kappa": 0.0183,
+    "phi_s": 6.5145,
+    "kappa": 0.0001,
     "mass": 0.098971,
     "power": null,
     "extraction": null,
@@ -86,9 +86,9 @@
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 50.7,
+        "mass": 50.63,
         "hops": 2,
-        "pull": 53.235
+        "pull": 53.1615
       }
     ]
   },
@@ -97,12 +97,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 5,
+    "level": "flag",
+    "headline": "phi_s +15411% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0008,
+      "kappa": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -116,7 +116,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "mica_deadline_gdp_proxy",
-        "last_observed_at": "2026-07-03T00:52:41.200869+00:00",
+        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -149,12 +149,55 @@
       "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 1e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "eb95ff9b-46e6-458f-895e-617debbce5fe",
+      "claim_text": "MiCA full application \u2014 December 2024",
+      "grounding": {
+        "source_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+        "expected": "December 2024",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "MICA_FULL_IMPLEMENTATION_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/mica-full-implementation-20260702/",
+      "verified_at": "2026-07-02T07:15:58.360746+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "0505a630-5c5f-407c-9df4-c5e4f0007f5b",
+      "claim_text": "MiCA grandfathering clause through July 2026",
+      "grounding": {
+        "source_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+        "expected": "1 July 2026",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "MICA_FULL_IMPLEMENTATION_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/mica-full-implementation-20260702/",
+      "verified_at": "2026-07-02T07:15:58.416842+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "1d383f9b-992a-40e6-ae38-e1351b06c11e",
+      "claim_text": "MiCA transitional authorisation convergence",
+      "grounding": {
+        "source_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+        "expected": "grandfathering",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "MICA_FULL_IMPLEMENTATION_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/mica-full-implementation-20260702/",
+      "verified_at": "2026-07-02T07:15:58.475404+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/MICA_FULL_IMPLEMENTATION.json"
 }

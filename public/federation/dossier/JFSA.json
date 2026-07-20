@@ -1,11 +1,11 @@
 {
   "entity": "JFSA",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.785130+00:00",
-  "digest": "sha256:944ffd573119dbeaa1da35e42e479d54d498915e991f4d267925ca2325dfabe6",
+  "compiled_at": "2026-07-20T16:52:40.547325+00:00",
+  "digest": "sha256:c3b8c75049bbbe62d78c0cef58131b73f2241fefe189474633b65f5af356961e",
   "own_numbers": {
-    "phi_s": 0.024,
-    "kappa": 0.0092,
+    "phi_s": 3.2602,
+    "kappa": 0.0,
     "mass": 0.092996,
     "power": null,
     "extraction": null,
@@ -63,9 +63,9 @@
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 50.7,
+        "mass": 50.63,
         "hops": 3,
-        "pull": 6.76
+        "pull": 6.7507
       },
       {
         "entity": "SINGAPORE_JURISDICTION",
@@ -92,12 +92,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 5,
+    "level": "flag",
+    "headline": "phi_s +13484% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0004,
+      "kappa": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -111,7 +111,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "jp_regulatory_gdp_proxy",
-        "last_observed_at": "2026-07-03T00:52:41.200869+00:00",
+        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -144,12 +144,55 @@
       "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 2e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "989a2c5f-233d-43f6-be8b-690744141a15",
+      "claim_text": "JFSA \u2014 Japan Financial Services Agency",
+      "grounding": {
+        "source_url": "https://www.fsa.go.jp/en/",
+        "expected": "Financial Services Agency",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "JFSA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/jfsa-20260702/",
+      "verified_at": "2026-07-02T07:24:16.768850+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "d629a05b-34c0-4631-9eb1-5196810af420",
+      "claim_text": "JFSA laws and regulations framework",
+      "grounding": {
+        "source_url": "https://www.fsa.go.jp/en/laws_regulations/index.html",
+        "expected": "Financial Services Agency",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "JFSA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/jfsa-20260702/",
+      "verified_at": "2026-07-02T07:24:16.813033+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "a4e4a711-e69f-4fdf-ac8a-a8f598f77a0f",
+      "claim_text": "JFSA licensed financial institutions",
+      "grounding": {
+        "source_url": "https://www.fsa.go.jp/en/regulated/licensed/index.html",
+        "expected": "Japan",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "JFSA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/jfsa-20260702/",
+      "verified_at": "2026-07-02T07:24:16.926120+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/JFSA.json"
 }

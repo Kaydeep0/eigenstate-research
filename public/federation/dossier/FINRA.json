@@ -1,8 +1,8 @@
 {
   "entity": "FINRA",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.726390+00:00",
-  "digest": "sha256:fd97d8ee0a6f8e8e02b3e3f5ea500f37df513ad7a46ea3aa83a5486e0639a7b8",
+  "compiled_at": "2026-07-20T16:52:39.648080+00:00",
+  "digest": "sha256:ab339881711056d232d1016392ea0e8da281d92d2fec016594fcc6b2e0df5d85",
   "own_numbers": {
     "phi_s": 0.0642,
     "kappa": 0.0367,
@@ -77,9 +77,9 @@
     "gravity_pairs": [
       {
         "entity": "US_JURISDICTION",
-        "mass": 50.7,
+        "mass": 50.63,
         "hops": 1,
-        "pull": 5272.8
+        "pull": 5265.52
       },
       {
         "entity": "SEC",
@@ -94,16 +94,16 @@
         "pull": 2990.0
       },
       {
-        "entity": "JPMORGAN",
-        "mass": 104.0,
-        "hops": 2,
-        "pull": 2704.0
-      },
-      {
         "entity": "OCC",
         "mass": 103.0,
         "hops": 2,
         "pull": 2678.0
+      },
+      {
+        "entity": "CFTC",
+        "mass": 102.0,
+        "hops": 2,
+        "pull": 2652.0
       }
     ]
   },
@@ -114,10 +114,10 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 5,
+    "cycles": 70,
     "delta_last_cycle": {
-      "phi_s": -1.6181,
-      "kappa": 0.0331,
+      "phi_s": 0.0,
+      "kappa": 0.0,
       "gravity_mass": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
@@ -132,7 +132,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "broker_dealer_gdp_proxy",
-        "last_observed_at": "2026-07-03T00:52:41.200869+00:00",
+        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -165,12 +165,55 @@
       "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 2e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "ba06019f-e453-4252-8dd1-fa39388760d3",
+      "claim_text": "FINRA mission \u2014 protect investors and safeguard capital markets",
+      "grounding": {
+        "source_url": "https://www.finra.org/about",
+        "expected": "protect investors",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "FINRA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/finra-20260702/",
+      "verified_at": "2026-07-02T05:16:34.800612+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "a81b0525-37c4-4b0f-8b40-4812ff93d212",
+      "claim_text": "FINRA crypto asset oversight for member firms",
+      "grounding": {
+        "source_url": "https://www.finra.org/rules-guidance/key-topics/crypto-assets",
+        "expected": "crypto asset",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "FINRA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/finra-20260702/",
+      "verified_at": "2026-07-02T05:16:35.009486+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "da7184a5-4ac1-4499-b747-046b601dc75f",
+      "claim_text": "FINRA investor protection resources",
+      "grounding": {
+        "source_url": "https://www.finra.org/investors",
+        "expected": "FINRA",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "FINRA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/finra-20260702/",
+      "verified_at": "2026-07-02T05:16:35.171632+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/FINRA.json"
 }

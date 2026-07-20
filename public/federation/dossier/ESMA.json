@@ -1,8 +1,8 @@
 {
   "entity": "ESMA",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.666459+00:00",
-  "digest": "sha256:3554378581dbf96bad6025af0731254d488af375289a67f2b504b18c323faa53",
+  "compiled_at": "2026-07-20T16:52:39.240332+00:00",
+  "digest": "sha256:0f8687d131df31286fd443a962a17cb8bae53eca59903f0da1c42cadec0566b1",
   "own_numbers": {
     "phi_s": 1.8775,
     "kappa": 0.0001,
@@ -123,13 +123,13 @@
   },
   "drift": {
     "level": "watch",
-    "headline": "phi_s -46% over 5 cycles",
-    "cycles": 5,
+    "headline": "phi_s -46% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
-      "phi_s": 1.6173,
-      "kappa": -0.0579,
+      "phi_s": 0.0,
+      "kappa": 0.0,
       "gravity_mass": 0.0,
-      "memory_mass": -0.04,
+      "memory_mass": 0.0,
       "boundary_score": 0.0
     }
   },
@@ -142,7 +142,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "eu_regulatory_gdp_proxy",
-        "last_observed_at": "2026-07-03T00:52:41.200869+00:00",
+        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -175,17 +175,55 @@
       "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 2e-05,
-    "operator_move": {
-      "rank": 4,
-      "of": 6,
-      "vector": "infrastructure",
-      "power_gain_estimate": 17.272800000000004
+  "claims": [
+    {
+      "claim_id": "d62de558-df3b-45ad-89f4-10ac476b3373",
+      "claim_text": "ESMA \u2014 European securities markets regulator",
+      "grounding": {
+        "source_url": "https://www.esma.europa.eu/about-esma",
+        "expected": "ESMA",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "ESMA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/esma-20260702/",
+      "verified_at": "2026-07-02T05:16:27.347110+00:00",
+      "allows_canonical": true
     },
-    "observed_by_node": true
-  }
+    {
+      "claim_id": "19186da7-92b1-4d52-a72f-5091c80e66a4",
+      "claim_text": "MiCA \u2014 Markets in Crypto-Assets Regulation",
+      "grounding": {
+        "source_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+        "expected": "MiCA",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "ESMA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/esma-20260702/",
+      "verified_at": "2026-07-02T05:16:27.440042+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "accc5117-7f5b-4d70-9ad3-eaf19fbe247d",
+      "claim_text": "DLT Pilot Regime \u2014 blockchain settlement sandbox",
+      "grounding": {
+        "source_url": "https://www.esma.europa.eu/press-news/esma-news/esma-publishes-final-report-dlt-pilot-regime",
+        "expected": "DLT Pilot",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "ESMA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/esma-20260702/",
+      "verified_at": "2026-07-02T05:16:27.531684+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/ESMA.json"
 }

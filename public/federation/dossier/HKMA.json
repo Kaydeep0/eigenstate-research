@@ -1,11 +1,11 @@
 {
   "entity": "HKMA",
   "node": "34539544",
-  "compiled_at": "2026-07-03T00:54:39.745655+00:00",
-  "digest": "sha256:49b8c51ce45404936cf5c12950f1f0742ee293da8c5f683926f635e2ff6b50c4",
+  "compiled_at": "2026-07-20T16:52:40.136327+00:00",
+  "digest": "sha256:ff69974d0426d8c4bff126618e45db618380a914290da204ae5d4d8ebb17edd3",
   "own_numbers": {
-    "phi_s": 0.064,
-    "kappa": 0.0183,
+    "phi_s": 3.3002,
+    "kappa": 0.0,
     "mass": 0.11508,
     "power": null,
     "extraction": null,
@@ -69,9 +69,9 @@
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 50.7,
+        "mass": 50.63,
         "hops": 3,
-        "pull": 18.0267
+        "pull": 18.0018
       },
       {
         "entity": "SINGAPORE_JURISDICTION",
@@ -98,12 +98,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 5,
+    "level": "flag",
+    "headline": "phi_s +5057% over 70 cycles",
+    "cycles": 70,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0008,
+      "kappa": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -117,7 +117,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "hk_regulatory_gdp_proxy",
-        "last_observed_at": "2026-07-03T00:52:41.200869+00:00",
+        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -150,12 +150,55 @@
       "stale": true
     }
   },
-  "relative_to_node": {
-    "node_field_G_345": 1.3290534988908132e+19,
-    "is_current_operator_target": false,
-    "is_next_optimal_move": false,
-    "minus_one_bias": 2e-05,
-    "operator_move": null,
-    "observed_by_node": true
-  }
+  "claims": [
+    {
+      "claim_id": "00bcb6fb-5ba5-4c7c-be15-8c0990c527ea",
+      "claim_text": "HKMA \u2014 Hong Kong central banking institution",
+      "grounding": {
+        "source_url": "https://www.hkma.gov.hk/eng/",
+        "expected": "Monetary Authority",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "HKMA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/hkma-20260702/",
+      "verified_at": "2026-07-02T07:15:59.212346+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "82b1f680-ab86-47fe-9a6c-46436735d6ab",
+      "claim_text": "HKMA banking regulatory and supervisory regime",
+      "grounding": {
+        "source_url": "https://www.hkma.gov.hk/eng/key-functions/banking/banking-regulatory-and-supervisory-regime/",
+        "expected": "Hong Kong",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "HKMA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/hkma-20260702/",
+      "verified_at": "2026-07-02T07:15:59.555092+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "cf5a04b6-fc91-4f9e-8a80-f718d785757c",
+      "claim_text": "HKMA FinTech and innovation hub",
+      "grounding": {
+        "source_url": "https://www.hkma.gov.hk/eng/key-functions/international-financial-centre/fintech/",
+        "expected": "Hong Kong",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "HKMA_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/hkma-20260702/",
+      "verified_at": "2026-07-02T07:16:00.675047+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/HKMA.json"
 }
