@@ -1,14 +1,14 @@
 {
   "entity": "KINEXYS",
   "node": "34539544",
-  "compiled_at": "2026-07-21T04:51:58.482427+00:00",
-  "digest": "sha256:eb140c6ff2109a9180fc8ba182154739cab3ffb2b2b836445f55753b4f7386bb",
+  "compiled_at": "2026-07-21T22:37:41.073215+00:00",
+  "digest": "sha256:832dd3196f5bcec67013c61b90f002b85c55d9280d8b3ff980e2f700f0ce988e",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0579,
+    "kappa": 0.0651,
     "mass": 0.1118,
     "power": 0.0,
-    "extraction": 1158.0672,
+    "extraction": 2084.1202,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,8 +27,8 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 1158.0672,
-      "rank": 21,
+      "value": 2084.1202,
+      "rank": 20,
       "of": 54
     },
     "share_of_whole": {
@@ -59,16 +59,16 @@
     ]
   },
   "relationships": {
-    "in_degree": 4,
-    "out_degree": 4,
+    "in_degree": 3,
+    "out_degree": 6,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 2.0,
-        "in": 0.5
+        "out": 3.0,
+        "in": 0.0
       },
       "Information": {
         "out": 0.0,
@@ -82,12 +82,7 @@
         "vector": "Information"
       },
       {
-        "source": "CANTON_NETWORK",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
-      {
-        "source": "JPMORGAN",
+        "source": "CITIGROUP",
         "conn_type": "information_flow",
         "vector": "Information"
       },
@@ -109,12 +104,17 @@
         "vector": "Infrastructure"
       },
       {
-        "target": "PRIMARY_DEALER_NETWORK",
+        "target": "CANTON_NETWORK",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
       },
       {
-        "target": "FED",
+        "target": "JPMORGAN",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "PRIMARY_DEALER_NETWORK",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
       }
@@ -122,19 +122,19 @@
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.58,
+    "position": 0.591,
     "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 74,
+    "cycles": 79,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": 0.0072,
       "power": 0.0,
-      "extraction": -153.8852,
-      "boundary_score": 0.018
+      "extraction": 772.1678,
+      "boundary_score": 0.007
     }
   },
   "network_plugs": {
@@ -164,8 +164,8 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-07-20T16:03:49.917151+00:00",
-      "last_delta_i": 1.6875452605739965e+18,
+      "last_observed_at": "2026-07-21T18:05:55.395353+00:00",
+      "last_delta_i": 2.5678413120588856e+18,
       "stale": false
     }
   },
