@@ -1,17 +1,17 @@
 {
   "entity": "BASE_GRANTS",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:37.433340+00:00",
-  "digest": "sha256:b6ed8e2685985808f698dec379be945a1f2a39820073ab78d950920cf200fbc5",
+  "compiled_at": "2026-07-21T04:49:45.539080+00:00",
+  "digest": "sha256:6abd743c20b48b8637dfb19968ae34b074777d90651572083c81a70192accc2d",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0183,
+    "kappa": 0.0217,
     "mass": 0.04257,
     "power": 0.0,
-    "extraction": 0.5748,
+    "extraction": 0.4742,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 32.0,
+    "gravity_mass": 33.0,
     "mass_type": "capital"
   },
   "vs_whole": {
@@ -22,30 +22,30 @@
     },
     "power": {
       "value": 0.0,
-      "rank": 15,
-      "of": 51
+      "rank": 14,
+      "of": 54
     },
     "gravity": {
-      "value": 32.0,
+      "value": 33.0,
       "rank": 41,
       "of": 62
     },
     "extraction": {
-      "value": 0.5748,
-      "rank": 51,
-      "of": 51
+      "value": 0.4742,
+      "rank": 53,
+      "of": 54
     },
     "share_of_whole": {
-      "mass": 0.00266,
+      "mass": 0.00264,
       "power": 0.0
     },
     "peers_by_power": [
       {
-        "entity": "ARBITRUM",
+        "entity": "AWS_INFRASTRUCTURE",
         "power": 0.0
       },
       {
-        "entity": "AWS_INFRASTRUCTURE",
+        "entity": "BASE",
         "power": 0.0
       },
       {
@@ -53,17 +53,17 @@
         "power": 0.0
       },
       {
-        "entity": "BNY_MELLON",
+        "entity": "CANTON_NETWORK",
         "power": 0.0
       },
       {
-        "entity": "CANTON_NETWORK",
+        "entity": "CANTOR_FITZGERALD",
         "power": 0.0
       }
     ]
   },
   "relationships": {
-    "in_degree": 0,
+    "in_degree": 1,
     "out_degree": 2,
     "by_vector": {
       "Capital": {
@@ -76,10 +76,16 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.0
+        "in": 0.0103
       }
     },
-    "top_inbound": [],
+    "top_inbound": [
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
+      }
+    ],
     "top_outbound": [
       {
         "target": "RIVER",
@@ -94,33 +100,45 @@
     ],
     "gravity_pairs": [
       {
-        "entity": "AAVE_FORUM",
-        "mass": 33.0,
-        "hops": 2,
-        "pull": 264.0
+        "entity": "34539544",
+        "mass": 171.0,
+        "hops": 1,
+        "pull": 5643.0
       },
       {
-        "entity": "OPTIMISM_RETROPGF",
-        "mass": 0.8,
+        "entity": "SEC",
+        "mass": 119.0,
         "hops": 2,
-        "pull": 6.4
+        "pull": 981.75
       },
       {
-        "entity": "COINBASE",
-        "mass": 0.04,
-        "hops": 3,
-        "pull": 0.1422
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 2,
+        "pull": 948.75
+      },
+      {
+        "entity": "ESMA",
+        "mass": 107.0,
+        "hops": 2,
+        "pull": 882.75
+      },
+      {
+        "entity": "FINRA",
+        "mass": 105.0,
+        "hops": 2,
+        "pull": 866.25
       }
     ]
   },
   "monetary_position": {
-    "position": 0.3,
-    "well": "boundary"
+    "position": 0.367,
+    "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 70,
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,

@@ -1,11 +1,11 @@
 {
   "entity": "X",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:43.687488+00:00",
-  "digest": "sha256:038764186eb8a0f2adb2ade9d9b27843edb35b063eeb0000926a5006ab347678",
+  "compiled_at": "2026-07-21T04:49:51.638969+00:00",
+  "digest": "sha256:b1836fb1782bb5a13fcf9156000848bc51859688b53a763836f9652c46e5e707",
   "own_numbers": {
     "phi_s": 3.2362,
-    "kappa": 0.4678,
+    "kappa": 0.0,
     "mass": null,
     "power": null,
     "extraction": null,
@@ -26,7 +26,7 @@
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 0,
+    "in_degree": 1,
     "out_degree": 0,
     "by_vector": {
       "Capital": {
@@ -39,21 +39,31 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 0.0
+        "in": 0.0123
       }
     },
-    "top_inbound": [],
+    "top_inbound": [
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
+      }
+    ],
     "top_outbound": [],
     "gravity_pairs": []
   },
-  "monetary_position": null,
+  "monetary_position": {
+    "position": 0.5,
+    "well": "fiat"
+  },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 67,
+    "level": "flag",
+    "headline": "kappa -0.459 over 71 cycles",
+    "cycles": 71,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.1178
+      "kappa": 0.0,
+      "boundary_score": 0.0
     }
   },
   "network_plugs": {

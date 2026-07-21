@@ -1,15 +1,15 @@
 {
   "entity": "JFSA",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:40.547325+00:00",
-  "digest": "sha256:c3b8c75049bbbe62d78c0cef58131b73f2241fefe189474633b65f5af356961e",
+  "compiled_at": "2026-07-21T04:49:48.556412+00:00",
+  "digest": "sha256:2a1729c9f42d2a5354976efcaaa729b4a7e3de7c69aa2e65d92bb7b6916f9310",
   "own_numbers": {
-    "phi_s": 3.2602,
+    "phi_s": 4.8904,
     "kappa": 0.0,
     "mass": 0.092996,
     "power": null,
     "extraction": null,
-    "memory_mass": 1.2,
+    "memory_mass": 1.8,
     "X_natural": 0.0,
     "gravity_mass": null,
     "mass_type": null
@@ -17,20 +17,20 @@
   "vs_whole": {
     "mass": {
       "value": 0.092996,
-      "rank": 48,
+      "rank": 49,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00581,
+      "mass": 0.00577,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 0,
+    "in_degree": 1,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -43,10 +43,16 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.0
+        "in": 0.0024
       }
     },
-    "top_inbound": [],
+    "top_inbound": [
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
+      }
+    ],
     "top_outbound": [
       {
         "target": "HK_JURISDICTION",
@@ -56,34 +62,34 @@
     ],
     "gravity_pairs": [
       {
-        "entity": "HK_JURISDICTION",
-        "mass": 6.0,
+        "entity": "34539544",
+        "mass": 171.0,
         "hops": 1,
-        "pull": 7.2
+        "pull": 307.8
       },
       {
-        "entity": "US_JURISDICTION",
-        "mass": 50.63,
-        "hops": 3,
-        "pull": 6.7507
-      },
-      {
-        "entity": "SINGAPORE_JURISDICTION",
-        "mass": 4.8,
+        "entity": "SEC",
+        "mass": 119.0,
         "hops": 2,
-        "pull": 1.44
+        "pull": 53.55
       },
       {
-        "entity": "HKMA",
-        "mass": 3.2,
+        "entity": "FED",
+        "mass": 115.0,
         "hops": 2,
-        "pull": 0.96
+        "pull": 51.75
       },
       {
-        "entity": "MAS",
-        "mass": 3.2,
-        "hops": 3,
-        "pull": 0.4267
+        "entity": "ESMA",
+        "mass": 107.0,
+        "hops": 2,
+        "pull": 48.15
+      },
+      {
+        "entity": "FINRA",
+        "mass": 105.0,
+        "hops": 2,
+        "pull": 47.25
       }
     ]
   },
@@ -93,8 +99,8 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +13484% over 70 cycles",
-    "cycles": 70,
+    "headline": "phi_s +20277% over 74 cycles",
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -111,7 +117,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "jp_regulatory_gdp_proxy",
-        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
+        "last_observed_at": "2026-07-21T02:48:40.849041+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],

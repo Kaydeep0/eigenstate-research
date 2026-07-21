@@ -1,14 +1,14 @@
 {
   "entity": "DTCC",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:39.110953+00:00",
-  "digest": "sha256:f05ead263b605205920004132ff000710c4a071d0b4f04b66ab381de5ccdd80a",
+  "compiled_at": "2026-07-21T04:49:47.121707+00:00",
+  "digest": "sha256:1c3af04a83d151bc4a4957fa4ed190a458bac5870ae28836becfa27e0706455e",
   "own_numbers": {
-    "phi_s": 3.2562,
+    "phi_s": 4.8744,
     "kappa": 0.0012,
     "mass": 0.240306,
     "power": 0.0,
-    "extraction": 43956.2408,
+    "extraction": 5876.134,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": 42.0,
@@ -22,8 +22,8 @@
     },
     "power": {
       "value": 0.0,
-      "rank": 23,
-      "of": 51
+      "rank": 24,
+      "of": 54
     },
     "gravity": {
       "value": 42.0,
@@ -31,12 +31,12 @@
       "of": 62
     },
     "extraction": {
-      "value": 43956.2408,
-      "rank": 13,
-      "of": 51
+      "value": 5876.134,
+      "rank": 11,
+      "of": 54
     },
     "share_of_whole": {
-      "mass": 0.01502,
+      "mass": 0.01492,
       "power": 0.0
     },
     "peers_by_power": [
@@ -63,8 +63,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 8,
-    "out_degree": 9,
+    "in_degree": 11,
+    "out_degree": 6,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -75,8 +75,8 @@
         "in": 3.5
       },
       "Information": {
-        "out": 1.5,
-        "in": 1.0
+        "out": 0.0,
+        "in": 2.5
       }
     },
     "top_inbound": [
@@ -135,6 +135,12 @@
     ],
     "gravity_pairs": [
       {
+        "entity": "34539544",
+        "mass": 171.0,
+        "hops": 1,
+        "pull": 7182.0
+      },
+      {
         "entity": "FED",
         "mass": 115.0,
         "hops": 1,
@@ -142,15 +148,9 @@
       },
       {
         "entity": "CITIGROUP",
-        "mass": 98.0,
+        "mass": 100.0,
         "hops": 1,
-        "pull": 4116.0
-      },
-      {
-        "entity": "34539544",
-        "mass": 54.0,
-        "hops": 1,
-        "pull": 2268.0
+        "pull": 4200.0
       },
       {
         "entity": "CANTON_NETWORK",
@@ -171,16 +171,16 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "watch",
-    "headline": "phi_s -33% over 70 cycles",
-    "cycles": 70,
+    "level": "steady",
+    "headline": null,
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": -0.0001,
       "power": 0.0,
-      "extraction": -2743.6736,
-      "gravity_mass": 0.0,
-      "boundary_score": 0.0
+      "extraction": -2718.5348,
+      "gravity_mass": -1.0,
+      "boundary_score": -0.004
     }
   },
   "network_plugs": {
@@ -192,7 +192,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "settlement_volume_gdp_proxy",
-        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
+        "last_observed_at": "2026-07-21T02:48:40.849041+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],

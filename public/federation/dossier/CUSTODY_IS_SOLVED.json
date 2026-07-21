@@ -1,14 +1,14 @@
 {
   "entity": "CUSTODY_IS_SOLVED",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:38.730716+00:00",
-  "digest": "sha256:099cb4e25ddbeaf73790c7430c03e3b13f47d54f1206b953dff7f0e008483aca",
+  "compiled_at": "2026-07-21T04:49:46.711418+00:00",
+  "digest": "sha256:8d6a771d6d629d2284ea962366b4b23d7884994457261cd4f40d0b7fb6c07049",
   "own_numbers": {
-    "phi_s": 0.115,
-    "kappa": 0.0092,
+    "phi_s": 0.07,
+    "kappa": 0.0145,
     "mass": 0.0905,
-    "power": null,
-    "extraction": null,
+    "power": 0.0,
+    "extraction": 16.1362,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -20,17 +20,46 @@
       "rank": 56,
       "of": 199
     },
-    "power": null,
-    "gravity": null,
-    "extraction": null,
-    "share_of_whole": {
-      "mass": 0.00566,
-      "power": null
+    "power": {
+      "value": 0.0,
+      "rank": 21,
+      "of": 54
     },
-    "peers_by_power": []
+    "gravity": null,
+    "extraction": {
+      "value": 16.1362,
+      "rank": 48,
+      "of": 54
+    },
+    "share_of_whole": {
+      "mass": 0.00562,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "CITI_TREASURY_SERVICES",
+        "power": 0.0
+      },
+      {
+        "entity": "CROSS_CHAIN_BRIDGE",
+        "power": 0.0
+      },
+      {
+        "entity": "CUSTODY_IS_SOLVED",
+        "power": 0.0
+      },
+      {
+        "entity": "DEFI_IS_DEAD",
+        "power": 0.0
+      },
+      {
+        "entity": "DEX_SETTLEMENT",
+        "power": 0.0
+      }
+    ]
   },
   "relationships": {
-    "in_degree": 1,
+    "in_degree": 2,
     "out_degree": 0,
     "by_vector": {
       "Capital": {
@@ -43,7 +72,7 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 0.0
+        "in": 0.0117
       }
     },
     "top_inbound": [
@@ -51,6 +80,11 @@
         "source": "ONCHAIN_IS_TRANSPARENT",
         "conn_type": "custody",
         "vector": "Infrastructure"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
       }
     ],
     "top_outbound": [],
@@ -62,11 +96,13 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -93% over 70 cycles",
-    "cycles": 70,
+    "headline": "phi_s -96% over 74 cycles",
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
+      "power": 0.0,
+      "extraction": -2.1155,
       "boundary_score": 0.0
     }
   },

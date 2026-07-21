@@ -1,14 +1,14 @@
 {
   "entity": "FED_RRP",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:39.546165+00:00",
-  "digest": "sha256:3b774b64533ffc5494881218d72f221b9dc9736d9b784378014ee6181838e3d6",
+  "compiled_at": "2026-07-21T04:49:47.533213+00:00",
+  "digest": "sha256:90233ad668f6f320efd6d28a625e0cab1479d4ed5a87914f8dbe2dd4c0c6ddd4",
   "own_numbers": {
     "phi_s": 0.035,
-    "kappa": 0.0367,
+    "kappa": 0.0289,
     "mass": null,
     "power": 0.0,
-    "extraction": 398.7633,
+    "extraction": 80.4208,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -18,14 +18,14 @@
     "mass": null,
     "power": {
       "value": 0.0,
-      "rank": 28,
-      "of": 51
+      "rank": 29,
+      "of": 54
     },
     "gravity": null,
     "extraction": {
-      "value": 398.7633,
-      "rank": 35,
-      "of": 51
+      "value": 80.4208,
+      "rank": 39,
+      "of": 54
     },
     "share_of_whole": {
       "mass": null,
@@ -55,8 +55,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 3,
-    "out_degree": 1,
+    "in_degree": 2,
+    "out_degree": 2,
     "by_vector": {
       "Capital": {
         "out": 0.5,
@@ -67,8 +67,8 @@
         "in": 0.5
       },
       "Information": {
-        "out": 0.0,
-        "in": 1.0
+        "out": 0.5,
+        "in": 0.5
       }
     },
     "top_inbound": [
@@ -81,11 +81,6 @@
         "source": "TREASURY_MARKET",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
-      },
-      {
-        "source": "FED",
-        "conn_type": "information_flow",
-        "vector": "Information"
       }
     ],
     "top_outbound": [
@@ -93,6 +88,11 @@
         "target": "STABLECOIN_POOL",
         "conn_type": "capital",
         "vector": "Capital"
+      },
+      {
+        "target": "FED",
+        "conn_type": "information_flow",
+        "vector": "Information"
       }
     ],
     "gravity_pairs": []
@@ -103,13 +103,13 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -98% over 70 cycles",
-    "cycles": 70,
+    "headline": "phi_s -98% over 74 cycles",
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": -24.5057,
+      "extraction": -10.5433,
       "boundary_score": 0.0
     }
   },

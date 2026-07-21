@@ -1,11 +1,11 @@
 {
   "entity": "SPARK_SAVINGS",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:42.607738+00:00",
-  "digest": "sha256:9bf98e19540a16c065dae5cdf846f6f1a39c1609ede2e755d7aa5dba2d10cb3e",
+  "compiled_at": "2026-07-21T04:49:50.589892+00:00",
+  "digest": "sha256:8711ef452c216f045f79b37d0f17bce06110ef7ff53d5385bf12f635b154482f",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0367,
+    "kappa": 0.0362,
     "mass": 0.049498,
     "power": null,
     "extraction": null,
@@ -24,13 +24,13 @@
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00309,
+      "mass": 0.00307,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 0,
+    "in_degree": 1,
     "out_degree": 4,
     "by_vector": {
       "Capital": {
@@ -43,10 +43,16 @@
       },
       "Information": {
         "out": 2.0,
-        "in": 0.0
+        "in": 0.0103
       }
     },
-    "top_inbound": [],
+    "top_inbound": [
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
+      }
+    ],
     "top_outbound": [
       {
         "target": "ETHEREUM",
@@ -78,10 +84,10 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 70,
+    "cycles": 74,
     "delta_last_cycle": {
-      "phi_s": -1.6181,
-      "kappa": 0.0367,
+      "phi_s": 0.0,
+      "kappa": 0.0,
       "boundary_score": 0.0
     }
   },

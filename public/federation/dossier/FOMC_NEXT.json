@@ -1,15 +1,15 @@
 {
   "entity": "FOMC_NEXT",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:39.699859+00:00",
-  "digest": "sha256:e7b968554fc81cc92495386f0f4865c3c642c6676fc84f9c905f16c6c55af6e1",
+  "compiled_at": "2026-07-21T04:49:47.714790+00:00",
+  "digest": "sha256:6d80f43eb9a3e42e5217ad74e115bb8fb68c98e2a81243d64a2dc65d4faf189d",
   "own_numbers": {
-    "phi_s": 0.024,
-    "kappa": 0.0092,
+    "phi_s": 0.054,
+    "kappa": 0.0145,
     "mass": 0.038302,
     "power": null,
     "extraction": null,
-    "memory_mass": 1.2,
+    "memory_mass": 2.7,
     "X_natural": null,
     "gravity_mass": null,
     "mass_type": null
@@ -24,13 +24,13 @@
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00239,
+      "mass": 0.00238,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 0,
+    "in_degree": 1,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -43,10 +43,16 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.0
+        "in": 0.0104
       }
     },
-    "top_inbound": [],
+    "top_inbound": [
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
+      }
+    ],
     "top_outbound": [
       {
         "target": "MARKET_CYCLE",
@@ -56,10 +62,34 @@
     ],
     "gravity_pairs": [
       {
-        "entity": "MARKET_CYCLE",
-        "mass": 1.2,
+        "entity": "34539544",
+        "mass": 171.0,
         "hops": 1,
-        "pull": 1.44
+        "pull": 461.7
+      },
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 2,
+        "pull": 80.325
+      },
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 2,
+        "pull": 77.625
+      },
+      {
+        "entity": "ESMA",
+        "mass": 107.0,
+        "hops": 2,
+        "pull": 72.225
+      },
+      {
+        "entity": "FINRA",
+        "mass": 105.0,
+        "hops": 2,
+        "pull": 70.875
       }
     ]
   },
@@ -68,9 +98,9 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 70,
+    "level": "flag",
+    "headline": "phi_s +125% over 74 cycles",
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,

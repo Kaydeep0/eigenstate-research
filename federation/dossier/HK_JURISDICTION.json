@@ -1,22 +1,22 @@
 {
   "entity": "HK_JURISDICTION",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:40.161694+00:00",
-  "digest": "sha256:836e328aab51db9cbf4ab6d93c8a0256fd6a9e511d254595ab8b79114f7e0d89",
+  "compiled_at": "2026-07-21T04:49:48.153434+00:00",
+  "digest": "sha256:ad0ff65ab89bc7636fb57be3ee9a178da5fd4631b3b346c46141bc79f3c3db63",
   "own_numbers": {
-    "phi_s": 0.12,
-    "kappa": 0.0275,
-    "mass": 0.170262,
+    "phi_s": 0.136,
+    "kappa": 0.0289,
+    "mass": 0.170263,
     "power": null,
     "extraction": null,
-    "memory_mass": 6.0,
+    "memory_mass": 6.8,
     "X_natural": null,
     "gravity_mass": null,
     "mass_type": null
   },
   "vs_whole": {
     "mass": {
-      "value": 0.170262,
+      "value": 0.170263,
       "rank": 20,
       "of": 199
     },
@@ -24,13 +24,13 @@
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.01064,
+      "mass": 0.01057,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 3,
+    "in_degree": 4,
     "out_degree": 0,
     "by_vector": {
       "Capital": {
@@ -43,7 +43,7 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 1.5
+        "in": 1.5118
       }
     },
     "top_inbound": [
@@ -61,39 +61,44 @@
         "source": "SINGAPORE_JURISDICTION",
         "conn_type": "information_flow",
         "vector": "Information"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
       }
     ],
     "top_outbound": [],
     "gravity_pairs": [
       {
+        "entity": "34539544",
+        "mass": 171.0,
+        "hops": 1,
+        "pull": 1162.8
+      },
+      {
         "entity": "SEC",
         "mass": 119.0,
-        "hops": 3,
-        "pull": 79.3333
+        "hops": 2,
+        "pull": 202.3
       },
       {
         "entity": "FED",
         "mass": 115.0,
-        "hops": 3,
-        "pull": 76.6667
+        "hops": 2,
+        "pull": 195.5
       },
       {
-        "entity": "US_JURISDICTION",
-        "mass": 50.63,
+        "entity": "ESMA",
+        "mass": 107.0,
         "hops": 2,
-        "pull": 75.945
+        "pull": 181.9
       },
       {
         "entity": "FINRA",
-        "mass": 104.0,
-        "hops": 3,
-        "pull": 69.3333
-      },
-      {
-        "entity": "OCC",
-        "mass": 103.0,
-        "hops": 3,
-        "pull": 68.6667
+        "mass": 105.0,
+        "hops": 2,
+        "pull": 178.5
       }
     ]
   },
@@ -103,8 +108,8 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -93% over 70 cycles",
-    "cycles": 70,
+    "headline": "phi_s -92% over 74 cycles",
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -119,7 +124,7 @@
         "network": "fred",
         "kind": "macro_primary",
         "status": "live",
-        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
+        "last_observed_at": "2026-07-21T02:48:40.849041+00:00",
         "source": "FRED_HK_PROXY",
         "note": "HK GDP proxy"
       }

@@ -1,15 +1,15 @@
 {
   "entity": "MAS",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:40.853599+00:00",
-  "digest": "sha256:839feb68d6936e82efd2e9ae8a019bdbdcf10a1cdd821216ead86e1f2ce337b6",
+  "compiled_at": "2026-07-21T04:49:48.883056+00:00",
+  "digest": "sha256:beff07ef41363d920a8f94ca08be990e06fb5d316b6db90de646bc8acec7b6f5",
   "own_numbers": {
-    "phi_s": 1.6821,
+    "phi_s": 1.6961,
     "kappa": 0.0,
     "mass": 0.100867,
     "power": null,
     "extraction": null,
-    "memory_mass": 3.2,
+    "memory_mass": 3.9,
     "X_natural": 0.0,
     "gravity_mass": null,
     "mass_type": null
@@ -17,20 +17,20 @@
   "vs_whole": {
     "mass": {
       "value": 0.100867,
-      "rank": 39,
+      "rank": 40,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.0063,
+      "mass": 0.00626,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 1,
+    "in_degree": 2,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -43,13 +43,18 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.5
+        "in": 0.5006
       }
     },
     "top_inbound": [
       {
         "source": "SINGAPORE_REGION",
         "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
         "vector": "Information"
       }
     ],
@@ -62,34 +67,34 @@
     ],
     "gravity_pairs": [
       {
+        "entity": "34539544",
+        "mass": 171.0,
+        "hops": 1,
+        "pull": 666.9
+      },
+      {
         "entity": "SEC",
         "mass": 119.0,
-        "hops": 3,
-        "pull": 42.3111
+        "hops": 2,
+        "pull": 116.025
       },
       {
         "entity": "FED",
         "mass": 115.0,
-        "hops": 3,
-        "pull": 40.8889
+        "hops": 2,
+        "pull": 112.125
       },
       {
-        "entity": "US_JURISDICTION",
-        "mass": 50.63,
+        "entity": "ESMA",
+        "mass": 107.0,
         "hops": 2,
-        "pull": 40.504
+        "pull": 104.325
       },
       {
         "entity": "FINRA",
-        "mass": 104.0,
-        "hops": 3,
-        "pull": 36.9778
-      },
-      {
-        "entity": "OCC",
-        "mass": 103.0,
-        "hops": 3,
-        "pull": 36.6222
+        "mass": 105.0,
+        "hops": 2,
+        "pull": 102.375
       }
     ]
   },
@@ -99,8 +104,8 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +2528% over 70 cycles",
-    "cycles": 70,
+    "headline": "phi_s +2550% over 74 cycles",
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -117,7 +122,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "sg_regulatory_gdp_proxy",
-        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
+        "last_observed_at": "2026-07-21T02:48:40.849041+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],

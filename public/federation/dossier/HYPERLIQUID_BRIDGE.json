@@ -1,11 +1,11 @@
 {
   "entity": "HYPERLIQUID_BRIDGE",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:40.263731+00:00",
-  "digest": "sha256:e32351b6ce960adccc934e0889f91f30718fd40af6689bce28459008142f84ca",
+  "compiled_at": "2026-07-21T04:49:48.286253+00:00",
+  "digest": "sha256:9dadf6eb490242d2e6643b03f30637189ccfb41ac58da65f6fede4eb93e85516",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0092,
+    "kappa": 0.0145,
     "mass": 0.038448,
     "power": null,
     "extraction": null,
@@ -24,13 +24,13 @@
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.0024,
+      "mass": 0.00239,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 0,
+    "in_degree": 1,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -43,10 +43,16 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.0
+        "in": 0.0103
       }
     },
-    "top_inbound": [],
+    "top_inbound": [
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
+      }
+    ],
     "top_outbound": [
       {
         "target": "ARBITRUM",
@@ -63,7 +69,7 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 70,
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,

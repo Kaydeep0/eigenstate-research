@@ -1,15 +1,15 @@
 {
   "entity": "DORA",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:39.086126+00:00",
-  "digest": "sha256:302560627e94a39e444c43c9736d1a577fd13d49949eda10c502ea7c08170345",
+  "compiled_at": "2026-07-21T04:49:47.097110+00:00",
+  "digest": "sha256:be04998fc0bddd258caf87b589edbf72fa5ded8ef90c3464c51ab9e1febf41e6",
   "own_numbers": {
-    "phi_s": 6.5205,
+    "phi_s": 8.1426,
     "kappa": 0.0001,
     "mass": 0.09639,
     "power": null,
     "extraction": null,
-    "memory_mass": 2.4,
+    "memory_mass": 2.6,
     "X_natural": 0.0,
     "gravity_mass": null,
     "mass_type": null
@@ -17,20 +17,20 @@
   "vs_whole": {
     "mass": {
       "value": 0.09639,
-      "rank": 45,
+      "rank": 46,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00602,
+      "mass": 0.00598,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 1,
+    "in_degree": 2,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -43,13 +43,18 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.5
+        "in": 0.5016
       }
     },
     "top_inbound": [
       {
         "source": "ESMA",
         "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
         "vector": "Information"
       }
     ],
@@ -62,47 +67,47 @@
     ],
     "gravity_pairs": [
       {
-        "entity": "ESMA",
-        "mass": 106.0,
+        "entity": "34539544",
+        "mass": 171.0,
         "hops": 1,
-        "pull": 254.4
+        "pull": 444.6
+      },
+      {
+        "entity": "ESMA",
+        "mass": 107.0,
+        "hops": 1,
+        "pull": 278.2
       },
       {
         "entity": "SEC",
         "mass": 119.0,
         "hops": 2,
-        "pull": 71.4
+        "pull": 77.35
       },
       {
-        "entity": "FCA",
-        "mass": 102.0,
+        "entity": "FED",
+        "mass": 115.0,
         "hops": 2,
-        "pull": 61.2
+        "pull": 74.75
       },
       {
-        "entity": "CFTC",
-        "mass": 102.0,
-        "hops": 3,
-        "pull": 27.2
-      },
-      {
-        "entity": "BLACKROCK",
-        "mass": 88.0,
-        "hops": 3,
-        "pull": 23.4667
+        "entity": "FINRA",
+        "mass": 105.0,
+        "hops": 2,
+        "pull": 68.25
       }
     ]
   },
   "monetary_position": {
-    "position": 0.6,
+    "position": 0.567,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +13484% over 70 cycles",
-    "cycles": 70,
+    "headline": "phi_s +16864% over 74 cycles",
+    "cycles": 74,
     "delta_last_cycle": {
-      "phi_s": 0.0,
+      "phi_s": -1.6181,
       "kappa": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
@@ -117,7 +122,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "eu_ict_resilience_gdp_proxy",
-        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
+        "last_observed_at": "2026-07-21T02:48:40.849041+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],

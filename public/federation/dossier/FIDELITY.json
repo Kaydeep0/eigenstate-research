@@ -1,40 +1,40 @@
 {
   "entity": "FIDELITY",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:39.622630+00:00",
-  "digest": "sha256:50d240c756d87421f295c7463e1b4da30847389f4f692c159cc018622c678377",
+  "compiled_at": "2026-07-21T04:49:47.641592+00:00",
+  "digest": "sha256:22ad45cf892fda657466bd5d608cabdb7a31412e424e048a989378d46bbbdb11",
   "own_numbers": {
-    "phi_s": 1.6181,
-    "kappa": 0.0,
-    "mass": 0.159799,
+    "phi_s": 0.0,
+    "kappa": 0.0072,
+    "mass": 0.161372,
     "power": null,
     "extraction": null,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 70.0,
+    "gravity_mass": 71.0,
     "mass_type": "capital"
   },
   "vs_whole": {
     "mass": {
-      "value": 0.159799,
-      "rank": 24,
+      "value": 0.161372,
+      "rank": 25,
       "of": 199
     },
     "power": null,
     "gravity": {
-      "value": 70.0,
+      "value": 71.0,
       "rank": 13,
       "of": 62
     },
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00999,
+      "mass": 0.01002,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 0,
+    "in_degree": 1,
     "out_degree": 0,
     "by_vector": {
       "Capital": {
@@ -47,21 +47,58 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 0.0
+        "in": 0.0199
       }
     },
-    "top_inbound": [],
+    "top_inbound": [
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
+      }
+    ],
     "top_outbound": [],
-    "gravity_pairs": []
+    "gravity_pairs": [
+      {
+        "entity": "34539544",
+        "mass": 171.0,
+        "hops": 1,
+        "pull": 12141.0
+      },
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 2,
+        "pull": 2112.25
+      },
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 2,
+        "pull": 2041.25
+      },
+      {
+        "entity": "ESMA",
+        "mass": 107.0,
+        "hops": 2,
+        "pull": 1899.25
+      },
+      {
+        "entity": "FINRA",
+        "mass": 105.0,
+        "hops": 2,
+        "pull": 1863.75
+      }
+    ]
   },
   "monetary_position": {
-    "position": 0.85,
+    "position": 0.71,
     "well": "fiat"
   },
   "drift": {
-    "level": "watch",
-    "headline": "phi_s -50% over 70 cycles",
-    "cycles": 70,
+    "level": "flag",
+    "headline": "phi_s -100% over 74 cycles",
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -76,9 +113,9 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live_at_request",
-        "last_observed_at": "2026-06-22T23:00:34.463883+00:00",
+        "last_observed_at": "2026-07-21T03:00:40.384818+00:00",
         "filings": null,
-        "note": "FMR LLC \u2014 1208 total filings, 40 in last 90d"
+        "note": "CIK 0000315066 \u2014 live on feed + parkash sensor"
       }
     ],
     "outbound": [

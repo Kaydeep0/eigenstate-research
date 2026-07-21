@@ -1,61 +1,65 @@
 {
   "entity": "BNY_MELLON",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:37.730106+00:00",
-  "digest": "sha256:0ed9f7915634e5805040b9ef1ce671557f8ec699808adf156c37d59049c1ed3c",
+  "compiled_at": "2026-07-21T04:49:45.844735+00:00",
+  "digest": "sha256:9c7349a5a813668401a2bd768c45659345a4f92c8c089e6ae4329cb8926141e0",
   "own_numbers": {
-    "phi_s": 3.2956,
-    "kappa": 0.0004,
-    "mass": null,
-    "power": 0.0,
-    "extraction": 2340.7659,
+    "phi_s": 4.9095,
+    "kappa": 0.0005,
+    "mass": 0.162825,
+    "power": 0.01,
+    "extraction": 804.9979,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
     "mass_type": null
   },
   "vs_whole": {
-    "mass": null,
+    "mass": {
+      "value": 0.162825,
+      "rank": 23,
+      "of": 199
+    },
     "power": {
-      "value": 0.0,
-      "rank": 16,
-      "of": 51
+      "value": 0.01,
+      "rank": 6,
+      "of": 54
     },
     "gravity": null,
     "extraction": {
-      "value": 2340.7659,
-      "rank": 29,
-      "of": 51
+      "value": 804.9979,
+      "rank": 26,
+      "of": 54
     },
     "share_of_whole": {
-      "mass": null,
-      "power": 0.0
+      "mass": 0.01011,
+      "power": 0.04167
     },
     "peers_by_power": [
       {
-        "entity": "AWS_INFRASTRUCTURE",
-        "power": 0.0
+        "entity": "TREASURY_MARKET",
+        "power": 0.03
       },
       {
-        "entity": "BASE_GRANTS",
-        "power": 0.0
+        "entity": "BLACKROCK",
+        "power": 0.02
       },
       {
         "entity": "BNY_MELLON",
-        "power": 0.0
+        "power": 0.01
       },
       {
-        "entity": "CANTON_NETWORK",
-        "power": 0.0
+        "entity": "COINBASE",
+        "power": 0.01
       },
       {
-        "entity": "CANTOR_FITZGERALD",
-        "power": 0.0
+        "entity": "SEC",
+        "power": 0.01
       }
     ]
   },
   "relationships": {
-    "in_degree": 3,
+    "in_degree": 4,
     "out_degree": 6,
     "by_vector": {
       "Capital": {
@@ -68,7 +72,7 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 0.0
+        "in": 0.0247
       }
     },
     "top_inbound": [
@@ -86,6 +90,11 @@
         "source": "CANTON_NETWORK",
         "conn_type": "governance",
         "vector": "Infrastructure"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
       }
     ],
     "top_outbound": [
@@ -115,21 +124,52 @@
         "vector": "Capital"
       }
     ],
-    "gravity_pairs": []
+    "gravity_pairs": [
+      {
+        "entity": "34539544",
+        "mass": 171.0,
+        "hops": 1,
+        "pull": 1.71
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 88.0,
+        "hops": 1,
+        "pull": 0.88
+      },
+      {
+        "entity": "CANTON_NETWORK",
+        "mass": 43.0,
+        "hops": 1,
+        "pull": 0.43
+      },
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 2,
+        "pull": 0.2975
+      },
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 2,
+        "pull": 0.2875
+      }
+    ]
   },
   "monetary_position": {
-    "position": 0.28,
+    "position": 0.278,
     "well": "boundary"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +5448% over 70 cycles",
-    "cycles": 70,
+    "headline": "phi_s +8165% over 74 cycles",
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0011,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": -145.8016,
+      "extraction": -106.969,
       "boundary_score": 0.0
     }
   },
@@ -140,7 +180,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live_at_request",
-        "last_observed_at": "2026-06-22T23:00:34.463883+00:00",
+        "last_observed_at": "2026-07-21T03:00:40.384818+00:00",
         "filings": null,
         "note": "CIK 0001390777 \u2014 live on feed + parkash sensor"
       }

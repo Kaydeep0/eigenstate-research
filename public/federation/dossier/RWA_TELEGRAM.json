@@ -1,17 +1,17 @@
 {
   "entity": "RWA_TELEGRAM",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:42.275308+00:00",
-  "digest": "sha256:a5477c657494e55ce9ee58ae1cefa37add1a1b27f38d1f58804f3527140fdc65",
+  "compiled_at": "2026-07-21T04:49:50.275913+00:00",
+  "digest": "sha256:9bde674fa05e5da064b0f7a61b23ce60de39c8eee2530289fc23daa423db229c",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0092,
+    "kappa": 0.0145,
     "mass": 0.03859,
     "power": null,
     "extraction": null,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 21.0,
+    "gravity_mass": 22.0,
     "mass_type": "infrastructure"
   },
   "vs_whole": {
@@ -22,19 +22,19 @@
     },
     "power": null,
     "gravity": {
-      "value": 21.0,
+      "value": 22.0,
       "rank": 52,
       "of": 62
     },
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00241,
+      "mass": 0.0024,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 0,
+    "in_degree": 1,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -47,10 +47,16 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.0
+        "in": 0.0103
       }
     },
-    "top_inbound": [],
+    "top_inbound": [
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
+      }
+    ],
     "top_outbound": [
       {
         "target": "RING",
@@ -61,44 +67,44 @@
     "gravity_pairs": [
       {
         "entity": "34539544",
-        "mass": 54.0,
-        "hops": 2,
-        "pull": 283.5
+        "mass": 171.0,
+        "hops": 1,
+        "pull": 3762.0
       },
       {
         "entity": "SEC",
         "mass": 119.0,
-        "hops": 3,
-        "pull": 277.6667
+        "hops": 2,
+        "pull": 654.5
       },
       {
         "entity": "FED",
         "mass": 115.0,
-        "hops": 3,
-        "pull": 268.3333
+        "hops": 2,
+        "pull": 632.5
       },
       {
-        "entity": "JPMORGAN",
-        "mass": 100.0,
-        "hops": 3,
-        "pull": 233.3333
+        "entity": "ESMA",
+        "mass": 107.0,
+        "hops": 2,
+        "pull": 588.5
       },
       {
-        "entity": "BLACKROCK",
-        "mass": 88.0,
-        "hops": 3,
-        "pull": 205.3333
+        "entity": "FINRA",
+        "mass": 105.0,
+        "hops": 2,
+        "pull": 577.5
       }
     ]
   },
   "monetary_position": {
-    "position": 0.3,
-    "well": "boundary"
+    "position": 0.4,
+    "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 70,
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,

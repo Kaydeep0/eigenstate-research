@@ -1,15 +1,15 @@
 {
   "entity": "MARKET_CYCLE",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:40.829188+00:00",
-  "digest": "sha256:301f882fba6ae6cbb19fc35d84557ce8d1c170d6ff3ca9152bfa80cefe43b102",
+  "compiled_at": "2026-07-21T04:49:48.825261+00:00",
+  "digest": "sha256:3a0b18f720b4babb6113c0f74a25cbaa2c5cfe19e28b2498313ffc7a020678dd",
   "own_numbers": {
-    "phi_s": 0.024,
-    "kappa": 0.0092,
+    "phi_s": 0.054,
+    "kappa": 0.0145,
     "mass": 0.038302,
     "power": null,
     "extraction": null,
-    "memory_mass": 1.2,
+    "memory_mass": 2.7,
     "X_natural": null,
     "gravity_mass": null,
     "mass_type": null
@@ -24,13 +24,13 @@
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00239,
+      "mass": 0.00238,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 1,
+    "in_degree": 2,
     "out_degree": 0,
     "by_vector": {
       "Capital": {
@@ -43,7 +43,7 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 0.5
+        "in": 0.5104
       }
     },
     "top_inbound": [
@@ -51,15 +51,44 @@
         "source": "FOMC_NEXT",
         "conn_type": "information_flow",
         "vector": "Information"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
       }
     ],
     "top_outbound": [],
     "gravity_pairs": [
       {
-        "entity": "FOMC_NEXT",
-        "mass": 1.2,
+        "entity": "34539544",
+        "mass": 171.0,
         "hops": 1,
-        "pull": 1.44
+        "pull": 461.7
+      },
+      {
+        "entity": "SEC",
+        "mass": 119.0,
+        "hops": 2,
+        "pull": 80.325
+      },
+      {
+        "entity": "FED",
+        "mass": 115.0,
+        "hops": 2,
+        "pull": 77.625
+      },
+      {
+        "entity": "ESMA",
+        "mass": 107.0,
+        "hops": 2,
+        "pull": 72.225
+      },
+      {
+        "entity": "FINRA",
+        "mass": 105.0,
+        "hops": 2,
+        "pull": 70.875
       }
     ]
   },
@@ -69,8 +98,8 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -99% over 70 cycles",
-    "cycles": 70,
+    "headline": "phi_s -97% over 74 cycles",
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,

@@ -1,17 +1,17 @@
 {
   "entity": "FINRA",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:39.648080+00:00",
-  "digest": "sha256:ab339881711056d232d1016392ea0e8da281d92d2fec016594fcc6b2e0df5d85",
+  "compiled_at": "2026-07-21T04:49:47.666094+00:00",
+  "digest": "sha256:5a17d4350c4546437d9b649fe2ea39a6fb6b00b61c6b0ec1e57f7b277f7c6c3a",
   "own_numbers": {
-    "phi_s": 0.0642,
-    "kappa": 0.0367,
+    "phi_s": 0.084,
+    "kappa": 0.0362,
     "mass": 0.265589,
     "power": null,
     "extraction": null,
-    "memory_mass": 3.21,
+    "memory_mass": 4.2,
     "X_natural": 0.0,
-    "gravity_mass": 104.0,
+    "gravity_mass": 105.0,
     "mass_type": "regulatory"
   },
   "vs_whole": {
@@ -22,19 +22,19 @@
     },
     "power": null,
     "gravity": {
-      "value": 104.0,
-      "rank": 4,
+      "value": 105.0,
+      "rank": 5,
       "of": 62
     },
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.0166,
+      "mass": 0.01649,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 3,
+    "in_degree": 4,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -47,7 +47,7 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 1.5
+        "in": 1.511
       }
     },
     "top_inbound": [
@@ -65,6 +65,11 @@
         "source": "US_EAST_COAST",
         "conn_type": "information_flow",
         "vector": "Information"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
       }
     ],
     "top_outbound": [
@@ -76,45 +81,45 @@
     ],
     "gravity_pairs": [
       {
-        "entity": "US_JURISDICTION",
-        "mass": 50.63,
+        "entity": "34539544",
+        "mass": 171.0,
         "hops": 1,
-        "pull": 5265.52
+        "pull": 17955.0
+      },
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 37.8,
+        "hops": 1,
+        "pull": 3969.0
       },
       {
         "entity": "SEC",
         "mass": 119.0,
         "hops": 2,
-        "pull": 3094.0
+        "pull": 3123.75
       },
       {
         "entity": "FED",
         "mass": 115.0,
         "hops": 2,
-        "pull": 2990.0
+        "pull": 3018.75
       },
       {
-        "entity": "OCC",
-        "mass": 103.0,
+        "entity": "ESMA",
+        "mass": 107.0,
         "hops": 2,
-        "pull": 2678.0
-      },
-      {
-        "entity": "CFTC",
-        "mass": 102.0,
-        "hops": 2,
-        "pull": 2652.0
+        "pull": 2808.75
       }
     ]
   },
   "monetary_position": {
-    "position": 0.81,
+    "position": 0.808,
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 70,
+    "level": "watch",
+    "headline": "phi_s +31% over 74 cycles",
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -132,7 +137,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "broker_dealer_gdp_proxy",
-        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
+        "last_observed_at": "2026-07-21T02:48:40.849041+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],

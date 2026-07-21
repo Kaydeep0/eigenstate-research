@@ -1,11 +1,11 @@
 {
   "entity": "CURVE",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:38.703923+00:00",
-  "digest": "sha256:ad915f371d79884bd50714c4645a6070df65e29c19190d4040da05d6bbd64536",
+  "compiled_at": "2026-07-21T04:49:46.686725+00:00",
+  "digest": "sha256:debd831f58e1726731279e18a296ca62d2a53ec6814016c83983345c6c9daed6",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0183,
+    "kappa": 0.0217,
     "mass": 0.042352,
     "power": null,
     "extraction": null,
@@ -24,13 +24,13 @@
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00265,
+      "mass": 0.00263,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 1,
+    "in_degree": 2,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -43,13 +43,18 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.5
+        "in": 0.5103
       }
     },
     "top_inbound": [
       {
         "source": "UNISWAP",
         "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
         "vector": "Information"
       }
     ],
@@ -69,7 +74,7 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 70,
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,

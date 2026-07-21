@@ -1,11 +1,11 @@
 {
   "entity": "RIPPLE",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:41.956391+00:00",
-  "digest": "sha256:220ef5464bf05b809e53c4454a5105ac2cb4c37f3602e4c9bb8891f7176f5489",
+  "compiled_at": "2026-07-21T04:49:49.971255+00:00",
+  "digest": "sha256:fade8775409794dbdeb3e49aab7039d3025a0e55df6d09584b22de1f843e0ffb",
   "own_numbers": {
-    "phi_s": 6.4725,
-    "kappa": 0.4678,
+    "phi_s": 3.2362,
+    "kappa": 0.0001,
     "mass": null,
     "power": null,
     "extraction": null,
@@ -26,7 +26,7 @@
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 0,
+    "in_degree": 1,
     "out_degree": 0,
     "by_vector": {
       "Capital": {
@@ -39,21 +39,31 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 0.0
+        "in": 0.0598
       }
     },
-    "top_inbound": [],
+    "top_inbound": [
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
+      }
+    ],
     "top_outbound": [],
     "gravity_pairs": []
   },
-  "monetary_position": null,
+  "monetary_position": {
+    "position": 0.5,
+    "well": "fiat"
+  },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 68,
+    "level": "flag",
+    "headline": "phi_s -50% over 72 cycles",
+    "cycles": 72,
     "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": 0.1178
+      "phi_s": 1.6181,
+      "kappa": 0.0001,
+      "boundary_score": 0.0
     }
   },
   "network_plugs": {

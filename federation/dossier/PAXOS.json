@@ -1,11 +1,11 @@
 {
   "entity": "PAXOS",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:41.596479+00:00",
-  "digest": "sha256:9699a385eebe1fba68cbd7a7d7d48fc8de2a708207dd0fd961717d644929161c",
+  "compiled_at": "2026-07-21T04:49:49.629450+00:00",
+  "digest": "sha256:bac46d316a04dd54753fc3d0e1bce32de32d8b74f5be72c05110033c12baa49b",
   "own_numbers": {
-    "phi_s": 6.4725,
-    "kappa": 0.4678,
+    "phi_s": 3.2362,
+    "kappa": 0.0001,
     "mass": null,
     "power": null,
     "extraction": null,
@@ -26,7 +26,7 @@
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 0,
+    "in_degree": 1,
     "out_degree": 0,
     "by_vector": {
       "Capital": {
@@ -39,21 +39,31 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 0.0
+        "in": 0.0598
       }
     },
-    "top_inbound": [],
+    "top_inbound": [
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
+      }
+    ],
     "top_outbound": [],
     "gravity_pairs": []
   },
-  "monetary_position": null,
+  "monetary_position": {
+    "position": 0.5,
+    "well": "fiat"
+  },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 68,
+    "level": "flag",
+    "headline": "phi_s -50% over 72 cycles",
+    "cycles": 72,
     "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": 0.1178
+      "phi_s": 1.6181,
+      "kappa": 0.0001,
+      "boundary_score": 0.0
     }
   },
   "network_plugs": {
@@ -65,7 +75,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "stablecoin_issuer_gdp_proxy",
-        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
+        "last_observed_at": "2026-07-21T02:48:40.849041+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],

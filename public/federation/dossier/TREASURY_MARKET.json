@@ -1,14 +1,14 @@
 {
   "entity": "TREASURY_MARKET",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:43.247688+00:00",
-  "digest": "sha256:d5836d874a487382d27f84512787d2b93b6742175479f291824de07a94802581",
+  "compiled_at": "2026-07-21T04:49:51.211614+00:00",
+  "digest": "sha256:6a862ccbf5b8d158a9134994caaf60e8509eefbc9c5dd483d5b60ea97b03ba59",
   "own_numbers": {
-    "phi_s": 0.0598,
-    "kappa": 0.1927,
+    "phi_s": 0.0583,
+    "kappa": 0.1591,
     "mass": 0.0824,
-    "power": 0.11,
-    "extraction": 220953.359477,
+    "power": 0.03,
+    "extraction": 29718.04155,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -21,45 +21,45 @@
       "of": 199
     },
     "power": {
-      "value": 0.11,
-      "rank": 3,
-      "of": 51
+      "value": 0.03,
+      "rank": 4,
+      "of": 54
     },
     "gravity": null,
     "extraction": {
-      "value": 220953.3595,
-      "rank": 5,
-      "of": 51
+      "value": 29718.0416,
+      "rank": 4,
+      "of": 54
     },
     "share_of_whole": {
-      "mass": 0.00515,
-      "power": 0.15714
+      "mass": 0.00512,
+      "power": 0.125
     },
     "peers_by_power": [
       {
-        "entity": "JPMORGAN",
-        "power": 0.21
+        "entity": "34539544",
+        "power": 0.04
       },
       {
         "entity": "CITIGROUP",
-        "power": 0.14
+        "power": 0.04
       },
       {
         "entity": "TREASURY_MARKET",
-        "power": 0.11
+        "power": 0.03
       },
       {
         "entity": "BLACKROCK",
-        "power": 0.07
+        "power": 0.02
       },
       {
-        "entity": "34539544",
-        "power": 0.04
+        "entity": "BNY_MELLON",
+        "power": 0.01
       }
     ]
   },
   "relationships": {
-    "in_degree": 19,
+    "in_degree": 20,
     "out_degree": 2,
     "by_vector": {
       "Capital": {
@@ -72,7 +72,7 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 3.0
+        "in": 3.0109
       }
     },
     "top_inbound": [
@@ -116,50 +116,50 @@
     ],
     "gravity_pairs": [
       {
+        "entity": "34539544",
+        "mass": 171.0,
+        "hops": 1,
+        "pull": 5.13
+      },
+      {
         "entity": "SEC",
         "mass": 119.0,
         "hops": 1,
-        "pull": 13.09
+        "pull": 3.57
       },
       {
         "entity": "FED",
         "mass": 115.0,
         "hops": 1,
-        "pull": 12.65
+        "pull": 3.45
       },
       {
         "entity": "JPMORGAN",
-        "mass": 100.0,
+        "mass": 103.0,
         "hops": 1,
-        "pull": 11.0
+        "pull": 3.09
       },
       {
         "entity": "CITIGROUP",
-        "mass": 98.0,
+        "mass": 100.0,
         "hops": 1,
-        "pull": 10.78
-      },
-      {
-        "entity": "BLACKROCK",
-        "mass": 88.0,
-        "hops": 1,
-        "pull": 9.68
+        "pull": 3.0
       }
     ]
   },
   "monetary_position": {
-    "position": 0.548,
+    "position": 0.545,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "extraction -56% over 70 cycles",
-    "cycles": 70,
+    "headline": "extraction -94% over 74 cycles",
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
-      "power": -0.01,
-      "extraction": -13770.5294,
+      "power": 0.0,
+      "extraction": -3951.1992,
       "boundary_score": 0.0
     }
   },
@@ -172,7 +172,7 @@
         "status": "live",
         "series_id": "GFDEBTN",
         "label": "federal_debt_millions",
-        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
+        "last_observed_at": "2026-07-21T02:48:40.849041+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],

@@ -1,17 +1,17 @@
 {
   "entity": "DEFI_DAO",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:38.857558+00:00",
-  "digest": "sha256:1608b59cd4cb96f2441d4e30c8403fe0f2f5ce040856e16bc78aa9c7b8759675",
+  "compiled_at": "2026-07-21T04:49:46.842440+00:00",
+  "digest": "sha256:12bc33b419ea9074a4ccf3ee8733342da842cd6375bdb4323306e3870a861e18",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0092,
+    "kappa": 0.0145,
     "mass": 0.038438,
     "power": null,
     "extraction": null,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 26.0,
+    "gravity_mass": 27.0,
     "mass_type": "infrastructure"
   },
   "vs_whole": {
@@ -22,19 +22,19 @@
     },
     "power": null,
     "gravity": {
-      "value": 26.0,
+      "value": 27.0,
       "rank": 47,
       "of": 62
     },
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.0024,
+      "mass": 0.00239,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 0,
+    "in_degree": 1,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -47,10 +47,16 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.0
+        "in": 0.0103
       }
     },
-    "top_inbound": [],
+    "top_inbound": [
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
+      }
+    ],
     "top_outbound": [
       {
         "target": "STRONGHOLD",
@@ -60,33 +66,45 @@
     ],
     "gravity_pairs": [
       {
-        "entity": "TWITTER_RWA",
-        "mass": 38.0,
-        "hops": 2,
-        "pull": 247.0
+        "entity": "34539544",
+        "mass": 171.0,
+        "hops": 1,
+        "pull": 4617.0
       },
       {
-        "entity": "AAVE_FORUM",
-        "mass": 33.0,
+        "entity": "SEC",
+        "mass": 119.0,
         "hops": 2,
-        "pull": 214.5
+        "pull": 803.25
       },
       {
-        "entity": "COMPOUND_FORUM",
-        "mass": 26.0,
+        "entity": "FED",
+        "mass": 115.0,
         "hops": 2,
-        "pull": 169.0
+        "pull": 776.25
+      },
+      {
+        "entity": "ESMA",
+        "mass": 107.0,
+        "hops": 2,
+        "pull": 722.25
+      },
+      {
+        "entity": "FINRA",
+        "mass": 105.0,
+        "hops": 2,
+        "pull": 708.75
       }
     ]
   },
   "monetary_position": {
-    "position": 0.3,
-    "well": "boundary"
+    "position": 0.4,
+    "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 70,
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,

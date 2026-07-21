@@ -1,15 +1,15 @@
 {
   "entity": "UK_JURISDICTION",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:43.332261+00:00",
-  "digest": "sha256:14e9d3b6822780c61acbda7ad107fd1a5cf7126463af9e3ab3d1d44b11af5d38",
+  "compiled_at": "2026-07-21T04:49:51.285218+00:00",
+  "digest": "sha256:c492cde6eeb655107babb1d969850cd72679a39bc851fd21dc588eb580938164",
   "own_numbers": {
-    "phi_s": 0.048,
-    "kappa": 0.0183,
+    "phi_s": 0.078,
+    "kappa": 0.0217,
     "mass": 0.046435,
     "power": null,
     "extraction": null,
-    "memory_mass": 2.4,
+    "memory_mass": 3.9,
     "X_natural": 0.0,
     "gravity_mass": null,
     "mass_type": null
@@ -24,13 +24,13 @@
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.0029,
+      "mass": 0.00288,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 2,
+    "in_degree": 3,
     "out_degree": 0,
     "by_vector": {
       "Capital": {
@@ -43,7 +43,7 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 1.0
+        "in": 1.0107
       }
     },
     "top_inbound": [
@@ -56,50 +56,55 @@
         "source": "EU_JURISDICTION",
         "conn_type": "information_flow",
         "vector": "Information"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
       }
     ],
     "top_outbound": [],
     "gravity_pairs": [
       {
+        "entity": "34539544",
+        "mass": 171.0,
+        "hops": 1,
+        "pull": 666.9
+      },
+      {
         "entity": "FCA",
-        "mass": 102.0,
+        "mass": 103.0,
         "hops": 1,
-        "pull": 244.8
-      },
-      {
-        "entity": "ESMA",
-        "mass": 106.0,
-        "hops": 2,
-        "pull": 63.6
-      },
-      {
-        "entity": "EU_JURISDICTION",
-        "mass": 14.59,
-        "hops": 1,
-        "pull": 35.016
+        "pull": 401.7
       },
       {
         "entity": "SEC",
         "mass": 119.0,
-        "hops": 3,
-        "pull": 31.7333
+        "hops": 2,
+        "pull": 116.025
       },
       {
         "entity": "FED",
         "mass": 115.0,
-        "hops": 3,
-        "pull": 30.6667
+        "hops": 2,
+        "pull": 112.125
+      },
+      {
+        "entity": "ESMA",
+        "mass": 107.0,
+        "hops": 2,
+        "pull": 104.325
       }
     ]
   },
   "monetary_position": {
-    "position": 0.6,
+    "position": 0.567,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -97% over 70 cycles",
-    "cycles": 70,
+    "headline": "phi_s -95% over 74 cycles",
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,

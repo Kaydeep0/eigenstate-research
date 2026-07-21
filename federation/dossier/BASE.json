@@ -1,14 +1,14 @@
 {
   "entity": "BASE",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:37.346160+00:00",
-  "digest": "sha256:269818387bfcf1789f0b77cae10f246316747f8c3652586e479fea23a8d52a2e",
+  "compiled_at": "2026-07-21T04:49:45.465634+00:00",
+  "digest": "sha256:852459164c1d4ca0076ba122df899b5f493456b51c7ef3ee0b87fa4759a6503c",
   "own_numbers": {
     "phi_s": 0.0298,
-    "kappa": 0.1927,
+    "kappa": 0.1519,
     "mass": 0.195659,
-    "power": 0.01,
-    "extraction": 259450.040816,
+    "power": 0.0,
+    "extraction": 19732.600642,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -21,46 +21,46 @@
       "of": 199
     },
     "power": {
-      "value": 0.01,
-      "rank": 9,
-      "of": 51
+      "value": 0.0,
+      "rank": 13,
+      "of": 54
     },
     "gravity": null,
     "extraction": {
-      "value": 259450.0408,
-      "rank": 4,
-      "of": 51
+      "value": 19732.6006,
+      "rank": 5,
+      "of": 54
     },
     "share_of_whole": {
-      "mass": 0.01223,
-      "power": 0.01429
+      "mass": 0.01215,
+      "power": 0.0
     },
     "peers_by_power": [
       {
-        "entity": "SEC",
-        "power": 0.04
+        "entity": "ARBITRUM",
+        "power": 0.0
       },
       {
-        "entity": "TOKENIZED_TREASURY",
-        "power": 0.02
+        "entity": "AWS_INFRASTRUCTURE",
+        "power": 0.0
       },
       {
         "entity": "BASE",
-        "power": 0.01
+        "power": 0.0
       },
       {
-        "entity": "CIRCLE",
-        "power": 0.01
+        "entity": "BASE_GRANTS",
+        "power": 0.0
       },
       {
-        "entity": "CITI_TREASURY_SERVICES",
-        "power": 0.01
+        "entity": "CANTON_NETWORK",
+        "power": 0.0
       }
     ]
   },
   "relationships": {
-    "in_degree": 20,
-    "out_degree": 1,
+    "in_degree": 19,
+    "out_degree": 2,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -71,8 +71,8 @@
         "in": 1.0
       },
       "Information": {
-        "out": 0.0,
-        "in": 9.0
+        "out": 0.5,
+        "in": 8.5
       }
     },
     "top_inbound": [
@@ -107,40 +107,14 @@
         "target": "COINBASE",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
+      },
+      {
+        "target": "COINBASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
       }
     ],
-    "gravity_pairs": [
-      {
-        "entity": "34539544",
-        "mass": 54.0,
-        "hops": 1,
-        "pull": 0.54
-      },
-      {
-        "entity": "SEC",
-        "mass": 119.0,
-        "hops": 2,
-        "pull": 0.2975
-      },
-      {
-        "entity": "FED",
-        "mass": 115.0,
-        "hops": 2,
-        "pull": 0.2875
-      },
-      {
-        "entity": "JPMORGAN",
-        "mass": 100.0,
-        "hops": 2,
-        "pull": 0.25
-      },
-      {
-        "entity": "CITIGROUP",
-        "mass": 98.0,
-        "hops": 2,
-        "pull": 0.245
-      }
-    ]
+    "gravity_pairs": []
   },
   "monetary_position": {
     "position": 0.471,
@@ -148,13 +122,13 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -98% over 70 cycles",
-    "cycles": 70,
+    "headline": "power -100% over 74 cycles",
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": -16124.1658,
+      "extraction": -2616.1736,
       "boundary_score": 0.0
     }
   },
@@ -192,7 +166,7 @@
     ],
     "observation": {
       "source": "infrastructure",
-      "last_observed_at": "2026-07-20T16:13:38.712690+00:00",
+      "last_observed_at": "2026-07-21T02:47:05.508086+00:00",
       "last_delta_i": 4.0,
       "stale": false
     }

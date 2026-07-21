@@ -1,62 +1,62 @@
 {
   "entity": "JPMORGAN",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:40.572726+00:00",
-  "digest": "sha256:f8f4596626cb39e8c40c7925b6fa222ec95071a0fcd1ac97455a88b8a5a84bc6",
+  "compiled_at": "2026-07-21T04:49:48.580438+00:00",
+  "digest": "sha256:0544ee72d7870e1a11afe4128d584466acf0aa9a5883d0fd7ebc3a98281cd174",
   "own_numbers": {
-    "phi_s": 6.4955,
-    "kappa": 0.0018,
+    "phi_s": 3.2589,
+    "kappa": 0.0012,
     "mass": 0.384703,
-    "power": 0.21,
-    "extraction": 77585.149978,
+    "power": 0.07,
+    "extraction": 11862.323995,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 100.0,
+    "gravity_mass": 103.0,
     "mass_type": "infrastructure"
   },
   "vs_whole": {
     "mass": {
       "value": 0.384703,
-      "rank": 3,
+      "rank": 4,
       "of": 199
     },
     "power": {
-      "value": 0.21,
+      "value": 0.07,
       "rank": 1,
-      "of": 51
+      "of": 54
     },
     "gravity": {
-      "value": 100.0,
-      "rank": 8,
+      "value": 103.0,
+      "rank": 9,
       "of": 62
     },
     "extraction": {
-      "value": 77585.15,
+      "value": 11862.324,
       "rank": 7,
-      "of": 51
+      "of": 54
     },
     "share_of_whole": {
-      "mass": 0.02404,
-      "power": 0.3
+      "mass": 0.02388,
+      "power": 0.29167
     },
     "peers_by_power": [
       {
         "entity": "JPMORGAN",
-        "power": 0.21
+        "power": 0.07
+      },
+      {
+        "entity": "34539544",
+        "power": 0.04
       },
       {
         "entity": "CITIGROUP",
-        "power": 0.14
-      },
-      {
-        "entity": "TREASURY_MARKET",
-        "power": 0.11
+        "power": 0.04
       }
     ]
   },
   "relationships": {
-    "in_degree": 10,
-    "out_degree": 10,
+    "in_degree": 9,
+    "out_degree": 14,
     "by_vector": {
       "Capital": {
         "out": 0.5,
@@ -67,8 +67,8 @@
         "in": 2.7218
       },
       "Information": {
-        "out": 1.5,
-        "in": 2.5
+        "out": 3.5,
+        "in": 2.0
       }
     },
     "top_inbound": [
@@ -127,52 +127,52 @@
     ],
     "gravity_pairs": [
       {
+        "entity": "34539544",
+        "mass": 171.0,
+        "hops": 1,
+        "pull": 17613.0
+      },
+      {
         "entity": "FED",
         "mass": 115.0,
         "hops": 1,
-        "pull": 11500.0
+        "pull": 11845.0
       },
       {
-        "entity": "34539544",
-        "mass": 54.0,
+        "entity": "CITIGROUP",
+        "mass": 100.0,
         "hops": 1,
-        "pull": 5400.0
+        "pull": 10300.0
       },
       {
         "entity": "CANTON_NETWORK",
         "mass": 43.0,
         "hops": 1,
-        "pull": 4300.0
+        "pull": 4429.0
       },
       {
         "entity": "SEC",
         "mass": 119.0,
         "hops": 2,
-        "pull": 2975.0
-      },
-      {
-        "entity": "FINRA",
-        "mass": 104.0,
-        "hops": 2,
-        "pull": 2600.0
+        "pull": 3064.25
       }
     ]
   },
   "monetary_position": {
-    "position": 0.796,
+    "position": 0.8,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "extraction -66% over 70 cycles",
-    "cycles": 70,
+    "headline": "extraction -95% over 74 cycles",
+    "cycles": 74,
     "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": -0.0005,
+      "phi_s": 1.6183,
+      "kappa": 0.0002,
       "power": -0.02,
-      "extraction": -4192.5525,
-      "gravity_mass": 0.0,
-      "boundary_score": -0.002
+      "extraction": -3611.8586,
+      "gravity_mass": -1.0,
+      "boundary_score": -0.001
     }
   },
   "network_plugs": {
@@ -182,9 +182,9 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live_at_request",
-        "last_observed_at": "2026-06-22T23:00:34.463883+00:00",
+        "last_observed_at": "2026-07-21T03:00:40.384818+00:00",
         "filings": null,
-        "note": "JPMORGAN CHASE & CO \u2014 25191 total filings, 40 in last 90d"
+        "note": "CIK 0000019617 \u2014 live on feed + parkash sensor"
       }
     ],
     "outbound": [

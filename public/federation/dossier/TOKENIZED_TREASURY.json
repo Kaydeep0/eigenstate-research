@@ -1,14 +1,14 @@
 {
   "entity": "TOKENIZED_TREASURY",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:43.135295+00:00",
-  "digest": "sha256:4481f3e06a8fd4f6aefda3b26db157bf59a80b131154cf864e43100a7df9dfc0",
+  "compiled_at": "2026-07-21T04:49:51.113653+00:00",
+  "digest": "sha256:f4398824c6f437a0fdf48b5533d2e5dc6ae6c4bc82101d0cc62b45a62481c6f7",
   "own_numbers": {
-    "phi_s": 1.6497,
-    "kappa": 0.0016,
+    "phi_s": 0.0312,
+    "kappa": 0.1302,
     "mass": 0.230802,
-    "power": 0.02,
-    "extraction": 150317.854227,
+    "power": 0.01,
+    "extraction": 15116.468283,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -21,58 +21,58 @@
       "of": 199
     },
     "power": {
-      "value": 0.02,
-      "rank": 8,
-      "of": 51
+      "value": 0.01,
+      "rank": 9,
+      "of": 54
     },
     "gravity": null,
     "extraction": {
-      "value": 150317.8542,
+      "value": 15116.4683,
       "rank": 6,
-      "of": 51
+      "of": 54
     },
     "share_of_whole": {
-      "mass": 0.01443,
-      "power": 0.02857
+      "mass": 0.01433,
+      "power": 0.04167
     },
     "peers_by_power": [
       {
         "entity": "COINBASE",
-        "power": 0.04
+        "power": 0.01
       },
       {
         "entity": "SEC",
-        "power": 0.04
+        "power": 0.01
       },
       {
         "entity": "TOKENIZED_TREASURY",
-        "power": 0.02
-      },
-      {
-        "entity": "BASE",
         "power": 0.01
       },
       {
-        "entity": "CIRCLE",
-        "power": 0.01
+        "entity": "AAVE_FORUM",
+        "power": 0.0
+      },
+      {
+        "entity": "ARBITRUM",
+        "power": 0.0
       }
     ]
   },
   "relationships": {
     "in_degree": 12,
-    "out_degree": 5,
+    "out_degree": 6,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 1.0
       },
       "Infrastructure": {
-        "out": 0.0,
-        "in": 2.0
+        "out": 0.5,
+        "in": 1.5
       },
       "Information": {
         "out": 2.5,
-        "in": 3.0
+        "in": 3.1022
       }
     },
     "top_inbound": [
@@ -131,50 +131,50 @@
     ],
     "gravity_pairs": [
       {
+        "entity": "34539544",
+        "mass": 171.0,
+        "hops": 1,
+        "pull": 1.71
+      },
+      {
         "entity": "SEC",
         "mass": 119.0,
         "hops": 1,
-        "pull": 2.38
+        "pull": 1.19
       },
       {
         "entity": "BLACKROCK",
         "mass": 88.0,
         "hops": 1,
-        "pull": 1.76
+        "pull": 0.88
       },
       {
         "entity": "CANTON_NETWORK",
         "mass": 43.0,
         "hops": 1,
-        "pull": 0.86
+        "pull": 0.43
       },
       {
         "entity": "DTCC",
         "mass": 42.0,
         "hops": 1,
-        "pull": 0.84
-      },
-      {
-        "entity": "FED",
-        "mass": 115.0,
-        "hops": 2,
-        "pull": 0.575
+        "pull": 0.42
       }
     ]
   },
   "monetary_position": {
-    "position": 0.525,
+    "position": 0.523,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "extraction -54% over 70 cycles",
-    "cycles": 70,
+    "headline": "phi_s -99% over 74 cycles",
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": -9355.0671,
+      "extraction": -2006.9908,
       "boundary_score": 0.0
     }
   },
@@ -187,7 +187,7 @@
         "status": "live",
         "series_id": "DGS10",
         "label": "treasury_10y_pct",
-        "last_observed_at": "2026-07-20T16:15:16.300323+00:00",
+        "last_observed_at": "2026-07-21T02:48:40.849041+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -217,7 +217,7 @@
       "source": null,
       "last_observed_at": "2026-07-13T19:50:25.145908+00:00",
       "last_delta_i": null,
-      "stale": false
+      "stale": true
     }
   },
   "claims": [

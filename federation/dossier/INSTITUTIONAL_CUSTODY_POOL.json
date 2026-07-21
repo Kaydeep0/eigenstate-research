@@ -1,14 +1,14 @@
 {
   "entity": "INSTITUTIONAL_CUSTODY_POOL",
   "node": "34539544",
-  "compiled_at": "2026-07-20T16:52:40.367783+00:00",
-  "digest": "sha256:e02c41c59b5f6d5ff52e00265d5435f05bf0b5b3e49ed9fb19e3295930d05b8b",
+  "compiled_at": "2026-07-21T04:49:48.384704+00:00",
+  "digest": "sha256:a2bb0d16dd6da2ee66f52e8d40f85a7caa435ed1c638d8b96e05d1120543c40e",
   "own_numbers": {
-    "phi_s": 0.115,
-    "kappa": 0.0367,
+    "phi_s": 0.097,
+    "kappa": 0.0362,
     "mass": 0.105566,
-    "power": null,
-    "extraction": null,
+    "power": 0.0,
+    "extraction": 370.0733,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -17,20 +17,49 @@
   "vs_whole": {
     "mass": {
       "value": 0.105566,
-      "rank": 36,
+      "rank": 37,
       "of": 199
     },
-    "power": null,
-    "gravity": null,
-    "extraction": null,
-    "share_of_whole": {
-      "mass": 0.0066,
-      "power": null
+    "power": {
+      "value": 0.0,
+      "rank": 32,
+      "of": 54
     },
-    "peers_by_power": []
+    "gravity": null,
+    "extraction": {
+      "value": 370.0733,
+      "rank": 29,
+      "of": 54
+    },
+    "share_of_whole": {
+      "mass": 0.00655,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "GCP_INFRASTRUCTURE",
+        "power": 0.0
+      },
+      {
+        "entity": "GOLDMAN",
+        "power": 0.0
+      },
+      {
+        "entity": "INSTITUTIONAL_CUSTODY_POOL",
+        "power": 0.0
+      },
+      {
+        "entity": "JAMIE_DIMON",
+        "power": 0.0
+      },
+      {
+        "entity": "KINEXYS",
+        "power": 0.0
+      }
+    ]
   },
   "relationships": {
-    "in_degree": 2,
+    "in_degree": 3,
     "out_degree": 2,
     "by_vector": {
       "Capital": {
@@ -43,7 +72,7 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 0.0
+        "in": 0.0117
       }
     },
     "top_inbound": [
@@ -56,6 +85,11 @@
         "source": "US_EAST_COAST",
         "conn_type": "custody",
         "vector": "Infrastructure"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
       }
     ],
     "top_outbound": [
@@ -73,16 +107,18 @@
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.45,
+    "position": 0.46,
     "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 70,
+    "cycles": 74,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
+      "power": 0.0,
+      "extraction": -49.1341,
       "boundary_score": 0.0
     }
   },
