@@ -1,14 +1,14 @@
 {
   "entity": "SECURITIZE",
   "node": "34539544",
-  "compiled_at": "2026-07-22T11:24:33.030739+00:00",
-  "digest": "sha256:aa7517fb21603bfb4437c46aa3068320301d6ffc157e39d5386041891f089839",
+  "compiled_at": "2026-07-22T15:38:21.717445+00:00",
+  "digest": "sha256:a59b418799589026658b8c724c0d2ff86dfeea4cbcec3aa094f06f4b96c6714e",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0796,
+    "kappa": 0.0723,
     "mass": 0.157785,
     "power": 0.0,
-    "extraction": 899.7245,
+    "extraction": 549.2029,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,8 +27,8 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 899.7245,
-      "rank": 25,
+      "value": 549.2029,
+      "rank": 27,
       "of": 54
     },
     "share_of_whole": {
@@ -59,16 +59,16 @@
     ]
   },
   "relationships": {
-    "in_degree": 5,
-    "out_degree": 6,
+    "in_degree": 6,
+    "out_degree": 4,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 1.0,
-        "in": 0.5
+        "out": 0.0,
+        "in": 1.0
       },
       "Information": {
         "out": 2.0,
@@ -92,14 +92,14 @@
         "vector": "Information"
       },
       {
-        "source": "OUSG",
+        "source": "BLACKROCK",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
       },
       {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
+        "source": "OUSG",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
       }
     ],
     "top_outbound": [
@@ -122,29 +122,24 @@
         "target": "ONDO",
         "conn_type": "information_flow",
         "vector": "Information"
-      },
-      {
-        "target": "BLACKROCK",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.653,
+    "position": 0.642,
     "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 82,
+    "cycles": 83,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": -0.0073,
       "power": 0.0,
-      "extraction": 0.0,
-      "boundary_score": 0.0
+      "extraction": -350.5216,
+      "boundary_score": 0.011
     }
   },
   "network_plugs": {
@@ -160,7 +155,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live_at_request",
-        "last_observed_at": "2026-07-22T11:00:39.264387+00:00",
+        "last_observed_at": "2026-07-22T15:00:39.262485+00:00",
         "filings": null,
         "note": "CIK 0001751924"
       }

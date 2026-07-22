@@ -1,8 +1,8 @@
 {
   "entity": "JPMORGAN",
   "node": "34539544",
-  "compiled_at": "2026-07-22T11:24:31.084384+00:00",
-  "digest": "sha256:53d3ece79cb192713ca0b05d4380a7bc62a17dc0fcc2cdc1c5a9a056a8f49851",
+  "compiled_at": "2026-07-22T15:38:19.781269+00:00",
+  "digest": "sha256:90d66f59d3f06b1c49ac4ab8acc6dbfd352ae1c3b438a2a1917d21d5e3bd8f82",
   "own_numbers": {
     "phi_s": 4.8774,
     "kappa": 0.0003,
@@ -22,24 +22,28 @@
     },
     "power": {
       "value": 0.05,
-      "rank": 1,
+      "rank": 2,
       "of": 54
     },
     "gravity": {
       "value": 100.0,
-      "rank": 9,
+      "rank": 10,
       "of": 62
     },
     "extraction": {
       "value": 7825.0458,
-      "rank": 8,
+      "rank": 9,
       "of": 54
     },
     "share_of_whole": {
       "mass": 0.02393,
-      "power": 0.2381
+      "power": 0.2
     },
     "peers_by_power": [
+      {
+        "entity": "CITIGROUP",
+        "power": 0.05
+      },
       {
         "entity": "JPMORGAN",
         "power": 0.05
@@ -49,8 +53,8 @@
         "power": 0.04
       },
       {
-        "entity": "CITIGROUP",
-        "power": 0.03
+        "entity": "BLACKROCK",
+        "power": 0.04
       }
     ]
   },
@@ -139,6 +143,12 @@
         "pull": 11500.0
       },
       {
+        "entity": "CITIGROUP",
+        "mass": 103.0,
+        "hops": 1,
+        "pull": 10300.0
+      },
+      {
         "entity": "CANTON_NETWORK",
         "mass": 43.0,
         "hops": 1,
@@ -149,30 +159,24 @@
         "mass": 119.0,
         "hops": 2,
         "pull": 2975.0
-      },
-      {
-        "entity": "ESMA",
-        "mass": 107.0,
-        "hops": 2,
-        "pull": 2675.0
       }
     ]
   },
   "monetary_position": {
-    "position": 0.796,
+    "position": 0.805,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "extraction -97% over 82 cycles",
-    "cycles": 82,
+    "headline": "extraction -97% over 83 cycles",
+    "cycles": 83,
     "delta_last_cycle": {
-      "phi_s": 0.0004,
-      "kappa": -0.0002,
-      "power": -0.02,
-      "extraction": -4037.2782,
-      "gravity_mass": -3.0,
-      "boundary_score": 0.004
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "power": 0.0,
+      "extraction": 0.0,
+      "gravity_mass": 0.0,
+      "boundary_score": -0.009
     }
   },
   "network_plugs": {
@@ -182,7 +186,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live_at_request",
-        "last_observed_at": "2026-07-22T11:00:39.264387+00:00",
+        "last_observed_at": "2026-07-22T15:00:39.262485+00:00",
         "filings": null,
         "note": "CIK 0000019617 \u2014 live on feed + parkash sensor"
       }

@@ -1,14 +1,14 @@
 {
   "entity": "EAS",
   "node": "34539544",
-  "compiled_at": "2026-07-22T11:24:29.510735+00:00",
-  "digest": "sha256:c5d35d21b03d572b3920378ff43bd31bd205d85bf007cefaf54d27be78144060",
+  "compiled_at": "2026-07-22T15:38:18.203318+00:00",
+  "digest": "sha256:50fbe17105b8c834b0c89fb85e8d7ff63567b24e1a87888022c6a7c906b8b942",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0868,
+    "kappa": 0.0506,
     "mass": 0.042233,
     "power": 0.0,
-    "extraction": 760.8888,
+    "extraction": 221.8006,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,8 +27,8 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 760.8888,
-      "rank": 27,
+      "value": 221.8006,
+      "rank": 34,
       "of": 54
     },
     "share_of_whole": {
@@ -59,8 +59,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 1,
-    "out_degree": 11,
+    "in_degree": 4,
+    "out_degree": 3,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -71,11 +71,26 @@
         "in": 0.0
       },
       "Information": {
-        "out": 5.0,
-        "in": 0.0103
+        "out": 1.0,
+        "in": 1.5103
       }
     },
     "top_inbound": [
+      {
+        "source": "CITIGROUP",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CITIGROUP",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CITIGROUP",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
       {
         "source": "34539544",
         "conn_type": "strategic",
@@ -97,34 +112,24 @@
         "target": "TOKENIZED_TREASURY",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
-      },
-      {
-        "target": "CITI_TREASURY_SERVICES",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "target": "CITIGROUP",
-        "conn_type": "information_flow",
-        "vector": "Information"
       }
     ],
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.56,
+    "position": 0.577,
     "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 82,
+    "cycles": 83,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0362,
+      "kappa": -0.0362,
       "power": 0.0,
-      "extraction": 494.7281,
-      "boundary_score": -0.034
+      "extraction": -539.0882,
+      "boundary_score": -0.017
     }
   },
   "network_plugs": {
