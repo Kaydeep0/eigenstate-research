@@ -1,58 +1,66 @@
 {
   "entity": "CITIGROUP",
   "node": "34539544",
-  "compiled_at": "2026-07-21T22:41:59.611958+00:00",
-  "digest": "sha256:bd5585cd157d38f769e0a834a4e50ba4d2b57da3dfc87c209ba6a890e6b30b20",
+  "compiled_at": "2026-07-22T11:22:23.894002+00:00",
+  "digest": "sha256:5a2026c152c693a28f021ec9030689c4806ef51d86804176a14761452c2b861c",
   "own_numbers": {
-    "phi_s": 0.0226,
-    "kappa": 0.1664,
+    "phi_s": 0.0233,
+    "kappa": 0.1302,
     "mass": null,
-    "power": 0.06,
-    "extraction": 18612.217105,
+    "power": 0.03,
+    "extraction": 5766.386376,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 103.0,
+    "gravity_mass": 98.0,
     "mass_type": "infrastructure"
   },
   "vs_whole": {
     "mass": null,
     "power": {
-      "value": 0.06,
-      "rank": 1,
+      "value": 0.03,
+      "rank": 3,
       "of": 54
     },
     "gravity": {
-      "value": 103.0,
-      "rank": 8,
+      "value": 98.0,
+      "rank": 11,
       "of": 62
     },
     "extraction": {
-      "value": 18612.2171,
-      "rank": 6,
+      "value": 5766.3864,
+      "rank": 12,
       "of": 54
     },
     "share_of_whole": {
       "mass": null,
-      "power": 0.21429
+      "power": 0.14286
     },
     "peers_by_power": [
       {
-        "entity": "CITIGROUP",
-        "power": 0.06
-      },
-      {
         "entity": "JPMORGAN",
-        "power": 0.06
+        "power": 0.05
       },
       {
         "entity": "34539544",
-        "power": 0.05
+        "power": 0.04
+      },
+      {
+        "entity": "CITIGROUP",
+        "power": 0.03
+      },
+      {
+        "entity": "TREASURY_MARKET",
+        "power": 0.03
+      },
+      {
+        "entity": "BLACKROCK",
+        "power": 0.02
       }
     ]
   },
   "relationships": {
-    "in_degree": 5,
-    "out_degree": 18,
+    "in_degree": 11,
+    "out_degree": 7,
     "by_vector": {
       "Capital": {
         "out": 0.5,
@@ -63,8 +71,8 @@
         "in": 0.5
       },
       "Information": {
-        "out": 6.5,
-        "in": 2.0
+        "out": 1.0,
+        "in": 5.0
       }
     },
     "top_inbound": [
@@ -84,12 +92,12 @@
         "vector": "Infrastructure"
       },
       {
-        "source": "JANE_FRASER",
+        "source": "EAS",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "source": "CITI_TREASURY_SERVICES",
+        "source": "EAS",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -116,7 +124,7 @@
         "vector": "Infrastructure"
       },
       {
-        "target": "EAS",
+        "target": "JANE_FRASER",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -126,49 +134,49 @@
         "entity": "FED",
         "mass": 115.0,
         "hops": 1,
-        "pull": 11845.0
-      },
-      {
-        "entity": "JPMORGAN",
-        "mass": 100.0,
-        "hops": 1,
-        "pull": 10300.0
-      },
-      {
-        "entity": "DTCC",
-        "mass": 43.0,
-        "hops": 1,
-        "pull": 4429.0
+        "pull": 11270.0
       },
       {
         "entity": "34539544",
         "mass": 171.0,
         "hops": 2,
-        "pull": 4403.25
+        "pull": 4189.5
+      },
+      {
+        "entity": "DTCC",
+        "mass": 42.0,
+        "hops": 1,
+        "pull": 4116.0
       },
       {
         "entity": "SEC",
         "mass": 119.0,
         "hops": 2,
-        "pull": 3064.25
+        "pull": 2915.5
+      },
+      {
+        "entity": "JPMORGAN",
+        "mass": 100.0,
+        "hops": 2,
+        "pull": 2450.0
       }
     ]
   },
   "monetary_position": {
-    "position": 0.802,
+    "position": 0.801,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -100% over 79 cycles",
-    "cycles": 79,
+    "headline": "phi_s -100% over 82 cycles",
+    "cycles": 82,
     "delta_last_cycle": {
-      "phi_s": -0.0004,
-      "kappa": 0.0217,
-      "power": 0.01,
-      "extraction": 7858.5333,
-      "gravity_mass": 3.0,
-      "boundary_score": 0.005
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "power": 0.0,
+      "extraction": 0.0,
+      "gravity_mass": 0.0,
+      "boundary_score": 0.01
     }
   },
   "network_plugs": {
@@ -178,7 +186,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live_at_request",
-        "last_observed_at": "2026-07-21T19:00:43.369182+00:00",
+        "last_observed_at": "2026-07-22T11:00:39.264387+00:00",
         "filings": null,
         "note": "CIK 0000831001 \u2014 live on feed + parkash sensor"
       }

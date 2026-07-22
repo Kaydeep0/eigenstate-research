@@ -1,17 +1,17 @@
 {
   "entity": "DTCC",
   "node": "34539544",
-  "compiled_at": "2026-07-21T22:42:00.677324+00:00",
-  "digest": "sha256:79e83560ca86e83efaa6488a135cfb593208ed9c2d841f59039536ac8a6a348d",
+  "compiled_at": "2026-07-22T11:22:24.908380+00:00",
+  "digest": "sha256:3b0e0e33e3f952c64231148b211d7e2035bf9aaa7440716c6ddf228d320ee3ad",
   "own_numbers": {
-    "phi_s": 3.2562,
-    "kappa": 0.001,
+    "phi_s": 4.8744,
+    "kappa": 0.0012,
     "mass": 0.240306,
     "power": 0.0,
-    "extraction": 8594.6688,
+    "extraction": 5876.134,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 43.0,
+    "gravity_mass": 42.0,
     "mass_type": "infrastructure"
   },
   "vs_whole": {
@@ -26,17 +26,17 @@
       "of": 54
     },
     "gravity": {
-      "value": 43.0,
-      "rank": 27,
+      "value": 42.0,
+      "rank": 28,
       "of": 62
     },
     "extraction": {
-      "value": 8594.6688,
+      "value": 5876.134,
       "rank": 10,
       "of": 54
     },
     "share_of_whole": {
-      "mass": 0.01492,
+      "mass": 0.01495,
       "power": 0.0
     },
     "peers_by_power": [
@@ -63,65 +63,50 @@
     ]
   },
   "relationships": {
-    "in_degree": 7,
-    "out_degree": 11,
+    "in_degree": 8,
+    "out_degree": 9,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 5.5,
-        "in": 1.5
+        "out": 3.0,
+        "in": 3.5
       },
       "Information": {
-        "out": 0.0,
-        "in": 2.5
+        "out": 1.5,
+        "in": 1.0
       }
     },
     "top_inbound": [
+      {
+        "source": "CANTON_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CANTON_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
       {
         "source": "CANTON_NETWORK",
         "conn_type": "governance",
         "vector": "Infrastructure"
       },
       {
-        "source": "CITIGROUP",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "CITI_TREASURY_SERVICES",
+        "source": "CANTON_NETWORK",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
       },
       {
-        "source": "CITIGROUP",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "CITIGROUP",
-        "conn_type": "information_flow",
-        "vector": "Information"
+        "source": "CANTON_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
       }
     ],
     "top_outbound": [
-      {
-        "target": "CANTON_NETWORK",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
-      {
-        "target": "CANTON_NETWORK",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
-      {
-        "target": "GOLDMAN",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
       {
         "target": "PRIMARY_DEALER_NETWORK",
         "conn_type": "infrastructure",
@@ -131,6 +116,21 @@
         "target": "TREASURY_MARKET",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
+      },
+      {
+        "target": "TOKENIZED_TREASURY",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "FED",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "US_EAST_COAST",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": [
@@ -138,42 +138,42 @@
         "entity": "34539544",
         "mass": 171.0,
         "hops": 1,
-        "pull": 7353.0
+        "pull": 7182.0
       },
       {
         "entity": "FED",
         "mass": 115.0,
         "hops": 1,
-        "pull": 4945.0
+        "pull": 4830.0
       },
       {
         "entity": "CITIGROUP",
-        "mass": 103.0,
+        "mass": 98.0,
         "hops": 1,
-        "pull": 4429.0
+        "pull": 4116.0
       },
       {
         "entity": "CANTON_NETWORK",
-        "mass": 41.0,
+        "mass": 43.0,
         "hops": 1,
-        "pull": 1763.0
+        "pull": 1806.0
       },
       {
         "entity": "SEC",
         "mass": 119.0,
         "hops": 2,
-        "pull": 1279.25
+        "pull": 1249.5
       }
     ]
   },
   "monetary_position": {
-    "position": 0.624,
+    "position": 0.628,
     "well": "fiat"
   },
   "drift": {
-    "level": "watch",
-    "headline": "phi_s -33% over 79 cycles",
-    "cycles": 79,
+    "level": "steady",
+    "headline": null,
+    "cycles": 82,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -192,7 +192,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "settlement_volume_gdp_proxy",
-        "last_observed_at": "2026-07-21T22:11:15.425104+00:00",
+        "last_observed_at": "2026-07-22T11:13:29.051118+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],

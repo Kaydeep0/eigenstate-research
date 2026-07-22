@@ -1,14 +1,14 @@
 {
   "entity": "EAS",
   "node": "34539544",
-  "compiled_at": "2026-07-21T22:42:00.732531+00:00",
-  "digest": "sha256:8e8929d324fbfe8e73537fdf7fc64643dc9e4420283ee287a92f9c5da1350cd0",
+  "compiled_at": "2026-07-22T11:22:24.963281+00:00",
+  "digest": "sha256:c5d35d21b03d572b3920378ff43bd31bd205d85bf007cefaf54d27be78144060",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0506,
+    "kappa": 0.0868,
     "mass": 0.042233,
     "power": 0.0,
-    "extraction": 250.8792,
+    "extraction": 760.8888,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,12 +27,12 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 250.8792,
-      "rank": 34,
+      "value": 760.8888,
+      "rank": 27,
       "of": 54
     },
     "share_of_whole": {
-      "mass": 0.00262,
+      "mass": 0.00263,
       "power": 0.0
     },
     "peers_by_power": [
@@ -59,43 +59,23 @@
     ]
   },
   "relationships": {
-    "in_degree": 5,
-    "out_degree": 2,
+    "in_degree": 1,
+    "out_degree": 11,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 0.0,
-        "in": 0.5
+        "out": 0.5,
+        "in": 0.0
       },
       "Information": {
-        "out": 1.0,
-        "in": 1.5103
+        "out": 5.0,
+        "in": 0.0103
       }
     },
     "top_inbound": [
-      {
-        "source": "TOKENIZED_TREASURY",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
-      {
-        "source": "CITIGROUP",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "CITIGROUP",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "CITIGROUP",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
       {
         "source": "34539544",
         "conn_type": "strategic",
@@ -112,24 +92,39 @@
         "target": "ETHEREUM",
         "conn_type": "information_flow",
         "vector": "Information"
+      },
+      {
+        "target": "TOKENIZED_TREASURY",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "CITI_TREASURY_SERVICES",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "CITIGROUP",
+        "conn_type": "information_flow",
+        "vector": "Information"
       }
     ],
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.577,
+    "position": 0.56,
     "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 79,
+    "cycles": 82,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": 0.0362,
       "power": 0.0,
-      "extraction": -50.1758,
-      "boundary_score": 0.0
+      "extraction": 494.7281,
+      "boundary_score": -0.034
     }
   },
   "network_plugs": {
