@@ -1,14 +1,14 @@
 {
   "entity": "EAS",
   "node": "34539544",
-  "compiled_at": "2026-07-22T15:38:18.203318+00:00",
-  "digest": "sha256:50fbe17105b8c834b0c89fb85e8d7ff63567b24e1a87888022c6a7c906b8b942",
+  "compiled_at": "2026-07-23T04:15:48.005848+00:00",
+  "digest": "sha256:b18f1e1c42a1aad6ec93cd4d182efe81b7ca66677131a73c3398f75ad3648a21",
   "own_numbers": {
     "phi_s": 0.02,
     "kappa": 0.0506,
     "mass": 0.042233,
     "power": 0.0,
-    "extraction": 221.8006,
+    "extraction": 250.8792,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,12 +27,12 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 221.8006,
+      "value": 250.8792,
       "rank": 34,
       "of": 54
     },
     "share_of_whole": {
-      "mass": 0.00263,
+      "mass": 0.00262,
       "power": 0.0
     },
     "peers_by_power": [
@@ -59,16 +59,16 @@
     ]
   },
   "relationships": {
-    "in_degree": 4,
-    "out_degree": 3,
+    "in_degree": 5,
+    "out_degree": 2,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 0.5,
-        "in": 0.0
+        "out": 0.0,
+        "in": 0.5
       },
       "Information": {
         "out": 1.0,
@@ -77,17 +77,22 @@
     },
     "top_inbound": [
       {
-        "source": "CITIGROUP",
+        "source": "TOKENIZED_TREASURY",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CITI_TREASURY_SERVICES",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "source": "CITIGROUP",
+        "source": "CITI_TREASURY_SERVICES",
         "conn_type": "information_flow",
         "vector": "Information"
       },
       {
-        "source": "CITIGROUP",
+        "source": "CITI_TREASURY_SERVICES",
         "conn_type": "information_flow",
         "vector": "Information"
       },
@@ -107,29 +112,24 @@
         "target": "ETHEREUM",
         "conn_type": "information_flow",
         "vector": "Information"
-      },
-      {
-        "target": "TOKENIZED_TREASURY",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.577,
+    "position": 0.5,
     "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 83,
+    "cycles": 87,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0362,
+      "kappa": 0.0,
       "power": 0.0,
-      "extraction": -539.0882,
-      "boundary_score": -0.017
+      "extraction": 15.448,
+      "boundary_score": 0.0
     }
   },
   "network_plugs": {

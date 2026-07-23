@@ -1,14 +1,14 @@
 {
   "entity": "FED",
   "node": "34539544",
-  "compiled_at": "2026-07-22T15:38:18.577125+00:00",
-  "digest": "sha256:eb15c74b59321611284f686aed2a0256bd5087388c3c44ea10f775864819eeaa",
+  "compiled_at": "2026-07-23T04:15:48.374295+00:00",
+  "digest": "sha256:90a690c221a422f3b863ee3ca1a6d4757d20dd294e2f1478981ca6bf79dbb514",
   "own_numbers": {
     "phi_s": 5.5344,
     "kappa": 0.0011,
-    "mass": 0.360753,
+    "mass": 0.395753,
     "power": 0.0,
-    "extraction": 10208.4462,
+    "extraction": 11567.0036,
     "memory_mass": 34.0,
     "X_natural": 0.0,
     "gravity_mass": 115.0,
@@ -16,8 +16,8 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.360753,
-      "rank": 4,
+      "value": 0.395753,
+      "rank": 3,
       "of": 199
     },
     "power": {
@@ -31,12 +31,12 @@
       "of": 62
     },
     "extraction": {
-      "value": 10208.4462,
-      "rank": 8,
+      "value": 11567.0036,
+      "rank": 7,
       "of": 54
     },
     "share_of_whole": {
-      "mass": 0.02244,
+      "mass": 0.02457,
       "power": 0.0
     },
     "peers_by_power": [
@@ -63,8 +63,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 10,
-    "out_degree": 5,
+    "in_degree": 9,
+    "out_degree": 6,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -75,18 +75,13 @@
         "in": 3.5
       },
       "Information": {
-        "out": 1.5,
-        "in": 1.1
+        "out": 2.0,
+        "in": 0.6
       }
     },
     "top_inbound": [
       {
         "source": "US_EAST_COAST",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "FED_RRP",
         "conn_type": "information_flow",
         "vector": "Information"
       },
@@ -102,6 +97,11 @@
       },
       {
         "source": "JEKYLL_ISLAND",
+        "conn_type": "governance",
+        "vector": "Infrastructure"
+      },
+      {
+        "source": "CITIGROUP",
         "conn_type": "governance",
         "vector": "Infrastructure"
       }
@@ -123,12 +123,12 @@
         "vector": "Information"
       },
       {
-        "target": "JPMORGAN",
-        "conn_type": "governance",
-        "vector": "Infrastructure"
+        "target": "FED_RRP",
+        "conn_type": "information_flow",
+        "vector": "Information"
       },
       {
-        "target": "CITIGROUP",
+        "target": "JPMORGAN",
         "conn_type": "governance",
         "vector": "Infrastructure"
       }
@@ -141,22 +141,22 @@
         "pull": 19665.0
       },
       {
-        "entity": "CITIGROUP",
-        "mass": 103.0,
+        "entity": "JPMORGAN",
+        "mass": 101.0,
         "hops": 1,
-        "pull": 11845.0
+        "pull": 11615.0
       },
       {
-        "entity": "JPMORGAN",
-        "mass": 100.0,
+        "entity": "CITIGROUP",
+        "mass": 98.0,
         "hops": 1,
-        "pull": 11500.0
+        "pull": 11270.0
       },
       {
         "entity": "DTCC",
-        "mass": 42.0,
+        "mass": 43.0,
         "hops": 1,
-        "pull": 4830.0
+        "pull": 4945.0
       },
       {
         "entity": "US_JURISDICTION",
@@ -172,13 +172,13 @@
   },
   "drift": {
     "level": "watch",
-    "headline": "phi_s -59% over 83 cycles",
-    "cycles": 83,
+    "headline": "phi_s -59% over 87 cycles",
+    "cycles": 87,
     "delta_last_cycle": {
-      "phi_s": 1.6182,
+      "phi_s": -1.6181,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": 0.0,
+      "extraction": 721.7336,
       "gravity_mass": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
@@ -193,7 +193,7 @@
         "status": "live",
         "series_id": "M2SL",
         "label": "m2_billions",
-        "last_observed_at": "2026-07-22T15:29:09.136062+00:00",
+        "last_observed_at": "2026-07-23T04:06:57.141413+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -223,7 +223,7 @@
       "source": "information_flow",
       "last_observed_at": "2026-07-15T15:46:00.132069+00:00",
       "last_delta_i": 2.0,
-      "stale": false
+      "stale": true
     }
   },
   "claims": [
