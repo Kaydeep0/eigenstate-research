@@ -1,14 +1,14 @@
 {
   "entity": "OUSG",
   "node": "34539544",
-  "compiled_at": "2026-07-23T04:18:12.665010+00:00",
-  "digest": "sha256:2c487bcea13c9ca6e3272ff89bf14c468a6338eb4ca2f672e1b03bac23be17f4",
+  "compiled_at": "2026-07-23T08:31:23.117948+00:00",
+  "digest": "sha256:82116d11ab1c905580c32fae75cf47facdfcb461a3b68b90125b16316e011395",
   "own_numbers": {
-    "phi_s": 0.0828,
+    "phi_s": 0.0839,
     "kappa": 0.0579,
     "mass": null,
     "power": 0.0,
-    "extraction": 646.9418,
+    "extraction": 571.3981,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -23,8 +23,8 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 646.9418,
-      "rank": 26,
+      "value": 571.3981,
+      "rank": 27,
       "of": 54
     },
     "share_of_whole": {
@@ -55,12 +55,12 @@
     ]
   },
   "relationships": {
-    "in_degree": 4,
-    "out_degree": 4,
+    "in_degree": 1,
+    "out_degree": 7,
     "by_vector": {
       "Capital": {
-        "out": 1.0,
-        "in": 1.5
+        "out": 2.5,
+        "in": 0.0
       },
       "Infrastructure": {
         "out": 1.0,
@@ -73,24 +73,9 @@
     },
     "top_inbound": [
       {
-        "source": "BLACKROCK",
-        "conn_type": "ownership",
-        "vector": "Capital"
-      },
-      {
-        "source": "CIRCLE",
-        "conn_type": "ownership",
-        "vector": "Capital"
-      },
-      {
         "source": "ONDO",
         "conn_type": "information_flow",
         "vector": "Information"
-      },
-      {
-        "source": "BLACKROCK",
-        "conn_type": "ownership",
-        "vector": "Capital"
       }
     ],
     "top_outbound": [
@@ -100,19 +85,24 @@
         "vector": "Capital"
       },
       {
-        "target": "TREASURY_MARKET",
-        "conn_type": "capital",
+        "target": "CIRCLE",
+        "conn_type": "ownership",
         "vector": "Capital"
       },
       {
-        "target": "COINBASE",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
+        "target": "BLACKROCK",
+        "conn_type": "ownership",
+        "vector": "Capital"
       },
       {
-        "target": "SECURITIZE",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
+        "target": "BLACKROCK",
+        "conn_type": "ownership",
+        "vector": "Capital"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "capital",
+        "vector": "Capital"
       }
     ],
     "gravity_pairs": []
@@ -124,12 +114,12 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 87,
+    "cycles": 88,
     "delta_last_cycle": {
-      "phi_s": 0.0,
+      "phi_s": 0.0011,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": 40.1326,
+      "extraction": -75.5437,
       "boundary_score": 0.0
     }
   },

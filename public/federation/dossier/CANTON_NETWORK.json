@@ -1,17 +1,17 @@
 {
   "entity": "CANTON_NETWORK",
   "node": "34539544",
-  "compiled_at": "2026-07-23T04:18:08.643302+00:00",
-  "digest": "sha256:0c3977bc692bd98b8593ebd42021d6416a51362300686e1d14e11093712f6696",
+  "compiled_at": "2026-07-23T08:31:19.021771+00:00",
+  "digest": "sha256:bded32562504388e8b8fbc050332863d21227bca7c76cbd26688ca88d2da045e",
   "own_numbers": {
     "phi_s": 4.8544,
-    "kappa": 0.0012,
+    "kappa": 0.0013,
     "mass": 0.177874,
     "power": 0.0,
-    "extraction": 6033.5317,
+    "extraction": 7157.062,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 41.0,
+    "gravity_mass": 43.0,
     "mass_type": "infrastructure"
   },
   "vs_whole": {
@@ -26,13 +26,13 @@
       "of": 54
     },
     "gravity": {
-      "value": 41.0,
-      "rank": 28,
+      "value": 43.0,
+      "rank": 27,
       "of": 62
     },
     "extraction": {
-      "value": 6033.5317,
-      "rank": 14,
+      "value": 7157.062,
+      "rank": 10,
       "of": 54
     },
     "share_of_whole": {
@@ -63,16 +63,16 @@
     ]
   },
   "relationships": {
-    "in_degree": 9,
-    "out_degree": 7,
+    "in_degree": 4,
+    "out_degree": 14,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 3.5,
-        "in": 4.0
+        "out": 7.0,
+        "in": 1.5
       },
       "Information": {
         "out": 0.0,
@@ -80,16 +80,6 @@
       }
     },
     "top_inbound": [
-      {
-        "source": "DTCC",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
-      {
-        "source": "DTCC",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
       {
         "source": "DTCC",
         "conn_type": "governance",
@@ -102,11 +92,31 @@
       },
       {
         "source": "JPMORGAN",
-        "conn_type": "infrastructure",
+        "conn_type": "governance",
         "vector": "Infrastructure"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
       }
     ],
     "top_outbound": [
+      {
+        "target": "DTCC",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "GOLDMAN",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "DTCC",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
       {
         "target": "TOKENIZED_TREASURY",
         "conn_type": "infrastructure",
@@ -116,21 +126,6 @@
         "target": "TREASURY_MARKET",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
-      },
-      {
-        "target": "PRIMARY_DEALER_NETWORK",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
-      {
-        "target": "DTCC",
-        "conn_type": "governance",
-        "vector": "Infrastructure"
-      },
-      {
-        "target": "GOLDMAN",
-        "conn_type": "governance",
-        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": [
@@ -138,49 +133,49 @@
         "entity": "34539544",
         "mass": 171.0,
         "hops": 1,
-        "pull": 7011.0
+        "pull": 7353.0
       },
       {
         "entity": "JPMORGAN",
-        "mass": 101.0,
+        "mass": 100.0,
         "hops": 1,
-        "pull": 4141.0
+        "pull": 4300.0
       },
       {
         "entity": "DTCC",
-        "mass": 43.0,
+        "mass": 42.0,
         "hops": 1,
-        "pull": 1763.0
+        "pull": 1806.0
       },
       {
         "entity": "SEC",
         "mass": 119.0,
         "hops": 2,
-        "pull": 1219.75
+        "pull": 1279.25
       },
       {
         "entity": "FED",
         "mass": 115.0,
         "hops": 2,
-        "pull": 1178.75
+        "pull": 1236.25
       }
     ]
   },
   "monetary_position": {
-    "position": 0.599,
+    "position": 0.594,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +4.854 over 87 cycles",
-    "cycles": 87,
+    "headline": "phi_s +4.854 over 88 cycles",
+    "cycles": 88,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": 0.0001,
       "power": 0.0,
-      "extraction": -550.8782,
-      "gravity_mass": -1.0,
-      "boundary_score": -0.005
+      "extraction": 1123.5303,
+      "gravity_mass": 2.0,
+      "boundary_score": 0.005
     }
   },
   "network_plugs": {

@@ -1,14 +1,14 @@
 {
   "entity": "FED_RRP",
   "node": "34539544",
-  "compiled_at": "2026-07-23T04:18:10.487968+00:00",
-  "digest": "sha256:1494f1396a9191e727c0442cb4025cc18ef1c401da2984be9b6930fb179b6b2d",
+  "compiled_at": "2026-07-23T08:31:20.886716+00:00",
+  "digest": "sha256:3231f6a16c67a6994454568eb3d81754b80cd0f61c9507ce27d9a6732a11561d",
   "own_numbers": {
     "phi_s": 0.035,
     "kappa": 0.0289,
     "mass": null,
     "power": 0.0,
-    "extraction": 90.9641,
+    "extraction": 80.4208,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -23,7 +23,7 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 90.9641,
+      "value": 80.4208,
       "rank": 39,
       "of": 54
     },
@@ -55,8 +55,8 @@
     ]
   },
   "relationships": {
-    "in_degree": 3,
-    "out_degree": 1,
+    "in_degree": 2,
+    "out_degree": 2,
     "by_vector": {
       "Capital": {
         "out": 0.5,
@@ -67,8 +67,8 @@
         "in": 0.5
       },
       "Information": {
-        "out": 0.0,
-        "in": 1.0
+        "out": 0.5,
+        "in": 0.5
       }
     },
     "top_inbound": [
@@ -81,11 +81,6 @@
         "source": "TREASURY_MARKET",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
-      },
-      {
-        "source": "FED",
-        "conn_type": "information_flow",
-        "vector": "Information"
       }
     ],
     "top_outbound": [
@@ -93,6 +88,11 @@
         "target": "STABLECOIN_POOL",
         "conn_type": "capital",
         "vector": "Capital"
+      },
+      {
+        "target": "FED",
+        "conn_type": "information_flow",
+        "vector": "Information"
       }
     ],
     "gravity_pairs": []
@@ -103,13 +103,13 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -98% over 87 cycles",
-    "cycles": 87,
+    "headline": "phi_s -98% over 88 cycles",
+    "cycles": 88,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": 5.6011,
+      "extraction": -10.5433,
       "boundary_score": 0.0
     }
   },

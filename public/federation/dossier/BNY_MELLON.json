@@ -1,14 +1,14 @@
 {
   "entity": "BNY_MELLON",
   "node": "34539544",
-  "compiled_at": "2026-07-23T04:18:08.589536+00:00",
-  "digest": "sha256:7e637fa58c78ece07a7588b1b85a922bb98ef324eaddbe833a41f88df37fa54b",
+  "compiled_at": "2026-07-23T08:31:18.930516+00:00",
+  "digest": "sha256:9985c9e83db6e76da1a8b46d1a8e8dbf840b985a97e335ca68276d43eda5a81b",
   "own_numbers": {
-    "phi_s": 4.9095,
+    "phi_s": 3.2903,
     "kappa": 0.0007,
     "mass": 0.162825,
     "power": 0.01,
-    "extraction": 911.9669,
+    "extraction": 804.9979,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,22 +27,22 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 911.9669,
-      "rank": 25,
+      "value": 804.9979,
+      "rank": 26,
       "of": 54
     },
     "share_of_whole": {
       "mass": 0.01011,
-      "power": 0.03846
+      "power": 0.04348
     },
     "peers_by_power": [
       {
-        "entity": "CITIGROUP",
-        "power": 0.04
-      },
-      {
         "entity": "TREASURY_MARKET",
         "power": 0.03
+      },
+      {
+        "entity": "BLACKROCK",
+        "power": 0.02
       },
       {
         "entity": "BNY_MELLON",
@@ -59,12 +59,12 @@
     ]
   },
   "relationships": {
-    "in_degree": 4,
-    "out_degree": 6,
+    "in_degree": 5,
+    "out_degree": 5,
     "by_vector": {
       "Capital": {
-        "out": 2.0,
-        "in": 0.0
+        "out": 1.5,
+        "in": 0.5
       },
       "Infrastructure": {
         "out": 1.0,
@@ -85,6 +85,11 @@
         "source": "PRIMARY_DEALER_NETWORK",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
+      },
+      {
+        "source": "GOLDMAN",
+        "conn_type": "ownership",
+        "vector": "Capital"
       },
       {
         "source": "CANTON_NETWORK",
@@ -133,15 +138,15 @@
       },
       {
         "entity": "BLACKROCK",
-        "mass": 89.0,
+        "mass": 88.0,
         "hops": 1,
-        "pull": 0.89
+        "pull": 0.88
       },
       {
         "entity": "CANTON_NETWORK",
-        "mass": 41.0,
+        "mass": 43.0,
         "hops": 1,
-        "pull": 0.41
+        "pull": 0.43
       },
       {
         "entity": "SEC",
@@ -163,13 +168,13 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +8165% over 87 cycles",
-    "cycles": 87,
+    "headline": "phi_s +5439% over 88 cycles",
+    "cycles": 88,
     "delta_last_cycle": {
-      "phi_s": 0.0011,
+      "phi_s": -1.6192,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": 56.8273,
+      "extraction": -106.969,
       "boundary_score": 0.0
     }
   },
@@ -180,7 +185,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live_at_request",
-        "last_observed_at": "2026-07-23T03:00:33.244194+00:00",
+        "last_observed_at": "2026-07-23T07:00:41.569967+00:00",
         "filings": null,
         "note": "CIK 0001390777 \u2014 live on feed + parkash sensor"
       }
