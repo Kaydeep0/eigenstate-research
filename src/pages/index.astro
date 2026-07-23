@@ -13,6 +13,58 @@ const fonts =
 >
   <Fragment slot="head">
     <link rel="stylesheet" href={`${import.meta.env.BASE_URL}css/styles.css`} />
+    <style>
+      /*
+        Only the hero (and the pre-hero loading splash, same visual
+        language) stays dark — its animated tunnel only works against a
+        near-black background, and it's the site's strongest visual
+        signature. Everything else on this page, including the nav,
+        follows tokens.css's light defaults like every other page.
+        Redeclaring these custom properties on .hero/.loading-screen scopes
+        them to descendants of those elements only — the rest of the page
+        (a sibling in the DOM) is untouched and keeps resolving var(--bg)
+        etc. to the global light values.
+      */
+      .hero,
+      .loading-screen {
+        --bg: #030712;
+        --bg2: #0a0e27;
+        --bg-card: #0f172a;
+        --text-primary: #f8fafc;
+        --text-secondary: #94a3b8;
+        --text-muted: #64748b;
+        --signal: #5b96a0;
+        --signal-bright: #7cb3bc;
+        --signal-dim: #45747c;
+        --signal-text: #a8d0d6;
+        --status-success: #22c55e;
+        --status-warning: #f59e0b;
+        --border: rgb(148 163 184 / 12%);
+        --border-strong: rgb(148 163 184 / 24%);
+        --border-live: rgb(69 116 124 / 30%);
+      }
+
+      /* buttons.css defaults .btn-gradient to a soft light-theme shadow
+         (see that file's comment) since most pages are light now — this
+         restores the original neon glow for the one button dark enough for
+         it to read as "light emitting into darkness" rather than a mistake. */
+      .hero .btn-gradient {
+        border: 1px solid rgb(95 139 245 / 40%);
+        box-shadow:
+          0 0 30px rgb(62 111 239 / 40%),
+          0 0 60px rgb(62 111 239 / 20%),
+          0 4px 20px rgb(0 0 0 / 40%),
+          inset 0 1px 0 rgb(255 255 255 / 15%);
+      }
+
+      .hero .btn-gradient:hover {
+        box-shadow:
+          0 0 40px rgb(62 111 239 / 60%),
+          0 0 80px rgb(62 111 239 / 30%),
+          0 8px 30px rgb(0 0 0 / 40%),
+          inset 0 1px 0 rgb(255 255 255 / 20%);
+      }
+    </style>
   </Fragment>
 
     <!-- Loading Screen -->
@@ -301,7 +353,7 @@ const fonts =
         </div>
     </section>
     <!-- Intelligence Section -->
-    <section id="intelligence" class="pattern-section" style="background:var(--bg-primary);">
+    <section id="intelligence" class="pattern-section">
         <div class="pattern-container">
 
             <div class="pattern-title-block">
@@ -323,7 +375,7 @@ const fonts =
                 </div>
 
                 <div class="pattern-block featured">
-                    <p class="pattern-text" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#00d9ff;letter-spacing:0.05em;">G = ∮E·dl &nbsp;·&nbsp; E = ΔI/A &nbsp;·&nbsp; PT → 1/φ = 0.618</p>
+                    <p class="pattern-text" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--signal);letter-spacing:0.05em;">G = ∮E·dl &nbsp;·&nbsp; E = ΔI/A &nbsp;·&nbsp; PT → 1/φ = 0.618</p>
                 </div>
 
                 <!-- Engine Pipeline -->
@@ -331,24 +383,24 @@ const fonts =
                     <p class="power-law-title">ENGINE PIPELINE</p>
                     <div class="power-law-data">
                         <div class="power-law-row">
-                            <span class="wave-label" style="color:#00d9ff;">SENSE</span>
+                            <span class="wave-label" style="color:var(--signal);">SENSE</span>
                             <span class="wave-stat">liquidtics reads HN ledger · Swadesh gate · G = ∮E·dl</span>
-                            <span class="wave-value" style="color:#00d9ff;">∞</span>
+                            <span class="wave-value" style="color:var(--signal);">∞</span>
                         </div>
                         <div class="power-law-row">
-                            <span class="wave-label" style="color:#00d9ff;">DETECT</span>
+                            <span class="wave-label" style="color:var(--signal);">DETECT</span>
                             <span class="wave-stat">curl_detector · ∇×G · FORMING / STABLE / PASSING / NEW</span>
-                            <span class="wave-value" style="color:#ff6b35;">∇×G</span>
+                            <span class="wave-value" style="color:var(--accent);">∇×G</span>
                         </div>
                         <div class="power-law-row">
-                            <span class="wave-label" style="color:#00d9ff;">RANK</span>
+                            <span class="wave-label" style="color:var(--signal);">RANK</span>
                             <span class="wave-stat">197 entities scored across information, capital, and infrastructure vectors</span>
-                            <span class="wave-value" style="color:#ff6b35;">196</span>
+                            <span class="wave-value" style="color:var(--accent);">196</span>
                         </div>
                         <div class="power-law-row">
-                            <span class="wave-label" style="color:#00d9ff;">RECORD</span>
+                            <span class="wave-label" style="color:var(--signal);">RECORD</span>
                             <span class="wave-stat">memory_chain · helix fingerprint · Fibonacci-weighted · irreversible</span>
-                            <span class="wave-value" style="color:#00d9ff;">∮</span>
+                            <span class="wave-value" style="color:var(--signal);">∮</span>
                         </div>
                         <div class="power-law-row highlight">
                             <span class="wave-label">OUTPUT</span>
@@ -363,24 +415,24 @@ const fonts =
                     <p class="power-law-title">FIELD STATE</p>
                     <div class="power-law-data">
                         <div class="power-law-row">
-                            <span class="wave-label" style="color:#00d9ff;">G_total</span>
+                            <span class="wave-label" style="color:var(--signal);">G_total</span>
                             <span class="wave-stat">approaching classical threshold</span>
-                            <span class="wave-value" style="color:#ff6b35;">0.89</span>
+                            <span class="wave-value" style="color:var(--accent);">0.89</span>
                         </div>
                         <div class="power-law-row">
-                            <span class="wave-label" style="color:#00d9ff;">Curl state</span>
+                            <span class="wave-label" style="color:var(--signal);">Curl state</span>
                             <span class="wave-stat">Landauer stable · loop forming</span>
-                            <span class="wave-value" style="color:#22c55e;">NEW</span>
+                            <span class="wave-value" style="color:var(--status-success);">NEW</span>
                         </div>
                         <div class="power-law-row">
-                            <span class="wave-label" style="color:#00d9ff;">Dominant loop</span>
+                            <span class="wave-label" style="color:var(--signal);">Dominant loop</span>
                             <span class="wave-stat">OCC → US Regulators → SEC → Tokenized Treasury → OCC</span>
-                            <span class="wave-value" style="color:#ff6b35;">∇×G</span>
+                            <span class="wave-value" style="color:var(--accent);">∇×G</span>
                         </div>
                         <div class="power-law-row">
-                            <span class="wave-label" style="color:#00d9ff;">∇×G</span>
+                            <span class="wave-label" style="color:var(--signal);">∇×G</span>
                             <span class="wave-stat">dcurl/dt = +8,003 (accelerating)</span>
-                            <span class="wave-value" style="color:#ff6b35;">16,278</span>
+                            <span class="wave-value" style="color:var(--accent);">16,278</span>
                         </div>
                         <div class="power-law-row highlight">
                             <span class="wave-label">Helix</span>
@@ -439,13 +491,13 @@ const fonts =
                 <div class="pattern-block cta-block">
                     <p class="cta-hook">The field is readable. The signal is measurable.</p>
                     <p class="cta-qualifier">
-                        <a href="reports/" style="color:#00d9ff;text-decoration:none;font-size:13px;">View signal reports →</a>
+                        <a href="reports/" style="color:var(--signal);text-decoration:none;font-size:13px;">View signal reports →</a>
                         &nbsp;·&nbsp;
-                        <a href="https://geniusflow-rwa.vercel.app" style="color:#00d9ff;text-decoration:none;font-size:13px;">RWA Registry →</a>
+                        <a href="https://geniusflow-rwa.vercel.app" style="color:var(--signal);text-decoration:none;font-size:13px;">RWA Registry →</a>
                         &nbsp;·&nbsp;
-                        <a href="https://paragraph.com/@eigenstate" target="_blank" rel="noopener" style="color:#00d9ff;text-decoration:none;font-size:13px;">Research →</a>
+                        <a href="https://paragraph.com/@eigenstate" target="_blank" rel="noopener" style="color:var(--signal);text-decoration:none;font-size:13px;">Research →</a>
                         &nbsp;·&nbsp;
-                        <span style="color:#64748b;font-size:13px;">$GENIU · Base · 0x9f4A...D681</span>
+                        <span style="color:var(--text-muted);font-size:13px;">$GENIU · Base · 0x9f4A...D681</span>
                     </p>
                 </div>
 
@@ -524,15 +576,15 @@ const fonts =
 
 
     <!-- Recent intelligence - topology product funnel -->
-    <section id="recent-intelligence" style="max-width:960px;margin:0 auto;padding:3rem 1.5rem;border-top:1px solid rgb(255 255 255 / 8%);">
-        <p style="font-family:Inter,sans-serif;font-size:11px;letter-spacing:0.12em;color:rgb(255 255 255 / 45%);text-transform:uppercase;margin-bottom:1rem;">Recent intelligence</p>
-        <p style="font-family:Inter,sans-serif;font-size:15px;color:rgb(255 255 255 / 88%);line-height:1.5;margin-bottom:0.75rem;">Weekly topology signal analysis on the tokenized settlement layer - field equations, curl detection, entity-level Γ.</p>
+    <section id="recent-intelligence" style="max-width:960px;margin:0 auto;padding:3rem 1.5rem;border-top:1px solid var(--border);">
+        <p style="font-family:Inter,sans-serif;font-size:11px;letter-spacing:0.12em;color:var(--text-muted);text-transform:uppercase;margin-bottom:1rem;">Recent intelligence</p>
+        <p style="font-family:Inter,sans-serif;font-size:15px;color:var(--text-primary);line-height:1.5;margin-bottom:0.75rem;">Weekly topology signal analysis on the tokenized settlement layer - field equations, curl detection, entity-level Γ.</p>
         <p style="font-family:Inter,sans-serif;font-size:13px;line-height:1.8;">
-            <a href="https://paragraph.com/@eigenstate" target="_blank" rel="noopener" style="color:#c9a84c;text-decoration:none;">Paragraph analyses →</a>
+            <a href="https://paragraph.com/@eigenstate" target="_blank" rel="noopener" style="color:var(--signal);text-decoration:none;">Paragraph analyses →</a>
             &nbsp;·&nbsp;
-            <a href="reports/" style="color:#c9a84c;text-decoration:none;">Signal reports &amp; pricing →</a>
+            <a href="reports/" style="color:var(--signal);text-decoration:none;">Signal reports &amp; pricing →</a>
             &nbsp;·&nbsp;
-            <a href="https://geniusflow-rwa.vercel.app" style="color:rgb(255 255 255 / 55%);text-decoration:none;">RWA registry →</a>
+            <a href="https://geniusflow-rwa.vercel.app" style="color:var(--text-secondary);text-decoration:none;">RWA registry →</a>
         </p>
     </section>
 

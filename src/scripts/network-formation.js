@@ -80,7 +80,7 @@ export class NetworkFormation {
             targetY: this.centerY,
             size: 40,
             maxSize: 80,
-            color: '#ff6b35',
+            color: '#3e6fef',
             label: 'CORE',
             type: 'center',
             connections: [],
@@ -112,7 +112,7 @@ export class NetworkFormation {
                 size: 8 + Math.random() * 8,
                 initialSize: 8 + Math.random() * 8,
                 finalSize: 2 + Math.random() * 3,
-                color: i < nodeCount * 0.3 ? '#00d9ff' : '#94a3b8',
+                color: i < nodeCount * 0.3 ? '#5b96a0' : '#94a3b8',
                 alpha: 0.8,
                 label: waves[Math.floor(Math.random() * waves.length)] + '_' + i.toString(16).toUpperCase(),
                 type: 'peripheral',
@@ -159,7 +159,7 @@ export class NetworkFormation {
         const centerSize = this.interpolate(this.centerNode.size, this.centerNode.maxSize * 1.2, globalProgress);
 
         if (this.flashIntensity > 0) {
-            this.ctx.fillStyle = `rgba(14, 165, 233, ${this.flashIntensity * 0.1})`;
+            this.ctx.fillStyle = `rgba(69, 116, 124, ${this.flashIntensity * 0.1})`;
             this.ctx.fillRect(0, 0, this.width, this.height);
         }
 
@@ -196,7 +196,7 @@ export class NetworkFormation {
 
             if (connectionStrength > 0.3) {
                 this.ctx.beginPath();
-                this.ctx.strokeStyle = `rgba(14, 165, 233, ${connectionStrength * globalProgress * 0.3})`;
+                this.ctx.strokeStyle = `rgba(69, 116, 124, ${connectionStrength * globalProgress * 0.3})`;
                 this.ctx.lineWidth = 1 + connectionStrength * 2;
                 this.ctx.moveTo(node.x, node.y);
                 this.ctx.lineTo(this.centerX, this.centerY);
@@ -235,7 +235,7 @@ export class NetworkFormation {
             const ringRadius = size + ringProgress * 50;
             const ringAlpha = (1 - ringProgress) * 0.25;
 
-            this.ctx.strokeStyle = `rgba(255, 107, 53, ${ringAlpha})`;
+            this.ctx.strokeStyle = `rgba(62, 111, 239, ${ringAlpha})`;
             this.ctx.lineWidth = 2;
             this.ctx.beginPath();
             this.ctx.arc(centerX, centerY, ringRadius, 0, Math.PI * 2);
@@ -243,8 +243,8 @@ export class NetworkFormation {
         }
 
         const gradient = this.ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, size * 1.5);
-        gradient.addColorStop(0, 'rgba(255, 107, 53, 0.6)');
-        gradient.addColorStop(0.5, 'rgba(255, 107, 53, 0.2)');
+        gradient.addColorStop(0, 'rgba(62, 111, 239, 0.6)');
+        gradient.addColorStop(0.5, 'rgba(62, 111, 239, 0.2)');
         gradient.addColorStop(1, 'transparent');
 
         this.ctx.fillStyle = gradient;
@@ -252,9 +252,9 @@ export class NetworkFormation {
         this.ctx.arc(centerX, centerY, size * 1.5, 0, Math.PI * 2);
         this.ctx.fill();
 
-        this.ctx.fillStyle = '#ff6b35';
+        this.ctx.fillStyle = '#3e6fef';
         this.ctx.shadowBlur = 15;
-        this.ctx.shadowColor = '#ff6b35';
+        this.ctx.shadowColor = '#3e6fef';
         this.ctx.beginPath();
         this.roundRect(centerX - size / 2, centerY - size / 2, size, size, size * 0.15);
         this.ctx.fill();
@@ -304,7 +304,7 @@ export class NetworkFormation {
                 progress: 0,
                 speed: 0.01 + Math.random() * 0.02,
                 size: 2 + Math.random() * 3,
-                color: Math.random() > 0.7 ? '#ff6b35' : '#00d9ff',
+                color: Math.random() > 0.7 ? '#3e6fef' : '#5b96a0',
             });
         }
 
@@ -329,7 +329,7 @@ export class NetworkFormation {
         this.ctx.save();
         this.ctx.translate(this.centerX, this.centerY);
 
-        this.ctx.strokeStyle = 'rgba(14, 165, 233, 0.2)';
+        this.ctx.strokeStyle = 'rgba(69, 116, 124, 0.2)';
         this.ctx.lineWidth = 1;
 
         this.ctx.beginPath();
@@ -367,18 +367,18 @@ export class NetworkFormation {
         this.ctx.fillStyle = 'rgba(3, 7, 18, 0.9)';
         this.ctx.fillRect(boxX, boxY, boxWidth, boxHeight);
 
-        this.ctx.strokeStyle = 'rgba(0, 217, 255, 0.4)';
+        this.ctx.strokeStyle = 'rgba(91, 150, 160, 0.4)';
         this.ctx.lineWidth = 1;
         this.ctx.strokeRect(boxX, boxY, boxWidth, boxHeight);
 
-        this.ctx.fillStyle = '#00d9ff';
+        this.ctx.fillStyle = '#5b96a0';
         this.ctx.font = 'bold 10px "Space Grotesk", sans-serif';
         this.ctx.textAlign = 'left';
         this.ctx.textBaseline = 'middle';
         this.ctx.fillText(currentLabel, boxX + 12, boxY + boxHeight / 2 - 2);
 
         const progressWidth = (boxWidth - 24) * this.phaseProgress;
-        this.ctx.fillStyle = '#ff6b35';
+        this.ctx.fillStyle = '#3e6fef';
         this.ctx.fillRect(boxX + 12, boxY + boxHeight - 8, progressWidth, 3);
     }
 

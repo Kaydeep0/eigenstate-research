@@ -2,8 +2,8 @@
   Canonical button system — replaces 5 previously-bespoke buttons
   (.nav-cta, .btn-hero, .btn-request.solid, .cta-btn, .btn-submit) that each
   had their own height/padding/radius/color. One base, three sizes, one
-  color (orange — the site-wide CTA color), one gradient variant reserved
-  for the single hero-level "big swing" CTA per page.
+  color (accent blue — the site-wide CTA color), one gradient variant
+  reserved for the single hero-level "big swing" CTA per page.
 */
 
 .btn {
@@ -16,7 +16,7 @@
   text-transform: uppercase;
   text-decoration: none;
   color: #fff;
-  background: var(--orange);
+  background: var(--accent);
   border: none;
   border-radius: var(--radius-sm);
   cursor: pointer;
@@ -28,7 +28,7 @@
 }
 
 .btn:hover {
-  background: var(--orange-light);
+  background: var(--accent-light);
   transform: translateY(-1px);
 }
 
@@ -66,22 +66,24 @@
 }
 
 /* Reserved for the one hero-level CTA per page — everything else uses the
-   flat .btn color so there's still a visual "this is the main ask" signal. */
+   flat .btn color so there's still a visual "this is the main ask" signal.
+   A neon glow box-shadow reads as light emitting into darkness — it only
+   makes sense against a dark background. This is the light-theme default;
+   the homepage (the one page that stays dark) restores the original glow
+   in its own <style> block. */
 .btn-gradient {
-  background: linear-gradient(180deg, var(--orange-light) 0%, var(--orange) 50%, var(--orange-dark) 100%);
-  border: 1px solid rgb(255 140 80 / 40%);
+  background: linear-gradient(180deg, var(--accent-light) 0%, var(--accent) 50%, var(--accent-dark) 100%);
+  border: 1px solid rgb(44 86 201 / 30%);
   box-shadow:
-    0 0 30px rgb(255 107 53 / 40%),
-    0 0 60px rgb(255 107 53 / 20%),
-    0 4px 20px rgb(0 0 0 / 40%),
-    inset 0 1px 0 rgb(255 255 255 / 15%);
+    0 4px 14px rgb(62 111 239 / 30%),
+    0 2px 4px rgb(0 0 0 / 12%),
+    inset 0 1px 0 rgb(255 255 255 / 20%);
 }
 
 .btn-gradient:hover {
-  background: linear-gradient(180deg, var(--orange-lighter) 0%, var(--orange-mid) 50%, var(--orange) 100%);
+  background: linear-gradient(180deg, var(--accent-lighter) 0%, var(--accent-mid) 50%, var(--accent) 100%);
   box-shadow:
-    0 0 40px rgb(255 107 53 / 60%),
-    0 0 80px rgb(255 107 53 / 30%),
-    0 8px 30px rgb(0 0 0 / 40%),
-    inset 0 1px 0 rgb(255 255 255 / 20%);
+    0 6px 20px rgb(62 111 239 / 35%),
+    0 2px 6px rgb(0 0 0 / 14%),
+    inset 0 1px 0 rgb(255 255 255 / 25%);
 }

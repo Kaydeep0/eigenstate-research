@@ -8,8 +8,8 @@ const base = import.meta.env.BASE_URL;
   <Fragment slot="head">
     <style>
       body {
-        background: #030712;
-        color: #f8fafc;
+        background: var(--bg);
+        color: var(--text-primary);
         font-family: 'JetBrains Mono', 'Courier New', monospace;
         min-height: 100vh;
         display: flex;
@@ -22,24 +22,24 @@ const base = import.meta.env.BASE_URL;
       .code {
         font-size: 4rem;
         font-weight: 700;
-        color: #00d9ff;
+        color: var(--signal);
         letter-spacing: 0.05em;
         margin-bottom: 0.5rem;
       }
 
       p {
-        color: #94a3b8;
+        color: var(--text-secondary);
         margin-bottom: 1.5rem;
       }
 
       a {
-        color: #00d9ff;
+        color: var(--signal);
         text-decoration: none;
-        border-bottom: 1px solid rgb(0 217 255 / 40%);
+        border-bottom: 1px solid rgb(47 90 99 / 40%);
       }
 
       a:hover {
-        border-bottom-color: #00d9ff;
+        border-bottom-color: var(--signal);
       }
     </style>
   </Fragment>

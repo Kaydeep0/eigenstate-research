@@ -55,7 +55,7 @@ export function initNetworkCanvas(): void {
       const height = canvas.offsetHeight || 80;
       ctx.clearRect(0, 0, width, height);
 
-      ctx.strokeStyle = 'rgba(14, 165, 233, 0.3)';
+      ctx.strokeStyle = 'rgba(69, 116, 124, 0.3)';
       ctx.lineWidth = 1;
 
       for (let i = 0; i < nodes.length; i++) {
@@ -73,7 +73,7 @@ export function initNetworkCanvas(): void {
       nodes.forEach((node) => {
         node.pulse += 0.02;
         const radius = node.radius + Math.sin(node.pulse);
-        ctx.fillStyle = 'rgba(14, 165, 233, 0.8)';
+        ctx.fillStyle = 'rgba(69, 116, 124, 0.8)';
         ctx.beginPath();
         ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
         ctx.fill();

@@ -58,7 +58,7 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
       .report-back {
         font-family: var(--font-mono);
         font-size: var(--text-sm);
-        color: var(--cyan-dim);
+        color: var(--signal-dim);
         text-decoration: none;
         display: inline-block;
         margin-bottom: 24px;
@@ -103,11 +103,11 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
         font-family: var(--font-mono);
         font-size: var(--text-xl);
         font-weight: 600;
-        color: var(--orange);
+        color: var(--accent);
       }
 
       .metric-value.cyan {
-        color: var(--cyan);
+        color: var(--signal);
       }
 
       .metric-value.green {
@@ -120,6 +120,7 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
         padding: 48px 40px;
         font-size: var(--text-base);
         color: var(--text-secondary);
+        overflow-wrap: break-word;
       }
 
       .report-body :global(h1) {
@@ -153,7 +154,8 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
       }
 
       .report-body :global(a) {
-        color: var(--cyan);
+        color: var(--signal);
+        overflow-wrap: break-word;
       }
 
       .report-body :global(ul),
@@ -168,8 +170,8 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
       .report-body :global(code) {
         font-family: var(--font-mono);
         font-size: var(--text-sm);
-        color: var(--cyan);
-        background: rgb(0 217 255 / 6%);
+        color: var(--signal);
+        background: rgb(47 90 99 / 8%);
         padding: 2px 6px;
         border-radius: var(--radius-sm);
       }
@@ -260,7 +262,7 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
       .topology-phi {
         font-family: var(--font-mono);
         font-size: var(--text-sm);
-        color: var(--orange);
+        color: var(--accent);
       }
 
       @media (width <= 640px) {

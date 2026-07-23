@@ -156,7 +156,10 @@ export class BinaryTunnel {
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
         this.centerX = this.canvas.width / 2;
-        this.centerY = this.canvas.height / 2;
+        // Shifted down from dead-center so the accretion disk ring clears
+        // the fixed nav bar (~79px) instead of its top edge rendering
+        // underneath it — see drawAccretionDisk()'s radius, sized to match.
+        this.centerY = this.canvas.height / 2 + 40;
     }
 
     createParticles() {
@@ -209,7 +212,7 @@ export class BinaryTunnel {
     drawBursts() {
         this.updateBursts();
         this.bursts.forEach((b) => {
-            this.ctx.fillStyle = `rgba(255, 107, 53, ${b.life})`;
+            this.ctx.fillStyle = `rgba(62, 111, 239, ${b.life})`;
             this.ctx.font = `bold ${b.size}px "JetBrains Mono", monospace`;
             this.ctx.textAlign = 'center';
             this.ctx.textBaseline = 'middle';
@@ -241,7 +244,7 @@ export class BinaryTunnel {
         const cy = this.centerY;
 
         this.ctx.save();
-        this.ctx.strokeStyle = `rgba(255, 107, 53, ${this.patternOpacity})`;
+        this.ctx.strokeStyle = `rgba(62, 111, 239, ${this.patternOpacity})`;
         this.ctx.lineWidth = 1;
 
         for (let i = 0; i < 4; i++) {
@@ -262,7 +265,7 @@ export class BinaryTunnel {
         }
 
         const hexRadius = 45 + Math.sin(this.patternPhase * 1.5) * 8;
-        this.ctx.strokeStyle = `rgba(255, 107, 53, ${this.patternOpacity * 1.2})`;
+        this.ctx.strokeStyle = `rgba(62, 111, 239, ${this.patternOpacity * 1.2})`;
         this.ctx.beginPath();
         for (let i = 0; i <= 6; i++) {
             const angle = (Math.PI / 3) * i + this.patternPhase * 0.15;
@@ -350,14 +353,14 @@ export class BinaryTunnel {
             const size = baseSize * (0.7 + eq.depth * 0.4);
 
             this.ctx.save();
-            this.ctx.fillStyle = `rgba(255, 107, 53, ${opacity})`;
+            this.ctx.fillStyle = `rgba(62, 111, 239, ${opacity})`;
             this.ctx.font = `bold ${size}px "JetBrains Mono", monospace`;
             this.ctx.textAlign = 'center';
             this.ctx.textBaseline = 'middle';
 
             if (eq.atEdge) {
                 this.ctx.shadowBlur = 25 * eq.depth;
-                this.ctx.shadowColor = `rgba(255, 107, 53, ${opacity * 0.9})`;
+                this.ctx.shadowColor = `rgba(62, 111, 239, ${opacity * 0.9})`;
             }
 
             this.ctx.fillText(displayText, screenX, screenY);
@@ -396,7 +399,7 @@ export class BinaryTunnel {
             const baseAlpha = (1 - progress) * 0.15;
             const pulseOpacity = baseAlpha * depthFactor;
 
-            this.ctx.strokeStyle = `rgba(0, 217, 255, ${pulseOpacity})`;
+            this.ctx.strokeStyle = `rgba(91, 150, 160, ${pulseOpacity})`;
             this.ctx.lineWidth = (1.5 + (1 - progress) * 2.5) * depthFactor;
             this.ctx.beginPath();
             this.ctx.arc(this.centerX, this.centerY, radius, 0, Math.PI * 2);
@@ -414,12 +417,15 @@ export class BinaryTunnel {
             colorProgress = Math.min(timeSinceStillness / 10, 1);
         }
 
-        const r = Math.round(80 + colorProgress * 175);
-        const g = Math.round(180 - colorProgress * 40);
-        const b = Math.round(255 - colorProgress * 175);
+        // Lerps from accent blue (idle) to signal teal-slate (once the
+        // pattern has "resolved" / gone still) — same two brand hues used
+        // everywhere else, rather than the tunnel's own arbitrary color ramp.
+        const r = Math.round(62 + colorProgress * (91 - 62));
+        const g = Math.round(111 + colorProgress * (150 - 111));
+        const b = Math.round(239 + colorProgress * (160 - 239));
 
-        const innerRadius = Math.min(this.canvas.width, this.canvas.height) * 0.32;
-        const outerRadius = Math.min(this.canvas.width, this.canvas.height) * 0.48;
+        const innerRadius = Math.min(this.canvas.width, this.canvas.height) * 0.29;
+        const outerRadius = Math.min(this.canvas.width, this.canvas.height) * 0.43;
 
         const gradient = this.ctx.createRadialGradient(cx, cy, innerRadius, cx, cy, outerRadius);
         gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0)`);
@@ -434,10 +440,7 @@ export class BinaryTunnel {
         this.ctx.arc(cx, cy, innerRadius, 0, Math.PI * 2, true);
         this.ctx.fill();
 
-        const ringR = Math.round(80 + colorProgress * 175);
-        const ringG = Math.round(180 - colorProgress * 30);
-        const ringB = Math.round(255 - colorProgress * 105);
-        this.ctx.strokeStyle = `rgba(${ringR}, ${ringG}, ${ringB}, ${0.15 + colorProgress * 0.05})`;
+        this.ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${0.15 + colorProgress * 0.05})`;
         this.ctx.lineWidth = 1.5;
         this.ctx.beginPath();
         this.ctx.arc(cx, cy, innerRadius + 5, 0, Math.PI * 2);
@@ -485,8 +488,8 @@ export class BinaryTunnel {
             const depthOpacity = pointOpacity * 0.3;
 
             const depthGlow = this.ctx.createRadialGradient(cx, cy, 0, cx, cy, 8);
-            depthGlow.addColorStop(0, `rgba(0, 150, 200, ${depthOpacity * 0.5})`);
-            depthGlow.addColorStop(0.5, `rgba(0, 100, 150, ${depthOpacity * 0.2})`);
+            depthGlow.addColorStop(0, `rgba(62, 111, 239, ${depthOpacity * 0.5})`);
+            depthGlow.addColorStop(0.5, `rgba(44, 86, 201, ${depthOpacity * 0.2})`);
             depthGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
             this.ctx.fillStyle = depthGlow;
@@ -502,7 +505,7 @@ export class BinaryTunnel {
         const edgeDistX = this.canvas.width * 0.46;
         const edgeDistY = this.canvas.height * 0.44;
 
-        this.ctx.strokeStyle = 'rgba(255, 107, 53, 0.08)';
+        this.ctx.strokeStyle = 'rgba(62, 111, 239, 0.08)';
         this.ctx.lineWidth = 1;
 
         const atEdge = this.equations.filter((eq) => eq.atEdge);
@@ -531,7 +534,7 @@ export class BinaryTunnel {
             const x2 = this.centerX + Math.cos(eq2.angle) * edgeDistX * eq2.depth * this.scrollSpread;
             const y2 = this.centerY + Math.sin(eq2.angle) * edgeDistY * eq2.depth * this.scrollSpread;
 
-            this.ctx.strokeStyle = 'rgba(255, 107, 53, 0.04)';
+            this.ctx.strokeStyle = 'rgba(62, 111, 239, 0.04)';
             this.ctx.beginPath();
             this.ctx.moveTo(x1, y1);
             this.ctx.lineTo(x2, y2);
@@ -683,8 +686,8 @@ export class BinaryTunnel {
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
         const glowGradient = this.ctx.createRadialGradient(this.centerX, this.centerY, 0, this.centerX, this.centerY, 200);
-        glowGradient.addColorStop(0, 'rgba(0, 150, 200, 0.08)');
-        glowGradient.addColorStop(0.5, 'rgba(0, 100, 150, 0.03)');
+        glowGradient.addColorStop(0, 'rgba(62, 111, 239, 0.08)');
+        glowGradient.addColorStop(0.5, 'rgba(44, 86, 201, 0.03)');
         glowGradient.addColorStop(1, 'transparent');
         this.ctx.fillStyle = glowGradient;
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
@@ -734,12 +737,12 @@ export class BinaryTunnel {
 
             let color;
             if (p.isOrange) {
-                color = `rgba(255, 107, 53, ${alpha})`;
+                color = `rgba(91, 150, 160, ${alpha})`;
             } else {
                 const nearness = 1 - p.z / 2000;
-                const r = Math.floor(150 * nearness);
-                const g = Math.floor(200 + 55 * nearness);
-                const b = 255;
+                const r = Math.floor(62 + 68 * nearness);
+                const g = Math.floor(111 + 53 * nearness);
+                const b = Math.floor(239 + 8 * nearness);
                 color = `rgba(${r}, ${g}, ${b}, ${alpha})`;
             }
 
@@ -750,7 +753,7 @@ export class BinaryTunnel {
 
             if (p.z < 400) {
                 this.ctx.shadowBlur = 15 * (1 - p.z / 400);
-                this.ctx.shadowColor = '#00ffff';
+                this.ctx.shadowColor = '#82a4f7';
             } else {
                 this.ctx.shadowBlur = 0;
             }

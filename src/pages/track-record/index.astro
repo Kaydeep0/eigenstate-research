@@ -40,6 +40,22 @@ const fonts =
         padding: 60px 40px;
       }
 
+      @media (width <= 640px) {
+        .container {
+          padding: 40px 20px;
+        }
+      }
+
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        font-weight: 600;
+        letter-spacing: 0.25em;
+        color: var(--signal);
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
       .page-title {
         font-family: var(--font-heading);
         font-size: clamp(24px, 3vw, 36px);
@@ -56,18 +72,116 @@ const fonts =
         line-height: 1.6;
       }
 
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 16px;
+      /* Wraps the stat grid so the instrument corner-bracket (this is live
+         measured data, same treatment as the homepage proof-strip) frames
+         the whole panel rather than sitting flush against the outer cards. */
+      .stats-instrument {
+        padding: 4px;
         margin-bottom: 48px;
       }
 
-      .stat-card {
+      /* Two-tier hierarchy instead of six undifferentiated tiles: the
+         accuracy rate is the one number an allocator actually needs to
+         trust this page, so it gets hero treatment (matches the homepage
+         proof-strip's engine-tile-value.green — same "this is the trust
+         signal" language). PT keeps its own wider panel since it's a trend
+         chart, not a bare number, and shouldn't be squeezed to match a
+         plain stat's height. Everything else is supporting context and
+         recedes into a compact, muted secondary row. */
+      .stats-hero-row {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      @media (width <= 760px) {
+        .stats-hero-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .stat-hero,
+      .stat-chart {
+        background: var(--bg-card);
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-lg);
+        padding: 28px 32px;
+      }
+
+      @media (width <= 480px) {
+        .stat-hero,
+        .stat-chart {
+          padding: 20px;
+        }
+      }
+
+      .stat-hero-label,
+      .stat-chart-label {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+
+      .stat-hero-value {
+        font-family: var(--font-heading);
+        font-size: var(--text-4xl);
+        font-weight: 700;
+        line-height: 1;
+        color: var(--status-success);
+      }
+
+      .stat-chart-value {
+        font-family: var(--font-heading);
+        font-size: var(--text-2xl);
+        font-weight: 700;
+        color: var(--signal);
+      }
+
+      .stat-hero-note,
+      .stat-chart-note {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        margin-top: 8px;
+      }
+
+      .stat-note-negative {
+        color: var(--status-error);
+      }
+
+      .pt-sparkline {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin-top: 12px;
+      }
+
+      .stats-secondary {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      @media (width <= 900px) {
+        .stats-secondary {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (width <= 560px) {
+        .stats-secondary {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .stat-card-sm {
         background: var(--bg-card);
         border: 1px solid var(--border);
-        border-radius: var(--radius-lg);
-        padding: 24px;
+        border-radius: var(--radius-md);
+        padding: 18px 20px;
       }
 
       .stat-label {
@@ -81,24 +195,15 @@ const fonts =
 
       .stat-value {
         font-family: var(--font-heading);
-        font-size: var(--text-xl);
+        font-size: var(--text-lg);
         font-weight: 700;
-        color: var(--cyan);
+        color: var(--text-primary);
       }
 
       .stat-note {
         font-size: var(--text-sm);
         color: var(--text-secondary);
         margin-top: 6px;
-      }
-
-      .stat-note-negative {
-        color: #ef4444;
-      }
-
-      .pt-sparkline {
-        display: block;
-        margin-top: 8px;
       }
 
       .section-title {
@@ -114,21 +219,52 @@ const fonts =
 
       .claims-filter-bar {
         display: flex;
-        gap: 16px;
-        margin-bottom: 20px;
+        gap: 12px;
+        margin-bottom: 16px;
         flex-wrap: wrap;
       }
 
-      .claims-search {
+      .claims-search-wrap {
+        position: relative;
         flex: 1;
         min-width: 200px;
+      }
+
+      .claims-search-wrap::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        width: 13px;
+        height: 13px;
+        transform: translateY(-50%);
+        border: 1.5px solid var(--text-muted);
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      .claims-search-wrap::after {
+        content: '';
+        position: absolute;
+        top: 63%;
+        left: 27px;
+        width: 6px;
+        height: 1.5px;
+        transform: translateY(-50%) rotate(45deg);
+        background: var(--text-muted);
+        pointer-events: none;
+      }
+
+      .claims-search {
+        width: 100%;
         font-family: var(--font-body);
         font-size: var(--text-sm);
-        padding: 12px 16px;
+        padding: 12px 16px 12px 38px;
         background: var(--bg-card);
         border: 1px solid var(--border);
-        border-radius: var(--radius-sm);
+        border-radius: var(--radius-md);
         color: var(--text-primary);
+        transition: border-color 0.2s ease;
       }
 
       .claims-search::placeholder {
@@ -137,8 +273,8 @@ const fonts =
 
       .claims-search:focus {
         outline: none;
-        border-color: var(--orange);
-        box-shadow: 0 0 0 3px rgb(255 107 53 / 15%);
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgb(62 111 239 / 15%);
       }
 
       .claims-status {
@@ -147,9 +283,15 @@ const fonts =
         padding: 12px 16px;
         background: var(--bg-card);
         border: 1px solid var(--border);
-        border-radius: var(--radius-sm);
+        border-radius: var(--radius-md);
         color: var(--text-primary);
         cursor: pointer;
+        transition: border-color 0.2s ease;
+      }
+
+      .claims-status:focus {
+        outline: none;
+        border-color: var(--accent);
       }
 
       .claims-empty {
@@ -162,7 +304,7 @@ const fonts =
 
       .table-wrap {
         overflow-x: auto;
-        border: 1px solid var(--border);
+        border: 1px solid var(--border-strong);
         border-radius: var(--radius-lg);
       }
 
@@ -173,7 +315,7 @@ const fonts =
       }
 
       thead tr {
-        background: rgb(148 163 184 / 6%);
+        background: var(--bg2);
       }
 
       th {
@@ -184,8 +326,12 @@ const fonts =
         color: var(--text-muted);
         padding: 14px 16px;
         text-align: left;
-        border-bottom: 1px solid var(--border);
+        border-bottom: 1px solid var(--border-live);
         white-space: nowrap;
+      }
+
+      .th-num {
+        text-align: right;
       }
 
       td {
@@ -198,14 +344,18 @@ const fonts =
         border-bottom: none;
       }
 
+      tbody tr:nth-child(even) td {
+        background: rgb(0 0 0 / 3%);
+      }
+
       tr:hover td {
-        background: rgb(148 163 184 / 5%);
+        background: rgb(148 163 184 / 6%);
       }
 
       .cell-date {
         font-family: var(--font-mono);
         font-size: var(--text-sm);
-        color: #94a3b8;
+        color: var(--text-secondary);
       }
 
       .cell-entity {
@@ -213,85 +363,108 @@ const fonts =
       }
 
       .cell-link {
-        color: #00d9ff;
+        color: var(--signal);
         font-size: var(--text-xs);
         text-decoration: none;
       }
 
+      .cell-num {
+        font-variant-numeric: tabular-nums;
+        text-align: right;
+      }
+
       .cell-metric {
         font-family: var(--font-mono);
-        color: #94a3b8;
+        color: var(--text-secondary);
       }
 
       .cell-metric-amber {
         font-family: var(--font-mono);
-        color: #f59e0b;
+        color: var(--status-warning);
         font-weight: 600;
       }
 
-      .cell-metric-cyan {
+      /* ELEVATED reads as emphasized neutral, not a hue — --signal stays
+         reserved for verified/on-chain markers only (see status-logged),
+         not a decorative severity color. */
+      .cell-metric-neutral {
         font-family: var(--font-mono);
-        color: #0ea5e9;
+        color: var(--text-primary);
         font-weight: 600;
       }
 
-      .cell-metric-purple {
+      /* INFRA_FLOW is a different unit (cumulative volume, not pressure
+         severity) — italic marks that distinction instead of reaching for
+         another saturated hue. Purple was dropped: it's the skill's own
+         "AI product" signal color in virtually every categorical result,
+         which is exactly the generic-AI read this page was getting. */
+      .cell-metric-infra {
         font-family: var(--font-mono);
-        color: #a855f7;
+        color: var(--text-muted);
+        font-style: italic;
         font-weight: 600;
       }
 
       .cell-metric-muted {
         font-family: var(--font-mono);
-        color: #64748b;
+        color: var(--text-muted);
         font-weight: 600;
       }
 
       .signal-amber {
-        color: #f59e0b;
+        color: var(--status-warning);
         font-weight: 500;
       }
 
-      .signal-cyan {
-        color: #0ea5e9;
-        font-weight: 500;
-      }
-
-      .signal-muted {
-        color: #64748b;
-        font-weight: 500;
-      }
-
-      .signal-purple {
-        color: #a855f7;
-        font-weight: 500;
-      }
-
-      .badge {
-        display: inline-block;
-        padding: 2px 10px;
-        border-radius: var(--radius-sm);
-        font-size: var(--text-xs);
-        font-family: var(--font-mono);
+      .signal-neutral {
+        color: var(--text-primary);
         font-weight: 600;
       }
 
-      .badge-pending {
-        background: #1c1003;
-        color: #f59e0b;
-        border: 1px solid #f59e0b33;
+      .signal-muted {
+        color: var(--text-muted);
+        font-weight: 500;
       }
 
-      .badge-logged {
-        background: #001f2d;
-        color: #00d9ff;
-        border: 1px solid #00d9ff33;
+      .signal-infra {
+        color: var(--text-muted);
+        font-style: italic;
+        font-weight: 500;
       }
 
-      .badge-confirmed {
-        background: #052e16;
-        color: #22c55e;
-        border: 1px solid #22c55e33;
+      /* Status dots instead of filled pill badges — a pill sized to fit
+         "Pending" and one sized to fit "Quiet confirmed ✓" never align, and
+         a dot doesn't have that problem since the text just flows after it. */
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        white-space: nowrap;
+      }
+
+      .status::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: currentcolor;
+        flex-shrink: 0;
+      }
+
+      .status-pending {
+        color: var(--status-warning);
+      }
+
+      .status-logged {
+        color: var(--signal);
+      }
+
+      .status-confirmed {
+        color: var(--status-success);
       }
 
       .method-block {
@@ -312,23 +485,52 @@ const fonts =
       }
 
       .method-block p {
-        font-size: var(--text-sm);
+        font-size: var(--text-base);
         color: var(--text-secondary);
         line-height: 1.7;
-        margin-bottom: 16px;
+        margin-bottom: 0;
+      }
+
+      .method-beats {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .method-beat {
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        gap: 16px;
+        align-items: start;
+      }
+
+      .method-beat .beat-marker {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        font-weight: 600;
+        color: var(--accent-dark);
+        letter-spacing: 0.05em;
+        padding-top: 2px;
+      }
+
+      @media (width <= 640px) {
+        .method-beat {
+          grid-template-columns: 24px 1fr;
+          gap: 12px;
+        }
       }
 
       .method-block code {
         font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        color: var(--cyan);
-        background: rgb(0 217 255 / 6%);
+        font-size: var(--text-base);
+        color: var(--signal);
+        background: rgb(47 90 99 / 8%);
         padding: 2px 6px;
         border-radius: var(--radius-sm);
       }
 
       .verify-strip {
-        background: rgb(0 217 255 / 4%);
+        background: rgb(47 90 99 / 6%);
         border: 1px solid var(--border-strong);
         border-radius: var(--radius-lg);
         padding: 20px 24px;
@@ -356,16 +558,16 @@ const fonts =
       .verify-value {
         font-family: var(--font-mono);
         font-size: var(--text-sm);
-        color: var(--cyan);
+        color: var(--signal);
         word-break: break-all;
       }
 
       .verify-value-muted {
-        color: #64748b;
+        color: var(--text-muted);
       }
 
       .verify-value a {
-        color: var(--cyan);
+        color: var(--signal);
         text-decoration: none;
       }
 
@@ -379,6 +581,7 @@ const fonts =
   <Nav active="track-record" />
 
   <div class="container" id="main">
+    <div class="eyebrow">EIGENSTATE RESEARCH · VERIFIABLE TRACK RECORD</div>
     <h1 class="page-title">PREDICTION TRACK RECORD</h1>
     <p class="page-sub">
       The engine logs timestamped Φ_S (settlement pressure) readings for specific entities in the
@@ -387,62 +590,69 @@ const fonts =
       published claim and its measured outcome.
     </p>
 
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-label">Total Cycles Logged</div>
-        <div class="stat-value">141</div>
-        <div class="stat-note">2026-03-29 → 2026-04-11</div>
+    <div class="stats-instrument bracket">
+    <div class="stats-hero-row">
+      <div class="stat-hero">
+        <div class="stat-hero-label">Signal Accuracy</div>
+        <div class="stat-hero-value">100.0%</div>
+        <div class="stat-hero-note">4 of 4 assessable signals validated</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-label">Signal Accuracy</div>
-        <div class="stat-value">100.0%</div>
-        <div class="stat-note">4 of 4 assessable signals validated</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Protocol Truth (PT)</div>
-        <div class="stat-value">0.3466</div>
-        <div class="stat-note">PT moved <span class="stat-note-negative">-0.0788</span> over 14 days</div>
+      <div class="stat-chart">
+        <div class="stat-chart-label">Protocol Truth (PT)</div>
+        <div class="stat-chart-value">0.3466</div>
+        <div class="stat-chart-note">PT moved <span class="stat-note-negative">-0.0788</span> over 14 days</div>
         <svg width="300" height="60" viewBox="0 0 300 60" class="pt-sparkline">
           <polyline
             points="0.0,17.0 2.1,17.2 4.3,17.4 6.4,17.0 8.6,18.2 10.7,16.8 12.9,17.7 15.0,17.5 17.1,17.5 19.3,17.7 21.4,20.8 23.6,22.5 25.7,24.7 27.9,25.6 30.0,13.9 32.1,25.2 34.3,19.4 36.4,17.7 38.6,23.5 40.7,23.6 42.9,24.6 45.0,27.7 47.1,27.6 49.3,31.0 51.4,31.3 53.6,30.9 55.7,30.9 57.9,31.1 60.0,31.4 62.1,31.4 64.3,30.9 66.4,30.9 68.6,31.4 70.7,31.1 72.9,30.8 75.0,31.8 77.1,31.7 79.3,31.8 81.4,32.0 83.6,33.6 85.7,33.6 87.9,38.3 90.0,37.9 92.1,38.2 94.3,38.2 96.4,37.9 98.6,38.1 100.7,38.1 102.9,37.9 105.0,38.0 107.1,37.3 109.3,36.8 111.4,36.5 113.6,40.9 115.7,42.8 117.9,48.9 120.0,50.4 122.1,52.1 124.3,53.2 126.4,54.1 128.6,54.7 130.7,55.2 132.9,55.8 135.0,56.0 137.1,38.0 139.3,38.5 141.4,37.8 143.6,38.2 145.7,37.9 147.9,38.3 150.0,38.3 152.1,38.2 154.3,39.7 156.4,42.8 158.6,42.8 160.7,47.9 162.9,47.8 165.0,49.7 167.1,50.2 169.3,50.2 171.4,51.0 173.6,51.1 175.7,51.4 177.9,51.5 180.0,50.5 182.1,50.7 184.3,50.9 186.4,50.9 188.6,50.8 190.7,50.6 192.9,50.8 195.0,48.9 197.1,51.0 199.3,49.8 201.4,50.5 203.6,51.3 205.7,52.8 207.9,53.2 210.0,53.3 212.1,53.8 214.3,54.2 216.4,54.9 218.6,50.6 220.7,51.0 222.9,51.1 225.0,51.3 227.1,51.5 229.3,5.8 231.4,5.0 233.6,6.3 235.7,5.0 237.9,8.3 240.0,11.3 242.1,15.2 244.3,11.3 246.4,16.0 248.6,14.4 250.7,23.7 252.9,20.4 255.0,22.7 257.1,25.1 259.3,26.3 261.4,22.7 263.6,22.3 265.7,22.8 267.9,21.7 270.0,25.0 272.1,25.7 274.3,26.4 276.4,21.9 278.6,22.8 280.7,21.3 282.9,21.3 285.0,21.3 287.1,22.3 289.3,23.1 291.4,24.2 293.6,24.9 295.7,25.3 297.9,25.0 300.0,24.4"
             fill="none"
-            stroke="#00d9ff"
+            stroke="#2f5a63"
             stroke-width="1.5"
             stroke-linejoin="round"
             opacity="0.8"></polyline>
-          <text x="2" y="58" font-size="9" fill="#64748b" font-family="JetBrains Mono">2026-03-29</text>
-          <text x="298" y="58" font-size="9" fill="#64748b" font-family="JetBrains Mono" text-anchor="end"
+          <text x="2" y="58" font-size="9" fill="#71717a" font-family="JetBrains Mono">2026-03-29</text>
+          <text x="298" y="58" font-size="9" fill="#71717a" font-family="JetBrains Mono" text-anchor="end"
             >2026-04-11</text
           >
         </svg>
       </div>
-      <div class="stat-card">
+    </div>
+
+    <div class="stats-secondary">
+      <div class="stat-card-sm">
+        <div class="stat-label">Total Cycles Logged</div>
+        <div class="stat-value">141</div>
+        <div class="stat-note">2026-03-29 → 2026-04-11</div>
+      </div>
+      <div class="stat-card-sm">
         <div class="stat-label">Coverage</div>
         <div class="stat-value">23.5%</div>
         <div class="stat-note">topology coverage (from 3.0%)</div>
       </div>
-      <div class="stat-card">
+      <div class="stat-card-sm">
         <div class="stat-label">Coherence (κ)</div>
         <div class="stat-value">0.4153</div>
         <div class="stat-note">average over 14-day run</div>
       </div>
-      <div class="stat-card">
+      <div class="stat-card-sm">
         <div class="stat-label">Published Claims</div>
         <div class="stat-value">11</div>
         <div class="stat-note">8 field-level, 0 infra-scale</div>
       </div>
     </div>
+    </div>
 
     <div class="section-title">Claim History</div>
 
     <div class="claims-filter-bar">
-      <input
-        type="text"
-        id="claimsSearch"
-        class="claims-search"
-        placeholder="Search by entity name…"
-        aria-label="Search claims by entity name"
-      />
+      <div class="claims-search-wrap">
+        <input
+          type="text"
+          id="claimsSearch"
+          class="claims-search"
+          placeholder="Search by entity name…"
+          aria-label="Search claims by entity name"
+        />
+      </div>
       <select id="claimsStatus" class="claims-status" aria-label="Filter by outcome status">
         <option value="">All outcomes</option>
         <option value="pending">Pending</option>
@@ -451,15 +661,15 @@ const fonts =
       </select>
     </div>
 
-    <div class="table-wrap">
+    <div class="table-wrap bracket">
       <table>
         <thead>
           <tr>
             <th>Date</th>
             <th>Entity</th>
-            <th>Φ_S</th>
-            <th>κ</th>
-            <th>PT</th>
+            <th class="th-num">Φ_S</th>
+            <th class="th-num">κ</th>
+            <th class="th-num">PT</th>
             <th>Direction Signal</th>
             <th>Outcome</th>
           </tr>
@@ -468,38 +678,38 @@ const fonts =
           <tr data-entity="TOPOLOGY_FIELD" data-status="pending">
             <td class="cell-date">2026-04-11</td>
             <td class="cell-entity">TOPOLOGY_FIELD</td>
-            <td class="cell-metric-amber">3.236</td>
-            <td class="cell-metric">0.5036</td>
-            <td class="cell-metric">0.3630</td>
+            <td class="cell-metric-amber cell-num">3.236</td>
+            <td class="cell-metric cell-num">0.5036</td>
+            <td class="cell-metric cell-num">0.3630</td>
             <td><span class="signal-amber">BUILDING</span></td>
-            <td><span class="badge badge-pending">Pending</span></td>
+            <td><span class="status status-pending">Pending</span></td>
           </tr>
           <tr data-entity="Securities and Exchange Commission" data-status="pending">
             <td class="cell-date">2026-04-11</td>
             <td class="cell-entity">Securities and Exchange Commission</td>
-            <td class="cell-metric-cyan">2.895</td>
-            <td class="cell-metric">0.5036</td>
-            <td class="cell-metric">0.3486</td>
-            <td><span class="signal-cyan">ELEVATED</span></td>
-            <td><span class="badge badge-pending">Pending</span></td>
+            <td class="cell-metric-neutral cell-num">2.895</td>
+            <td class="cell-metric cell-num">0.5036</td>
+            <td class="cell-metric cell-num">0.3486</td>
+            <td><span class="signal-neutral">ELEVATED</span></td>
+            <td><span class="status status-pending">Pending</span></td>
           </tr>
           <tr data-entity="34539544" data-status="pending">
             <td class="cell-date">2026-04-11</td>
             <td class="cell-entity">34539544</td>
-            <td class="cell-metric-amber">4.874</td>
-            <td class="cell-metric">0.5036</td>
-            <td class="cell-metric">0.3630</td>
+            <td class="cell-metric-amber cell-num">4.874</td>
+            <td class="cell-metric cell-num">0.5036</td>
+            <td class="cell-metric cell-num">0.3630</td>
             <td><span class="signal-amber">BUILDING</span></td>
-            <td><span class="badge badge-pending">Pending</span></td>
+            <td><span class="status status-pending">Pending</span></td>
           </tr>
           <tr data-entity="Federal Reserve" data-status="pending">
             <td class="cell-date">2026-04-11</td>
             <td class="cell-entity">Federal Reserve</td>
-            <td class="cell-metric-amber">6.505</td>
-            <td class="cell-metric">0.5036</td>
-            <td class="cell-metric">0.3630</td>
+            <td class="cell-metric-amber cell-num">6.505</td>
+            <td class="cell-metric cell-num">0.5036</td>
+            <td class="cell-metric cell-num">0.3630</td>
             <td><span class="signal-amber">BUILDING</span></td>
-            <td><span class="badge badge-pending">Pending</span></td>
+            <td><span class="status status-pending">Pending</span></td>
           </tr>
           <tr data-entity="Ethereum" data-status="logged">
             <td class="cell-date">2026-04-11</td>
@@ -507,11 +717,11 @@ const fonts =
               Ethereum
               <a href={`${import.meta.env.BASE_URL}reports/ethereum-20260411/`} class="cell-link" title="View report">↗</a>
             </td>
-            <td class="cell-metric-purple">521,674</td>
-            <td class="cell-metric">0.0000</td>
-            <td class="cell-metric">0.0000</td>
-            <td><span class="signal-purple">INFRA_FLOW</span></td>
-            <td><span class="badge badge-logged">Logged</span></td>
+            <td class="cell-metric-infra cell-num">521,674</td>
+            <td class="cell-metric cell-num">0.0000</td>
+            <td class="cell-metric cell-num">0.0000</td>
+            <td><span class="signal-infra">INFRA_FLOW</span></td>
+            <td><span class="status status-logged">Logged</span></td>
           </tr>
           <tr data-entity="Coinbase" data-status="logged">
             <td class="cell-date">2026-04-11</td>
@@ -519,47 +729,47 @@ const fonts =
               Coinbase
               <a href={`${import.meta.env.BASE_URL}reports/coinbase-20260411/`} class="cell-link" title="View report">↗</a>
             </td>
-            <td class="cell-metric-purple">221,738</td>
-            <td class="cell-metric">0.0000</td>
-            <td class="cell-metric">0.0000</td>
-            <td><span class="signal-purple">INFRA_FLOW</span></td>
-            <td><span class="badge badge-logged">Logged</span></td>
+            <td class="cell-metric-infra cell-num">221,738</td>
+            <td class="cell-metric cell-num">0.0000</td>
+            <td class="cell-metric cell-num">0.0000</td>
+            <td><span class="signal-infra">INFRA_FLOW</span></td>
+            <td><span class="status status-logged">Logged</span></td>
           </tr>
           <tr data-entity="Base" data-status="logged">
             <td class="cell-date">2026-04-11</td>
             <td class="cell-entity">Base</td>
-            <td class="cell-metric-purple">535,305</td>
-            <td class="cell-metric">0.0000</td>
-            <td class="cell-metric">0.0000</td>
-            <td><span class="signal-purple">INFRA_FLOW</span></td>
-            <td><span class="badge badge-logged">Logged</span></td>
+            <td class="cell-metric-infra cell-num">535,305</td>
+            <td class="cell-metric cell-num">0.0000</td>
+            <td class="cell-metric cell-num">0.0000</td>
+            <td><span class="signal-infra">INFRA_FLOW</span></td>
+            <td><span class="status status-logged">Logged</span></td>
           </tr>
           <tr data-entity="Securities and Exchange Commission" data-status="confirmed">
             <td class="cell-date">2026-04-10</td>
             <td class="cell-entity">Securities and Exchange Commission</td>
-            <td class="cell-metric-cyan">2.858</td>
-            <td class="cell-metric">0.5036</td>
-            <td class="cell-metric">0.3316</td>
-            <td><span class="signal-cyan">ELEVATED</span></td>
-            <td><span class="badge badge-confirmed">Confirmed ✓</span></td>
+            <td class="cell-metric-neutral cell-num">2.858</td>
+            <td class="cell-metric cell-num">0.5036</td>
+            <td class="cell-metric cell-num">0.3316</td>
+            <td><span class="signal-neutral">ELEVATED</span></td>
+            <td><span class="status status-confirmed">Confirmed ✓</span></td>
           </tr>
           <tr data-entity="X (Twitter)" data-status="confirmed">
             <td class="cell-date">2026-04-09</td>
             <td class="cell-entity">X (Twitter)</td>
-            <td class="cell-metric-muted">0.050</td>
-            <td class="cell-metric">0.5148</td>
-            <td class="cell-metric">0.0729</td>
+            <td class="cell-metric-muted cell-num">0.050</td>
+            <td class="cell-metric cell-num">0.5148</td>
+            <td class="cell-metric cell-num">0.0729</td>
             <td><span class="signal-muted">LOW</span></td>
-            <td><span class="badge badge-confirmed">Quiet confirmed ✓</span></td>
+            <td><span class="status status-confirmed">Quiet confirmed ✓</span></td>
           </tr>
           <tr data-entity="Tokenized Treasury Pool" data-status="confirmed">
             <td class="cell-date">2026-04-09</td>
             <td class="cell-entity">Tokenized Treasury Pool</td>
-            <td class="cell-metric-muted">0.052</td>
-            <td class="cell-metric">0.5148</td>
-            <td class="cell-metric">0.0729</td>
+            <td class="cell-metric-muted cell-num">0.052</td>
+            <td class="cell-metric cell-num">0.5148</td>
+            <td class="cell-metric cell-num">0.0729</td>
             <td><span class="signal-muted">LOW</span></td>
-            <td><span class="badge badge-confirmed">Quiet confirmed ✓</span></td>
+            <td><span class="status status-confirmed">Quiet confirmed ✓</span></td>
           </tr>
           <tr data-entity="Securities and Exchange Commission" data-status="confirmed">
             <td class="cell-date">2026-04-09</td>
@@ -567,11 +777,11 @@ const fonts =
               Securities and Exchange Commission
               <a href={`${import.meta.env.BASE_URL}reports/sec-20260408/`} class="cell-link" title="View report">↗</a>
             </td>
-            <td class="cell-metric-cyan">1.195</td>
-            <td class="cell-metric">0.5148</td>
-            <td class="cell-metric">0.0729</td>
-            <td><span class="signal-cyan">ELEVATED</span></td>
-            <td><span class="badge badge-confirmed">Confirmed ✓</span></td>
+            <td class="cell-metric-neutral cell-num">1.195</td>
+            <td class="cell-metric cell-num">0.5148</td>
+            <td class="cell-metric cell-num">0.0729</td>
+            <td><span class="signal-neutral">ELEVATED</span></td>
+            <td><span class="status status-confirmed">Confirmed ✓</span></td>
           </tr>
         </tbody>
       </table>
@@ -580,34 +790,51 @@ const fonts =
 
     <div class="method-block">
       <h3>METHODOLOGY</h3>
-      <p>
-        <strong>Φ_S (settlement pressure)</strong> is the engine's primary signal. It measures unrealized
-        settlement energy accumulating in a specific entity's field — the gap between what the system
-        shows and what is currently priced or regulated. Formula derivation from Kirandeep's Law of
-        Emergence: <code>E = ΔI / A</code>, where <em>ΔI</em> is information differential and <em>A</em>
-        is action cost. Φ_S is the <em>ΔI</em> component measured at entity granularity.
-      </p>
-      <p>
-        <strong>Direction signal</strong> is generated at measurement time, before any outcome is known:
-        Φ_S ≥ 8.0 → CRITICAL; ≥ 3.0 → BUILDING; ≥ 0.5 → ELEVATED; &lt; 0.5 → LOW. The prediction window
-        is 30 days.
-      </p>
-      <p>
-        <strong>Accuracy assessment</strong> — where a subsequent reading for the same entity exists
-        within the window: if BUILDING/ELEVATED and pressure held or rose → CONFIRMED. If LOW and no
-        subsequent escalation → CONFIRMED_QUIET. Accuracy rate counts confirmed outcomes over all
-        assessable signals (excludes PENDING and infra-scale).
-      </p>
-      <p>
-        <strong>Infrastructure-scale entities</strong> (Ethereum, Base, Coinbase) measure total cumulative
-        flow volume — a different dimensional unit from field-level pressure. These are logged but
-        excluded from accuracy calculation.
-      </p>
-      <p>
-        <strong>On-chain verification</strong> — system state is periodically committed to Base mainnet
-        via the GeniusFlow Settlement Contract. Each commitment includes a SHA-256 proof hash of the
-        engine state at time of claim.
-      </p>
+      <div class="method-beats">
+        <div class="method-beat">
+          <span class="beat-marker">01</span>
+          <p>
+            <strong>Φ_S (settlement pressure)</strong> is the engine's primary signal. It measures unrealized
+            settlement energy accumulating in a specific entity's field — the gap between what the system
+            shows and what is currently priced or regulated. Formula derivation from Kirandeep's Law of
+            Emergence: <code>E = ΔI / A</code>, where <em>ΔI</em> is information differential and <em>A</em>
+            is action cost. Φ_S is the <em>ΔI</em> component measured at entity granularity.
+          </p>
+        </div>
+        <div class="method-beat">
+          <span class="beat-marker">02</span>
+          <p>
+            <strong>Direction signal</strong> is generated at measurement time, before any outcome is known:
+            Φ_S ≥ 8.0 → CRITICAL; ≥ 3.0 → BUILDING; ≥ 0.5 → ELEVATED; &lt; 0.5 → LOW. The prediction window
+            is 30 days.
+          </p>
+        </div>
+        <div class="method-beat">
+          <span class="beat-marker">03</span>
+          <p>
+            <strong>Accuracy assessment</strong> — where a subsequent reading for the same entity exists
+            within the window: if BUILDING/ELEVATED and pressure held or rose → CONFIRMED. If LOW and no
+            subsequent escalation → CONFIRMED_QUIET. Accuracy rate counts confirmed outcomes over all
+            assessable signals (excludes PENDING and infra-scale).
+          </p>
+        </div>
+        <div class="method-beat">
+          <span class="beat-marker">04</span>
+          <p>
+            <strong>Infrastructure-scale entities</strong> (Ethereum, Base, Coinbase) measure total cumulative
+            flow volume — a different dimensional unit from field-level pressure. These are logged but
+            excluded from accuracy calculation.
+          </p>
+        </div>
+        <div class="method-beat">
+          <span class="beat-marker">05</span>
+          <p>
+            <strong>On-chain verification</strong> — system state is periodically committed to Base mainnet
+            via the GeniusFlow Settlement Contract. Each commitment includes a SHA-256 proof hash of the
+            engine state at time of claim.
+          </p>
+        </div>
+      </div>
     </div>
 
     <div class="verify-strip">
@@ -653,7 +880,9 @@ const fonts =
     import { initReveal } from '../../scripts/reveal';
     import { initFilterList } from '../../scripts/filter-list';
 
-    initReveal({ selector: '.stat-card' });
+    initReveal({ selector: '.stat-hero, .stat-chart' });
+    initReveal({ selector: '.stat-card-sm' });
+    initReveal({ selector: '.method-beat' });
 
     initFilterList({
       containerSelector: '#claimsBody',

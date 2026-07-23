@@ -4,52 +4,65 @@
   regardless of how its markup is composed — see Nav.astro/Footer.astro for
   why that distinction matters here.
 
-  Supersedes the two previously-separate token vocabularies: the homepage's
-  --text-primary/--cyan-primary family and the inner pages' --t1/--cyan
-  family. Both resolved to the same values; this is the one name for each.
+  Light theme is the site default (JPMorgan-inspired: white/warm-neutral
+  surfaces, generous whitespace, restrained accents) — every non-homepage
+  page uses these values as-is. The homepage is the one deliberate
+  exception: its own \3c style> block (in index.astro) restores the original
+  dark palette via a local :root override, same mechanism used the other
+  way around when this was prototyped on Track Record. Every color below
+  was chosen by computing actual WCAG contrast against the new white/
+  off-white surfaces, not by inverting the old dark-mode hex values —
+  several of the old values (signal teal, status green/amber, slate grays)
+  fail AA once the background flips from near-black to white.
+
+  Institutional blue (--accent) is the one brand/CTA color. A desaturated
+  teal-slate (--signal) stays reserved for verification/live markers only —
+  never a decorative accent.
 */
 
 :root {
   /* Surfaces */
-  --bg: #030712;
-  --bg2: #0a0e27;
-  --bg-card: #0f172a;
+  --bg: #f7f5f1;
+  --bg2: #fff;
+  --bg-card: #fff;
 
   /* Text */
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-primary: #1a1a1a;
+  --text-secondary: #52525b;
+  --text-muted: #71717a;
 
-  /* Cyan — reserved for "this is live/active right now" signals only
-     (Engine live stats, active nav state, currently-updating data) —
-     not a decorative accent. See --border-live below for the one place
-     it's still used structurally, on purpose. */
-  --cyan: #00d9ff;
-  --cyan-bright: #0ff;
-  --cyan-dim: #0ea5e9;
-  --cyan-text: #5eedff;
+  /* Signal teal-slate — reserved for "this is live/verified right now"
+     markers only (Engine live stats, active nav state, on-chain proof
+     callouts) — not a decorative accent. See --border-live below for the
+     one place it's still used structurally, on purpose. */
+  --signal: #2f5a63;
+  --signal-bright: #2f5a63;
+  --signal-dim: #1f454b;
+  --signal-text: #2f5a63;
 
-  /* Orange — the one primary accent/CTA color site-wide */
-  --orange: #ff6b35;
-  --orange-light: #ff8050;
-  --orange-lighter: #ff9060;
-  --orange-mid: #ff7b4a;
-  --orange-dark: #e55520;
-  --orange-text: #ffaa80;
+  /* Accent blue — the one primary brand/CTA color site-wide. Unchanged
+     from the dark theme: these are button-fill colors (white text sits on
+     top), so background-only contrast doesn't shift with page theme. */
+  --accent: #3e6fef;
+  --accent-light: #5f8bf5;
+  --accent-lighter: #82a4f7;
+  --accent-mid: #4f7cf2;
+  --accent-dark: #2c56c9;
+  --accent-text: #a8c1fb;
 
   /* Status colors — reserved for state, never a primary CTA */
-  --status-success: #22c55e;
-  --status-warning: #f59e0b;
+  --status-success: #15803d;
+  --status-warning: #b45309;
   --status-error: #dc2626;
 
   /* Borders — neutral by default. Every card/table/section border in the
-     site uses these, which is why they were cyan-tinted before; that read
+     site uses these, which is why they were tint-colored before; that read
      as decorative "everything is live" noise. Reserve --border-live for
      the specific modules that are actually live (Phase 3 instrument
      details), not as the default. */
-  --border: rgb(148 163 184 / 12%);
-  --border-strong: rgb(148 163 184 / 24%);
-  --border-live: rgb(14 165 233 / 30%);
+  --border: rgb(0 0 0 / 8%);
+  --border-strong: rgb(0 0 0 / 16%);
+  --border-live: rgb(47 90 99 / 35%);
 
   /* Fonts */
   --font-heading: 'Space Grotesk', sans-serif;
