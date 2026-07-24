@@ -1,14 +1,14 @@
 {
   "entity": "KINEXYS",
   "node": "34539544",
-  "compiled_at": "2026-07-23T08:31:22.214608+00:00",
-  "digest": "sha256:70fa5b09e8db47b22cdb92f76293e434b5f4670ce1bf6020fb5343a760fd7dc3",
+  "compiled_at": "2026-07-23T21:11:06.420250+00:00",
+  "digest": "sha256:633e36005e7a24487fb820cf0ce4cac78f8b9511e38db13ad4565297bdbf863a",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0579,
+    "kappa": 0.0651,
     "mass": 0.1118,
     "power": 0.0,
-    "extraction": 1351.0784,
+    "extraction": 2084.1202,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -27,8 +27,8 @@
     },
     "gravity": null,
     "extraction": {
-      "value": 1351.0784,
-      "rank": 21,
+      "value": 2084.1202,
+      "rank": 19,
       "of": 54
     },
     "share_of_whole": {
@@ -59,16 +59,16 @@
     ]
   },
   "relationships": {
-    "in_degree": 4,
-    "out_degree": 4,
+    "in_degree": 3,
+    "out_degree": 6,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 2.0,
-        "in": 0.5
+        "out": 3.0,
+        "in": 0.0
       },
       "Information": {
         "out": 0.0,
@@ -80,11 +80,6 @@
         "source": "JPMORGAN",
         "conn_type": "information_flow",
         "vector": "Information"
-      },
-      {
-        "source": "CANTON_NETWORK",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
       },
       {
         "source": "CITIGROUP",
@@ -109,12 +104,17 @@
         "vector": "Infrastructure"
       },
       {
-        "target": "PRIMARY_DEALER_NETWORK",
+        "target": "JPMORGAN",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
       },
       {
-        "target": "FED",
+        "target": "CANTON_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "PRIMARY_DEALER_NETWORK",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
       }
@@ -122,19 +122,19 @@
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.58,
+    "position": 0.591,
     "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 88,
+    "cycles": 91,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": -179.5327,
-      "boundary_score": -0.005
+      "extraction": 0.0,
+      "boundary_score": -0.02
     }
   },
   "network_plugs": {
@@ -164,8 +164,8 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-07-22T18:10:34.500788+00:00",
-      "last_delta_i": 3.171743405149178e+18,
+      "last_observed_at": "2026-07-23T18:15:04.917996+00:00",
+      "last_delta_i": 3.914818659074722e+18,
       "stale": false
     }
   },

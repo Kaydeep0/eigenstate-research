@@ -1,14 +1,14 @@
 {
   "entity": "CITIGROUP",
   "node": "34539544",
-  "compiled_at": "2026-07-23T08:31:19.389759+00:00",
-  "digest": "sha256:18a289133c786d2e28e88773beb163e9e58bb8f8b3820c25b087388d354551c7",
+  "compiled_at": "2026-07-23T21:11:03.533665+00:00",
+  "digest": "sha256:9d32ad2465d462c099b029cc7c321e62f8dfb04aab29093d1cdae9fd9d9fee43",
   "own_numbers": {
     "phi_s": 0.0226,
     "kappa": 0.1664,
     "mass": null,
-    "power": 0.05,
-    "extraction": 16429.10041,
+    "power": 0.06,
+    "extraction": 18612.217105,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": 103.0,
@@ -17,7 +17,7 @@
   "vs_whole": {
     "mass": null,
     "power": {
-      "value": 0.05,
+      "value": 0.06,
       "rank": 1,
       "of": 54
     },
@@ -27,32 +27,32 @@
       "of": 62
     },
     "extraction": {
-      "value": 16429.1004,
+      "value": 18612.2171,
       "rank": 6,
       "of": 54
     },
     "share_of_whole": {
       "mass": null,
-      "power": 0.21739
+      "power": 0.23077
     },
     "peers_by_power": [
       {
         "entity": "CITIGROUP",
-        "power": 0.05
+        "power": 0.06
       },
       {
         "entity": "JPMORGAN",
-        "power": 0.05
+        "power": 0.06
       },
       {
         "entity": "34539544",
-        "power": 0.04
+        "power": 0.05
       }
     ]
   },
   "relationships": {
-    "in_degree": 5,
-    "out_degree": 18,
+    "in_degree": 8,
+    "out_degree": 15,
     "by_vector": {
       "Capital": {
         "out": 0.5,
@@ -63,8 +63,8 @@
         "in": 0.5
       },
       "Information": {
-        "out": 6.5,
-        "in": 2.0
+        "out": 5.0,
+        "in": 3.5
       }
     },
     "top_inbound": [
@@ -89,7 +89,7 @@
         "vector": "Information"
       },
       {
-        "source": "CITI_TREASURY_SERVICES",
+        "source": "DTCC",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -116,7 +116,7 @@
         "vector": "Infrastructure"
       },
       {
-        "target": "CITI_TREASURY_SERVICES",
+        "target": "EAS",
         "conn_type": "information_flow",
         "vector": "Information"
       }
@@ -160,13 +160,13 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -100% over 88 cycles",
-    "cycles": 88,
+    "headline": "phi_s -100% over 91 cycles",
+    "cycles": 91,
     "delta_last_cycle": {
       "phi_s": -0.0007,
       "kappa": 0.0362,
-      "power": 0.01,
-      "extraction": 11202.9964,
+      "power": 0.02,
+      "extraction": 13386.1131,
       "gravity_mass": 5.0,
       "boundary_score": -0.001
     }
@@ -178,7 +178,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live_at_request",
-        "last_observed_at": "2026-07-23T07:00:41.569967+00:00",
+        "last_observed_at": "2026-07-23T19:00:44.145676+00:00",
         "filings": null,
         "note": "CIK 0000831001 \u2014 live on feed + parkash sensor"
       }
