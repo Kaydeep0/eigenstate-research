@@ -1,9 +1,9 @@
 """
-Eigenstate Demo — live observations, cryptographic chain, on-chain verification.
+Eigenstate Demo — live observations, cryptographic chain, on-chain verification pointer.
 
-Usage:
+Usage (from repo root):
     pip install helixhash requests
-    python3 eigenstate_demo.py
+    python3 public/demo/eigenstate_demo.py
 
 No API keys required. No accounts required.
 All data comes from public endpoints.
@@ -11,12 +11,14 @@ All data comes from public endpoints.
 What this demonstrates:
   1. Three observations from real public data sources
   2. Each observation measured as information gained (delta_I = log2 surprise)
-  3. All three chained via SHA-256 into a single fingerprint
-  4. That fingerprint is what the engine commits to Base mainnet every 2 hours
+  3. All three chained via HelixHash (SHA-256 append-only log)
+  4. Pointer to historical Base commits (when the private engine's gates allow)
 
-The engine has been running since April 2026 with 9 on-chain commits.
-Every commit is verifiable at basescan.org.
+Demo ≠ production cadence, full M1 topology, or a promise that every engine
+cycle writes a new Basescan transaction.
 """
+
+from __future__ import annotations
 
 import csv
 import io
@@ -25,9 +27,10 @@ import math
 import sys
 import time
 import urllib.request
+from pathlib import Path
 
 try:
-    from helixhash import HelixHash, Crossing
+    from helixhash import HelixHash
 except ImportError:
     print("helixhash not installed. Run: pip install helixhash requests")
     sys.exit(1)
@@ -97,7 +100,6 @@ def observe_buidl():
     """
     DeFiLlama protocol endpoint — no API key required.
     Returns (current_tvl, previous_tvl_7d).
-    previous_tvl_7d is the TVL value closest to 7 days ago.
     """
     url = "https://api.llama.fi/protocol/blackrock-buidl"
     raw = fetch(url, "DeFiLlama/BUIDL")
@@ -106,42 +108,31 @@ def observe_buidl():
 
     d = json.loads(raw)
 
-    # Current TVL from currentChainTvls
     chain_tvls = d.get("currentChainTvls", {})
     current = sum(v for v in chain_tvls.values() if isinstance(v, (int, float)))
 
-    # Fallback: last entry in tvl array
     tvl_series = d.get("tvl", [])
     if current == 0 and tvl_series:
         current = tvl_series[-1].get("totalLiquidityUSD", 0)
 
-    # 7-day-ago value: find tvl entry closest to now - 7 days
     seven_days_ago = time.time() - 7 * 86400
-    previous = current  # fallback
+    previous = current
     if tvl_series:
-        best = None
-        best_diff = float("inf")
-        for entry in tvl_series:
-            t = entry.get("date", 0)
-            diff = abs(t - seven_days_ago)
-            if diff < best_diff:
-                best_diff = diff
-                best = entry.get("totalLiquidityUSD", 0)
-        if best:
-            previous = best
+        closest = min(
+            tvl_series,
+            key=lambda e: abs(e.get("date", 0) - seven_days_ago),
+        )
+        previous = closest.get("totalLiquidityUSD", current)
 
     return current, previous
 
 
-# ── Observation 3: Ethereum GitHub stars (GitHub public API, no key needed) ───
+# ── Observation 3: Ethereum GitHub stars (public API) ─────────────────────────
 
 def observe_eth_github():
     """
-    GitHub public API — no key needed (60 req/hour unauthenticated).
-    Returns (current_stars, previous_stars).
-    previous_stars is a hardcoded baseline from one week ago
-    (GitHub API does not provide historical star counts without GraphQL).
-    Baseline updated weekly in this file.
+    GitHub public API for ethereum/go-ethereum stargazers_count.
+    Returns (current_stars, baseline_stars).
     """
     url = "https://api.github.com/repos/ethereum/go-ethereum"
     raw = fetch(url, "GitHub/go-ethereum")
@@ -151,26 +142,46 @@ def observe_eth_github():
     d = json.loads(raw)
     current = d.get("stargazers_count", 0)
 
-    # Baseline: go-ethereum stars as of 2026-04-06 (one week ago).
-    # Update this value weekly to keep delta_I meaningful.
-    STARS_BASELINE_2026_04_06 = 50_910
+    # Fixed baseline so the demo still computes a non-zero delta_I offline-ish.
+    # Update periodically if you want a tighter surprise signal.
+    STARS_BASELINE = 50_910
 
-    return current, STARS_BASELINE_2026_04_06
+    return current, STARS_BASELINE
 
 
-# ── Latest on-chain commit (from helix_commits.json in this repo) ─────────────
-
-LATEST_COMMIT = {
-    "block": 44655585,
-    "tx_hash": "8bbb3cd5d6e3dfb54a8f7fe957d0ae4e0f3a5ae52ba4e927aefa6808c781c017",
-    "claim_id": 10,
-    "committed_at": "2026-04-13T17:15:16 UTC",
-    "n_crossings": 63,
-    "basescan_url": (
-        "https://basescan.org/tx/"
-        "8bbb3cd5d6e3dfb54a8f7fe957d0ae4e0f3a5ae52ba4e927aefa6808c781c017"
-    ),
-}
+def load_latest_commit() -> dict:
+    """Prefer helix_commits.json beside this script; fall back to a known sample tx."""
+    path = Path(__file__).resolve().parent / "helix_commits.json"
+    fallback = {
+        "block_number": 44546204,
+        "tx_hash": "5a132a48097c67063afcee39f3d06ee3f35166570b4eefcc18eefaa54d877a66",
+        "committed_at": "2026-04-11T04:29:14+00:00",
+        "n_crossings": 57,
+        "contract": "0x3A2d6599d5409c1A87609c38dB9b1619e47F6b02",
+        "basescan_url": (
+            "https://basescan.org/tx/"
+            "0x5a132a48097c67063afcee39f3d06ee3f35166570b4eefcc18eefaa54d877a66"
+        ),
+    }
+    if not path.is_file():
+        return fallback
+    try:
+        rows = json.loads(path.read_text(encoding="utf-8"))
+        if isinstance(rows, list) and rows:
+            row = rows[-1]
+            tx = str(row.get("tx_hash") or "").lstrip("0x")
+            return {
+                "block_number": row.get("block_number") or row.get("block"),
+                "tx_hash": tx,
+                "committed_at": row.get("committed_at"),
+                "n_crossings": row.get("n_crossings"),
+                "contract": row.get("contract") or fallback["contract"],
+                "basescan_url": row.get("basescan_url")
+                or f"https://basescan.org/tx/0x{tx}",
+            }
+    except Exception:
+        pass
+    return fallback
 
 
 # ── Main demo ─────────────────────────────────────────────────────────────────
@@ -185,25 +196,21 @@ def main():
     print("  Fetching live public data — this takes ~5 seconds...")
     print()
 
-    # Fetch observations
     sofr_cur, sofr_prev, sofr_date = observe_sofr()
     buidl_cur, buidl_prev = observe_buidl()
     eth_cur, eth_prev = observe_eth_github()
 
-    # Fall back to hardcoded illustrative values if any fetch fails
     if sofr_cur is None:
-        sofr_cur, sofr_prev, sofr_date = 3.61, 3.57, "2026-04-10 (fallback)"
+        sofr_cur, sofr_prev, sofr_date = 3.61, 3.57, "fallback"
     if buidl_cur is None:
         buidl_cur, buidl_prev = 2_984_123_890, 2_901_000_000
     if eth_cur is None:
         eth_cur, eth_prev = 50_979, 50_910
 
-    # Compute delta_I for each observation
-    dI_sofr  = safe_delta_I(sofr_cur, sofr_prev)
+    dI_sofr = safe_delta_I(sofr_cur, sofr_prev)
     dI_buidl = safe_delta_I(buidl_cur, buidl_prev)
-    dI_eth   = safe_delta_I(eth_cur, eth_prev)
+    dI_eth = safe_delta_I(eth_cur, eth_prev)
 
-    # Print observation 1: SOFR
     print(f"  Observation 1: SOFR overnight rate  [{sofr_date}]")
     print(f"  {'SOFR today:':<30} {sofr_cur:.4f}%")
     print(f"  {'SOFR previous:':<30} {sofr_prev:.4f}%")
@@ -212,7 +219,6 @@ def main():
     print(f"  {'Efficiency (E = delta_I / A):':<30} {dI_sofr:.6f}")
     print()
 
-    # Print observation 2: BUIDL TVL
     print(f"  Observation 2: BlackRock BUIDL TVL")
     print(f"  {'BUIDL TVL today:':<30} ${buidl_cur:>16,.0f}")
     print(f"  {'BUIDL TVL 7 days ago:':<30} ${buidl_prev:>16,.0f}")
@@ -221,62 +227,62 @@ def main():
     print(f"  {'Efficiency (E = delta_I / A):':<30} {dI_buidl:.6f}")
     print()
 
-    # Print observation 3: ETH GitHub
     print(f"  Observation 3: Ethereum go-ethereum GitHub stars")
     print(f"  {'Stars today:':<30} {eth_cur:>8,}")
-    print(f"  {'Stars 7 days ago (baseline):':<30} {eth_prev:>8,}")
+    print(f"  {'Stars baseline:':<30} {eth_prev:>8,}")
     print(f"  {'Information gained (delta_I):':<30} {dI_eth:.6f} bits")
     print(f"  {'Observation cost (A):':<30} 1.0")
     print(f"  {'Efficiency (E = delta_I / A):':<30} {dI_eth:.6f}")
     print()
 
-    # Feed into HelixHash
+    # HelixHash public API: append bytes payloads into a SHA-256 chain.
     h = HelixHash()
-    h.cross(Crossing(delta_I=dI_sofr,  A=1.0, kappa=0.62, C=0.9, label="SOFR rate"))
-    h.cross(Crossing(delta_I=dI_buidl, A=1.0, kappa=0.62, C=0.9, label="BUIDL TVL"))
-    h.cross(Crossing(delta_I=dI_eth,   A=1.0, kappa=0.62, C=0.9, label="ETH GitHub"))
+    observations = [
+        {"label": "SOFR rate", "delta_I": dI_sofr, "A": 1.0, "E": dI_sofr},
+        {"label": "BUIDL TVL", "delta_I": dI_buidl, "A": 1.0, "E": dI_buidl},
+        {"label": "ETH GitHub", "delta_I": dI_eth, "A": 1.0, "E": dI_eth},
+    ]
+    for obs in observations:
+        h.append(json.dumps(obs, sort_keys=True).encode("utf-8"))
 
-    s = h.summary()
-
-    # Print vault fingerprint
     print(divider)
-    print("  VAULT FINGERPRINT (your local chain)")
+    print("  LOCAL CHAIN (HelixHash append-only log)")
     print(divider)
     print()
-    print(f"  SHA-256: {s['fingerprint']}")
+    print(f"  Head SHA-256: {h.head}")
     print(f"  Chain valid:  {h.verify()}")
-    print(f"  PT score:     {s['PT']:.4f}  (threshold 0.618 — below = accumulating)")
-    print(f"  G (memory):   {s['G']:.6f}")
-    print(f"  Crossings:    {s['N']}")
+    print(f"  Entries:      {h.length}")
     print()
-    print("  Each fingerprint encodes the full observation history.")
-    print("  Alter any value above and the SHA-256 chain breaks immediately.")
+    print("  Alter any observation payload and the chain verify() fails.")
+    print("  This is a toy chain — not the private engine vault.")
     print()
 
-    # Print on-chain verification
+    latest = load_latest_commit()
+    tx = str(latest.get("tx_hash") or "").lstrip("0x")
+
     print(divider)
-    print("  VERIFY ON BASESCAN")
+    print("  HISTORICAL ON-CHAIN POINTER (Base)")
     print(divider)
     print()
-    print("  The Eigenstate engine runs the same hash on its full vault")
-    print("  every 2 hours and commits the fingerprint to Base mainnet.")
+    print("  The private engine commits vault fingerprints to GeniusFlowSettlement")
+    print("  on Base when wallet, balance, and mirror gates pass — not on a fixed")
+    print("  public cadence, and not every parkash cycle.")
     print()
-    print(f"  Latest commit:")
-    print(f"  Block:   {LATEST_COMMIT['block']}")
-    print(f"  TX:      0x{LATEST_COMMIT['tx_hash'][:16]}...{LATEST_COMMIT['tx_hash'][-8:]}")
-    print(f"  Time:    {LATEST_COMMIT['committed_at']}")
-    print(f"  Crossings in that vault: {LATEST_COMMIT['n_crossings']}")
+    print("  Sample / latest listed commit in this demo bundle:")
+    print(f"  Contract: {latest.get('contract')}")
+    print(f"  Block:    {latest.get('block_number')}")
+    print(f"  TX:       0x{tx[:16]}...{tx[-8:]}")
+    print(f"  Time:     {latest.get('committed_at')}")
+    if latest.get("n_crossings") is not None:
+        print(f"  Crossings recorded with that commit: {latest.get('n_crossings')}")
     print()
-    print(f"  Verify at:")
-    print(f"  {LATEST_COMMIT['basescan_url']}")
-    print()
-    print("  The on-chain fingerprint is the evidenceHash field in the")
-    print("  createClaim() transaction. Anyone can verify it independently.")
+    print(f"  Verify at: {latest.get('basescan_url')}")
+    print("  Prefer the live Proof Index over any hard-coded hash in this script.")
     print()
     print(divider)
     print("  Full research: https://kaydeep0.github.io/eigenstate-research/")
-    print("  On-chain proof index: .../onchain/")
-    print("  HelixHash source: pip show helixhash")
+    print("  On-chain proof index: https://kaydeep0.github.io/eigenstate-research/onchain/")
+    print("  HelixHash: https://github.com/Kaydeep0/helixhash")
     print(divider)
 
 

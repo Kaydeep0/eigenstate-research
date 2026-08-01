@@ -38,20 +38,20 @@ On an SEC filing / rulemaking day, reading the new document against the prior ex
 
 ## 2. The vault
 
-**Plain language.** When an observation is worth more than it costs to take, we append it to an append-only measurement log. Changing an old row breaks every later hash.
+**Plain language.** When an observation is worth more than it costs to take, we append it to an append-only measurement log. Changing an old row breaks later hashes / parent checks.
 
-**Precise term.** Qualifying observations write to the cycle vault. A typical record carries:
+**Precise term.** Qualifying observations write to the cycle vault. A typical vault row carries:
 
-- Entity codename and display name
+- Entity codename
 - Observation timestamp
-- **Φ_S** (settlement / signal pressure) — how far the entity sits from field equilibrium
-- **κ** (`"kappa"`) — **system coherence** (sys κ). Do **not** confuse with **Γ** (`"gamma"`), the extraction / force term — Brief B keeps them on separate keys
-- **E** at observation time
-- SHA-256 of the record, chained to the previous record
+- **ΔI** / **E** at observation time
+- Chain integrity fields (`vault_fingerprint` when written through the fingerprint append path, and/or `sha.hash` with parent-consistency checks)
+
+**Φ_S** (settlement / signal pressure) and **κ** (`"kappa"`, system coherence) live on **entity field state** and are mirrored on public dossiers (`own_numbers`). Do **not** confuse **κ** with **Γ** (`"gamma"`), the extraction / force term — they stay on separate keys. Not every vault row duplicates Φ_S / κ; dossiers are the public place to read those numbers.
 
 The vault is primarily a **measure** surface. Publish coverage and return-wire acks exist so published claims can be checked and consumption acknowledged; they do not mean every vault row becomes a public article.
 
-After a qualifying observation of CIRCLE or BLACKROCK, the private vault appends a chained row (Φ_S, κ, E, hash). The public mirror of that measured state is the federation dossier — e.g. [CIRCLE.json](https://kaydeep0.github.io/eigenstate-research/federation/dossier/CIRCLE.json) and [BLACKROCK.json](https://kaydeep0.github.io/eigenstate-research/federation/dossier/BLACKROCK.json) — not a guarantee that every vault row ships as a report. We do not paste fake vault hashes here; the live digest is on those dossiers.
+After a qualifying observation of CIRCLE or BLACKROCK, the private vault appends a chained row (entity, ΔI/E, hash). The public mirror of measured field state — including Φ_S and κ — is the federation dossier — e.g. [CIRCLE.json](https://kaydeep0.github.io/eigenstate-research/federation/dossier/CIRCLE.json) and [BLACKROCK.json](https://kaydeep0.github.io/eigenstate-research/federation/dossier/BLACKROCK.json) — not a guarantee that every vault row ships as a report. We do not paste fake vault hashes here; the live digest is on those dossiers.
 
 **Without this engine:** the analogous record lives in research notes, CRM rows, shared drives, or auditor workpapers — useful, often carefully written, but not an append-only, hash-chained measurement log with public dossier digests. Attestation, if any, is a PDF or email trail, not a vault hash chain.
 

@@ -41,9 +41,9 @@ Information efficiency: new information gained (**ΔI**) over observation cost (
 
 ### Vault
 
-Qualifying observations append to a hash-chained measurement log. Changing an old row breaks later hashes.
+Qualifying observations append to a hash-chained measurement log (ΔI / E + integrity fields). Entity field numbers **Φ_S** / **κ** (not **Γ**) are mirrored on public dossiers. Changing an old vault row breaks later hashes / parent checks.
 
-*Example.* After a qualifying read of CIRCLE or BLACKROCK, the private vault appends a chained row. Public mirrors: [CIRCLE](https://kaydeep0.github.io/eigenstate-research/federation/dossier/CIRCLE.json), [BLACKROCK](https://kaydeep0.github.io/eigenstate-research/federation/dossier/BLACKROCK.json). Not every vault row becomes a report.
+*Example.* After a qualifying read of CIRCLE or BLACKROCK, the private vault appends a chained row; dossiers expose live Φ_S / κ. Public mirrors: [CIRCLE](https://kaydeep0.github.io/eigenstate-research/federation/dossier/CIRCLE.json), [BLACKROCK](https://kaydeep0.github.io/eigenstate-research/federation/dossier/BLACKROCK.json). Not every vault row becomes a report.
 
 ### Helix / attestation (when published)
 
@@ -65,6 +65,48 @@ We look for what the topology *needs* that product design still treats as option
 
 ---
 
+## Use cases
+
+Honest, outsider-facing. Grounded in what the public stack actually ships today.
+
+### RWA / governance diligence
+
+| | |
+|--|--|
+| **Who** | Allocator, compliance, or RWA-desk analysts reviewing tokenized FI issuers and rails |
+| **Today without this** | Manual scrapes of issuer sites, filings, and press; no shared admit/refuse check on “attested” packages |
+| **Eigenstate offers** | Public dossiers + signal reports; federation `/api/verify` and `/api/package` against registry / proof_shape; `status_at_publish` on published claims |
+| **Not** | Bank settlement, custody, KYC, or a paid diligence SLA |
+
+### Research desk — structural gap tracking
+
+| | |
+|--|--|
+| **Who** | Rates / structure research desks watching benchmark and settlement fragility |
+| **Today without this** | Ad hoc SOFR/LIBOR notes; product marketing treated as full replacement |
+| **Eigenstate offers** | Persistent gap framing (`LIBOR_EQUIVALENT`) on the [predictions](https://kaydeep0.github.io/eigenstate-research/predictions/) page, tied to the fixed M1 topology |
+| **Not** | Price forecasts, trade signals, or a claim that publishing a SOFR article “closes” the gap |
+
+### Agent tooling for attested claims *(secondary)*
+
+| | |
+|--|--|
+| **Who** | Builders and agents that need machine-readable claim surfaces |
+| **Today without this** | Scrape HTML; invent “attested” labels with no refuse limb |
+| **Eigenstate offers** | Federation [llms.txt](https://geniusflow-federation.vercel.app/llms.txt), OpenAPI, `/api/manifest` · `/api/verify` · `/api/package`, proof_shape admit/refuse, MCP adapter docs |
+| **Not** | Guaranteed uptime or a commercial agent SLA (`/api/status` is best-effort Vercel) |
+
+### Internal measurement / audit trail
+
+| | |
+|--|--|
+| **Who** | Host / internal research ops running the private engine |
+| **Today without this** | Scattered logs with no public mirror path |
+| **Eigenstate offers** | Cycle vault hash-chain for measure; Helix commits to `GeniusFlowSettlement` on Base when wallet / balance / mirror gates allow; Proof Index for historical txs |
+| **Not** | Every parkash cycle on-chain; a retail “settlement product” for banks |
+
+---
+
 ## Evidence / try it
 
 | Path | Link |
@@ -72,16 +114,16 @@ We look for what the topology *needs* that product design still treats as option
 | Methodology (full depth) | [METHODOLOGY.md](METHODOLOGY.md) |
 | Signal reports | [reports/](https://kaydeep0.github.io/eigenstate-research/reports/) |
 | On-chain proof index | [onchain/](https://kaydeep0.github.io/eigenstate-research/onchain/) |
-| Federation verify (technical) | [geniusflow-federation.vercel.app](https://geniusflow-federation.vercel.app/) → `/api/manifest`, `/api/chain`, `/api/verify` |
+| Federation verify (technical) | [geniusflow-federation.vercel.app](https://geniusflow-federation.vercel.app/) → `/api/manifest`, `/api/chain`, `/api/verify`, `/api/package` |
 
-**5-minute demo** (toy stack; not the private engine):
+**5-minute demo** (from this repo root; toy stack — not the private engine):
 
 ```bash
 pip install helixhash requests
 python3 public/demo/eigenstate_demo.py
 ```
 
-HelixHash: [Kaydeep0/helixhash](https://github.com/Kaydeep0/helixhash). The script pulls a few public series, chains them with SHA-256, and points at Basescan for the verification idea. Demo ≠ production cadence or full topology coverage.
+HelixHash: [Kaydeep0/helixhash](https://github.com/Kaydeep0/helixhash). The script pulls a few public series, appends them into a local HelixHash chain, and points at a historical Basescan tx / Proof Index. Demo ≠ production cadence, full topology coverage, or continuous on-chain commits.
 
 ---
 
@@ -101,7 +143,7 @@ HelixHash: [Kaydeep0/helixhash](https://github.com/Kaydeep0/helixhash). The scri
 
 Research / pre-revenue. Public artifacts are real (reports, dossiers, Basescan commits when published). There is no claimed customer book, bank partnership, or production settlement product on this face.
 
-Coverage and on-chain mirror paths are partial by design — see Methodology for what is live vs gated. Do not invent traction from star counts or marketing tiles elsewhere on the site.
+Coverage and on-chain mirror paths are partial by design — see Methodology for what is live vs gated. Prefer this README + [METHODOLOGY.md](METHODOLOGY.md) + live federation `/api/status` over marketing tiles on the Astro homepage (e.g. frozen entity counts such as 196/197, or a “100% signal accuracy” strip) — those tiles are **not** engine SoT and should be treated as stale site chrome until rebuilt.
 
 ---
 
