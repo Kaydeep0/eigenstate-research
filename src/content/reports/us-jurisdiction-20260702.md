@@ -6,11 +6,6 @@ date_iso: "2026-07-02"
 phi_s: 0.9359
 kappa: 0.1204
 vault_records: 0
-entity_codename: "US_JURISDICTION"
-display_kind: "regulator"
-facet_label: "Regulators"
-public_default: true
-demoted: false
 ---
 # US Regulators: Field Position Report
 

@@ -6,11 +6,6 @@ date_iso: "2026-07-02"
 phi_s: 0
 kappa: 0.0093
 vault_records: 0
-entity_codename: "TOKEN_UNLOCK"
-display_kind: "other"
-facet_label: "Other"
-public_default: true
-demoted: false
 ---
 # Token Unlock Event: Field Position Report
 

@@ -6,11 +6,6 @@ date_iso: "2026-07-02"
 phi_s: 0.096
 kappa: 0.0278
 vault_records: 0
-entity_codename: "SINGAPORE_JURISDICTION"
-display_kind: "regulator"
-facet_label: "Regulators"
-public_default: true
-demoted: false
 ---
 # Singapore Regulators: Field Position Report
 

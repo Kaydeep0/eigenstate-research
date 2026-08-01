@@ -6,11 +6,6 @@ date_iso: "2026-07-01"
 phi_s: 0.024
 kappa: 0.0097
 vault_records: 0
-entity_codename: "SWITZERLAND_JURISDICTION"
-display_kind: "regulator"
-facet_label: "Regulators"
-public_default: true
-demoted: false
 ---
 # Switzerland (FINMA): Field Position Report
 

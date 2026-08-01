@@ -6,11 +6,6 @@ date_iso: "2026-07-02"
 phi_s: 0
 kappa: 0.0276
 vault_records: 0
-entity_codename: "JEKYLL_ISLAND"
-display_kind: "other"
-facet_label: "Other"
-public_default: true
-demoted: false
 ---
 # Jekyll Island Meeting (1910): Field Position Report
 

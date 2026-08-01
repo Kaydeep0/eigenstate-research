@@ -6,11 +6,6 @@ date_iso: "2026-08-01"
 phi_s: 0.0
 kappa: 0.0
 vault_records: 1
-entity_codename: "GITHUB_PRESENCE"
-display_kind: "dimension"
-facet_label: "Dimensions"
-public_default: false
-demoted: true
 ---
 # GitHub Presence: Field Position Report
 

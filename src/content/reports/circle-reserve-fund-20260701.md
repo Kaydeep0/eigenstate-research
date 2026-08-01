@@ -6,11 +6,6 @@ date_iso: "2026-07-01"
 phi_s: 1.7131
 kappa: 0
 vault_records: 0
-entity_codename: "CIRCLE_RESERVE_FUND"
-display_kind: "issuer_protocol"
-facet_label: "Issuers / Protocols"
-public_default: true
-demoted: false
 ---
 # Circle Reserve Fund: Field Position Report
 

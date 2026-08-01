@@ -6,11 +6,6 @@ date_iso: "2026-06-23"
 phi_s: 0.0583
 kappa: 0.0878
 vault_records: 0
-entity_codename: "BNY_MELLON"
-display_kind: "institution"
-facet_label: "Institutions"
-public_default: true
-demoted: false
 ---
 # BNY Mellon: Field Position Report
 

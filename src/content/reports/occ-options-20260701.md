@@ -6,11 +6,6 @@ date_iso: "2026-07-01"
 phi_s: 0
 kappa: 0
 vault_records: 0
-entity_codename: "OCC_OPTIONS"
-display_kind: "other"
-facet_label: "Other"
-public_default: true
-demoted: false
 ---
 # Options Clearing Corporation (OCC): Field Position Report
 

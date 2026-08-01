@@ -6,11 +6,6 @@ date_iso: "2026-07-02"
 phi_s: 0.06
 kappa: 0.0092
 vault_records: 0
-entity_codename: "STANDARD_OIL"
-display_kind: "institution"
-facet_label: "Institutions"
-public_default: true
-demoted: false
 ---
 # Standard Oil (1870–1911): Field Position Report
 

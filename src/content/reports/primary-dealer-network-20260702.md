@@ -6,11 +6,6 @@ date_iso: "2026-07-02"
 phi_s: 0
 kappa: 0.1109
 vault_records: 0
-entity_codename: "PRIMARY_DEALER_NETWORK"
-display_kind: "other"
-facet_label: "Other"
-public_default: true
-demoted: false
 ---
 # Primary Dealer Network: Field Position Report
 

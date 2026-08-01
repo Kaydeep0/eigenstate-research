@@ -6,11 +6,6 @@ date_iso: "2026-07-03"
 phi_s: 0
 kappa: 0
 vault_records: 0
-entity_codename: "TWITTER_PRESENCE"
-display_kind: "dimension"
-facet_label: "Dimensions"
-public_default: false
-demoted: true
 ---
 # X (Twitter) Presence: Field Position Report
 

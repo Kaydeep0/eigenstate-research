@@ -10,12 +10,6 @@ const reports = defineCollection({
     phi_s: z.number(),
     kappa: z.number(),
     vault_records: z.number(),
-    // Optional browse facets (DefiLlama-inspired). Resolved at index build if absent.
-    entity_codename: z.string().optional(),
-    display_kind: z.string().optional(),
-    facet_label: z.string().optional(),
-    public_default: z.boolean().optional(),
-    demoted: z.boolean().optional(),
   }),
 });
 

@@ -6,11 +6,6 @@ date_iso: "2026-07-02"
 phi_s: 0.0226
 kappa: 0.1016
 vault_records: 0
-entity_codename: "CITI_TREASURY_SERVICES"
-display_kind: "issuer_protocol"
-facet_label: "Issuers / Protocols"
-public_default: true
-demoted: false
 ---
 # Citi Treasury Services: Field Position Report
 

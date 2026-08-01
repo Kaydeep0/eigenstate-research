@@ -6,11 +6,6 @@ date_iso: "2026-07-02"
 phi_s: 0
 kappa: 0.0002
 vault_records: 0
-entity_codename: "CRYPTO_NATIVE_AUDIENCE"
-display_kind: "audience"
-facet_label: "Audiences"
-public_default: true
-demoted: false
 ---
 # Crypto-Native Audience: Field Position Report
 

@@ -6,11 +6,6 @@ date_iso: "2026-07-03"
 phi_s: 0
 kappa: 0
 vault_records: 0
-entity_codename: "STATE_STREET"
-display_kind: "institution"
-facet_label: "Institutions"
-public_default: true
-demoted: false
 ---
 # State Street: Field Position Report
 

@@ -6,11 +6,6 @@ date_iso: "2026-07-02"
 phi_s: 0.115
 kappa: 0.037
 vault_records: 0
-entity_codename: "INSTITUTIONAL_CUSTODY_POOL"
-display_kind: "other"
-facet_label: "Other"
-public_default: true
-demoted: false
 ---
 # Institutional Custody Pool: Field Position Report
 

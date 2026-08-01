@@ -6,11 +6,6 @@ date_iso: "2026-07-02"
 phi_s: 0.02
 kappa: 0.0092
 vault_records: 0
-entity_codename: "STAR_SIGNAL"
-display_kind: "dimension"
-facet_label: "Dimensions"
-public_default: false
-demoted: true
 ---
 # Star Signal: Field Position Report
 

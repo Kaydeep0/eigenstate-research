@@ -6,11 +6,6 @@ date_iso: "2026-07-02"
 phi_s: 0.02
 kappa: 0.0185
 vault_records: 0
-entity_codename: "HONG_KONG_REGION"
-display_kind: "other"
-facet_label: "Other"
-public_default: true
-demoted: false
 ---
 # Hong Kong Region: Field Position Report
 

@@ -56,17 +56,8 @@ export function initFilterList(options: FilterListOptions): void {
         .map((f) => (el.dataset[f] ?? '').toLowerCase())
         .join(' ');
       const matchesSearch = query === '' || searchable.includes(query);
-      let matchesFilter = true;
-      if (options.filterField && filterValue && filterValue !== 'all') {
-        if (filterValue === 'public') {
-          matchesFilter = el.dataset.publicDefault === 'true';
-        } else if (filterValue === 'dimension') {
-          matchesFilter =
-            el.dataset.displayKind === 'dimension' || el.dataset.demoted === 'true';
-        } else {
-          matchesFilter = el.dataset[options.filterField] === filterValue;
-        }
-      }
+      const matchesFilter =
+        !options.filterField || filterValue === '' || el.dataset[options.filterField] === filterValue;
       const visible = matchesSearch && matchesFilter;
       el.style.display = visible ? '' : 'none';
       if (visible) visibleCount += 1;
@@ -89,5 +80,4 @@ export function initFilterList(options: FilterListOptions): void {
   searchInput?.addEventListener('input', apply);
   sortSelect?.addEventListener('change', apply);
   filterSelect?.addEventListener('change', apply);
-  apply();
 }
