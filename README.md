@@ -33,6 +33,17 @@ Public output lives here (reports, dossiers, proof index). The runtime engine st
 
 Short version. Depth and caveats: [METHODOLOGY.md](METHODOLOGY.md).
 
+```mermaid
+flowchart LR
+  T[Topology] --> S[Sensors / Parkash]
+  S --> V[Vault<br/>hash chain]
+  V --> VER[VERIFY / proof_shape]
+  VER --> P[Pages report]
+  VER -.->|when gates allow| B[Base commit]
+```
+
+*Observe → measure → verify → publish; Base attest is gated. Structural metric, not a price forecast. Helix / on-chain commit is not every cycle.*
+
 ### E = ΔI / A
 
 Information efficiency: new information gained (**ΔI**) over observation cost (**A**). Structural metric, not a forecast.
