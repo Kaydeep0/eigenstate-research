@@ -10,7 +10,7 @@ How Eigenstate measures the tokenized settlement field — plain language first,
 | **Publish** | Reports / claims go out with verification status (`status_at_publish`) when the membrane admits them | Not every observation is published |
 | **Act** | Build, deploy, connect, or settlement paths when Host / gates allow | Mostly observe-heavy today; act lanes are gated |
 
-*Real-world example.* A parkash cycle **measures** CIRCLE (vault + dossier numbers update); a Pages report may **publish** later with `status_at_publish`; **act** (on-chain helix commit, Settlement v2) only runs when Host/gates allow — so most cycles stay measure-only.
+*Real-world example.* A parkash cycle **measures** CIRCLE (vault + dossier numbers update); a Pages report may **publish** later with `status_at_publish`; **act** (on-chain helix commit or other gated paths) only runs when Host/gates allow — so most cycles stay measure-only.
 
 ---
 

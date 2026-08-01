@@ -16,4 +16,4 @@ Topics: **mcp**, **rwa**, **attestation**.
 5. MCP / tool adapter: https://geniusflow-federation.vercel.app/docs/AGENT_TOOL_ADAPTER.md
 6. Human research (Pages): https://kaydeep0.github.io/eigenstate-research/
 
-In-repo pointer: [`README.md`](README.md) § For agents.
+In-repo pointer: [`README.md`](README.md) § Appendix: For agents.
