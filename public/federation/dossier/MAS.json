@@ -1,36 +1,36 @@
 {
   "entity": "MAS",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:06.628043+00:00",
-  "digest": "sha256:f68fa8eb84eeb8975cc1119dd36e5a7d25d582da2d5a8d3ec81ed3148a2f0191",
+  "compiled_at": "2026-08-01T03:16:06.544337+00:00",
+  "digest": "sha256:5af7458f6adb91d85de1fffdfd09376e4494eacb77fab4991b8e4e2d5f8498fe",
   "own_numbers": {
-    "phi_s": 1.6961,
-    "kappa": 0.0,
-    "mass": 0.100867,
+    "phi_s": 0.064,
+    "kappa": 0.0256,
+    "mass": 0.087,
     "power": null,
     "extraction": null,
-    "memory_mass": 3.9,
+    "memory_mass": 3.2,
     "X_natural": 0.0,
     "gravity_mass": null,
     "mass_type": null
   },
   "vs_whole": {
     "mass": {
-      "value": 0.100867,
-      "rank": 40,
+      "value": 0.087,
+      "rank": 36,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00626,
+      "mass": 0.00665,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 2,
+    "in_degree": 1,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -43,18 +43,13 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.5006
+        "in": 0.5
       }
     },
     "top_inbound": [
       {
         "source": "SINGAPORE_REGION",
         "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
         "vector": "Information"
       }
     ],
@@ -67,34 +62,34 @@
     ],
     "gravity_pairs": [
       {
-        "entity": "34539544",
-        "mass": 171.0,
-        "hops": 1,
-        "pull": 666.9
+        "entity": "US_JURISDICTION",
+        "mass": 55.61,
+        "hops": 2,
+        "pull": 44.488
       },
       {
         "entity": "SEC",
-        "mass": 119.0,
-        "hops": 2,
-        "pull": 116.025
+        "mass": 116.0,
+        "hops": 3,
+        "pull": 41.2444
       },
       {
         "entity": "FED",
-        "mass": 115.0,
-        "hops": 2,
-        "pull": 112.125
-      },
-      {
-        "entity": "ESMA",
-        "mass": 107.0,
-        "hops": 2,
-        "pull": 104.325
+        "mass": 114.0,
+        "hops": 3,
+        "pull": 40.5333
       },
       {
         "entity": "FINRA",
-        "mass": 105.0,
-        "hops": 2,
-        "pull": 102.375
+        "mass": 104.0,
+        "hops": 3,
+        "pull": 36.9778
+      },
+      {
+        "entity": "OCC",
+        "mass": 103.0,
+        "hops": 3,
+        "pull": 36.6222
       }
     ]
   },
@@ -103,9 +98,9 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "phi_s +2550% over 91 cycles",
-    "cycles": 91,
+    "level": "steady",
+    "headline": null,
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -122,7 +117,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "sg_regulatory_gdp_proxy",
-        "last_observed_at": "2026-07-23T21:02:09.931582+00:00",
+        "last_observed_at": "2026-08-01T02:44:18.468409+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -154,56 +149,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "d5b857bc-ba6c-40b7-9911-0f452b21e9d7",
-      "claim_text": "MAS mission \u2014 central bank and financial regulator",
-      "grounding": {
-        "source_url": "https://www.mas.gov.sg/",
-        "expected": "Monetary Authority",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "MAS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/mas-20260702/",
-      "verified_at": "2026-07-02T07:30:16.700979+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "d08ef187-650e-4693-9298-df764e749454",
-      "claim_text": "MAS digital assets and tokenisation",
-      "grounding": {
-        "source_url": "https://www.mas.gov.sg/development/fintech/digital-assets",
-        "expected": "Singapore",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "MAS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/mas-20260702/",
-      "verified_at": "2026-07-02T07:30:17.012457+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "2c00b349-8b5e-4082-995b-0cf7b79a2c64",
-      "claim_text": "MAS FinTech innovation programmes",
-      "grounding": {
-        "source_url": "https://www.mas.gov.sg/development/fintech",
-        "expected": "Singapore",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "MAS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/mas-20260702/",
-      "verified_at": "2026-07-02T07:30:17.345265+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/MAS.json"
+  }
 }

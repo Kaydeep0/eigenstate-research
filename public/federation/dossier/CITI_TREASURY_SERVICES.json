@@ -1,14 +1,14 @@
 {
   "entity": "CITI_TREASURY_SERVICES",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:03.561587+00:00",
-  "digest": "sha256:815244ce5659af69b16566f1c29ef6751a861e133532cbf382d3d73d0f769496",
+  "compiled_at": "2026-08-01T03:16:05.855978+00:00",
+  "digest": "sha256:3099886d104e500e10e548b6f3116fc2e0ee53ab7a0a5ffb580278e22ce9709a",
   "own_numbers": {
-    "phi_s": 0.0226,
-    "kappa": 0.0796,
+    "phi_s": 4.8769,
+    "kappa": 0.1022,
     "mass": null,
-    "power": 0.0,
-    "extraction": 2534.1199,
+    "power": 0.02,
+    "extraction": 64255.2381,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -17,45 +17,45 @@
   "vs_whole": {
     "mass": null,
     "power": {
-      "value": 0.0,
-      "rank": 19,
-      "of": 54
+      "value": 0.02,
+      "rank": 9,
+      "of": 33
     },
     "gravity": null,
     "extraction": {
-      "value": 2534.1199,
-      "rank": 18,
-      "of": 54
+      "value": 64255.2381,
+      "rank": 14,
+      "of": 33
     },
     "share_of_whole": {
       "mass": null,
-      "power": 0.0
+      "power": 0.00676
     },
     "peers_by_power": [
       {
-        "entity": "CIRCLE",
-        "power": 0.0
+        "entity": "BASE",
+        "power": 0.05
       },
       {
-        "entity": "CIRCLE_RESERVE_FUND",
-        "power": 0.0
+        "entity": "CIRCLE",
+        "power": 0.04
       },
       {
         "entity": "CITI_TREASURY_SERVICES",
-        "power": 0.0
+        "power": 0.02
       },
       {
-        "entity": "CROSS_CHAIN_BRIDGE",
-        "power": 0.0
+        "entity": "STABLECOIN_POOL",
+        "power": 0.01
       },
       {
-        "entity": "CUSTODY_IS_SOLVED",
+        "entity": "ARBITRUM",
         "power": 0.0
       }
     ]
   },
   "relationships": {
-    "in_degree": 5,
+    "in_degree": 2,
     "out_degree": 6,
     "by_vector": {
       "Capital": {
@@ -68,25 +68,10 @@
       },
       "Information": {
         "out": 1.0,
-        "in": 2.5
+        "in": 1.0
       }
     },
     "top_inbound": [
-      {
-        "source": "CITIGROUP",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "CITIGROUP",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "CITIGROUP",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
       {
         "source": "CITIGROUP",
         "conn_type": "information_flow",
@@ -125,22 +110,53 @@
         "vector": "Infrastructure"
       }
     ],
-    "gravity_pairs": []
+    "gravity_pairs": [
+      {
+        "entity": "FED",
+        "mass": 114.0,
+        "hops": 1,
+        "pull": 2.28
+      },
+      {
+        "entity": "CITIGROUP",
+        "mass": 92.0,
+        "hops": 1,
+        "pull": 1.84
+      },
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 55.61,
+        "hops": 1,
+        "pull": 1.1122
+      },
+      {
+        "entity": "SEC",
+        "mass": 116.0,
+        "hops": 2,
+        "pull": 0.58
+      },
+      {
+        "entity": "FINRA",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 0.52
+      }
+    ]
   },
   "monetary_position": {
-    "position": 0.604,
+    "position": 0.575,
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 91,
+    "level": "flag",
+    "headline": "phi_s +21479% over 18 cycles",
+    "cycles": 18,
     "delta_last_cycle": {
-      "phi_s": 0.0005,
-      "kappa": -0.0361,
+      "phi_s": 0.0,
+      "kappa": 0.0,
       "power": 0.0,
-      "extraction": -7682.668,
-      "boundary_score": -0.021
+      "extraction": 0.0,
+      "boundary_score": 0.0
     }
   },
   "network_plugs": {
@@ -174,56 +190,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "7f901b91-da46-47e2-8a9b-5c95559f9e19",
-      "claim_text": "Citi Treasury and Trade Solutions",
-      "grounding": {
-        "source_url": "https://www.citi.com/global/business/treasury",
-        "expected": "Treasury",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "CITI_TREASURY_SERVICES_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/citi-treasury-services-20260702/",
-      "verified_at": "2026-07-02T17:13:20.200231+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "1cb053ca-d1a2-4c74-8693-83a47b5bfff8",
-      "claim_text": "Citi institutional banking identity",
-      "grounding": {
-        "source_url": "https://www.citi.com/global/business/treasury",
-        "expected": "Citi",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "CITI_TREASURY_SERVICES_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/citi-treasury-services-20260702/",
-      "verified_at": "2026-07-02T17:13:21.280165+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "a236d169-05e9-4d6f-87ef-8ac0157eabe8",
-      "claim_text": "Citigroup global financial services",
-      "grounding": {
-        "source_url": "https://www.citigroup.com/global/about-us",
-        "expected": "global",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "CITI_TREASURY_SERVICES_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/citi-treasury-services-20260702/",
-      "verified_at": "2026-07-02T17:13:21.886967+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/CITI_TREASURY_SERVICES.json"
+  }
 }

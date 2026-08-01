@@ -1,12 +1,12 @@
 {
   "entity": "BACKED",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:02.573458+00:00",
-  "digest": "sha256:13287ffe34c68cbf89aaf0ffe728de76b017f00297c7114058730bfed7461cda",
+  "compiled_at": "2026-08-01T03:16:05.632757+00:00",
+  "digest": "sha256:fd6364f9d465ac2b760fbbf791c4295fb19d23d9e9e033bbe4722ec61da5577e",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0289,
-    "mass": 0.047374,
+    "kappa": 0.0383,
+    "mass": 0.0348,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,7 +16,7 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.047374,
+      "value": 0.0348,
       "rank": 94,
       "of": 199
     },
@@ -24,13 +24,13 @@
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00294,
+      "mass": 0.00266,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 2,
+    "in_degree": 1,
     "out_degree": 2,
     "by_vector": {
       "Capital": {
@@ -43,18 +43,13 @@
       },
       "Information": {
         "out": 1.0,
-        "in": 0.5103
+        "in": 0.5
       }
     },
     "top_inbound": [
       {
         "source": "EU_WESTERN",
         "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
         "vector": "Information"
       }
     ],
@@ -73,13 +68,13 @@
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.45,
+    "position": 0.433,
     "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 91,
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -87,7 +82,7 @@
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "stale",
     "inbound": [],
     "outbound": [
       {
@@ -112,61 +107,10 @@
       }
     ],
     "observation": {
-      "source": "propagated",
-      "last_observed_at": "2026-07-23T18:15:04.917996+00:00",
-      "last_delta_i": 8.190020009478972e+24,
-      "stale": false
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "e75d6f55-453d-4f05-81a8-d11eab0236af",
-      "claim_text": "Backed Finance \u2014 issuer homepage",
-      "grounding": {
-        "source_url": "https://backed.fi/",
-        "expected": "Backed",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "BACKED_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/backed-20260702/",
-      "verified_at": "2026-07-02T02:47:06.683054+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "dcac43ee-7308-4d66-8c58-8104e44698f4",
-      "claim_text": "DeFiLlama \u2014 Backed protocol page",
-      "grounding": {
-        "source_url": "https://defillama.com/protocol/backedfi",
-        "expected": "Backed",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "onchain_secondary",
-      "witness_weight": 0.62,
-      "report_id": "BACKED_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/backed-20260702/",
-      "verified_at": "2026-07-02T02:47:06.790352+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "3ced5c07-0510-4f24-af16-cd2b9f4556de",
-      "claim_text": "RWA.xyz \u2014 tokenized asset index",
-      "grounding": {
-        "source_url": "https://rwa.xyz/",
-        "expected": "tokenized",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "BACKED_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/backed-20260702/",
-      "verified_at": "2026-07-02T02:47:07.256187+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/BACKED.json"
+  }
 }

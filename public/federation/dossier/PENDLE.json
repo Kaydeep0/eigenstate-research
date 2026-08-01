@@ -1,12 +1,12 @@
 {
   "entity": "PENDLE",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:07.557106+00:00",
-  "digest": "sha256:4aa29109b794cb37e80cddc8252b9e19bcfc09c8647c3f22c960a6f21eb029b5",
+  "compiled_at": "2026-08-01T03:16:06.759749+00:00",
+  "digest": "sha256:982a26fe4d8eb4c71e0b7290a42f311c35a2d8553b3ca2513247540a2b0a801f",
   "own_numbers": {
-    "phi_s": 0.02,
-    "kappa": 0.0362,
-    "mass": 0.049498,
+    "phi_s": null,
+    "kappa": null,
+    "mass": 0.0348,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,83 +16,24 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.049498,
-      "rank": 89,
+      "value": 0.0348,
+      "rank": 188,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00307,
+      "mass": 0.00266,
       "power": null
     },
     "peers_by_power": []
   },
-  "relationships": {
-    "in_degree": 1,
-    "out_degree": 4,
-    "by_vector": {
-      "Capital": {
-        "out": 0.0,
-        "in": 0.0
-      },
-      "Infrastructure": {
-        "out": 0.0,
-        "in": 0.0
-      },
-      "Information": {
-        "out": 2.0,
-        "in": 0.0103
-      }
-    },
-    "top_inbound": [
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
-      }
-    ],
-    "top_outbound": [
-      {
-        "target": "ETHEREUM",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "target": "ARBITRUM",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "target": "BASE",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "target": "AVALANCHE",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      }
-    ],
-    "gravity_pairs": []
-  },
-  "monetary_position": {
-    "position": 0.5,
-    "well": "fiat"
-  },
-  "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 91,
-    "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": 0.0,
-      "boundary_score": 0.0
-    }
-  },
+  "relationships": null,
+  "monetary_position": null,
+  "drift": null,
   "network_plugs": {
-    "freshness": "stale",
+    "freshness": "seed",
     "inbound": [],
     "outbound": [
       {
@@ -116,62 +57,6 @@
         "status": "gated"
       }
     ],
-    "observation": {
-      "source": null,
-      "last_observed_at": null,
-      "last_delta_i": null,
-      "stale": true
-    }
-  },
-  "claims": [
-    {
-      "claim_id": "fe9bcb02-a47b-4991-8a49-b45068f447c5",
-      "claim_text": "Pendle Finance \u2014 yield trading protocol",
-      "grounding": {
-        "source_url": "https://www.pendle.finance/",
-        "expected": "Pendle",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "PENDLE_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/pendle-20260702/",
-      "verified_at": "2026-07-02T17:39:22.473217+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "2014a319-18f7-4ddf-a89d-edbc2a57ae0a",
-      "claim_text": "Pendle \u2014 Principal and Yield token markets",
-      "grounding": {
-        "source_url": "https://www.pendle.finance/",
-        "expected": "Principal",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "PENDLE_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/pendle-20260702/",
-      "verified_at": "2026-07-02T17:39:22.611515+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "41a229f6-b240-4837-8506-2dc845671a8f",
-      "claim_text": "DeFiLlama \u2014 Pendle protocol listing",
-      "grounding": {
-        "source_url": "https://defillama.com/protocol/pendle",
-        "expected": "yield",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "onchain_secondary",
-      "witness_weight": 0.62,
-      "report_id": "PENDLE_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/pendle-20260702/",
-      "verified_at": "2026-07-02T17:39:22.715903+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/PENDLE.json"
+    "observation": null
+  }
 }

@@ -1,82 +1,82 @@
 {
   "entity": "BLACKROCK",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:03.043424+00:00",
-  "digest": "sha256:d3a4661ae7bf9b9973245511b60da5ed1134f1bd1ffc5632fd7deb8628e62d6d",
+  "compiled_at": "2026-08-01T03:16:05.735629+00:00",
+  "digest": "sha256:a7382e180227ed0e13e92ecf981082dc53f5de32ef00f0e31cf8c04a14b283e1",
   "own_numbers": {
-    "phi_s": 3.294,
-    "kappa": 0.0015,
-    "mass": 0.313744,
-    "power": 0.02,
-    "extraction": 1140.2246,
+    "phi_s": 1.6685,
+    "kappa": 0.0008,
+    "mass": 0.219478,
+    "power": 0.0,
+    "extraction": 359.6992,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 88.0,
+    "gravity_mass": 84.0,
     "mass_type": "capital"
   },
   "vs_whole": {
     "mass": {
-      "value": 0.313744,
-      "rank": 6,
+      "value": 0.219478,
+      "rank": 9,
       "of": 199
     },
     "power": {
-      "value": 0.02,
-      "rank": 5,
-      "of": 54
+      "value": 0.0,
+      "rank": 12,
+      "of": 33
     },
     "gravity": {
-      "value": 88.0,
-      "rank": 12,
-      "of": 62
+      "value": 84.0,
+      "rank": 11,
+      "of": 59
     },
     "extraction": {
-      "value": 1140.2246,
-      "rank": 23,
-      "of": 54
+      "value": 359.6992,
+      "rank": 32,
+      "of": 33
     },
     "share_of_whole": {
-      "mass": 0.01948,
-      "power": 0.07692
+      "mass": 0.01677,
+      "power": 0.0
     },
     "peers_by_power": [
       {
-        "entity": "34539544",
-        "power": 0.05
+        "entity": "STABLECOIN_POOL",
+        "power": 0.01
       },
       {
-        "entity": "TREASURY_MARKET",
-        "power": 0.03
+        "entity": "ARBITRUM",
+        "power": 0.0
       },
       {
         "entity": "BLACKROCK",
-        "power": 0.02
+        "power": 0.0
       },
       {
-        "entity": "BNY_MELLON",
-        "power": 0.01
+        "entity": "CANTOR_FITZGERALD",
+        "power": 0.0
       },
       {
-        "entity": "COINBASE",
-        "power": 0.01
+        "entity": "CIRCLE_RESERVE_FUND",
+        "power": 0.0
       }
     ]
   },
   "relationships": {
-    "in_degree": 11,
-    "out_degree": 7,
+    "in_degree": 9,
+    "out_degree": 5,
     "by_vector": {
       "Capital": {
-        "out": 1.0,
-        "in": 1.0
-      },
-      "Infrastructure": {
         "out": 0.0,
         "in": 0.5
       },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
       "Information": {
         "out": 2.5,
-        "in": 3.7
+        "in": 3.51
       }
     },
     "top_inbound": [
@@ -135,56 +135,56 @@
     ],
     "gravity_pairs": [
       {
-        "entity": "34539544",
-        "mass": 171.0,
-        "hops": 1,
-        "pull": 15048.0
-      },
-      {
         "entity": "SEC",
-        "mass": 119.0,
+        "mass": 116.0,
         "hops": 1,
-        "pull": 10472.0
+        "pull": 9744.0
       },
       {
         "entity": "FED",
-        "mass": 115.0,
+        "mass": 114.0,
         "hops": 2,
-        "pull": 2530.0
+        "pull": 2394.0
       },
       {
         "entity": "ESMA",
-        "mass": 107.0,
+        "mass": 106.0,
         "hops": 2,
-        "pull": 2354.0
+        "pull": 2226.0
       },
       {
         "entity": "FINRA",
-        "mass": 105.0,
+        "mass": 104.0,
         "hops": 2,
-        "pull": 2310.0
+        "pull": 2184.0
+      },
+      {
+        "entity": "CFTC",
+        "mass": 102.0,
+        "hops": 2,
+        "pull": 2142.0
       }
     ]
   },
   "monetary_position": {
-    "position": 0.697,
+    "position": 0.69,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "extraction -98% over 91 cycles",
-    "cycles": 91,
+    "headline": "phi_s +2723% over 18 cycles",
+    "cycles": 18,
     "delta_last_cycle": {
-      "phi_s": 0.0042,
-      "kappa": 0.0001,
-      "power": -0.02,
-      "extraction": -1263.908,
-      "gravity_mass": -1.0,
-      "boundary_score": 0.011
+      "phi_s": 0.0,
+      "kappa": -0.0002,
+      "power": 0.0,
+      "extraction": 0.0,
+      "gravity_mass": 0.0,
+      "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live_at_request",
+    "freshness": "live",
     "inbound": [
       {
         "network": "defillama",
@@ -196,7 +196,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live_at_request",
-        "last_observed_at": "2026-07-23T19:00:44.145676+00:00",
+        "last_observed_at": "2026-08-01T03:00:02.932438+00:00",
         "filings": null,
         "note": "CIK 0001364742 \u2014 live on feed + parkash sensor"
       }
@@ -224,15 +224,15 @@
       }
     ],
     "observation": {
-      "source": "defi_llama_tvl",
-      "last_observed_at": "2026-07-16T15:00:29.137327+00:00",
-      "last_delta_i": 0.07445768655538913,
-      "stale": true
+      "source": "information_flow",
+      "last_observed_at": "2026-07-31T22:33:26.886440+00:00",
+      "last_delta_i": 0.1,
+      "stale": false
     }
   },
   "claims": [
     {
-      "claim_id": "1385ea3f-d2f4-4e00-a656-8a1acba29e9e",
+      "claim_id": "c7690f68-8103-46e3-b800-ffe74c9ca3f2",
       "claim_text": "BlackRock \u2014 global asset manager",
       "grounding": {
         "source_url": "https://www.blackrock.com/corporate",
@@ -240,45 +240,60 @@
         "location": ""
       },
       "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
       "witness_class": "unknown_secondary",
       "witness_weight": 0.08,
-      "report_id": "BLACKROCK_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/blackrock-20260702/",
-      "verified_at": "2026-07-02T04:15:18.506370+00:00",
+      "report_id": "REVALIDATION_20260729",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/revalidation-20260729/",
+      "verified_at": "2026-07-29T17:12:43.131014+00:00",
+      "expires_at": "2026-10-27T17:12:43+00:00",
+      "volatility_class": "default",
       "allows_canonical": true
     },
     {
-      "claim_id": "a63cb92e-b7c1-445a-a26a-4159fc3a63be",
+      "claim_id": "7e3bdad8-02fd-40bd-a1da-34b2a7ada770",
       "claim_text": "BUIDL \u2014 tokenized treasury fund on-chain",
       "grounding": {
         "source_url": "https://rwa.xyz/assets/buidl",
         "expected": "BUIDL",
         "location": ""
       },
-      "status_at_publish": "ATTESTED-PRIMARY",
+      "status_at_publish": "ATTESTED-DERIVED",
+      "source_type": "derived",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": true,
       "witness_class": "unknown_secondary",
       "witness_weight": 0.08,
-      "report_id": "BLACKROCK_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/blackrock-20260702/",
-      "verified_at": "2026-07-02T04:15:18.686946+00:00",
+      "report_id": "REVALIDATION_20260729",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/revalidation-20260729/",
+      "verified_at": "2026-07-29T17:12:43.349585+00:00",
+      "expires_at": "2026-10-27T17:12:43+00:00",
+      "volatility_class": "default",
       "allows_canonical": true
     },
     {
-      "claim_id": "88bdd200-7762-48f3-bd00-18f7b02031e9",
+      "claim_id": "04341add-9aa7-4708-b349-a8f8e4cd1bdf",
       "claim_text": "DeFiLlama tracks BlackRock BUIDL protocol activity",
       "grounding": {
         "source_url": "https://defillama.com/protocol/blackrock-buidl",
         "expected": "BlackRock",
         "location": ""
       },
-      "status_at_publish": "ATTESTED-PRIMARY",
+      "status_at_publish": "ATTESTED-DERIVED",
+      "source_type": "derived",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": true,
       "witness_class": "onchain_secondary",
       "witness_weight": 0.62,
-      "report_id": "BLACKROCK_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/blackrock-20260702/",
-      "verified_at": "2026-07-02T04:15:18.796410+00:00",
+      "report_id": "REVALIDATION_20260729",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/revalidation-20260729/",
+      "verified_at": "2026-07-29T17:12:43.449103+00:00",
+      "expires_at": "2026-10-27T17:12:43+00:00",
+      "volatility_class": "default",
       "allows_canonical": true
     }
   ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/BLACKROCK.json"
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/BLACKROCK.json"
 }

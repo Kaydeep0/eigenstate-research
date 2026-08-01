@@ -1,37 +1,37 @@
 {
   "entity": "OPTIMISM_RETROPGF",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:07.354467+00:00",
-  "digest": "sha256:c6c3affb6ccd361eb49bd3c6f4459947a006c56554cc0b8964fa90e03eec9a40",
+  "compiled_at": "2026-08-01T03:16:06.710867+00:00",
+  "digest": "sha256:bcd9777512b77db329841afe4aedf9a50bf087ebd5d0a43ad88dde578832d613",
   "own_numbers": {
-    "phi_s": 0.016,
-    "kappa": 0.0072,
-    "mass": 0.038685,
+    "phi_s": 0.0,
+    "kappa": 0.0,
+    "mass": 0.0348,
     "power": null,
     "extraction": null,
-    "memory_mass": 0.8,
+    "memory_mass": 0.0,
     "X_natural": null,
     "gravity_mass": null,
     "mass_type": null
   },
   "vs_whole": {
     "mass": {
-      "value": 0.038685,
-      "rank": 135,
+      "value": 0.0348,
+      "rank": 60,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.0024,
+      "mass": 0.00266,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
     "in_degree": 0,
-    "out_degree": 1,
+    "out_degree": 0,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -42,53 +42,22 @@
         "in": 0.0
       },
       "Information": {
-        "out": 0.5,
+        "out": 0.0,
         "in": 0.0
       }
     },
     "top_inbound": [],
-    "top_outbound": [
-      {
-        "target": "RIVER",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      }
-    ],
-    "gravity_pairs": [
-      {
-        "entity": "34539544",
-        "mass": 171.0,
-        "hops": 3,
-        "pull": 15.2
-      },
-      {
-        "entity": "AAVE_FORUM",
-        "mass": 34.0,
-        "hops": 2,
-        "pull": 6.8
-      },
-      {
-        "entity": "BASE_GRANTS",
-        "mass": 33.0,
-        "hops": 2,
-        "pull": 6.6
-      },
-      {
-        "entity": "COINBASE",
-        "mass": 0.01,
-        "hops": 3,
-        "pull": 0.0009
-      }
-    ]
+    "top_outbound": [],
+    "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.3,
-    "well": "boundary"
+    "position": 0.5,
+    "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 91,
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -127,56 +96,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "c925bb5c-3c3d-414d-8744-1c17f8248d0e",
-      "claim_text": "Optimism \u2014 Layer 2 homepage",
-      "grounding": {
-        "source_url": "https://www.optimism.io/",
-        "expected": "Optimism",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "OPTIMISM_RETROPGF_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/optimism-retropgf-20260702/",
-      "verified_at": "2026-07-02T01:55:08.207880+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "9e0c3bf1-7991-4789-bb17-46a8fca2f345",
-      "claim_text": "Optimism community hub",
-      "grounding": {
-        "source_url": "https://community.optimism.io/",
-        "expected": "Optimism",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "OPTIMISM_RETROPGF_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/optimism-retropgf-20260702/",
-      "verified_at": "2026-07-02T01:55:08.615679+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "d877db7a-0fee-4fc8-8015-a55f6b699766",
-      "claim_text": "Optimism governance \u2014 public goods funding",
-      "grounding": {
-        "source_url": "https://gov.optimism.io/",
-        "expected": "public goods",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "OPTIMISM_RETROPGF_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/optimism-retropgf-20260702/",
-      "verified_at": "2026-07-02T01:55:09.366359+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/OPTIMISM_RETROPGF.json"
+  }
 }

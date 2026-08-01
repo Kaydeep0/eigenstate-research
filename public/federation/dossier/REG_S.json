@@ -1,36 +1,36 @@
 {
   "entity": "REG_S",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:07.787339+00:00",
-  "digest": "sha256:ea9de45f44997e0b49a88bba912300e11db6e15610bd48e9d78511b99ef8c324",
+  "compiled_at": "2026-08-01T03:16:06.815705+00:00",
+  "digest": "sha256:fd4090520921f7a4c653e8f59a821b814ad9735bcee9cd90a8e1df2e4f622ad3",
   "own_numbers": {
-    "phi_s": 3.3142,
-    "kappa": 0.0002,
-    "mass": 0.097804,
+    "phi_s": 3.2842,
+    "kappa": 0.0001,
+    "mass": 0.087,
     "power": null,
     "extraction": null,
-    "memory_mass": 3.9,
+    "memory_mass": 2.4,
     "X_natural": 0.0,
     "gravity_mass": null,
     "mass_type": null
   },
   "vs_whole": {
     "mass": {
-      "value": 0.097804,
-      "rank": 45,
+      "value": 0.087,
+      "rank": 40,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00607,
+      "mass": 0.00665,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 3,
+    "in_degree": 2,
     "out_degree": 0,
     "by_vector": {
       "Capital": {
@@ -43,7 +43,7 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 1.1134
+        "in": 1.0
       }
     },
     "top_inbound": [
@@ -56,64 +56,59 @@
         "source": "REG_D",
         "conn_type": "information_flow",
         "vector": "Information"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
       }
     ],
     "top_outbound": [],
     "gravity_pairs": [
       {
-        "entity": "34539544",
-        "mass": 171.0,
-        "hops": 1,
-        "pull": 666.9
-      },
-      {
         "entity": "SEC",
-        "mass": 119.0,
+        "mass": 116.0,
         "hops": 1,
-        "pull": 464.1
-      },
-      {
-        "entity": "FED",
-        "mass": 115.0,
-        "hops": 2,
-        "pull": 112.125
+        "pull": 278.4
       },
       {
         "entity": "ESMA",
-        "mass": 107.0,
+        "mass": 106.0,
         "hops": 2,
-        "pull": 104.325
+        "pull": 63.6
       },
       {
-        "entity": "FINRA",
-        "mass": 105.0,
+        "entity": "CFTC",
+        "mass": 102.0,
         "hops": 2,
-        "pull": 102.375
+        "pull": 61.2
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 84.0,
+        "hops": 2,
+        "pull": 50.4
+      },
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 55.61,
+        "hops": 2,
+        "pull": 33.366
       }
     ]
   },
   "monetary_position": {
-    "position": 0.567,
+    "position": 0.6,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +6805% over 91 cycles",
-    "cycles": 91,
+    "headline": "phi_s +6742% over 18 cycles",
+    "cycles": 18,
     "delta_last_cycle": {
-      "phi_s": -1.6182,
-      "kappa": 0.0,
+      "phi_s": 0.0,
+      "kappa": -0.0001,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "stale",
     "inbound": [],
     "outbound": [
       {
@@ -139,60 +134,9 @@
     ],
     "observation": {
       "source": null,
-      "last_observed_at": "2026-07-17T18:42:20.710763+00:00",
+      "last_observed_at": null,
       "last_delta_i": null,
-      "stale": false
+      "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "14e29192-f786-4e0f-a8cb-578c0f73c855",
-      "claim_text": "SEC exempt offerings framework",
-      "grounding": {
-        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings",
-        "expected": "Regulation",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "regulatory_primary",
-      "witness_weight": 0.9,
-      "report_id": "REG_S_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-s-20260702/",
-      "verified_at": "2026-07-02T06:07:47.126732+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "b48574e2-cd47-480b-aed6-8bb0bf6252d4",
-      "claim_text": "SEC securities offering exemptions overview",
-      "grounding": {
-        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings",
-        "expected": "securities",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "regulatory_primary",
-      "witness_weight": 0.9,
-      "report_id": "REG_S_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-s-20260702/",
-      "verified_at": "2026-07-02T06:07:47.372337+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "c39e7fac-ac71-42bc-8bff-8ba0147a458d",
-      "claim_text": "SEC capital raising exempt offering paths",
-      "grounding": {
-        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings",
-        "expected": "offering",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "regulatory_primary",
-      "witness_weight": 0.9,
-      "report_id": "REG_S_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-s-20260702/",
-      "verified_at": "2026-07-02T06:07:47.550664+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/REG_S.json"
+  }
 }

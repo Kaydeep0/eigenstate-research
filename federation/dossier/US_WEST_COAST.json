@@ -1,12 +1,12 @@
 {
   "entity": "US_WEST_COAST",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:09.702458+00:00",
-  "digest": "sha256:dc77ebe15a0a8601d7079f94506269e69bef654266f663dda02b8505253c420e",
+  "compiled_at": "2026-08-01T03:16:07.242058+00:00",
+  "digest": "sha256:2320e66c82ad39dc99f583daeb496cc6a7a3c7c60378782717f1a250bcf2101e",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0217,
-    "mass": 0.045139,
+    "kappa": 0.0256,
+    "mass": 0.0348,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,21 +16,21 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.045139,
-      "rank": 111,
+      "value": 0.0348,
+      "rank": 147,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.0028,
+      "mass": 0.00266,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 2,
+    "in_degree": 1,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -43,18 +43,13 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.5103
+        "in": 0.5
       }
     },
     "top_inbound": [
       {
         "source": "US_EAST_COAST",
         "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
         "vector": "Information"
       }
     ],
@@ -68,13 +63,13 @@
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.433,
+    "position": 0.4,
     "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 91,
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -112,56 +107,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "d4b194f8-39be-4ea2-8549-fece0b85462e",
-      "claim_text": "Federal Reserve Bank of San Francisco \u2014 homepage",
-      "grounding": {
-        "source_url": "https://www.frbsf.org/",
-        "expected": "Federal Reserve Bank",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "US_WEST_COAST_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/us-west-coast-20260702/",
-      "verified_at": "2026-07-02T03:16:26.941135+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "4b746e83-a740-4a1b-8db3-1ce882f3a57a",
-      "claim_text": "San Francisco Fed economic research",
-      "grounding": {
-        "source_url": "https://www.frbsf.org/economic-research/",
-        "expected": "research",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "US_WEST_COAST_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/us-west-coast-20260702/",
-      "verified_at": "2026-07-02T03:16:27.653513+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "46a3fb8b-2da1-4674-8e04-80fae0dd5236",
-      "claim_text": "Coinbase institutional homepage",
-      "grounding": {
-        "source_url": "https://www.coinbase.com/institutional",
-        "expected": "Coinbase",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "US_WEST_COAST_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/us-west-coast-20260702/",
-      "verified_at": "2026-07-02T03:16:27.837731+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/US_WEST_COAST.json"
+  }
 }

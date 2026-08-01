@@ -1,12 +1,12 @@
 {
   "entity": "DEVELOPER_AUDIENCE",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:04.455803+00:00",
-  "digest": "sha256:888bdcf3aa6a64b6de68b835261370eabb44c5e2fc3b22062b9467e415fc898c",
+  "compiled_at": "2026-08-01T03:16:06.053778+00:00",
+  "digest": "sha256:475d7c6af5006838f448ebef63670970ad2d9831c5dc1463f655b12311e56981",
   "own_numbers": {
     "phi_s": 0.0,
-    "kappa": 0.0145,
-    "mass": 0.038434,
+    "kappa": 0.0128,
+    "mass": 0.0348,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,21 +16,21 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.038434,
-      "rank": 163,
+      "value": 0.0348,
+      "rank": 80,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00239,
+      "mass": 0.00266,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 2,
+    "in_degree": 1,
     "out_degree": 0,
     "by_vector": {
       "Capital": {
@@ -43,18 +43,13 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 0.9
+        "in": 0.5
       }
     },
     "top_inbound": [
       {
         "source": "GITHUB",
         "conn_type": "audience",
-        "vector": "Information"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
         "vector": "Information"
       }
     ],
@@ -68,7 +63,7 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 91,
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -76,7 +71,7 @@
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "stale",
     "inbound": [],
     "outbound": [
       {
@@ -101,61 +96,10 @@
       }
     ],
     "observation": {
-      "source": "propagated",
-      "last_observed_at": "2026-07-23T18:15:04.917996+00:00",
-      "last_delta_i": 7.393362051301318e+24,
-      "stale": false
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "f53978c0-41c3-4e95-b60f-c8b973b72e9c",
-      "claim_text": "Ethereum developers portal",
-      "grounding": {
-        "source_url": "https://ethereum.org/developers/",
-        "expected": "developer",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "DEVELOPER_AUDIENCE_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/developer-audience-20260702/",
-      "verified_at": "2026-07-02T00:54:03.473779+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "e67049b4-614f-4137-b93a-c9036fd084c9",
-      "claim_text": "Base Layer 2 builder documentation",
-      "grounding": {
-        "source_url": "https://docs.base.org/get-started/base",
-        "expected": "Layer 2",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "DEVELOPER_AUDIENCE_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/developer-audience-20260702/",
-      "verified_at": "2026-07-02T00:54:03.624583+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "5bcc2ee9-ba30-44be-b518-eb668391c4c7",
-      "claim_text": "OpenZeppelin Contracts documentation",
-      "grounding": {
-        "source_url": "https://docs.openzeppelin.com/contracts/5.x/",
-        "expected": "OpenZeppelin",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "DEVELOPER_AUDIENCE_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/developer-audience-20260702/",
-      "verified_at": "2026-07-02T00:54:04.095453+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/DEVELOPER_AUDIENCE.json"
+  }
 }

@@ -1,12 +1,12 @@
 {
   "entity": "MORPHO_V1",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:06.889102+00:00",
-  "digest": "sha256:4b22b3e4abc35ebb4e7c0c7509ad12c21163ddbd4b7f030ebc5da39d047e58f9",
+  "compiled_at": "2026-08-01T03:16:06.606831+00:00",
+  "digest": "sha256:8c8dfd7b14cb6026c077201ab49e9896913ff3d05ce9d0ae3211b4918af706f1",
   "own_numbers": {
-    "phi_s": 0.02,
-    "kappa": 0.0362,
-    "mass": 0.049504,
+    "phi_s": null,
+    "kappa": null,
+    "mass": 0.0348,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,83 +16,24 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.049504,
-      "rank": 88,
+      "value": 0.0348,
+      "rank": 177,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00307,
+      "mass": 0.00266,
       "power": null
     },
     "peers_by_power": []
   },
-  "relationships": {
-    "in_degree": 1,
-    "out_degree": 4,
-    "by_vector": {
-      "Capital": {
-        "out": 0.0,
-        "in": 0.0
-      },
-      "Infrastructure": {
-        "out": 0.0,
-        "in": 0.0
-      },
-      "Information": {
-        "out": 2.0,
-        "in": 0.0103
-      }
-    },
-    "top_inbound": [
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
-      }
-    ],
-    "top_outbound": [
-      {
-        "target": "ETHEREUM",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "target": "BASE",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "target": "ARBITRUM",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "target": "POLYGON",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      }
-    ],
-    "gravity_pairs": []
-  },
-  "monetary_position": {
-    "position": 0.5,
-    "well": "fiat"
-  },
-  "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 91,
-    "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": 0.0,
-      "boundary_score": 0.0
-    }
-  },
+  "relationships": null,
+  "monetary_position": null,
+  "drift": null,
   "network_plugs": {
-    "freshness": "stale",
+    "freshness": "seed",
     "inbound": [],
     "outbound": [
       {
@@ -116,62 +57,6 @@
         "status": "gated"
       }
     ],
-    "observation": {
-      "source": null,
-      "last_observed_at": null,
-      "last_delta_i": null,
-      "stale": true
-    }
-  },
-  "claims": [
-    {
-      "claim_id": "cc1950c7-c06b-477a-b347-527c543a7da1",
-      "claim_text": "Morpho protocol documentation",
-      "grounding": {
-        "source_url": "https://docs.morpho.org/",
-        "expected": "Morpho",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "MORPHO_V1_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/morpho-v1-20260702/",
-      "verified_at": "2026-07-02T02:20:20.257780+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "1d219398-d9e1-4a3f-b779-291c9bf5fe3a",
-      "claim_text": "DeFiLlama \u2014 Morpho protocol page",
-      "grounding": {
-        "source_url": "https://defillama.com/protocol/morpho",
-        "expected": "Morpho",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "onchain_secondary",
-      "witness_weight": 0.62,
-      "report_id": "MORPHO_V1_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/morpho-v1-20260702/",
-      "verified_at": "2026-07-02T02:20:20.387955+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "f4522608-1887-4595-9bde-c0a3ff1a5070",
-      "claim_text": "Aave \u2014 underlying lending market",
-      "grounding": {
-        "source_url": "https://aave.com/",
-        "expected": "Aave",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "MORPHO_V1_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/morpho-v1-20260702/",
-      "verified_at": "2026-07-02T02:20:20.566513+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/MORPHO_V1.json"
+    "observation": null
+  }
 }

@@ -1,14 +1,14 @@
 {
   "entity": "PRIMARY_DEALER_NETWORK",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:07.614346+00:00",
-  "digest": "sha256:30e29211070cc683942375408dae9154d90a03c1359b7826cd6b2ca93be6c24d",
+  "compiled_at": "2026-08-01T03:16:06.776294+00:00",
+  "digest": "sha256:9e1342bcfbff274f8ef8f693f57d295901837c3099d08b63a79755c5772dc7d6",
   "own_numbers": {
     "phi_s": 0.0,
-    "kappa": 0.0868,
+    "kappa": 0.1406,
     "mass": null,
-    "power": 0.0,
-    "extraction": 6598.7439,
+    "power": null,
+    "extraction": null,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -16,46 +16,17 @@
   },
   "vs_whole": {
     "mass": null,
-    "power": {
-      "value": 0.0,
-      "rank": 41,
-      "of": 54
-    },
+    "power": null,
     "gravity": null,
-    "extraction": {
-      "value": 6598.7439,
-      "rank": 11,
-      "of": 54
-    },
+    "extraction": null,
     "share_of_whole": {
       "mass": null,
-      "power": 0.0
+      "power": null
     },
-    "peers_by_power": [
-      {
-        "entity": "ONDO",
-        "power": 0.0
-      },
-      {
-        "entity": "OUSG",
-        "power": 0.0
-      },
-      {
-        "entity": "PRIMARY_DEALER_NETWORK",
-        "power": 0.0
-      },
-      {
-        "entity": "RIVER",
-        "power": 0.0
-      },
-      {
-        "entity": "ROBERT_LESHNER",
-        "power": 0.0
-      }
-    ]
+    "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 9,
+    "in_degree": 8,
     "out_degree": 3,
     "by_vector": {
       "Capital": {
@@ -68,7 +39,7 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 0.4
+        "in": 0.0
       }
     },
     "top_inbound": [
@@ -118,23 +89,21 @@
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.525,
+    "position": 0.527,
     "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 91,
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
-      "power": 0.0,
-      "extraction": 0.0,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "stale",
     "inbound": [],
     "outbound": [
       {
@@ -159,61 +128,10 @@
       }
     ],
     "observation": {
-      "source": "propagated",
-      "last_observed_at": "2026-07-23T18:15:04.917996+00:00",
-      "last_delta_i": 1.9437609901600657e+60,
-      "stale": false
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "3f2d39be-f1e6-4bdf-bb77-57f7fd6b9f9f",
-      "claim_text": "NY Fed \u2014 primary dealer counterparty list",
-      "grounding": {
-        "source_url": "https://www.newyorkfed.org/markets/primarydealers",
-        "expected": "Primary dealers",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "PRIMARY_DEALER_NETWORK_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/primary-dealer-network-20260702/",
-      "verified_at": "2026-07-02T18:27:21.003458+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "d515ff6f-b07d-48ee-b299-a97221ced97e",
-      "claim_text": "NY Fed \u2014 Treasury auction participation",
-      "grounding": {
-        "source_url": "https://www.newyorkfed.org/markets/primarydealers",
-        "expected": "Treasury auctions",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "PRIMARY_DEALER_NETWORK_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/primary-dealer-network-20260702/",
-      "verified_at": "2026-07-02T18:27:21.090345+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "afcd6905-719f-4c98-8639-2d031a61d4ec",
-      "claim_text": "NY Fed \u2014 domestic market operations",
-      "grounding": {
-        "source_url": "https://www.newyorkfed.org/markets/domestic-market-operations",
-        "expected": "Treasury",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "PRIMARY_DEALER_NETWORK_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/primary-dealer-network-20260702/",
-      "verified_at": "2026-07-02T18:27:21.331124+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/PRIMARY_DEALER_NETWORK.json"
+  }
 }

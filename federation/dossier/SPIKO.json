@@ -1,12 +1,12 @@
 {
   "entity": "SPIKO",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:08.653088+00:00",
-  "digest": "sha256:b17064729027c4d0e074a9fbb7d6a309c9e568647e87872c76a9fb46da5ea268",
+  "compiled_at": "2026-08-01T03:16:07.008695+00:00",
+  "digest": "sha256:eb5fac3f2a36d677cd706ac83ea60853988fc2d57873e85b3e9b244f9e3b39f4",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0217,
-    "mass": 0.04655,
+    "kappa": 0.0256,
+    "mass": 0.0348,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,21 +16,21 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.04655,
-      "rank": 98,
+      "value": 0.0348,
+      "rank": 95,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00289,
+      "mass": 0.00266,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 2,
+    "in_degree": 1,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -43,18 +43,13 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.5103
+        "in": 0.5
       }
     },
     "top_inbound": [
       {
         "source": "EU_WESTERN",
         "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
         "vector": "Information"
       }
     ],
@@ -74,7 +69,7 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 91,
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -82,7 +77,7 @@
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "stale",
     "inbound": [],
     "outbound": [
       {
@@ -107,61 +102,10 @@
       }
     ],
     "observation": {
-      "source": "propagated",
-      "last_observed_at": "2026-07-23T18:15:04.917996+00:00",
-      "last_delta_i": 1.0038185389560925,
-      "stale": false
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "236e15db-12b6-497e-9529-13cae44200d3",
-      "claim_text": "Spiko \u2014 tokenized fund issuer homepage",
-      "grounding": {
-        "source_url": "https://spiko.io/",
-        "expected": "Spiko",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "SPIKO_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/spiko-20260702/",
-      "verified_at": "2026-07-02T03:55:02.057469+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "78a02f4c-1f3c-4869-a145-66f5220ea750",
-      "claim_text": "Spiko documentation",
-      "grounding": {
-        "source_url": "https://docs.spiko.io/",
-        "expected": "Spiko",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "SPIKO_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/spiko-20260702/",
-      "verified_at": "2026-07-02T03:55:02.127330+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "9a6e2f1c-a6ab-4404-a336-3eb474c75797",
-      "claim_text": "RWA.xyz \u2014 Spiko asset page",
-      "grounding": {
-        "source_url": "https://rwa.xyz/assets/spiko",
-        "expected": "Spiko",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "SPIKO_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/spiko-20260702/",
-      "verified_at": "2026-07-02T03:55:02.695869+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/SPIKO.json"
+  }
 }

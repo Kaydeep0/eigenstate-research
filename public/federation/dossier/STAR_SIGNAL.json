@@ -1,12 +1,12 @@
 {
   "entity": "STAR_SIGNAL",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:08.832834+00:00",
-  "digest": "sha256:778fa4e6811ad46edc5a479c5b1f198881d257da54a64d55e36fa322002d7b04",
+  "compiled_at": "2026-08-01T03:16:07.041316+00:00",
+  "digest": "sha256:b3aba5b8bd16eb66805dec89843b6e353f5a5141b2cd1d90cf150186fab64633",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0145,
-    "mass": 0.038434,
+    "kappa": 0.0128,
+    "mass": 0.0348,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,21 +16,21 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.038434,
-      "rank": 164,
+      "value": 0.0348,
+      "rank": 90,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00239,
+      "mass": 0.00266,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 2,
+    "in_degree": 1,
     "out_degree": 0,
     "by_vector": {
       "Capital": {
@@ -43,18 +43,13 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 0.5103
+        "in": 0.5
       }
     },
     "top_inbound": [
       {
         "source": "GITHUB",
         "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
         "vector": "Information"
       }
     ],
@@ -68,7 +63,7 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 91,
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -106,56 +101,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "1b668754-b3d8-4cc4-b140-13debb15a7ae",
-      "claim_text": "1",
-      "grounding": {
-        "source_url": "https://docs.github.com/en/rest/activity/starring",
-        "expected": "stargazer",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "code_primary",
-      "witness_weight": 0.78,
-      "report_id": "STAR_SIGNAL_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/star-signal-20260702/",
-      "verified_at": "2026-07-02T22:49:01.291895+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "d7ea94d7-ef3e-4682-a75f-74198dec174c",
-      "claim_text": "2",
-      "grounding": {
-        "source_url": "https://docs.github.com/en/get-started/exploring-projects-on-github/saving-repositories-with-stars",
-        "expected": "star",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "code_primary",
-      "witness_weight": 0.78,
-      "report_id": "STAR_SIGNAL_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/star-signal-20260702/",
-      "verified_at": "2026-07-02T22:49:01.395255+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "21c2ecb7-bae3-425d-8781-aea4d41f26ba",
-      "claim_text": "3",
-      "grounding": {
-        "source_url": "https://docs.github.com/en/rest/repos/repos",
-        "expected": "stargazers_count",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "code_primary",
-      "witness_weight": 0.78,
-      "report_id": "STAR_SIGNAL_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/star-signal-20260702/",
-      "verified_at": "2026-07-02T22:49:01.570275+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/STAR_SIGNAL.json"
+  }
 }

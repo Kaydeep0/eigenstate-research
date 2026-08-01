@@ -1,14 +1,14 @@
 {
   "entity": "OUSG",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:07.383472+00:00",
-  "digest": "sha256:987f7287db39d38f5e693204023cc4ffb2fc81058ab78ad6ceaf47a9755e245d",
+  "compiled_at": "2026-08-01T03:16:06.718729+00:00",
+  "digest": "sha256:99f71c24bf38fb91559a5a1029582f297f348d2a4072c5149c50b46b641b066b",
   "own_numbers": {
-    "phi_s": 0.0828,
-    "kappa": 0.0579,
+    "phi_s": 0.035,
+    "kappa": 0.0511,
     "mass": null,
     "power": 0.0,
-    "extraction": 646.9418,
+    "extraction": 6169.161,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -18,14 +18,14 @@
     "mass": null,
     "power": {
       "value": 0.0,
-      "rank": 40,
-      "of": 54
+      "rank": 25,
+      "of": 33
     },
     "gravity": null,
     "extraction": {
-      "value": 646.9418,
-      "rank": 28,
-      "of": 54
+      "value": 6169.161,
+      "rank": 23,
+      "of": 33
     },
     "share_of_whole": {
       "mass": null,
@@ -33,7 +33,7 @@
     },
     "peers_by_power": [
       {
-        "entity": "ONCHAIN_IS_TRANSPARENT",
+        "entity": "NATIONAL_CITY_BANK",
         "power": 0.0
       },
       {
@@ -45,22 +45,22 @@
         "power": 0.0
       },
       {
-        "entity": "PRIMARY_DEALER_NETWORK",
+        "entity": "ROBERT_LESHNER",
         "power": 0.0
       },
       {
-        "entity": "RIVER",
+        "entity": "RWA_SOLVES_YIELD",
         "power": 0.0
       }
     ]
   },
   "relationships": {
-    "in_degree": 4,
-    "out_degree": 4,
+    "in_degree": 1,
+    "out_degree": 3,
     "by_vector": {
       "Capital": {
-        "out": 1.0,
-        "in": 1.5
+        "out": 0.5,
+        "in": 0.0
       },
       "Infrastructure": {
         "out": 1.0,
@@ -73,32 +73,12 @@
     },
     "top_inbound": [
       {
-        "source": "BLACKROCK",
-        "conn_type": "ownership",
-        "vector": "Capital"
-      },
-      {
-        "source": "CIRCLE",
-        "conn_type": "ownership",
-        "vector": "Capital"
-      },
-      {
         "source": "ONDO",
         "conn_type": "information_flow",
         "vector": "Information"
-      },
-      {
-        "source": "BLACKROCK",
-        "conn_type": "ownership",
-        "vector": "Capital"
       }
     ],
     "top_outbound": [
-      {
-        "target": "BLACKROCK",
-        "conn_type": "ownership",
-        "vector": "Capital"
-      },
       {
         "target": "TREASURY_MARKET",
         "conn_type": "capital",
@@ -118,13 +98,13 @@
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.532,
+    "position": 0.46,
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 91,
+    "level": "flag",
+    "headline": "power -100% over 18 cycles",
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -164,56 +144,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "5ae57cde-6a01-4d13-aa52-8ba247be9c0d",
-      "claim_text": "RWA.xyz \u2014 OUSG tokenized Treasury listing",
-      "grounding": {
-        "source_url": "https://rwa.xyz/assets/ousg",
-        "expected": "OUSG",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "OUSG_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ousg-20260702/",
-      "verified_at": "2026-07-02T18:33:02.850300+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "98693a12-b3e4-408b-bb38-a6eb3314bc8c",
-      "claim_text": "Ondo Finance \u2014 OUSG institutional product",
-      "grounding": {
-        "source_url": "https://ondo.finance/",
-        "expected": "OUSG",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "OUSG_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ousg-20260702/",
-      "verified_at": "2026-07-02T18:33:03.018778+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "be8e7537-e916-4768-b280-839d4386f90d",
-      "claim_text": "RWA.xyz \u2014 OUSG US Treasury asset class",
-      "grounding": {
-        "source_url": "https://rwa.xyz/assets/ousg",
-        "expected": "Treasury",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "OUSG_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ousg-20260702/",
-      "verified_at": "2026-07-02T18:33:03.294991+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/OUSG.json"
+  }
 }

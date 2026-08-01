@@ -1,22 +1,22 @@
 {
   "entity": "US_JURISDICTION",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:09.644359+00:00",
-  "digest": "sha256:ff343d6b1ca7ff7158c7275c93d75605131abc4f05a202a775b20c2059c34d7b",
+  "compiled_at": "2026-08-01T03:16:07.228889+00:00",
+  "digest": "sha256:c2276fe6cb7137f402572be1cd844e1bc649490189af4e0e8d8e8301e8066ec5",
   "own_numbers": {
-    "phi_s": 2.3159,
-    "kappa": 0.001,
-    "mass": 0.552528,
+    "phi_s": 2.6447,
+    "kappa": 0.0016,
+    "mass": 0.510552,
     "power": null,
     "extraction": null,
-    "memory_mass": 37.8,
+    "memory_mass": 55.61,
     "X_natural": 0.0,
     "gravity_mass": null,
     "mass_type": null
   },
   "vs_whole": {
     "mass": {
-      "value": 0.552528,
+      "value": 0.510552,
       "rank": 1,
       "of": 199
     },
@@ -24,13 +24,13 @@
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.0343,
+      "mass": 0.03901,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 12,
+    "in_degree": 11,
     "out_degree": 2,
     "by_vector": {
       "Capital": {
@@ -43,7 +43,7 @@
       },
       "Information": {
         "out": 1.0,
-        "in": 6.5
+        "in": 5.5
       }
     },
     "top_inbound": [
@@ -87,48 +87,48 @@
     ],
     "gravity_pairs": [
       {
-        "entity": "34539544",
-        "mass": 171.0,
-        "hops": 1,
-        "pull": 6463.8
-      },
-      {
         "entity": "SEC",
-        "mass": 119.0,
+        "mass": 116.0,
         "hops": 1,
-        "pull": 4498.2
+        "pull": 6450.76
       },
       {
         "entity": "FED",
-        "mass": 115.0,
+        "mass": 114.0,
         "hops": 1,
-        "pull": 4347.0
+        "pull": 6339.54
       },
       {
         "entity": "FINRA",
-        "mass": 105.0,
+        "mass": 104.0,
         "hops": 1,
-        "pull": 3969.0
+        "pull": 5783.44
       },
       {
         "entity": "OCC",
-        "mass": 104.0,
+        "mass": 103.0,
         "hops": 1,
-        "pull": 3931.2
+        "pull": 5727.83
+      },
+      {
+        "entity": "CFTC",
+        "mass": 102.0,
+        "hops": 1,
+        "pull": 5672.22
       }
     ]
   },
   "monetary_position": {
-    "position": 0.557,
+    "position": 0.562,
     "well": "fiat"
   },
   "drift": {
-    "level": "watch",
-    "headline": "phi_s -45% over 91 cycles",
-    "cycles": 91,
+    "level": "flag",
+    "headline": "phi_s +156% over 18 cycles",
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": -0.0017,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -142,7 +142,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "gdp_billions",
-        "last_observed_at": "2026-07-23T21:02:09.931582+00:00",
+        "last_observed_at": "2026-08-01T02:44:18.468409+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -169,61 +169,10 @@
       }
     ],
     "observation": {
-      "source": "defi_llama_tvl",
-      "last_observed_at": "2026-07-21T16:07:59.379782+00:00",
-      "last_delta_i": 0.0740739516120344,
-      "stale": false
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "0f10fe60-0e80-46a1-ad23-ef90a06358ba",
-      "claim_text": "GENIUS Act \u2014 first federal stablecoin framework",
-      "grounding": {
-        "source_url": "https://home.treasury.gov/about/general-information",
-        "expected": "Department of the Treasury",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "macro_primary",
-      "witness_weight": 0.88,
-      "report_id": "US_JURISDICTION_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/us-jurisdiction-20260702/",
-      "verified_at": "2026-07-02T05:02:28.405518+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "9831eb83-ebf2-414a-a8b7-0851cc8aaf1b",
-      "claim_text": "FIT21 \u2014 market structure bill",
-      "grounding": {
-        "source_url": "https://www.cftc.gov/",
-        "expected": "CFTC",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "US_JURISDICTION_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/us-jurisdiction-20260702/",
-      "verified_at": "2026-07-02T05:02:28.492507+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "9e9fdd2b-34f4-41e8-95d5-1ea6784fdca1",
-      "claim_text": "Treasury stablecoin reserve guidance",
-      "grounding": {
-        "source_url": "https://www.occ.gov/about/index-about.html",
-        "expected": "Comptroller",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "regulatory_primary",
-      "witness_weight": 0.9,
-      "report_id": "US_JURISDICTION_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/us-jurisdiction-20260702/",
-      "verified_at": "2026-07-02T05:02:59.235654+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/US_JURISDICTION.json"
+  }
 }

@@ -1,36 +1,36 @@
 {
   "entity": "FOMC_NEXT",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:05.267272+00:00",
-  "digest": "sha256:68430da3aa558da855fee3a5f89ecc4318a79dd1651dc613912f30bfe667c42d",
+  "compiled_at": "2026-08-01T03:16:06.239659+00:00",
+  "digest": "sha256:375b3b35dc70a59075cae6f9a1157ae42ad4bbb0d2f1c93118bd013743f1bc75",
   "own_numbers": {
-    "phi_s": 0.054,
-    "kappa": 0.0145,
-    "mass": 0.038302,
+    "phi_s": 0.024,
+    "kappa": 0.0128,
+    "mass": 0.087,
     "power": null,
     "extraction": null,
-    "memory_mass": 2.7,
+    "memory_mass": 1.2,
     "X_natural": null,
     "gravity_mass": null,
     "mass_type": null
   },
   "vs_whole": {
     "mass": {
-      "value": 0.038302,
-      "rank": 167,
+      "value": 0.087,
+      "rank": 45,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00238,
+      "mass": 0.00665,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 1,
+    "in_degree": 0,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -43,16 +43,10 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.0104
+        "in": 0.0
       }
     },
-    "top_inbound": [
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
-      }
-    ],
+    "top_inbound": [],
     "top_outbound": [
       {
         "target": "MARKET_CYCLE",
@@ -62,34 +56,10 @@
     ],
     "gravity_pairs": [
       {
-        "entity": "34539544",
-        "mass": 171.0,
+        "entity": "MARKET_CYCLE",
+        "mass": 1.2,
         "hops": 1,
-        "pull": 461.7
-      },
-      {
-        "entity": "SEC",
-        "mass": 119.0,
-        "hops": 2,
-        "pull": 80.325
-      },
-      {
-        "entity": "FED",
-        "mass": 115.0,
-        "hops": 2,
-        "pull": 77.625
-      },
-      {
-        "entity": "ESMA",
-        "mass": 107.0,
-        "hops": 2,
-        "pull": 72.225
-      },
-      {
-        "entity": "FINRA",
-        "mass": 105.0,
-        "hops": 2,
-        "pull": 70.875
+        "pull": 1.44
       }
     ]
   },
@@ -98,9 +68,9 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "phi_s +125% over 91 cycles",
-    "cycles": 91,
+    "level": "steady",
+    "headline": null,
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -139,56 +109,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "279ff904-852c-48f3-972c-d1b481be8c5c",
-      "claim_text": "FOMC meeting calendar",
-      "grounding": {
-        "source_url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-        "expected": "FOMC",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "macro_primary",
-      "witness_weight": 0.88,
-      "report_id": "FOMC_NEXT_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fomc-next-20260702/",
-      "verified_at": "2026-07-02T01:45:06.897401+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "a8a04500-5c0e-4d08-8fd4-744ad84ee56e",
-      "claim_text": "FOMC \u2014 monetary policy committee",
-      "grounding": {
-        "source_url": "https://www.federalreserve.gov/monetarypolicy/fomc.htm",
-        "expected": "FOMC",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "macro_primary",
-      "witness_weight": 0.88,
-      "report_id": "FOMC_NEXT_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fomc-next-20260702/",
-      "verified_at": "2026-07-02T01:45:07.056851+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "ce3ab3eb-343e-44d8-a6d5-3f45dbc03564",
-      "claim_text": "FRED \u2014 effective federal funds rate",
-      "grounding": {
-        "source_url": "https://fred.stlouisfed.org/series/FEDFUNDS",
-        "expected": "Federal",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "macro_primary",
-      "witness_weight": 0.88,
-      "report_id": "FOMC_NEXT_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fomc-next-20260702/",
-      "verified_at": "2026-07-02T01:45:07.152399+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/FOMC_NEXT.json"
+  }
 }

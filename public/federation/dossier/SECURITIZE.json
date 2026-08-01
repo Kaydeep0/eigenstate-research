@@ -1,14 +1,14 @@
 {
   "entity": "SECURITIZE",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:08.394723+00:00",
-  "digest": "sha256:75ee726cea087923e3f726507436503fdc7bd5d4b89d7e371490dd4d83d38456",
+  "compiled_at": "2026-08-01T03:16:06.947422+00:00",
+  "digest": "sha256:5bdd7f1ae7bfbfead1b255bfe4195c2b784d55b634c7e337d28eaf912a02932f",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0796,
-    "mass": 0.157785,
+    "kappa": 0.1022,
+    "mass": 0.115928,
     "power": 0.0,
-    "extraction": 1019.0112,
+    "extraction": 8977.7778,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -16,32 +16,32 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.157785,
-      "rank": 26,
+      "value": 0.115928,
+      "rank": 29,
       "of": 199
     },
     "power": {
       "value": 0.0,
-      "rank": 46,
-      "of": 54
+      "rank": 28,
+      "of": 33
     },
     "gravity": null,
     "extraction": {
-      "value": 1019.0112,
-      "rank": 25,
-      "of": 54
+      "value": 8977.7778,
+      "rank": 21,
+      "of": 33
     },
     "share_of_whole": {
-      "mass": 0.00979,
+      "mass": 0.00886,
       "power": 0.0
     },
     "peers_by_power": [
       {
-        "entity": "RWA_SOLVES_YIELD",
+        "entity": "ROBERT_LESHNER",
         "power": 0.0
       },
       {
-        "entity": "RWA_XYZ_DATA",
+        "entity": "RWA_SOLVES_YIELD",
         "power": 0.0
       },
       {
@@ -49,30 +49,30 @@
         "power": 0.0
       },
       {
-        "entity": "STABLECOIN_POOL",
+        "entity": "STANI_KULECHOV",
         "power": 0.0
       },
       {
-        "entity": "STANI_KULECHOV",
+        "entity": "TETHER",
         "power": 0.0
       }
     ]
   },
   "relationships": {
-    "in_degree": 5,
-    "out_degree": 6,
+    "in_degree": 4,
+    "out_degree": 4,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 1.0,
+        "out": 0.0,
         "in": 0.5
       },
       "Information": {
         "out": 2.0,
-        "in": 1.8
+        "in": 1.5
       }
     },
     "top_inbound": [
@@ -95,11 +95,6 @@
         "source": "OUSG",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
       }
     ],
     "top_outbound": [
@@ -122,33 +117,28 @@
         "target": "ONDO",
         "conn_type": "information_flow",
         "vector": "Information"
-      },
-      {
-        "target": "BLACKROCK",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.653,
+    "position": 0.645,
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 91,
+    "level": "flag",
+    "headline": "extraction -55% over 18 cycles",
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0073,
+      "kappa": 0.0,
       "power": 0.0,
-      "extraction": 397.199,
-      "boundary_score": -0.011
+      "extraction": 0.0,
+      "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "live_at_request",
     "inbound": [
       {
         "network": "defillama",
@@ -160,9 +150,9 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live_at_request",
-        "last_observed_at": "2026-07-23T19:00:44.145676+00:00",
+        "last_observed_at": "2026-08-01T03:00:02.932438+00:00",
         "filings": null,
-        "note": "CIK 0001751924"
+        "note": "CIK 0002094496"
       }
     ],
     "outbound": [
@@ -188,93 +178,10 @@
       }
     ],
     "observation": {
-      "source": "propagated",
-      "last_observed_at": "2026-07-23T18:15:04.917996+00:00",
-      "last_delta_i": 2.1848685634887113e+52,
-      "stale": false
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "25a049aa-16ff-4448-a98f-f2a019e5d5fd",
-      "claim_text": "Securitize tokenization platform",
-      "grounding": {
-        "source_url": "https://securitize.io/",
-        "expected": "tokenizing",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "SECURITIZE_v2",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/securitize-v2/",
-      "verified_at": "2026-07-02T00:23:50.290391+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "1e247980-3c9c-44b7-adac-4f0b752f857a",
-      "claim_text": "Securitize platform title",
-      "grounding": {
-        "source_url": "https://securitize.io/",
-        "expected": "Securitize",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "SECURITIZE_v2",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/securitize-v2/",
-      "verified_at": "2026-07-02T00:23:50.427467+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "5caefb8f-782c-49c9-a4ef-3035207a1137",
-      "claim_text": "Securitize RWA solutions",
-      "grounding": {
-        "source_url": "https://securitize.io/",
-        "expected": "real-world assets",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "SECURITIZE_v2",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/securitize-v2/",
-      "verified_at": "2026-07-02T00:23:50.545621+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "23c18e51-2b52-405d-b916-5190d29f9aee",
-      "claim_text": "Securitize platform title",
-      "grounding": {
-        "source_url": "https://rwa.xyz/platforms/securitize",
-        "expected": "Securitize",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "SECURITIZE_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/securitize-20260702/",
-      "verified_at": "2026-07-02T04:33:35.893967+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "e61e4e7d-fe34-40f9-abd6-76ae5f4ce350",
-      "claim_text": "Securitize RWA solutions",
-      "grounding": {
-        "source_url": "https://defillama.com/protocol/securitize",
-        "expected": "tokenization",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "onchain_secondary",
-      "witness_weight": 0.62,
-      "report_id": "SECURITIZE_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/securitize-20260702/",
-      "verified_at": "2026-07-02T04:33:35.997277+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/SECURITIZE.json"
+  }
 }

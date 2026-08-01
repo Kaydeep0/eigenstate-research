@@ -1,14 +1,14 @@
 {
   "entity": "EAS",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:04.628773+00:00",
-  "digest": "sha256:82a3e5319d3e9ce05c18977661d43f2342e6d6dd6d4f553646955ad18e96d919",
+  "compiled_at": "2026-08-01T03:16:06.095575+00:00",
+  "digest": "sha256:8f42cd713e41e6699f708ec90412e267aefd97c0b8d0fd43824152a1d3f451b5",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0506,
-    "mass": 0.042233,
-    "power": 0.0,
-    "extraction": 250.8792,
+    "kappa": 0.0256,
+    "mass": 0.0348,
+    "power": null,
+    "extraction": null,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -16,87 +16,37 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.042233,
-      "rank": 121,
+      "value": 0.0348,
+      "rank": 103,
       "of": 199
     },
-    "power": {
-      "value": 0.0,
-      "rank": 25,
-      "of": 54
-    },
+    "power": null,
     "gravity": null,
-    "extraction": {
-      "value": 250.8792,
-      "rank": 34,
-      "of": 54
-    },
+    "extraction": null,
     "share_of_whole": {
-      "mass": 0.00262,
-      "power": 0.0
+      "mass": 0.00266,
+      "power": null
     },
-    "peers_by_power": [
-      {
-        "entity": "DEX_SETTLEMENT",
-        "power": 0.0
-      },
-      {
-        "entity": "DTCC",
-        "power": 0.0
-      },
-      {
-        "entity": "EAS",
-        "power": 0.0
-      },
-      {
-        "entity": "ETHEREUM",
-        "power": 0.0
-      },
-      {
-        "entity": "FARCASTER",
-        "power": 0.0
-      }
-    ]
+    "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 4,
-    "out_degree": 3,
+    "in_degree": 0,
+    "out_degree": 2,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 0.5,
+        "out": 0.0,
         "in": 0.0
       },
       "Information": {
         "out": 1.0,
-        "in": 1.5103
+        "in": 0.0
       }
     },
-    "top_inbound": [
-      {
-        "source": "CITIGROUP",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "CITIGROUP",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "CITIGROUP",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
-      }
-    ],
+    "top_inbound": [],
     "top_outbound": [
       {
         "target": "BASE",
@@ -107,29 +57,22 @@
         "target": "ETHEREUM",
         "conn_type": "information_flow",
         "vector": "Information"
-      },
-      {
-        "target": "TOKENIZED_TREASURY",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
       }
     ],
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.577,
+    "position": 0.5,
     "well": "fiat"
   },
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 91,
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
-      "power": 0.0,
-      "extraction": 0.0,
-      "boundary_score": -0.077
+      "boundary_score": 0.0
     }
   },
   "network_plugs": {
@@ -163,56 +106,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "c3f542e7-1bfa-44fc-b9ea-473c4a36b3f3",
-      "claim_text": "Ethereum Attestation Service homepage",
-      "grounding": {
-        "source_url": "https://attest.org/",
-        "expected": "Ethereum Attestation",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "EAS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/eas-20260702/",
-      "verified_at": "2026-07-02T02:49:54.296651+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "0210c0a4-31c4-4049-a944-220efd80724d",
-      "claim_text": "EAS documentation \u2014 getting started",
-      "grounding": {
-        "source_url": "https://docs.attest.org/docs/getting-started",
-        "expected": "attestation",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "EAS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/eas-20260702/",
-      "verified_at": "2026-07-02T02:49:54.538111+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "a49fc786-e442-41f5-86a9-29e6b1af97db",
-      "claim_text": "Ethereum consensus attestations reference",
-      "grounding": {
-        "source_url": "https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/attestations/",
-        "expected": "attestation",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "EAS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/eas-20260702/",
-      "verified_at": "2026-07-02T02:49:54.863295+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/EAS.json"
+  }
 }

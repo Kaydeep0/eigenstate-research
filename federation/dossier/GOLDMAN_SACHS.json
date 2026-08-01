@@ -1,11 +1,11 @@
 {
   "entity": "GOLDMAN_SACHS",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:05.610865+00:00",
-  "digest": "sha256:67e58f3bede99b2ee86edebaf4c4f60f33b7bb3645382a4c77a96e99c179e3a1",
+  "compiled_at": "2026-08-01T03:16:06.320098+00:00",
+  "digest": "sha256:22417675e93f65697eac00e29a9a8410fc54f9942f31a43e6f082281035cc79f",
   "own_numbers": {
-    "phi_s": 0.0,
-    "kappa": 0.4327,
+    "phi_s": null,
+    "kappa": null,
     "mass": null,
     "power": null,
     "extraction": null,
@@ -27,7 +27,12 @@
   },
   "relationships": null,
   "monetary_position": null,
-  "drift": null,
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 1,
+    "delta_last_cycle": {}
+  },
   "network_plugs": {
     "freshness": "live_at_request",
     "inbound": [
@@ -35,7 +40,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live_at_request",
-        "last_observed_at": "2026-07-23T19:00:44.145676+00:00",
+        "last_observed_at": "2026-08-01T03:00:02.932438+00:00",
         "filings": null,
         "note": "CIK 0000886982"
       }
@@ -62,62 +67,6 @@
         "status": "gated"
       }
     ],
-    "observation": {
-      "source": null,
-      "last_observed_at": null,
-      "last_delta_i": null,
-      "stale": true
-    }
-  },
-  "claims": [
-    {
-      "claim_id": "998a92ed-e6bc-4570-909d-409a89e760b4",
-      "claim_text": "SEC \u2014 Goldman Sachs public filer",
-      "grounding": {
-        "source_url": "https://data.sec.gov/submissions/CIK0000886982.json",
-        "expected": "Goldman Sachs",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "regulatory_primary",
-      "witness_weight": 0.9,
-      "report_id": "GOLDMAN_SACHS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/goldman-sachs-20260702/",
-      "verified_at": "2026-07-02T23:41:59.500304+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "6265fb9e-37bb-444a-810a-5afa08c7006c",
-      "claim_text": "Goldman Sachs \u2014 corporate homepage",
-      "grounding": {
-        "source_url": "https://www.goldmansachs.com/",
-        "expected": "Goldman Sachs",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "GOLDMAN_SACHS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/goldman-sachs-20260702/",
-      "verified_at": "2026-07-02T23:41:59.788921+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "78e68e30-3fb2-4050-b735-de525daf5225",
-      "claim_text": "Goldman Sachs pressroom",
-      "grounding": {
-        "source_url": "https://www.goldmansachs.com/pressroom/",
-        "expected": "Goldman Sachs",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "GOLDMAN_SACHS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/goldman-sachs-20260702/",
-      "verified_at": "2026-07-02T23:41:59.912411+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/GOLDMAN_SACHS.json"
+    "observation": null
+  }
 }

@@ -1,14 +1,14 @@
 {
   "entity": "RWA_XYZ_DATA",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:08.279775+00:00",
-  "digest": "sha256:879b7244d496584362a75b3e415bdb520ddbfef13e0ba5524a4ecc43064fe3ed",
+  "compiled_at": "2026-08-01T03:16:06.921190+00:00",
+  "digest": "sha256:33b0e3cdc0fc7b9e8c588f97795884b23271eeef0d80600015f7c7df9c5ca555",
   "own_numbers": {
-    "phi_s": 0.0711,
-    "kappa": 0.0217,
-    "mass": 0.091349,
-    "power": 0.0,
-    "extraction": 0.7113,
+    "phi_s": 0.02,
+    "kappa": 0.0128,
+    "mass": 0.0348,
+    "power": null,
+    "extraction": null,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -16,54 +16,25 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.091349,
-      "rank": 54,
+      "value": 0.0348,
+      "rank": 135,
       "of": 199
     },
-    "power": {
-      "value": 0.0,
-      "rank": 45,
-      "of": 54
-    },
+    "power": null,
     "gravity": null,
-    "extraction": {
-      "value": 0.7113,
-      "rank": 52,
-      "of": 54
-    },
+    "extraction": null,
     "share_of_whole": {
-      "mass": 0.00567,
-      "power": 0.0
+      "mass": 0.00266,
+      "power": null
     },
-    "peers_by_power": [
-      {
-        "entity": "ROBERT_LESHNER",
-        "power": 0.0
-      },
-      {
-        "entity": "RWA_SOLVES_YIELD",
-        "power": 0.0
-      },
-      {
-        "entity": "RWA_XYZ_DATA",
-        "power": 0.0
-      },
-      {
-        "entity": "SECURITIZE",
-        "power": 0.0
-      },
-      {
-        "entity": "STABLECOIN_POOL",
-        "power": 0.0
-      }
-    ]
+    "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 1,
-    "out_degree": 2,
+    "in_degree": 0,
+    "out_degree": 1,
     "by_vector": {
       "Capital": {
-        "out": 0.5,
+        "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
@@ -72,43 +43,30 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.0112
+        "in": 0.0
       }
     },
-    "top_inbound": [
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
-      }
-    ],
+    "top_inbound": [],
     "top_outbound": [
       {
         "target": "TOKENIZED_TREASURY",
         "conn_type": "information_flow",
         "vector": "Information"
-      },
-      {
-        "target": "SEC",
-        "conn_type": "ownership",
-        "vector": "Capital"
       }
     ],
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.567,
+    "position": 0.5,
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 91,
+    "level": "flag",
+    "headline": "phi_s -76% over 18 cycles",
+    "cycles": 18,
     "delta_last_cycle": {
-      "phi_s": 0.0011,
+      "phi_s": 0.0,
       "kappa": 0.0,
-      "power": 0.0,
-      "extraction": 0.0,
       "boundary_score": 0.0
     }
   },
@@ -143,56 +101,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "a88b242b-e61b-43d8-97a7-921586f6534d",
-      "claim_text": "RWA.xyz \u2014 tokenized asset index homepage",
-      "grounding": {
-        "source_url": "https://rwa.xyz/",
-        "expected": "tokenized",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "RWA_XYZ_DATA_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/rwa-xyz-data-20260702/",
-      "verified_at": "2026-07-02T03:06:47.747315+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "9cd4c450-4652-4a86-baff-544e3ed4499e",
-      "claim_text": "RWA.xyz application \u2014 product registry",
-      "grounding": {
-        "source_url": "https://app.rwa.xyz/",
-        "expected": "RWA",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "RWA_XYZ_DATA_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/rwa-xyz-data-20260702/",
-      "verified_at": "2026-07-02T03:06:48.109587+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "e2b1f4c2-d9f6-493d-8c39-6d52c14ab0f5",
-      "claim_text": "RWA.xyz documentation",
-      "grounding": {
-        "source_url": "https://docs.rwa.xyz/",
-        "expected": "RWA",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "RWA_XYZ_DATA_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/rwa-xyz-data-20260702/",
-      "verified_at": "2026-07-02T03:06:48.394345+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/RWA_XYZ_DATA.json"
+  }
 }

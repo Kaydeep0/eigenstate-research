@@ -1,14 +1,14 @@
 {
   "entity": "KINEXYS",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:06.420250+00:00",
-  "digest": "sha256:633e36005e7a24487fb820cf0ce4cac78f8b9511e38db13ad4565297bdbf863a",
+  "compiled_at": "2026-08-01T03:16:06.505707+00:00",
+  "digest": "sha256:fe43b7e0f43bf8bd88d962272767caa28269ffa0826ed4c32c5c7d6bf7eead78",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0651,
-    "mass": 0.1118,
+    "kappa": 0.0639,
+    "mass": 0.1083,
     "power": 0.0,
-    "extraction": 2084.1202,
+    "extraction": 14328.7982,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -16,28 +16,28 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.1118,
-      "rank": 36,
+      "value": 0.1083,
+      "rank": 32,
       "of": 199
     },
     "power": {
       "value": 0.0,
-      "rank": 34,
-      "of": 54
+      "rank": 21,
+      "of": 33
     },
     "gravity": null,
     "extraction": {
-      "value": 2084.1202,
-      "rank": 19,
-      "of": 54
+      "value": 14328.7982,
+      "rank": 18,
+      "of": 33
     },
     "share_of_whole": {
-      "mass": 0.00694,
+      "mass": 0.00828,
       "power": 0.0
     },
     "peers_by_power": [
       {
-        "entity": "INSTITUTIONAL_CUSTODY_POOL",
+        "entity": "FED_RRP",
         "power": 0.0
       },
       {
@@ -53,42 +53,32 @@
         "power": 0.0
       },
       {
-        "entity": "MAPLE",
+        "entity": "NATIONAL_CITY_BANK",
         "power": 0.0
       }
     ]
   },
   "relationships": {
-    "in_degree": 3,
-    "out_degree": 6,
+    "in_degree": 1,
+    "out_degree": 4,
     "by_vector": {
       "Capital": {
         "out": 0.0,
         "in": 0.0
       },
       "Infrastructure": {
-        "out": 3.0,
+        "out": 2.0,
         "in": 0.0
       },
       "Information": {
         "out": 0.0,
-        "in": 1.0103
+        "in": 0.5
       }
     },
     "top_inbound": [
       {
         "source": "JPMORGAN",
         "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "CITIGROUP",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
         "vector": "Information"
       }
     ],
@@ -104,17 +94,12 @@
         "vector": "Infrastructure"
       },
       {
-        "target": "JPMORGAN",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
-      {
-        "target": "CANTON_NETWORK",
-        "conn_type": "infrastructure",
-        "vector": "Infrastructure"
-      },
-      {
         "target": "PRIMARY_DEALER_NETWORK",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "FED",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
       }
@@ -122,23 +107,23 @@
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.591,
+    "position": 0.584,
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 91,
+    "level": "watch",
+    "headline": "extraction -24% over 18 cycles",
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
       "power": 0.0,
       "extraction": 0.0,
-      "boundary_score": -0.02
+      "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "stale",
     "inbound": [],
     "outbound": [
       {
@@ -163,61 +148,10 @@
       }
     ],
     "observation": {
-      "source": "propagated",
-      "last_observed_at": "2026-07-23T18:15:04.917996+00:00",
-      "last_delta_i": 3.914818659074722e+18,
-      "stale": false
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "7ac550bb-abc5-4c73-ba20-66a8ab89a716",
-      "claim_text": "Kinexys \u2014 JPMorgan blockchain platform homepage",
-      "grounding": {
-        "source_url": "https://www.jpmorgan.com/kinexys",
-        "expected": "Kinexys",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "KINEXYS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/kinexys-20260702/",
-      "verified_at": "2026-07-02T04:00:00.608509+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "942aa18e-fd47-4510-8a48-3add05f68a0b",
-      "claim_text": "Kinexys digital assets",
-      "grounding": {
-        "source_url": "https://www.jpmorgan.com/kinexys/digital-assets",
-        "expected": "Kinexys",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "KINEXYS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/kinexys-20260702/",
-      "verified_at": "2026-07-02T04:00:00.688164+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "1d4f3702-a853-4fb1-9a1a-890b6ea560df",
-      "claim_text": "JPMorgan payments solutions",
-      "grounding": {
-        "source_url": "https://www.jpmorgan.com/payments",
-        "expected": "payments",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "KINEXYS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/kinexys-20260702/",
-      "verified_at": "2026-07-02T04:00:01.205238+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/KINEXYS.json"
+  }
 }

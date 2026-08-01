@@ -1,36 +1,36 @@
 {
   "entity": "DORA",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:04.541137+00:00",
-  "digest": "sha256:16632781012b5334ed9f9800a65288916b1167b43281a203bb74a9e8f6d6b6a1",
+  "compiled_at": "2026-08-01T03:16:06.076228+00:00",
+  "digest": "sha256:410c69831deb5facbc536fac41a1a9a4622043afdfb3edbaecdd6406e4c9f80c",
   "own_numbers": {
-    "phi_s": 6.5245,
-    "kappa": 0.0,
-    "mass": 0.09639,
+    "phi_s": 1.6661,
+    "kappa": 0.0002,
+    "mass": 0.087,
     "power": null,
     "extraction": null,
-    "memory_mass": 2.6,
+    "memory_mass": 2.4,
     "X_natural": 0.0,
     "gravity_mass": null,
     "mass_type": null
   },
   "vs_whole": {
     "mass": {
-      "value": 0.09639,
-      "rank": 46,
+      "value": 0.087,
+      "rank": 42,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00598,
+      "mass": 0.00665,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 2,
+    "in_degree": 1,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -43,18 +43,13 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.5016
+        "in": 0.5
       }
     },
     "top_inbound": [
       {
         "source": "ESMA",
         "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
         "vector": "Information"
       }
     ],
@@ -67,48 +62,48 @@
     ],
     "gravity_pairs": [
       {
-        "entity": "34539544",
-        "mass": 171.0,
-        "hops": 1,
-        "pull": 444.6
-      },
-      {
         "entity": "ESMA",
-        "mass": 107.0,
+        "mass": 106.0,
         "hops": 1,
-        "pull": 278.2
+        "pull": 254.4
       },
       {
         "entity": "SEC",
-        "mass": 119.0,
+        "mass": 116.0,
         "hops": 2,
-        "pull": 77.35
+        "pull": 69.6
       },
       {
-        "entity": "FED",
-        "mass": 115.0,
+        "entity": "FCA",
+        "mass": 102.0,
         "hops": 2,
-        "pull": 74.75
+        "pull": 61.2
       },
       {
-        "entity": "FINRA",
-        "mass": 105.0,
-        "hops": 2,
-        "pull": 68.25
+        "entity": "CFTC",
+        "mass": 102.0,
+        "hops": 3,
+        "pull": 27.2
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 84.0,
+        "hops": 3,
+        "pull": 22.4
       }
     ]
   },
   "monetary_position": {
-    "position": 0.567,
+    "position": 0.6,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +13493% over 91 cycles",
-    "cycles": 91,
+    "headline": "phi_s +3371% over 18 cycles",
+    "cycles": 18,
     "delta_last_cycle": {
-      "phi_s": -3.2362,
-      "kappa": -0.0002,
+      "phi_s": 0.0,
+      "kappa": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -122,7 +117,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "eu_ict_resilience_gdp_proxy",
-        "last_observed_at": "2026-07-23T21:02:09.931582+00:00",
+        "last_observed_at": "2026-08-01T02:44:18.468409+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -154,56 +149,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "86a7f8f3-1630-45ab-8d97-646fcfe31f02",
-      "claim_text": "DORA \u2014 EU digital operational resilience regulation",
-      "grounding": {
-        "source_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora",
-        "expected": "DORA",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "regulatory_primary",
-      "witness_weight": 0.9,
-      "report_id": "DORA_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/dora-20260702/",
-      "verified_at": "2026-07-02T05:28:59.230226+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "72f65d0a-52d6-42e2-84be-0bd60dbe4856",
-      "claim_text": "DORA oversight of critical ICT third-party providers",
-      "grounding": {
-        "source_url": "https://www.esma.europa.eu/dora-oversight",
-        "expected": "critical",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "regulatory_primary",
-      "witness_weight": 0.9,
-      "report_id": "DORA_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/dora-20260702/",
-      "verified_at": "2026-07-02T05:28:59.311204+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "33ee8cee-96fd-42dc-bded-a663eb2a5c46",
-      "claim_text": "ESAs designate critical ICT third-party providers under DORA",
-      "grounding": {
-        "source_url": "https://www.esma.europa.eu/press-news/esma-news/european-supervisory-authorities-designate-critical-ict-third-party-providers",
-        "expected": "DORA",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "regulatory_primary",
-      "witness_weight": 0.9,
-      "report_id": "DORA_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/dora-20260702/",
-      "verified_at": "2026-07-02T05:28:59.547247+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/DORA.json"
+  }
 }

@@ -1,40 +1,40 @@
 {
   "entity": "FIDELITY",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:05.181496+00:00",
-  "digest": "sha256:c7a77840b8b68dabe2a887e60d9090a3c1f5ae61495faaa54af449a26041de1e",
+  "compiled_at": "2026-08-01T03:16:06.220333+00:00",
+  "digest": "sha256:0ea38c6a986630ef39e72c5b27d0cc824c3a5db51e40763eab4798f3b21b0616",
   "own_numbers": {
     "phi_s": 0.0,
-    "kappa": 0.0072,
-    "mass": 0.161372,
+    "kappa": 0.0,
+    "mass": 0.161261,
     "power": null,
     "extraction": null,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 71.0,
+    "gravity_mass": 70.0,
     "mass_type": "capital"
   },
   "vs_whole": {
     "mass": {
-      "value": 0.161372,
-      "rank": 25,
+      "value": 0.161261,
+      "rank": 17,
       "of": 199
     },
     "power": null,
     "gravity": {
-      "value": 71.0,
+      "value": 70.0,
       "rank": 13,
-      "of": 62
+      "of": 59
     },
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.01002,
+      "mass": 0.01232,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 1,
+    "in_degree": 0,
     "out_degree": 0,
     "by_vector": {
       "Capital": {
@@ -47,58 +47,21 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 0.0199
+        "in": 0.0
       }
     },
-    "top_inbound": [
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
-      }
-    ],
+    "top_inbound": [],
     "top_outbound": [],
-    "gravity_pairs": [
-      {
-        "entity": "34539544",
-        "mass": 171.0,
-        "hops": 1,
-        "pull": 12141.0
-      },
-      {
-        "entity": "SEC",
-        "mass": 119.0,
-        "hops": 2,
-        "pull": 2112.25
-      },
-      {
-        "entity": "FED",
-        "mass": 115.0,
-        "hops": 2,
-        "pull": 2041.25
-      },
-      {
-        "entity": "ESMA",
-        "mass": 107.0,
-        "hops": 2,
-        "pull": 1899.25
-      },
-      {
-        "entity": "FINRA",
-        "mass": 105.0,
-        "hops": 2,
-        "pull": 1863.75
-      }
-    ]
+    "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.71,
+    "position": 0.85,
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "phi_s -100% over 91 cycles",
-    "cycles": 91,
+    "level": "steady",
+    "headline": null,
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -113,7 +76,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live_at_request",
-        "last_observed_at": "2026-07-23T19:00:44.145676+00:00",
+        "last_observed_at": "2026-08-01T03:00:02.932438+00:00",
         "filings": null,
         "note": "CIK 0000315066 \u2014 live on feed + parkash sensor"
       }
@@ -146,56 +109,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "e2a791fc-4115-4522-b01f-9bab4d8ad9f8",
-      "claim_text": "Fidelity Digital Assets \u2014 institutional crypto platform",
-      "grounding": {
-        "source_url": "https://www.fidelitydigitalassets.com/",
-        "expected": "Fidelity",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "FIDELITY_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fidelity-20260702/",
-      "verified_at": "2026-07-02T04:00:03.099698+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "e8d6097e-1cc9-4089-9c0c-0ca4ea6cc199",
-      "claim_text": "FDIF \u2014 Fidelity Digital Interest Fund on-chain",
-      "grounding": {
-        "source_url": "https://rwa.xyz/assets/fidelity-digital-interest-fund",
-        "expected": "Fidelity",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "FIDELITY_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fidelity-20260702/",
-      "verified_at": "2026-07-02T04:00:03.746067+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "1b114b50-5cd2-458e-a878-1e90613d6a1d",
-      "claim_text": "SEC EDGAR \u2014 FMR LLC filings",
-      "grounding": {
-        "source_url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000315066&type=&dateb=&owner=include&count=40",
-        "expected": "FMR",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "regulatory_primary",
-      "witness_weight": 0.9,
-      "report_id": "FIDELITY_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fidelity-20260702/",
-      "verified_at": "2026-07-02T04:00:03.803253+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/FIDELITY.json"
+  }
 }

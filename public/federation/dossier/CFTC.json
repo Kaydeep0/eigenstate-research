@@ -1,40 +1,40 @@
 {
   "entity": "CFTC",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:03.334265+00:00",
-  "digest": "sha256:67fef044e3f6d0a9164c79f5dfdcbba24d6cf7ed300c9b3277b7ec8ea0e5e834",
+  "compiled_at": "2026-08-01T03:16:05.804169+00:00",
+  "digest": "sha256:53df9603e583525a39c80ad9e98a2598c305595cbcd30bbb47ba71e897069a9b",
   "own_numbers": {
-    "phi_s": 1.6701,
+    "phi_s": 1.6501,
     "kappa": 0.0001,
-    "mass": 0.287863,
+    "mass": 0.26657,
     "power": null,
     "extraction": null,
-    "memory_mass": 2.6,
+    "memory_mass": 1.6,
     "X_natural": 0.0,
-    "gravity_mass": 103.0,
+    "gravity_mass": 102.0,
     "mass_type": "regulatory"
   },
   "vs_whole": {
     "mass": {
-      "value": 0.287863,
-      "rank": 7,
+      "value": 0.26657,
+      "rank": 5,
       "of": 199
     },
     "power": null,
     "gravity": {
-      "value": 103.0,
-      "rank": 7,
-      "of": 62
+      "value": 102.0,
+      "rank": 6,
+      "of": 59
     },
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.01787,
+      "mass": 0.02037,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 2,
+    "in_degree": 1,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -47,18 +47,13 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.503
+        "in": 0.5
       }
     },
     "top_inbound": [
       {
         "source": "SEC",
         "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
         "vector": "Information"
       }
     ],
@@ -71,45 +66,45 @@
     ],
     "gravity_pairs": [
       {
-        "entity": "34539544",
-        "mass": 171.0,
-        "hops": 1,
-        "pull": 17613.0
-      },
-      {
         "entity": "SEC",
-        "mass": 119.0,
+        "mass": 116.0,
         "hops": 1,
-        "pull": 12257.0
+        "pull": 11832.0
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 37.8,
+        "mass": 55.61,
         "hops": 1,
-        "pull": 3893.4
+        "pull": 5672.22
       },
       {
         "entity": "FED",
-        "mass": 115.0,
+        "mass": 114.0,
         "hops": 2,
-        "pull": 2961.25
+        "pull": 2907.0
       },
       {
         "entity": "ESMA",
-        "mass": 107.0,
+        "mass": 106.0,
         "hops": 2,
-        "pull": 2755.25
+        "pull": 2703.0
+      },
+      {
+        "entity": "FINRA",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 2652.0
       }
     ]
   },
   "monetary_position": {
-    "position": 0.867,
+    "position": 0.9,
     "well": "fiat"
   },
   "drift": {
-    "level": "watch",
-    "headline": "phi_s -49% over 91 cycles",
-    "cycles": 91,
+    "level": "flag",
+    "headline": "phi_s +5057% over 18 cycles",
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -127,7 +122,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "derivatives_gdp_proxy",
-        "last_observed_at": "2026-07-23T21:02:09.931582+00:00",
+        "last_observed_at": "2026-08-01T02:44:18.468409+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -159,56 +154,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "443f5a83-bc1c-4039-ae3f-ca9eb0de8f48",
-      "claim_text": "CFTC \u2014 US derivatives markets regulator",
-      "grounding": {
-        "source_url": "https://www.cftc.gov/About/index.htm",
-        "expected": "CFTC",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "CFTC_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/cftc-20260702/",
-      "verified_at": "2026-07-02T05:13:23.592790+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "e9dac8c7-612d-44dd-b391-35f1ccbd6782",
-      "claim_text": "Dodd-Frank Act \u2014 post-crisis derivatives framework",
-      "grounding": {
-        "source_url": "https://www.cftc.gov/LawRegulation/DoddFrankAct/index.htm",
-        "expected": "Dodd-Frank",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "CFTC_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/cftc-20260702/",
-      "verified_at": "2026-07-02T05:13:24.072092+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "f1ad510f-5f83-4513-b3ba-e17c0d3cc21a",
-      "claim_text": "CFTC digital assets oversight",
-      "grounding": {
-        "source_url": "https://www.cftc.gov/digitalassets/index.htm",
-        "expected": "digital asset",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "CFTC_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/cftc-20260702/",
-      "verified_at": "2026-07-02T05:13:24.628402+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/CFTC.json"
+  }
 }

@@ -1,14 +1,14 @@
 {
   "entity": "BASE",
   "node": "34539544",
-  "compiled_at": "2026-07-24T09:51:24.680857+00:00",
-  "digest": "sha256:c295b3aa14be22b7254130d7a45a9374da57f7d459cf86878f25f1b202cc3cfa",
+  "compiled_at": "2026-08-01T03:16:05.651826+00:00",
+  "digest": "sha256:6bbc1b8bed9abb0d9f2444d31a1a7df9c474a484039bf2df82806695e372b60d",
   "own_numbers": {
-    "phi_s": 4.8842,
-    "kappa": 0.0008,
-    "mass": 0.195659,
-    "power": 0.0,
-    "extraction": 20958.932015,
+    "phi_s": 1.6494,
+    "kappa": 0.0012,
+    "mass": 0.172247,
+    "power": 0.05,
+    "extraction": 904463.122924,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -16,51 +16,51 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.195659,
-      "rank": 16,
+      "value": 0.172247,
+      "rank": 13,
       "of": 199
     },
     "power": {
-      "value": 0.0,
-      "rank": 13,
-      "of": 54
+      "value": 0.05,
+      "rank": 7,
+      "of": 33
     },
     "gravity": null,
     "extraction": {
-      "value": 20958.932,
+      "value": 904463.1229,
       "rank": 5,
-      "of": 54
+      "of": 33
     },
     "share_of_whole": {
-      "mass": 0.01215,
-      "power": 0.0
+      "mass": 0.01316,
+      "power": 0.01689
     },
     "peers_by_power": [
       {
-        "entity": "ARBITRUM",
-        "power": 0.0
+        "entity": "BNY_MELLON",
+        "power": 0.17
       },
       {
-        "entity": "AWS_INFRASTRUCTURE",
-        "power": 0.0
+        "entity": "TOKENIZED_TREASURY",
+        "power": 0.13
       },
       {
         "entity": "BASE",
-        "power": 0.0
+        "power": 0.05
       },
       {
-        "entity": "BASE_GRANTS",
-        "power": 0.0
+        "entity": "CIRCLE",
+        "power": 0.04
       },
       {
-        "entity": "CANTON_NETWORK",
-        "power": 0.0
+        "entity": "CITI_TREASURY_SERVICES",
+        "power": 0.02
       }
     ]
   },
   "relationships": {
-    "in_degree": 19,
-    "out_degree": 2,
+    "in_degree": 14,
+    "out_degree": 1,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -71,8 +71,8 @@
         "in": 1.0
       },
       "Information": {
-        "out": 0.5,
-        "in": 8.5
+        "out": 0.0,
+        "in": 5.5
       }
     },
     "top_inbound": [
@@ -107,28 +107,54 @@
         "target": "COINBASE",
         "conn_type": "infrastructure",
         "vector": "Infrastructure"
-      },
-      {
-        "target": "COINBASE",
-        "conn_type": "information_flow",
-        "vector": "Information"
       }
     ],
-    "gravity_pairs": []
+    "gravity_pairs": [
+      {
+        "entity": "SEC",
+        "mass": 116.0,
+        "hops": 2,
+        "pull": 1.45
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 84.0,
+        "hops": 2,
+        "pull": 1.05
+      },
+      {
+        "entity": "FED",
+        "mass": 114.0,
+        "hops": 3,
+        "pull": 0.6333
+      },
+      {
+        "entity": "ESMA",
+        "mass": 106.0,
+        "hops": 3,
+        "pull": 0.5889
+      },
+      {
+        "entity": "FINRA",
+        "mass": 104.0,
+        "hops": 3,
+        "pull": 0.5778
+      }
+    ]
   },
   "monetary_position": {
-    "position": 0.471,
+    "position": 0.473,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +196% over 94 cycles",
-    "cycles": 94,
+    "headline": "phi_s +5238% over 18 cycles",
+    "cycles": 18,
     "delta_last_cycle": {
-      "phi_s": 3.2363,
+      "phi_s": 0.0,
       "kappa": 0.0,
       "power": 0.0,
-      "extraction": -1389.8422,
+      "extraction": 0.0,
       "boundary_score": 0.0
     }
   },
@@ -165,61 +191,10 @@
       }
     ],
     "observation": {
-      "source": "infrastructure",
-      "last_observed_at": "2026-07-24T09:39:59.950918+00:00",
-      "last_delta_i": 3.2362,
-      "stale": false
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "3e284f58-9541-40d6-9e0b-af8dddb42aea",
-      "claim_text": "Base is an Ethereum Layer 2 on the OP Stack",
-      "grounding": {
-        "source_url": "https://docs.base.org/get-started/base",
-        "expected": "Layer 2",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "BASE_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/base-20260702/",
-      "verified_at": "2026-07-02T07:46:21.340152+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "ecfe56b1-e938-4648-9e00-36df8a3573d7",
-      "claim_text": "Base incubated by Coinbase",
-      "grounding": {
-        "source_url": "https://www.base.org/",
-        "expected": "Coinbase",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "BASE_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/base-20260702/",
-      "verified_at": "2026-07-02T07:46:21.513637+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "6b159791-1f64-4282-843f-b73bf69acb22",
-      "claim_text": "DeFiLlama tracks Base chain TVL and protocol activity",
-      "grounding": {
-        "source_url": "https://defillama.com/chain/Base",
-        "expected": "Base",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "onchain_secondary",
-      "witness_weight": 0.62,
-      "report_id": "BASE_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/base-20260702/",
-      "verified_at": "2026-07-02T07:46:21.718085+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/BASE.json"
+  }
 }

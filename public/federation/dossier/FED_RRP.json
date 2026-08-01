@@ -1,14 +1,14 @@
 {
   "entity": "FED_RRP",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:05.094864+00:00",
-  "digest": "sha256:f8fb832d1ed58a1ae58d964554ff65d479a57cfea875e06c7049a82a8d58d672",
+  "compiled_at": "2026-08-01T03:16:06.196713+00:00",
+  "digest": "sha256:80db823b7ad2da945e5ef4fb6e9ebeede001b5a472692578458e32d8970339bd",
   "own_numbers": {
-    "phi_s": 0.035,
-    "kappa": 0.0289,
+    "phi_s": 0.04,
+    "kappa": 0.0383,
     "mass": null,
     "power": 0.0,
-    "extraction": 90.9641,
+    "extraction": 1554.2857,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -18,14 +18,14 @@
     "mass": null,
     "power": {
       "value": 0.0,
-      "rank": 29,
-      "of": 54
+      "rank": 19,
+      "of": 33
     },
     "gravity": null,
     "extraction": {
-      "value": 90.9641,
-      "rank": 39,
-      "of": 54
+      "value": 1554.2857,
+      "rank": 27,
+      "of": 33
     },
     "share_of_whole": {
       "mass": null,
@@ -45,18 +45,18 @@
         "power": 0.0
       },
       {
-        "entity": "GCP_INFRASTRUCTURE",
+        "entity": "JAMIE_DIMON",
         "power": 0.0
       },
       {
-        "entity": "GOLDMAN",
+        "entity": "KINEXYS",
         "power": 0.0
       }
     ]
   },
   "relationships": {
     "in_degree": 2,
-    "out_degree": 2,
+    "out_degree": 1,
     "by_vector": {
       "Capital": {
         "out": 0.5,
@@ -67,7 +67,7 @@
         "in": 0.5
       },
       "Information": {
-        "out": 0.5,
+        "out": 0.0,
         "in": 0.5
       }
     },
@@ -88,23 +88,18 @@
         "target": "STABLECOIN_POOL",
         "conn_type": "capital",
         "vector": "Capital"
-      },
-      {
-        "target": "FED",
-        "conn_type": "information_flow",
-        "vector": "Information"
       }
     ],
     "gravity_pairs": []
   },
   "monetary_position": {
-    "position": 0.6,
+    "position": 0.567,
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "phi_s -98% over 91 cycles",
-    "cycles": 91,
+    "level": "steady",
+    "headline": null,
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -144,56 +139,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "01afed21-31d2-49b4-9173-3f10d02351ed",
-      "claim_text": "NY Fed \u2014 reverse repo operations",
-      "grounding": {
-        "source_url": "https://www.newyorkfed.org/markets/desk-operations/reverse-repo",
-        "expected": "reverse",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "FED_RRP_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fed-rrp-20260702/",
-      "verified_at": "2026-07-02T18:06:35.742495+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "58b2c86b-8f62-487e-a5a4-ca3f5244042e",
-      "claim_text": "Fed RRP \u2014 overnight repo facility",
-      "grounding": {
-        "source_url": "https://www.newyorkfed.org/markets/desk-operations/reverse-repo",
-        "expected": "repo",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "FED_RRP_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fed-rrp-20260702/",
-      "verified_at": "2026-07-02T18:06:35.834540+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "485cb077-c820-4995-b9a8-c4fd59cc8128",
-      "claim_text": "FRED \u2014 overnight reverse repo rate",
-      "grounding": {
-        "source_url": "https://fred.stlouisfed.org/series/RRPONTSYD",
-        "expected": "repo",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "macro_primary",
-      "witness_weight": 0.88,
-      "report_id": "FED_RRP_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fed-rrp-20260702/",
-      "verified_at": "2026-07-02T18:06:35.936896+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/FED_RRP.json"
+  }
 }

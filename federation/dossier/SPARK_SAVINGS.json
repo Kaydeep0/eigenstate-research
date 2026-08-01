@@ -1,12 +1,12 @@
 {
   "entity": "SPARK_SAVINGS",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:08.623010+00:00",
-  "digest": "sha256:968c3d7a2681795018c863e99faf94315643dde07a27de2fadfafdce430bff33",
+  "compiled_at": "2026-08-01T03:16:07.002353+00:00",
+  "digest": "sha256:23749053e046599a6f218a138ff9b523c595fd0db7e03b7e9dcaf339342400a8",
   "own_numbers": {
-    "phi_s": 0.02,
-    "kappa": 0.0362,
-    "mass": 0.049498,
+    "phi_s": null,
+    "kappa": null,
+    "mass": 0.0348,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,83 +16,24 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.049498,
-      "rank": 90,
+      "value": 0.0348,
+      "rank": 192,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00307,
+      "mass": 0.00266,
       "power": null
     },
     "peers_by_power": []
   },
-  "relationships": {
-    "in_degree": 1,
-    "out_degree": 4,
-    "by_vector": {
-      "Capital": {
-        "out": 0.0,
-        "in": 0.0
-      },
-      "Infrastructure": {
-        "out": 0.0,
-        "in": 0.0
-      },
-      "Information": {
-        "out": 2.0,
-        "in": 0.0103
-      }
-    },
-    "top_inbound": [
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
-      }
-    ],
-    "top_outbound": [
-      {
-        "target": "ETHEREUM",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "target": "ARBITRUM",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "target": "AVALANCHE",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "target": "BASE",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      }
-    ],
-    "gravity_pairs": []
-  },
-  "monetary_position": {
-    "position": 0.5,
-    "well": "fiat"
-  },
-  "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 91,
-    "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": 0.0,
-      "boundary_score": 0.0
-    }
-  },
+  "relationships": null,
+  "monetary_position": null,
+  "drift": null,
   "network_plugs": {
-    "freshness": "stale",
+    "freshness": "seed",
     "inbound": [],
     "outbound": [
       {
@@ -116,62 +57,6 @@
         "status": "gated"
       }
     ],
-    "observation": {
-      "source": null,
-      "last_observed_at": null,
-      "last_delta_i": null,
-      "stale": true
-    }
-  },
-  "claims": [
-    {
-      "claim_id": "0d232e0f-2c03-4ad0-ac16-9e8c8d3a39cd",
-      "claim_text": "Spark \u2014 savings product documentation",
-      "grounding": {
-        "source_url": "https://docs.spark.fi/",
-        "expected": "savings",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "SPARK_SAVINGS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/spark-savings-20260702/",
-      "verified_at": "2026-07-02T17:45:31.417814+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "f806bce7-484e-4769-98e1-68b0504af3bc",
-      "claim_text": "Spark Savings \u2014 yield on stablecoin reserves",
-      "grounding": {
-        "source_url": "https://spark.fi/",
-        "expected": "savings",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "SPARK_SAVINGS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/spark-savings-20260702/",
-      "verified_at": "2026-07-02T17:45:31.544559+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "3497b089-641d-4d66-9835-c17c750c7506",
-      "claim_text": "DeFiLlama \u2014 Spark Savings protocol listing",
-      "grounding": {
-        "source_url": "https://defillama.com/protocol/spark-savings",
-        "expected": "savings",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "onchain_secondary",
-      "witness_weight": 0.62,
-      "report_id": "SPARK_SAVINGS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/spark-savings-20260702/",
-      "verified_at": "2026-07-02T17:45:31.633165+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/SPARK_SAVINGS.json"
+    "observation": null
+  }
 }

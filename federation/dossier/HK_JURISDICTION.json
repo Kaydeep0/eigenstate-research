@@ -1,36 +1,36 @@
 {
   "entity": "HK_JURISDICTION",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:05.817556+00:00",
-  "digest": "sha256:f972cdbba54a4a668efed7d3c0456699b09486145091d9ab1a3059dfc46f3db3",
+  "compiled_at": "2026-08-01T03:16:06.362171+00:00",
+  "digest": "sha256:84431f5adf0f3d1055d87761b40cc2148ec5e3bc08227a47c0fea9327538d6d7",
   "own_numbers": {
-    "phi_s": 0.136,
-    "kappa": 0.0289,
-    "mass": 0.170263,
+    "phi_s": 0.1286,
+    "kappa": 0.0383,
+    "mass": 0.151027,
     "power": null,
     "extraction": null,
-    "memory_mass": 6.8,
+    "memory_mass": 6.43,
     "X_natural": null,
     "gravity_mass": null,
     "mass_type": null
   },
   "vs_whole": {
     "mass": {
-      "value": 0.170263,
-      "rank": 20,
+      "value": 0.151027,
+      "rank": 21,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.01057,
+      "mass": 0.01154,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 4,
+    "in_degree": 3,
     "out_degree": 0,
     "by_vector": {
       "Capital": {
@@ -43,7 +43,7 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 1.5118
+        "in": 1.5
       }
     },
     "top_inbound": [
@@ -61,44 +61,39 @@
         "source": "SINGAPORE_JURISDICTION",
         "conn_type": "information_flow",
         "vector": "Information"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
       }
     ],
     "top_outbound": [],
     "gravity_pairs": [
       {
-        "entity": "34539544",
-        "mass": 171.0,
-        "hops": 1,
-        "pull": 1162.8
+        "entity": "US_JURISDICTION",
+        "mass": 55.61,
+        "hops": 2,
+        "pull": 89.3931
       },
       {
         "entity": "SEC",
-        "mass": 119.0,
-        "hops": 2,
-        "pull": 202.3
+        "mass": 116.0,
+        "hops": 3,
+        "pull": 82.8756
       },
       {
         "entity": "FED",
-        "mass": 115.0,
-        "hops": 2,
-        "pull": 195.5
-      },
-      {
-        "entity": "ESMA",
-        "mass": 107.0,
-        "hops": 2,
-        "pull": 181.9
+        "mass": 114.0,
+        "hops": 3,
+        "pull": 81.4467
       },
       {
         "entity": "FINRA",
-        "mass": 105.0,
-        "hops": 2,
-        "pull": 178.5
+        "mass": 104.0,
+        "hops": 3,
+        "pull": 74.3022
+      },
+      {
+        "entity": "OCC",
+        "mass": 103.0,
+        "hops": 3,
+        "pull": 73.5878
       }
     ]
   },
@@ -107,9 +102,9 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "phi_s -92% over 91 cycles",
-    "cycles": 91,
+    "level": "steady",
+    "headline": null,
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -124,7 +119,7 @@
         "network": "fred",
         "kind": "macro_primary",
         "status": "live",
-        "last_observed_at": "2026-07-23T21:02:09.931582+00:00",
+        "last_observed_at": "2026-08-01T02:44:18.468409+00:00",
         "source": "FRED_HK_PROXY",
         "note": "HK GDP proxy"
       }
@@ -157,56 +152,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "5ed049ed-71a8-4ca2-96a3-53661b60acf5",
-      "claim_text": "HKMA \u2014 Hong Kong Monetary Authority",
-      "grounding": {
-        "source_url": "https://www.hkma.gov.hk/eng/",
-        "expected": "Hong Kong",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "HK_JURISDICTION_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/hk-jurisdiction-20260702/",
-      "verified_at": "2026-07-02T07:46:26.289170+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "765591d0-c881-4341-b14b-8408796f9e07",
-      "claim_text": "HKMA fintech and virtual assets",
-      "grounding": {
-        "source_url": "https://www.hkma.gov.hk/eng/key-functions/international-financial-centre/fintech/",
-        "expected": "Hong Kong",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "HK_JURISDICTION_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/hk-jurisdiction-20260702/",
-      "verified_at": "2026-07-02T07:46:27.095803+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "edf8071b-672f-4cbd-8293-551480b9c766",
-      "claim_text": "HKMA banking functions",
-      "grounding": {
-        "source_url": "https://www.hkma.gov.hk/eng/key-functions/banking/",
-        "expected": "HKMA",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "HK_JURISDICTION_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/hk-jurisdiction-20260702/",
-      "verified_at": "2026-07-02T07:46:28.123755+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/HK_JURISDICTION.json"
+  }
 }

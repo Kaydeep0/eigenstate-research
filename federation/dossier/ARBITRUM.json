@@ -1,14 +1,14 @@
 {
   "entity": "ARBITRUM",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:02.429387+00:00",
-  "digest": "sha256:66f3a40f1dbf351105774840635a5792bc4aa73cc39777fe3ce04f0db2f8979b",
+  "compiled_at": "2026-08-01T03:16:05.600341+00:00",
+  "digest": "sha256:55e8b9e97d15f06454eaf42a52c79800a6791c4d2c57b40d48986bc8c96da04d",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.1013,
-    "mass": 0.086238,
+    "kappa": 0.0767,
+    "mass": 0.0348,
     "power": 0.0,
-    "extraction": 4098.6854,
+    "extraction": 10057.1429,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -16,50 +16,50 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.086238,
-      "rank": 58,
+      "value": 0.0348,
+      "rank": 97,
       "of": 199
     },
     "power": {
       "value": 0.0,
       "rank": 11,
-      "of": 54
+      "of": 33
     },
     "gravity": null,
     "extraction": {
-      "value": 4098.6854,
-      "rank": 17,
-      "of": 54
+      "value": 10057.1429,
+      "rank": 20,
+      "of": 33
     },
     "share_of_whole": {
-      "mass": 0.00535,
+      "mass": 0.00266,
       "power": 0.0
     },
     "peers_by_power": [
       {
-        "entity": "TOKENIZED_TREASURY",
-        "power": 0.01
+        "entity": "CITI_TREASURY_SERVICES",
+        "power": 0.02
       },
       {
-        "entity": "AAVE_FORUM",
-        "power": 0.0
+        "entity": "STABLECOIN_POOL",
+        "power": 0.01
       },
       {
         "entity": "ARBITRUM",
         "power": 0.0
       },
       {
-        "entity": "AWS_INFRASTRUCTURE",
+        "entity": "BLACKROCK",
         "power": 0.0
       },
       {
-        "entity": "BASE",
+        "entity": "CANTOR_FITZGERALD",
         "power": 0.0
       }
     ]
   },
   "relationships": {
-    "in_degree": 13,
+    "in_degree": 5,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -72,7 +72,7 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 6.0
+        "in": 2.0
       }
     },
     "top_inbound": [
@@ -116,9 +116,9 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 91,
+    "level": "flag",
+    "headline": "extraction +81% over 18 cycles",
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -158,56 +158,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "dc1b0514-f326-443a-bb28-5d741299d65f",
-      "claim_text": "Arbitrum \u2014 gentle introduction",
-      "grounding": {
-        "source_url": "https://docs.arbitrum.io/welcome/arbitrum-gentle-introduction",
-        "expected": "Arbitrum",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "ARBITRUM_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/arbitrum-20260702/",
-      "verified_at": "2026-07-02T02:20:20.840062+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "791df17f-0fc8-4add-8b4a-84e9fef6d894",
-      "claim_text": "DeFiLlama \u2014 Arbitrum chain page",
-      "grounding": {
-        "source_url": "https://defillama.com/chain/arbitrum",
-        "expected": "Arbitrum",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "onchain_secondary",
-      "witness_weight": 0.62,
-      "report_id": "ARBITRUM_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/arbitrum-20260702/",
-      "verified_at": "2026-07-02T02:20:21.066814+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "c17dd43d-793b-4492-b844-d93e7f0a4b0b",
-      "claim_text": "Ethereum.org \u2014 Layer 2 overview",
-      "grounding": {
-        "source_url": "https://ethereum.org/en/layer-2/",
-        "expected": "Layer 2",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "ARBITRUM_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/arbitrum-20260702/",
-      "verified_at": "2026-07-02T02:20:21.375220+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/ARBITRUM.json"
+  }
 }

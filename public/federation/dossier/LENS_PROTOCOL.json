@@ -1,14 +1,14 @@
 {
   "entity": "LENS_PROTOCOL",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:06.477511+00:00",
-  "digest": "sha256:b1b835050812f22b3a95b92ee0d4a9bc09cab77a4c9431fa6d82b8b80fdb012f",
+  "compiled_at": "2026-08-01T03:16:06.518576+00:00",
+  "digest": "sha256:f387e53cdf771b7ed9be358a8b5c4ba69687ad73d091da59f9a3fca56c55568b",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0506,
-    "mass": 0.135292,
+    "kappa": 0.0767,
+    "mass": 0.112803,
     "power": 0.0,
-    "extraction": 351.2309,
+    "extraction": 12342.8571,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -16,23 +16,23 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.135292,
+      "value": 0.112803,
       "rank": 30,
       "of": 199
     },
     "power": {
       "value": 0.0,
-      "rank": 35,
-      "of": 54
+      "rank": 22,
+      "of": 33
     },
     "gravity": null,
     "extraction": {
-      "value": 351.2309,
-      "rank": 32,
-      "of": 54
+      "value": 12342.8571,
+      "rank": 19,
+      "of": 33
     },
     "share_of_whole": {
-      "mass": 0.0084,
+      "mass": 0.00862,
       "power": 0.0
     },
     "peers_by_power": [
@@ -49,17 +49,17 @@
         "power": 0.0
       },
       {
-        "entity": "MAPLE",
+        "entity": "NATIONAL_CITY_BANK",
         "power": 0.0
       },
       {
-        "entity": "NATIONAL_CITY_BANK",
+        "entity": "ONDO",
         "power": 0.0
       }
     ]
   },
   "relationships": {
-    "in_degree": 4,
+    "in_degree": 3,
     "out_degree": 3,
     "by_vector": {
       "Capital": {
@@ -72,7 +72,7 @@
       },
       "Information": {
         "out": 1.5,
-        "in": 1.0103
+        "in": 1.0
       }
     },
     "top_inbound": [
@@ -89,11 +89,6 @@
       {
         "source": "STANI_KULECHOV",
         "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
         "vector": "Information"
       }
     ],
@@ -121,9 +116,9 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 91,
+    "level": "flag",
+    "headline": "extraction +73% over 18 cycles",
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -163,56 +158,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "38098d9a-ffec-44f3-bc8a-01fbcb3f1e10",
-      "claim_text": "Lens Protocol \u2014 core repository",
-      "grounding": {
-        "source_url": "https://github.com/lens-protocol/core",
-        "expected": "Lens Protocol",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "code_primary",
-      "witness_weight": 0.78,
-      "report_id": "LENS_PROTOCOL_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/lens-protocol-20260702/",
-      "verified_at": "2026-07-02T18:40:44.409101+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "422024fa-6cb2-4a09-838e-3d1e149104c3",
-      "claim_text": "Lens SDK \u2014 official protocol SDK",
-      "grounding": {
-        "source_url": "https://github.com/lens-protocol/lens-sdk",
-        "expected": "Lens Protocol",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "code_primary",
-      "witness_weight": 0.78,
-      "report_id": "LENS_PROTOCOL_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/lens-protocol-20260702/",
-      "verified_at": "2026-07-02T18:40:44.645025+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "9ac6114e-bc09-4c61-b4bc-c77bb53c9f8d",
-      "claim_text": "Lens SDK \u2014 protocol interaction",
-      "grounding": {
-        "source_url": "https://github.com/lens-protocol/lens-sdk",
-        "expected": "SDK",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "code_primary",
-      "witness_weight": 0.78,
-      "report_id": "LENS_PROTOCOL_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/lens-protocol-20260702/",
-      "verified_at": "2026-07-02T18:40:44.902646+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/LENS_PROTOCOL.json"
+  }
 }

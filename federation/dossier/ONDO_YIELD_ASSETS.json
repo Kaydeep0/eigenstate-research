@@ -1,12 +1,12 @@
 {
   "entity": "ONDO_YIELD_ASSETS",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:07.204417+00:00",
-  "digest": "sha256:6adb096492a0d5fc202fd5c0c79e1ed7cfa1e6985924e169a3cea501a8474359",
+  "compiled_at": "2026-08-01T03:16:06.681637+00:00",
+  "digest": "sha256:613f581e8f80cdfb2ed6c62f4a9fa41c1f67135bc7b5e4aae4dd858d173f5ec6",
   "own_numbers": {
-    "phi_s": 0.02,
-    "kappa": 0.0362,
-    "mass": 0.049434,
+    "phi_s": null,
+    "kappa": null,
+    "mass": 0.0348,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,83 +16,24 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.049434,
-      "rank": 91,
+      "value": 0.0348,
+      "rank": 189,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00307,
+      "mass": 0.00266,
       "power": null
     },
     "peers_by_power": []
   },
-  "relationships": {
-    "in_degree": 1,
-    "out_degree": 4,
-    "by_vector": {
-      "Capital": {
-        "out": 0.0,
-        "in": 0.0
-      },
-      "Infrastructure": {
-        "out": 0.0,
-        "in": 0.0
-      },
-      "Information": {
-        "out": 2.0,
-        "in": 0.0103
-      }
-    },
-    "top_inbound": [
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
-      }
-    ],
-    "top_outbound": [
-      {
-        "target": "ETHEREUM",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "target": "SOLANA",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "target": "ARBITRUM",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "target": "POLYGON",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      }
-    ],
-    "gravity_pairs": []
-  },
-  "monetary_position": {
-    "position": 0.5,
-    "well": "fiat"
-  },
-  "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 91,
-    "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": 0.0,
-      "boundary_score": 0.0
-    }
-  },
+  "relationships": null,
+  "monetary_position": null,
+  "drift": null,
   "network_plugs": {
-    "freshness": "stale",
+    "freshness": "seed",
     "inbound": [],
     "outbound": [
       {
@@ -116,62 +57,6 @@
         "status": "gated"
       }
     ],
-    "observation": {
-      "source": null,
-      "last_observed_at": null,
-      "last_delta_i": null,
-      "stale": true
-    }
-  },
-  "claims": [
-    {
-      "claim_id": "3486adbf-9aef-4d25-bf80-06139339686e",
-      "claim_text": "Ondo documentation \u2014 OUSG and USDY yield products",
-      "grounding": {
-        "source_url": "https://docs.ondo.finance/",
-        "expected": "USDY",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "ONDO_YIELD_ASSETS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ondo-yield-assets-20260702/",
-      "verified_at": "2026-07-02T17:42:22.710469+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "a91b629f-3e16-4a66-8bc5-9c6dc2d8d544",
-      "claim_text": "RWA.xyz \u2014 OUSG tokenized Treasury listing",
-      "grounding": {
-        "source_url": "https://rwa.xyz/assets/ousg",
-        "expected": "OUSG",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "ONDO_YIELD_ASSETS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ondo-yield-assets-20260702/",
-      "verified_at": "2026-07-02T17:42:22.899473+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "a42bd6ac-d6b8-487d-b1a2-06f363f3cded",
-      "claim_text": "RWA.xyz \u2014 USDY yield asset listing",
-      "grounding": {
-        "source_url": "https://rwa.xyz/assets/usdy",
-        "expected": "yield",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "ONDO_YIELD_ASSETS_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ondo-yield-assets-20260702/",
-      "verified_at": "2026-07-02T17:42:23.100687+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/ONDO_YIELD_ASSETS.json"
+    "observation": null
+  }
 }

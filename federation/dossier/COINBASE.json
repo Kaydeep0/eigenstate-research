@@ -1,14 +1,14 @@
 {
   "entity": "COINBASE",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:03.768288+00:00",
-  "digest": "sha256:c9b09bb2be780f50387faa698577814c34209715c14ea2c1d5414d870082d6d7",
+  "compiled_at": "2026-08-01T03:16:05.898168+00:00",
+  "digest": "sha256:2a8dcbc4129495bdb0b3566a0928459d1dc3770f0835a7416e34d40e3af35756",
   "own_numbers": {
-    "phi_s": 3.2739,
-    "kappa": 0.0015,
-    "mass": 0.31473,
-    "power": 0.01,
-    "extraction": 239478.827368,
+    "phi_s": 3.2745,
+    "kappa": 0.0026,
+    "mass": 0.2517,
+    "power": 0.3,
+    "extraction": 30386495.819702,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -16,51 +16,51 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.31473,
-      "rank": 5,
+      "value": 0.2517,
+      "rank": 7,
       "of": 199
     },
     "power": {
-      "value": 0.01,
-      "rank": 7,
-      "of": 54
+      "value": 0.3,
+      "rank": 4,
+      "of": 33
     },
     "gravity": null,
     "extraction": {
-      "value": 239478.8274,
-      "rank": 2,
-      "of": 54
+      "value": 30386495.8197,
+      "rank": 1,
+      "of": 33
     },
     "share_of_whole": {
-      "mass": 0.01954,
-      "power": 0.03846
+      "mass": 0.01923,
+      "power": 0.10135
     },
     "peers_by_power": [
       {
-        "entity": "BLACKROCK",
-        "power": 0.02
+        "entity": "TREASURY_MARKET",
+        "power": 0.89
       },
       {
-        "entity": "BNY_MELLON",
-        "power": 0.01
+        "entity": "CITIGROUP",
+        "power": 0.44
       },
       {
         "entity": "COINBASE",
-        "power": 0.01
+        "power": 0.3
       },
       {
-        "entity": "SEC",
-        "power": 0.01
+        "entity": "BNY_MELLON",
+        "power": 0.17
       },
       {
         "entity": "TOKENIZED_TREASURY",
-        "power": 0.01
+        "power": 0.13
       }
     ]
   },
   "relationships": {
     "in_degree": 14,
-    "out_degree": 7,
+    "out_degree": 6,
     "by_vector": {
       "Capital": {
         "out": 0.5,
@@ -71,8 +71,8 @@
         "in": 2.0
       },
       "Information": {
-        "out": 3.0,
-        "in": 5.1
+        "out": 2.5,
+        "in": 4.8236
       }
     },
     "top_inbound": [
@@ -131,55 +131,55 @@
     ],
     "gravity_pairs": [
       {
-        "entity": "34539544",
-        "mass": 171.0,
-        "hops": 1,
-        "pull": 1.71
-      },
-      {
         "entity": "SEC",
-        "mass": 119.0,
+        "mass": 116.0,
         "hops": 1,
-        "pull": 1.19
+        "pull": 34.8
       },
       {
         "entity": "BLACKROCK",
-        "mass": 88.0,
+        "mass": 84.0,
         "hops": 1,
-        "pull": 0.88
+        "pull": 25.2
       },
       {
         "entity": "FED",
-        "mass": 115.0,
+        "mass": 114.0,
         "hops": 2,
-        "pull": 0.2875
+        "pull": 8.55
       },
       {
         "entity": "ESMA",
-        "mass": 107.0,
+        "mass": 106.0,
         "hops": 2,
-        "pull": 0.2675
+        "pull": 7.95
+      },
+      {
+        "entity": "FINRA",
+        "mass": 104.0,
+        "hops": 2,
+        "pull": 7.8
       }
     ]
   },
   "monetary_position": {
-    "position": 0.223,
+    "position": 0.224,
     "well": "boundary"
   },
   "drift": {
     "level": "flag",
-    "headline": "extraction -97% over 91 cycles",
-    "cycles": 91,
+    "headline": "phi_s +8427% over 18 cycles",
+    "cycles": 18,
     "delta_last_cycle": {
-      "phi_s": -3.2363,
-      "kappa": 0.0,
+      "phi_s": 0.0,
+      "kappa": 0.0004,
       "power": 0.0,
       "extraction": 0.0,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live_at_request",
+    "freshness": "live",
     "inbound": [
       {
         "network": "defillama",
@@ -191,7 +191,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live_at_request",
-        "last_observed_at": "2026-07-23T19:00:44.145676+00:00",
+        "last_observed_at": "2026-08-01T03:00:02.932438+00:00",
         "filings": null,
         "note": "CIK 0001679788"
       }
@@ -219,15 +219,15 @@
       }
     ],
     "observation": {
-      "source": "defi_llama_tvl",
-      "last_observed_at": "2026-07-02T15:36:11.684726+00:00",
-      "last_delta_i": 0.06636373128449961,
-      "stale": true
+      "source": "information_flow",
+      "last_observed_at": "2026-08-01T02:55:37.179626+00:00",
+      "last_delta_i": 0.163725,
+      "stale": false
     }
   },
   "claims": [
     {
-      "claim_id": "8fa8aed5-e670-4502-8337-b7354e1a6ff2",
+      "claim_id": "697296ba-12f1-4b36-91c4-33e4a50d043f",
       "claim_text": "Base sequencer decentralization \u2014 fault proofs live",
       "grounding": {
         "source_url": "https://docs.base.org/learn/decentralization",
@@ -235,15 +235,20 @@
         "location": ""
       },
       "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
       "witness_class": "unknown_secondary",
       "witness_weight": 0.08,
-      "report_id": "COINBASE_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/coinbase-20260702/",
-      "verified_at": "2026-07-02T04:15:19.183979+00:00",
+      "report_id": "REVALIDATION_20260729",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/revalidation-20260729/",
+      "verified_at": "2026-07-29T17:12:44.216171+00:00",
+      "expires_at": "2026-10-27T17:12:44+00:00",
+      "volatility_class": "default",
       "allows_canonical": true
     },
     {
-      "claim_id": "a794a8ea-37c0-4147-aa67-45254a5aff2f",
+      "claim_id": "41d77de2-df20-4cec-ba87-5b884f56a912",
       "claim_text": "Coinbase Prime \u2014 institutional custody platform",
       "grounding": {
         "source_url": "https://www.coinbase.com/prime",
@@ -251,15 +256,20 @@
         "location": ""
       },
       "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
       "witness_class": "unknown_secondary",
       "witness_weight": 0.08,
-      "report_id": "COINBASE_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/coinbase-20260702/",
-      "verified_at": "2026-07-02T04:15:20.228534+00:00",
+      "report_id": "REVALIDATION_20260729",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/revalidation-20260729/",
+      "verified_at": "2026-07-29T17:12:44.451814+00:00",
+      "expires_at": "2026-10-27T17:12:44+00:00",
+      "volatility_class": "default",
       "allows_canonical": true
     },
     {
-      "claim_id": "35028049-43a6-410d-b54e-adc21127e55d",
+      "claim_id": "20ea4dd7-d392-44c2-88fa-31e03419ef17",
       "claim_text": "Coinbase operates Base as an Ethereum L2",
       "grounding": {
         "source_url": "https://docs.base.org/learn/why-base",
@@ -267,13 +277,18 @@
         "location": ""
       },
       "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
       "witness_class": "unknown_secondary",
       "witness_weight": 0.08,
-      "report_id": "COINBASE_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/coinbase-20260702/",
-      "verified_at": "2026-07-02T04:15:20.488806+00:00",
+      "report_id": "REVALIDATION_20260729",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/revalidation-20260729/",
+      "verified_at": "2026-07-29T17:12:44.703940+00:00",
+      "expires_at": "2026-10-27T17:12:44+00:00",
+      "volatility_class": "default",
       "allows_canonical": true
     }
   ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/COINBASE.json"
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/COINBASE.json"
 }

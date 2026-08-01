@@ -1,14 +1,14 @@
 {
   "entity": "CIRCLE",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:03.447593+00:00",
-  "digest": "sha256:404ffbc155298f1d954ba309643c29d7c65a716bd1d4b320912e84b8d455ca81",
+  "compiled_at": "2026-08-01T03:16:05.829627+00:00",
+  "digest": "sha256:213e1e2798386226336dcf8d368803024336b9642f18b83057a3664c6de4446a",
   "own_numbers": {
-    "phi_s": 6.5404,
-    "kappa": 0.0015,
-    "mass": 0.261446,
-    "power": 0.0,
-    "extraction": 6223.576136,
+    "phi_s": 8.1566,
+    "kappa": 0.0042,
+    "mass": 0.240433,
+    "power": 0.04,
+    "extraction": 355799.169538,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -16,54 +16,54 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.261446,
-      "rank": 10,
+      "value": 0.240433,
+      "rank": 8,
       "of": 199
     },
     "power": {
-      "value": 0.0,
-      "rank": 17,
-      "of": 54
+      "value": 0.04,
+      "rank": 8,
+      "of": 33
     },
     "gravity": null,
     "extraction": {
-      "value": 6223.5761,
-      "rank": 12,
-      "of": 54
+      "value": 355799.1695,
+      "rank": 8,
+      "of": 33
     },
     "share_of_whole": {
-      "mass": 0.01623,
-      "power": 0.0
+      "mass": 0.01837,
+      "power": 0.01351
     },
     "peers_by_power": [
       {
-        "entity": "CANTON_NETWORK",
-        "power": 0.0
+        "entity": "TOKENIZED_TREASURY",
+        "power": 0.13
       },
       {
-        "entity": "CANTOR_FITZGERALD",
-        "power": 0.0
+        "entity": "BASE",
+        "power": 0.05
       },
       {
         "entity": "CIRCLE",
-        "power": 0.0
-      },
-      {
-        "entity": "CIRCLE_RESERVE_FUND",
-        "power": 0.0
+        "power": 0.04
       },
       {
         "entity": "CITI_TREASURY_SERVICES",
-        "power": 0.0
+        "power": 0.02
+      },
+      {
+        "entity": "STABLECOIN_POOL",
+        "power": 0.01
       }
     ]
   },
   "relationships": {
     "in_degree": 6,
-    "out_degree": 10,
+    "out_degree": 7,
     "by_vector": {
       "Capital": {
-        "out": 1.0,
+        "out": 0.5,
         "in": 0.0
       },
       "Infrastructure": {
@@ -71,8 +71,8 @@
         "in": 0.0
       },
       "Information": {
-        "out": 3.0,
-        "in": 3.2
+        "out": 2.0,
+        "in": 2.5165
       }
     },
     "top_inbound": [
@@ -109,11 +109,6 @@
         "vector": "Information"
       },
       {
-        "target": "TETHER",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
         "target": "CIRCLE_RESERVE_FUND",
         "conn_type": "information_flow",
         "vector": "Information"
@@ -127,21 +122,57 @@
         "target": "JPMORGAN",
         "conn_type": "information_flow",
         "vector": "Information"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
       }
     ],
-    "gravity_pairs": []
+    "gravity_pairs": [
+      {
+        "entity": "JPMORGAN",
+        "mass": 96.0,
+        "hops": 1,
+        "pull": 3.84
+      },
+      {
+        "entity": "CITIGROUP",
+        "mass": 92.0,
+        "hops": 1,
+        "pull": 3.68
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 84.0,
+        "hops": 1,
+        "pull": 3.36
+      },
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 55.61,
+        "hops": 1,
+        "pull": 2.2244
+      },
+      {
+        "entity": "SEC",
+        "mass": 116.0,
+        "hops": 2,
+        "pull": 1.16
+      }
+    ]
   },
   "monetary_position": {
-    "position": 0.532,
+    "position": 0.526,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "power -100% over 91 cycles",
-    "cycles": 91,
+    "headline": "phi_s +11569% over 18 cycles",
+    "cycles": 18,
     "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": 0.0003,
+      "phi_s": 1.6181,
+      "kappa": 0.0009,
       "power": 0.0,
       "extraction": 0.0,
       "boundary_score": 0.0
@@ -160,7 +191,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live_at_request",
-        "last_observed_at": "2026-07-23T19:00:44.145676+00:00",
+        "last_observed_at": "2026-08-01T03:00:02.932438+00:00",
         "filings": null,
         "note": "CIK 0001876042"
       }
@@ -189,14 +220,14 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-07-23T18:15:04.917996+00:00",
-      "last_delta_i": 217525.84083330526,
+      "last_observed_at": "2026-08-01T02:52:00.296374+00:00",
+      "last_delta_i": 1718840999.617819,
       "stale": false
     }
   },
   "claims": [
     {
-      "claim_id": "45d1b56c-b2c4-4b8c-b05b-e605cc9d622c",
+      "claim_id": "9728c2f5-892b-48f7-9584-edd17d203750",
       "claim_text": "Circle issues USDC \u2014 regulated dollar stablecoin",
       "grounding": {
         "source_url": "https://www.circle.com/usdc",
@@ -204,15 +235,20 @@
         "location": ""
       },
       "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
       "witness_class": "unknown_secondary",
       "witness_weight": 0.08,
-      "report_id": "CIRCLE_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/circle-20260702/",
-      "verified_at": "2026-07-02T04:15:20.747453+00:00",
+      "report_id": "CIRCLE_20260801",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/circle-20260801/",
+      "verified_at": "2026-08-01T03:15:59.163879+00:00",
+      "expires_at": "2026-10-30T03:15:59+00:00",
+      "volatility_class": "default",
       "allows_canonical": true
     },
     {
-      "claim_id": "88c1a6b6-55f4-42b8-8153-7e7f29fef457",
+      "claim_id": "2b8f50a7-26ac-461b-8f0d-6bb5c07773c8",
       "claim_text": "Circle publishes monthly USDC reserve attestations",
       "grounding": {
         "source_url": "https://www.circle.com/en/transparency",
@@ -220,15 +256,20 @@
         "location": ""
       },
       "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
       "witness_class": "unknown_secondary",
       "witness_weight": 0.08,
-      "report_id": "CIRCLE_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/circle-20260702/",
-      "verified_at": "2026-07-02T04:15:21.017571+00:00",
+      "report_id": "CIRCLE_20260801",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/circle-20260801/",
+      "verified_at": "2026-08-01T03:15:59.548603+00:00",
+      "expires_at": "2026-10-30T03:15:59+00:00",
+      "volatility_class": "default",
       "allows_canonical": true
     },
     {
-      "claim_id": "bb700331-8a3d-494c-8818-04972050822d",
+      "claim_id": "c05a85df-011c-45e5-b035-51f20291b4cd",
       "claim_text": "Cross-Chain Transfer Protocol (CCTP) for native USDC",
       "grounding": {
         "source_url": "https://www.circle.com/en/cross-chain-transfer-protocol",
@@ -236,13 +277,18 @@
         "location": ""
       },
       "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
       "witness_class": "unknown_secondary",
       "witness_weight": 0.08,
-      "report_id": "CIRCLE_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/circle-20260702/",
-      "verified_at": "2026-07-02T04:15:21.265764+00:00",
+      "report_id": "CIRCLE_20260801",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/circle-20260801/",
+      "verified_at": "2026-08-01T03:15:59.862322+00:00",
+      "expires_at": "2026-10-30T03:15:59+00:00",
+      "volatility_class": "default",
       "allows_canonical": true
     }
   ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/CIRCLE.json"
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/CIRCLE.json"
 }

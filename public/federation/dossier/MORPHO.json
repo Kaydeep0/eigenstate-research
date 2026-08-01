@@ -1,12 +1,12 @@
 {
   "entity": "MORPHO",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:06.859856+00:00",
-  "digest": "sha256:34a7156535269976c8d04469b0c1106ba6185a1d6c825459b1ae7d9e2d57add3",
+  "compiled_at": "2026-08-01T03:16:06.600352+00:00",
+  "digest": "sha256:537c2c2c1c43bea4ffc57a5c6bbe878045998443d497d29e72b6c08c6b253682",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0289,
-    "mass": 0.046741,
+    "kappa": 0.0383,
+    "mass": 0.0348,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,21 +16,21 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.046741,
-      "rank": 97,
+      "value": 0.0348,
+      "rank": 128,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.0029,
+      "mass": 0.00266,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 1,
+    "in_degree": 0,
     "out_degree": 3,
     "by_vector": {
       "Capital": {
@@ -43,16 +43,10 @@
       },
       "Information": {
         "out": 1.5,
-        "in": 0.0103
+        "in": 0.0
       }
     },
-    "top_inbound": [
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
-      }
-    ],
+    "top_inbound": [],
     "top_outbound": [
       {
         "target": "UNISWAP",
@@ -79,7 +73,7 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 91,
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -117,56 +111,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "21267ab1-802f-45e7-9415-d421252ff178",
-      "claim_text": "Morpho Blue \u2014 permissionless lending documentation",
-      "grounding": {
-        "source_url": "https://docs.morpho.org/",
-        "expected": "Blue",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "MORPHO_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/morpho-20260702/",
-      "verified_at": "2026-07-02T17:48:59.938662+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "07a75d2f-a510-4371-ade4-15d35902672d",
-      "claim_text": "Morpho application \u2014 lending vaults",
-      "grounding": {
-        "source_url": "https://app.morpho.org/",
-        "expected": "Morpho",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "MORPHO_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/morpho-20260702/",
-      "verified_at": "2026-07-02T17:49:00.225437+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "794c0f91-2da4-498d-b52c-2b45c1db1751",
-      "claim_text": "DeFiLlama \u2014 Morpho protocol listing",
-      "grounding": {
-        "source_url": "https://defillama.com/protocol/morpho",
-        "expected": "vault",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "onchain_secondary",
-      "witness_weight": 0.62,
-      "report_id": "MORPHO_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/morpho-20260702/",
-      "verified_at": "2026-07-02T17:49:00.336054+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/MORPHO.json"
+  }
 }

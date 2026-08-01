@@ -1,41 +1,41 @@
 {
   "entity": "RWA_TELEGRAM",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:08.251224+00:00",
-  "digest": "sha256:d5beaaf911334129ebe3e8d46d33a0ec491bb5954660c26b94a23a6cb0ff2127",
+  "compiled_at": "2026-08-01T03:16:06.910778+00:00",
+  "digest": "sha256:ae30fd1772dfc6d759d7c4207ea263d0a46a8bd3a2341e9fc99efd0cf3ae1740",
   "own_numbers": {
-    "phi_s": 0.02,
-    "kappa": 0.0145,
-    "mass": 0.03859,
+    "phi_s": null,
+    "kappa": 0.322,
+    "mass": 0.0348,
     "power": null,
     "extraction": null,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 22.0,
-    "mass_type": "infrastructure"
+    "gravity_mass": 20,
+    "mass_type": "distribution"
   },
   "vs_whole": {
     "mass": {
-      "value": 0.03859,
-      "rank": 139,
+      "value": 0.0348,
+      "rank": 165,
       "of": 199
     },
     "power": null,
     "gravity": {
-      "value": 22.0,
-      "rank": 52,
-      "of": 62
+      "value": 20,
+      "rank": 50,
+      "of": 59
     },
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.0024,
+      "mass": 0.00266,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 1,
-    "out_degree": 1,
+    "in_degree": 0,
+    "out_degree": 0,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -46,74 +46,26 @@
         "in": 0.0
       },
       "Information": {
-        "out": 0.5,
-        "in": 0.0103
+        "out": 0.0,
+        "in": 0.0
       }
     },
-    "top_inbound": [
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
-      }
-    ],
-    "top_outbound": [
-      {
-        "target": "RING",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      }
-    ],
-    "gravity_pairs": [
-      {
-        "entity": "34539544",
-        "mass": 171.0,
-        "hops": 1,
-        "pull": 3762.0
-      },
-      {
-        "entity": "SEC",
-        "mass": 119.0,
-        "hops": 2,
-        "pull": 654.5
-      },
-      {
-        "entity": "FED",
-        "mass": 115.0,
-        "hops": 2,
-        "pull": 632.5
-      },
-      {
-        "entity": "ESMA",
-        "mass": 107.0,
-        "hops": 2,
-        "pull": 588.5
-      },
-      {
-        "entity": "FINRA",
-        "mass": 105.0,
-        "hops": 2,
-        "pull": 577.5
-      }
-    ]
+    "top_inbound": [],
+    "top_outbound": [],
+    "gravity_pairs": []
   },
-  "monetary_position": {
-    "position": 0.4,
-    "well": "fiat"
-  },
+  "monetary_position": null,
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 91,
+    "level": "watch",
+    "headline": "kappa -0.119 over 18 cycles",
+    "cycles": 18,
     "delta_last_cycle": {
-      "phi_s": 0.0,
       "kappa": 0.0,
-      "gravity_mass": 0.0,
-      "boundary_score": 0.0
+      "gravity_mass": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "stale",
+    "freshness": "seed",
     "inbound": [],
     "outbound": [
       {
@@ -137,62 +89,6 @@
         "status": "gated"
       }
     ],
-    "observation": {
-      "source": null,
-      "last_observed_at": null,
-      "last_delta_i": null,
-      "stale": true
-    }
-  },
-  "claims": [
-    {
-      "claim_id": "16a7aa99-9a3c-465e-8caf-64ccbee225cb",
-      "claim_text": "Telegram \u2014 messaging platform",
-      "grounding": {
-        "source_url": "https://telegram.org/",
-        "expected": "Telegram",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "RWA_TELEGRAM_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/rwa-telegram-20260702/",
-      "verified_at": "2026-07-02T17:06:23.706847+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "5de8e1f6-cae7-43e3-9a24-5bd0b9395093",
-      "claim_text": "Telegram messaging capabilities",
-      "grounding": {
-        "source_url": "https://telegram.org/",
-        "expected": "messaging",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "RWA_TELEGRAM_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/rwa-telegram-20260702/",
-      "verified_at": "2026-07-02T17:06:24.309540+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "aabd4bde-2e0b-44f1-8b1e-ce5acd201a91",
-      "claim_text": "RWA asset index cross-reference",
-      "grounding": {
-        "source_url": "https://rwa.xyz/",
-        "expected": "RWA",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "RWA_TELEGRAM_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/rwa-telegram-20260702/",
-      "verified_at": "2026-07-02T17:06:24.761498+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/RWA_TELEGRAM.json"
+    "observation": null
+  }
 }

@@ -1,12 +1,12 @@
 {
   "entity": "FIAT_OFFRAMP",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:05.124329+00:00",
-  "digest": "sha256:1e4329d54042e1bcc659baf7d0eccdcae35233556f0c8a31dfb75d97a6da1b7f",
+  "compiled_at": "2026-08-01T03:16:06.203075+00:00",
+  "digest": "sha256:44fb21d6a3eee9b4a1659a24d9e16db315952a5bfd891ddbae01e8bd1ade0aac",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0217,
-    "mass": 0.056016,
+    "kappa": 0.0256,
+    "mass": 0.0348,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,21 +16,21 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.056016,
-      "rank": 76,
+      "value": 0.0348,
+      "rank": 120,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00348,
+      "mass": 0.00266,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 2,
+    "in_degree": 1,
     "out_degree": 1,
     "by_vector": {
       "Capital": {
@@ -43,18 +43,13 @@
       },
       "Information": {
         "out": 0.5,
-        "in": 0.5103
+        "in": 0.5
       }
     },
     "top_inbound": [
       {
         "source": "STABLECOIN_POOL",
         "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
         "vector": "Information"
       }
     ],
@@ -74,7 +69,7 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 91,
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -112,56 +107,5 @@
       "last_delta_i": null,
       "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "bce29db7-aee4-4b91-bf86-2e03fd2bfc9e",
-      "claim_text": "Coinbase \u2014 sell crypto for cash",
-      "grounding": {
-        "source_url": "https://www.coinbase.com/",
-        "expected": "sell",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "FIAT_OFFRAMP_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260702/",
-      "verified_at": "2026-07-02T17:59:23.477384+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "ad4ceb62-f26b-4e7b-89a5-c146e8aa5cf9",
-      "claim_text": "Circle USDC \u2014 redemption for dollars",
-      "grounding": {
-        "source_url": "https://www.circle.com/en/usdc",
-        "expected": "redeem",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "FIAT_OFFRAMP_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260702/",
-      "verified_at": "2026-07-02T17:59:23.725116+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "c50feba7-5c50-4c35-afaf-30b5e855d1ce",
-      "claim_text": "Paxos \u2014 regulated redemption services",
-      "grounding": {
-        "source_url": "https://paxos.com/",
-        "expected": "redeem",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "FIAT_OFFRAMP_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260702/",
-      "verified_at": "2026-07-02T17:59:24.029450+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/FIAT_OFFRAMP.json"
+  }
 }

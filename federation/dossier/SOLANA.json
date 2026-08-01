@@ -1,12 +1,12 @@
 {
   "entity": "SOLANA",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:08.566590+00:00",
-  "digest": "sha256:1909af64fffac1aa6f603eb34886399081e6670145e1e72381a6b4b4c043341b",
+  "compiled_at": "2026-08-01T03:16:06.989564+00:00",
+  "digest": "sha256:cddb1e06cc76c4de42212b78318c364095c96a00ce72da474c130fee359ac365",
   "own_numbers": {
-    "phi_s": 0.02,
-    "kappa": 0.0362,
-    "mass": 0.13131,
+    "phi_s": 0.0,
+    "kappa": 0.0,
+    "mass": 0.116449,
     "power": null,
     "extraction": null,
     "memory_mass": null,
@@ -16,21 +16,21 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.13131,
-      "rank": 31,
+      "value": 0.116449,
+      "rank": 28,
       "of": 199
     },
     "power": null,
     "gravity": null,
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.00815,
+      "mass": 0.0089,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 5,
+    "in_degree": 0,
     "out_degree": 0,
     "by_vector": {
       "Capital": {
@@ -43,36 +43,10 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 2.7
+        "in": 0.0
       }
     },
-    "top_inbound": [
-      {
-        "source": "BLACKROCK_BUIDL",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "MAPLE",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "ONDO_YIELD_ASSETS",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "KAMINO_LEND",
-        "conn_type": "information_flow",
-        "vector": "Information"
-      },
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
-      }
-    ],
+    "top_inbound": [],
     "top_outbound": [],
     "gravity_pairs": []
   },
@@ -83,7 +57,7 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 91,
+    "cycles": 18,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -91,7 +65,7 @@
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "stale",
     "inbound": [],
     "outbound": [
       {
@@ -116,61 +90,10 @@
       }
     ],
     "observation": {
-      "source": "propagated",
-      "last_observed_at": "2026-07-23T18:15:04.917996+00:00",
-      "last_delta_i": 2.2198011098811404e+54,
-      "stale": false
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
     }
-  },
-  "claims": [
-    {
-      "claim_id": "b82ecb9e-3822-4ae8-b343-226280325979",
-      "claim_text": "Solana \u2014 official homepage",
-      "grounding": {
-        "source_url": "https://solana.com/",
-        "expected": "Solana",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "SOLANA_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/solana-20260702/",
-      "verified_at": "2026-07-02T02:34:08.364870+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "1994055a-f64e-446f-a09e-9cb7a29e5baa",
-      "claim_text": "Solana documentation",
-      "grounding": {
-        "source_url": "https://docs.solana.com/",
-        "expected": "Solana",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "SOLANA_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/solana-20260702/",
-      "verified_at": "2026-07-02T02:34:08.471916+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "27c55136-4490-44db-942c-7c8a4c1ae6e5",
-      "claim_text": "DeFiLlama \u2014 Solana chain page",
-      "grounding": {
-        "source_url": "https://defillama.com/chain/solana",
-        "expected": "Solana",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "onchain_secondary",
-      "witness_weight": 0.62,
-      "report_id": "SOLANA_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/solana-20260702/",
-      "verified_at": "2026-07-02T02:34:08.639877+00:00",
-      "allows_canonical": true
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/SOLANA.json"
+  }
 }

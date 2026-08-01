@@ -1,41 +1,41 @@
 {
   "entity": "RWA_INFLUENCER_1",
   "node": "34539544",
-  "compiled_at": "2026-07-23T21:11:08.079679+00:00",
-  "digest": "sha256:76e05119009ebfe8eca9b734b46d2df30397d7c17d9a9cda1f276174902a1732",
+  "compiled_at": "2026-08-01T03:16:06.871445+00:00",
+  "digest": "sha256:da909bc98a6433b75f4b3f17f74d33a0a42aea6dc71f02254d3974035b86a658",
   "own_numbers": {
-    "phi_s": 0.0,
-    "kappa": 0.0145,
-    "mass": 0.03859,
+    "phi_s": null,
+    "kappa": 0.322,
+    "mass": 0.0348,
     "power": null,
     "extraction": null,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 17.0,
+    "gravity_mass": 15,
     "mass_type": "distribution"
   },
   "vs_whole": {
     "mass": {
-      "value": 0.03859,
-      "rank": 137,
+      "value": 0.0348,
+      "rank": 155,
       "of": 199
     },
     "power": null,
     "gravity": {
-      "value": 17.0,
-      "rank": 57,
-      "of": 62
+      "value": 15,
+      "rank": 54,
+      "of": 59
     },
     "extraction": null,
     "share_of_whole": {
-      "mass": 0.0024,
+      "mass": 0.00266,
       "power": null
     },
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 1,
-    "out_degree": 1,
+    "in_degree": 0,
+    "out_degree": 0,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -46,74 +46,26 @@
         "in": 0.0
       },
       "Information": {
-        "out": 0.5,
-        "in": 0.4
+        "out": 0.0,
+        "in": 0.0
       }
     },
-    "top_inbound": [
-      {
-        "source": "34539544",
-        "conn_type": "strategic",
-        "vector": "Information"
-      }
-    ],
-    "top_outbound": [
-      {
-        "target": "RING",
-        "conn_type": "influence",
-        "vector": "Information"
-      }
-    ],
-    "gravity_pairs": [
-      {
-        "entity": "34539544",
-        "mass": 171.0,
-        "hops": 1,
-        "pull": 2907.0
-      },
-      {
-        "entity": "SEC",
-        "mass": 119.0,
-        "hops": 2,
-        "pull": 505.75
-      },
-      {
-        "entity": "FED",
-        "mass": 115.0,
-        "hops": 2,
-        "pull": 488.75
-      },
-      {
-        "entity": "ESMA",
-        "mass": 107.0,
-        "hops": 2,
-        "pull": 454.75
-      },
-      {
-        "entity": "FINRA",
-        "mass": 105.0,
-        "hops": 2,
-        "pull": 446.25
-      }
-    ]
+    "top_inbound": [],
+    "top_outbound": [],
+    "gravity_pairs": []
   },
-  "monetary_position": {
-    "position": 0.4,
-    "well": "fiat"
-  },
+  "monetary_position": null,
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 91,
+    "level": "watch",
+    "headline": "kappa -0.119 over 18 cycles",
+    "cycles": 18,
     "delta_last_cycle": {
-      "phi_s": 0.0,
       "kappa": 0.0,
-      "gravity_mass": 0.0,
-      "boundary_score": 0.0
+      "gravity_mass": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "seed",
     "inbound": [],
     "outbound": [
       {
@@ -137,78 +89,6 @@
         "status": "gated"
       }
     ],
-    "observation": {
-      "source": "propagated",
-      "last_observed_at": "2026-07-23T18:15:04.917996+00:00",
-      "last_delta_i": 1.504079946339545e+21,
-      "stale": false
-    }
-  },
-  "claims": [
-    {
-      "claim_id": "4eec33b8-a258-4d23-9278-3938054b865b",
-      "claim_text": "RWA.xyz \u2014 tokenized asset index",
-      "grounding": {
-        "source_url": "https://rwa.xyz/",
-        "expected": "tokenized",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "RWA_INFLUENCER_1_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/rwa-influencer-1-20260702/",
-      "verified_at": "2026-07-02T01:13:17.116833+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "0dcd7cf7-09b3-4376-a58c-65b8859f7511",
-      "claim_text": "Securitize \u2014 tokenization platform",
-      "grounding": {
-        "source_url": "https://www.securitize.io/",
-        "expected": "Securitize",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "RWA_INFLUENCER_1_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/rwa-influencer-1-20260702/",
-      "verified_at": "2026-07-02T01:13:17.260604+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "6403ec40-5a22-4fe8-9cd7-7d39602da8b2",
-      "claim_text": "Ethereum.org \u2014 real-world assets overview",
-      "grounding": {
-        "source_url": "https://ethereum.org/en/real-world-assets/",
-        "expected": "real-world",
-        "location": ""
-      },
-      "status_at_publish": "ATTESTED-PRIMARY",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "RWA_INFLUENCER_1_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/rwa-influencer-1-20260702/",
-      "verified_at": "2026-07-02T01:15:25.679570+00:00",
-      "allows_canonical": true
-    },
-    {
-      "claim_id": "e4248540-d169-4b15-81ab-0894fe8cb05d",
-      "claim_text": "BlackRock tokenized fund announcement",
-      "grounding": {
-        "source_url": "https://www.blackrock.com/corporate/newsroom/press-releases/article/corp-one/press-releases/blackrock-launches-first-tokenized-fund-on-ethereum",
-        "expected": "tokenized",
-        "location": ""
-      },
-      "status_at_publish": "HALLUCINATED",
-      "witness_class": "unknown_secondary",
-      "witness_weight": 0.08,
-      "report_id": "RWA_INFLUENCER_1_20260702",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/rwa-influencer-1-20260702/",
-      "verified_at": "2026-07-02T01:13:17.488547+00:00",
-      "allows_canonical": false
-    }
-  ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/RWA_INFLUENCER_1.json"
+    "observation": null
+  }
 }
