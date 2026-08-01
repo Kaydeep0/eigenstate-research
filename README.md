@@ -2,26 +2,28 @@
 
 **Public GitHub face** for Node `34539544` — research site + report Pages.
 
-Measuring capital field dynamics in tokenized settlement. Observations are hash-chained; commits land on Base mainnet when published.
+Measuring capital field dynamics in tokenized settlement (**RWA**). Observations are hash-chained; **attestation** commits land on Base mainnet when published. Machine tools: federation OpenAPI + **MCP** adapter docs (below).
 
-> **Cold start:** the GeniusFlow engine GitHub repo is **private**. Agents and humans discovering via GitHub should use this repo + the live federation URLs below — not `git clone` of the engine.
+> **Cold start:** the GeniusFlow engine GitHub repo is **private**. Agents and humans discovering via GitHub should use **this public repo** + the live federation URLs below — not `git clone` of the engine. Discovery lives in this README (not GitHub About metadata).
 
 ---
 
 ## For agents
 
-No signup. No engine clone. Start on the federation origin (canonical machine surface):
+**Canonical start:** https://geniusflow-federation.vercel.app/llms.txt
+
+No signup. No engine clone. Keywords for search/routing: **mcp**, **rwa**, **attestation**. Surfaces:
 
 | Surface | URL |
 |---------|-----|
-| Agent index (`llms.txt`) | https://geniusflow-federation.vercel.app/llms.txt |
+| Agent index (`llms.txt`) — start here | https://geniusflow-federation.vercel.app/llms.txt |
 | Agent descriptor | https://geniusflow-federation.vercel.app/ |
 | OpenAPI 3 | https://geniusflow-federation.vercel.app/openapi.json |
 | Status / SLA | https://geniusflow-federation.vercel.app/api/status |
-| Proof shape | https://geniusflow-federation.vercel.app/docs/ATTESTATION_PROOF_SHAPE.md |
+| Attestation proof shape | https://geniusflow-federation.vercel.app/docs/ATTESTATION_PROOF_SHAPE.md |
 | Tool adapter / MCP | https://geniusflow-federation.vercel.app/docs/AGENT_TOOL_ADAPTER.md |
 
-**This repo (GitHub → Pages):**
+**This repo (GitHub → Pages)** — human reports + static dossiers; engine stays private:
 
 | Surface | URL |
 |---------|-----|
