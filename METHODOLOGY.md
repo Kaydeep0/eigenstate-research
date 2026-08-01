@@ -10,7 +10,9 @@ How Eigenstate measures the tokenized settlement field — plain language first,
 | **Publish** | Reports / claims go out with verification status (`status_at_publish`) when the membrane admits them | Not every observation is published |
 | **Act** | Build, deploy, connect, or settlement paths when Host / gates allow | Mostly observe-heavy today; act lanes are gated |
 
-*Real-world example.* A parkash cycle **measures** CIRCLE (vault + dossier numbers update); a Pages report may **publish** later with `status_at_publish`; **act** (on-chain helix commit or other gated paths) only runs when Host/gates allow — so most cycles stay measure-only.
+A parkash cycle **measures** CIRCLE (vault + dossier numbers update); a Pages report may **publish** later with `status_at_publish`; **act** (on-chain helix commit or other gated paths) only runs when Host/gates allow — so most cycles stay measure-only.
+
+**Without this engine:** desks and research shops still split those jobs across people and tools — Bloomberg/Refinitiv for market state, EDGAR and issuer sites for filings, Slack/email for “should we publish,” counsel or ops for anything that touches settlement rails. The loop exists; it is manual, slow, and rarely hashed as one measurement chain.
 
 ---
 
@@ -28,7 +30,9 @@ How Eigenstate measures the tokenized settlement field — plain language first,
 
 This is a **structural** metric, not a price forecast. The “field” is the topology of obligations, permissions, and settlement dependencies among **199** tracked entities (M1 denominator). Live observation coverage is reported as **M1 strict** (currently on the order of **~192 / 199** — see the engine coverage board, not a frozen marketing number).
 
-*Real-world example.* On an SEC filing / rulemaking day, reading the new document against the prior expected state yields a large **ΔI** for roughly the same API/parse cost **A** → high **E**. On a quiet day with no material change, the same feed pull is mostly confirmation → low **E**. Same pattern for a DefiLlama TVL tick on a tokenized fund (e.g. BUIDL): a step-change in TVL is high-E; a flat reprint is low-E.
+On an SEC filing / rulemaking day, reading the new document against the prior expected state yields a large **ΔI** for roughly the same API/parse cost **A** → high **E**. On a quiet day with no material change, the same feed pull is mostly confirmation → low **E**. Same pattern for a DefiLlama TVL tick on a tokenized fund (e.g. BUIDL): a step-change in TVL is high-E; a flat reprint is low-E.
+
+**Without this engine:** analysts still open EDGAR by hand, skim press releases, refresh DeFiLlama or issuer dashboards, and decide “this matters” by experience and inbox volume. That judgment is real; it is rarely scored as surprise-per-observation-cost across a fixed entity set, and quiet days look the same as loud ones until someone writes the note.
 
 ---
 
@@ -47,7 +51,9 @@ This is a **structural** metric, not a price forecast. The “field” is the to
 
 The vault is primarily a **measure** surface. Publish coverage and return-wire acks exist so published claims can be checked and consumption acknowledged; they do not mean every vault row becomes a public article.
 
-*Real-world example.* After a qualifying observation of CIRCLE or BLACKROCK, the private vault appends a chained row (Φ_S, κ, E, hash). The public mirror of that measured state is the federation dossier — e.g. [CIRCLE.json](https://kaydeep0.github.io/eigenstate-research/federation/dossier/CIRCLE.json) and [BLACKROCK.json](https://kaydeep0.github.io/eigenstate-research/federation/dossier/BLACKROCK.json) — not a guarantee that every vault row ships as a report. We do not paste fake vault hashes here; the live digest is on those dossiers.
+After a qualifying observation of CIRCLE or BLACKROCK, the private vault appends a chained row (Φ_S, κ, E, hash). The public mirror of that measured state is the federation dossier — e.g. [CIRCLE.json](https://kaydeep0.github.io/eigenstate-research/federation/dossier/CIRCLE.json) and [BLACKROCK.json](https://kaydeep0.github.io/eigenstate-research/federation/dossier/BLACKROCK.json) — not a guarantee that every vault row ships as a report. We do not paste fake vault hashes here; the live digest is on those dossiers.
+
+**Without this engine:** the analogous record lives in research notes, CRM rows, shared drives, or auditor workpapers — useful, often carefully written, but not an append-only, hash-chained measurement log with public dossier digests. Attestation, if any, is a PDF or email trail, not a vault hash chain.
 
 ---
 
@@ -64,7 +70,9 @@ The vault is primarily a **measure** surface. Publish coverage and return-wire a
 
 **How to verify.** Open the tx from the article footer or the On-Chain Proof Index on Basescan; confirm the settlement contract and input data. For machine-facing admit/refuse semantics, use federation `/api/verify` and [proof_shape v1](https://geniusflow-federation.vercel.app/docs/ATTESTATION_PROOF_SHAPE.md).
 
-*Real-world example.* When wallet, balance, and mirror gates pass, a fingerprint lands on Base — see the [On-Chain Proof Index](https://kaydeep0.github.io/eigenstate-research/onchain/) and the Basescan tx above. When those gates fail (or `SETTLEMENT_MIRROR_ENABLED` is off), the local HelixHash still advances but **no new Basescan tx** appears that cycle. Partial mirror means “attested when it lands,” not “every parkash = a new tx.”
+When wallet, balance, and mirror gates pass, a fingerprint lands on Base — see the [On-Chain Proof Index](https://kaydeep0.github.io/eigenstate-research/onchain/) and the Basescan tx above. When those gates fail (or `SETTLEMENT_MIRROR_ENABLED` is off), the local HelixHash still advances but **no new Basescan tx** appears that cycle. Partial mirror means “attested when it lands,” not “every parkash = a new tx.”
+
+**Without this engine:** teams timestamp claims with PDF hashes, notaries, counsel letters, or ad-hoc Basescan / Etherscan checks of someone else’s contract. Those practices work for deals and audits; they do not continuously fingerprint an internal measurement vault, and outsiders usually cannot replay “what was measured at T” without asking for a file.
 
 ---
 
@@ -86,7 +94,9 @@ The vault is primarily a **measure** surface. Publish coverage and return-wire a
 
 Older “three-tier fact-checker only” language is incomplete; the public trust path is **fact-check (dispatch) + VERIFY / `status_at_publish` + proof_shape**.
 
-*Real-world example.* A package that carries a real `registry_ref` and provenance spine can **admit** under [proof_shape v1](https://geniusflow-federation.vercel.app/docs/ATTESTATION_PROOF_SHAPE.md). A cheap copy that stamps `ATTESTED` without that spine **refuses**. Separately: a disputed claim scored ≥ 0.90 by the dispatch fact-checker is blocked (`BLOCKED_FACT_CHECK`) before it reaches the publish queue — even if someone labeled it “attested” in prose.
+A package that carries a real `registry_ref` and provenance spine can **admit** under [proof_shape v1](https://geniusflow-federation.vercel.app/docs/ATTESTATION_PROOF_SHAPE.md). A cheap copy that stamps `ATTESTED` without that spine **refuses**. Separately: a disputed claim scored ≥ 0.90 by the dispatch fact-checker is blocked (`BLOCKED_FACT_CHECK`) before it reaches the publish queue — even if someone labeled it “attested” in prose.
+
+**Without this engine:** verification is editorial review, compliance sign-off, legal opinion, or “check the source link.” Industry research and newsrooms do this carefully every day; the status is usually implicit in the byline or disclaimer, not a machine-checkable `status_at_publish` / proof_shape admit-or-refuse that consumers can call over an API.
 
 ---
 
@@ -108,7 +118,9 @@ Older “three-tier fact-checker only” language is incomplete; the public trus
 
 Each entity carries field state: **Φ_S**, **κ** (sys), coverage level, and directional observations. Federation may expose more dossier cards than the M1-199 set; dossier count ≠ M1 denominator.
 
-*Real-world example.* [DTCC](https://kaydeep0.github.io/eigenstate-research/federation/dossier/DTCC.json) sits in M1 as **settlement infrastructure** — clearing/custody rails that tokenized fixed income still depends on. A random newly listed token is not in that map and does not play the same structural role: watching its price does not substitute for observing DTCC’s position in the obligation graph. Role in the topology ≠ market cap or tweet volume.
+[DTCC](https://kaydeep0.github.io/eigenstate-research/federation/dossier/DTCC.json) sits in M1 as **settlement infrastructure** — clearing/custody rails that tokenized fixed income still depends on. A random newly listed token is not in that map and does not play the same structural role: watching its price does not substitute for observing DTCC’s position in the obligation graph. Role in the topology ≠ market cap or tweet volume.
+
+**Without this engine:** coverage maps live as Excel universes, vendor entity lists, or “who we follow on Twitter / X.” Those lists are often good for news and trading; they rarely encode settlement-role topology (obligation graph position vs. market-cap or social volume) with a fixed M1 denominator and per-cycle field state.
 
 ---
 
@@ -122,7 +134,9 @@ Example: the **SOFR three-body** coupling — overnight benchmark, Treasury issu
 
 Gap **publication** coverage is tracked separately from vault measure (a gap can be measured long before it is published).
 
-*Real-world example.* Gap id **`LIBOR_EQUIVALENT`**: markets treat SOFR + ISDA fallback as a full LIBOR replacement, but the topology still needs a sovereign-backed term structure the transition did not supply. The engine scores that as a persistent structural gap (first logged prediction: [$300 Trillion Structural Gap…](https://kaydeep0.github.io/eigenstate-research/predictions/) / `LIBOR_EQUIVALENT_001`). Publishing a SOFR article does **not** close the gap — measure and publish coverage are separate rails.
+Gap id **`LIBOR_EQUIVALENT`**: markets treat SOFR + ISDA fallback as a full LIBOR replacement, but the topology still needs a sovereign-backed term structure the transition did not supply. The engine scores that as a persistent structural gap (first logged prediction: [$300 Trillion Structural Gap…](https://kaydeep0.github.io/eigenstate-research/predictions/) / `LIBOR_EQUIVALENT_001`). Publishing a SOFR article does **not** close the gap — measure and publish coverage are separate rails.
+
+**Without this engine:** the same tension shows up in ISDA fallback papers, sell-side basis notes, and conference panels — practitioners already debate overnight vs. term. What is usually missing is a durable, machine-tracked gap id with separate measure vs. publish coverage, rather than a one-off memo that ages out of the inbox.
 
 ---
 
