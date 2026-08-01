@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { slugFor } from '../../lib/reports';
-import { loadSot, entityCodeFromReportId } from '../../lib/sot';
+import { loadSot, entityCodeFromReportId, resolveReportMetrics, formatNum } from '../../lib/sot';
 
 export async function getStaticPaths() {
   const reports = await getCollection('reports');
@@ -16,17 +16,24 @@ export async function getStaticPaths() {
 
 const { entry, allReports } = Astro.props;
 const { Content } = await render(entry);
-const { entity_display, date, date_iso, phi_s, kappa, vault_records, id } = entry.data;
+const { entity_display, date, date_iso, phi_s: publishPhi, kappa: publishKap, vault_records, id } = entry.data;
 const sot = loadSot();
 const entityCode = entityCodeFromReportId(id);
+const metrics = resolveReportMetrics(entityCode, { phi_s: publishPhi, kappa: publishKap });
+const { phi_s, kappa, using_live, live, publish_phi_s, publish_kappa } = metrics;
 const m1LedgerObs = (sot.entity_m1_obs_counts || {})[entityCode] ?? 0;
 const vaultTip = 'Cycle vault rows at publish (trimmed); not M1 lifetime observations';
+const fedDossierUrl = `https://geniusflow-federation.vercel.app/api/dossier?entity=${encodeURIComponent(entityCode)}`;
 
 const siblings = allReports
   .filter((r) => r.id !== entry.id)
-  .sort((a, b) => b.data.phi_s - a.data.phi_s)
-  .slice(0, 6)
-  .map((r) => ({ ...r, slug: slugFor(r.id) }));
+  .map((r) => {
+    const code = entityCodeFromReportId(r.data.id);
+    const m = resolveReportMetrics(code, { phi_s: r.data.phi_s, kappa: r.data.kappa });
+    return { ...r, slug: slugFor(r.id), live_phi: m.phi_s };
+  })
+  .sort((a, b) => b.live_phi - a.live_phi)
+  .slice(0, 6);
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -305,12 +312,12 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
     <p class="report-date">{date}</p>
     <div class="metrics-row">
       <div class="metric">
-        <div class="metric-label">Settlement Pressure</div>
+        <div class="metric-label">Settlement Pressure {using_live ? '(live)' : '(publish)'}</div>
         <div class="metric-value">Φ_S {phi_s.toFixed(4)}</div>
       </div>
       <div class="metric">
-        <div class="metric-label">Field Coherence</div>
-        <div class="metric-value cyan">κ {kappa.toFixed(4)}</div>
+        <div class="metric-label">Field Coherence {using_live ? '(live)' : '(publish)'}</div>
+        <div class="metric-value cyan">κ {formatNum(kappa, 4)}</div>
       </div>
       <div class="metric" title={vaultTip}>
         <div class="metric-label">vault@publish</div>
@@ -326,8 +333,16 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
       }
     </div>
     <p class="report-date" style="margin-top: 16px; max-width: 640px; line-height: 1.5;">
+      {
+        using_live
+          ? `Hero Φ_S / κ overlay live dossier SoT${live.compiled_at ? ` (compiled ${(live.compiled_at || '').slice(0, 19)}Z)` : ''}. Publish snapshot ${date_iso}: Φ_S ${publish_phi_s.toFixed(4)}, κ ${formatNum(publish_kappa, 4)}.`
+          : `No live dossier mirror for ${entityCode} — showing publish-time frontmatter.`
+      }
+      {' '}
       vault@publish = trimmed cycle-vault rows at report publish — not lifetime M1 observations
-      (SoT coverage {sot.coverage.headline}). See
+      (SoT coverage {sot.coverage.headline}).
+      <a href={fedDossierUrl} style="color: var(--signal);"> Federation dossier</a>
+      {' · '}
       <a href={`${import.meta.env.BASE_URL}METHODOLOGY.md`} style="color: var(--signal);">Methodology</a>.
     </p>
   </div>
@@ -335,8 +350,8 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
   <div class="report-body">
     <aside class="snapshot-notice" aria-label="Report snapshot notice">
       <strong>Dated research snapshot — {date_iso}.</strong>
-      Metrics and links in this report describe its publication-time observation.
-      Re-check cited evidence and current public APIs before treating any claim, feed, or chain reference as present state.
+      Prose and links below describe publication-time observation.
+      Hero Φ_S / κ prefer the live engine dossier mirror when synced; re-check cited evidence before treating claims as present state.
     </aside>
     <Content />
   </div>
@@ -348,7 +363,7 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
         siblings.map((s) => (
           <a href={`${import.meta.env.BASE_URL}reports/${s.slug}/`} class="topology-row">
             <span class="topology-entity">{s.data.entity_display}</span>
-            <span class="topology-phi">Φ_S {s.data.phi_s.toFixed(3)}</span>
+            <span class="topology-phi">Φ_S {s.live_phi.toFixed(3)}</span>
           </a>
         ))
       }

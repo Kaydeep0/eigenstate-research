@@ -1,6 +1,15 @@
 import fieldState from '../../public/field-state.json';
+import fs from 'node:fs';
+import path from 'node:path';
 
 export type PagesSot = typeof fieldState;
+
+export type LiveEntityMetrics = {
+  phi_s: number | null;
+  kappa: number | null;
+  compiled_at?: string | null;
+  source: 'dossier_mirror' | 'frontmatter' | 'none';
+};
 
 /** Engine SoT stamp baked into public/field-state.json at deploy time. */
 export function loadSot(): PagesSot {
@@ -11,6 +20,60 @@ export function loadSot(): PagesSot {
 export function entityCodeFromReportId(id: string): string {
   const m = id.match(/^(.+)_(\d{8})$/);
   return m ? m[1] : id;
+}
+
+/**
+ * Live Φ_S / κ from the Pages federation dossier mirror (synced by refresh-public).
+ * Falls back to nulls when the entity card is missing — caller keeps publish snapshot.
+ */
+export function loadLiveEntityMetrics(entityCode: string): LiveEntityMetrics {
+  const code = (entityCode || '').trim().toUpperCase();
+  if (!code) return { phi_s: null, kappa: null, source: 'none' };
+  const file = path.join(process.cwd(), 'public', 'federation', 'dossier', `${code}.json`);
+  try {
+    if (!fs.existsSync(file)) {
+      return { phi_s: null, kappa: null, source: 'none' };
+    }
+    const card = JSON.parse(fs.readFileSync(file, 'utf8')) as {
+      own_numbers?: { phi_s?: number | null; kappa?: number | null };
+      compiled_at?: string;
+    };
+    const own = card.own_numbers || {};
+    const phi = own.phi_s;
+    const kap = own.kappa;
+    return {
+      phi_s: phi == null || Number.isNaN(Number(phi)) ? null : Number(phi),
+      kappa: kap == null || Number.isNaN(Number(kap)) ? null : Number(kap),
+      compiled_at: card.compiled_at ?? null,
+      source: 'dossier_mirror',
+    };
+  } catch {
+    return { phi_s: null, kappa: null, source: 'none' };
+  }
+}
+
+/** Prefer live dossier Φ_S/κ; keep publish frontmatter when live missing. */
+export function resolveReportMetrics(
+  entityCode: string,
+  publish: { phi_s: number; kappa: number }
+): {
+  phi_s: number;
+  kappa: number;
+  publish_phi_s: number;
+  publish_kappa: number;
+  live: LiveEntityMetrics;
+  using_live: boolean;
+} {
+  const live = loadLiveEntityMetrics(entityCode);
+  const using_live = live.phi_s != null;
+  return {
+    phi_s: live.phi_s ?? publish.phi_s,
+    kappa: live.kappa ?? publish.kappa,
+    publish_phi_s: publish.phi_s,
+    publish_kappa: publish.kappa,
+    live,
+    using_live,
+  };
 }
 
 export function formatPct(n: number | null | undefined, digits = 1): string {

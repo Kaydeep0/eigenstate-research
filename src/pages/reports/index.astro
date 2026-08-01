@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { slugFor } from '../../lib/reports';
-import { loadSot, entityCodeFromReportId } from '../../lib/sot';
+import { loadSot, entityCodeFromReportId, resolveReportMetrics } from '../../lib/sot';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -13,15 +13,22 @@ const sot = loadSot();
 const m1Obs = sot.entity_m1_obs_counts || {};
 const reports = (await getCollection('reports')).map((r) => {
   const code = entityCodeFromReportId(r.data.id);
+  const m = resolveReportMetrics(code, { phi_s: r.data.phi_s, kappa: r.data.kappa });
   return {
     ...r,
     slug: slugFor(r.id),
     entityCode: code,
     m1LedgerObs: m1Obs[code] ?? 0,
+    live_phi_s: m.phi_s,
+    live_kappa: m.kappa,
+    using_live: m.using_live,
   };
 });
 const sorted = [...reports].sort((a, b) => b.data.date_iso.localeCompare(a.data.date_iso));
-const featured = reports.reduce((best, r) => (best == null || r.data.phi_s > best.data.phi_s ? r : best), null as (typeof reports)[number] | null);
+const featured = reports.reduce(
+  (best, r) => (best == null || r.live_phi_s > best.live_phi_s ? r : best),
+  null as (typeof reports)[number] | null
+);
 const base = import.meta.env.BASE_URL;
 const vaultTip = 'Cycle vault rows at publish (trimmed); not M1 lifetime observations';
 
@@ -710,11 +717,11 @@ function formatShort(iso: string): string {
               <div class="fc-meta">
                 <div>
                   <div class="fc-label">Settlement Pressure</div>
-                  <div class="fc-phi">Φ_S = {featured.data.phi_s.toFixed(4)}</div>
+                  <div class="fc-phi">Φ_S = {featured.live_phi_s.toFixed(4)}</div>
                 </div>
                 <div>
                   <div class="fc-label">Field Coherence</div>
-                  <div class="fc-kappa">κ = {featured.data.kappa.toFixed(4)}</div>
+                  <div class="fc-kappa">κ = {featured.live_kappa.toFixed(4)}</div>
                 </div>
                 <div>
                   <div class="fc-label" title={vaultTip}>vault@publish</div>
@@ -772,13 +779,13 @@ function formatShort(iso: string): string {
               href={`${base}reports/${r.slug}/`}
               class="report-card"
               data-entity={r.data.entity_display}
-              data-phi-s={r.data.phi_s}
+              data-phi-s={r.live_phi_s}
               data-date-iso={r.data.date_iso}
             >
               <div class="rc-entity">{r.data.entity_display}</div>
               <div class="rc-metrics">
-                <span class="rc-phi">Φ_S {r.data.phi_s.toFixed(3)}</span>
-                <span class="rc-kappa">κ {r.data.kappa.toFixed(3)}</span>
+                <span class="rc-phi">Φ_S {r.live_phi_s.toFixed(3)}</span>
+                <span class="rc-kappa">κ {r.live_kappa.toFixed(3)}</span>
                 <span class="rc-vault" title={vaultTip}>
                   vault@pub {r.data.vault_records}
                 </span>

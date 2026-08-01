@@ -23,6 +23,11 @@ const proofAccuracyNote =
     ? `${sb.n_true}/${sb.n_assessable} assessable`
     : 'thin assessable n · see track record';
 const sotStamp = (sot.generated_at || '').slice(0, 10);
+const topPhi = ((sot as { top_entities_by_phi_s?: Array<{ entity: string; display?: string; phi_s: number; kappa?: number | null }> }).top_entities_by_phi_s || []).slice(0, 4);
+const maxPhi = topPhi.length ? Math.max(...topPhi.map((e) => e.phi_s)) : 1;
+const helixPrefix =
+  (sot as { helix?: { fingerprint_prefix?: string | null } }).helix?.fingerprint_prefix || null;
+const gExternal = sot.field.G_external_cumulative;
 ---
 
 <Layout
@@ -148,17 +153,17 @@ const sotStamp = (sot.generated_at || '').slice(0, 10);
         <div class="proof-strip bracket">
             <div class="proof-tile">
                 <p class="engine-tile-label">M1 coverage</p>
-                <p class="engine-tile-value cyan">{m1Headline}</p>
+                <p class="engine-tile-value cyan" data-sot="m1">{m1Headline}</p>
                 <p class="engine-tile-note">{m1Pct}% · SoT stamp {sotStamp}</p>
             </div>
             <div class="proof-tile">
                 <p class="engine-tile-label">Protocol Truth · κ</p>
-                <p class="engine-tile-value orange">{formatNum(pt, 3)}</p>
-                <p class="engine-tile-note">κ {formatNum(kappa, 3)} · HOST SoT</p>
+                <p class="engine-tile-value orange" data-sot="pt">{formatNum(pt, 3)}</p>
+                <p class="engine-tile-note">κ <span data-sot="kappa">{formatNum(kappa, 3)}</span> · HOST SoT</p>
             </div>
             <div class="proof-tile">
                 <p class="engine-tile-label">assessable accuracy</p>
-                <p class="engine-tile-value green">{proofAccuracy}</p>
+                <p class="engine-tile-value green" data-sot="accuracy">{proofAccuracy}</p>
                 <p class="engine-tile-note">{proofAccuracyNote}</p>
             </div>
         </div>
@@ -356,7 +361,7 @@ const sotStamp = (sot.generated_at || '').slice(0, 10);
 
                 <div class="pattern-block cta-block">
                     <p class="cta-hook">Alpha decays with distribution.</p>
-                    <p class="cta-scarcity">Limited briefing slots Q1 2026</p>
+                    <p class="cta-scarcity">Limited briefing slots for qualified allocators</p>
                     <a href="#access" class="btn btn-md">Request Access</a>
                     <p class="cta-qualifier">For institutional allocators ($50M+ AUM)</p>
                 </div>
@@ -435,76 +440,73 @@ const sotStamp = (sot.generated_at || '').slice(0, 10);
                     </div>
                 </div>
 
-                <!-- Field State -->
+                <!-- Field State — baked from engine SoT (field-state.json) -->
                 <div class="pattern-block power-law-block">
-                    <p class="power-law-title">FIELD STATE</p>
+                    <p class="power-law-title">FIELD STATE (ENGINE SOT)</p>
                     <div class="power-law-data">
                         <div class="power-law-row">
-                            <span class="wave-label" style="color:var(--signal);">G_total</span>
-                            <span class="wave-stat">approaching classical threshold</span>
-                            <span class="wave-value" style="color:var(--accent);">0.89</span>
+                            <span class="wave-label" style="color:var(--signal);">M1 coverage</span>
+                            <span class="wave-stat">m1_strict ∩ topology / {sot.coverage.m1_denominator}</span>
+                            <span class="wave-value" style="color:var(--accent);">{m1Headline}</span>
                         </div>
                         <div class="power-law-row">
-                            <span class="wave-label" style="color:var(--signal);">Curl state</span>
-                            <span class="wave-stat">Landauer stable · loop forming</span>
-                            <span class="wave-value" style="color:var(--status-success);">NEW</span>
+                            <span class="wave-label" style="color:var(--signal);">Protocol Truth</span>
+                            <span class="wave-stat">HOST SoT · act threshold 0.618</span>
+                            <span class="wave-value" style="color:var(--accent);">{formatNum(pt, 3)}</span>
                         </div>
                         <div class="power-law-row">
-                            <span class="wave-label" style="color:var(--signal);">Dominant loop</span>
-                            <span class="wave-stat">OCC → US Regulators → SEC → Tokenized Treasury → OCC</span>
-                            <span class="wave-value" style="color:var(--accent);">∇×G</span>
+                            <span class="wave-label" style="color:var(--signal);">κ coherence</span>
+                            <span class="wave-stat">HOST state at last parkash stamp</span>
+                            <span class="wave-value" style="color:var(--accent);">{formatNum(kappa, 3)}</span>
                         </div>
                         <div class="power-law-row">
-                            <span class="wave-label" style="color:var(--signal);">∇×G</span>
-                            <span class="wave-stat">dcurl/dt = +8,003 (accelerating)</span>
-                            <span class="wave-value" style="color:var(--accent);">16,278</span>
+                            <span class="wave-label" style="color:var(--signal);">G_external</span>
+                            <span class="wave-stat">cumulative external G (HOST)</span>
+                            <span class="wave-value" style="color:var(--accent);">{gExternal != null ? formatNum(Number(gExternal), 1) : '—'}</span>
                         </div>
                         <div class="power-law-row highlight">
-                            <span class="wave-label">Helix</span>
-                            <span class="wave-stat">path-sensitive · irreversible · Fibonacci-weighted</span>
-                            <span class="wave-value" style="font-family:'JetBrains Mono',monospace;font-size:11px;">fb40dcc8</span>
+                            <span class="wave-label">Helix tip</span>
+                            <span class="wave-stat">local chain prefix · on-chain commits gated</span>
+                            <span class="wave-value" style="font-family:'JetBrains Mono',monospace;font-size:11px;">{helixPrefix || 'see proof index'}</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Topology Map -->
                 <div class="pattern-block">
-                    <p class="pattern-text punchline">The dominant loop right now runs through OCC, US Regulators, SEC, and Tokenized Treasury. The GENIUS Act registration window closed it on April 1. The curl is accelerating. This is not a forecast - it is a measurement.</p>
+                    <p class="pattern-text punchline">Live tiles bake from engine SoT after parkash — not frozen marketing HTML. Structural measurement, not a price forecast. Assessable accuracy stays thin until n ≥ 5.</p>
                 </div>
 
                 <div class="pattern-block power-law-block">
-                    <p class="power-law-title">TOP ENTITIES BY EXTRACTION PRESSURE (Γ)</p>
-                    <div
-                        class="entity-chart"
-                        role="img"
-                        aria-label="Extraction pressure by entity: Ethereum 0.432, Base (Coinbase L2) 0.257, X (Twitter) 0.230, Coinbase 0.230"
-                    >
-                        <div class="entity-bar-row">
-                            <span class="entity-bar-label" title="Ethereum — high I, low V, taking more than giving">Ethereum</span>
-                            <span class="entity-bar-track"><span class="entity-bar-fill" style="width:100%;"></span></span>
-                            <span class="entity-bar-value">Γ 0.432</span>
+                    <p class="power-law-title">TOP ENTITIES BY SETTLEMENT PRESSURE (Φ_S)</p>
+                    {
+                      topPhi.length > 0 ? (
+                        <div
+                          class="entity-chart"
+                          role="img"
+                          aria-label={`Top Φ_S entities: ${topPhi.map((e) => `${e.display || e.entity} ${e.phi_s.toFixed(3)}`).join(', ')}`}
+                        >
+                          {topPhi.map((e) => (
+                            <div class="entity-bar-row">
+                              <span class="entity-bar-label" title={e.entity}>{e.display || e.entity}</span>
+                              <span class="entity-bar-track">
+                                <span
+                                  class="entity-bar-fill"
+                                  style={`width:${Math.max(8, Math.round((e.phi_s / maxPhi) * 100))}%;`}
+                                ></span>
+                              </span>
+                              <span class="entity-bar-value">Φ_S {e.phi_s.toFixed(3)}</span>
+                            </div>
+                          ))}
                         </div>
-                        <div class="entity-bar-row">
-                            <span class="entity-bar-label" title="Base (Coinbase L2) — Coinbase OCC trust bank, position shifting">Base (Coinbase L2)</span>
-                            <span class="entity-bar-track"><span class="entity-bar-fill" style="width:59%;"></span></span>
-                            <span class="entity-bar-value">Γ 0.257</span>
-                        </div>
-                        <div class="entity-bar-row">
-                            <span class="entity-bar-label" title="X (Twitter) — attention layer, high reach, low reciprocity">X (Twitter)</span>
-                            <span class="entity-bar-track"><span class="entity-bar-fill" style="width:53%;"></span></span>
-                            <span class="entity-bar-value">Γ 0.230</span>
-                        </div>
-                        <div class="entity-bar-row">
-                            <span class="entity-bar-label" title="Coinbase — regulatory risk transitioning to execution risk">Coinbase</span>
-                            <span class="entity-bar-track"><span class="entity-bar-fill" style="width:53%;"></span></span>
-                            <span class="entity-bar-value">Γ 0.230</span>
-                        </div>
-                    </div>
+                      ) : (
+                        <p class="pattern-text secondary">Top-Φ_S ranking unavailable in this SoT stamp — re-run refresh-public after parkash.</p>
+                      )
+                    }
                     <div class="power-law-data">
                         <div class="power-law-row highlight">
-                            <span class="wave-label">Tokenized Treasury</span>
-                            <span class="wave-stat">N+1 Power = 17.11 - highest in topology (different metric, not Γ)</span>
-                            <span class="wave-value">Power↑</span>
+                            <span class="wave-label">Dossiers</span>
+                            <span class="wave-stat">Live Φ_S / κ on federation + Pages mirrors</span>
+                            <span class="wave-value">SoT</span>
                         </div>
                     </div>
                 </div>
@@ -530,30 +532,30 @@ const sotStamp = (sot.generated_at || '').slice(0, 10);
 
             <!-- RIGHT COLUMN: Engine visualization -->
             <div class="pattern-visualization-wrapper">
-                <div class="pattern-visualization engine-panel bracket">
+                <div class="pattern-visualization engine-panel bracket" id="engineSotPanel">
                     <div class="engine-tile">
                         <p class="engine-tile-label">M1 coverage (SoT)</p>
-                        <p class="engine-tile-value cyan">{m1Headline}</p>
+                        <p class="engine-tile-value cyan" data-sot="m1">{m1Headline}</p>
                     </div>
                     <div class="engine-tile">
-                        <p class="engine-tile-label">G_total</p>
-                        <p class="engine-tile-value orange">0.89</p>
+                        <p class="engine-tile-label">Protocol Truth</p>
+                        <p class="engine-tile-value orange" data-sot="pt">{formatNum(pt, 3)}</p>
                         <p class="engine-tile-note">threshold 1/φ = 0.618</p>
                     </div>
                     <div class="engine-tile">
-                        <p class="engine-tile-label">curl wave state</p>
-                        <p class="engine-tile-value green">NEW</p>
-                        <p class="engine-tile-note">Landauer stable</p>
+                        <p class="engine-tile-label">κ coherence</p>
+                        <p class="engine-tile-value green" data-sot="kappa">{formatNum(kappa, 3)}</p>
+                        <p class="engine-tile-note">HOST SoT</p>
                     </div>
                     <div class="engine-tile">
-                        <p class="engine-tile-label">∇×G magnitude</p>
-                        <p class="engine-tile-value orange">16,278</p>
-                        <p class="engine-tile-note">dcurl/dt = +8,003</p>
+                        <p class="engine-tile-label">assessable accuracy</p>
+                        <p class="engine-tile-value orange" data-sot="accuracy">{proofAccuracy}</p>
+                        <p class="engine-tile-note">{proofAccuracyNote}</p>
                     </div>
                     <div class="engine-tile">
-                        <p class="engine-tile-label">helix fingerprint</p>
-                        <p class="engine-tile-value cyan small">fb40dcc8d8dedcfd</p>
-                        <p class="engine-tile-note">G = ∮E·dl · irreversible</p>
+                        <p class="engine-tile-label">helix tip (local)</p>
+                        <p class="engine-tile-value cyan small">{helixPrefix || 'onchain/'}</p>
+                        <p class="engine-tile-note">commits gated · see proof index</p>
                     </div>
                     <div class="engine-tile">
                         <p class="engine-tile-label">writer coin</p>
@@ -655,6 +657,36 @@ const sotStamp = (sot.generated_at || '').slice(0, 10);
           subject: 'Eigenstate — institutional access request (root site)',
           fieldIds: ['name', 'email', 'organization'],
         });
+
+        // Runtime refresh of same-origin SoT stamp (keeps tiles tied to field-state.json).
+        const sotUrl = `${import.meta.env.BASE_URL}field-state.json`;
+        fetch(sotUrl)
+          .then((r) => (r.ok ? r.json() : null))
+          .then((d) => {
+            if (!d || !d.coverage) return;
+            const set = (sel: string, val: string) => {
+              document.querySelectorAll(sel).forEach((el) => {
+                el.textContent = val;
+              });
+            };
+            const m1 = d.coverage.headline;
+            const kap = d.field?.kappa;
+            const ptv = d.field?.protocol_truth ?? d.field?.PT;
+            const sb = d.predictions_scoreboard || {};
+            const acc =
+              sb.accuracy_pct != null
+                ? `${sb.accuracy_pct}%`
+                : sb.n_assessable > 0
+                  ? `n=${sb.n_assessable}`
+                  : 'n/a';
+            set('[data-sot="m1"]', m1);
+            if (ptv != null) set('[data-sot="pt"]', Number(ptv).toFixed(3));
+            if (kap != null) set('[data-sot="kappa"]', Number(kap).toFixed(3));
+            set('[data-sot="accuracy"]', acc);
+            const proofM1 = document.querySelector('.proof-strip .proof-tile:nth-child(1) .engine-tile-value');
+            if (proofM1) proofM1.textContent = m1;
+          })
+          .catch(() => {});
       });
     </script>
 </Layout>

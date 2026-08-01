@@ -1,11 +1,11 @@
 {
   "entity": "CURVE",
   "node": "34539544",
-  "compiled_at": "2026-08-01T15:28:34.231741+00:00",
-  "digest": "sha256:375df633eb67f6adde097c36a484322672ea7d31c2e42b64372fe64966fd1d71",
+  "compiled_at": "2026-08-01T23:52:43.414454+00:00",
+  "digest": "sha256:220658a95ae805b3f26d9aa13ffd733e9c32b9431fe6acdebf114827220972e8",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0256,
+    "kappa": 0.05,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -31,7 +31,7 @@
   },
   "relationships": {
     "in_degree": 1,
-    "out_degree": 1,
+    "out_degree": 3,
     "by_vector": {
       "Capital": {
         "out": 0.0,
@@ -42,7 +42,7 @@
         "in": 0.0
       },
       "Information": {
-        "out": 0.5,
+        "out": 1.5,
         "in": 0.5
       }
     },
@@ -54,6 +54,16 @@
       }
     ],
     "top_outbound": [
+      {
+        "target": "BASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "ARBITRUM",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
       {
         "target": "ETHEREUM",
         "conn_type": "information_flow",
@@ -69,10 +79,10 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 23,
+    "cycles": 26,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": -0.0002,
       "boundary_score": 0.0
     }
   },
@@ -110,8 +120,8 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-08-01T15:26:35.933867+00:00",
-      "last_delta_i": 73674198159106.92,
+      "last_observed_at": "2026-08-01T23:50:07.504910+00:00",
+      "last_delta_i": 9.098394757843231e+21,
       "stale": false
     }
   }

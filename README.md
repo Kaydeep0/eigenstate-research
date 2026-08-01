@@ -158,19 +158,29 @@ Coverage and on-chain mirror paths are partial by design — see Methodology for
 
 **SoT (source of truth)** for Host/Pages field tiles is the GeniusFlow engine measurement state: `workspace/HOST/state.json` (κ, Protocol Truth, parkash stamps) plus the M1 coverage ledger (`m1_strict` ∩ topology / **199**). The site bakes a stamp into [`public/field-state.json`](public/field-state.json); homepage proof tiles and `/track-record` read that stamp at build time — not frozen marketing HTML.
 
-### Refresh SoT onto Pages (parkash / deploy)
+### After parkash → refresh public surfaces (do not hand-edit tiles)
 
 ```bash
-# From a machine with the private engine clone:
-export GENIUSFLOW_ROOT=/path/to/geniusflow
-./scripts/refresh-sot.sh          # writes public/field-state.json
-npm run build                     # Astro bake
-# commit + push; GitHub Pages deploys
+# Machine with private engine clone + Vercel auth for federation:
+export GENIUSFLOW_ROOT=~/Desktop/GENIUSFLOW_OS/workspace/geniusflow   # or your path
+export GENIUSFLOW_BUILDER_DEPLOY=1
+export EIGENSTATE_SITE_ROOT=/path/to/eigenstate-research              # optional; auto-detected
+
+./scripts/refresh-public.sh
+# → public/field-state.json
+# → public/federation/dossier/*.json (+ repo-root federation/ mirror)
+# → federation Vercel rebake/deploy when GENIUSFLOW_BUILDER_DEPLOY=1
+
+git add public/field-state.json public/federation federation public/AGENTS.md public/METHODOLOGY.md
+git commit -m "Refresh public SoT + dossier mirrors after parkash."
+git push   # GitHub Pages deploy workflow
 ```
 
-Engine side: `PYTHONPATH=engine python3 engine/tools/export_pages_sot.py --out …/eigenstate-research/public/field-state.json`.
+Engine equivalent: `PYTHONPATH=engine python3 engine/tools/refresh_public_surfaces.py --site …/eigenstate-research`.
 
-Signal report green badges are **vault@publish** (trimmed cycle-vault rows at publish), not M1 lifetime observations — see report tooltips and Methodology.
+Homepage proof tiles + `/track-record` read `field-state.json` (build-time + same-origin runtime fetch). Report heroes overlay live Φ_S / κ from dossier mirrors when present; prose stays a dated snapshot. Signal report green badges are **vault@publish** (trimmed cycle-vault rows), not M1 lifetime observations.
+
+CI fails on hardcoded stale denoms (196/197) or fake 100% accuracy marketing in Astro sources (`scripts/check-sot-honesty.sh`).
 
 ---
 

@@ -1,7 +1,7 @@
 {
   "schema": "eigenstate.pages_sot.v1",
   "sot_definition": "SoT (source of truth) for Host/Pages is the engine measurement state: workspace/HOST/state.json (κ, PT, parkash stamps), M1 coverage from the coverage ledger (m1_strict ∩ topology / 199), and the host predictions register for scored claims. Website tiles must bake from this stamp — not frozen marketing HTML.",
-  "generated_at": "2026-08-01T23:40:25.610184+00:00",
+  "generated_at": "2026-08-01T23:51:51.714321+00:00",
   "sources": {
     "host_ref": "workspace/HOST/state.json",
     "host_updated_at": "2026-08-01T20:58:34.494929+00:00",
@@ -36,41 +36,27 @@
   "vault_at_export": {
     "note": "cycle_vault_records.json is a trimmed working buffer. Per-entity counts here are vault@export rows — not M1 lifetime observations.",
     "total_rows": 64,
-    "entities_with_rows": 33,
+    "entities_with_rows": 19,
     "by_entity": {
-      "FARCASTER": 1,
-      "X": 1,
-      "US_JURISDICTION": 3,
-      "BNY_MELLON": 2,
-      "CANTON_NETWORK": 2,
-      "DTCC": 2,
-      "FCA": 1,
-      "BAFIN": 1,
-      "HKMA": 1,
-      "JFSA": 1,
-      "FED": 2,
-      "OCC": 1,
-      "CFTC": 1,
-      "REG_D": 2,
-      "REG_S": 2,
-      "MICA": 1,
-      "DORA": 1,
-      "MICA_FULL_IMPLEMENTATION": 1,
-      "TRAVEL_RULE": 1,
-      "REG_A_PLUS": 1,
-      "RING": 5,
-      "CABLE": 5,
-      "HIGHWAY": 3,
-      "DEFI_AUDIENCE": 5,
-      "CRYPTO_NATIVE_AUDIENCE": 5,
-      "RWA_AUDIENCE": 5,
-      "BASE": 1,
-      "TOKENIZED_TREASURY": 1,
-      "STABLECOIN_POOL": 2,
+      "RING": 8,
       "ETHEREUM": 1,
-      "CIRCLE": 1,
+      "CIRCLE": 4,
+      "FED": 4,
       "CUSTODY_IS_SOLVED": 1,
-      "INSTITUTIONAL_CUSTODY_POOL": 1
+      "INSTITUTIONAL_CUSTODY_POOL": 1,
+      "STABLECOIN_POOL": 4,
+      "CABLE": 7,
+      "HIGHWAY": 4,
+      "DEFI_AUDIENCE": 7,
+      "CRYPTO_NATIVE_AUDIENCE": 7,
+      "RWA_AUDIENCE": 7,
+      "COINBASE": 3,
+      "ONCHAIN_IS_TRANSPARENT": 1,
+      "MAPLE": 1,
+      "STANDARD_OIL": 1,
+      "NATIONAL_CITY_BANK": 1,
+      "BNY_MELLON": 1,
+      "CURVE": 1
     }
   },
   "entity_m1_obs_counts": {
@@ -471,8 +457,64 @@
       }
     ]
   },
+  "top_entities_by_phi_s": [
+    {
+      "entity": "CIRCLE",
+      "display": "CIRCLE",
+      "phi_s": 6.5385,
+      "kappa": 0.0022
+    },
+    {
+      "entity": "REG_D",
+      "display": "REG_D",
+      "phi_s": 3.2842,
+      "kappa": 0.0003
+    },
+    {
+      "entity": "REG_S",
+      "display": "REG_S",
+      "phi_s": 3.2842,
+      "kappa": 0.0002
+    },
+    {
+      "entity": "COINBASE",
+      "display": "COINBASE",
+      "phi_s": 3.2745,
+      "kappa": 0.0025
+    },
+    {
+      "entity": "ETHEREUM",
+      "display": "ETHEREUM",
+      "phi_s": 3.2562,
+      "kappa": 0.0025
+    },
+    {
+      "entity": "UNISWAP",
+      "display": "UNISWAP",
+      "phi_s": 3.2562,
+      "kappa": 0.0002
+    },
+    {
+      "entity": "RIPPLE",
+      "display": "RIPPLE",
+      "phi_s": 3.2362,
+      "kappa": 0.3195
+    },
+    {
+      "entity": "SEC",
+      "display": "SEC",
+      "phi_s": 2.8087,
+      "kappa": 0.002
+    }
+  ],
+  "helix": {
+    "index": 918,
+    "fingerprint_prefix": null,
+    "n_entries": 919,
+    "note": "Local helix chain tip at export — on-chain commits remain gated."
+  },
   "meta": {
-    "bake_hint": "On parkash/deploy: run this script with --out pointing at eigenstate-research/public/field-state.json, then astro build / Pages deploy.",
-    "reports_obs_badge": "Signal report green badges are vault rows at publish (trimmed), not M1 lifetime coverage."
+    "bake_hint": "After parkash: run engine/tools/refresh_public_surfaces.py (or Pages scripts/refresh-public.sh) — exports field-state + dossier mirrors, rebakes federation with GENIUSFLOW_BUILDER_DEPLOY=1, then commit/push Pages. Do not hand-edit proof tiles.",
+    "reports_obs_badge": "Signal report green badges are vault rows at publish (trimmed), not M1 lifetime coverage. Report templates overlay live Φ_S/κ from federation dossier mirrors when present."
   }
 }

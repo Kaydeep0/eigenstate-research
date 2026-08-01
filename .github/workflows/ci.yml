@@ -26,5 +26,8 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: SoT honesty (no fake 100% / stale 196)
+        run: ./scripts/check-sot-honesty.sh
+
       - name: Build
         run: npm run build
