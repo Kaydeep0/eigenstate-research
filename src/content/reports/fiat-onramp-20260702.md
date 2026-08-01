@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0.02
 kappa: 0.0185
 vault_records: 0
+entity_codename: "FIAT_ONRAMP"
+display_kind: "other"
+facet_label: "Other"
+public_default: true
+demoted: false
 ---
 # Fiat On-Ramp: Field Position Report
 

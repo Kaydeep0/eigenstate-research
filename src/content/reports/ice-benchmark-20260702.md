@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0
 kappa: 0
 vault_records: 0
+entity_codename: "ICE_BENCHMARK"
+display_kind: "other"
+facet_label: "Other"
+public_default: true
+demoted: false
 ---
 # ICE Benchmark Administration: Field Position Report
 

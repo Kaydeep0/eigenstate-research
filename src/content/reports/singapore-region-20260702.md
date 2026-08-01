@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0.02
 kappa: 0.0185
 vault_records: 0
+entity_codename: "SINGAPORE_REGION"
+display_kind: "regulator"
+facet_label: "Regulators"
+public_default: true
+demoted: false
 ---
 # Singapore Region: Field Position Report
 

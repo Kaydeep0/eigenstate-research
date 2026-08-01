@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0
 kappa: 0.0278
 vault_records: 0
+entity_codename: "COMPOUND_GOVERNANCE"
+display_kind: "issuer_protocol"
+facet_label: "Issuers / Protocols"
+public_default: true
+demoted: false
 ---
 # Compound Governance Forum: Field Position Report
 

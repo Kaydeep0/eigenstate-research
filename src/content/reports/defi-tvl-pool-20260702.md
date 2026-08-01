@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0.02
 kappa: 0.0462
 vault_records: 0
+entity_codename: "DEFI_TVL_POOL"
+display_kind: "issuer_protocol"
+facet_label: "Issuers / Protocols"
+public_default: true
+demoted: false
 ---
 # DeFi TVL Pool: Field Position Report
 

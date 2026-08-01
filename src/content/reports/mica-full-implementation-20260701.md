@@ -6,6 +6,11 @@ date_iso: "2026-07-01"
 phi_s: 0.042
 kappa: 0.0193
 vault_records: 0
+entity_codename: "MICA_FULL_IMPLEMENTATION"
+display_kind: "other"
+facet_label: "Other"
+public_default: true
+demoted: false
 ---
 # MiCA Full Implementation: Field Position Report
 

@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0
 kappa: 0.0002
 vault_records: 0
+entity_codename: "DEVELOPER_AUDIENCE"
+display_kind: "audience"
+facet_label: "Audiences"
+public_default: true
+demoted: false
 ---
 # Developer Audience: Field Position Report
 

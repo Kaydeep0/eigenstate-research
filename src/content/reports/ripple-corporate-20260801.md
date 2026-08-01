@@ -6,6 +6,11 @@ date_iso: "2026-08-01"
 phi_s: 0.0
 kappa: 0.0
 vault_records: 1
+entity_codename: "RIPPLE_CORPORATE"
+display_kind: "other"
+facet_label: "Other"
+public_default: true
+demoted: false
 ---
 # Ripple: Field Position Report
 

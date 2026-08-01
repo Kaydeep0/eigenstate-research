@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0.02
 kappa: 0.0275
 vault_records: 0
+entity_codename: "JAMIE_DIMON"
+display_kind: "person"
+facet_label: "People"
+public_default: true
+demoted: false
 ---
 # Jamie Dimon (JPMorgan Chase): Field Position Report
 

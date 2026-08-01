@@ -6,6 +6,11 @@ date_iso: "2026-06-23"
 phi_s: 1.6779
 kappa: 0
 vault_records: 0
+entity_codename: "TREASURY_MARKET"
+display_kind: "institution"
+facet_label: "Institutions"
+public_default: true
+demoted: false
 ---
 # US Treasury Market: Field Position Report
 

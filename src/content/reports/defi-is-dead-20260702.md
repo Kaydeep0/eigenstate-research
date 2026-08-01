@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0.02
 kappa: 0.0278
 vault_records: 0
+entity_codename: "DEFI_IS_DEAD"
+display_kind: "dimension"
+facet_label: "Dimensions"
+public_default: false
+demoted: true
 ---
 # DeFi Is Dead Narrative: Field Position Report
 

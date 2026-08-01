@@ -6,6 +6,11 @@ date_iso: "2026-08-01"
 phi_s: 0.02
 kappa: 0.0639
 vault_records: 0
+entity_codename: "EVIDENCE_LAYER"
+display_kind: "dimension"
+facet_label: "Dimensions"
+public_default: false
+demoted: true
 ---
 # Evidence Layer: Field Position Report
 

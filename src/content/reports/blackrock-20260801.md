@@ -6,6 +6,11 @@ date_iso: "2026-08-01"
 phi_s: 1.6685
 kappa: 0.0008
 vault_records: 0
+entity_codename: "BLACKROCK"
+display_kind: "institution"
+facet_label: "Institutions"
+public_default: true
+demoted: false
 ---
 # BlackRock: Field Position Report
 

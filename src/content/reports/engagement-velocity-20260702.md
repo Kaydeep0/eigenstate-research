@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0
 kappa: 0
 vault_records: 0
+entity_codename: "ENGAGEMENT_VELOCITY"
+display_kind: "dimension"
+facet_label: "Dimensions"
+public_default: false
+demoted: true
 ---
 # Engagement Velocity: Field Position Report
 

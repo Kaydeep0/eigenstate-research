@@ -6,6 +6,11 @@ date_iso: "2026-06-23"
 phi_s: 1.6411
 kappa: 0
 vault_records: 0
+entity_codename: "CITIGROUP"
+display_kind: "institution"
+facet_label: "Institutions"
+public_default: true
+demoted: false
 ---
 # Citigroup: Field Position Report
 

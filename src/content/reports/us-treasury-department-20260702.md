@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0.006
 kappa: 0.0922
 vault_records: 0
+entity_codename: "US_TREASURY_DEPARTMENT"
+display_kind: "other"
+facet_label: "Other"
+public_default: true
+demoted: false
 ---
 # US Department of the Treasury: Field Position Report
 

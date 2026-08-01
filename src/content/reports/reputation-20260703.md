@@ -6,6 +6,11 @@ date_iso: "2026-07-03"
 phi_s: 6.4925
 kappa: 0.0092
 vault_records: 0
+entity_codename: "REPUTATION"
+display_kind: "dimension"
+facet_label: "Dimensions"
+public_default: false
+demoted: true
 ---
 # Reputation: Field Position Report
 

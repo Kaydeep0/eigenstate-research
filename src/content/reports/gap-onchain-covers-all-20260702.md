@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0.02
 kappa: 0.0093
 vault_records: 0
+entity_codename: "GAP_ONCHAIN_COVERS_ALL"
+display_kind: "other"
+facet_label: "Other"
+public_default: true
+demoted: false
 ---
 # Gap — On-chain Covers All: Field Position Report
 

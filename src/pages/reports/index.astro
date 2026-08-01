@@ -4,13 +4,37 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { slugFor } from '../../lib/reports';
+import { annotateReportId } from '../../lib/display-kind';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
 
-const reports = (await getCollection('reports')).map((r) => ({ ...r, slug: slugFor(r.id) }));
-const sorted = [...reports].sort((a, b) => b.data.date_iso.localeCompare(a.data.date_iso));
-const featured = reports.reduce((best, r) => (best == null || r.data.phi_s > best.data.phi_s ? r : best), null as (typeof reports)[number] | null);
+const reports = (await getCollection('reports')).map((r) => {
+  const ann = annotateReportId(r.data.id || r.id);
+  return {
+    ...r,
+    slug: slugFor(r.id),
+    browse: {
+      entity_codename: r.data.entity_codename || ann.entity_codename,
+      display_kind: (r.data.display_kind as typeof ann.display_kind) || ann.display_kind,
+      facet_label: r.data.facet_label || ann.facet_label,
+      public_default: r.data.public_default ?? ann.public_default,
+      demoted: r.data.demoted ?? ann.demoted,
+    },
+  };
+});
+const sorted = [...reports].sort((a, b) => {
+  const ap = a.browse.public_default ? 0 : 1;
+  const bp = b.browse.public_default ? 0 : 1;
+  if (ap !== bp) return ap - bp;
+  return b.data.date_iso.localeCompare(a.data.date_iso);
+});
+const publicReports = reports.filter((r) => r.browse.public_default);
+const demotedReports = reports.filter((r) => r.browse.demoted);
+const featured = publicReports.reduce(
+  (best, r) => (best == null || r.data.phi_s > best.data.phi_s ? r : best),
+  null as (typeof reports)[number] | null,
+);
 const base = import.meta.env.BASE_URL;
 
 function formatLong(iso: string): string {
@@ -260,6 +284,19 @@ function formatShort(iso: string): string {
         gap: 16px;
         margin-bottom: 24px;
         flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .reports-facet {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        padding: 10px 14px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        color: var(--text-primary);
+        cursor: pointer;
+        min-width: 160px;
       }
 
       .reports-search {
@@ -695,10 +732,12 @@ function formatShort(iso: string): string {
   <!-- ── All reports list ── -->
   <section>
     <div class="container">
-      <div class="eyebrow">ALL SIGNAL REPORTS</div>
+      <div class="eyebrow">SIGNAL REPORTS</div>
       <h2 class="section-title">Latest <span class="grad">measurements</span></h2>
       <div class="section-sub">
-        Engine-generated field position reports. Updated each cycle. {sorted.length} published.
+        Public market-actor reports by default ({publicReports.length}). Dimension / internal metric
+        reports ({demotedReports.length}) are demoted — measured by the engine, not listed as firm peers
+        (same organization as the Federation Network). {sorted.length} total published.
       </div>
 
       <div class="reports-filter-bar">
@@ -709,6 +748,18 @@ function formatShort(iso: string): string {
           placeholder="Search by entity name…"
           aria-label="Search reports by entity name"
         />
+        <select id="reportsFacet" class="reports-facet" aria-label="Filter by facet">
+          <option value="public" selected>Public actors</option>
+          <option value="regulator">Regulators</option>
+          <option value="issuer_protocol">Issuers / Protocols</option>
+          <option value="chain">Chains</option>
+          <option value="institution">Institutions</option>
+          <option value="person">People</option>
+          <option value="audience">Audiences</option>
+          <option value="data_provider">Data / Oracles</option>
+          <option value="dimension">Dimensions</option>
+          <option value="all">All reports</option>
+        </select>
         <select id="reportsSort" class="reports-sort" aria-label="Sort reports">
           <option value="newest">Newest first</option>
           <option value="phi-desc">Highest Φ_S</option>
@@ -724,11 +775,19 @@ function formatShort(iso: string): string {
               data-entity={r.data.entity_display}
               data-phi-s={r.data.phi_s}
               data-date-iso={r.data.date_iso}
+              data-display-kind={r.browse.display_kind}
+              data-public-default={r.browse.public_default ? 'true' : 'false'}
+              data-demoted={r.browse.demoted ? 'true' : 'false'}
+              style={r.browse.public_default ? undefined : 'display:none'}
             >
-              <div class="rc-entity">{r.data.entity_display}</div>
+              <div class="rc-entity">
+                {r.data.entity_display}
+                {r.browse.demoted && <span class="rc-vault"> metric</span>}
+              </div>
               <div class="rc-metrics">
                 <span class="rc-phi">Φ_S {r.data.phi_s.toFixed(3)}</span>
                 <span class="rc-kappa">κ {r.data.kappa.toFixed(3)}</span>
+                <span class="rc-vault">{r.browse.facet_label}</span>
                 {r.data.vault_records > 0 && <span class="rc-vault">{r.data.vault_records} obs</span>}
               </div>
               <div class="rc-footer">
@@ -866,6 +925,8 @@ function formatShort(iso: string): string {
       itemSelector: '.report-card',
       searchInputSelector: '#reportsSearch',
       searchFields: ['entity'],
+      filterSelectSelector: '#reportsFacet',
+      filterField: 'displayKind',
       sortSelectSelector: '#reportsSort',
       sortOptions: {
         newest: { field: 'dateIso', direction: 'desc', type: 'string' },
@@ -873,6 +934,8 @@ function formatShort(iso: string): string {
       },
       emptyStateSelector: '#reportsEmpty',
     });
+    // Apply default Public actors filter on load (cards start hidden when demoted).
+    document.getElementById('reportsFacet')?.dispatchEvent(new Event('change'));
 
     async function submitForm() {
       const eInput = document.getElementById('fe') as HTMLInputElement;

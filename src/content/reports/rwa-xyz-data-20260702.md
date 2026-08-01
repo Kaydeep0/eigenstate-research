@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0.0825
 kappa: 0.0185
 vault_records: 0
+entity_codename: "RWA_XYZ_DATA"
+display_kind: "data_provider"
+facet_label: "Data / Oracles"
+public_default: true
+demoted: false
 ---
 # RWA.xyz: Field Position Report
 

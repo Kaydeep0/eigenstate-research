@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0.0525
 kappa: 0.0554
 vault_records: 0
+entity_codename: "CANTOR_FITZGERALD"
+display_kind: "institution"
+facet_label: "Institutions"
+public_default: true
+demoted: false
 ---
 # Cantor Fitzgerald: Field Position Report
 

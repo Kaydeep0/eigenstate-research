@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0.016
 kappa: 0.0464
 vault_records: 0
+entity_codename: "OPENZEPPELIN_CONTRACTS"
+display_kind: "other"
+facet_label: "Other"
+public_default: true
+demoted: false
 ---
 # OpenZeppelin Contracts: Field Position Report
 

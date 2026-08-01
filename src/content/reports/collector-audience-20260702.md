@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0
 kappa: 0.0186
 vault_records: 0
+entity_codename: "COLLECTOR_AUDIENCE"
+display_kind: "audience"
+facet_label: "Audiences"
+public_default: true
+demoted: false
 ---
 # Collector Audience: Field Position Report
 

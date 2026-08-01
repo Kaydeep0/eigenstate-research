@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0.12
 kappa: 0.0278
 vault_records: 0
+entity_codename: "HK_JURISDICTION"
+display_kind: "other"
+facet_label: "Other"
+public_default: true
+demoted: false
 ---
 # HK_JURISDICTION: Field Position Report
 

@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0.02
 kappa: 0.0185
 vault_records: 0
+entity_codename: "AERODROME"
+display_kind: "issuer_protocol"
+facet_label: "Issuers / Protocols"
+public_default: true
+demoted: false
 ---
 # Aerodrome Finance: Field Position Report
 

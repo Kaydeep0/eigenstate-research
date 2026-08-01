@@ -6,6 +6,11 @@ date_iso: "2026-06-23"
 phi_s: 0.02
 kappa: 0.0195
 vault_records: 0
+entity_codename: "ANCHORAGE"
+display_kind: "institution"
+facet_label: "Institutions"
+public_default: true
+demoted: false
 ---
 # Anchorage Digital: Field Position Report
 

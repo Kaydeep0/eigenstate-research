@@ -6,6 +6,11 @@ date_iso: "2026-04-07"
 phi_s: 1.9465
 kappa: 0
 vault_records: 1
+entity_codename: "EU_JURISDICTION"
+display_kind: "regulator"
+facet_label: "Regulators"
+public_default: true
+demoted: false
 ---
 # EU Regulators: Field Position Report
 

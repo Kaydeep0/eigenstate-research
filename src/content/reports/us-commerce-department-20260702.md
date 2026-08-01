@@ -6,6 +6,11 @@ date_iso: "2026-07-02"
 phi_s: 0
 kappa: 0.0092
 vault_records: 0
+entity_codename: "US_COMMERCE_DEPARTMENT"
+display_kind: "other"
+facet_label: "Other"
+public_default: true
+demoted: false
 ---
 # US Department of Commerce: Field Position Report
 
