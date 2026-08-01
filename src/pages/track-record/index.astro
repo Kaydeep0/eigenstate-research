@@ -829,9 +829,9 @@ const fonts =
         <div class="method-beat">
           <span class="beat-marker">05</span>
           <p>
-            <strong>On-chain verification</strong> — system state is periodically committed to Base mainnet
-            via the GeniusFlow Settlement Contract. Each commitment includes a SHA-256 proof hash of the
-            engine state at time of claim.
+            <strong>On-chain verification</strong> — when the helix-commit path succeeds, a SHA-256
+            fingerprint of vault state is posted to Base via GeniusFlow Settlement. Commits are listed on
+            the On-Chain Proof Index; not every parkash cycle produces a new transaction.
           </p>
         </div>
       </div>
@@ -848,7 +848,7 @@ const fonts =
       </div>
       <div class="verify-item">
         <div class="verify-label">On-Chain Commit</div>
-        <div class="verify-value verify-value-muted">Pending first parkash cycle</div>
+        <div class="verify-value"><a href={`${import.meta.env.BASE_URL}onchain/`}>On-Chain Proof Index</a></div>
       </div>
       <div class="verify-item">
         <div class="verify-label">DOI — Kirandeep's Law</div>
