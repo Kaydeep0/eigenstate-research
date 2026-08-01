@@ -154,7 +154,23 @@ HelixHash: [Kaydeep0/helixhash](https://github.com/Kaydeep0/helixhash). The scri
 
 Research / pre-revenue. Public artifacts are real (reports, dossiers, Basescan commits when published). There is no claimed customer book, bank partnership, or production settlement product on this face.
 
-Coverage and on-chain mirror paths are partial by design — see Methodology for what is live vs gated. Prefer this README + [METHODOLOGY.md](METHODOLOGY.md) + live federation `/api/status` over marketing tiles on the Astro homepage (e.g. frozen entity counts such as 196/197, or a “100% signal accuracy” strip) — those tiles are **not** engine SoT and should be treated as stale site chrome until rebuilt.
+Coverage and on-chain mirror paths are partial by design — see Methodology for what is live vs gated.
+
+**SoT (source of truth)** for Host/Pages field tiles is the GeniusFlow engine measurement state: `workspace/HOST/state.json` (κ, Protocol Truth, parkash stamps) plus the M1 coverage ledger (`m1_strict` ∩ topology / **199**). The site bakes a stamp into [`public/field-state.json`](public/field-state.json); homepage proof tiles and `/track-record` read that stamp at build time — not frozen marketing HTML.
+
+### Refresh SoT onto Pages (parkash / deploy)
+
+```bash
+# From a machine with the private engine clone:
+export GENIUSFLOW_ROOT=/path/to/geniusflow
+./scripts/refresh-sot.sh          # writes public/field-state.json
+npm run build                     # Astro bake
+# commit + push; GitHub Pages deploys
+```
+
+Engine side: `PYTHONPATH=engine python3 engine/tools/export_pages_sot.py --out …/eigenstate-research/public/field-state.json`.
+
+Signal report green badges are **vault@publish** (trimmed cycle-vault rows at publish), not M1 lifetime observations — see report tooltips and Methodology.
 
 ---
 

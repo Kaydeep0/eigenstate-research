@@ -4,14 +4,26 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { slugFor } from '../../lib/reports';
+import { loadSot, entityCodeFromReportId } from '../../lib/sot';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
 
-const reports = (await getCollection('reports')).map((r) => ({ ...r, slug: slugFor(r.id) }));
+const sot = loadSot();
+const m1Obs = sot.entity_m1_obs_counts || {};
+const reports = (await getCollection('reports')).map((r) => {
+  const code = entityCodeFromReportId(r.data.id);
+  return {
+    ...r,
+    slug: slugFor(r.id),
+    entityCode: code,
+    m1LedgerObs: m1Obs[code] ?? 0,
+  };
+});
 const sorted = [...reports].sort((a, b) => b.data.date_iso.localeCompare(a.data.date_iso));
 const featured = reports.reduce((best, r) => (best == null || r.data.phi_s > best.data.phi_s ? r : best), null as (typeof reports)[number] | null);
 const base = import.meta.env.BASE_URL;
+const vaultTip = 'Cycle vault rows at publish (trimmed); not M1 lifetime observations';
 
 function formatLong(iso: string): string {
   const d = new Date(iso);
@@ -371,6 +383,30 @@ function formatShort(iso: string): string {
         background: rgb(21 128 61 / 8%);
         padding: 3px 8px;
         border-radius: var(--radius-sm);
+        cursor: help;
+      }
+
+      .rc-m1 {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-secondary);
+        background: rgb(148 163 184 / 12%);
+        padding: 3px 8px;
+        border-radius: var(--radius-sm);
+        cursor: help;
+      }
+
+      .sot-note {
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+        max-width: 640px;
+        margin: 0 auto 28px;
+        line-height: 1.6;
+      }
+
+      .sot-note a {
+        color: var(--signal);
+        text-decoration: none;
       }
 
       .rc-footer {
@@ -652,6 +688,12 @@ function formatShort(iso: string): string {
       settlement pressure, field coherence, and information flow at its publication time; re-check
       cited evidence and public APIs before relying on it as current state.
     </p>
+    <p class="sot-note">
+      Live M1 coverage (SoT): <strong>{sot.coverage.headline}</strong> — engine ledger, not report badges.
+      Green badges are <strong>vault@publish</strong> (trimmed cycle-vault rows at publish), not lifetime observations.
+      <a href={`${base}METHODOLOGY.md`}>Methodology</a> ·
+      <a href={`${base}track-record/`}>Track Record</a>
+    </p>
     <a href="#request" class="btn btn-lg btn-gradient">Request a Report →</a>
   </div>
 
@@ -675,9 +717,17 @@ function formatShort(iso: string): string {
                   <div class="fc-kappa">κ = {featured.data.kappa.toFixed(4)}</div>
                 </div>
                 <div>
-                  <div class="fc-label">Vault Records</div>
-                  <div class="fc-vault">{featured.data.vault_records} observations</div>
+                  <div class="fc-label" title={vaultTip}>vault@publish</div>
+                  <div class="fc-vault" title={vaultTip}>{featured.data.vault_records} rows</div>
                 </div>
+                {featured.m1LedgerObs > 0 && (
+                  <div>
+                    <div class="fc-label" title="m1_strict ledger rows for this entity (SoT)">M1 ledger</div>
+                    <div class="fc-vault" style="color: var(--text-secondary);" title="Coverage-ledger m1_strict count for this entity">
+                      {featured.m1LedgerObs} obs
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
             <div class="fc-right">
@@ -729,7 +779,14 @@ function formatShort(iso: string): string {
               <div class="rc-metrics">
                 <span class="rc-phi">Φ_S {r.data.phi_s.toFixed(3)}</span>
                 <span class="rc-kappa">κ {r.data.kappa.toFixed(3)}</span>
-                {r.data.vault_records > 0 && <span class="rc-vault">{r.data.vault_records} obs</span>}
+                <span class="rc-vault" title={vaultTip}>
+                  vault@pub {r.data.vault_records}
+                </span>
+                {r.m1LedgerObs > 0 && (
+                  <span class="rc-m1" title="m1_strict coverage-ledger rows for this entity (SoT); not vault@publish">
+                    M1 {r.m1LedgerObs}
+                  </span>
+                )}
               </div>
               <div class="rc-footer">
                 <span class="rc-date">{formatShort(r.data.date_iso)}</span>

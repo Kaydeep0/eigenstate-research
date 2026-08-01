@@ -28,7 +28,9 @@ A parkash cycle **measures** CIRCLE (vault + dossier numbers update); a Pages re
 - **ΔI** — information gained when the observed state differs from the expected state (bits / surprise)
 - **A** — observation cost (API work, processing, wall time)
 
-This is a **structural** metric, not a price forecast. The “field” is the topology of obligations, permissions, and settlement dependencies among **199** tracked entities (M1 denominator). Live observation coverage is reported as **M1 strict** (currently on the order of **~192 / 199** — see the engine coverage board, not a frozen marketing number).
+This is a **structural** metric, not a price forecast. The “field” is the topology of obligations, permissions, and settlement dependencies among **199** tracked entities (M1 denominator). Live observation coverage is reported as **M1 strict** (see the engine coverage board / Pages `public/field-state.json` SoT stamp — not a frozen marketing number such as 196/197).
+
+**SoT for Host/Pages:** engine `HOST/state.json` (κ, Protocol Truth) + M1 coverage ledger. Website tiles bake from that stamp at deploy. Report **vault@publish** badges count trimmed cycle-vault rows at publish time — they are **not** lifetime M1 observation counts.
 
 On an SEC filing / rulemaking day, reading the new document against the prior expected state yields a large **ΔI** for roughly the same API/parse cost **A** → high **E**. On a quiet day with no material change, the same feed pull is mostly confirmation → low **E**. Same pattern for a DefiLlama TVL tick on a tokenized fund (e.g. BUIDL): a step-change in TVL is high-E; a flat reprint is low-E.
 

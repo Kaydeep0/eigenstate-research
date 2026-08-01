@@ -2,14 +2,51 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import { loadSot, formatNum, ptSparklinePoints } from '../../lib/sot';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
+
+const sot = loadSot();
+const field = sot.field;
+const cov = sot.coverage;
+const sb = sot.predictions_scoreboard;
+const series = sot.pt_kappa_series || [];
+const spark = ptSparklinePoints(series);
+const base = import.meta.env.BASE_URL;
+
+const kappa = field.kappa;
+const pt = field.protocol_truth ?? field.PT;
+const generatedAt = sot.generated_at;
+const parkashAt = sot.sources.parkash_last_parkash_at;
+
+const accuracyLabel =
+  sb.accuracy_pct != null
+    ? `${sb.accuracy_pct}%`
+    : sb.n_assessable === 0
+      ? 'n/a'
+      : `n=${sb.n_assessable}`;
+
+const accuracyNote =
+  sb.accuracy_pct != null
+    ? `${sb.n_true} of ${sb.n_assessable} assessable TRUE`
+    : sb.n_assessable === 0
+      ? 'No assessable scored claims yet (need n ≥ 5 for a rate)'
+      : `${sb.n_true} TRUE / ${sb.n_false} FALSE · assessable n too thin for a %`;
+
+const seriesStart = series[0]?.t_close?.slice?.(0, 10) || '';
+const seriesEnd = series[series.length - 1]?.t_close?.slice?.(0, 10) || '';
+
+function fmtUtc(iso: string | null | undefined): string {
+  if (!iso) return '—';
+  const d = new Date(iso);
+  return Number.isNaN(d.getTime()) ? iso : d.toISOString().replace('T', ' ').replace(/\.\d+Z$/, ' UTC');
+}
 ---
 
 <Layout
   title="Prediction Track Record — Eigenstate Research"
-  description="Verifiable measurement track record: settlement pressure readings, direction signals, and accuracy rate for the Eigenstate field engine. E = ΔI/A."
+  description="Verifiable measurement track record from engine SoT: M1 coverage, Protocol Truth, κ, and honest assessable claim counts. E = ΔI/A."
   fonts={fonts}
 >
   <Fragment slot="head">
@@ -67,27 +104,48 @@ const fonts =
       .page-sub {
         color: var(--text-secondary);
         font-size: var(--text-base);
-        margin-bottom: 48px;
-        max-width: 700px;
+        margin-bottom: 28px;
+        max-width: 720px;
         line-height: 1.6;
       }
 
-      /* Wraps the stat grid so the instrument corner-bracket (this is live
-         measured data, same treatment as the homepage proof-strip) frames
-         the whole panel rather than sitting flush against the outer cards. */
+      .sot-banner {
+        background: rgb(47 90 99 / 8%);
+        border: 1px solid var(--border-strong);
+        border-left: 3px solid var(--signal);
+        border-radius: var(--radius-md);
+        padding: 16px 20px;
+        margin-bottom: 36px;
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.65;
+      }
+
+      .sot-banner strong {
+        color: var(--text-primary);
+      }
+
+      .sot-banner a {
+        color: var(--signal);
+        text-decoration: none;
+      }
+
+      .sot-banner a:hover {
+        text-decoration: underline;
+      }
+
+      .sot-stamp {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        margin-top: 8px;
+      }
+
       .stats-instrument {
         padding: 4px;
         margin-bottom: 48px;
       }
 
-      /* Two-tier hierarchy instead of six undifferentiated tiles: the
-         accuracy rate is the one number an allocator actually needs to
-         trust this page, so it gets hero treatment (matches the homepage
-         proof-strip's engine-tile-value.green — same "this is the trust
-         signal" language). PT keeps its own wider panel since it's a trend
-         chart, not a bare number, and shouldn't be squeezed to match a
-         plain stat's height. Everything else is supporting context and
-         recedes into a compact, muted secondary row. */
       .stats-hero-row {
         display: grid;
         grid-template-columns: 1fr 2fr;
@@ -131,7 +189,12 @@ const fonts =
         font-size: var(--text-4xl);
         font-weight: 700;
         line-height: 1;
-        color: var(--status-success);
+        color: var(--text-primary);
+      }
+
+      .stat-hero-value.thin {
+        color: var(--status-warning);
+        font-size: var(--text-3xl);
       }
 
       .stat-chart-value {
@@ -146,10 +209,6 @@ const fonts =
         font-size: var(--text-sm);
         color: var(--text-secondary);
         margin-top: 8px;
-      }
-
-      .stat-note-negative {
-        color: var(--status-error);
       }
 
       .pt-sparkline {
@@ -217,91 +276,6 @@ const fonts =
         margin-top: 48px;
       }
 
-      .claims-filter-bar {
-        display: flex;
-        gap: 12px;
-        margin-bottom: 16px;
-        flex-wrap: wrap;
-      }
-
-      .claims-search-wrap {
-        position: relative;
-        flex: 1;
-        min-width: 200px;
-      }
-
-      .claims-search-wrap::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 16px;
-        width: 13px;
-        height: 13px;
-        transform: translateY(-50%);
-        border: 1.5px solid var(--text-muted);
-        border-radius: 50%;
-        pointer-events: none;
-      }
-
-      .claims-search-wrap::after {
-        content: '';
-        position: absolute;
-        top: 63%;
-        left: 27px;
-        width: 6px;
-        height: 1.5px;
-        transform: translateY(-50%) rotate(45deg);
-        background: var(--text-muted);
-        pointer-events: none;
-      }
-
-      .claims-search {
-        width: 100%;
-        font-family: var(--font-body);
-        font-size: var(--text-sm);
-        padding: 12px 16px 12px 38px;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-md);
-        color: var(--text-primary);
-        transition: border-color 0.2s ease;
-      }
-
-      .claims-search::placeholder {
-        color: var(--text-muted);
-      }
-
-      .claims-search:focus {
-        outline: none;
-        border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgb(62 111 239 / 15%);
-      }
-
-      .claims-status {
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        padding: 12px 16px;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-md);
-        color: var(--text-primary);
-        cursor: pointer;
-        transition: border-color 0.2s ease;
-      }
-
-      .claims-status:focus {
-        outline: none;
-        border-color: var(--accent);
-      }
-
-      .claims-empty {
-        padding: 32px;
-        text-align: center;
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        color: var(--text-muted);
-      }
-
       .table-wrap {
         overflow-x: auto;
         border: 1px solid var(--border-strong);
@@ -330,10 +304,6 @@ const fonts =
         white-space: nowrap;
       }
 
-      .th-num {
-        text-align: right;
-      }
-
       td {
         padding: 14px 16px;
         border-bottom: 1px solid var(--border);
@@ -348,93 +318,16 @@ const fonts =
         background: rgb(0 0 0 / 3%);
       }
 
-      tr:hover td {
-        background: rgb(148 163 184 / 6%);
-      }
-
-      .cell-date {
+      .cell-mono {
         font-family: var(--font-mono);
         font-size: var(--text-sm);
         color: var(--text-secondary);
       }
 
-      .cell-entity {
+      .cell-id {
         font-weight: 500;
       }
 
-      .cell-link {
-        color: var(--signal);
-        font-size: var(--text-xs);
-        text-decoration: none;
-      }
-
-      .cell-num {
-        font-variant-numeric: tabular-nums;
-        text-align: right;
-      }
-
-      .cell-metric {
-        font-family: var(--font-mono);
-        color: var(--text-secondary);
-      }
-
-      .cell-metric-amber {
-        font-family: var(--font-mono);
-        color: var(--status-warning);
-        font-weight: 600;
-      }
-
-      /* ELEVATED reads as emphasized neutral, not a hue — --signal stays
-         reserved for verified/on-chain markers only (see status-logged),
-         not a decorative severity color. */
-      .cell-metric-neutral {
-        font-family: var(--font-mono);
-        color: var(--text-primary);
-        font-weight: 600;
-      }
-
-      /* INFRA_FLOW is a different unit (cumulative volume, not pressure
-         severity) — italic marks that distinction instead of reaching for
-         another saturated hue. Purple was dropped: it's the skill's own
-         "AI product" signal color in virtually every categorical result,
-         which is exactly the generic-AI read this page was getting. */
-      .cell-metric-infra {
-        font-family: var(--font-mono);
-        color: var(--text-muted);
-        font-style: italic;
-        font-weight: 600;
-      }
-
-      .cell-metric-muted {
-        font-family: var(--font-mono);
-        color: var(--text-muted);
-        font-weight: 600;
-      }
-
-      .signal-amber {
-        color: var(--status-warning);
-        font-weight: 500;
-      }
-
-      .signal-neutral {
-        color: var(--text-primary);
-        font-weight: 600;
-      }
-
-      .signal-muted {
-        color: var(--text-muted);
-        font-weight: 500;
-      }
-
-      .signal-infra {
-        color: var(--text-muted);
-        font-style: italic;
-        font-weight: 500;
-      }
-
-      /* Status dots instead of filled pill badges — a pill sized to fit
-         "Pending" and one sized to fit "Quiet confirmed ✓" never align, and
-         a dot doesn't have that problem since the text just flows after it. */
       .status {
         display: inline-flex;
         align-items: center;
@@ -455,16 +348,24 @@ const fonts =
         flex-shrink: 0;
       }
 
-      .status-pending {
-        color: var(--status-warning);
+      .status-false {
+        color: var(--status-error);
       }
 
-      .status-logged {
-        color: var(--signal);
-      }
-
-      .status-confirmed {
+      .status-true {
         color: var(--status-success);
+      }
+
+      .status-void {
+        color: var(--text-muted);
+      }
+
+      .empty-note {
+        padding: 28px;
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+        text-align: center;
       }
 
       .method-block {
@@ -482,13 +383,6 @@ const fonts =
         letter-spacing: 0.08em;
         margin-bottom: 20px;
         color: var(--text-secondary);
-      }
-
-      .method-block p {
-        font-size: var(--text-base);
-        color: var(--text-secondary);
-        line-height: 1.7;
-        margin-bottom: 0;
       }
 
       .method-beats {
@@ -513,11 +407,10 @@ const fonts =
         padding-top: 2px;
       }
 
-      @media (width <= 640px) {
-        .method-beat {
-          grid-template-columns: 24px 1fr;
-          gap: 12px;
-        }
+      .method-block p {
+        font-size: var(--text-base);
+        color: var(--text-secondary);
+        line-height: 1.7;
       }
 
       .method-block code {
@@ -562,10 +455,6 @@ const fonts =
         word-break: break-all;
       }
 
-      .verify-value-muted {
-        color: var(--text-muted);
-      }
-
       .verify-value a {
         color: var(--signal);
         text-decoration: none;
@@ -574,7 +463,6 @@ const fonts =
       .verify-value a:hover {
         text-decoration: underline;
       }
-
     </style>
   </Fragment>
 
@@ -584,209 +472,142 @@ const fonts =
     <div class="eyebrow">EIGENSTATE RESEARCH · VERIFIABLE TRACK RECORD</div>
     <h1 class="page-title">PREDICTION TRACK RECORD</h1>
     <p class="page-sub">
-      The engine logs timestamped Φ_S (settlement pressure) readings for specific entities in the
-      tokenized finance settlement layer. Each reading is a falsifiable claim — pressure above
-      threshold predicts an event within 30 days. This page is the compiled record of every
-      published claim and its measured outcome.
+      Live field metrics and scored Host claims, rebuilt from engine SoT at bake time — not a frozen
+      April 2026 HTML snapshot.
     </p>
 
+    <aside class="sot-banner" aria-label="Source of truth">
+      <strong>SoT (source of truth)</strong> for these numbers is the GeniusFlow engine measurement
+      state: <code>HOST/state.json</code> (κ, Protocol Truth, parkash stamps) and the M1 coverage
+      ledger (strict observations ∩ topology / 199). Pages copies a stamp into
+      <code>public/field-state.json</code> on deploy.
+      See <a href={`${base}METHODOLOGY.md`}>Methodology</a>.
+      <div class="sot-stamp">
+        Stamp {fmtUtc(generatedAt)} · last parkash {fmtUtc(parkashAt)}
+      </div>
+    </aside>
+
     <div class="stats-instrument bracket">
-    <div class="stats-hero-row">
-      <div class="stat-hero">
-        <div class="stat-hero-label">Signal Accuracy</div>
-        <div class="stat-hero-value">100.0%</div>
-        <div class="stat-hero-note">4 of 4 assessable signals validated</div>
+      <div class="stats-hero-row">
+        <div class="stat-hero">
+          <div class="stat-hero-label">Assessable accuracy</div>
+          <div class={`stat-hero-value ${sb.accuracy_pct == null ? 'thin' : ''}`}>{accuracyLabel}</div>
+          <div class="stat-hero-note">{accuracyNote}</div>
+        </div>
+        <div class="stat-chart">
+          <div class="stat-chart-label">Protocol Truth (PT)</div>
+          <div class="stat-chart-value">{formatNum(pt, 4)}</div>
+          <div class="stat-chart-note">
+            From HOST SoT · act threshold {formatNum(field.canonical_act_threshold, 3)}
+          </div>
+          {
+            spark.points ? (
+              <svg width="300" height="60" viewBox="0 0 300 60" class="pt-sparkline" aria-label="PT series">
+                <polyline
+                  points={spark.points}
+                  fill="none"
+                  stroke="#2f5a63"
+                  stroke-width="1.5"
+                  stroke-linejoin="round"
+                  opacity="0.8"
+                ></polyline>
+                {seriesStart && (
+                  <text x="2" y="58" font-size="9" fill="#71717a" font-family="JetBrains Mono">
+                    {seriesStart}
+                  </text>
+                )}
+                {seriesEnd && (
+                  <text
+                    x="298"
+                    y="58"
+                    font-size="9"
+                    fill="#71717a"
+                    font-family="JetBrains Mono"
+                    text-anchor="end"
+                  >
+                    {seriesEnd}
+                  </text>
+                )}
+              </svg>
+            ) : (
+              <p class="stat-chart-note">No cycle_history series in this stamp.</p>
+            )
+          }
+        </div>
       </div>
-      <div class="stat-chart">
-        <div class="stat-chart-label">Protocol Truth (PT)</div>
-        <div class="stat-chart-value">0.3466</div>
-        <div class="stat-chart-note">PT moved <span class="stat-note-negative">-0.0788</span> over 14 days</div>
-        <svg width="300" height="60" viewBox="0 0 300 60" class="pt-sparkline">
-          <polyline
-            points="0.0,17.0 2.1,17.2 4.3,17.4 6.4,17.0 8.6,18.2 10.7,16.8 12.9,17.7 15.0,17.5 17.1,17.5 19.3,17.7 21.4,20.8 23.6,22.5 25.7,24.7 27.9,25.6 30.0,13.9 32.1,25.2 34.3,19.4 36.4,17.7 38.6,23.5 40.7,23.6 42.9,24.6 45.0,27.7 47.1,27.6 49.3,31.0 51.4,31.3 53.6,30.9 55.7,30.9 57.9,31.1 60.0,31.4 62.1,31.4 64.3,30.9 66.4,30.9 68.6,31.4 70.7,31.1 72.9,30.8 75.0,31.8 77.1,31.7 79.3,31.8 81.4,32.0 83.6,33.6 85.7,33.6 87.9,38.3 90.0,37.9 92.1,38.2 94.3,38.2 96.4,37.9 98.6,38.1 100.7,38.1 102.9,37.9 105.0,38.0 107.1,37.3 109.3,36.8 111.4,36.5 113.6,40.9 115.7,42.8 117.9,48.9 120.0,50.4 122.1,52.1 124.3,53.2 126.4,54.1 128.6,54.7 130.7,55.2 132.9,55.8 135.0,56.0 137.1,38.0 139.3,38.5 141.4,37.8 143.6,38.2 145.7,37.9 147.9,38.3 150.0,38.3 152.1,38.2 154.3,39.7 156.4,42.8 158.6,42.8 160.7,47.9 162.9,47.8 165.0,49.7 167.1,50.2 169.3,50.2 171.4,51.0 173.6,51.1 175.7,51.4 177.9,51.5 180.0,50.5 182.1,50.7 184.3,50.9 186.4,50.9 188.6,50.8 190.7,50.6 192.9,50.8 195.0,48.9 197.1,51.0 199.3,49.8 201.4,50.5 203.6,51.3 205.7,52.8 207.9,53.2 210.0,53.3 212.1,53.8 214.3,54.2 216.4,54.9 218.6,50.6 220.7,51.0 222.9,51.1 225.0,51.3 227.1,51.5 229.3,5.8 231.4,5.0 233.6,6.3 235.7,5.0 237.9,8.3 240.0,11.3 242.1,15.2 244.3,11.3 246.4,16.0 248.6,14.4 250.7,23.7 252.9,20.4 255.0,22.7 257.1,25.1 259.3,26.3 261.4,22.7 263.6,22.3 265.7,22.8 267.9,21.7 270.0,25.0 272.1,25.7 274.3,26.4 276.4,21.9 278.6,22.8 280.7,21.3 282.9,21.3 285.0,21.3 287.1,22.3 289.3,23.1 291.4,24.2 293.6,24.9 295.7,25.3 297.9,25.0 300.0,24.4"
-            fill="none"
-            stroke="#2f5a63"
-            stroke-width="1.5"
-            stroke-linejoin="round"
-            opacity="0.8"></polyline>
-          <text x="2" y="58" font-size="9" fill="#71717a" font-family="JetBrains Mono">2026-03-29</text>
-          <text x="298" y="58" font-size="9" fill="#71717a" font-family="JetBrains Mono" text-anchor="end"
-            >2026-04-11</text
-          >
-        </svg>
+
+      <div class="stats-secondary">
+        <div class="stat-card-sm">
+          <div class="stat-label">M1 coverage</div>
+          <div class="stat-value">{cov.headline}</div>
+          <div class="stat-note">{cov.m1_strict_pct}% · m1_strict ledger</div>
+        </div>
+        <div class="stat-card-sm">
+          <div class="stat-label">Coherence (κ)</div>
+          <div class="stat-value">{formatNum(kappa, 4)}</div>
+          <div class="stat-note">HOST κ at last stamp</div>
+        </div>
+        <div class="stat-card-sm">
+          <div class="stat-label">Host predictions</div>
+          <div class="stat-value">{sb.n_total}</div>
+          <div class="stat-note">{sb.n_open} open · {sb.n_resolved} resolved</div>
+        </div>
+        <div class="stat-card-sm">
+          <div class="stat-label">M1 confirmed</div>
+          <div class="stat-value">{cov.m1_confirmed_n} / {cov.m1_denominator}</div>
+          <div class="stat-note">confirmed subset of strict coverage</div>
+        </div>
       </div>
     </div>
 
-    <div class="stats-secondary">
-      <div class="stat-card-sm">
-        <div class="stat-label">Total Cycles Logged</div>
-        <div class="stat-value">141</div>
-        <div class="stat-note">2026-03-29 → 2026-04-11</div>
-      </div>
-      <div class="stat-card-sm">
-        <div class="stat-label">Coverage</div>
-        <div class="stat-value">23.5%</div>
-        <div class="stat-note">topology coverage (from 3.0%)</div>
-      </div>
-      <div class="stat-card-sm">
-        <div class="stat-label">Coherence (κ)</div>
-        <div class="stat-value">0.4153</div>
-        <div class="stat-note">average over 14-day run</div>
-      </div>
-      <div class="stat-card-sm">
-        <div class="stat-label">Published Claims</div>
-        <div class="stat-value">11</div>
-        <div class="stat-note">8 field-level, 0 infra-scale</div>
-      </div>
-    </div>
-    </div>
-
-    <div class="section-title">Claim History</div>
-
-    <div class="claims-filter-bar">
-      <div class="claims-search-wrap">
-        <input
-          type="text"
-          id="claimsSearch"
-          class="claims-search"
-          placeholder="Search by entity name…"
-          aria-label="Search claims by entity name"
-        />
-      </div>
-      <select id="claimsStatus" class="claims-status" aria-label="Filter by outcome status">
-        <option value="">All outcomes</option>
-        <option value="pending">Pending</option>
-        <option value="logged">Logged</option>
-        <option value="confirmed">Confirmed</option>
-      </select>
-    </div>
-
+    <div class="section-title">Resolved Host claims (SoT scoreboard)</div>
     <div class="table-wrap bracket">
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Entity</th>
-            <th class="th-num">Φ_S</th>
-            <th class="th-num">κ</th>
-            <th class="th-num">PT</th>
-            <th>Direction Signal</th>
-            <th>Outcome</th>
-          </tr>
-        </thead>
-        <tbody id="claimsBody">
-          <tr data-entity="TOPOLOGY_FIELD" data-status="pending">
-            <td class="cell-date">2026-04-11</td>
-            <td class="cell-entity">TOPOLOGY_FIELD</td>
-            <td class="cell-metric-amber cell-num">3.236</td>
-            <td class="cell-metric cell-num">0.5036</td>
-            <td class="cell-metric cell-num">0.3630</td>
-            <td><span class="signal-amber">BUILDING</span></td>
-            <td><span class="status status-pending">Pending</span></td>
-          </tr>
-          <tr data-entity="Securities and Exchange Commission" data-status="pending">
-            <td class="cell-date">2026-04-11</td>
-            <td class="cell-entity">Securities and Exchange Commission</td>
-            <td class="cell-metric-neutral cell-num">2.895</td>
-            <td class="cell-metric cell-num">0.5036</td>
-            <td class="cell-metric cell-num">0.3486</td>
-            <td><span class="signal-neutral">ELEVATED</span></td>
-            <td><span class="status status-pending">Pending</span></td>
-          </tr>
-          <tr data-entity="34539544" data-status="pending">
-            <td class="cell-date">2026-04-11</td>
-            <td class="cell-entity">34539544</td>
-            <td class="cell-metric-amber cell-num">4.874</td>
-            <td class="cell-metric cell-num">0.5036</td>
-            <td class="cell-metric cell-num">0.3630</td>
-            <td><span class="signal-amber">BUILDING</span></td>
-            <td><span class="status status-pending">Pending</span></td>
-          </tr>
-          <tr data-entity="Federal Reserve" data-status="pending">
-            <td class="cell-date">2026-04-11</td>
-            <td class="cell-entity">Federal Reserve</td>
-            <td class="cell-metric-amber cell-num">6.505</td>
-            <td class="cell-metric cell-num">0.5036</td>
-            <td class="cell-metric cell-num">0.3630</td>
-            <td><span class="signal-amber">BUILDING</span></td>
-            <td><span class="status status-pending">Pending</span></td>
-          </tr>
-          <tr data-entity="Ethereum" data-status="logged">
-            <td class="cell-date">2026-04-11</td>
-            <td class="cell-entity">
-              Ethereum
-              <a href={`${import.meta.env.BASE_URL}reports/ethereum-20260411/`} class="cell-link" title="View report">↗</a>
-            </td>
-            <td class="cell-metric-infra cell-num">521,674</td>
-            <td class="cell-metric cell-num">0.0000</td>
-            <td class="cell-metric cell-num">0.0000</td>
-            <td><span class="signal-infra">INFRA_FLOW</span></td>
-            <td><span class="status status-logged">Logged</span></td>
-          </tr>
-          <tr data-entity="Coinbase" data-status="logged">
-            <td class="cell-date">2026-04-11</td>
-            <td class="cell-entity">
-              Coinbase
-              <a href={`${import.meta.env.BASE_URL}reports/coinbase-20260411/`} class="cell-link" title="View report">↗</a>
-            </td>
-            <td class="cell-metric-infra cell-num">221,738</td>
-            <td class="cell-metric cell-num">0.0000</td>
-            <td class="cell-metric cell-num">0.0000</td>
-            <td><span class="signal-infra">INFRA_FLOW</span></td>
-            <td><span class="status status-logged">Logged</span></td>
-          </tr>
-          <tr data-entity="Base" data-status="logged">
-            <td class="cell-date">2026-04-11</td>
-            <td class="cell-entity">Base</td>
-            <td class="cell-metric-infra cell-num">535,305</td>
-            <td class="cell-metric cell-num">0.0000</td>
-            <td class="cell-metric cell-num">0.0000</td>
-            <td><span class="signal-infra">INFRA_FLOW</span></td>
-            <td><span class="status status-logged">Logged</span></td>
-          </tr>
-          <tr data-entity="Securities and Exchange Commission" data-status="confirmed">
-            <td class="cell-date">2026-04-10</td>
-            <td class="cell-entity">Securities and Exchange Commission</td>
-            <td class="cell-metric-neutral cell-num">2.858</td>
-            <td class="cell-metric cell-num">0.5036</td>
-            <td class="cell-metric cell-num">0.3316</td>
-            <td><span class="signal-neutral">ELEVATED</span></td>
-            <td><span class="status status-confirmed">Confirmed ✓</span></td>
-          </tr>
-          <tr data-entity="X (Twitter)" data-status="confirmed">
-            <td class="cell-date">2026-04-09</td>
-            <td class="cell-entity">X (Twitter)</td>
-            <td class="cell-metric-muted cell-num">0.050</td>
-            <td class="cell-metric cell-num">0.5148</td>
-            <td class="cell-metric cell-num">0.0729</td>
-            <td><span class="signal-muted">LOW</span></td>
-            <td><span class="status status-confirmed">Quiet confirmed ✓</span></td>
-          </tr>
-          <tr data-entity="Tokenized Treasury Pool" data-status="confirmed">
-            <td class="cell-date">2026-04-09</td>
-            <td class="cell-entity">Tokenized Treasury Pool</td>
-            <td class="cell-metric-muted cell-num">0.052</td>
-            <td class="cell-metric cell-num">0.5148</td>
-            <td class="cell-metric cell-num">0.0729</td>
-            <td><span class="signal-muted">LOW</span></td>
-            <td><span class="status status-confirmed">Quiet confirmed ✓</span></td>
-          </tr>
-          <tr data-entity="Securities and Exchange Commission" data-status="confirmed">
-            <td class="cell-date">2026-04-09</td>
-            <td class="cell-entity">
-              Securities and Exchange Commission
-              <a href={`${import.meta.env.BASE_URL}reports/sec-20260408/`} class="cell-link" title="View report">↗</a>
-            </td>
-            <td class="cell-metric-neutral cell-num">1.195</td>
-            <td class="cell-metric cell-num">0.5148</td>
-            <td class="cell-metric cell-num">0.0729</td>
-            <td><span class="signal-neutral">ELEVATED</span></td>
-            <td><span class="status status-confirmed">Confirmed ✓</span></td>
-          </tr>
-        </tbody>
-      </table>
-      <p class="claims-empty" id="claimsEmpty" style="display: none;">No claims match your search.</p>
+      {
+        sb.resolved && sb.resolved.length > 0 ? (
+          <table>
+            <thead>
+              <tr>
+                <th>Prediction</th>
+                <th>Deadline</th>
+                <th>Outcome</th>
+                <th>Calibration weight</th>
+                <th>Resolved</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sb.resolved.map((row) => {
+                const outcome = (row.outcome || '').toUpperCase();
+                const statusClass =
+                  outcome === 'TRUE'
+                    ? 'status-true'
+                    : outcome === 'FALSE'
+                      ? 'status-false'
+                      : 'status-void';
+                return (
+                  <tr>
+                    <td class="cell-id">{row.prediction_id}</td>
+                    <td class="cell-mono">{row.deadline || '—'}</td>
+                    <td>
+                      <span class={`status ${statusClass}`}>{outcome || row.status}</span>
+                    </td>
+                    <td class="cell-mono">{row.calibration_weight ?? '—'}</td>
+                    <td class="cell-mono">{row.resolved_at ? String(row.resolved_at).slice(0, 10) : '—'}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        ) : (
+          <p class="empty-note">No resolved Host claims in this SoT stamp.</p>
+        )
+      }
     </div>
+    <p class="stat-note" style="margin-top: 12px;">
+      {sb.note} On-chain gap predictions (separate surface):{' '}
+      <a href={`${base}predictions/`} style="color: var(--signal);">Predictions</a>.
+      INFRA_FLOW / cumulative volume is <em>not</em> Φ_S — prior track-record rows that placed volume
+      in the Φ_S column were retired with this rebuild.
+    </p>
 
     <div class="method-block">
       <h3>METHODOLOGY</h3>
@@ -794,44 +615,33 @@ const fonts =
         <div class="method-beat">
           <span class="beat-marker">01</span>
           <p>
-            <strong>Φ_S (settlement pressure)</strong> is the engine's primary signal. It measures unrealized
-            settlement energy accumulating in a specific entity's field — the gap between what the system
-            shows and what is currently priced or regulated. Formula derivation from Kirandeep's Law of
-            Emergence: <code>E = ΔI / A</code>, where <em>ΔI</em> is information differential and <em>A</em>
-            is action cost. Φ_S is the <em>ΔI</em> component measured at entity granularity.
+            <strong>Φ_S (settlement pressure)</strong> is the engine's primary entity signal — unrealized
+            settlement energy at entity granularity. Derivation: <code>E = ΔI / A</code>. Volume /
+            INFRA_FLOW totals are a different unit and must not be shown as Φ_S without an explicit
+            volume label.
           </p>
         </div>
         <div class="method-beat">
           <span class="beat-marker">02</span>
           <p>
-            <strong>Direction signal</strong> is generated at measurement time, before any outcome is known:
-            Φ_S ≥ 8.0 → CRITICAL; ≥ 3.0 → BUILDING; ≥ 0.5 → ELEVATED; &lt; 0.5 → LOW. The prediction window
-            is 30 days.
+            <strong>M1 coverage</strong> counts entities with at least one <code>m1_strict</code> ledger
+            observation, filtered to topology, over denominator <strong>199</strong>. Forbidden stale
+            denoms (196/197/…) are never used.
           </p>
         </div>
         <div class="method-beat">
           <span class="beat-marker">03</span>
           <p>
-            <strong>Accuracy assessment</strong> — where a subsequent reading for the same entity exists
-            within the window: if BUILDING/ELEVATED and pressure held or rose → CONFIRMED. If LOW and no
-            subsequent escalation → CONFIRMED_QUIET. Accuracy rate counts confirmed outcomes over all
-            assessable signals (excludes PENDING and infra-scale).
+            <strong>Accuracy</strong> uses Host prediction resolutions with TRUE/FALSE outcomes only
+            (VOID excluded). A percentage is shown only when assessable n ≥ 5 — thin samples stay as
+            raw n, not a fake 100%.
           </p>
         </div>
         <div class="method-beat">
           <span class="beat-marker">04</span>
           <p>
-            <strong>Infrastructure-scale entities</strong> (Ethereum, Base, Coinbase) measure total cumulative
-            flow volume — a different dimensional unit from field-level pressure. These are logged but
-            excluded from accuracy calculation.
-          </p>
-        </div>
-        <div class="method-beat">
-          <span class="beat-marker">05</span>
-          <p>
-            <strong>On-chain verification</strong> — when the helix-commit path succeeds, a SHA-256
-            fingerprint of vault state is posted to Base via GeniusFlow Settlement. Commits are listed on
-            the On-Chain Proof Index; not every parkash cycle produces a new transaction.
+            <strong>Report “vault@publish” badges</strong> count trimmed cycle-vault rows present when
+            that report was published — not lifetime M1 observations. See Signal Reports tooltips.
           </p>
         </div>
       </div>
@@ -848,50 +658,28 @@ const fonts =
       </div>
       <div class="verify-item">
         <div class="verify-label">On-Chain Commit</div>
-        <div class="verify-value"><a href={`${import.meta.env.BASE_URL}onchain/`}>On-Chain Proof Index</a></div>
+        <div class="verify-value"><a href={`${base}onchain/`}>On-Chain Proof Index</a></div>
       </div>
       <div class="verify-item">
-        <div class="verify-label">DOI — Kirandeep's Law</div>
-        <div class="verify-value">
-          <a href="https://doi.org/10.5281/zenodo.18413995" target="_blank"> 10.5281/zenodo.18413995 </a>
-        </div>
+        <div class="verify-label">Methodology</div>
+        <div class="verify-value"><a href={`${base}METHODOLOGY.md`}>METHODOLOGY.md</a></div>
       </div>
       <div class="verify-item">
-        <div class="verify-label">Signal Reports</div>
-        <div class="verify-value">
-          <a href={`${import.meta.env.BASE_URL}reports/`} target="_blank">
-            kaydeep0.github.io/eigenstate-research/reports/
-          </a>
-        </div>
-      </div>
-      <div class="verify-item">
-        <div class="verify-label">Generated</div>
-        <div class="verify-value">2026-04-11 04:05 UTC</div>
+        <div class="verify-label">SoT stamp</div>
+        <div class="verify-value">{fmtUtc(generatedAt)}</div>
       </div>
     </div>
   </div>
 
   <Footer
     variant="minimal"
-    note="This page is generated automatically from engine output. Not financial advice."
+    note="Numbers baked from engine SoT (public/field-state.json). Not financial advice."
   />
 
   <script>
     import { initReveal } from '../../scripts/reveal';
-    import { initFilterList } from '../../scripts/filter-list';
-
     initReveal({ selector: '.stat-hero, .stat-chart' });
     initReveal({ selector: '.stat-card-sm' });
     initReveal({ selector: '.method-beat' });
-
-    initFilterList({
-      containerSelector: '#claimsBody',
-      itemSelector: 'tr',
-      searchInputSelector: '#claimsSearch',
-      searchFields: ['entity'],
-      filterSelectSelector: '#claimsStatus',
-      filterField: 'status',
-      emptyStateSelector: '#claimsEmpty',
-    });
   </script>
 </Layout>

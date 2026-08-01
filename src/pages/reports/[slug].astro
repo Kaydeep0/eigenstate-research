@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { slugFor } from '../../lib/reports';
+import { loadSot, entityCodeFromReportId } from '../../lib/sot';
 
 export async function getStaticPaths() {
   const reports = await getCollection('reports');
@@ -15,7 +16,11 @@ export async function getStaticPaths() {
 
 const { entry, allReports } = Astro.props;
 const { Content } = await render(entry);
-const { entity_display, date, date_iso, phi_s, kappa, vault_records } = entry.data;
+const { entity_display, date, date_iso, phi_s, kappa, vault_records, id } = entry.data;
+const sot = loadSot();
+const entityCode = entityCodeFromReportId(id);
+const m1LedgerObs = (sot.entity_m1_obs_counts || {})[entityCode] ?? 0;
+const vaultTip = 'Cycle vault rows at publish (trimmed); not M1 lifetime observations';
 
 const siblings = allReports
   .filter((r) => r.id !== entry.id)
@@ -307,11 +312,24 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
         <div class="metric-label">Field Coherence</div>
         <div class="metric-value cyan">κ {kappa.toFixed(4)}</div>
       </div>
-      <div class="metric">
-        <div class="metric-label">Vault Records</div>
+      <div class="metric" title={vaultTip}>
+        <div class="metric-label">vault@publish</div>
         <div class="metric-value green">{vault_records}</div>
       </div>
+      {
+        m1LedgerObs > 0 && (
+          <div class="metric" title="m1_strict coverage-ledger rows for this entity (engine SoT)">
+            <div class="metric-label">M1 ledger obs</div>
+            <div class="metric-value cyan">{m1LedgerObs}</div>
+          </div>
+        )
+      }
     </div>
+    <p class="report-date" style="margin-top: 16px; max-width: 640px; line-height: 1.5;">
+      vault@publish = trimmed cycle-vault rows at report publish — not lifetime M1 observations
+      (SoT coverage {sot.coverage.headline}). See
+      <a href={`${import.meta.env.BASE_URL}METHODOLOGY.md`} style="color: var(--signal);">Methodology</a>.
+    </p>
   </div>
 
   <div class="report-body">
