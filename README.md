@@ -22,8 +22,8 @@ curl -sS -G 'https://geniusflow-federation.vercel.app/api/verify' \
 ```
 
 Returns `status: "ATTESTED-PRIMARY"`, `found: true`, `proof_shape.admitted: true`. Change
-`expected` to something absent and the same endpoint returns `HALLUCINATED`,
-`admitted: false`, `refuse_limb: "refuse_or_admit"`. That contrast is the product.
+`expected` to a string the source does not contain and the same endpoint refuses by name. The
+difference between those two responses is the whole thesis.
 
 ## Contents
 
@@ -37,23 +37,37 @@ Returns `status: "ATTESTED-PRIMARY"`, `found: true`, `proof_shape.admitted: true
 8. [Operating this repo](#operating-this-repo)
 9. [Documentation and evidence index](#documentation-and-evidence-index)
 10. [Contact](#contact)
-11. [Appendix A: agent cold start](#appendix-a-agent-cold-start)
+11. [Appendix A: agent surfaces](#appendix-a-agent-surfaces)
 12. [Appendix B: Host operational log](#appendix-b-host-operational-log)
 
 ## Quick start
 
 ### Admit and refuse in 60 seconds
 
-Two calls against the live federation verifier. No keys, no accounts. Add `| jq` if you have it.
+The command at the top of this file is the admit case. Here is the same endpoint refusing, with
+one argument changed:
 
-| Step | Command | Expect |
-|------|---------|--------|
-| Admit | `curl -sS -G '.../api/verify' --data-urlencode 'source_url=https://docs.aave.com/developers/aave-v3/overview' --data-urlencode 'expected=v3'` | `status: "ATTESTED-PRIMARY"`, `found: true`, `admitted: true`, `failed_limbs: []` |
-| Refuse | same call, `expected=not-in-this-page` | `status: "HALLUCINATED"`, `found: false`, `admitted: false`, `refuse_limb: "refuse_or_admit"` |
+```bash
+curl -sS -G 'https://geniusflow-federation.vercel.app/api/verify' \
+  --data-urlencode 'source_url=https://docs.aave.com/developers/aave-v3/overview' \
+  --data-urlencode 'expected=not-in-this-page'
+```
 
-Refusal arrives as HTTP 200 with the refusal in the JSON body, not as a 4xx. The full six-step
-walkthrough (status, dossier, `/api/package` admit, `/api/package` refuse, grounding verify,
-return-wire ack) is at
+| Response field | Admit (`expected=v3`) | Refuse (`expected=not-in-this-page`) |
+|----------------|-----------------------|--------------------------------------|
+| `status` | `ATTESTED-PRIMARY` | `HALLUCINATED` |
+| `found` | `true` | `false` |
+| `note` | `expected_found_in_source_body` | `expected_not_found_in_source_body` |
+| `proof_shape.admitted` | `true` | `false` |
+| `proof_shape.failed_limbs` | `[]` | `["refuse_or_admit"]` |
+| `proof_shape.refuse_limb` | `null` | `refuse_or_admit` |
+
+Both calls return HTTP 200. The refusal lives in the JSON body, not in the status code, because a
+consumer that only checks status codes would read a refusal as a pass. Pipe through `jq` if you
+have it.
+
+The full six-step walkthrough (status, dossier, `/api/package` admit, `/api/package` refuse,
+grounding verify, return-wire ack) is at
 [verify-walkthrough/](https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/).
 
 ### Run the demo in 5 minutes
@@ -204,15 +218,15 @@ scores a persistent term-structure gap (`LIBOR_EQUIVALENT`). See
 
 ## Measured ledgers
 
-Three probes where a rate was asserted in public and this node measured it instead. Each one
-publishes its expectations file **before** the run, names the limb that failed on every refusal,
+Three probes that measure a rate instead of asserting one. Each names the limb that failed on
+every refusal, runs its limbs in a frozen order so the counts partition rather than double-count,
 and serves a per-subject receipt so a disagreement is a fetch rather than an argument.
 
-| Ledger | Population | Headline | Expectations (pre-run) | Machine readable |
-|--------|-----------|----------|------------------------|------------------|
-| [ERC-8004 refusal](https://kaydeep0.github.io/eigenstate-research/erc8004/) | 500 agentIds drawn uniformly from the 60444 registered on Base at block 49425346 | **73.0%** refuse at least one MUST limb (95% CI 68.9 to 76.7); **91.0%** including self-reference and endpoint liveness (CI 88.2 to 93.2) | seeded by the pinned block hash, redrawable by a third party | [`summary.json`](https://kaydeep0.github.io/eigenstate-research/erc8004/summary.json) · [`ledger.json`](https://kaydeep0.github.io/eigenstate-research/erc8004/ledger.json) |
-| [Supply chain provenance](https://kaydeep0.github.io/eigenstate-research/slsa/) | census, not sample: all 94 distributions pip resolves for this engine's own `requirements.txt` | **44** serve a PEP 740 attestation and all 44 verify; **50** serve none; **0** carry SLSA build provenance | [`expectations.json`](https://kaydeep0.github.io/eigenstate-research/slsa/expectations.json) | [`summary.json`](https://kaydeep0.github.io/eigenstate-research/slsa/summary.json) · [`ledger.json`](https://kaydeep0.github.io/eigenstate-research/slsa/ledger.json) |
-| [RWA disclosure interface](https://kaydeep0.github.io/eigenstate-research/rwa/) | 17 tracked RWA issuers and tokenized instruments this node already publishes a dossier card for | **0 of 17** serve a machine readable disclosure surface on an origin they operate | [`expectations.json`](https://kaydeep0.github.io/eigenstate-research/rwa/expectations.json) | [`summary.json`](https://kaydeep0.github.io/eigenstate-research/rwa/summary.json) · [`ledger.json`](https://kaydeep0.github.io/eigenstate-research/rwa/ledger.json) |
+| Ledger | Population | Headline | Why it is checkable | Machine readable |
+|--------|-----------|----------|---------------------|------------------|
+| [ERC-8004 refusal](https://kaydeep0.github.io/eigenstate-research/erc8004/) | 500 agentIds drawn uniformly from the 60444 registered on Base at block 49425346 | **73.0%** refuse at least one MUST limb (95% CI 68.9 to 76.7); **91.0%** including self-reference and endpoint liveness (CI 88.2 to 93.2) | the draw is seeded by the pinned block hash and nothing else, so a third party can redraw the same 500 | [`summary.json`](https://kaydeep0.github.io/eigenstate-research/erc8004/summary.json) · [`ledger.json`](https://kaydeep0.github.io/eigenstate-research/erc8004/ledger.json) |
+| [Supply chain provenance](https://kaydeep0.github.io/eigenstate-research/slsa/) | census, not sample: all 94 distributions pip resolves for this engine's own `requirements.txt` | **44** serve a PEP 740 attestation and all 44 verify; **50** serve none; **0** carry SLSA build provenance | expectations committed before the run: [`expectations.json`](https://kaydeep0.github.io/eigenstate-research/slsa/expectations.json) | [`summary.json`](https://kaydeep0.github.io/eigenstate-research/slsa/summary.json) · [`ledger.json`](https://kaydeep0.github.io/eigenstate-research/slsa/ledger.json) |
+| [RWA disclosure interface](https://kaydeep0.github.io/eigenstate-research/rwa/) | 17 tracked RWA issuers and tokenized instruments this node already publishes a dossier card for | **0 of 17** serve a machine readable disclosure surface on an origin they operate | expectations published before the run: [`expectations.json`](https://kaydeep0.github.io/eigenstate-research/rwa/expectations.json) | [`summary.json`](https://kaydeep0.github.io/eigenstate-research/rwa/summary.json) · [`ledger.json`](https://kaydeep0.github.io/eigenstate-research/rwa/ledger.json) |
 
 Per-subject receipts are served from the federation origin:
 [`/erc8004/receipts/<agentId>.json`](https://geniusflow-federation.vercel.app/erc8004/receipts/13.json) ·
@@ -313,44 +327,15 @@ Read it: [/rwa/](https://kaydeep0.github.io/eigenstate-research/rwa/).
 
 ## Who it is for
 
-Honest and outsider-facing, grounded in what the public stack actually ships today. Each row says
-what is offered and what is explicitly not.
+Outsider-facing and grounded in what the public stack actually ships today. Every row names what
+it is not, because that is the part most projects leave out.
 
-### RWA and governance diligence
-
-| | |
-|--|--|
-| **Who** | Allocator, compliance, or RWA-desk analysts reviewing tokenized fixed income issuers and rails |
-| **Today without this** | Manual scrapes of issuer sites, filings, and press; no shared admit or refuse check on "attested" packages |
-| **Eigenstate offers** | Public dossiers and signal reports; federation `/api/verify` and `/api/package` against registry and proof_shape; `status_at_publish` on published claims |
-| **Not** | Bank settlement, custody, KYC, or a paid diligence SLA |
-
-### Research desk, structural gap tracking
-
-| | |
-|--|--|
-| **Who** | Rates and structure research desks watching benchmark and settlement fragility |
-| **Today without this** | Ad hoc SOFR and LIBOR notes; product marketing treated as a full replacement |
-| **Eigenstate offers** | Persistent gap framing (`LIBOR_EQUIVALENT`) on the [predictions](https://kaydeep0.github.io/eigenstate-research/predictions/) page, tied to the fixed M1 topology |
-| **Not** | Price forecasts, trade signals, or a claim that publishing a SOFR article "closes" the gap |
-
-### Agent tooling for attested claims (secondary)
-
-| | |
-|--|--|
-| **Who** | Builders and agents that need machine-readable claim surfaces |
-| **Today without this** | Scrape HTML; invent "attested" labels with no refuse limb |
-| **Eigenstate offers** | Federation [llms.txt](https://geniusflow-federation.vercel.app/llms.txt), OpenAPI, `/api/manifest` · `/api/verify` · `/api/package`, proof_shape admit and refuse, MCP adapter docs |
-| **Not** | Guaranteed uptime or a commercial agent SLA (`/api/status` is best-effort Vercel) |
-
-### Internal measurement and audit trail
-
-| | |
-|--|--|
-| **Who** | Host and internal research ops running the private engine |
-| **Today without this** | Scattered logs with no public mirror path |
-| **Eigenstate offers** | Cycle vault hash-chain for measure; Helix commits to `GeniusFlowSettlement` on Base when wallet, balance, and mirror gates allow; Proof Index for historical transactions |
-| **Not** | Every parkash cycle on-chain, or a retail settlement product for banks |
+| Use case | Who | Today without this | What this gives you | Explicitly not |
+|----------|-----|--------------------|---------------------|----------------|
+| **RWA and governance diligence** | Allocator, compliance, or RWA-desk analysts reviewing tokenized fixed income issuers and rails | Manual scrapes of issuer sites, filings, and press; no shared admit or refuse check on "attested" packages | Public dossiers and signal reports; federation `/api/verify` and `/api/package` against registry and proof_shape; `status_at_publish` on published claims | Bank settlement, custody, KYC, or a paid diligence SLA |
+| **Structural gap tracking** | Rates and structure research desks watching benchmark and settlement fragility | Ad hoc SOFR and LIBOR notes; product marketing treated as a full replacement | Persistent gap framing (`LIBOR_EQUIVALENT`) on the [predictions](https://kaydeep0.github.io/eigenstate-research/predictions/) page, tied to the fixed M1 topology | Price forecasts, trade signals, or a claim that publishing a SOFR article "closes" the gap |
+| **Agent tooling for attested claims** *(secondary)* | Builders and agents that need machine-readable claim surfaces | Scrape HTML; invent "attested" labels with no refuse limb | Federation [llms.txt](https://geniusflow-federation.vercel.app/llms.txt), OpenAPI, `/api/manifest`, `/api/verify`, `/api/package`, proof_shape admit and refuse, MCP adapter docs | Guaranteed uptime or a commercial agent SLA (`/api/status` is best-effort Vercel) |
+| **Internal measurement and audit trail** | Host and internal research ops running the private engine | Scattered logs with no public mirror path | Cycle vault hash-chain for measure; Helix commits to `GeniusFlowSettlement` on Base when wallet, balance, and mirror gates allow; Proof Index for historical transactions | Every parkash cycle on-chain, or a retail settlement product for banks |
 
 ## Status, limits, and non-goals
 
@@ -368,7 +353,7 @@ on this face. Coverage and on-chain mirror paths are partial by design; see
 | A production settlement, custody, or KYC product | Nothing here settles value for a third party. |
 | A commercial SLA | `/api/status` is best-effort Vercel. There is no uptime guarantee. |
 | Sector-wide rates from the measured ledgers | Each ledger states its own population. The RWA survey covers what this node tracks; the provenance census covers one dependency set. |
-| A cold start from a clone of the engine | The runtime is private. Machine cold start is the federation, see [Appendix A](#appendix-a-agent-cold-start). |
+| A cold start from a clone of the engine | The runtime is private. Machine cold start is the federation, see [Appendix A](#appendix-a-agent-surfaces). |
 
 ### Source of truth
 
@@ -410,7 +395,7 @@ git push   # GitHub Pages deploy workflow
 Engine equivalent:
 
 ```bash
-PYTHONPATH=engine python3 engine/tools/refresh_public_surfaces.py --site …/eigenstate-research
+PYTHONPATH=engine python3 engine/tools/refresh_public_surfaces.py --site /path/to/eigenstate-research
 ```
 
 ## Documentation and evidence index
@@ -426,7 +411,7 @@ PYTHONPATH=engine python3 engine/tools/refresh_public_surfaces.py --site …/eig
 | Provenance (OpenTimestamps + Software Heritage pointer) | [provenance/](https://kaydeep0.github.io/eigenstate-research/provenance/) · [OTS commitment file](https://kaydeep0.github.io/eigenstate-research/provenance/opentimestamps/helix-head-917f0e3036931e14.txt) |
 | Measured ledgers | [erc8004/](https://kaydeep0.github.io/eigenstate-research/erc8004/) · [slsa/](https://kaydeep0.github.io/eigenstate-research/slsa/) · [rwa/](https://kaydeep0.github.io/eigenstate-research/rwa/) |
 | Federation verify wire | [geniusflow-federation.vercel.app](https://geniusflow-federation.vercel.app/) with `/api/manifest`, `/api/chain`, `/api/verify`, `/api/package` |
-| Agent cold start | [`AGENTS.md`](AGENTS.md) · [Appendix A](#appendix-a-agent-cold-start) |
+| Agent cold start | [`AGENTS.md`](AGENTS.md) · [Appendix A](#appendix-a-agent-surfaces) |
 
 ## Contact
 
@@ -438,7 +423,7 @@ PYTHONPATH=engine python3 engine/tools/refresh_public_surfaces.py --site …/eig
 Issues and corrections on this repo are welcome. If you can show a receipt that contradicts a
 published number, that is the most useful thing you can send.
 
-## Appendix A: agent cold start
+## Appendix A: agent surfaces
 
 Pages stays the human website. Machine cold start is the federation, not this README and not a
 clone of the private engine.
@@ -462,7 +447,7 @@ of the same path: [verify-walkthrough/](https://kaydeep0.github.io/eigenstate-re
 | Pages `llms.txt` (pointer) | <https://kaydeep0.github.io/eigenstate-research/llms.txt> |
 | In-repo pointer | [`AGENTS.md`](AGENTS.md) |
 
-### Protocol membership
+### Network membership
 
 | Surface | URL |
 |---------|-----|
@@ -472,8 +457,7 @@ of the same path: [verify-walkthrough/](https://kaydeep0.github.io/eigenstate-re
 | MCP public source (this repo) | <https://github.com/Kaydeep0/eigenstate-research/tree/main/mcp> |
 | A2A agent card | <https://geniusflow-federation.vercel.app/.well-known/agent-card.json> |
 | A2A JSON-RPC | <https://geniusflow-federation.vercel.app/api/a2a> |
-| ERC-8004 domain proof | <https://geniusflow-federation.vercel.app/.well-known/agent-registration.json> |
-| OTS commitment (file) | <https://kaydeep0.github.io/eigenstate-research/provenance/opentimestamps/helix-head-917f0e3036931e14.txt> |
+| ERC-8004 domain proof (`registrations` is empty on purpose: a named refusal, no agentId claimed) | <https://geniusflow-federation.vercel.app/.well-known/agent-registration.json> |
 
 ### Measured ledgers, machine readable
 
@@ -486,6 +470,15 @@ of the same path: [verify-walkthrough/](https://kaydeep0.github.io/eigenstate-re
 Headline numbers, intervals, and the caveats that must travel with them are in
 [Measured ledgers](#measured-ledgers). Do not quote a rate without the population it was measured
 over.
+
+### Provenance
+
+| Surface | URL |
+|---------|-----|
+| Provenance page (human) | <https://kaydeep0.github.io/eigenstate-research/provenance/> |
+| OpenTimestamps commitment over the helix head (Bitcoin block 960660) | <https://kaydeep0.github.io/eigenstate-research/provenance/opentimestamps/helix-head-917f0e3036931e14.txt> |
+| Software Heritage identifiers (SWHID) | federation [`/api/agent`](https://geniusflow-federation.vercel.app/api/agent), field `provenance.software_identifiers` |
+| On-chain proof index, machine readable | <https://kaydeep0.github.io/eigenstate-research/api/onchain.json> |
 
 ## Appendix B: Host operational log
 

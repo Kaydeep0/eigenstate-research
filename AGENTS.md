@@ -24,7 +24,7 @@ Topics: **mcp**, **rwa**, **attestation**.
 
 13. **RWA disclosure interface survey** (17 tracked real world asset issuers and instruments; 0 of 17 serve a machine readable disclosure surface they operate; the 2 machine readable surfaces both belong to a third party aggregator; 0 of 45 conventional path requests answered; 0 of 15 surfaces carry a chain qualified registry reference; expectations published before the run): https://kaydeep0.github.io/eigenstate-research/rwa/ · machine: [`/rwa/summary.json`](https://kaydeep0.github.io/eigenstate-research/rwa/summary.json). Asks only whether the number is machine readable, not whether the disclosure is good. Never quote as a sector rate; 11 of the 17 refusals are this node's own coverage gap, so cite `attributable_to_issuer` for the issuer-attributable figure.
 
-In-repo pointer: [`README.md`](README.md) § Appendix: For agents. MCP source mirror: [`mcp/`](mcp/).
+In-repo pointer: [`README.md`](README.md) § Appendix A: agent surfaces (core · network membership · measured ledgers · provenance). Measured-ledger citation rules sit in that README under § Measured ledgers. MCP source mirror: [`mcp/`](mcp/).
 
 **Host ops:** after parkash, run `./scripts/refresh-public.sh` (needs `GENIUSFLOW_ROOT` + `GENIUSFLOW_BUILDER_DEPLOY=1`), then push Pages - do not hand-edit proof tiles.  
 **Host-done membership clicks:** MCP registry published `io.github.Kaydeep0/geniusflow-federation` **1.0.0** · OTS helix-head Bitcoin-attested at block **960660**. **A2A day-5 comments: posted.** Cite the ERC-8004 probe ledger for miss-rate; do not invent one.
