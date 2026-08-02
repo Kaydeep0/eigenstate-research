@@ -23,7 +23,7 @@ Paste body: [`ETHEREUM_MAGICIANS_ERC8004.md`](ETHEREUM_MAGICIANS_ERC8004.md).
 | RWA body | [`RWA_DISCLOSURE_DISCUSSION.md`](RWA_DISCLOSURE_DISCUSSION.md) | Paste-ready; 0/17 + 2/4-of-6 attributable |
 | SLSA body | [`DISCUSS_PYTHON_SLSA.md`](DISCUSS_PYTHON_SLSA.md) | Paste-ready; 44 / 50 / 0 of 94 |
 | Zenodo deposit | [`ZENODO_LEDGER_DEPOSIT.md`](ZENODO_LEDGER_DEPOSIT.md) | Metadata + file list; Host clicks Publish |
-| Ledgers live | `/erc8004/`, `/slsa/`, `/rwa/`, `/grounded-claims/` | Pages 200. Federation `/grounded-claims/` pending redeploy. `/tlog/` not landed. |
+| Ledgers live | `/erc8004/`, `/slsa/`, `/rwa/`, `/grounded-claims/` | Pages 200. Federation `/grounded-claims/` pending redeploy. `/tlog/expectations.json` live; human page + results still sibling WIP. |
 
 ---
 
@@ -78,7 +78,7 @@ Paste body: [`ETHEREUM_MAGICIANS_ERC8004.md`](ETHEREUM_MAGICIANS_ERC8004.md).
 | HN / RWA / SLSA paste drafts | **Done** in repo; numbers match live summaries (do not post today) |
 | Cite/redraw boxes on `/erc8004/`, `/slsa/`, `/rwa/` | **Done** and live |
 | Grounded-claims (EDGAR/Fed corpus) | **Pages live** at `/grounded-claims/`. Federation mirror pending Vercel redeploy. |
-| tlog / transparency monitor | **Not landed** (sibling WIP). |
+| tlog / transparency monitor | **Expectations live** at `/tlog/expectations.json`. Human page + batch results still sibling WIP. |
 | Zenodo / DOI | **Prep done**: `ZENODO_LEDGER_DEPOSIT.md` (Host publishes) |
 | 90-day scoreboard doc | **Done**: `CATEGORY_INFRA_90D.md` |
 | Actually posting Magicians | **Blocked: account held for moderation review** (Host tried 2026-08-02). Re-checked every parkash. |

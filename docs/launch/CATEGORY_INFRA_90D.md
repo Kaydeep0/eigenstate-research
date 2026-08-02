@@ -119,7 +119,7 @@ Playbook alias: `docs/rwa_disclosure_discussion_draft.md` redirects to the RWA d
 | SLSA / PEP 740 | https://kaydeep0.github.io/eigenstate-research/slsa/ | …/slsa/summary.json | `https://geniusflow-federation.vercel.app/slsa/receipts/<normalized-name>.json` |
 | RWA disclosure | https://kaydeep0.github.io/eigenstate-research/rwa/ | …/rwa/summary.json | `https://geniusflow-federation.vercel.app/rwa/receipts/<ENTITY>.json` |
 | Grounded claims (EDGAR/Fed) | https://kaydeep0.github.io/eigenstate-research/grounded-claims/ | …/grounded-claims/summary.json | Pages serves ledger + receipts under `/grounded-claims/receipts/`; federation mirror pending Vercel redeploy |
-| Transparency-log monitor | `/tlog/` | not live | Sibling probe WIP (`tlog_monitor_probe.py`); do not invent URLs |
+| Transparency-log monitor | human page not yet | [`…/tlog/expectations.json`](https://kaydeep0.github.io/eigenstate-research/tlog/expectations.json) live | Expectations only; batch results / human page / federation still sibling WIP |
 
 ERC-8004 redraw seed: pinned Base block hash only
 (`random.Random(int(pinned_block_hash[-16:], 16)).sample(range(1, N + 1), 500)`).
