@@ -1,9 +1,11 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
+import { createMarkdownProcessor } from '@astrojs/markdown-remark';
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { slugFor } from '../../lib/reports';
+import { prepareReportBody, loadClaimSourceLinks } from '../../lib/reportBody';
 import { loadSot, entityCodeFromReportId, resolveReportMetrics, formatNum } from '../../lib/sot';
 
 export async function getStaticPaths() {
@@ -15,33 +17,76 @@ export async function getStaticPaths() {
 }
 
 const { entry, allReports } = Astro.props;
-const { Content } = await render(entry);
 const { entity_display, date, date_iso, phi_s: publishPhi, kappa: publishKap, vault_records, id } = entry.data;
 const sot = loadSot();
 const entityCode = entityCodeFromReportId(id);
 const metrics = resolveReportMetrics(entityCode, { phi_s: publishPhi, kappa: publishKap });
 const { phi_s, kappa, using_live, live, publish_phi_s, publish_kappa } = metrics;
 const m1LedgerObs = (sot.entity_m1_obs_counts || {})[entityCode] ?? 0;
-const vaultTip = 'Cycle vault rows at publish (trimmed); not M1 lifetime observations';
-const fedDossierUrl = `https://geniusflow-federation.vercel.app/api/dossier?entity=${encodeURIComponent(entityCode)}`;
 
-const siblings = allReports
-  .filter((r) => r.id !== entry.id)
-  .map((r) => {
+const base = import.meta.env.BASE_URL;
+const humanDossier = `${base}dossier/${entityCode}/`;
+const machineDossierJson = `${base}federation/dossier/${entityCode}.json`;
+const machineClaimsJson = `${base}federation/current-claims/${entityCode}.json`;
+const methodology = `${base}METHODOLOGY.md`;
+const glossary = `${base}METHODOLOGY.md#numbers-glossary`;
+const verifyWalkthrough = `${base}verify-walkthrough/`;
+const paragraphJournal = 'https://paragraph.com/@eigenstate';
+const machineFeed = `https://geniusflow-federation.vercel.app/api/report_feed?entity=${encodeURIComponent(entityCode)}`;
+const machineManifest = 'https://geniusflow-federation.vercel.app/api/manifest';
+const machineChain = 'https://geniusflow-federation.vercel.app/api/chain';
+const machineAgent = 'https://geniusflow-federation.vercel.app/.well-known/geniusflow.json';
+
+const { article, agent } = prepareReportBody(entry.body, entityCode);
+// Singleton processor (avoid one Shiki highlighter per report page).
+const g = globalThis as typeof globalThis & { __eigenReportMd?: Awaited<ReturnType<typeof createMarkdownProcessor>> };
+if (!g.__eigenReportMd) {
+  g.__eigenReportMd = await createMarkdownProcessor({ gfm: true, smartypants: false });
+}
+const processor = g.__eigenReportMd;
+const { code: articleHtml } = await processor.render(article);
+const agentHtml = agent ? (await processor.render(agent)).code : '';
+
+const claimSources = loadClaimSourceLinks(entityCode);
+const issuerSources = claimSources.filter((s) => s.group === 'issuer');
+const regulatorSources = claimSources.filter((s) => s.group === 'regulator');
+const otherClaimSources = claimSources.filter((s) => s.group === 'other');
+
+/** One related report per entity (highest live Φ_S), excluding this entity. */
+const siblings = (() => {
+  const byCode = new Map<
+    string,
+    { slug: string; entity_display: string; live_phi: number; date_iso: string }
+  >();
+  for (const r of allReports) {
     const code = entityCodeFromReportId(r.data.id);
+    if (code === entityCode) continue;
     const m = resolveReportMetrics(code, { phi_s: r.data.phi_s, kappa: r.data.kappa });
-    return { ...r, slug: slugFor(r.id), live_phi: m.phi_s };
-  })
-  .sort((a, b) => b.live_phi - a.live_phi)
-  .slice(0, 6);
+    const candidate = {
+      slug: slugFor(r.id),
+      entity_display: r.data.entity_display,
+      live_phi: m.phi_s,
+      date_iso: r.data.date_iso,
+    };
+    const prev = byCode.get(code);
+    if (
+      !prev ||
+      candidate.live_phi > prev.live_phi ||
+      (candidate.live_phi === prev.live_phi && candidate.date_iso > prev.date_iso)
+    ) {
+      byCode.set(code, candidate);
+    }
+  }
+  return [...byCode.values()].sort((a, b) => b.live_phi - a.live_phi).slice(0, 6);
+})();
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
 
-const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.toFixed(4)}, coherence κ = ${kappa.toFixed(4)}. Topology signal report from Eigenstate Research.`;
+const description = `${entity_display} field position report. Live Φ_S = ${phi_s.toFixed(4)}, κ = ${kappa.toFixed(4)}. Eigenstate Research.`;
 ---
 
-<Layout title={`${entity_display} — Signal Report — Eigenstate Research`} description={description} fonts={fonts}>
+<Layout title={`${entity_display} · Signal Report · Eigenstate Research`} description={description} fonts={fonts}>
   <Fragment slot="head">
     <style>
       *,
@@ -61,7 +106,7 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
       }
 
       .report-hero {
-        padding: 56px 40px 40px;
+        padding: 56px 40px 32px;
         border-bottom: 1px solid var(--border);
         max-width: 900px;
         margin: 0 auto;
@@ -84,32 +129,59 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
         margin-bottom: 8px;
       }
 
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--signal);
+        margin-bottom: 10px;
+      }
+
       .report-date {
         font-family: var(--font-mono);
         font-size: var(--text-sm);
         color: var(--text-muted);
-        margin-bottom: 28px;
+        margin-bottom: 20px;
       }
 
-      .snapshot-notice {
-        max-width: 820px;
-        margin: 0 auto 32px;
-        padding: 14px 16px;
-        border: 1px solid rgb(245 158 11 / 45%);
-        border-left: 3px solid var(--status-warning);
-        background: rgb(245 158 11 / 8%);
-        color: var(--text-secondary);
+      .panel {
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 18px 20px;
+        margin-bottom: 16px;
+        background: var(--bg-card, transparent);
+      }
+
+      .panel.live {
+        border-color: rgb(47 90 99 / 35%);
+        background: rgb(47 90 99 / 6%);
+      }
+
+      .panel.snapshot {
+        border-color: rgb(245 158 11 / 35%);
+        background: rgb(245 158 11 / 7%);
+      }
+
+      .panel-title {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 12px;
+      }
+
+      .panel-note {
         font-size: var(--text-sm);
-        line-height: 1.6;
-      }
-
-      .snapshot-notice strong {
-        color: var(--text-primary);
+        color: var(--text-secondary);
+        line-height: 1.55;
+        margin-top: 12px;
       }
 
       .metrics-row {
         display: flex;
-        gap: 32px;
+        gap: 28px;
         flex-wrap: wrap;
       }
 
@@ -138,14 +210,31 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
         color: var(--signal);
       }
 
-      .metric-value.green {
-        color: var(--status-success);
+      .metric-value.muted {
+        color: var(--text-muted);
+      }
+
+      .hero-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        margin-top: 8px;
+      }
+
+      .hero-links a {
+        color: var(--signal);
+        font-size: var(--text-sm);
+        text-decoration: none;
+      }
+
+      .hero-links a:hover {
+        text-decoration: underline;
       }
 
       .report-body {
         max-width: 900px;
         margin: 0 auto;
-        padding: 48px 40px;
+        padding: 40px 40px 24px;
         font-size: var(--text-base);
         color: var(--text-secondary);
         overflow-wrap: break-word;
@@ -238,22 +327,56 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
         color: var(--text-muted);
       }
 
-      .topology-section {
+      .sources-panel,
+      .topology-section,
+      .for-agents {
         max-width: 900px;
         margin: 0 auto;
-        padding: 0 40px 64px;
+        padding: 0 40px 40px;
       }
 
-      .topology-title {
+      .section-label {
         font-family: var(--font-heading);
         font-size: var(--text-sm);
         font-weight: 700;
         letter-spacing: 0.1em;
         color: var(--text-muted);
         text-transform: uppercase;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         border-top: 1px solid var(--border);
         padding-top: 32px;
+      }
+
+      .sources-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+      }
+
+      .sources-list a {
+        color: var(--signal);
+      }
+
+      .sources-group {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-top: 14px;
+        margin-bottom: 2px;
+      }
+
+      .sources-group:first-child {
+        margin-top: 0;
+      }
+
+      .machine-link {
+        color: var(--text-muted) !important;
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
       }
 
       .topology-list {
@@ -293,10 +416,44 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
         color: var(--accent);
       }
 
+      .for-agents details {
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 12px 16px;
+        color: var(--text-muted);
+        font-size: var(--text-sm);
+      }
+
+      .for-agents summary {
+        cursor: pointer;
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .for-agents .agent-body {
+        margin-top: 14px;
+        color: var(--text-secondary);
+      }
+
+      .for-agents .agent-body :global(h2),
+      .for-agents .agent-body :global(h3) {
+        font-size: var(--text-sm);
+        margin: 16px 0 8px;
+      }
+
+      .for-agents .agent-body :global(table) {
+        font-size: var(--text-xs);
+      }
+
       @media (width <= 640px) {
         .report-hero,
         .report-body,
-        .topology-section {
+        .sources-panel,
+        .topology-section,
+        .for-agents {
           padding-left: 20px;
           padding-right: 20px;
         }
@@ -307,69 +464,170 @@ const description = `${entity_display} — settlement pressure Φ_S = ${phi_s.to
   <Nav active="reports" />
 
   <div class="report-hero" id="main">
-    <a href={`${import.meta.env.BASE_URL}reports/`} class="report-back">← All signal reports</a>
+    <a href={`${base}reports/`} class="report-back">← All signal reports</a>
+    <div class="eyebrow">Signal report</div>
     <h1 class="report-entity">{entity_display}</h1>
-    <p class="report-date">{date}</p>
-    <div class="metrics-row">
-      <div class="metric">
-        <div class="metric-label">Settlement Pressure {using_live ? '(live)' : '(publish)'}</div>
-        <div class="metric-value">Φ_S {phi_s.toFixed(4)}</div>
+    <p class="report-date">Publication date {date}</p>
+
+    <div class="panel live">
+      <div class="panel-title">Live SoT</div>
+      <div class="metrics-row">
+        <div class="metric">
+          <div class="metric-label">Settlement pressure</div>
+          <div class="metric-value">Φ_S {phi_s.toFixed(4)}</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Field coherence</div>
+          <div class="metric-value cyan">κ {formatNum(kappa, 4)}</div>
+        </div>
+        {
+          m1LedgerObs > 0 ? (
+            <div class="metric" title="m1_strict coverage-ledger rows for this entity (engine SoT)">
+              <div class="metric-label">M1 ledger obs</div>
+              <div class="metric-value cyan">{m1LedgerObs}</div>
+            </div>
+          ) : (
+            <div class="metric">
+              <div class="metric-label">M1 ledger obs</div>
+              <div class="metric-value muted">0</div>
+            </div>
+          )
+        }
+        <div class="metric">
+          <div class="metric-label">M1 coverage (field)</div>
+          <div class="metric-value cyan">{sot.coverage.headline}</div>
+        </div>
       </div>
-      <div class="metric">
-        <div class="metric-label">Field Coherence {using_live ? '(live)' : '(publish)'}</div>
-        <div class="metric-value cyan">κ {formatNum(kappa, 4)}</div>
+      <p class="panel-note">
+        {
+          using_live
+            ? `Hero numbers overlay the live dossier SoT${live.compiled_at ? ` (compiled ${String(live.compiled_at).slice(0, 19)}Z)` : ''}. This is current engine state, not the prose below.`
+            : `No live dossier mirror for ${entityCode}. Showing publish-time frontmatter for Φ_S / κ.`
+        }
+      </p>
+      <div class="hero-links">
+        <a href={humanDossier}>Entity dossier</a>
+        <a href={glossary}>Numbers glossary</a>
+        <a href={methodology}>Methodology</a>
+        <a href={verifyWalkthrough}>Verify walkthrough</a>
       </div>
-      <div class="metric" title={vaultTip}>
-        <div class="metric-label">vault@publish</div>
-        <div class="metric-value green">{vault_records}</div>
-      </div>
-      {
-        m1LedgerObs > 0 && (
-          <div class="metric" title="m1_strict coverage-ledger rows for this entity (engine SoT)">
-            <div class="metric-label">M1 ledger obs</div>
-            <div class="metric-value cyan">{m1LedgerObs}</div>
-          </div>
-        )
-      }
     </div>
-    <p class="report-date" style="margin-top: 16px; max-width: 640px; line-height: 1.5;">
-      {
-        using_live
-          ? `Hero Φ_S / κ overlay live dossier SoT${live.compiled_at ? ` (compiled ${(live.compiled_at || '').slice(0, 19)}Z)` : ''}. Publish snapshot ${date_iso}: Φ_S ${publish_phi_s.toFixed(4)}, κ ${formatNum(publish_kappa, 4)}.`
-          : `No live dossier mirror for ${entityCode} — showing publish-time frontmatter.`
-      }
-      {' '}
-      vault@publish = trimmed cycle-vault rows at report publish — not lifetime M1 observations
-      (SoT coverage {sot.coverage.headline}).
-      <a href={fedDossierUrl} style="color: var(--signal);"> Federation dossier</a>
-      {' · '}
-      <a href={`${import.meta.env.BASE_URL}METHODOLOGY.md#numbers-glossary`} style="color: var(--signal);">What do these numbers mean?</a>
-      {' · '}
-      <a href={`${import.meta.env.BASE_URL}METHODOLOGY.md`} style="color: var(--signal);">Methodology</a>.
-    </p>
+
+    <div class="panel snapshot">
+      <div class="panel-title">Publication snapshot · {date_iso}</div>
+      <div class="metrics-row">
+        <div class="metric">
+          <div class="metric-label">Φ_S at publish</div>
+          <div class="metric-value muted">{publish_phi_s.toFixed(4)}</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">κ at publish</div>
+          <div class="metric-value muted">{formatNum(publish_kappa, 4)}</div>
+        </div>
+        <div class="metric" title="Trimmed cycle-vault rows at report publish. Not lifetime M1 observations.">
+          <div class="metric-label">vault@publish</div>
+          <div class="metric-value muted">{vault_records}</div>
+        </div>
+      </div>
+      <p class="panel-note">
+        Dated research snapshot. Prose below describes publication-time observation.
+        vault@publish counts trimmed cycle-vault rows at publish time. It is not the live M1 ledger
+        ({m1LedgerObs} obs for {entityCode}; field coverage {sot.coverage.headline}).
+        Do not read vault@publish = 0 as "no measurements exist" when M1 ledger obs is non-zero.
+      </p>
+    </div>
   </div>
 
-  <div class="report-body">
-    <aside class="snapshot-notice" aria-label="Report snapshot notice">
-      <strong>Dated research snapshot — {date_iso}.</strong>
-      Prose and links below describe publication-time observation.
-      Hero Φ_S / κ prefer the live engine dossier mirror when synced; re-check cited evidence before treating claims as present state.
-    </aside>
-    <Content />
+  <div class="report-body" set:html={articleHtml} />
+
+  <div class="sources-panel">
+    <div class="section-label">Sources &amp; human pages</div>
+    <div class="sources-list">
+      {
+        issuerSources.length > 0 && (
+          <>
+            <div class="sources-group">Issuer / primary pages</div>
+            {issuerSources.map((s) => (
+              <div>
+                <a href={s.href}>{s.label}</a>
+              </div>
+            ))}
+          </>
+        )
+      }
+      {
+        regulatorSources.length > 0 && (
+          <>
+            <div class="sources-group">SEC / EDGAR / regulator</div>
+            {regulatorSources.map((s) => (
+              <div>
+                <a href={s.href}>{s.label}</a>
+              </div>
+            ))}
+          </>
+        )
+      }
+      {
+        otherClaimSources.length > 0 && (
+          <>
+            <div class="sources-group">Other cited pages</div>
+            {otherClaimSources.map((s) => (
+              <div>
+                <a href={s.href}>{s.label}</a>
+              </div>
+            ))}
+          </>
+        )
+      }
+      <div class="sources-group">Eigenstate Pages</div>
+      <div><a href={methodology}>Methodology</a> · field equations and publish honesty</div>
+      <div><a href={glossary}>Numbers glossary</a> · Φ_S, κ, vault@publish, M1 ledger</div>
+      <div><a href={humanDossier}>Entity dossier (HTML)</a> · live SoT card for {entity_display}</div>
+      <div><a href={verifyWalkthrough}>Verify walkthrough</a> · human federation check</div>
+      <div><a href={`${base}reports/`}>Related reports</a> · other tracked entities</div>
+      <div><a href={paragraphJournal}>Paragraph journal</a> · long-form distribution</div>
+    </div>
   </div>
 
   <div class="topology-section">
-    <div class="topology-title">Other tracked entities · by settlement pressure</div>
+    <div class="section-label">Related entities · by settlement pressure</div>
     <div class="topology-list bracket">
       {
         siblings.map((s) => (
-          <a href={`${import.meta.env.BASE_URL}reports/${s.slug}/`} class="topology-row">
-            <span class="topology-entity">{s.data.entity_display}</span>
+          <a href={`${base}reports/${s.slug}/`} class="topology-row">
+            <span class="topology-entity">{s.entity_display}</span>
             <span class="topology-phi">Φ_S {s.live_phi.toFixed(3)}</span>
           </a>
         ))
       }
     </div>
+  </div>
+
+  <div class="for-agents">
+    <div class="section-label">For agents</div>
+    <details>
+      <summary>Machine feeds · Node 34539544 (collapsed)</summary>
+      <div class="agent-body">
+        <p>
+          Cold-agent entry for verified analysis. Prefer the human pages above first.
+          Full walkthrough: <a href={verifyWalkthrough}>verify-walkthrough</a>.
+        </p>
+        {agentHtml ? <div set:html={agentHtml} /> : null}
+        <p style="margin-top: 12px;">
+          <a class="machine-link" href={machineDossierJson}>machine dossier · {entityCode}.json</a>
+          {' · '}
+          <a class="machine-link" href={machineClaimsJson}>machine claims · {entityCode}.json</a>
+          {' · '}
+          <a class="machine-link" href={machineFeed}>machine feed · report_feed</a>
+          {' · '}
+          <a class="machine-link" href={machineManifest}>machine · api/manifest</a>
+          {' · '}
+          <a class="machine-link" href={machineChain}>machine · api/chain</a>
+          {' · '}
+          <a class="machine-link" href={machineAgent}>machine · agent descriptor</a>
+        </p>
+      </div>
+    </details>
   </div>
 
   <Footer variant="full" />

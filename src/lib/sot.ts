@@ -77,12 +77,12 @@ export function resolveReportMetrics(
 }
 
 export function formatPct(n: number | null | undefined, digits = 1): string {
-  if (n == null || Number.isNaN(n)) return '—';
+  if (n == null || Number.isNaN(n)) return 'n/a';
   return `${n.toFixed(digits)}%`;
 }
 
 export function formatNum(n: number | null | undefined, digits = 4): string {
-  if (n == null || Number.isNaN(Number(n))) return '—';
+  if (n == null || Number.isNaN(Number(n))) return 'n/a';
   return Number(n).toFixed(digits);
 }
 
