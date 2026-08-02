@@ -54,6 +54,14 @@ Two independent methods, three months apart, landing within a point of each othe
 two comparable figures. I read that as the finding being solid rather than as anything
 new from me.
 
+I have since run the same probe a second time, at block 49,430,006, drawing a fresh 500
+from the 60,455 registered by then. It put the no-agentURI share at 30.6% (95% CI 26.7 to
+34.8) and the MUST-clearing share at 28.6%. Every interval from the two runs overlaps, so
+the second run does not show anything moving; it is a second sample of a growing registry,
+not a second look at the same set. I am quoting the first run above because that is the
+one this argument was written from, and both runs stay published side by side with their
+digests here: https://kaydeep0.github.io/eigenstate-research/ledgers/
+
 Full ledger, every limb reported separately, one receipt per sampled agentId with the
 exact HTTP status or transport error:
 https://kaydeep0.github.io/eigenstate-research/erc8004/
