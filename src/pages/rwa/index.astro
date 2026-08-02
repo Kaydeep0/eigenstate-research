@@ -197,6 +197,29 @@ const soft200 = s.conventional_paths.status_counts['200'] ?? 0;
         overflow-wrap: anywhere;
       }
 
+      .cite-box {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        line-height: 1.75;
+        padding: 14px 16px;
+        background: var(--bg2);
+        border-left: 3px solid var(--signal-dim);
+        margin: 0 0 28px;
+        overflow-wrap: anywhere;
+      }
+
+      .cite-box .cite-title {
+        color: var(--text-secondary);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+
+      .cite-box a {
+        color: var(--signal-dim);
+      }
+
       .cards {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -406,6 +429,17 @@ const soft200 = s.conventional_paths.status_counts['200'] ?? 0;
       Ledger digest <code>{s.digest}</code> run {formatDate(s.generated_at)} · probe v{
         s.probe_version
       }
+    </div>
+
+    <div class="cite-box">
+      <div class="cite-title">How to cite / re-check</div>
+      Cite{' '}
+      <a href={`${base}rwa/expectations.json`}>expectations.json</a> (published first) and{' '}
+      <a href={`${base}rwa/summary.json`}>summary.json</a>. One issuer at a time:{' '}
+      <code>{fed}/rwa/receipts/&lt;ENTITY&gt;.json</code>
+      <br />
+      Population is this node's tracked issuers, not a sector sample. For issuer-attributable
+      figures cite <code>attributable_to_issuer</code>, not the raw 0 of {n} alone.
     </div>
 
     <div class="cards">

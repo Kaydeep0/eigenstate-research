@@ -171,6 +171,29 @@ const priorArt = {
         overflow-wrap: anywhere;
       }
 
+      .cite-box {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        line-height: 1.75;
+        padding: 14px 16px;
+        background: var(--bg2);
+        border-left: 3px solid var(--signal-dim);
+        margin: 0 0 28px;
+        overflow-wrap: anywhere;
+      }
+
+      .cite-box .cite-title {
+        color: var(--text-secondary);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+
+      .cite-box a {
+        color: var(--signal-dim);
+      }
+
       .cards {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -344,6 +367,23 @@ const priorArt = {
       {num(p.population_at_pinned_block)} agents registered at that block · {p.sampled} sampled ·
       run {formatDate(p.generated_at)}<br />
       Ledger digest <code>{p.digest}</code>
+    </div>
+
+    <div class="cite-box">
+      <div class="cite-title">How to cite / redraw</div>
+      Cite the human page or{' '}
+      <a href={`${base}erc8004/summary.json`}>summary.json</a>. Overturn one agent without
+      arguing the aggregate:{' '}
+      <code>{fed}/erc8004/receipts/&lt;agentId&gt;.json</code>
+      <br />
+      Redraw the same {p.sampled} ids from the pinned block hash only (nothing from this node):
+      <br />
+      <code
+        >{`random.Random(int(pinned_block_hash[-16:], 16)).sample(range(1, N + 1), ${p.sampled})`}</code
+      >
+      <br />
+      Seed block <code>{num(p.chain.pinned_block)}</code> · hash{' '}
+      <code>{p.chain.pinned_block_hash}</code>
     </div>
 
     <div class="cards">

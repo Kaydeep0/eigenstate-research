@@ -219,6 +219,8 @@ scores a persistent term-structure gap (`LIBOR_EQUIVALENT`). See
 
 ## Measured ledgers
 
+Category infrastructure plan (cites, not stars): [`docs/launch/CATEGORY_INFRA_90D.md`](docs/launch/CATEGORY_INFRA_90D.md) · Host post-today checklist: [`docs/launch/POST_TODAY.md`](docs/launch/POST_TODAY.md).
+
 Three probes that measure a rate instead of asserting one. Each names the limb that failed on
 every refusal, runs its limbs in a frozen order so the counts partition rather than double-count,
 and serves a per-subject receipt so a disagreement is a fetch rather than an argument.

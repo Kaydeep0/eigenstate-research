@@ -179,6 +179,29 @@ const predicateRows = Object.entries(c.predicate_types);
         overflow-wrap: anywhere;
       }
 
+      .cite-box {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        line-height: 1.75;
+        padding: 14px 16px;
+        background: var(--bg2);
+        border-left: 3px solid var(--signal-dim);
+        margin: 0 0 28px;
+        overflow-wrap: anywhere;
+      }
+
+      .cite-box .cite-title {
+        color: var(--text-secondary);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+
+      .cite-box a {
+        color: var(--signal-dim);
+      }
+
       .cards {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -381,6 +404,17 @@ const predicateRows = Object.entries(c.predicate_types);
         formatDate(c.expectations_generated_at)
       }<br />
       Ledger digest <code>{c.digest}</code> run {formatDate(c.generated_at)}
+    </div>
+
+    <div class="cite-box">
+      <div class="cite-title">How to cite / re-check</div>
+      Cite{' '}
+      <a href={`${base}slsa/expectations.json`}>expectations.json</a> (published first) and{' '}
+      <a href={`${base}slsa/summary.json`}>summary.json</a>. One package at a time:{' '}
+      <code>{fed}/slsa/receipts/&lt;normalized-name&gt;.json</code>
+      <br />
+      This is a census of one install set, not a sample. A later run resolves a later set; the
+      expectations file pins which artifact filenames and digests a given run covered.
     </div>
 
     <div class="cards">
