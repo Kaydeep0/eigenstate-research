@@ -270,8 +270,8 @@
   <h1>Live Observations, Cryptographic Chain</h1>
   <p class="subtitle">
     The engine makes three observations from public data sources.
-    It measures how surprising each observation is.
-    It chains them cryptographically.
+    It measures how surprising each observation is (demo policy).
+    It chains the observation payloads with helixhash 1.0 <code>append(bytes)</code>.
     You can verify the chain on a public blockchain.
   </p>
 
@@ -383,17 +383,18 @@
     <div class="fingerprint loading" id="fingerprint">computing…</div>
     <div class="chain-meta">
       <div><span>Chain valid: </span><strong id="chain-valid">—</strong></div>
-      <div><span>PT score: </span><strong id="pt-score">—</strong></div>
-      <div><span>G (memory): </span><strong id="g-val">—</strong></div>
+      <div><span>Entries: </span><strong id="chain-entries">—</strong></div>
+      <div><span>Head hash: </span><strong id="chain-head" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;word-break:break-all;">—</strong></div>
     </div>
     <div class="chain-explain">
-      Each fingerprint is SHA-256 of (observation data + previous fingerprint).
-      Altering any value above instantly breaks every subsequent hash.
-      The engine runs the same chain across its full vault and commits the
-      fingerprint to Base mainnet when its wallet, balance, and mirror gates
-      pass. Local chaining is continuous; the on-chain commit is not, so the
-      latest commit below can be older than today. Every commit that landed is
-      in the <a href="../onchain/">On-Chain Proof Index</a>.
+      Browser demo mirrors helixhash 1.0: each entry is <code>append(bytes)</code>
+      of a JSON observation payload; the tip hash covers index, payload, timestamp,
+      and previous hash (no PT / Fibonacci / Crossing in the protocol).
+      Altering any payload breaks <code>verify()</code>. The private engine uses the
+      same primitive on its vault and may commit the tip to Base when gates pass.
+      On-chain cadence is not continuous — see the
+      <a href="../onchain/">On-Chain Proof Index</a>. Full API:
+      <a href="../HELIXHASH.md">HELIXHASH.md</a>.
     </div>
   </div>
 
@@ -439,37 +440,97 @@
 </div>
 
 <script>
-// ── HelixHash in-browser (pure JS port of the Python algorithm) ───────────────
-// Browser-only toy (historical 0.1.1-era scoring). helixhash>=1.0 on PyPI is append(bytes) only — see eigenstate_demo.py / HELIXHASH.md.
-// Former note: matched helixhash/core.py Fibonacci recurrence + PT formula,
-// same SHA-256 payload format. Fingerprints should match the Python script output
-// for the same (delta_I, A, kappa, C, timestamp) inputs.
-// Note: browser JS cannot match Python timestamps exactly, so fingerprints will
-// differ from the Python script run — but the chain structure and validity are
-// provably equivalent.
+// HelixHash 1.0 browser port — append(bytes) + verify(), matching helixhash/core.py.
+// No PT / Fibonacci / Crossing / PHI (removed from helixhash>=1.0). See HELIXHASH.md / eigenstate_demo.py.
 
-const INV_PHI = 2 / (1 + Math.sqrt(5)); // 1/φ ≈ 0.61803
+const GENESIS_HASH = '0'.repeat(64);
+const C_LIVE = 1.0;
+const C_FALLBACK = 0.5;
 
-// SHA-256 via SubtleCrypto (available in all modern browsers)
-async function sha256hex(str) {
-  const buf = new TextEncoder().encode(str);
-  const hash = await crypto.subtle.digest('SHA-256', buf);
+function u64be(n) {
+  const buf = new ArrayBuffer(8);
+  const view = new DataView(buf);
+  // BigInt for full 64-bit; values here fit Number safely.
+  const hi = Math.floor(n / 2 ** 32);
+  const lo = n >>> 0;
+  view.setUint32(0, hi);
+  view.setUint32(4, lo);
+  return new Uint8Array(buf);
+}
+
+function f64be(x) {
+  const buf = new ArrayBuffer(8);
+  new DataView(buf).setFloat64(0, x, false);
+  return new Uint8Array(buf);
+}
+
+function concatBytes(parts) {
+  const total = parts.reduce((n, p) => n + p.length, 0);
+  const out = new Uint8Array(total);
+  let off = 0;
+  for (const p of parts) { out.set(p, off); off += p.length; }
+  return out;
+}
+
+async function sha256hexBytes(bytes) {
+  const hash = await crypto.subtle.digest('SHA-256', bytes);
   return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
-// Safe log2 ratio (mirrors safe_delta_I in the Python script)
+async function computeEntryHash(index, payload, timestamp, prevHash) {
+  const parts = [
+    u64be(index),
+    u64be(payload.length),
+    payload,
+    f64be(timestamp),
+    new Uint8Array([0, 0]), // pubkey_length = 0
+    new TextEncoder().encode(prevHash),
+  ];
+  return sha256hexBytes(concatBytes(parts));
+}
+
+class HelixHashJS {
+  constructor() { this.entries = []; }
+  get head() { return this.entries.length ? this.entries[this.entries.length - 1].hash : GENESIS_HASH; }
+  get length() { return this.entries.length; }
+  async append(payloadBytes, timestamp) {
+    if (!(payloadBytes instanceof Uint8Array)) throw new TypeError('payload must be Uint8Array');
+    let ts = timestamp;
+    if (this.entries.length && ts <= this.entries[this.entries.length - 1].timestamp) {
+      ts = this.entries[this.entries.length - 1].timestamp + 1e-6;
+    }
+    const index = this.entries.length;
+    const prevHash = this.head;
+    const hash = await computeEntryHash(index, payloadBytes, ts, prevHash);
+    const entry = { index, payload: payloadBytes, timestamp: ts, prevHash, hash };
+    this.entries.push(entry);
+    return entry;
+  }
+  async verify() {
+    let prevHash = GENESIS_HASH;
+    for (let i = 0; i < this.entries.length; i++) {
+      const e = this.entries[i];
+      if (e.index !== i) return false;
+      if (e.prevHash !== prevHash) return false;
+      const expected = await computeEntryHash(e.index, e.payload, e.timestamp, e.prevHash);
+      if (e.hash !== expected) return false;
+      prevHash = e.hash;
+    }
+    return true;
+  }
+}
+
 function safeDeltaI(cur, prev) {
   if (!prev || !cur || prev <= 0 || cur <= 0) return 0.001;
   return Math.max(Math.abs(Math.log2(cur / prev)), 0.001);
 }
 
-// Format numbers
 const fmt = {
-  pct:    v => v != null ? v.toFixed(4) + '%' : '—',
-  usd:    v => v != null ? '$' + v.toLocaleString('en-US', {maximumFractionDigits: 0}) : '—',
-  int:    v => v != null ? v.toLocaleString('en-US') : '—',
-  bits:   v => v != null ? v.toFixed(6) + ' bits' : '—',
-  e:      v => v != null ? v.toFixed(6) : '—',
+  pct:  v => v != null ? v.toFixed(4) + '%' : '—',
+  usd:  v => v != null ? '$' + v.toLocaleString('en-US', {maximumFractionDigits: 0}) : '—',
+  int:  v => v != null ? v.toLocaleString('en-US') : '—',
+  bits: v => v != null ? v.toFixed(6) + ' bits' : '—',
+  e:    v => v != null ? v.toFixed(6) : '—',
 };
 
 function set(id, text) {
@@ -477,11 +538,8 @@ function set(id, text) {
   if (el) { el.textContent = text; el.classList.remove('loading'); }
 }
 
-// ── Fetch live data ────────────────────────────────────────────────────────────
-
 async function fetchSOFR() {
   try {
-    // CORS: FRED CSV endpoint allows cross-origin reads
     const res = await fetch('https://fred.stlouisfed.org/graph/fredgraph.csv?id=SOFR');
     const text = await res.text();
     const rows = text.trim().split('\n').slice(1)
@@ -498,15 +556,11 @@ async function fetchSOFR() {
 
 async function fetchBUIDL() {
   try {
-    const res = await fetch('https://api.llama.fi/protocol/blackrock-buidl', {
-      headers: { 'User-Agent': 'eigenstate-demo/1.0' }
-    });
+    const res = await fetch('https://api.llama.fi/protocol/blackrock-buidl');
     const d = await res.json();
     const chainTvls = d.currentChainTvls || {};
     let cur = Object.values(chainTvls).reduce((s, v) => s + (typeof v === 'number' ? v : 0), 0);
     if (!cur && d.tvl && d.tvl.length) cur = d.tvl[d.tvl.length - 1].totalLiquidityUSD || 0;
-
-    // 7-day-ago value
     const sevenDaysAgo = Date.now() / 1000 - 7 * 86400;
     let prev = cur;
     if (d.tvl && d.tvl.length) {
@@ -525,9 +579,7 @@ async function fetchBUIDL() {
 
 async function fetchETH() {
   try {
-    const res = await fetch('https://api.github.com/repos/ethereum/go-ethereum', {
-      headers: { 'User-Agent': 'eigenstate-demo/1.0' }
-    });
+    const res = await fetch('https://api.github.com/repos/ethereum/go-ethereum');
     const d = await res.json();
     if (!d.stargazers_count) throw new Error('no stargazers_count in response');
     return { cur: d.stargazers_count, prev: 50910, live: true };
@@ -543,8 +595,6 @@ function normaliseCommit(commit) {
 
 async function fetchLatestCommit() {
   try {
-    // helix_commits.json is published beside this page and refreshed
-    // whenever a Helix commit lands on Base.
     const res = await fetch('./helix_commits.json');
     if (!res.ok) throw new Error(`helix_commits.json ${res.status}`);
     const commits = await res.json();
@@ -560,119 +610,93 @@ async function fetchLatestCommit() {
   }
 }
 
-// ── Compute HelixHash in browser ───────────────────────────────────────────────
-
-async function computeHelixHash(crossings) {
-  let prevHash = '0'.repeat(64);
-  let G_prev2 = 0, G_prev1 = 0;
-  let sumDI = 0, sumA = 0;
-  let PT = 0, G = 0;
-  const FIB_WEIGHT = 0.1;
-  const MIN_CROSSINGS = 3;
-  let thresholdHit = false;
-  const records = [];
-
-  for (let n = 1; n <= crossings.length; n++) {
-    const c = crossings[n - 1];
-    const E = c.delta_I / c.A;
-
-    if (n === 1)      G = E;
-    else if (n === 2) G = G_prev1 + E;
-    else              G = G_prev1 + G_prev2 + FIB_WEIGHT * E;
-
-    sumDI += c.delta_I;
-    sumA  += c.A;
-    const cumIA = sumDI / sumA;
-
-    PT = Math.min(c.kappa * E * cumIA * c.C, 1.0);
-
-    const enoughHistory = n >= MIN_CROSSINGS;
-    if (PT >= INV_PHI && !thresholdHit && enoughHistory) thresholdHit = true;
-    const regime = (PT >= INV_PHI && thresholdHit) ? 'classical' : 'quantum';
-
-    const payload = `${n}|${c.delta_I.toFixed(8)}|${c.A.toFixed(8)}|${c.kappa.toFixed(8)}|${c.C.toFixed(8)}|${c.timestamp.toFixed(6)}|${prevHash}`;
-    const fp = await sha256hex(payload);
-
-    records.push({ n, E, G, PT, regime, fingerprint: fp });
-    prevHash = fp;
-    G_prev2 = G_prev1;
-    G_prev1 = G;
-  }
-
-  return { fingerprint: prevHash, PT, G, N: crossings.length, records };
+function payloadBytes(label, deltaI, live) {
+  const obj = {
+    A: 1.0,
+    E: deltaI,
+    credibility: live ? C_LIVE : C_FALLBACK,
+    delta_I: deltaI,
+    label,
+    live: !!live,
+  };
+  // sort_keys=True, separators=(',', ':') — match eigenstate_demo.py
+  const keys = Object.keys(obj).sort();
+  const json = '{' + keys.map(k => JSON.stringify(k) + ':' + JSON.stringify(obj[k])).join(',') + '}';
+  return new TextEncoder().encode(json);
 }
 
-// ── Main ───────────────────────────────────────────────────────────────────────
-
 async function main() {
-  const t0 = Date.now() / 1000; // shared timestamp for reproducibility
-
-  // Fetch all data in parallel
+  const t0 = Date.now() / 1000;
   const [sofr, buidl, eth, commit] = await Promise.all([
     fetchSOFR(), fetchBUIDL(), fetchETH(), fetchLatestCommit()
   ]);
 
-  // Compute delta_I
   const dI_sofr  = safeDeltaI(sofr.cur, sofr.prev);
   const dI_buidl = safeDeltaI(buidl.cur, buidl.prev);
   const dI_eth   = safeDeltaI(eth.cur, eth.prev);
-
-  // A browser read can be refused by CORS or rate limits where the Python
-  // script succeeds, so every card says which of the two it is showing.
   const sourceLabel = (live) => live ? 'live public endpoint' : 'pinned fallback (fetch blocked)';
 
-  // Update SOFR card
   set('sofr-src',  sourceLabel(sofr.live));
-  set('sofr-cur',  fmt.pct(sofr.cur)  + (sofr.date ? ` (${sofr.date})` : ''));
+  set('sofr-cur',  fmt.pct(sofr.cur) + (sofr.date ? ` (${sofr.date})` : ''));
   set('sofr-prev', fmt.pct(sofr.prev));
   set('sofr-di',   fmt.bits(dI_sofr));
   set('sofr-e',    fmt.e(dI_sofr));
 
-  // Update BUIDL card
   set('buidl-src',  sourceLabel(buidl.live));
   set('buidl-cur',  fmt.usd(buidl.cur));
   set('buidl-prev', fmt.usd(buidl.prev));
   set('buidl-di',   fmt.bits(dI_buidl));
   set('buidl-e',    fmt.e(dI_buidl));
 
-  // Update ETH card
   set('eth-src',  sourceLabel(eth.live));
   set('eth-cur',  fmt.int(eth.cur));
   set('eth-prev', fmt.int(eth.prev));
   set('eth-di',   fmt.bits(dI_eth));
   set('eth-e',    fmt.e(dI_eth));
 
-  // Compute HelixHash
-  const crossings = [
-    { delta_I: dI_sofr,  A: 1.0, kappa: 0.62, C: 0.9, timestamp: t0 },
-    { delta_I: dI_buidl, A: 1.0, kappa: 0.62, C: 0.9, timestamp: t0 + 0.001 },
-    { delta_I: dI_eth,   A: 1.0, kappa: 0.62, C: 0.9, timestamp: t0 + 0.002 },
+  const h = new HelixHashJS();
+  const plan = [
+    ['SOFR rate', dI_sofr, sofr.live],
+    ['BUIDL TVL', dI_buidl, buidl.live],
+    ['ETH GitHub stars', dI_eth, eth.live],
   ];
-  const result = await computeHelixHash(crossings);
+  for (let i = 0; i < plan.length; i++) {
+    const [label, dI, live] = plan[i];
+    await h.append(payloadBytes(label, dI, live), t0 + i * 1e-3);
+  }
+  const ok = await h.verify();
+
+  // Tamper check (local only): mutate entry 0 payload, recompute should fail.
+  const tampered = new HelixHashJS();
+  for (const e of h.entries) {
+    const payload = e.index === 0
+      ? concatBytes([e.payload, new TextEncoder().encode('|tampered')])
+      : e.payload;
+    // Keep stored hashes from original for a verify-fail demo: clone structure with bad payload
+    tampered.entries.push({ ...e, payload });
+  }
+  const tamperedOk = await tampered.verify();
 
   const fpEl = document.getElementById('fingerprint');
-  fpEl.textContent = result.fingerprint;
+  fpEl.textContent = h.head;
   fpEl.classList.remove('loading');
-  set('chain-valid', 'True');
-  set('pt-score',    result.PT.toFixed(4) + (result.PT < INV_PHI ? ' (accumulating)' : ' (classical)'));
-  set('g-val',       result.G.toFixed(6));
+  set('chain-valid', String(ok) + (tamperedOk === false ? ' (tamper check fails as expected)' : ''));
+  set('chain-entries', String(h.length));
+  set('chain-head', h.head.slice(0, 16) + '…' + h.head.slice(-8));
 
-  // Update commit info
   const txShort = commit.tx_hash.slice(0, 16) + '…' + commit.tx_hash.slice(-8);
-  const time    = commit.committed_at ? commit.committed_at.replace('T', ' ').slice(0, 19) + ' UTC' : '—';
-  set('commit-time',      time);
-  set('commit-block',     commit.block_number.toLocaleString());
-  set('commit-tx',        '0x' + txShort);
-  set('commit-crossings', commit.n_crossings + ' crossings');
+  const time = commit.committed_at ? commit.committed_at.replace('T', ' ').slice(0, 19) + ' UTC' : '—';
+  set('commit-time', time);
+  set('commit-block', commit.block_number.toLocaleString());
+  set('commit-tx', '0x' + txShort);
+  set('commit-crossings', (commit.n_crossings != null ? commit.n_crossings + ' (historical vault field)' : '—'));
 
   const link = document.getElementById('basescan-link');
   link.href = commit.basescan_url;
 }
 
-// ── Copy install command ───────────────────────────────────────────────────────
-
 function copyInstall(btn) {
-  navigator.clipboard.writeText('pip install 'helixhash>=1.0' && python3 public/demo/eigenstate_demo.py')
+  navigator.clipboard.writeText("pip install 'helixhash>=1.0' && python3 public/demo/eigenstate_demo.py")
     .then(() => {
       btn.textContent = 'Copied';
       btn.classList.add('copied');
