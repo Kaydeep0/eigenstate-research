@@ -10,6 +10,7 @@ import {
   resolveReportMetrics,
   m1LedgerObsFor,
 } from '../../lib/sot';
+import { annotateEntityCode, REPORT_FACETS } from '../../lib/displayKind';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -42,6 +43,7 @@ const entityGroups = [...byEntity.entries()]
   .map(([code, items]) => {
     const series = [...items].sort((a, b) => b.data.date_iso.localeCompare(a.data.date_iso));
     const latest = series[0];
+    const kind = annotateEntityCode(code);
     return {
       entityCode: code,
       hubSlug: hubSlugForEntityCode(code),
@@ -54,14 +56,24 @@ const entityGroups = [...byEntity.entries()]
       using_live: latest.using_live,
       m1LedgerObs: latest.m1LedgerObs,
       latestDate: latest.data.date_iso,
+      display_kind: kind.display_kind,
+      facet_label: kind.facet_label,
+      public_default: kind.public_default !== false,
+      demoted: Boolean(kind.demoted),
     };
   })
   .sort((a, b) => b.latestDate.localeCompare(a.latestDate));
 
-const featured = entityGroups.reduce(
-  (best, g) => (best == null || g.live_phi_s > best.live_phi_s ? g : best),
-  null as (typeof entityGroups)[number] | null
-);
+const publicActorCount = entityGroups.filter((g) => g.public_default).length;
+const demotedCount = entityGroups.filter((g) => g.demoted).length;
+
+/** Featured = highest Φ_S among public actors (not REPUTATION / presence sinks). */
+const featured = entityGroups
+  .filter((g) => g.public_default)
+  .reduce(
+    (best, g) => (best == null || g.live_phi_s > best.live_phi_s ? g : best),
+    null as (typeof entityGroups)[number] | null
+  );
 const base = import.meta.env.BASE_URL;
 const vaultTip = 'Cycle vault rows at publish (trimmed); not M1 lifetime observations';
 
@@ -320,8 +332,67 @@ function formatShort(iso: string): string {
       .reports-filter-bar {
         display: flex;
         gap: 16px;
-        margin-bottom: 24px;
+        margin-bottom: 16px;
         flex-wrap: wrap;
+      }
+
+      .reports-facets {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+        align-items: center;
+      }
+
+      .reports-facets .facet-hint {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-muted);
+        letter-spacing: 0.04em;
+        margin-right: 4px;
+      }
+
+      .reports-facets .filt {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        padding: 6px 10px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        background: var(--bg-card);
+        color: var(--text-secondary);
+        cursor: pointer;
+        user-select: none;
+        transition: border-color 0.15s, color 0.15s, background 0.15s;
+      }
+
+      .reports-facets .filt:hover {
+        border-color: var(--signal-dim);
+        color: var(--text-primary);
+      }
+
+      .reports-facets .filt.is-on {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: rgb(62 111 239 / 10%);
+      }
+
+      .ec-facet {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        background: rgb(148 163 184 / 12%);
+        padding: 3px 7px;
+        border-radius: var(--radius-sm);
+      }
+
+      .ec-facet.is-demoted {
+        color: var(--signal);
+        background: rgb(47 90 99 / 12%);
       }
 
       .reports-search {
@@ -965,8 +1036,10 @@ function formatShort(iso: string): string {
       <div class="eyebrow">ENTITY TIME SERIES</div>
       <h2 class="section-title">Tracked <span class="grad">entities</span></h2>
       <div class="section-sub">
-        One card per entity. Open the hub for full publish history and measurement evolution.
-        {entityGroups.length} entities · {reports.length} published.
+        One card per entity. Default index is <strong>public actors</strong> (regulators, issuers,
+        institutions, chains) — like DefiLlama protocols, not metric columns. Engine dimensions
+        (reputation, presence) stay measurable but sit under <strong>Dimensions</strong>.
+        {publicActorCount} public · {demotedCount} demoted · {entityGroups.length} total · {reports.length} published.
       </div>
 
       <div class="reports-filter-bar">
@@ -977,11 +1050,31 @@ function formatShort(iso: string): string {
           placeholder="Search by entity name…"
           aria-label="Search entities by name"
         />
+        <select id="reportsFacet" class="reports-sort" aria-label="Facet filter" hidden>
+          {REPORT_FACETS.map((f) => (
+            <option value={f.id} selected={f.id === 'public'}>
+              {f.label}
+            </option>
+          ))}
+          <option value="all">All (incl. dimensions)</option>
+        </select>
         <select id="reportsSort" class="reports-sort" aria-label="Sort entities">
           <option value="newest">Newest activity</option>
           <option value="phi-desc">Highest Φ_S</option>
           <option value="az">A–Z</option>
         </select>
+      </div>
+
+      <div class="reports-facets" id="reportsFacets" role="toolbar" aria-label="Browse by facet">
+        <span class="facet-hint">Browse</span>
+        {
+          REPORT_FACETS.map((f) => (
+            <span class:list={['filt', { 'is-on': f.id === 'public' }]} data-f={f.id}>
+              {f.label}
+            </span>
+          ))
+        }
+        <span class="filt" data-f="all">All</span>
       </div>
 
       <div class="reports-grid" id="reportsGrid">
@@ -993,6 +1086,10 @@ function formatShort(iso: string): string {
               data-phi-s={g.live_phi_s}
               data-date-iso={g.latestDate}
               data-name={g.entityDisplay}
+              data-display-kind={g.display_kind}
+              data-public-default={g.public_default ? 'true' : 'false'}
+              data-demoted={g.demoted ? 'true' : 'false'}
+              style={g.demoted && g.public_default === false ? 'display: none;' : undefined}
             >
               <div class="ec-title-row">
                 <div class="ec-entity">
@@ -1007,6 +1104,7 @@ function formatShort(iso: string): string {
                 </a>
               </div>
               <div class="ec-metrics">
+                <span class:list={['ec-facet', { 'is-demoted': g.demoted }]}>{g.facet_label}</span>
                 <span class="ec-phi">Φ_S {g.live_phi_s.toFixed(3)}</span>
                 <span class="ec-kappa">κ {g.live_kappa.toFixed(3)}</span>
                 {g.using_live && (
@@ -1186,6 +1284,16 @@ function formatShort(iso: string): string {
       itemSelector: '.entity-card',
       searchInputSelector: '#reportsSearch',
       searchFields: ['entity'],
+      filterSelectSelector: '#reportsFacet',
+      customFilter: (el, filterValue) => {
+        const v = filterValue || 'public';
+        if (v === 'all') return true;
+        if (v === 'public') return el.dataset.publicDefault === 'true';
+        if (v === 'dimension') {
+          return el.dataset.displayKind === 'dimension' || el.dataset.demoted === 'true';
+        }
+        return el.dataset.displayKind === v;
+      },
       sortSelectSelector: '#reportsSort',
       sortOptions: {
         newest: { field: 'dateIso', direction: 'desc', type: 'string' },
@@ -1194,6 +1302,22 @@ function formatShort(iso: string): string {
       },
       emptyStateSelector: '#reportsEmpty',
     });
+
+    const facetSelect = document.getElementById('reportsFacet') as HTMLSelectElement | null;
+    const facetBar = document.getElementById('reportsFacets');
+    facetBar?.querySelectorAll<HTMLElement>('.filt').forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const id = chip.dataset.f || 'public';
+        if (facetSelect) {
+          facetSelect.value = id;
+          facetSelect.dispatchEvent(new Event('change'));
+        }
+        facetBar.querySelectorAll('.filt').forEach((c) => c.classList.remove('is-on'));
+        chip.classList.add('is-on');
+      });
+    });
+    // Apply default Public actors filter (hides demoted dimensions on load).
+    facetSelect?.dispatchEvent(new Event('change'));
 
     async function submitForm() {
       const eInput = document.getElementById('fe') as HTMLInputElement;

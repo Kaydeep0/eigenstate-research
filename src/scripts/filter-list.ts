@@ -17,6 +17,12 @@ interface FilterListOptions {
   filterSelectSelector?: string;
   /** dataset key (camelCase) the filter dropdown matches against */
   filterField?: string;
+  /**
+   * Optional override for filter matching (e.g. DefiLlama-style "public"
+   * default that hides demoted dimension nodes). When set, filterField
+   * exact-match is skipped.
+   */
+  customFilter?: (el: HTMLElement, filterValue: string) => boolean;
   emptyStateSelector?: string;
 }
 
@@ -56,8 +62,11 @@ export function initFilterList(options: FilterListOptions): void {
         .map((f) => (el.dataset[f] ?? '').toLowerCase())
         .join(' ');
       const matchesSearch = query === '' || searchable.includes(query);
-      const matchesFilter =
-        !options.filterField || filterValue === '' || el.dataset[options.filterField] === filterValue;
+      const matchesFilter = options.customFilter
+        ? options.customFilter(el, filterValue)
+        : !options.filterField ||
+          filterValue === '' ||
+          el.dataset[options.filterField] === filterValue;
       const visible = matchesSearch && matchesFilter;
       el.style.display = visible ? '' : 'none';
       if (visible) visibleCount += 1;
