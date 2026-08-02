@@ -4,8 +4,8 @@ Generated 2026-08-02T03:11:04.127287+00:00 · probe v1.0.0 · digest `ab79fc3924
 
 Published studies have already measured how few ERC-8004 registrations resolve to a
 working agent. What they report is a rate. What none of them ship is the artifact
-underneath it: a probe re-runnable against the same seeded sample, a named refusal limb
-for every agent, and one fetchable receipt per agentId. This is that ledger.
+underneath it: a sample a stranger can redraw, a named refusal limb for every agent, and
+one fetchable receipt per agentId. This is that ledger.
 
 ## Prior art
 
