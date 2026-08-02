@@ -82,6 +82,7 @@ The ERC prints these keys under a MUST structure and then demotes the top four t
 - Headline only: https://geniusflow-federation.vercel.app/erc8004/summary.json
 - One agent: https://geniusflow-federation.vercel.app/erc8004/receipts/<agentId>.json
 - Which agentIds were drawn: https://geniusflow-federation.vercel.app/erc8004/index.json
+- Same numbers laid out for reading: https://kaydeep0.github.io/eigenstate-research/erc8004/
 
 Receipts exist for the 500 sampled agentIds only, so any other id returns 404.
 That is the sample boundary, not a missing file. The seed below says how the boundary
