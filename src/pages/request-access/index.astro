@@ -1,0 +1,353 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const fonts =
+  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
+
+const base = import.meta.env.BASE_URL;
+const demoReport = `${base}reports/aave-v3-20260801/`;
+const methodology = `${base}METHODOLOGY.md`;
+const federationLlms = 'https://geniusflow-federation.vercel.app/llms.txt';
+const hostEmail = 'ksekhon9851@Gmail.com';
+---
+
+<Layout
+  title="Request Pilot Access — Eigenstate Research"
+  description="Free design-partner intake for Eigenstate research measurement. $0 — no Stripe, no paid settlement product."
+  fonts={fonts}
+>
+  <Fragment slot="head">
+    <style>
+      .page-hero {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 72px 24px 32px;
+        text-align: center;
+      }
+
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.15em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .page-hero h1 {
+        font-family: var(--font-heading);
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        line-height: 1.15;
+        margin: 0 0 16px;
+      }
+
+      .page-hero .grad {
+        background: linear-gradient(135deg, var(--signal) 0%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .explainer {
+        font-size: var(--text-base);
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin: 0 auto 12px;
+        max-width: 560px;
+      }
+
+      .honesty {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin: 0 auto 8px;
+        max-width: 560px;
+      }
+
+      .form-section {
+        padding: 24px 24px 80px;
+      }
+
+      .form-wrap {
+        background: var(--bg-card);
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-sm);
+        padding: 48px;
+        max-width: 760px;
+        margin: 0 auto;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.15em;
+        color: var(--text-muted);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+      }
+
+      .form-group .optional {
+        letter-spacing: 0.05em;
+        text-transform: none;
+        color: var(--text-muted);
+        opacity: 0.8;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        font-family: var(--font-body);
+        font-size: var(--text-base);
+        padding: 14px 16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        color: var(--text-primary);
+        transition: border-color 0.2s;
+        width: 100%;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgb(62 111 239 / 15%);
+      }
+
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: var(--text-muted);
+      }
+
+      .form-group select {
+        cursor: pointer;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='rgba(0,0,0,0.5)' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        padding-right: 2.5rem;
+      }
+
+      .form-group select option {
+        background: var(--bg-card);
+      }
+
+      .form-wrap .btn {
+        margin-top: 8px;
+      }
+
+      .form-message {
+        text-align: left;
+        margin-top: 20px;
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        line-height: 1.7;
+        min-height: 20px;
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+
+      .form-message.success {
+        color: var(--status-success);
+      }
+
+      .form-message a {
+        color: var(--signal-dim);
+      }
+
+      .form-note {
+        text-align: center;
+        margin-top: 20px;
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+      }
+
+      .form-note a {
+        color: var(--signal-dim);
+        text-decoration: none;
+      }
+
+      .checklist {
+        margin-top: 28px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+      }
+
+      .checklist h3 {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin: 0 0 12px;
+      }
+
+      .checklist ul {
+        margin: 0;
+        padding-left: 1.2rem;
+        color: var(--text-secondary);
+        font-size: var(--text-sm);
+        line-height: 1.7;
+      }
+
+      .checklist code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        color: var(--text-primary);
+      }
+
+      @media (width <= 640px) {
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+
+        .form-wrap {
+          padding: 28px 20px;
+        }
+
+        .page-hero {
+          padding-top: 48px;
+        }
+      }
+    </style>
+  </Fragment>
+
+  <Nav cta={{ label: 'Request Pilot', href: `${base}request-access/` }} />
+
+  <div class="page-hero" id="main">
+    <div class="eyebrow">Design partner · $0 intake</div>
+    <h1>Request <span class="grad">pilot access</span></h1>
+    <p class="explainer">
+      Free design-partner door into Eigenstate measurement — public reports, methodology, and
+      federation machine surfaces. Not a bank settlement signup. Not a paid product.
+    </p>
+    <p class="honesty">$0 · no Stripe · paid Task 5.4 remains HOLD</p>
+  </div>
+
+  <section class="form-section">
+    <div class="form-wrap">
+      <form id="pilotForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Contact email</label>
+            <input type="email" id="email" name="email" placeholder="you@org.com" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="organization">Organization</label>
+            <input type="text" id="organization" name="organization" placeholder="Lab / desk / firm / independent" required />
+          </div>
+          <div class="form-group">
+            <label for="role_type">Role / type</label>
+            <select id="role_type" name="role_type" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="researcher">Researcher</option>
+              <option value="desk">Desk</option>
+              <option value="institution">Institution</option>
+              <option value="builder">Builder</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="use_case">Use case</label>
+          <textarea
+            id="use_case"
+            name="use_case"
+            rows="4"
+            required
+            placeholder="What are you trying to measure or verify? (e.g. RWA diligence, structural gap tracking, agent tooling against attested claims)"
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="entity_interest">Entity of interest <span class="optional">(optional)</span></label>
+          <input
+            type="text"
+            id="entity_interest"
+            name="entity_interest"
+            placeholder="e.g. Circle, Aave V3, BlackRock BUIDL"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-md btn-block btn-submit">Request pilot access</button>
+        <div class="form-message" id="formMessage"></div>
+      </form>
+
+      <p class="form-note">
+        Or email:
+        <a href={`mailto:${hostEmail}?subject=${encodeURIComponent('Eigenstate — design partner pilot request')}`}
+          >{hostEmail}</a
+        >
+      </p>
+
+      <div class="checklist">
+        <h3>Intake checklist (copyable)</h3>
+        <ul>
+          <li>Name · org · role (researcher / desk / institution / builder)</li>
+          <li>Use case · optional entity of interest · contact email</li>
+          <li>Subject line: <code>Eigenstate — design partner pilot request</code></li>
+          <li>
+            After you write in: read
+            <a href={methodology}>Methodology</a> ·
+            <a href={demoReport}>demo report (Aave V3)</a> ·
+            <a href={federationLlms} target="_blank" rel="noopener">federation llms.txt</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <Footer variant="full" />
+
+  <script>
+    import { initForm } from '../../scripts/form';
+
+    const base = import.meta.env.BASE_URL;
+    const methodology = `${base}METHODOLOGY.md`;
+    const demoReport = `${base}reports/aave-v3-20260801/`;
+    const federationLlms = 'https://geniusflow-federation.vercel.app/llms.txt';
+
+    initForm({
+      formId: 'pilotForm',
+      endpoint: 'https://formspree.io/f/xgoprgww',
+      subject: 'Eigenstate — design partner pilot request',
+      fieldIds: ['name', 'email', 'organization', 'role_type', 'use_case', 'entity_interest'],
+      successHtml: [
+        '<strong>Received.</strong> Design-partner intake logged — $0, no payment step.',
+        'While we review, start here:',
+        `<a href="${methodology}">Methodology</a>`,
+        '·',
+        `<a href="${demoReport}">Demo report (Aave V3)</a>`,
+        '·',
+        `<a href="${federationLlms}" target="_blank" rel="noopener">Federation llms.txt</a>`,
+      ].join(' '),
+    });
+  </script>
+</Layout>

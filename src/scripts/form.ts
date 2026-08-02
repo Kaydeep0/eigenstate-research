@@ -3,7 +3,12 @@ interface FormConfig {
   endpoint: string;
   subject: string;
   fieldIds: string[];
+  /** Optional HTML shown on successful Formspree POST (links allowed). */
+  successHtml?: string;
 }
+
+const DEFAULT_SUCCESS =
+  '<span style="color: #10b981;">REQUEST RECEIVED. STANDBY FOR CONTACT.</span>';
 
 // Wires up focus/value styling and a Formspree POST submit handler for a form.
 // Shared shape so other pages (e.g. the reports request form) can reuse it
@@ -73,7 +78,7 @@ export function initForm(config: FormConfig): void {
         body: JSON.stringify(payload),
       });
       if (r.ok) {
-        messageDiv.innerHTML = '<span style="color: #10b981;">REQUEST RECEIVED. STANDBY FOR CONTACT.</span>';
+        messageDiv.innerHTML = config.successHtml ?? DEFAULT_SUCCESS;
         messageDiv.className = 'form-message success';
         form.reset();
       } else {
