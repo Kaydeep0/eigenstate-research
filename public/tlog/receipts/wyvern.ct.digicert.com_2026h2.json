@@ -1,0 +1,156 @@
+{
+  "log_key": "wyvern.ct.digicert.com/2026h2",
+  "description": "DigiCert 'Wyvern2026h2'",
+  "operator": "DigiCert",
+  "checkpoint_url": "https://wyvern.ct.digicert.com/2026h2/ct/v1/get-sth",
+  "checkpoint_format": "ct_v1_sth",
+  "signature_scheme": "ecdsa_p256_ct_v1",
+  "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+  "limbs": {
+    "log_listed_in_a_public_list": {
+      "outcome": "ok",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    "public_key_obtained_independently_of_the_log": {
+      "outcome": "ok",
+      "key_source": "https://www.gstatic.com/ct/log_list/v3/log_list.json"
+    },
+    "checkpoint_endpoint_answers_without_credentials": {
+      "outcome": "ok",
+      "status": 200,
+      "bytes": 241
+    },
+    "checkpoint_parses_in_its_declared_format": {
+      "outcome": "ok",
+      "format": "ct_v1_sth"
+    },
+    "checkpoint_carries_tree_size_and_root_hash": {
+      "outcome": "ok",
+      "tree_size": 1515491652,
+      "root_hash": "5ea5014f5d5adbb2a9ff3fd8b65909ee5db824582312af6c21760133c91779ed"
+    },
+    "checkpoint_carries_a_signature": {
+      "outcome": "ok",
+      "signature_lines": 1
+    },
+    "signature_scheme_supported_by_this_monitor": {
+      "outcome": "ok",
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "signature_verifies_against_the_published_key": {
+      "outcome": "ok",
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "checkpoint_carries_witness_cosignatures": {
+      "outcome": "fail",
+      "reason": "checkpoint_carried_no_signature_beyond_the_log_own",
+      "attribution": "publisher",
+      "note": "A Certificate Transparency signed tree head has no place to carry a witness cosignature, so this is a fact about the format as much as about the log."
+    },
+    "prior_batch_checkpoint_on_record": {
+      "outcome": "fail",
+      "reason": "no_prior_batch_for_this_log_on_this_monitor",
+      "attribution": "probe",
+      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+    },
+    "second_read_answered": {
+      "outcome": "ok",
+      "tree_size": 1515497879
+    },
+    "tree_did_not_shrink_between_reads": {
+      "outcome": "ok",
+      "first_size": 1515491652,
+      "second_size": 1515497879,
+      "entries_added": 6227
+    },
+    "consistency_proof_served": {
+      "outcome": "ok",
+      "nodes": 21
+    },
+    "consistency_proof_recomputes_to_the_second_root": {
+      "outcome": "ok",
+      "reason": "both_roots_recomputed",
+      "first_size": 1515491652,
+      "second_size": 1515497879,
+      "proof_nodes": 21
+    }
+  },
+  "evidence": {
+    "first_read": {
+      "url": "https://wyvern.ct.digicert.com/2026h2/ct/v1/get-sth",
+      "status": 200,
+      "error": null,
+      "bytes": 241,
+      "read_at": "2026-08-02T05:33:37.258816+00:00",
+      "body_sha256": "30646356e897fe2f750c2ec26acdc251545e5274058f5c185e9a20474a975270",
+      "parsed": true,
+      "format": "ct_v1_sth",
+      "tree_size": 1515491652,
+      "timestamp": 1785648816894,
+      "signature_lines": 1,
+      "root_hash_hex": "5ea5014f5d5adbb2a9ff3fd8b65909ee5db824582312af6c21760133c91779ed",
+      "raw_body": null
+    },
+    "signature_check": {
+      "supported": true,
+      "verified": true,
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "second_read": {
+      "url": "https://wyvern.ct.digicert.com/2026h2/ct/v1/get-sth",
+      "status": 200,
+      "error": null,
+      "bytes": 241,
+      "read_at": "2026-08-02T05:34:35.825721+00:00",
+      "body_sha256": "e2c2a4f8de9636cf2b9b82079d35122047fb62e24779e21b0f8ed533a54ffad2",
+      "parsed": true,
+      "format": "ct_v1_sth",
+      "tree_size": 1515497879,
+      "timestamp": 1785648875524,
+      "signature_lines": 1,
+      "root_hash_hex": "f1eabc12dfb5b6fe96ba2436fed7fc2fb9c7b6fa1ecc6840749daa18ec6b0f82"
+    },
+    "consistency_request": {
+      "served": true,
+      "url": "https://wyvern.ct.digicert.com/2026h2/ct/v1/get-sth-consistency?first=1515491652&second=1515497879",
+      "proof": [
+        "e68425d7024b4a9eb30416e833d5b137426533e3508d3da169212a79e46715b2",
+        "2d492347c723295319b166a554784f090c8158c0c8853e7d20e54de4ac401491",
+        "fd2f9164fcaf4bc9655ea8279424476731d71a49aa3cf343797f736856ee1e00",
+        "6f1c51394f3402b38b4c527ace7e7e873c63401811bc63cd9fa5e44e323ba65b",
+        "eec8fab03cf9d50fd5309aa65adee46609dec2ead58fc40ce904a2515c12ba7b",
+        "a614244a19d134ef524934936bc3cf5d9b815707efaa06485d78ce583f368c94",
+        "34717fd6d529951bebc27b82b8da63aa30d29a114a04de87ec02fdb514e4ce04",
+        "303fd02a6c8074d211e3318f1b4efb1c1791f143b9ec0638052bbdd06100ee5f",
+        "eb1cedf35b9b008af8344d8dc8e19436682a4690b8fdfc896cdd07f60ff554f1",
+        "a4da40af1c7dbb2385c2abd0adf45c2bcdc7beba4f11c7269bdbaa318497efd1",
+        "4420e06b99c8e584844ccf000b4891fc983d71262f313f9c8a933cf60dfdc692",
+        "4843b77ce6a5a9d955029166c6fc92fe811e04a7d7374abf55291ab20652f900",
+        "560d091dc7ffbffa0a440d30e6ea27c0cf080f4cb770494f117f3337d92627d4",
+        "4b94f30d71d8bd97c39463fd8f1b1594aeec57da025521700fc94eaf11429506",
+        "3bb511336b396842471389d063951db7ee59d4f7b9bf1d331fa26d7fd2d3a832",
+        "ced1c3e1651fb09d76db07c32c66caa4f2dc7894b5e352ecc39e3bf5b74326a8",
+        "e8d7b1046de7e159d5cde42f740f0c17ada77b6f2974f56a4f97187ee7b9d42c",
+        "f9fc3dea1942627166e8967c31b528b444ebf14bfdb3238e047ffd0d97c2a9a7",
+        "0de4e132b3c59b0005c0d4708311ea5520016d14eb2fbb82cb6fdd68ea7bf784",
+        "4c96714d292d58d986d50c2a0804d2d532d63eac6bd912ea441361d169fb65b4",
+        "54b6293546d4463e72a04dc984a14273de7982a3c1f91d0e91a0553d59c225f4"
+      ],
+      "nodes": 21
+    }
+  },
+  "tree_advanced_between_reads": true,
+  "entries_added_between_reads": 6227,
+  "checked_at": "2026-08-02T05:34:50.805852+00:00",
+  "must_admit": true,
+  "full_admit": true,
+  "refuse_limb": null,
+  "refuse_reason": null,
+  "attribution": null,
+  "must_limbs_failed": [],
+  "should_limbs_failed": [],
+  "receipt_filename": "wyvern.ct.digicert.com_2026h2.json",
+  "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
+  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
+}

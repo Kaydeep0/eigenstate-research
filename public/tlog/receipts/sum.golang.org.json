@@ -1,0 +1,129 @@
+{
+  "log_key": "sum.golang.org",
+  "description": "Go checksum database",
+  "operator": "Google, for the Go project",
+  "checkpoint_url": "https://sum.golang.org/latest",
+  "checkpoint_format": "c2sp_signed_note",
+  "signature_scheme": "ed25519_note",
+  "key_source_url": "https://raw.githubusercontent.com/golang/go/master/src/cmd/go/internal/modfetch/key.go",
+  "limbs": {
+    "log_listed_in_a_public_list": {
+      "outcome": "ok",
+      "listed_in": "named individually in the expectations file"
+    },
+    "public_key_obtained_independently_of_the_log": {
+      "outcome": "ok",
+      "key_source": "https://raw.githubusercontent.com/golang/go/master/src/cmd/go/internal/modfetch/key.go"
+    },
+    "checkpoint_endpoint_answers_without_credentials": {
+      "outcome": "ok",
+      "status": 200,
+      "bytes": 188
+    },
+    "checkpoint_parses_in_its_declared_format": {
+      "outcome": "ok",
+      "format": "c2sp_signed_note"
+    },
+    "checkpoint_carries_tree_size_and_root_hash": {
+      "outcome": "ok",
+      "tree_size": 58590582,
+      "root_hash": "39790584467d52479e1b9ff841f506fde0c32d2923aaa57e918df477a2990584"
+    },
+    "checkpoint_carries_a_signature": {
+      "outcome": "ok",
+      "signature_lines": 1
+    },
+    "signature_scheme_supported_by_this_monitor": {
+      "outcome": "ok",
+      "scheme": "ed25519_note"
+    },
+    "signature_verifies_against_the_published_key": {
+      "outcome": "ok",
+      "scheme": "ed25519_note"
+    },
+    "checkpoint_carries_witness_cosignatures": {
+      "outcome": "fail",
+      "reason": "checkpoint_carried_no_signature_beyond_the_log_own",
+      "attribution": "publisher",
+      "note": null
+    },
+    "prior_batch_checkpoint_on_record": {
+      "outcome": "fail",
+      "reason": "no_prior_batch_for_this_log_on_this_monitor",
+      "attribution": "probe",
+      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+    },
+    "second_read_answered": {
+      "outcome": "ok",
+      "tree_size": 58590582
+    },
+    "tree_did_not_shrink_between_reads": {
+      "outcome": "ok",
+      "first_size": 58590582,
+      "second_size": 58590582,
+      "entries_added": 0
+    },
+    "consistency_proof_served": {
+      "outcome": "not_applicable",
+      "reason": "tree_did_not_advance_between_the_two_reads",
+      "note": "There is nothing to prove between a size and itself. The two reads returned the same root, which is what a consistent log looks like over a quiet window."
+    },
+    "consistency_proof_recomputes_to_the_second_root": {
+      "outcome": "not_applicable",
+      "reason": "no_proof_needed_between_equal_sizes"
+    }
+  },
+  "evidence": {
+    "first_read": {
+      "url": "https://sum.golang.org/latest",
+      "status": 200,
+      "error": null,
+      "bytes": 188,
+      "read_at": "2026-08-02T05:33:42.467899+00:00",
+      "body_sha256": "0c2f75b79f0f87408a42bd9b8af0fff02816f788af9a458487c5ed2e3fc05f02",
+      "parsed": true,
+      "format": "c2sp_signed_note",
+      "origin": "go.sum database tree",
+      "tree_size": 58590582,
+      "signature_lines": 1,
+      "extension_lines": [],
+      "root_hash_hex": "39790584467d52479e1b9ff841f506fde0c32d2923aaa57e918df477a2990584",
+      "raw_body": "go.sum database tree\n58590582\nOXkFhEZ9UkeeG5/4QfUG/eDDLSkjqqV+kY30d6KZBYQ=\n\n— sum.golang.org Az3grvnnotrupRJ6zHOA98NswfRV4tCIF3noJGoEzMwXSQ2rU6d/wJaWJ9mdvz2FmnGTciQcI8WxF5IS0wNJ7dusuAw=\n"
+    },
+    "signature_check": {
+      "supported": true,
+      "verified": true,
+      "scheme": "ed25519_note",
+      "by": "sum.golang.org"
+    },
+    "second_read": {
+      "url": "https://sum.golang.org/latest",
+      "status": 200,
+      "error": null,
+      "bytes": 188,
+      "read_at": "2026-08-02T05:34:44.216728+00:00",
+      "body_sha256": "0c2f75b79f0f87408a42bd9b8af0fff02816f788af9a458487c5ed2e3fc05f02",
+      "parsed": true,
+      "format": "c2sp_signed_note",
+      "origin": "go.sum database tree",
+      "tree_size": 58590582,
+      "signature_lines": 1,
+      "extension_lines": [],
+      "root_hash_hex": "39790584467d52479e1b9ff841f506fde0c32d2923aaa57e918df477a2990584"
+    }
+  },
+  "tree_advanced_between_reads": false,
+  "entries_added_between_reads": 0,
+  "checked_at": "2026-08-02T05:34:50.805890+00:00",
+  "must_admit": true,
+  "full_admit": true,
+  "refuse_limb": null,
+  "refuse_reason": null,
+  "attribution": null,
+  "must_limbs_failed": [],
+  "should_limbs_failed": [],
+  "receipt_filename": "sum.golang.org.json",
+  "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
+  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
+}

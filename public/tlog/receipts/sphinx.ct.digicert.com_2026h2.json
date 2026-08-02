@@ -1,0 +1,159 @@
+{
+  "log_key": "sphinx.ct.digicert.com/2026h2",
+  "description": "DigiCert 'Sphinx2026h2'",
+  "operator": "DigiCert",
+  "checkpoint_url": "https://sphinx.ct.digicert.com/2026h2/ct/v1/get-sth",
+  "checkpoint_format": "ct_v1_sth",
+  "signature_scheme": "ecdsa_p256_ct_v1",
+  "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+  "limbs": {
+    "log_listed_in_a_public_list": {
+      "outcome": "ok",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    "public_key_obtained_independently_of_the_log": {
+      "outcome": "ok",
+      "key_source": "https://www.gstatic.com/ct/log_list/v3/log_list.json"
+    },
+    "checkpoint_endpoint_answers_without_credentials": {
+      "outcome": "ok",
+      "status": 200,
+      "bytes": 241
+    },
+    "checkpoint_parses_in_its_declared_format": {
+      "outcome": "ok",
+      "format": "ct_v1_sth"
+    },
+    "checkpoint_carries_tree_size_and_root_hash": {
+      "outcome": "ok",
+      "tree_size": 1468244661,
+      "root_hash": "1f9580c16521950cf87d7ed21be8dccc7f66f662ef8326ee2a9d5fe22a0b2a8f"
+    },
+    "checkpoint_carries_a_signature": {
+      "outcome": "ok",
+      "signature_lines": 1
+    },
+    "signature_scheme_supported_by_this_monitor": {
+      "outcome": "ok",
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "signature_verifies_against_the_published_key": {
+      "outcome": "ok",
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "checkpoint_carries_witness_cosignatures": {
+      "outcome": "fail",
+      "reason": "checkpoint_carried_no_signature_beyond_the_log_own",
+      "attribution": "publisher",
+      "note": "A Certificate Transparency signed tree head has no place to carry a witness cosignature, so this is a fact about the format as much as about the log."
+    },
+    "prior_batch_checkpoint_on_record": {
+      "outcome": "fail",
+      "reason": "no_prior_batch_for_this_log_on_this_monitor",
+      "attribution": "probe",
+      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+    },
+    "second_read_answered": {
+      "outcome": "ok",
+      "tree_size": 1468250716
+    },
+    "tree_did_not_shrink_between_reads": {
+      "outcome": "ok",
+      "first_size": 1468244661,
+      "second_size": 1468250716,
+      "entries_added": 6055
+    },
+    "consistency_proof_served": {
+      "outcome": "ok",
+      "nodes": 24
+    },
+    "consistency_proof_recomputes_to_the_second_root": {
+      "outcome": "ok",
+      "reason": "both_roots_recomputed",
+      "first_size": 1468244661,
+      "second_size": 1468250716,
+      "proof_nodes": 24
+    }
+  },
+  "evidence": {
+    "first_read": {
+      "url": "https://sphinx.ct.digicert.com/2026h2/ct/v1/get-sth",
+      "status": 200,
+      "error": null,
+      "bytes": 241,
+      "read_at": "2026-08-02T05:33:35.809093+00:00",
+      "body_sha256": "151956caadb6553eb54dd37d6659651851096cce86247527527b53555bcc3afc",
+      "parsed": true,
+      "format": "ct_v1_sth",
+      "tree_size": 1468244661,
+      "timestamp": 1785648815449,
+      "signature_lines": 1,
+      "root_hash_hex": "1f9580c16521950cf87d7ed21be8dccc7f66f662ef8326ee2a9d5fe22a0b2a8f",
+      "raw_body": null
+    },
+    "signature_check": {
+      "supported": true,
+      "verified": true,
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "second_read": {
+      "url": "https://sphinx.ct.digicert.com/2026h2/ct/v1/get-sth",
+      "status": 200,
+      "error": null,
+      "bytes": 241,
+      "read_at": "2026-08-02T05:34:33.624945+00:00",
+      "body_sha256": "6d55b5b4cf810c7990fde311745aed282ce11f4b302c6b87d6ecc666f8fe0d7a",
+      "parsed": true,
+      "format": "ct_v1_sth",
+      "tree_size": 1468250716,
+      "timestamp": 1785648873310,
+      "signature_lines": 1,
+      "root_hash_hex": "362886c29099dece4eb11e172262b202c989f51c82b36b8f7abfdfec85292752"
+    },
+    "consistency_request": {
+      "served": true,
+      "url": "https://sphinx.ct.digicert.com/2026h2/ct/v1/get-sth-consistency?first=1468244661&second=1468250716",
+      "proof": [
+        "6cc3b23422dedca9a1ef186820bbc1eab5735141e3d74039c148dd246da61544",
+        "3d41836e7d402e0f3d655314339a4d310077419b8e810dc097b8acd330d71e95",
+        "4b679029da0a3c1cdc89d91d98eeaecbecb89fea95a78e7682f985215868cf64",
+        "9498f9ea04028e4ce9d254ea1a619d0052d5a7e0c8fdedac55609b03c4869792",
+        "d40df41b59e11001789d657ca959d38237979e785a3bf231f0d16f9ea33ccbce",
+        "73897b67b78105b4cde535cce4275bbe479a0bc6cd36cc987bdc586154335962",
+        "7f02a90d4442ba7d2f2dfe57625194ef7d448ee119fc41a77f0f15a8ba70fc37",
+        "be854a5cfe20fc35a95046d091841b9ca95ca27d276a5ef6d10c6b5a7f443f98",
+        "ed3840bf2ff75ed9c6b3cbf3e281c7091ac83be2128ff5597a6ac8b43199568e",
+        "fc8b50595b72ff33c2b414ed9ed5686f3edfc9ad63e4063cd765526137dd672f",
+        "eeb865e436e1bb5b1fe63bfe8025001a1ac11b6d8b24f471e47e53391b4181c5",
+        "f9f96dded49042023130c594e6d9bdda0149c412aa52de06a2960085d672fd67",
+        "dbaa2234eb3c0a92de64bbf5dee6ac25572f8974ce91c8b39a3bd2c09e1770d5",
+        "205ac320ea8080ecf53094b8c08853ce13e4cd8cd32a37949b63b6d0a03a36bf",
+        "888e6a75b6320fbd07bd668516b5ad8d488c8eae368943bdc0c56a7d9854f8ee",
+        "153d782091f7fda4776bb178a1b25715d40e9cfd12d28b90bb93819eef50de67",
+        "35e3372464e5cab0aae147b71f246f05bdeb88a2394bc4ce67301e6a91a2ef3f",
+        "01c455f7a49daff349246236dc1cb7c75c681da36fe25e3d56d5b47de0104c5b",
+        "d0b7966ff624f3e612bfd98ddf739f2cb57e1ca85079871c99a508d4fbcd7207",
+        "d3bc3ee3ecb8cb5a7b0cea58b0f5f69c821f9367a701e0cfd6e71ea468dd4403",
+        "88a7f84faa49a0768f1f85a408b8dda2cdb57e253360d16f9325bbfd7a9c350b",
+        "19fefd810d9cb3bbadb98f9c332dbc1f818229cad866b2d17488878f944b62ab",
+        "b24969c85fc8b75e1187668ba1cf1c95c0731c78419f73079b0eb8442a5daefc",
+        "3e9fbba19b37e730905498d5592894bb1b64cfa173be7e4021a3430b85268897"
+      ],
+      "nodes": 24
+    }
+  },
+  "tree_advanced_between_reads": true,
+  "entries_added_between_reads": 6055,
+  "checked_at": "2026-08-02T05:34:50.805829+00:00",
+  "must_admit": true,
+  "full_admit": true,
+  "refuse_limb": null,
+  "refuse_reason": null,
+  "attribution": null,
+  "must_limbs_failed": [],
+  "should_limbs_failed": [],
+  "receipt_filename": "sphinx.ct.digicert.com_2026h2.json",
+  "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
+  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
+}

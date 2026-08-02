@@ -1,0 +1,126 @@
+{
+  "log_key": "sphinx.ct.digicert.com/2027h2",
+  "description": "DigiCert 'sphinx2027h2'",
+  "operator": "DigiCert",
+  "checkpoint_url": "https://sphinx.ct.digicert.com/2027h2/ct/v1/get-sth",
+  "checkpoint_format": "ct_v1_sth",
+  "signature_scheme": "ecdsa_p256_ct_v1",
+  "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+  "limbs": {
+    "log_listed_in_a_public_list": {
+      "outcome": "ok",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    "public_key_obtained_independently_of_the_log": {
+      "outcome": "ok",
+      "key_source": "https://www.gstatic.com/ct/log_list/v3/log_list.json"
+    },
+    "checkpoint_endpoint_answers_without_credentials": {
+      "outcome": "ok",
+      "status": 200,
+      "bytes": 240
+    },
+    "checkpoint_parses_in_its_declared_format": {
+      "outcome": "ok",
+      "format": "ct_v1_sth"
+    },
+    "checkpoint_carries_tree_size_and_root_hash": {
+      "outcome": "ok",
+      "tree_size": 24787,
+      "root_hash": "0b379827a26a6b820a7cf9e3134e68de724c5df1b9d5f11b19d45abd59fb5d23"
+    },
+    "checkpoint_carries_a_signature": {
+      "outcome": "ok",
+      "signature_lines": 1
+    },
+    "signature_scheme_supported_by_this_monitor": {
+      "outcome": "ok",
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "signature_verifies_against_the_published_key": {
+      "outcome": "ok",
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "checkpoint_carries_witness_cosignatures": {
+      "outcome": "fail",
+      "reason": "checkpoint_carried_no_signature_beyond_the_log_own",
+      "attribution": "publisher",
+      "note": "A Certificate Transparency signed tree head has no place to carry a witness cosignature, so this is a fact about the format as much as about the log."
+    },
+    "prior_batch_checkpoint_on_record": {
+      "outcome": "fail",
+      "reason": "no_prior_batch_for_this_log_on_this_monitor",
+      "attribution": "probe",
+      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+    },
+    "second_read_answered": {
+      "outcome": "ok",
+      "tree_size": 24787
+    },
+    "tree_did_not_shrink_between_reads": {
+      "outcome": "ok",
+      "first_size": 24787,
+      "second_size": 24787,
+      "entries_added": 0
+    },
+    "consistency_proof_served": {
+      "outcome": "not_applicable",
+      "reason": "tree_did_not_advance_between_the_two_reads",
+      "note": "There is nothing to prove between a size and itself. The two reads returned the same root, which is what a consistent log looks like over a quiet window."
+    },
+    "consistency_proof_recomputes_to_the_second_root": {
+      "outcome": "not_applicable",
+      "reason": "no_proof_needed_between_equal_sizes"
+    }
+  },
+  "evidence": {
+    "first_read": {
+      "url": "https://sphinx.ct.digicert.com/2027h2/ct/v1/get-sth",
+      "status": 200,
+      "error": null,
+      "bytes": 240,
+      "read_at": "2026-08-02T05:33:36.833133+00:00",
+      "body_sha256": "8c77a4473359485c29d222b56725f9be54039a0358efbb8602aa5db895125df3",
+      "parsed": true,
+      "format": "ct_v1_sth",
+      "tree_size": 24787,
+      "timestamp": 1785647475444,
+      "signature_lines": 1,
+      "root_hash_hex": "0b379827a26a6b820a7cf9e3134e68de724c5df1b9d5f11b19d45abd59fb5d23",
+      "raw_body": null
+    },
+    "signature_check": {
+      "supported": true,
+      "verified": true,
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "second_read": {
+      "url": "https://sphinx.ct.digicert.com/2027h2/ct/v1/get-sth",
+      "status": 200,
+      "error": null,
+      "bytes": 236,
+      "read_at": "2026-08-02T05:34:35.460804+00:00",
+      "body_sha256": "9d8bb4da62797162740df3bc26b9cd6fa3d97b66edc4e284ba0698095a862fdc",
+      "parsed": true,
+      "format": "ct_v1_sth",
+      "tree_size": 24787,
+      "timestamp": 1785647475444,
+      "signature_lines": 1,
+      "root_hash_hex": "0b379827a26a6b820a7cf9e3134e68de724c5df1b9d5f11b19d45abd59fb5d23"
+    }
+  },
+  "tree_advanced_between_reads": false,
+  "entries_added_between_reads": 0,
+  "checked_at": "2026-08-02T05:34:50.805847+00:00",
+  "must_admit": true,
+  "full_admit": true,
+  "refuse_limb": null,
+  "refuse_reason": null,
+  "attribution": null,
+  "must_limbs_failed": [],
+  "should_limbs_failed": [],
+  "receipt_filename": "sphinx.ct.digicert.com_2027h2.json",
+  "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
+  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
+}

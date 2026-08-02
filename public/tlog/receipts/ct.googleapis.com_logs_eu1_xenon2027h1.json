@@ -1,0 +1,157 @@
+{
+  "log_key": "ct.googleapis.com/logs/eu1/xenon2027h1",
+  "description": "Google 'Xenon2027h1'",
+  "operator": "Google",
+  "checkpoint_url": "https://ct.googleapis.com/logs/eu1/xenon2027h1/ct/v1/get-sth",
+  "checkpoint_format": "ct_v1_sth",
+  "signature_scheme": "ecdsa_p256_ct_v1",
+  "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+  "limbs": {
+    "log_listed_in_a_public_list": {
+      "outcome": "ok",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    "public_key_obtained_independently_of_the_log": {
+      "outcome": "ok",
+      "key_source": "https://www.gstatic.com/ct/log_list/v3/log_list.json"
+    },
+    "checkpoint_endpoint_answers_without_credentials": {
+      "outcome": "ok",
+      "status": 200,
+      "bytes": 239
+    },
+    "checkpoint_parses_in_its_declared_format": {
+      "outcome": "ok",
+      "format": "ct_v1_sth"
+    },
+    "checkpoint_carries_tree_size_and_root_hash": {
+      "outcome": "ok",
+      "tree_size": 97740901,
+      "root_hash": "21e1baa56440c4a9b75475d7f2197289fbebdccb3296451ecf5a3c3fd6471ee1"
+    },
+    "checkpoint_carries_a_signature": {
+      "outcome": "ok",
+      "signature_lines": 1
+    },
+    "signature_scheme_supported_by_this_monitor": {
+      "outcome": "ok",
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "signature_verifies_against_the_published_key": {
+      "outcome": "ok",
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "checkpoint_carries_witness_cosignatures": {
+      "outcome": "fail",
+      "reason": "checkpoint_carried_no_signature_beyond_the_log_own",
+      "attribution": "publisher",
+      "note": "A Certificate Transparency signed tree head has no place to carry a witness cosignature, so this is a fact about the format as much as about the log."
+    },
+    "prior_batch_checkpoint_on_record": {
+      "outcome": "fail",
+      "reason": "no_prior_batch_for_this_log_on_this_monitor",
+      "attribution": "probe",
+      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+    },
+    "second_read_answered": {
+      "outcome": "ok",
+      "tree_size": 97741932
+    },
+    "tree_did_not_shrink_between_reads": {
+      "outcome": "ok",
+      "first_size": 97740901,
+      "second_size": 97741932,
+      "entries_added": 1031
+    },
+    "consistency_proof_served": {
+      "outcome": "ok",
+      "nodes": 22
+    },
+    "consistency_proof_recomputes_to_the_second_root": {
+      "outcome": "ok",
+      "reason": "both_roots_recomputed",
+      "first_size": 97740901,
+      "second_size": 97741932,
+      "proof_nodes": 22
+    }
+  },
+  "evidence": {
+    "first_read": {
+      "url": "https://ct.googleapis.com/logs/eu1/xenon2027h1/ct/v1/get-sth",
+      "status": 200,
+      "error": null,
+      "bytes": 239,
+      "read_at": "2026-08-02T05:33:40.742410+00:00",
+      "body_sha256": "90e01d55d5887c1303c49bb00716402672f5f4f6f652363619bc54eaa9c89a6b",
+      "parsed": true,
+      "format": "ct_v1_sth",
+      "tree_size": 97740901,
+      "timestamp": 1785648760368,
+      "signature_lines": 1,
+      "root_hash_hex": "21e1baa56440c4a9b75475d7f2197289fbebdccb3296451ecf5a3c3fd6471ee1",
+      "raw_body": null
+    },
+    "signature_check": {
+      "supported": true,
+      "verified": true,
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "second_read": {
+      "url": "https://ct.googleapis.com/logs/eu1/xenon2027h1/ct/v1/get-sth",
+      "status": 200,
+      "error": null,
+      "bytes": 239,
+      "read_at": "2026-08-02T05:34:41.133617+00:00",
+      "body_sha256": "530b3101b9a0456df035790c1945c37eb77358940bfdd25c06047feecefef035",
+      "parsed": true,
+      "format": "ct_v1_sth",
+      "tree_size": 97741932,
+      "timestamp": 1785648820738,
+      "signature_lines": 1,
+      "root_hash_hex": "26c7d42794bcef960a8520676c8a5176ad0e0ce90d25e25324a96d21709b1010"
+    },
+    "consistency_request": {
+      "served": true,
+      "url": "https://ct.googleapis.com/logs/eu1/xenon2027h1/ct/v1/get-sth-consistency?first=97740901&second=97741932",
+      "proof": [
+        "36d4958917799a4d5893b71bb1850e4feefe2f650e28207fba5fef55bff04ded",
+        "d7c222bf3abe5c5610fd2fd7c1a1e2fb2f3df5227328b66b825da95e6f40aa73",
+        "d48fb81bcbd9d6a2053e8deb999736eb031e8f12a1a6a5c830affe95d65c9449",
+        "6777cd3d29f0e6703aeeff98526274cd495f765a8772ebcd4122aa853a9bea6c",
+        "958caa385a1bee3b007c8d64e7db0b6278ca1f40aee26e25fc07dcd1d6797dc3",
+        "a4c821c14dfb43042dde3c59ebc9800a79f376eff0df7b84081f46b3a1d1b8f0",
+        "46b232baafa06861aa152d993b608deeb4f1b8cc777b02323ea34b2294c98112",
+        "d7d9537acf8e7111556a53c2a7439fd991e522563ed942fee6a975dd8f7332ff",
+        "b537e77d0d08194b4b3dd0287188f574b8a46ef2e27d7b3d402a6bc8ea4e502a",
+        "a49d9659c9b4aa80bcaaeb62ef9fcf7d452105fbba16dde7f22759a7f90367cc",
+        "c6de558b1ee3c48606ee55ce358e80e4733b50d563b0b364f6ddc186e0bf3721",
+        "34e23c3c1fa24e47db89771e592491177c878a6a813a558ca7f1bcc1980a6ac3",
+        "6fdf4efa781e8c4bb3de734b2bea0c42ffcbe76fb346d4844725887cceb0dad5",
+        "c9e06e82e9afb3eea245872347d760f7ec30f2f610ca66638ee8adb69bcd46bb",
+        "27468e183ebb82c9f3f5cb9dee0103c2c0cc10cc94aa3aa6ef686706ee80462e",
+        "a2f199aa9b0a617851d297a1adf3ea762932b204abf217f09f953c09edfc3adb",
+        "c1979a282ce7e092fa1e1dbd81c2e7d01747eb1a408578810f556dc8f3ec9d47",
+        "09372c44829a5ffb6ffa38f972e6807f943945c1690ac567976d2943bed8e08f",
+        "0cf22ba77c1ed3737999f5e9c3db4bfe713e008183c8c4ba73be747923326d16",
+        "ce68ed88974f408edd4a20246bf3b1fd2d55bf083b8eb9a3641a6a1e0dcfd9d9",
+        "3d3e88841f261f7658a2671b4c7b2b532ce9d7c4b72fb0f806238f0a83b30e81",
+        "ef3319aa6b473666ec17cb78790ca7ed7951f19b0422f1703d8b1fc5b32b4589"
+      ],
+      "nodes": 22
+    }
+  },
+  "tree_advanced_between_reads": true,
+  "entries_added_between_reads": 1031,
+  "checked_at": "2026-08-02T05:34:50.805876+00:00",
+  "must_admit": true,
+  "full_admit": true,
+  "refuse_limb": null,
+  "refuse_reason": null,
+  "attribution": null,
+  "must_limbs_failed": [],
+  "should_limbs_failed": [],
+  "receipt_filename": "ct.googleapis.com_logs_eu1_xenon2027h1.json",
+  "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
+  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
+}

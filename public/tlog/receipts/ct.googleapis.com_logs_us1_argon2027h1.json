@@ -1,0 +1,151 @@
+{
+  "log_key": "ct.googleapis.com/logs/us1/argon2027h1",
+  "description": "Google 'Argon2027h1'",
+  "operator": "Google",
+  "checkpoint_url": "https://ct.googleapis.com/logs/us1/argon2027h1/ct/v1/get-sth",
+  "checkpoint_format": "ct_v1_sth",
+  "signature_scheme": "ecdsa_p256_ct_v1",
+  "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+  "limbs": {
+    "log_listed_in_a_public_list": {
+      "outcome": "ok",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    "public_key_obtained_independently_of_the_log": {
+      "outcome": "ok",
+      "key_source": "https://www.gstatic.com/ct/log_list/v3/log_list.json"
+    },
+    "checkpoint_endpoint_answers_without_credentials": {
+      "outcome": "ok",
+      "status": 200,
+      "bytes": 240
+    },
+    "checkpoint_parses_in_its_declared_format": {
+      "outcome": "ok",
+      "format": "ct_v1_sth"
+    },
+    "checkpoint_carries_tree_size_and_root_hash": {
+      "outcome": "ok",
+      "tree_size": 164742560,
+      "root_hash": "e6d85d6b3fa7e0a5be754fa4af8d5681c66f7bb1ca4043b13c07aed9759181b3"
+    },
+    "checkpoint_carries_a_signature": {
+      "outcome": "ok",
+      "signature_lines": 1
+    },
+    "signature_scheme_supported_by_this_monitor": {
+      "outcome": "ok",
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "signature_verifies_against_the_published_key": {
+      "outcome": "ok",
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "checkpoint_carries_witness_cosignatures": {
+      "outcome": "fail",
+      "reason": "checkpoint_carried_no_signature_beyond_the_log_own",
+      "attribution": "publisher",
+      "note": "A Certificate Transparency signed tree head has no place to carry a witness cosignature, so this is a fact about the format as much as about the log."
+    },
+    "prior_batch_checkpoint_on_record": {
+      "outcome": "fail",
+      "reason": "no_prior_batch_for_this_log_on_this_monitor",
+      "attribution": "probe",
+      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+    },
+    "second_read_answered": {
+      "outcome": "ok",
+      "tree_size": 164744704
+    },
+    "tree_did_not_shrink_between_reads": {
+      "outcome": "ok",
+      "first_size": 164742560,
+      "second_size": 164744704,
+      "entries_added": 2144
+    },
+    "consistency_proof_served": {
+      "outcome": "ok",
+      "nodes": 16
+    },
+    "consistency_proof_recomputes_to_the_second_root": {
+      "outcome": "ok",
+      "reason": "both_roots_recomputed",
+      "first_size": 164742560,
+      "second_size": 164744704,
+      "proof_nodes": 16
+    }
+  },
+  "evidence": {
+    "first_read": {
+      "url": "https://ct.googleapis.com/logs/us1/argon2027h1/ct/v1/get-sth",
+      "status": 200,
+      "error": null,
+      "bytes": 240,
+      "read_at": "2026-08-02T05:33:41.956605+00:00",
+      "body_sha256": "9a2ba4385a51cd2612e50298e32ec4b3f9ed09feb12c763183e2f9c3ef0ddccf",
+      "parsed": true,
+      "format": "ct_v1_sth",
+      "tree_size": 164742560,
+      "timestamp": 1785648761419,
+      "signature_lines": 1,
+      "root_hash_hex": "e6d85d6b3fa7e0a5be754fa4af8d5681c66f7bb1ca4043b13c07aed9759181b3",
+      "raw_body": null
+    },
+    "signature_check": {
+      "supported": true,
+      "verified": true,
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "second_read": {
+      "url": "https://ct.googleapis.com/logs/us1/argon2027h1/ct/v1/get-sth",
+      "status": 200,
+      "error": null,
+      "bytes": 240,
+      "read_at": "2026-08-02T05:34:43.275958+00:00",
+      "body_sha256": "659a58a40ab7f185e4c2d9cd5e9de5f6a4106aa07f23bc513c7fc7b0309342e2",
+      "parsed": true,
+      "format": "ct_v1_sth",
+      "tree_size": 164744704,
+      "timestamp": 1785648822536,
+      "signature_lines": 1,
+      "root_hash_hex": "c7d673be520c52f2ccedd497ad2d6bb38ef2e724cccaa2a27b6ff868adc62f4c"
+    },
+    "consistency_request": {
+      "served": true,
+      "url": "https://ct.googleapis.com/logs/us1/argon2027h1/ct/v1/get-sth-consistency?first=164742560&second=164744704",
+      "proof": [
+        "e80791844a7319290ebe8d184e18b2c2827c66f873f1a79db841e7497a18334f",
+        "207487262a5140a8682cdd506274b191534cce3bb5a5d32fea37e130524332f1",
+        "dd842700f3fc8a7cb2153aa62e4d7cd6d3c8f6fdc641ee3fc3ae2fa9076f75c1",
+        "27be2d6d08767f02941765b346db3d774ca4cf2a172f16597188746db5524528",
+        "bb6d3e80ef66a895c8088bbdb47fe6e7f9500f1ce768e48b0e3cee21081a2c16",
+        "a3de09408aa4e48ff8634707baf031265d452e534d3ffd6eb0b37891d76b4918",
+        "7db393fbf93699e81dc3317e8749202c601cd792c8093b30fb70c2ab6c13bc13",
+        "1e3bdd2fcaba98dc6e7581bbab79dfa8dcfb1e0c49b73e0fc15323d0bbcfe38e",
+        "b96f443373caa1d03fabd8801dd61f22cec3d767ef001c0a35f436f62322d893",
+        "3b19259dcc6ed99470df10449c2239f4ac077b09b0240a0dd4d2172da066ceef",
+        "74a541eec9bfb3840f50b358218bdc34bf400a36ad394cafd0f1573cdfc27a49",
+        "4e1fcc7117cd97cfe9ffc7b36227def6ad6390e91fc39d1fea7c96b28b0863f4",
+        "10bab040f67f035502f3337e94dbe9e1e6e758d6d316e12388a0362f98fb98d9",
+        "d9a3ec57eaf010346dc8380fb059bd6b57edc39321911d0e5d4ab04ba3341dcc",
+        "861cfca0402d4abe10677ff9524c527842e1e47a0ba23b01538b6186ccae506d",
+        "bd9bb55a188b2b369b4f11ae880d77a90cec229f8ac749f3accdf052fd956db5"
+      ],
+      "nodes": 16
+    }
+  },
+  "tree_advanced_between_reads": true,
+  "entries_added_between_reads": 2144,
+  "checked_at": "2026-08-02T05:34:50.805884+00:00",
+  "must_admit": true,
+  "full_admit": true,
+  "refuse_limb": null,
+  "refuse_reason": null,
+  "attribution": null,
+  "must_limbs_failed": [],
+  "should_limbs_failed": [],
+  "receipt_filename": "ct.googleapis.com_logs_us1_argon2027h1.json",
+  "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
+  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
+}

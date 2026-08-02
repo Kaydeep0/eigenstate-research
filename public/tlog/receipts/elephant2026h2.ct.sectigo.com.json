@@ -1,0 +1,126 @@
+{
+  "log_key": "elephant2026h2.ct.sectigo.com",
+  "description": "Sectigo 'Elephant2026h2'",
+  "operator": "Sectigo",
+  "checkpoint_url": "https://elephant2026h2.ct.sectigo.com/ct/v1/get-sth",
+  "checkpoint_format": "ct_v1_sth",
+  "signature_scheme": "ecdsa_p256_ct_v1",
+  "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+  "limbs": {
+    "log_listed_in_a_public_list": {
+      "outcome": "ok",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    "public_key_obtained_independently_of_the_log": {
+      "outcome": "ok",
+      "key_source": "https://www.gstatic.com/ct/log_list/v3/log_list.json"
+    },
+    "checkpoint_endpoint_answers_without_credentials": {
+      "outcome": "ok",
+      "status": 200,
+      "bytes": 241
+    },
+    "checkpoint_parses_in_its_declared_format": {
+      "outcome": "ok",
+      "format": "ct_v1_sth"
+    },
+    "checkpoint_carries_tree_size_and_root_hash": {
+      "outcome": "ok",
+      "tree_size": 1483055905,
+      "root_hash": "ae33943148f45723b5f2891fa28ef82556f84052868fe52c177adbc162b4ace1"
+    },
+    "checkpoint_carries_a_signature": {
+      "outcome": "ok",
+      "signature_lines": 1
+    },
+    "signature_scheme_supported_by_this_monitor": {
+      "outcome": "ok",
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "signature_verifies_against_the_published_key": {
+      "outcome": "ok",
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "checkpoint_carries_witness_cosignatures": {
+      "outcome": "fail",
+      "reason": "checkpoint_carried_no_signature_beyond_the_log_own",
+      "attribution": "publisher",
+      "note": "A Certificate Transparency signed tree head has no place to carry a witness cosignature, so this is a fact about the format as much as about the log."
+    },
+    "prior_batch_checkpoint_on_record": {
+      "outcome": "fail",
+      "reason": "no_prior_batch_for_this_log_on_this_monitor",
+      "attribution": "probe",
+      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+    },
+    "second_read_answered": {
+      "outcome": "ok",
+      "tree_size": 1483055905
+    },
+    "tree_did_not_shrink_between_reads": {
+      "outcome": "ok",
+      "first_size": 1483055905,
+      "second_size": 1483055905,
+      "entries_added": 0
+    },
+    "consistency_proof_served": {
+      "outcome": "not_applicable",
+      "reason": "tree_did_not_advance_between_the_two_reads",
+      "note": "There is nothing to prove between a size and itself. The two reads returned the same root, which is what a consistent log looks like over a quiet window."
+    },
+    "consistency_proof_recomputes_to_the_second_root": {
+      "outcome": "not_applicable",
+      "reason": "no_proof_needed_between_equal_sizes"
+    }
+  },
+  "evidence": {
+    "first_read": {
+      "url": "https://elephant2026h2.ct.sectigo.com/ct/v1/get-sth",
+      "status": 200,
+      "error": null,
+      "bytes": 241,
+      "read_at": "2026-08-02T05:33:42.781067+00:00",
+      "body_sha256": "8442f79fed5ee5625168ee96631f5f174aa40c36781db33118ee7d52b65fa7c2",
+      "parsed": true,
+      "format": "ct_v1_sth",
+      "tree_size": 1483055905,
+      "timestamp": 1785648789014,
+      "signature_lines": 1,
+      "root_hash_hex": "ae33943148f45723b5f2891fa28ef82556f84052868fe52c177adbc162b4ace1",
+      "raw_body": null
+    },
+    "signature_check": {
+      "supported": true,
+      "verified": true,
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "second_read": {
+      "url": "https://elephant2026h2.ct.sectigo.com/ct/v1/get-sth",
+      "status": 200,
+      "error": null,
+      "bytes": 241,
+      "read_at": "2026-08-02T05:34:44.519238+00:00",
+      "body_sha256": "8442f79fed5ee5625168ee96631f5f174aa40c36781db33118ee7d52b65fa7c2",
+      "parsed": true,
+      "format": "ct_v1_sth",
+      "tree_size": 1483055905,
+      "timestamp": 1785648789014,
+      "signature_lines": 1,
+      "root_hash_hex": "ae33943148f45723b5f2891fa28ef82556f84052868fe52c177adbc162b4ace1"
+    }
+  },
+  "tree_advanced_between_reads": false,
+  "entries_added_between_reads": 0,
+  "checked_at": "2026-08-02T05:34:50.805895+00:00",
+  "must_admit": true,
+  "full_admit": true,
+  "refuse_limb": null,
+  "refuse_reason": null,
+  "attribution": null,
+  "must_limbs_failed": [],
+  "should_limbs_failed": [],
+  "receipt_filename": "elephant2026h2.ct.sectigo.com.json",
+  "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
+  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
+}

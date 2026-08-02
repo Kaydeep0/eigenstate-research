@@ -1,0 +1,153 @@
+{
+  "log_key": "wyvern.ct.digicert.com/2027h1",
+  "description": "DigiCert 'Wyvern2027h1'",
+  "operator": "DigiCert",
+  "checkpoint_url": "https://wyvern.ct.digicert.com/2027h1/ct/v1/get-sth",
+  "checkpoint_format": "ct_v1_sth",
+  "signature_scheme": "ecdsa_p256_ct_v1",
+  "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+  "limbs": {
+    "log_listed_in_a_public_list": {
+      "outcome": "ok",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    "public_key_obtained_independently_of_the_log": {
+      "outcome": "ok",
+      "key_source": "https://www.gstatic.com/ct/log_list/v3/log_list.json"
+    },
+    "checkpoint_endpoint_answers_without_credentials": {
+      "outcome": "ok",
+      "status": 200,
+      "bytes": 239
+    },
+    "checkpoint_parses_in_its_declared_format": {
+      "outcome": "ok",
+      "format": "ct_v1_sth"
+    },
+    "checkpoint_carries_tree_size_and_root_hash": {
+      "outcome": "ok",
+      "tree_size": 48179214,
+      "root_hash": "fa4af045966440ebfbf0d052f17fbfc3ae81fcbd127ecb2e99ad819a9bbd3d65"
+    },
+    "checkpoint_carries_a_signature": {
+      "outcome": "ok",
+      "signature_lines": 1
+    },
+    "signature_scheme_supported_by_this_monitor": {
+      "outcome": "ok",
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "signature_verifies_against_the_published_key": {
+      "outcome": "ok",
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "checkpoint_carries_witness_cosignatures": {
+      "outcome": "fail",
+      "reason": "checkpoint_carried_no_signature_beyond_the_log_own",
+      "attribution": "publisher",
+      "note": "A Certificate Transparency signed tree head has no place to carry a witness cosignature, so this is a fact about the format as much as about the log."
+    },
+    "prior_batch_checkpoint_on_record": {
+      "outcome": "fail",
+      "reason": "no_prior_batch_for_this_log_on_this_monitor",
+      "attribution": "probe",
+      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+    },
+    "second_read_answered": {
+      "outcome": "ok",
+      "tree_size": 48179416
+    },
+    "tree_did_not_shrink_between_reads": {
+      "outcome": "ok",
+      "first_size": 48179214,
+      "second_size": 48179416,
+      "entries_added": 202
+    },
+    "consistency_proof_served": {
+      "outcome": "ok",
+      "nodes": 18
+    },
+    "consistency_proof_recomputes_to_the_second_root": {
+      "outcome": "ok",
+      "reason": "both_roots_recomputed",
+      "first_size": 48179214,
+      "second_size": 48179416,
+      "proof_nodes": 18
+    }
+  },
+  "evidence": {
+    "first_read": {
+      "url": "https://wyvern.ct.digicert.com/2027h1/ct/v1/get-sth",
+      "status": 200,
+      "error": null,
+      "bytes": 239,
+      "read_at": "2026-08-02T05:33:37.678907+00:00",
+      "body_sha256": "70af24c6b4b0f1057a19421650ae6ab306ea02134dbb834da2b2ef4438c6afd7",
+      "parsed": true,
+      "format": "ct_v1_sth",
+      "tree_size": 48179214,
+      "timestamp": 1785648817194,
+      "signature_lines": 1,
+      "root_hash_hex": "fa4af045966440ebfbf0d052f17fbfc3ae81fcbd127ecb2e99ad819a9bbd3d65",
+      "raw_body": null
+    },
+    "signature_check": {
+      "supported": true,
+      "verified": true,
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "second_read": {
+      "url": "https://wyvern.ct.digicert.com/2027h1/ct/v1/get-sth",
+      "status": 200,
+      "error": null,
+      "bytes": 239,
+      "read_at": "2026-08-02T05:34:36.584803+00:00",
+      "body_sha256": "a3b60d3e470823f2a58a2e808837ec0e6d4cd3507928925c4b515ca866f70f77",
+      "parsed": true,
+      "format": "ct_v1_sth",
+      "tree_size": 48179416,
+      "timestamp": 1785648876122,
+      "signature_lines": 1,
+      "root_hash_hex": "377bd4fc3582368a8a22c9974437615109982f3e19d230b5cffcf723363bdaec"
+    },
+    "consistency_request": {
+      "served": true,
+      "url": "https://wyvern.ct.digicert.com/2027h1/ct/v1/get-sth-consistency?first=48179214&second=48179416",
+      "proof": [
+        "9e05173930764ba1502ce4e7e3dd35698f7b9c022edc4ea6d1feeb38e52329f9",
+        "2d4b8e9443d7456716dcb9c2b776c9a778a1b277e08503332d890a7e5094f419",
+        "84ac243367e578ad9ae1cd03c4cfd23c95bc6675f1ed04a22c9c13a91bb64ab9",
+        "934d2da71f0e7d8699e784371ce81b8ede3c32f1fa5f9172877f48fbf1baa7be",
+        "34c8f7e94dee17b75485106875ee66610d361cf29561bb24f7c14ed28724ae87",
+        "00c889f2deec76b87773eb2fe4130a67a78e6533fece4d3a6e5a32f322acbb2d",
+        "6a836dd41dfb8eb13bb412a537f12dd642bcd785b1f85b06096ce073d44719b3",
+        "838b9eb657111160448cbf25014fd51423cf9b9d206f92a3588d041c89507a4e",
+        "437106f9e80e0ea2757e30ff944b8a8702b171705257e317fe96626e8a2e8ccf",
+        "54f58b5fd49f2bc1d713b8d96f4cf298b14d6c4dcee4a1b0ba02d8f0a76c26b3",
+        "90c840ea1d08db8b006dcfc2ecb38923971debecc3ad5bd531228c4327722258",
+        "50aa5eaaedb19ac372d8385eaf57fec2b947743008af0dd6029fc202605f3f11",
+        "21e4ce3a6b9ff92826584bf34f13ef8034b2d0f0c56c8630c23f00d5954a2314",
+        "83b0120f8a03215e2849aa667ddfd6dca251968fd8f525d3322e48caa33e2add",
+        "ea2c1f0ac34d7a165d1fd1f9a52f3734fc616831a48cd14efefd33d40e5f2aaa",
+        "378b75bf4b1d63105a81ef970688b5f306cac7c80f34812f71db893e15bd4e42",
+        "3121c12d8f15a89a2ca18699e7d2e3f54f8951f35ba4b5c7e0ac291f0ee28a02",
+        "9d55adebc8f60d65c551d24bd53fae9c532fcf4c3a741ef08691c21a4f7c06ff"
+      ],
+      "nodes": 18
+    }
+  },
+  "tree_advanced_between_reads": true,
+  "entries_added_between_reads": 202,
+  "checked_at": "2026-08-02T05:34:50.805860+00:00",
+  "must_admit": true,
+  "full_admit": true,
+  "refuse_limb": null,
+  "refuse_reason": null,
+  "attribution": null,
+  "must_limbs_failed": [],
+  "should_limbs_failed": [],
+  "receipt_filename": "wyvern.ct.digicert.com_2027h1.json",
+  "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
+  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
+}

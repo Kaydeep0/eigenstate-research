@@ -1,0 +1,155 @@
+{
+  "log_key": "tiger2027h1.ct.sectigo.com",
+  "description": "Sectigo 'Tiger2027h1'",
+  "operator": "Sectigo",
+  "checkpoint_url": "https://tiger2027h1.ct.sectigo.com/ct/v1/get-sth",
+  "checkpoint_format": "ct_v1_sth",
+  "signature_scheme": "ecdsa_p256_ct_v1",
+  "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+  "limbs": {
+    "log_listed_in_a_public_list": {
+      "outcome": "ok",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    "public_key_obtained_independently_of_the_log": {
+      "outcome": "ok",
+      "key_source": "https://www.gstatic.com/ct/log_list/v3/log_list.json"
+    },
+    "checkpoint_endpoint_answers_without_credentials": {
+      "outcome": "ok",
+      "status": 200,
+      "bytes": 240
+    },
+    "checkpoint_parses_in_its_declared_format": {
+      "outcome": "ok",
+      "format": "ct_v1_sth"
+    },
+    "checkpoint_carries_tree_size_and_root_hash": {
+      "outcome": "ok",
+      "tree_size": 129503074,
+      "root_hash": "4789a22dc271f178c7d59adfad04977a85ed22f95fffff1361df628f149d4590"
+    },
+    "checkpoint_carries_a_signature": {
+      "outcome": "ok",
+      "signature_lines": 1
+    },
+    "signature_scheme_supported_by_this_monitor": {
+      "outcome": "ok",
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "signature_verifies_against_the_published_key": {
+      "outcome": "ok",
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "checkpoint_carries_witness_cosignatures": {
+      "outcome": "fail",
+      "reason": "checkpoint_carried_no_signature_beyond_the_log_own",
+      "attribution": "publisher",
+      "note": "A Certificate Transparency signed tree head has no place to carry a witness cosignature, so this is a fact about the format as much as about the log."
+    },
+    "prior_batch_checkpoint_on_record": {
+      "outcome": "fail",
+      "reason": "no_prior_batch_for_this_log_on_this_monitor",
+      "attribution": "probe",
+      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+    },
+    "second_read_answered": {
+      "outcome": "ok",
+      "tree_size": 129505432
+    },
+    "tree_did_not_shrink_between_reads": {
+      "outcome": "ok",
+      "first_size": 129503074,
+      "second_size": 129505432,
+      "entries_added": 2358
+    },
+    "consistency_proof_served": {
+      "outcome": "ok",
+      "nodes": 20
+    },
+    "consistency_proof_recomputes_to_the_second_root": {
+      "outcome": "ok",
+      "reason": "both_roots_recomputed",
+      "first_size": 129503074,
+      "second_size": 129505432,
+      "proof_nodes": 20
+    }
+  },
+  "evidence": {
+    "first_read": {
+      "url": "https://tiger2027h1.ct.sectigo.com/ct/v1/get-sth",
+      "status": 200,
+      "error": null,
+      "bytes": 240,
+      "read_at": "2026-08-02T05:33:44.262876+00:00",
+      "body_sha256": "0cc18546d877d1e82235422766d61a6a1a4d96a2238e311459304d3bc1e9b94b",
+      "parsed": true,
+      "format": "ct_v1_sth",
+      "tree_size": 129503074,
+      "timestamp": 1785648711634,
+      "signature_lines": 1,
+      "root_hash_hex": "4789a22dc271f178c7d59adfad04977a85ed22f95fffff1361df628f149d4590",
+      "raw_body": null
+    },
+    "signature_check": {
+      "supported": true,
+      "verified": true,
+      "scheme": "ecdsa_p256_ct_v1"
+    },
+    "second_read": {
+      "url": "https://tiger2027h1.ct.sectigo.com/ct/v1/get-sth",
+      "status": 200,
+      "error": null,
+      "bytes": 240,
+      "read_at": "2026-08-02T05:34:45.725567+00:00",
+      "body_sha256": "119fc1bb1d38e0ff06b7ff52a301310da510ed8b76c7e5cde6a5886a506aaaf3",
+      "parsed": true,
+      "format": "ct_v1_sth",
+      "tree_size": 129505432,
+      "timestamp": 1785648850550,
+      "signature_lines": 1,
+      "root_hash_hex": "6895ff352d3cda58a6be4fc930560aac81f1e21fb8d68d88499b0f7a68dab3d0"
+    },
+    "consistency_request": {
+      "served": true,
+      "url": "https://tiger2027h1.ct.sectigo.com/ct/v1/get-sth-consistency?first=129503074&second=129505432",
+      "proof": [
+        "09905b122797d860646ae617c9709ae000a8b94bb1aed116e6cb706e79869a91",
+        "c559fa12012de152c53acb067c4873f1fb77b491a82025d6fdba7e9523fa914d",
+        "c67ab8b05b5e23483ba4676e300dbe0f0c6f9e31d8bf29f50bf4763d454f542a",
+        "e62575060751f03efaa6fcab4a922e7955a5b897d1d3a5a03bba05185f688b5d",
+        "982c7721005407d27c0a959e10d6767d17e01552f6085fdd9ee4ca93e9a9429d",
+        "8e1d429c36df17ef692021208b9c840b877c051f7af91de0fe7cac763a6ed1ab",
+        "02fb9379d699cb20b5de6f6520b6005e1eb18e38eb787c2819bd0a0bc026d677",
+        "914e810e4f3636b9400ebcc0c968db05e42a70bd406913d0e6851a916d452166",
+        "d2633a2e5f741c0e6367eec513561036fd67a46c9c2710dcf859cabf40c28d8e",
+        "86a97ca87137f84c38b64d4f545493cb0d6be26679d2e901608ff148012ad161",
+        "4e0e9ff44e356853df403442c1159f5efa94a9fa5180ccced94341111e45c85e",
+        "4343aa55fef038bb88b5c8fa3fcbc1f5207a45a82008ad725d1751b9b46bb85d",
+        "e0cb8c66b4266bef21e10db79dbd6e74acfa02046d213aa68c7985b275617dba",
+        "6bd98c5bff9fbd95e1fa41c7aaa9e5138b352d5253331a83ec858d0345b4b946",
+        "f3dcb039598a0a34f948102093d76368dd589103ca51f0f9833f13aab6272a4c",
+        "70f414aabb2fc58036c9cadb6732963d2ba45b3ff42d4e9d08296041c536fc44",
+        "3e41f9f93a58e0a463ca73d62b988bff715663c877eaaf2b3f627c8c3b692a81",
+        "52371861a522f888c05dcb96cf303d6308c9672ef43e3da7431d962ac05a2e06",
+        "4ef92c3866f71f09f6bbb9484f1e8cb498cc31c2297e87846e82ea352b562b5b",
+        "b47f04765e559aedfdf5ba15c941c36cf6e082817bf8068f4efd7bb3138e8142"
+      ],
+      "nodes": 20
+    }
+  },
+  "tree_advanced_between_reads": true,
+  "entries_added_between_reads": 2358,
+  "checked_at": "2026-08-02T05:34:50.805913+00:00",
+  "must_admit": true,
+  "full_admit": true,
+  "refuse_limb": null,
+  "refuse_reason": null,
+  "attribution": null,
+  "must_limbs_failed": [],
+  "should_limbs_failed": [],
+  "receipt_filename": "tiger2027h1.ct.sectigo.com.json",
+  "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
+  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
+}

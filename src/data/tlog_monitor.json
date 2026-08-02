@@ -1,0 +1,791 @@
+{
+  "probe": "transparency_log_batch_monitor",
+  "probe_version": "1.0.0",
+  "generated_at": "2026-08-02T05:34:50.807043+00:00",
+  "digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290",
+  "expectations_generated_at": "2026-08-02T05:32:13.733964+00:00",
+  "expectations": "https://geniusflow-federation.vercel.app/tlog/expectations.json",
+  "role": {
+    "this_node_is": "monitor",
+    "this_node_is_not": "witness",
+    "monitor": "Reads checkpoints, verifies signatures against keys obtained elsewhere, and recomputes consistency proofs. Holds no key. Can run on a batch cadence.",
+    "witness": "Holds a key, stays online, and cosigns a checkpoint to attest it saw that tree head and no other at that size. This node does none of that.",
+    "what_a_batch_monitor_cannot_do": [
+      "Catch a split view that is served to one reader and withdrawn before the next batch. A monitor sees the log at the instants it reads it and says nothing about the gaps.",
+      "Give anyone else an attestation. A monitor's output is a claim about what one reader saw. A witness cosignature is a claim other parties can rely on, and this node produces none.",
+      "Detect anything at all about a log it does not read. The population is frozen and small, and the ledger reports it as a population rather than as coverage."
+    ]
+  },
+  "subject": {
+    "what": "public transparency logs, read on a batch cadence and re-derived by a monitor that holds no key and cosigns nothing",
+    "engine_commit": "72e9477c3f02dcc6b785a641852cb807c86a67eb"
+  },
+  "question": {
+    "asked": "Can a reader with no key and no account read a log's checkpoint, check its signature against a key the log did not hand it, and recompute the log's own next root from a proof the log served?",
+    "not_asked": "Whether the log is honest to anybody else, whether it served a different view to another reader, or whether its contents are correct. A monitor sees the log at the instants it reads it.",
+    "why_it_is_separate": "Witnessing and monitoring are different jobs and the difference is a key. Claiming to witness without cosigning would be a false claim, so this node does the job it can actually do and says which one that is."
+  },
+  "population_rule": "A log is in the population iff it appears in a public list of transparency logs that this node did not write, serves a checkpoint or signed tree head over plain HTTPS with no credentials, and can be read by a program without an account. The rule is frozen here, before any checkpoint is read.",
+  "second_read_gap_seconds": 45,
+  "second_read_rule": "Every checkpoint is read twice in the same batch, with a frozen gap between the reads. The gap is written here so it cannot be widened afterwards until something interesting appears. Where the tree advanced, the consistency proof between the two observed sizes is requested and recomputed. Where it did not, there is nothing to prove and the receipt says so instead of charging the log.",
+  "verifiers_implemented_here": {
+    "why": "This engine carries no cryptography library, so ECDSA over P-256, Ed25519 and the RFC 6962 consistency recomputation are implemented in pure Python in engine/bridge/tlog_monitor_probe.py.",
+    "discipline": "Each verifier is self-tested with a positive and a negative case before the run is allowed to charge anybody, and the self-test result is published in the ledger. The Merkle self-test builds consistency proofs from the recursive definition in RFC 6962 section 2.1.2 and verifies them with the separate iterative algorithm, for every pair of sizes in an eight leaf tree, and also checks that a tampered proof is rejected.",
+    "what_a_failure_means": "A signature this monitor fails to verify is recorded as this monitor failing to verify it. It is not published as a claim that the log is wrong."
+  },
+  "verifier_selftests": {
+    "merkle": {
+      "verifier": "rfc6962_consistency",
+      "pairs_checked": 36,
+      "positive_cases_passed": 36,
+      "tampered_cases_rejected": 28,
+      "passed": true,
+      "failures": [],
+      "root_at_size_8": "5dc9da79a70659a9ad559cb701ded9a2ab9d823aad2f4960cfe370eff4604328"
+    },
+    "ed25519": {
+      "verifier": "ed25519",
+      "vector": "RFC 8032 section 7.1 test 1",
+      "positive_case_passed": true,
+      "tampered_case_rejected": true,
+      "passed": true
+    },
+    "ecdsa_p256": {
+      "verifier": "ecdsa_p256",
+      "tested_against": "ct.cloudflare.com/logs/nimbus2026",
+      "positive_case_passed": true,
+      "tampered_case_rejected": true,
+      "passed": true
+    }
+  },
+  "verifier_selftests_all_passed": true,
+  "key_evidence": {
+    "ct_log_list": {
+      "url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "status": 200,
+      "sha256": "9c97e7dfea0b2ff4426cb347aa197e3982d9a3c5fbe26fde8fd42e600bdb8007",
+      "usable_logs": 21,
+      "list_version": "89.5",
+      "log_list_timestamp": "2026-08-01T13:35:47Z"
+    },
+    "go_sumdb_key": {
+      "url": "https://raw.githubusercontent.com/golang/go/master/src/cmd/go/internal/modfetch/key.go",
+      "status": 200,
+      "sha256": "f692a48e918dfd0647cb8b660a706dd14e44b5ad75d490a2d242b8a4b990178e"
+    },
+    "rekor_key": {
+      "url": "https://rekor.sigstore.dev/api/v1/log/publicKey",
+      "status": 200,
+      "sha256": "446f8522b990b9a2cca331c8c0536f231286073e545e650b990f5888c02f3766",
+      "served_by_the_log_itself": true
+    }
+  },
+  "limb_order_frozen": [
+    "log_listed_in_a_public_list",
+    "public_key_obtained_independently_of_the_log",
+    "checkpoint_endpoint_answers_without_credentials",
+    "checkpoint_parses_in_its_declared_format",
+    "checkpoint_carries_tree_size_and_root_hash",
+    "checkpoint_carries_a_signature",
+    "signature_scheme_supported_by_this_monitor",
+    "signature_verifies_against_the_published_key",
+    "second_read_answered",
+    "tree_did_not_shrink_between_reads",
+    "consistency_proof_served",
+    "consistency_proof_recomputes_to_the_second_root",
+    "checkpoint_carries_witness_cosignatures",
+    "prior_batch_checkpoint_on_record"
+  ],
+  "limb_chains": {
+    "read": [
+      "log_listed_in_a_public_list",
+      "public_key_obtained_independently_of_the_log",
+      "checkpoint_endpoint_answers_without_credentials",
+      "checkpoint_parses_in_its_declared_format",
+      "checkpoint_carries_tree_size_and_root_hash",
+      "checkpoint_carries_a_signature"
+    ],
+    "verify": [
+      "signature_scheme_supported_by_this_monitor",
+      "signature_verifies_against_the_published_key"
+    ],
+    "rederive": [
+      "second_read_answered",
+      "tree_did_not_shrink_between_reads",
+      "consistency_proof_served",
+      "consistency_proof_recomputes_to_the_second_root"
+    ],
+    "observe": [
+      "checkpoint_carries_witness_cosignatures",
+      "prior_batch_checkpoint_on_record"
+    ]
+  },
+  "limb_chain_rule": "Chains are evaluated independently. A failure inside one chain stops that chain and does not touch the others, so a log whose signature scheme this monitor cannot read is still read, still compared across the two reads, and still counted.",
+  "limb_spec_level": {
+    "log_listed_in_a_public_list": "MUST",
+    "public_key_obtained_independently_of_the_log": "MUST",
+    "checkpoint_endpoint_answers_without_credentials": "MUST",
+    "checkpoint_parses_in_its_declared_format": "MUST",
+    "checkpoint_carries_tree_size_and_root_hash": "MUST",
+    "checkpoint_carries_a_signature": "MUST",
+    "signature_scheme_supported_by_this_monitor": "SHOULD",
+    "signature_verifies_against_the_published_key": "MUST",
+    "second_read_answered": "MUST",
+    "tree_did_not_shrink_between_reads": "MUST",
+    "consistency_proof_served": "MUST",
+    "consistency_proof_recomputes_to_the_second_root": "MUST",
+    "checkpoint_carries_witness_cosignatures": "OBSERVED",
+    "prior_batch_checkpoint_on_record": "OBSERVED"
+  },
+  "statuses": {
+    "ok": "limb observed to pass",
+    "fail": "limb observed to fail; counts against the log at its stated level",
+    "not_applicable": "limb cannot apply on this batch, and charges nothing",
+    "absent": "an optional artifact was not published; not counted as a failure",
+    "not_reached": "an earlier limb in the same chain failed, so this one was never observed. Chains are independent, so a failure in one never marks a limb in another not_reached."
+  },
+  "checkpoints_appended_this_batch": 46,
+  "logs_in_population": 23,
+  "must_admit": 22,
+  "must_refuse": 1,
+  "full_admit": 22,
+  "checkpoints_read": 23,
+  "signatures_verified": 22,
+  "signature_schemes_unsupported": 1,
+  "keys_obtained_independently": 22,
+  "trees_advanced_between_reads": 11,
+  "entries_added_between_reads": 54133,
+  "consistency_proofs_served": 11,
+  "consistency_proofs_recomputed": 11,
+  "trees_that_shrank": 0,
+  "checkpoints_with_witness_cosignatures": 0,
+  "logs_with_a_prior_batch_on_record": 0,
+  "disagreements": [],
+  "disagreement_count": 0,
+  "refuse_limb_counts": {
+    "public_key_obtained_independently_of_the_log": 1
+  },
+  "top_refuse_reasons": {
+    "public_key_obtained_independently_of_the_log:only_key_source_read_is_the_log_itself": 1
+  },
+  "refusal_attribution": {
+    "ecosystem": 1
+  },
+  "operators": {
+    "DigiCert": 6,
+    "Sectigo": 6,
+    "Google": 4,
+    "TrustAsia": 3,
+    "Cloudflare": 2,
+    "Google, for the Go project": 1,
+    "Sigstore": 1
+  },
+  "checkpoint_formats": {
+    "ct_v1_sth": 21,
+    "c2sp_signed_note": 1,
+    "rekor_json_wrapping_a_signed_note": 1
+  },
+  "limb_outcomes": {
+    "log_listed_in_a_public_list": {
+      "ok": 23,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "public_key_obtained_independently_of_the_log": {
+      "ok": 22,
+      "fail": 1,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "checkpoint_endpoint_answers_without_credentials": {
+      "ok": 23,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "checkpoint_parses_in_its_declared_format": {
+      "ok": 23,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "checkpoint_carries_tree_size_and_root_hash": {
+      "ok": 23,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "checkpoint_carries_a_signature": {
+      "ok": 23,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "signature_scheme_supported_by_this_monitor": {
+      "ok": 22,
+      "fail": 1,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "signature_verifies_against_the_published_key": {
+      "ok": 22,
+      "fail": 1,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "second_read_answered": {
+      "ok": 23,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "tree_did_not_shrink_between_reads": {
+      "ok": 23,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "consistency_proof_served": {
+      "ok": 11,
+      "fail": 0,
+      "not_applicable": 12,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "consistency_proof_recomputes_to_the_second_root": {
+      "ok": 11,
+      "fail": 0,
+      "not_applicable": 12,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "checkpoint_carries_witness_cosignatures": {
+      "ok": 0,
+      "fail": 23,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "prior_batch_checkpoint_on_record": {
+      "ok": 0,
+      "fail": 23,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    }
+  },
+  "predictions_scored": [
+    {
+      "id": 1,
+      "prediction": "Every log in the population serves a checkpoint over plain HTTPS with no credentials of any kind.",
+      "blind": true,
+      "basis": null,
+      "observed": "23 of 23 logs served a checkpoint with no credentials",
+      "met": true
+    },
+    {
+      "id": 2,
+      "prediction": "Every Certificate Transparency checkpoint signature verifies against the key published in the log list, using the verifier implemented in this repository.",
+      "blind": true,
+      "basis": null,
+      "observed": "21 of 21 Certificate Transparency signatures verified",
+      "met": true
+    },
+    {
+      "id": 3,
+      "prediction": "No tree in the population shrinks between the two reads in this batch.",
+      "blind": true,
+      "basis": null,
+      "observed": "0 of 23 trees shrank or served two roots at one size",
+      "met": true
+    },
+    {
+      "id": 4,
+      "prediction": "Every consistency proof this monitor requests recomputes to the second root the log published.",
+      "blind": true,
+      "basis": null,
+      "observed": "11 of 11 served proofs recomputed to the second root",
+      "met": true
+    },
+    {
+      "id": 5,
+      "prediction": "Fewer than half the checkpoints in the population carry a witness cosignature beyond the log's own signature.",
+      "blind": true,
+      "basis": null,
+      "observed": "0 of 23 checkpoints carried a witness cosignature",
+      "met": true
+    },
+    {
+      "id": 6,
+      "prediction": "This monitor holds no prior batch for any log, because this is the first batch, so the cross run comparison refuses for every log in the population.",
+      "blind": false,
+      "basis": "This is determined by the fact that this is run one. It is written down so the cold start is a scored line in the ledger rather than an omission.",
+      "observed": "0 of 23 logs had a prior batch on record",
+      "met": true
+    },
+    {
+      "id": 7,
+      "prediction": "At least one log in the population refuses a re-derivation limb for a reason that belongs to this monitor rather than to the log.",
+      "blind": false,
+      "basis": "The expectations file already records that this monitor has not implemented tile reconstruction for the Go checksum database. It is scored so the refusal is counted rather than mentioned.",
+      "observed": "0 of 23 logs refused for a reason attributed to this monitor",
+      "met": false,
+      "note_written_after_the_result": "This missed, and it missed for two separate reasons that are worth keeping apart. The prediction was operationalised as the headline refusal attribution, which is the single strongest failing limb, rather than as any limb on any log. A probe attributed refusal does exist in this batch: Rekor's checkpoint uses a note signature scheme this monitor has not implemented, and that limb refuses with the refusal charged to this monitor. It is not the headline for Rekor because a MUST limb fails first, and it is not a re-derivation limb, which is what the prediction named. The second reason is the one the prediction was really about: the Go checksum database was expected to refuse a re-derivation limb because this monitor cannot reconstruct tile based proofs, and its tree did not advance during the forty five second window, so that limb was never reached. A quiet log did not exercise the gap the prediction pointed at. Neither the scorer nor the window was changed after seeing this."
+    }
+  ],
+  "per_log": [
+    {
+      "log_key": "ct.cloudflare.com/logs/nimbus2026",
+      "description": "Cloudflare 'Nimbus2026'",
+      "operator": "Cloudflare",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 5737504186,
+      "second_size": 5737504186,
+      "entries_added": 0,
+      "proof_nodes": null,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/ct.cloudflare.com_logs_nimbus2026.json"
+    },
+    {
+      "log_key": "ct.cloudflare.com/logs/nimbus2027",
+      "description": "Cloudflare 'Nimbus2027'",
+      "operator": "Cloudflare",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 186722674,
+      "second_size": 186722674,
+      "entries_added": 0,
+      "proof_nodes": null,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/ct.cloudflare.com_logs_nimbus2027.json"
+    },
+    {
+      "log_key": "sphinx.ct.digicert.com/2026h2",
+      "description": "DigiCert 'Sphinx2026h2'",
+      "operator": "DigiCert",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 1468244661,
+      "second_size": 1468250716,
+      "entries_added": 6055,
+      "proof_nodes": 24,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/sphinx.ct.digicert.com_2026h2.json"
+    },
+    {
+      "log_key": "sphinx.ct.digicert.com/2027h1",
+      "description": "DigiCert 'sphinx2027h1'",
+      "operator": "DigiCert",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 38181119,
+      "second_size": 38181154,
+      "entries_added": 35,
+      "proof_nodes": 17,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/sphinx.ct.digicert.com_2027h1.json"
+    },
+    {
+      "log_key": "sphinx.ct.digicert.com/2027h2",
+      "description": "DigiCert 'sphinx2027h2'",
+      "operator": "DigiCert",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 24787,
+      "second_size": 24787,
+      "entries_added": 0,
+      "proof_nodes": null,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/sphinx.ct.digicert.com_2027h2.json"
+    },
+    {
+      "log_key": "wyvern.ct.digicert.com/2026h2",
+      "description": "DigiCert 'Wyvern2026h2'",
+      "operator": "DigiCert",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 1515491652,
+      "second_size": 1515497879,
+      "entries_added": 6227,
+      "proof_nodes": 21,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/wyvern.ct.digicert.com_2026h2.json"
+    },
+    {
+      "log_key": "wyvern.ct.digicert.com/2027h1",
+      "description": "DigiCert 'Wyvern2027h1'",
+      "operator": "DigiCert",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 48179214,
+      "second_size": 48179416,
+      "entries_added": 202,
+      "proof_nodes": 18,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/wyvern.ct.digicert.com_2027h1.json"
+    },
+    {
+      "log_key": "wyvern.ct.digicert.com/2027h2",
+      "description": "DigiCert 'Wyvern2027h2'",
+      "operator": "DigiCert",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 24791,
+      "second_size": 24791,
+      "entries_added": 0,
+      "proof_nodes": null,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/wyvern.ct.digicert.com_2027h2.json"
+    },
+    {
+      "log_key": "ct.googleapis.com/logs/eu1/xenon2026h2",
+      "description": "Google 'Xenon2026h2' log",
+      "operator": "Google",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 1922205928,
+      "second_size": 1922213339,
+      "entries_added": 7411,
+      "proof_nodes": 20,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/ct.googleapis.com_logs_eu1_xenon2026h2.json"
+    },
+    {
+      "log_key": "ct.googleapis.com/logs/eu1/xenon2027h1",
+      "description": "Google 'Xenon2027h1'",
+      "operator": "Google",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 97740901,
+      "second_size": 97741932,
+      "entries_added": 1031,
+      "proof_nodes": 22,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/ct.googleapis.com_logs_eu1_xenon2027h1.json"
+    },
+    {
+      "log_key": "ct.googleapis.com/logs/us1/argon2026h2",
+      "description": "Google 'Argon2026h2' log",
+      "operator": "Google",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 2281693199,
+      "second_size": 2281702148,
+      "entries_added": 8949,
+      "proof_nodes": 30,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/ct.googleapis.com_logs_us1_argon2026h2.json"
+    },
+    {
+      "log_key": "ct.googleapis.com/logs/us1/argon2027h1",
+      "description": "Google 'Argon2027h1'",
+      "operator": "Google",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 164742560,
+      "second_size": 164744704,
+      "entries_added": 2144,
+      "proof_nodes": 16,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/ct.googleapis.com_logs_us1_argon2027h1.json"
+    },
+    {
+      "log_key": "sum.golang.org",
+      "description": "Go checksum database",
+      "operator": "Google, for the Go project",
+      "checkpoint_format": "c2sp_signed_note",
+      "signature_scheme": "ed25519_note",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 58590582,
+      "second_size": 58590582,
+      "entries_added": 0,
+      "proof_nodes": null,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/sum.golang.org.json"
+    },
+    {
+      "log_key": "elephant2026h2.ct.sectigo.com",
+      "description": "Sectigo 'Elephant2026h2'",
+      "operator": "Sectigo",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 1483055905,
+      "second_size": 1483055905,
+      "entries_added": 0,
+      "proof_nodes": null,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/elephant2026h2.ct.sectigo.com.json"
+    },
+    {
+      "log_key": "elephant2027h1.ct.sectigo.com",
+      "description": "Sectigo 'Elephant2027h1'",
+      "operator": "Sectigo",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 117555104,
+      "second_size": 117555104,
+      "entries_added": 0,
+      "proof_nodes": null,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/elephant2027h1.ct.sectigo.com.json"
+    },
+    {
+      "log_key": "elephant2027h2.ct.sectigo.com",
+      "description": "Sectigo 'Elephant2027h2'",
+      "operator": "Sectigo",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 27129,
+      "second_size": 27129,
+      "entries_added": 0,
+      "proof_nodes": null,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/elephant2027h2.ct.sectigo.com.json"
+    },
+    {
+      "log_key": "tiger2026h2.ct.sectigo.com",
+      "description": "Sectigo 'Tiger2026h2'",
+      "operator": "Sectigo",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 1793061034,
+      "second_size": 1793061034,
+      "entries_added": 0,
+      "proof_nodes": null,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/tiger2026h2.ct.sectigo.com.json"
+    },
+    {
+      "log_key": "tiger2027h1.ct.sectigo.com",
+      "description": "Sectigo 'Tiger2027h1'",
+      "operator": "Sectigo",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 129503074,
+      "second_size": 129505432,
+      "entries_added": 2358,
+      "proof_nodes": 20,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/tiger2027h1.ct.sectigo.com.json"
+    },
+    {
+      "log_key": "tiger2027h2.ct.sectigo.com",
+      "description": "Sectigo 'Tiger2027h2'",
+      "operator": "Sectigo",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 26531,
+      "second_size": 26531,
+      "entries_added": 0,
+      "proof_nodes": null,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/tiger2027h2.ct.sectigo.com.json"
+    },
+    {
+      "log_key": "rekor.sigstore.dev",
+      "description": "Sigstore Rekor, active shard",
+      "operator": "Sigstore",
+      "checkpoint_format": "rekor_json_wrapping_a_signed_note",
+      "signature_scheme": "ecdsa_p256_note",
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "public_key_obtained_independently_of_the_log",
+      "refuse_reason": "public_key_obtained_independently_of_the_log:only_key_source_read_is_the_log_itself",
+      "attribution": "ecosystem",
+      "first_size": 2197320522,
+      "second_size": 2197332918,
+      "entries_added": 12396,
+      "proof_nodes": 23,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/rekor.sigstore.dev.json"
+    },
+    {
+      "log_key": "ct2026-a.trustasia.com/log2026a",
+      "description": "TrustAsia 'log2026a'",
+      "operator": "TrustAsia",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 2359435567,
+      "second_size": 2359442892,
+      "entries_added": 7325,
+      "proof_nodes": 21,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/ct2026-a.trustasia.com_log2026a.json"
+    },
+    {
+      "log_key": "ct2026-b.trustasia.com/log2026b",
+      "description": "TrustAsia 'log2026b'",
+      "operator": "TrustAsia",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 2380730537,
+      "second_size": 2380730537,
+      "entries_added": 0,
+      "proof_nodes": null,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/ct2026-b.trustasia.com_log2026b.json"
+    },
+    {
+      "log_key": "hetu2027.trustasia.com/hetu2027",
+      "description": "TrustAsia 'HETU2027'",
+      "operator": "TrustAsia",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "must_admit": true,
+      "full_admit": true,
+      "refuse_limb": null,
+      "refuse_reason": null,
+      "attribution": null,
+      "first_size": 46928430,
+      "second_size": 46928430,
+      "entries_added": 0,
+      "proof_nodes": null,
+      "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/hetu2027.trustasia.com_hetu2027.json"
+    }
+  ],
+  "not_claimed": [
+    "This node is a monitor, not a witness. It holds no key, cosigns nothing, and appears on no witness list. Nothing in this ledger is an attestation anybody else can rely on.",
+    "A batch monitor cannot see a split view that is served to one reader and withdrawn before the next batch. It sees the log at the instants it reads it and says nothing about the gaps between them.",
+    "A signature this monitor fails to verify is recorded as this monitor failing to verify it. The verifiers here are hand rolled in pure Python because this engine carries no cryptography library, and a hand rolled verifier that disagrees with a log operated by Google is overwhelmingly more likely to be the broken party.",
+    "This is not coverage of the transparency log ecosystem. The population is a frozen list drawn from public log lists, and no rate here should be read as a rate over all logs.",
+    "No log was contacted beyond plain GETs of endpoints that are already public, with an identifying user agent."
+  ],
+  "prior_art": [
+    {
+      "work": "RFC 6962, Certificate Transparency",
+      "url": "https://www.rfc-editor.org/rfc/rfc6962",
+      "relation": "Defines the signed tree head, the get-sth and get-sth-consistency endpoints this monitor calls, the TreeHeadSignature input it reconstructs, and the consistency proof verification algorithm it implements."
+    },
+    {
+      "work": "RFC 9162, Certificate Transparency version 2.0",
+      "url": "https://www.rfc-editor.org/rfc/rfc9162",
+      "relation": "Restates the same Merkle constructions and is explicit about the separation between logs, monitors and auditors that this ledger relies on."
+    },
+    {
+      "work": "C2SP signed note and tlog checkpoint",
+      "url": "https://github.com/C2SP/C2SP/blob/main/signed-note.md",
+      "relation": "The text checkpoint format the Go checksum database and Sigstore serve, which this monitor parses: origin line, tree size, base64 root hash, blank line, signature lines."
+    },
+    {
+      "work": "C2SP tlog-witness",
+      "url": "https://github.com/C2SP/C2SP/blob/main/tlog-witness.md",
+      "relation": "The witness protocol this node deliberately does not implement. A witness cosigns with a key and this node holds none."
+    },
+    {
+      "work": "transparency.dev",
+      "url": "https://transparency.dev/",
+      "relation": "The ecosystem this work sits inside, and the source of the witness and monitor distinction the ledger is built around."
+    },
+    {
+      "work": "Sigsum",
+      "url": "https://www.sigsum.org/",
+      "relation": "A log design where witness cosigning is mandatory rather than optional, which is the contrast that makes counting cosignatures on other logs worth doing."
+    },
+    {
+      "work": "Go checksum database design",
+      "url": "https://go.dev/design/25530-sumdb",
+      "relation": "The tile based transparent log this monitor reads a checkpoint from and cannot yet prove consistency over."
+    }
+  ],
+  "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
+  "receipt_lookup": "https://geniusflow-federation.vercel.app/tlog/receipts/<LOG_KEY>.json",
+  "human_summary": "https://geniusflow-federation.vercel.app/tlog/README.md",
+  "human_page": "https://kaydeep0.github.io/eigenstate-research/tlog/",
+  "mirrored_at": "https://kaydeep0.github.io/eigenstate-research/tlog/",
+  "mirror_note": "This file is a mirror of the batch identified by the digest above. The federation origin serves the same digest plus one file per log in the population."
+}

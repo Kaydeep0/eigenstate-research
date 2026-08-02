@@ -1,0 +1,174 @@
+{
+  "log_key": "rekor.sigstore.dev",
+  "description": "Sigstore Rekor, active shard",
+  "operator": "Sigstore",
+  "checkpoint_url": "https://rekor.sigstore.dev/api/v1/log",
+  "checkpoint_format": "rekor_json_wrapping_a_signed_note",
+  "signature_scheme": "ecdsa_p256_note",
+  "key_source_url": "https://rekor.sigstore.dev/api/v1/log/publicKey",
+  "limbs": {
+    "log_listed_in_a_public_list": {
+      "outcome": "ok",
+      "listed_in": "named individually in the expectations file"
+    },
+    "public_key_obtained_independently_of_the_log": {
+      "outcome": "fail",
+      "reason": "only_key_source_read_is_the_log_itself",
+      "attribution": "ecosystem",
+      "key_source": "https://rekor.sigstore.dev/api/v1/log/publicKey",
+      "note": "The only key source this monitor reads is the log's own endpoint. Sigstore distributes the same key through a TUF root on a separate origin, which is the independent path, and this monitor has not implemented TUF. The independence limb refuses and the refusal is attributed to the ecosystem rather than to the log."
+    },
+    "checkpoint_endpoint_answers_without_credentials": {
+      "outcome": "ok",
+      "status": 200,
+      "bytes": 1151
+    },
+    "checkpoint_parses_in_its_declared_format": {
+      "outcome": "ok",
+      "format": "c2sp_signed_note"
+    },
+    "checkpoint_carries_tree_size_and_root_hash": {
+      "outcome": "ok",
+      "tree_size": 2197320522,
+      "root_hash": "d67aaae18e13bd7ddfb81aad986c511ef6042ec9a73da75d0220022940e2cd40"
+    },
+    "checkpoint_carries_a_signature": {
+      "outcome": "ok",
+      "signature_lines": 1
+    },
+    "signature_scheme_supported_by_this_monitor": {
+      "outcome": "fail",
+      "reason": "signature_scheme_not_implemented_by_this_monitor:ecdsa_p256_note",
+      "attribution": "probe"
+    },
+    "signature_verifies_against_the_published_key": {
+      "outcome": "fail",
+      "reason": "signature_not_checked_because_this_monitor_cannot_read_the_scheme",
+      "attribution": "probe"
+    },
+    "checkpoint_carries_witness_cosignatures": {
+      "outcome": "fail",
+      "reason": "checkpoint_carried_no_signature_beyond_the_log_own",
+      "attribution": "publisher",
+      "note": null
+    },
+    "prior_batch_checkpoint_on_record": {
+      "outcome": "fail",
+      "reason": "no_prior_batch_for_this_log_on_this_monitor",
+      "attribution": "probe",
+      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+    },
+    "second_read_answered": {
+      "outcome": "ok",
+      "tree_size": 2197332918
+    },
+    "tree_did_not_shrink_between_reads": {
+      "outcome": "ok",
+      "first_size": 2197320522,
+      "second_size": 2197332918,
+      "entries_added": 12396
+    },
+    "consistency_proof_served": {
+      "outcome": "ok",
+      "nodes": 23
+    },
+    "consistency_proof_recomputes_to_the_second_root": {
+      "outcome": "ok",
+      "reason": "both_roots_recomputed",
+      "first_size": 2197320522,
+      "second_size": 2197332918,
+      "proof_nodes": 23
+    }
+  },
+  "evidence": {
+    "first_read": {
+      "url": "https://rekor.sigstore.dev/api/v1/log",
+      "status": 200,
+      "error": null,
+      "bytes": 1151,
+      "read_at": "2026-08-02T05:33:45.962342+00:00",
+      "body_sha256": "af5285319a2340932a706fbaf902efd06b4b4aaefd482d4341f66ebadf8224d1",
+      "parsed": true,
+      "format": "c2sp_signed_note",
+      "origin": "rekor.sigstore.dev - 1193050959916656506",
+      "tree_size": 2197320522,
+      "signature_lines": 1,
+      "extension_lines": [],
+      "declared_tree_size": 2197320522,
+      "declared_root_hash": "d67aaae18e13bd7ddfb81aad986c511ef6042ec9a73da75d0220022940e2cd40",
+      "root_hash_hex": "d67aaae18e13bd7ddfb81aad986c511ef6042ec9a73da75d0220022940e2cd40",
+      "raw_body": "{\"inactiveShards\":[{\"rootHash\":\"4d006aa46efcb607dd51d900b1213754c50cc9251c3405c6c2561d9d6a2f3239\",\"signedTreeHead\":\"rekor.sigstore.dev - 3904496407287907110\\n4163431\\nTQBqpG78tgfdUdkAsSE3VMUMySUcNAXGwlYdnWovMjk=\\n\\n— rekor.sigstore.dev wNI9ajBEAiBhhgpYV9Y0ykm/yD4y1zdgP+EsYgRZgrnXf/Qkpa/O6AIgRB2V3xuZjHkhFkkSar6ep/AJf+/5I8VuaNUfP8WE9Gg=\\n\",\"treeID\":\"3904496407287907110\",\"treeSize\":4163431},{\"rootHash\":\"2b9c578071e120aa84c9858783daa671565e4165f3a7dfa199aad81940299d8e\",\"signedTreeHead\":\"rekor.sigstore.dev - 2605736670972794746\\n117740831\\nK5xXgHHhIKqEyYWHg9qmcVZeQWXzp9+hmarYGUApnY4=\\n\\n— rekor.sigstore.dev wNI9ajBEAh99+cmSdM0zPu4yxEkqsbojhacZXUIM8VVLOrcXq6U3AiEAnCQRshsdKNvKbDWxT3gz7zKdkTwLByp97RY3Da5sP78=\\n\",\"treeID\":\"2605736670972794746\",\"treeSize\":117740831}],\"rootHash\":\"d67aaae18e13bd7ddfb81aad986c511ef6042ec9a73da75d0220022940e2cd40\",\"signedTreeHead\":\"rekor.sigstore.dev - 1193050959916656506\\n2197320522\\n1nqq4Y4TvX3fuBqtmGxRHvYELsmnPaddAiACKUDizUA=\\n\\n— rekor.sigstore.dev wNI9ajBFAiEA+dwQEal1BbxDbwSGsrae4FXY4gjmDp3V869TGAfyyNkCIHTnzHNwM7u39Guq7R/IsTtSOOc2LrshjdcLkpMfJot1\\n\",\"treeID\":\"1193050959916656506\",\"treeSize\":2197320522}\n"
+    },
+    "signature_check": {
+      "supported": false,
+      "verified": false,
+      "reason": "signature_scheme_not_implemented_by_this_monitor:ecdsa_p256_note"
+    },
+    "second_read": {
+      "url": "https://rekor.sigstore.dev/api/v1/log",
+      "status": 200,
+      "error": null,
+      "bytes": 1151,
+      "read_at": "2026-08-02T05:34:46.892579+00:00",
+      "body_sha256": "37420ded0060bf00bc39d74d2d3053c81e913df29e0e60898b04e442e958d5a8",
+      "parsed": true,
+      "format": "c2sp_signed_note",
+      "origin": "rekor.sigstore.dev - 1193050959916656506",
+      "tree_size": 2197332918,
+      "signature_lines": 1,
+      "extension_lines": [],
+      "declared_tree_size": 2197332918,
+      "declared_root_hash": "e4cd8bcf642ce8bfb71fb2e08247b5c2ea5624d35dd418df2ccc8e3644c513f7",
+      "root_hash_hex": "e4cd8bcf642ce8bfb71fb2e08247b5c2ea5624d35dd418df2ccc8e3644c513f7"
+    },
+    "consistency_request": {
+      "served": true,
+      "url": "https://rekor.sigstore.dev/api/v1/log/proof?firstSize=2197320522&lastSize=2197332918",
+      "proof": [
+        "b96172d23a86e17a5c60c78834595b2914fb6be4ebe03756cbcb64497e23076b",
+        "4c279fd39c62c5fc3ee8776480d17fc0233f0da5f145dcb1cf67f2dd52422b0b",
+        "68617408bc9cf1e7676fe074df291ebf2b93584fb4874e692f56fa23d5823f1b",
+        "1f75bbac4a95e4769c6775249af18df215ac2d835bbf346d1c540a9498bfcb87",
+        "68ea50ff516606db6821705beeee525c6c417e70d3698d826955f60ce824e35c",
+        "58f0e9363c667f28f491888110b8f6e233730dc735691fe0d7cb64e378d7433d",
+        "63f3beb80778ae841b602c49fa33ce3d65ae618cdbf255cd454cf8dec67907cf",
+        "31ecad3a4ff419932f5e49e3e990f4b8eb9c1a78242212137c2a48abe1445eb2",
+        "7fe9b202053abbb0b1bb14bc5462bc1f30628ff0f7034302c8e88d0806a1af46",
+        "3697a5cd3a596f687eed17a00b9fa54f73c45f42a0c550a411cd02c9f258ad47",
+        "d6fe9c45b567173b71843b7f3628ce9c9c55cc6cf8e0e20ffe85b3b89499dbeb",
+        "337a98d1189f0088d2564a948dd0aed39b6972dd6662e0984965ed3a2758a1e6",
+        "d7443c0f0f02f2bcddc1a1b21cc5ab9e60f6990082bbee087a5a4e209eb36415",
+        "9ff5435dd2d0e77ea2670238af9985a94b66d65096ee53cfb858d84c380d3fbe",
+        "d0cfa4572011ccc296a6e12808dd81f83a7940559f5c6c9c646319c17f09c81a",
+        "fd6c03f32b059baf0aea2e7bcd512a7085fee483097e4901c3590da21409e493",
+        "b7c9589ea639f9ca512bde2f9214403c6b719120b3d4166110db4661bcb9880b",
+        "03704d5fa3d59fd84cb2e20a95297aea4bb7c6214a5913ec86078432eb99cee7",
+        "168d2829367f0c73ac1a95e25d95570675ad73ebe040934400402e59b5beef17",
+        "b32061edf0c63021d3cc8f19707a22b1e2211c132ed7325d56e1ef65c439b790",
+        "afaab348b7f755b9ef7f42f8b39cb0e5016a0241bd3889a4627b56446a1a1da6",
+        "3767317bcbdeaa2de21bf1067f5cc06a0b784aab162b0832c4d09e8120dceb4b",
+        "c47fc30ac78b1ebf5e2a8613f2ab0e4592bbcd5744198587b95b6c56b0fde706"
+      ],
+      "nodes": 23
+    }
+  },
+  "tree_advanced_between_reads": true,
+  "entries_added_between_reads": 12396,
+  "checked_at": "2026-08-02T05:34:50.805922+00:00",
+  "must_admit": false,
+  "full_admit": false,
+  "refuse_limb": "public_key_obtained_independently_of_the_log",
+  "refuse_reason": "public_key_obtained_independently_of_the_log:only_key_source_read_is_the_log_itself",
+  "attribution": "ecosystem",
+  "must_limbs_failed": [
+    "public_key_obtained_independently_of_the_log",
+    "signature_verifies_against_the_published_key"
+  ],
+  "should_limbs_failed": [
+    "signature_scheme_supported_by_this_monitor"
+  ],
+  "receipt_filename": "rekor.sigstore.dev.json",
+  "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
+  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
+}
