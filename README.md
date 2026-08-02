@@ -227,27 +227,27 @@ and serves a per-subject receipt so a disagreement is a fetch rather than an arg
 
 | Ledger | Population | Headline | Why it is checkable | Machine readable |
 |--------|-----------|----------|---------------------|------------------|
-| [ERC-8004 refusal](https://kaydeep0.github.io/eigenstate-research/erc8004/) | 500 agentIds drawn uniformly from the 60444 registered on Base at block 49425346 | **73.0%** refuse at least one MUST limb (95% CI 68.9 to 76.7); **91.0%** including self-reference and endpoint liveness (CI 88.2 to 93.2) | the draw is seeded by the pinned block hash and nothing else, so a third party can redraw the same 500 | [`summary.json`](https://kaydeep0.github.io/eigenstate-research/erc8004/summary.json) · [`ledger.json`](https://kaydeep0.github.io/eigenstate-research/erc8004/ledger.json) |
+| [ERC-8004 refusal](https://kaydeep0.github.io/eigenstate-research/erc8004/) | 500 agentIds drawn uniformly from the 60455 registered on Base at block 49430006 (live `/erc8004/`; [run history](https://kaydeep0.github.io/eigenstate-research/ledgers/)) | **71.4%** refuse at least one MUST limb (95% CI 67.3 to 75.2); **88.8%** including self-reference and endpoint liveness (CI 85.7 to 91.3). Run 1 was 73.0% / 91.0% at block 49425346; intervals overlap. | the draw is seeded by the pinned block hash and nothing else, so a third party can redraw the same 500 | [`summary.json`](https://kaydeep0.github.io/eigenstate-research/erc8004/summary.json) · [`ledger.json`](https://kaydeep0.github.io/eigenstate-research/erc8004/ledger.json) |
 | [Supply chain provenance](https://kaydeep0.github.io/eigenstate-research/slsa/) | census, not sample: all 94 distributions pip resolves for this engine's own `requirements.txt` | **44** serve a PEP 740 attestation and all 44 verify; **50** serve none; **0** carry SLSA build provenance | expectations committed before the run: [`expectations.json`](https://kaydeep0.github.io/eigenstate-research/slsa/expectations.json) | [`summary.json`](https://kaydeep0.github.io/eigenstate-research/slsa/summary.json) · [`ledger.json`](https://kaydeep0.github.io/eigenstate-research/slsa/ledger.json) |
 | [RWA disclosure interface](https://kaydeep0.github.io/eigenstate-research/rwa/) | 17 tracked RWA issuers and tokenized instruments this node already publishes a dossier card for | **0 of 17** serve a machine readable disclosure surface on an origin they operate | expectations published before the run: [`expectations.json`](https://kaydeep0.github.io/eigenstate-research/rwa/expectations.json) | [`summary.json`](https://kaydeep0.github.io/eigenstate-research/rwa/summary.json) · [`ledger.json`](https://kaydeep0.github.io/eigenstate-research/rwa/ledger.json) |
 | [Grounded claim corpus](https://kaydeep0.github.io/eigenstate-research/grounded-claims/) | census of the 6 SEC and Fed claims this node already publishes (19 ledger rows behind them) | **6 of 6** still grounded at the cited URL; **5 of 6** clear every MUST; **0 of 6** clear MUST and SHOULD; **0 of 6** cite a primary filing | expectations published before the run: [`expectations.json`](https://kaydeep0.github.io/eigenstate-research/grounded-claims/expectations.json) | [`summary.json`](https://kaydeep0.github.io/eigenstate-research/grounded-claims/summary.json) · [`ledger.json`](https://kaydeep0.github.io/eigenstate-research/grounded-claims/ledger.json) |
 | [Transparency log monitor](https://kaydeep0.github.io/eigenstate-research/tlog/) | 23 public transparency logs drawn from lists this node did not write | **22 of 23** MUST-admit; **11 of 11** consistency proofs recomputed; **0** disagreements this batch; monitor not witness | expectations published before the batch: [`expectations.json`](https://kaydeep0.github.io/eigenstate-research/tlog/expectations.json) | [`summary.json`](https://kaydeep0.github.io/eigenstate-research/tlog/summary.json) · [`ledger.json`](https://kaydeep0.github.io/eigenstate-research/tlog/ledger.json) |
 
 Per-subject receipts are served from the federation origin:
-[`/erc8004/receipts/<agentId>.json`](https://geniusflow-federation.vercel.app/erc8004/receipts/13.json) ·
+[`/erc8004/receipts/<agentId>.json`](https://geniusflow-federation.vercel.app/erc8004/receipts/86.json) ·
 [`/slsa/receipts/<normalized-name>.json`](https://geniusflow-federation.vercel.app/slsa/receipts/anthropic.json) ·
 [`/rwa/receipts/<ENTITY>.json`](https://geniusflow-federation.vercel.app/rwa/receipts/BLACKROCK_BUIDL.json) ·
 [`/grounded-claims/receipts/<CLAIM_KEY>.json`](https://geniusflow-federation.vercel.app/grounded-claims/receipts/FED_FOMC.json) ·
 [`/tlog/receipts/<LOG_KEY>.json`](https://geniusflow-federation.vercel.app/tlog/receipts/ct.cloudflare.com_logs_nimbus2026.json).
 
 <details>
-<summary><strong>ERC-8004: what the 73 percent is made of, and what it is not</strong></summary>
+<summary><strong>ERC-8004: what the 71.4 percent is made of, and what it is not</strong></summary>
 
-The miss rate is measured, not asserted. Of 500 agentIds drawn uniformly from the 60444 registered
-on Base at block 49425346, **365 refuse at least one limb the ERC states as MUST** (73.0 percent,
-95 percent CI 68.9 to 76.7), and **455 refuse** once self-reference and endpoint liveness are
-counted (91.0 percent, CI 88.2 to 93.2). The largest single cause is an on-chain identity carrying
-no agentURI at all, **174 of 500**. Every refusal names its limb, and limbs run in a frozen order,
+The miss rate is measured, not asserted. The live ledger (`/erc8004/`) is run 2: of 500 agentIds drawn uniformly from the 60455 registered
+on Base at block 49430006, **357 refuse at least one limb the ERC states as MUST** (71.4 percent,
+95 percent CI 67.3 to 75.2), and **444 refuse** once self-reference and endpoint liveness are
+counted (88.8 percent, CI 85.7 to 91.3). The largest single cause is an on-chain identity carrying
+no agentURI at all, **153 of 500**. Run 1 (73.0% / 91.0% at block 49425346) stays in [run history](https://kaydeep0.github.io/eigenstate-research/ledgers/); the two intervals overlap. Every refusal names its limb, and limbs run in a frozen order,
 so the counts partition the sample rather than double-counting it. Cite that interval or nothing.
 
 This is not the first measurement of ERC-8004 registration quality and does not claim to be.
@@ -508,7 +508,7 @@ of the same path: [verify-walkthrough/](https://kaydeep0.github.io/eigenstate-re
 
 | Ledger | Human | Machine | Per-subject receipt (federation origin only) |
 |--------|-------|---------|----------------------------------------------|
-| ERC-8004 refusal (Base, read-only probe) | [/erc8004/](https://kaydeep0.github.io/eigenstate-research/erc8004/) | `/erc8004/summary.json` and `/erc8004/ledger.json` on both origins | `https://geniusflow-federation.vercel.app/erc8004/receipts/<agentId>.json` (worked example: [agent 13](https://geniusflow-federation.vercel.app/erc8004/receipts/13.json)) |
+| ERC-8004 refusal (Base, read-only probe) | [/erc8004/](https://kaydeep0.github.io/eigenstate-research/erc8004/) | `/erc8004/summary.json` and `/erc8004/ledger.json` on both origins | `https://geniusflow-federation.vercel.app/erc8004/receipts/<agentId>.json` (worked example: [agent 86](https://geniusflow-federation.vercel.app/erc8004/receipts/86.json)) |
 | Provenance census (this engine's own dependencies, PEP 740 and SLSA) | [/slsa/](https://kaydeep0.github.io/eigenstate-research/slsa/) | `/slsa/expectations.json` (published before the run), `/slsa/summary.json`, `/slsa/ledger.json` on both origins | `https://geniusflow-federation.vercel.app/slsa/receipts/<normalized-name>.json` (worked example: [anthropic](https://geniusflow-federation.vercel.app/slsa/receipts/anthropic.json)) |
 | RWA disclosure interface survey (17 tracked issuers, machine readable or not) | [/rwa/](https://kaydeep0.github.io/eigenstate-research/rwa/) | `/rwa/expectations.json` (published before the run), `/rwa/summary.json`, `/rwa/ledger.json` on both origins | `https://geniusflow-federation.vercel.app/rwa/receipts/<ENTITY>.json` (worked example: [BLACKROCK_BUIDL](https://geniusflow-federation.vercel.app/rwa/receipts/BLACKROCK_BUIDL.json)) |
 | Grounded claim corpus (SEC and Fed claims this node publishes, rechecked) | [/grounded-claims/](https://kaydeep0.github.io/eigenstate-research/grounded-claims/) | `/grounded-claims/expectations.json` (published before the run), `/grounded-claims/summary.json`, `/grounded-claims/ledger.json` on both origins | `https://geniusflow-federation.vercel.app/grounded-claims/receipts/<CLAIM_KEY>.json` (worked example: [FED_FOMC](https://geniusflow-federation.vercel.app/grounded-claims/receipts/FED_FOMC.json)) |

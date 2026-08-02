@@ -14,8 +14,8 @@ HN first comment, to paste immediately after submitting: `docs/launch/HN_ERC8004
 
 ERC-8004 gives an AI agent an on-chain identity that points at an off-chain registration
 file. I sampled 500 of the 60,444 agents registered on Base at a pinned block and fetched
-what each one actually points at. 73.0% fail at least one limb the ERC states as MUST
-(95% CI 68.9 to 76.7). 34.8% hold an identity with no agentURI at all.
+what each one actually points at. Run 1 (block 49425346): 73.0% fail at least one limb the ERC states as MUST
+(95% CI 68.9 to 76.7); 34.8% hold an identity with no agentURI at all. Live `/erc8004/` is run 2 (~71.4% MUST-miss at block 49430006); both runs: https://kaydeep0.github.io/eigenstate-research/ledgers/
 
 Prior art first, because this is not a new finding. Xiong et al., "Can Trustless Agents
 Be Trusted?" (arXiv 2606.26028), crawled the full Identity Registry population on
@@ -51,7 +51,7 @@ https://geniusflow-federation.vercel.app/erc8004/ledger.json
 One agent:
 
 ```
-curl -sS https://geniusflow-federation.vercel.app/erc8004/receipts/1.json | jq '{agent_id, refuse_limb, limbs}'
+curl -sS https://geniusflow-federation.vercel.app/erc8004/receipts/86.json | jq '{agent_id, refuse_limb, limbs}'
 ```
 
 Limits I would raise myself. It is one fetch at one moment from one network vantage

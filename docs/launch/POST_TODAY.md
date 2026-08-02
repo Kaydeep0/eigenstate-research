@@ -18,7 +18,7 @@ Paste body: [`ETHEREUM_MAGICIANS_ERC8004.md`](ETHEREUM_MAGICIANS_ERC8004.md).
 
 | Pack item | Path / URL | Status |
 |-----------|------------|--------|
-| Magicians body | [`ETHEREUM_MAGICIANS_ERC8004.md`](ETHEREUM_MAGICIANS_ERC8004.md) | Paste-ready; matches live 73% / 91% / 34.8% |
+| Magicians body | [`ETHEREUM_MAGICIANS_ERC8004.md`](ETHEREUM_MAGICIANS_ERC8004.md) | Paste-ready; quotes run 1 (73% / 91% / 34.8%) and labels run 2 (~71.4%); worked receipt agent 86 |
 | HN body | [`HN_ERC8004.md`](HN_ERC8004.md) | Paste-ready; Day 3–7 after Magicians |
 | RWA body | [`RWA_DISCLOSURE_DISCUSSION.md`](RWA_DISCLOSURE_DISCUSSION.md) | Paste-ready; 0/17 + 2/4-of-6 attributable |
 | SLSA body | [`DISCUSS_PYTHON_SLSA.md`](DISCUSS_PYTHON_SLSA.md) | Paste-ready; 44 / 50 / 0 of 94 |
@@ -56,7 +56,7 @@ Paste body: [`ETHEREUM_MAGICIANS_ERC8004.md`](ETHEREUM_MAGICIANS_ERC8004.md).
 2. Paste it into the scoreboard event log in [`CATEGORY_INFRA_90D.md`](CATEGORY_INFRA_90D.md) (or tell the agent the URL to log).
 3. Optional sanity check that strangers can fetch:
    - https://kaydeep0.github.io/eigenstate-research/erc8004/summary.json
-   - https://geniusflow-federation.vercel.app/erc8004/receipts/13.json
+   - https://geniusflow-federation.vercel.app/erc8004/receipts/86.json
 
 ---
 

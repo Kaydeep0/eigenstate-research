@@ -115,8 +115,13 @@ https://kaydeep0.github.io/eigenstate-research/erc8004/
 
 **If asked about the 89 self-reference failures specifically:**
 
-Point at the ledger and offer the receipt lookup:
+Point at the ledger and offer the receipt lookup (any sampled agentId; worked example from the live run-2 sample):
+
 `https://geniusflow-federation.vercel.app/erc8004/receipts/<agentId>.json`
+
+```
+curl -sS https://geniusflow-federation.vercel.app/erc8004/receipts/86.json | jq '{agent_id, refuse_limb, limbs}'
+```
 
 **Do not:**
 

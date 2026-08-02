@@ -15,6 +15,8 @@ than pretending it did.
 
 **Title:** 73% of sampled ERC-8004 agent registrations on Base fail a MUST limb
 
+(That 73% is run 1 at block 49425346, matching the Magicians draft. Live `/erc8004/` is run 2: ~71.4% MUST-miss at block 49430006; both digests at `/ledgers/`. Worked receipt example: agent 86.)
+
 Alternates, if the above reads as too clickbait for the guidelines:
 
 - Show HN: A refusal ledger for ERC-8004 agent registrations on Base
@@ -53,7 +55,7 @@ page is:
 - 95% Wilson interval on every rate.
 - One receipt per sampled agentId with the exact HTTP status or transport error, so you
   can overturn any single agent without arguing about the aggregate:
-  `curl -sS https://geniusflow-federation.vercel.app/erc8004/receipts/1.json | jq '{agent_id, refuse_limb, limbs}'`
+  `curl -sS https://geniusflow-federation.vercel.app/erc8004/receipts/86.json | jq '{agent_id, refuse_limb, limbs}'`
 
 Limitations, since they will come up anyway:
 
