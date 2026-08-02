@@ -1,0 +1,533 @@
+{
+  "probe": "rwa_disclosure_interface_survey",
+  "probe_version": "1.0.2",
+  "generated_at": "2026-08-02T04:34:38.790773+00:00",
+  "digest": "ce9c3eb42c04d9d8bfe9c40ffbdebca614eed14b818c39b9a189ee31ea203751",
+  "expectations_digest": "28961d5d66629b9a0d370b1331bd7b7b66f7c857d78a47145e29567c7c7aef1a",
+  "expectations_generated_at": "2026-08-02T04:28:11.184875+00:00",
+  "expectations": "https://geniusflow-federation.vercel.app/rwa/expectations.json",
+  "probe_version_at_expectations": "1.0.0",
+  "probe_defects_fixed_before_publication": [
+    {
+      "defect": "conventional_path_answers was sequenced behind the media type limb",
+      "effect": "Every issuer operated surface in this population is an HTML document, so the receipt returned before the convention limb was ever observed. The first run made zero conventional path requests and still scored the prediction about them as met, which is a claim on no evidence.",
+      "fix": "The limb asks about the issuer's origin rather than about the surface the other limbs read, so it is now evaluated for every issuer that has an origin at all, independent of what the earlier limbs found. The prediction now scores as missed when no request was made."
+    },
+    {
+      "defect": "a body clipped at this probe's own size cap was charged as a parse error",
+      "effect": "One aggregator surface is larger than the original 2 MB cap. The probe truncated it, failed to parse its own truncation, and recorded the failure against the surface. That is a refusal this probe manufactured.",
+      "fix": "The cap is raised to 32 MB, truncation is detected explicitly, and a clipped body is now named body_truncated_at_probe_cap and attributed to this probe rather than to the publisher."
+    },
+    {
+      "defect": "the registry reference limbs accepted false positives",
+      "effect": "The ISIN pattern matched any twelve character uppercase code, so two DefiLlama pool names were reported as securities identifiers. Chain qualification accepted a chain key anywhere in the document, so a two megabyte pool listing qualified an address that appeared nowhere near it, and an all-zero address counted as a reference.",
+      "fix": "ISIN and LEI candidates now have to pass their real check digits, the all-zero address is discarded, and chain qualification requires the chain to sit in the same object as the address. This is the limb the survey is loudest about, so it is the one that had to be strictest."
+    }
+  ],
+  "subject": {
+    "what": "the machine readability of the disclosure surfaces this node has recorded for the real world asset issuers and instruments it tracks",
+    "engine_commit": "63a8337c5ae03ff9d34ba36e8b6ad834fe3eb806",
+    "dossier_source": "https://kaydeep0.github.io/eigenstate-research/dossier/"
+  },
+  "question": {
+    "asked": "Can a program read the disclosed figure for this issuer without a human, a document parser, or a third party who already did both?",
+    "not_asked": "Whether the disclosure is accurate, adequate, audited or timely. Those are larger questions and this survey answers none of them.",
+    "why_it_is_separate": "Everyone publishes how much tokenized real world asset value exists. Nobody publishes whether the issuer of that value serves a number a machine can read. An attestation PDF is a strong disclosure and a useless interface."
+  },
+  "population_rule": "An entity is in the population iff this node already exports a public dossier card for it and it is the issuer of a real world asset token or is itself a tokenized instrument backed by one. The rule is frozen here, before results.",
+  "surface_sources": {
+    "claim_ledger": "data/verification/claim_ledger.jsonl, the verified claim ledger. Every source_url and corroborating_url recorded against an entity in the population is taken as a candidate disclosure surface for that entity.",
+    "srr_grounding": "data/sensors/srr_grounding.json, the sensor grounding file. Every source_url is taken as a candidate surface for the population entity whose identifier matches the grounding row's entity_id exactly, or matches it after the last underscore."
+  },
+  "rejected_surface_sources": [
+    {
+      "source": "data/entity_tvl_cache.json",
+      "field": "entities.<SLUG>.url",
+      "reason": "the cache is populated by fuzzy name matching against DefiLlama and several of its RWA matches are wrong. ONDO and BACKED both resolve to a Kujira project called FIN, TOKENIZED_TREASURY and CIRCLE_RESERVE_FUND both resolve to a protocol called Re, and BLACKROCK resolves to securitize.io. Using these as issuer origins would attribute one company's website to another."
+    }
+  ],
+  "excluded_from_population": [
+    {
+      "entity": "TOKENIZED_TREASURY",
+      "reason": "segment node, not an issuer or an instrument",
+      "tracked_by_this_node": "yes"
+    },
+    {
+      "entity": "CLEARWAY_DTCC",
+      "reason": "settlement infrastructure, not an issuer of a real world asset token",
+      "tracked_by_this_node": "yes"
+    },
+    {
+      "entity": "RWA_AUDIENCE, RWA_CONF_2025, RWA_INFLUENCER_1..5, RWA_SOLVES_YIELD, RWA_TELEGRAM, RWA_XYZ_DATA, TWITTER_RWA",
+      "reason": "discourse and audience nodes about the sector, not issuers in it",
+      "tracked_by_this_node": "yes"
+    }
+  ],
+  "named_but_not_tracked": [
+    {
+      "issuer": "Franklin Templeton (BENJI, FOBXX)",
+      "reason": "this node holds no dossier card for it, so it is out of population and this survey makes no claim about it. This engine's own sensor grounding file records the same gap in its notes: BENJI omitted, no live primary AUM endpoint yet."
+    },
+    {
+      "issuer": "Superstate (USTB, USCC)",
+      "reason": "no dossier card on this node; out of population"
+    },
+    {
+      "issuer": "Hashnote (USYC)",
+      "reason": "no dossier card under that name. The instrument is tracked as CIRCLE_USYC following its acquisition, and CIRCLE_USYC is in population."
+    },
+    {
+      "issuer": "Centrifuge, Goldfinch",
+      "reason": "no dossier card on this node; out of population"
+    }
+  ],
+  "limb_order_frozen": [
+    "disclosure_surface_declared",
+    "surface_resolves",
+    "machine_readable_media_type",
+    "body_parses_as_served_type",
+    "figure_addressable_by_key_path",
+    "as_of_date_present",
+    "issuer_operated_surface",
+    "registry_ref_present",
+    "registry_ref_chain_qualified",
+    "conventional_path_answers"
+  ],
+  "limb_spec_level": {
+    "disclosure_surface_declared": "MUST",
+    "surface_resolves": "MUST",
+    "machine_readable_media_type": "MUST",
+    "body_parses_as_served_type": "MUST",
+    "figure_addressable_by_key_path": "SHOULD",
+    "as_of_date_present": "SHOULD",
+    "issuer_operated_surface": "SHOULD",
+    "registry_ref_present": "OBSERVED",
+    "registry_ref_chain_qualified": "OBSERVED",
+    "conventional_path_answers": "OBSERVED"
+  },
+  "statuses": {
+    "ok": "limb observed to pass",
+    "fail": "limb observed to fail; counts against the issuer at its stated level",
+    "not_applicable": "limb cannot apply to this issuer",
+    "absent": "an optional artifact was not published; not counted as a failure",
+    "not_reached": "an earlier limb failed, so this one was never observed; it is neither a pass nor an exemption"
+  },
+  "issuers_in_population": 17,
+  "no_surface_recorded_by_this_node": 11,
+  "issuers_with_a_recorded_surface": 6,
+  "must_admit": 2,
+  "must_refuse": 15,
+  "must_refuse_rate": 0.8824,
+  "full_admit": 0,
+  "full_refuse": 17,
+  "machine_readable_surface_exists": 2,
+  "issuer_operated_machine_readable_surface_exists": 0,
+  "attributable_to_issuer": {
+    "n": 6,
+    "must_admit": 2,
+    "must_refuse": 4,
+    "why": "Issuers for which this node recorded no surface at all are excluded here, because that refusal is a fact about this node's coverage rather than about the issuer, as is any refusal this probe caused itself. The headline is reported both ways."
+  },
+  "refuse_limb_counts": {
+    "disclosure_surface_declared": 11,
+    "machine_readable_media_type": 4,
+    "issuer_operated_surface": 1,
+    "as_of_date_present": 1
+  },
+  "top_refuse_reasons": {
+    "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node": 11,
+    "machine_readable_media_type:html_document": 4,
+    "issuer_operated_surface:surface_is_third_party:llama.fi": 1,
+    "as_of_date_present:no_as_of_date_on_the_surface": 1
+  },
+  "limb_outcomes": {
+    "disclosure_surface_declared": {
+      "ok": 6,
+      "fail": 11,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "surface_resolves": {
+      "ok": 6,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 11
+    },
+    "machine_readable_media_type": {
+      "ok": 2,
+      "fail": 4,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 11
+    },
+    "body_parses_as_served_type": {
+      "ok": 2,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 15
+    },
+    "figure_addressable_by_key_path": {
+      "ok": 2,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 15
+    },
+    "as_of_date_present": {
+      "ok": 1,
+      "fail": 1,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 15
+    },
+    "issuer_operated_surface": {
+      "ok": 0,
+      "fail": 2,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 15
+    },
+    "registry_ref_present": {
+      "ok": 1,
+      "fail": 1,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 15
+    },
+    "registry_ref_chain_qualified": {
+      "ok": 0,
+      "fail": 1,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 16
+    },
+    "conventional_path_answers": {
+      "ok": 0,
+      "fail": 4,
+      "not_applicable": 2,
+      "absent": 0,
+      "not_reached": 11
+    }
+  },
+  "surfaces": {
+    "recorded": 15,
+    "resolved": 15,
+    "machine_readable": 2,
+    "issuer_operated": 9,
+    "issuer_operated_and_machine_readable": 0,
+    "media_types_sniffed": {
+      "html": 13,
+      "json": 2
+    },
+    "registrable_domains": {
+      "circle.com": 3,
+      "tether.to": 3,
+      "rwa.xyz": 2,
+      "defillama.com": 2,
+      "ondo.finance": 2,
+      "llama.fi": 2,
+      "blackrock.com": 1
+    },
+    "header_disagreed_with_bytes": 0
+  },
+  "conventional_paths": {
+    "requests": 45,
+    "origins": [
+      "https://docs.ondo.finance",
+      "https://ondo.finance",
+      "https://tether.to",
+      "https://www.blackrock.com",
+      "https://www.circle.com"
+    ],
+    "paths_tried": [
+      "/.well-known/rwa-disclosure.json",
+      "/.well-known/reserves.json",
+      "/.well-known/attestation.json",
+      "/.well-known/asset-disclosure.json",
+      "/.well-known/proof-of-reserves.json",
+      "/reserves.json",
+      "/disclosure.json",
+      "/attestations.json",
+      "/api/reserves"
+    ],
+    "answered_structured": 0,
+    "status_counts": {
+      "404": 36,
+      "200": 9
+    },
+    "note": "None of these is a registered well-known URI and none is specified by any standard. They are the shapes a machine readable disclosure surface would plausibly take if a convention existed. The limb asks whether one has emerged in practice."
+  },
+  "registry_ref_discipline": {
+    "surfaces_naming_any_reference": 1,
+    "surfaces_with_chain_qualified_reference": 0,
+    "why": "A disclosure that names a contract without naming its chain does not identify a deployment. The same twenty bytes can be a different contract on every EVM network, so a consumer has to guess or ask. CAIP-10 exists to close exactly this gap.",
+    "how_it_is_checked": "ISIN and LEI candidates must pass their real check digit, so a twelve character product code cannot be counted as a security identifier. An all-zero address is discarded. Chain qualification requires the chain to sit in the same object as the address, not merely somewhere in the same file.",
+    "traversal_limit": "Object traversal is depth bounded at 8 and reads the first 200 members of any list, so a reference buried deeper than that in a very large document would not be found. Every surface in this population that carries a reference carries it well inside those bounds."
+  },
+  "predictions_scored": [
+    {
+      "prediction": "No issuer in this population serves a machine readable disclosure surface on an origin it operates itself.",
+      "observed": "0 of 17 issuers had one",
+      "met": true
+    },
+    {
+      "prediction": "Every machine readable surface in the population belongs to a third party aggregator rather than to the issuer.",
+      "observed": "2 machine readable surfaces, of which 0 were issuer operated",
+      "met": true
+    },
+    {
+      "prediction": "No path in the frozen conventional list answers with structured bytes on any issuer operated origin.",
+      "observed": "0 of 45 conventional path requests answered with structured bytes",
+      "met": true
+    },
+    {
+      "prediction": "No surface in the population carries a chain qualified registry reference.",
+      "observed": "0 of 15 recorded surfaces carried one",
+      "met": true
+    },
+    {
+      "prediction": "More than half of the population has no disclosure surface recorded by this node at all.",
+      "observed": "11 of 17 had none",
+      "met": true
+    }
+  ],
+  "per_issuer": [
+    {
+      "entity": "BACKED",
+      "display_name": "Backed Finance",
+      "segment_role": "issuer",
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "receipt": "https://geniusflow-federation.vercel.app/rwa/receipts/BACKED.json"
+    },
+    {
+      "entity": "BLACKROCK",
+      "display_name": "BlackRock",
+      "segment_role": "issuer",
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "machine_readable_media_type",
+      "refuse_reason": "machine_readable_media_type:html_document",
+      "attribution": "issuer",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "receipt": "https://geniusflow-federation.vercel.app/rwa/receipts/BLACKROCK.json"
+    },
+    {
+      "entity": "CIRCLE",
+      "display_name": "Circle",
+      "segment_role": "issuer",
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "machine_readable_media_type",
+      "refuse_reason": "machine_readable_media_type:html_document",
+      "attribution": "issuer",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "receipt": "https://geniusflow-federation.vercel.app/rwa/receipts/CIRCLE.json"
+    },
+    {
+      "entity": "CIRCLE_RESERVE_FUND",
+      "display_name": "Circle Reserve Fund",
+      "segment_role": "issuer",
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "receipt": "https://geniusflow-federation.vercel.app/rwa/receipts/CIRCLE_RESERVE_FUND.json"
+    },
+    {
+      "entity": "MAPLE",
+      "display_name": "Maple Finance",
+      "segment_role": "issuer",
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "receipt": "https://geniusflow-federation.vercel.app/rwa/receipts/MAPLE.json"
+    },
+    {
+      "entity": "ONDO",
+      "display_name": "Ondo Finance",
+      "segment_role": "issuer",
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "machine_readable_media_type",
+      "refuse_reason": "machine_readable_media_type:html_document",
+      "attribution": "issuer",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "receipt": "https://geniusflow-federation.vercel.app/rwa/receipts/ONDO.json"
+    },
+    {
+      "entity": "ONDO_YIELD_ASSETS",
+      "display_name": "Ondo Yield Assets",
+      "segment_role": "issuer",
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "receipt": "https://geniusflow-federation.vercel.app/rwa/receipts/ONDO_YIELD_ASSETS.json"
+    },
+    {
+      "entity": "PAXOS",
+      "display_name": "Paxos",
+      "segment_role": "issuer",
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "receipt": "https://geniusflow-federation.vercel.app/rwa/receipts/PAXOS.json"
+    },
+    {
+      "entity": "SECURITIZE",
+      "display_name": "Securitize",
+      "segment_role": "issuer",
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "receipt": "https://geniusflow-federation.vercel.app/rwa/receipts/SECURITIZE.json"
+    },
+    {
+      "entity": "SPIKO",
+      "display_name": "Spiko",
+      "segment_role": "issuer",
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "receipt": "https://geniusflow-federation.vercel.app/rwa/receipts/SPIKO.json"
+    },
+    {
+      "entity": "TETHER",
+      "display_name": "Tether",
+      "segment_role": "issuer",
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "machine_readable_media_type",
+      "refuse_reason": "machine_readable_media_type:html_document",
+      "attribution": "issuer",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "receipt": "https://geniusflow-federation.vercel.app/rwa/receipts/TETHER.json"
+    },
+    {
+      "entity": "BLACKROCK_BUIDL",
+      "display_name": "BlackRock BUIDL",
+      "segment_role": "instrument",
+      "must_admit": true,
+      "full_admit": false,
+      "refuse_limb": "issuer_operated_surface",
+      "refuse_reason": "issuer_operated_surface:surface_is_third_party:llama.fi",
+      "attribution": "issuer",
+      "machine_readable_surface_exists": true,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "receipt": "https://geniusflow-federation.vercel.app/rwa/receipts/BLACKROCK_BUIDL.json"
+    },
+    {
+      "entity": "CIRCLE_USYC",
+      "display_name": "Circle USYC",
+      "segment_role": "instrument",
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "receipt": "https://geniusflow-federation.vercel.app/rwa/receipts/CIRCLE_USYC.json"
+    },
+    {
+      "entity": "OUSG",
+      "display_name": "OUSG",
+      "segment_role": "instrument",
+      "must_admit": true,
+      "full_admit": false,
+      "refuse_limb": "as_of_date_present",
+      "refuse_reason": "as_of_date_present:no_as_of_date_on_the_surface",
+      "attribution": "issuer",
+      "machine_readable_surface_exists": true,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "receipt": "https://geniusflow-federation.vercel.app/rwa/receipts/OUSG.json"
+    },
+    {
+      "entity": "PAXOS_GOLD",
+      "display_name": "Pax Gold",
+      "segment_role": "instrument",
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "receipt": "https://geniusflow-federation.vercel.app/rwa/receipts/PAXOS_GOLD.json"
+    },
+    {
+      "entity": "TETHER_GOLD",
+      "display_name": "Tether Gold",
+      "segment_role": "instrument",
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "receipt": "https://geniusflow-federation.vercel.app/rwa/receipts/TETHER_GOLD.json"
+    },
+    {
+      "entity": "USDY",
+      "display_name": "USDY",
+      "segment_role": "instrument",
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "receipt": "https://geniusflow-federation.vercel.app/rwa/receipts/USDY.json"
+    }
+  ],
+  "not_claimed": [
+    "This is not a measure of disclosure quality. An issuer serving a signed monthly attestation PDF prepared by an accounting firm is disclosing more than one serving an unsigned JSON file. The survey asks only whether a program can read the number, which is a different question and a smaller one.",
+    "This is not a market survey and not a ranking. The population is the set of issuers this node already tracks, which is not the set of largest issuers and not a sample of anything. No rate here should be quoted as a sector rate.",
+    "A refusal at the first limb is a fact about this node's coverage, not about the issuer. Those refusals are separated out in the summary and the headline is given both ways.",
+    "No issuer was contacted beyond a plain GET of URLs that are already public, plus the frozen conventional path list on origins the issuer already serves.",
+    "No registry address, contract address or identifier in this survey was supplied by the probe. Every reference reported was found inside bytes the surface itself served."
+  ],
+  "ledger": "https://geniusflow-federation.vercel.app/rwa/ledger.json",
+  "receipt_lookup": "https://geniusflow-federation.vercel.app/rwa/receipts/<ENTITY>.json",
+  "human_summary": "https://geniusflow-federation.vercel.app/rwa/README.md",
+  "human_page": "https://kaydeep0.github.io/eigenstate-research/rwa/",
+  "mirrored_at": "https://kaydeep0.github.io/eigenstate-research/rwa/",
+  "mirror_note": "This file is a mirror of the run identified by the digest above. The federation origin serves the same digest plus one file per issuer in the population."
+}

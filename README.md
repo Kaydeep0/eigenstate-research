@@ -153,6 +153,24 @@ The venv is what makes `pip install` work on a stock macOS or Debian box, where 
 system-wide `pip install` is refused as an externally managed environment. Only
 `helixhash` is needed; the script uses the standard library for everything else.
 
+<details>
+<summary>If <code>pip</code> itself fails before it installs anything</summary>
+
+On macOS, a Homebrew Python whose `libexpat` has drifted from the interpreter fails at
+import time, before any of this code runs:
+
+```
+ImportError: dlopen(.../pyexpat.cpython-314-darwin.so): Symbol not found:
+_XML_SetAllocTrackerActivationThreshold
+```
+
+That is a broken local toolchain, not a problem with the demo. Either pin the venv to a
+known-good interpreter, `python3.12 -m venv .venv`, or repair the Homebrew one with
+`brew reinstall expat python@3.14`. The demo is verified against CPython 3.12 with
+`helixhash` 0.1.1 from PyPI.
+
+</details>
+
 HelixHash: [Kaydeep0/helixhash](https://github.com/Kaydeep0/helixhash). The script reads three public series (FRED SOFR, DeFiLlama BUIDL TVL, GitHub stars), measures each as `delta_I = |log2(current / prior)|`, crosses them into a local HelixHash chain, then tampers with one entry in-process so you watch `verify()` flip to `False` and back. It ends on the latest Base commit in the bundled index. If a source is unreachable the run still completes on pinned fallback values and labels each observation as live or fallback. Demo is not production cadence, full topology coverage, or continuous on-chain commits.
 
 ---

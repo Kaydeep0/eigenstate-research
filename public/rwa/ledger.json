@@ -1,0 +1,2254 @@
+{
+  "probe": "rwa_disclosure_interface_survey",
+  "probe_version": "1.0.2",
+  "generated_at": "2026-08-02T04:34:38.790773+00:00",
+  "expectations_digest": "28961d5d66629b9a0d370b1331bd7b7b66f7c857d78a47145e29567c7c7aef1a",
+  "expectations_generated_at": "2026-08-02T04:28:11.184875+00:00",
+  "probe_version_at_expectations": "1.0.0",
+  "probe_defects_fixed_before_publication": [
+    {
+      "defect": "conventional_path_answers was sequenced behind the media type limb",
+      "effect": "Every issuer operated surface in this population is an HTML document, so the receipt returned before the convention limb was ever observed. The first run made zero conventional path requests and still scored the prediction about them as met, which is a claim on no evidence.",
+      "fix": "The limb asks about the issuer's origin rather than about the surface the other limbs read, so it is now evaluated for every issuer that has an origin at all, independent of what the earlier limbs found. The prediction now scores as missed when no request was made."
+    },
+    {
+      "defect": "a body clipped at this probe's own size cap was charged as a parse error",
+      "effect": "One aggregator surface is larger than the original 2 MB cap. The probe truncated it, failed to parse its own truncation, and recorded the failure against the surface. That is a refusal this probe manufactured.",
+      "fix": "The cap is raised to 32 MB, truncation is detected explicitly, and a clipped body is now named body_truncated_at_probe_cap and attributed to this probe rather than to the publisher."
+    },
+    {
+      "defect": "the registry reference limbs accepted false positives",
+      "effect": "The ISIN pattern matched any twelve character uppercase code, so two DefiLlama pool names were reported as securities identifiers. Chain qualification accepted a chain key anywhere in the document, so a two megabyte pool listing qualified an address that appeared nowhere near it, and an all-zero address counted as a reference.",
+      "fix": "ISIN and LEI candidates now have to pass their real check digits, the all-zero address is discarded, and chain qualification requires the chain to sit in the same object as the address. This is the limb the survey is loudest about, so it is the one that had to be strictest."
+    }
+  ],
+  "subject": {
+    "what": "the machine readability of the disclosure surfaces this node has recorded for the real world asset issuers and instruments it tracks",
+    "engine_commit": "63a8337c5ae03ff9d34ba36e8b6ad834fe3eb806",
+    "dossier_source": "https://kaydeep0.github.io/eigenstate-research/dossier/"
+  },
+  "question": {
+    "asked": "Can a program read the disclosed figure for this issuer without a human, a document parser, or a third party who already did both?",
+    "not_asked": "Whether the disclosure is accurate, adequate, audited or timely. Those are larger questions and this survey answers none of them.",
+    "why_it_is_separate": "Everyone publishes how much tokenized real world asset value exists. Nobody publishes whether the issuer of that value serves a number a machine can read. An attestation PDF is a strong disclosure and a useless interface."
+  },
+  "population_rule": "An entity is in the population iff this node already exports a public dossier card for it and it is the issuer of a real world asset token or is itself a tokenized instrument backed by one. The rule is frozen here, before results.",
+  "surface_sources": {
+    "claim_ledger": "data/verification/claim_ledger.jsonl, the verified claim ledger. Every source_url and corroborating_url recorded against an entity in the population is taken as a candidate disclosure surface for that entity.",
+    "srr_grounding": "data/sensors/srr_grounding.json, the sensor grounding file. Every source_url is taken as a candidate surface for the population entity whose identifier matches the grounding row's entity_id exactly, or matches it after the last underscore."
+  },
+  "rejected_surface_sources": [
+    {
+      "source": "data/entity_tvl_cache.json",
+      "field": "entities.<SLUG>.url",
+      "reason": "the cache is populated by fuzzy name matching against DefiLlama and several of its RWA matches are wrong. ONDO and BACKED both resolve to a Kujira project called FIN, TOKENIZED_TREASURY and CIRCLE_RESERVE_FUND both resolve to a protocol called Re, and BLACKROCK resolves to securitize.io. Using these as issuer origins would attribute one company's website to another."
+    }
+  ],
+  "excluded_from_population": [
+    {
+      "entity": "TOKENIZED_TREASURY",
+      "reason": "segment node, not an issuer or an instrument",
+      "tracked_by_this_node": "yes"
+    },
+    {
+      "entity": "CLEARWAY_DTCC",
+      "reason": "settlement infrastructure, not an issuer of a real world asset token",
+      "tracked_by_this_node": "yes"
+    },
+    {
+      "entity": "RWA_AUDIENCE, RWA_CONF_2025, RWA_INFLUENCER_1..5, RWA_SOLVES_YIELD, RWA_TELEGRAM, RWA_XYZ_DATA, TWITTER_RWA",
+      "reason": "discourse and audience nodes about the sector, not issuers in it",
+      "tracked_by_this_node": "yes"
+    }
+  ],
+  "named_but_not_tracked": [
+    {
+      "issuer": "Franklin Templeton (BENJI, FOBXX)",
+      "reason": "this node holds no dossier card for it, so it is out of population and this survey makes no claim about it. This engine's own sensor grounding file records the same gap in its notes: BENJI omitted, no live primary AUM endpoint yet."
+    },
+    {
+      "issuer": "Superstate (USTB, USCC)",
+      "reason": "no dossier card on this node; out of population"
+    },
+    {
+      "issuer": "Hashnote (USYC)",
+      "reason": "no dossier card under that name. The instrument is tracked as CIRCLE_USYC following its acquisition, and CIRCLE_USYC is in population."
+    },
+    {
+      "issuer": "Centrifuge, Goldfinch",
+      "reason": "no dossier card on this node; out of population"
+    }
+  ],
+  "limb_order_frozen": [
+    "disclosure_surface_declared",
+    "surface_resolves",
+    "machine_readable_media_type",
+    "body_parses_as_served_type",
+    "figure_addressable_by_key_path",
+    "as_of_date_present",
+    "issuer_operated_surface",
+    "registry_ref_present",
+    "registry_ref_chain_qualified",
+    "conventional_path_answers"
+  ],
+  "limb_spec_level": {
+    "disclosure_surface_declared": "MUST",
+    "surface_resolves": "MUST",
+    "machine_readable_media_type": "MUST",
+    "body_parses_as_served_type": "MUST",
+    "figure_addressable_by_key_path": "SHOULD",
+    "as_of_date_present": "SHOULD",
+    "issuer_operated_surface": "SHOULD",
+    "registry_ref_present": "OBSERVED",
+    "registry_ref_chain_qualified": "OBSERVED",
+    "conventional_path_answers": "OBSERVED"
+  },
+  "statuses": {
+    "ok": "limb observed to pass",
+    "fail": "limb observed to fail; counts against the issuer at its stated level",
+    "not_applicable": "limb cannot apply to this issuer",
+    "absent": "an optional artifact was not published; not counted as a failure",
+    "not_reached": "an earlier limb failed, so this one was never observed; it is neither a pass nor an exemption"
+  },
+  "summary": {
+    "issuers_in_population": 17,
+    "no_surface_recorded_by_this_node": 11,
+    "issuers_with_a_recorded_surface": 6,
+    "must_admit": 2,
+    "must_refuse": 15,
+    "must_refuse_rate": 0.8824,
+    "full_admit": 0,
+    "full_refuse": 17,
+    "machine_readable_surface_exists": 2,
+    "issuer_operated_machine_readable_surface_exists": 0,
+    "attributable_to_issuer": {
+      "n": 6,
+      "must_admit": 2,
+      "must_refuse": 4,
+      "why": "Issuers for which this node recorded no surface at all are excluded here, because that refusal is a fact about this node's coverage rather than about the issuer, as is any refusal this probe caused itself. The headline is reported both ways."
+    },
+    "refuse_limb_counts": {
+      "disclosure_surface_declared": 11,
+      "machine_readable_media_type": 4,
+      "issuer_operated_surface": 1,
+      "as_of_date_present": 1
+    },
+    "top_refuse_reasons": {
+      "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node": 11,
+      "machine_readable_media_type:html_document": 4,
+      "issuer_operated_surface:surface_is_third_party:llama.fi": 1,
+      "as_of_date_present:no_as_of_date_on_the_surface": 1
+    },
+    "limb_outcomes": {
+      "disclosure_surface_declared": {
+        "ok": 6,
+        "fail": 11,
+        "not_applicable": 0,
+        "absent": 0,
+        "not_reached": 0
+      },
+      "surface_resolves": {
+        "ok": 6,
+        "fail": 0,
+        "not_applicable": 0,
+        "absent": 0,
+        "not_reached": 11
+      },
+      "machine_readable_media_type": {
+        "ok": 2,
+        "fail": 4,
+        "not_applicable": 0,
+        "absent": 0,
+        "not_reached": 11
+      },
+      "body_parses_as_served_type": {
+        "ok": 2,
+        "fail": 0,
+        "not_applicable": 0,
+        "absent": 0,
+        "not_reached": 15
+      },
+      "figure_addressable_by_key_path": {
+        "ok": 2,
+        "fail": 0,
+        "not_applicable": 0,
+        "absent": 0,
+        "not_reached": 15
+      },
+      "as_of_date_present": {
+        "ok": 1,
+        "fail": 1,
+        "not_applicable": 0,
+        "absent": 0,
+        "not_reached": 15
+      },
+      "issuer_operated_surface": {
+        "ok": 0,
+        "fail": 2,
+        "not_applicable": 0,
+        "absent": 0,
+        "not_reached": 15
+      },
+      "registry_ref_present": {
+        "ok": 1,
+        "fail": 1,
+        "not_applicable": 0,
+        "absent": 0,
+        "not_reached": 15
+      },
+      "registry_ref_chain_qualified": {
+        "ok": 0,
+        "fail": 1,
+        "not_applicable": 0,
+        "absent": 0,
+        "not_reached": 16
+      },
+      "conventional_path_answers": {
+        "ok": 0,
+        "fail": 4,
+        "not_applicable": 2,
+        "absent": 0,
+        "not_reached": 11
+      }
+    },
+    "surfaces": {
+      "recorded": 15,
+      "resolved": 15,
+      "machine_readable": 2,
+      "issuer_operated": 9,
+      "issuer_operated_and_machine_readable": 0,
+      "media_types_sniffed": {
+        "html": 13,
+        "json": 2
+      },
+      "registrable_domains": {
+        "circle.com": 3,
+        "tether.to": 3,
+        "rwa.xyz": 2,
+        "defillama.com": 2,
+        "ondo.finance": 2,
+        "llama.fi": 2,
+        "blackrock.com": 1
+      },
+      "header_disagreed_with_bytes": 0
+    },
+    "conventional_paths": {
+      "requests": 45,
+      "origins": [
+        "https://docs.ondo.finance",
+        "https://ondo.finance",
+        "https://tether.to",
+        "https://www.blackrock.com",
+        "https://www.circle.com"
+      ],
+      "paths_tried": [
+        "/.well-known/rwa-disclosure.json",
+        "/.well-known/reserves.json",
+        "/.well-known/attestation.json",
+        "/.well-known/asset-disclosure.json",
+        "/.well-known/proof-of-reserves.json",
+        "/reserves.json",
+        "/disclosure.json",
+        "/attestations.json",
+        "/api/reserves"
+      ],
+      "answered_structured": 0,
+      "status_counts": {
+        "404": 36,
+        "200": 9
+      },
+      "note": "None of these is a registered well-known URI and none is specified by any standard. They are the shapes a machine readable disclosure surface would plausibly take if a convention existed. The limb asks whether one has emerged in practice."
+    },
+    "registry_ref_discipline": {
+      "surfaces_naming_any_reference": 1,
+      "surfaces_with_chain_qualified_reference": 0,
+      "why": "A disclosure that names a contract without naming its chain does not identify a deployment. The same twenty bytes can be a different contract on every EVM network, so a consumer has to guess or ask. CAIP-10 exists to close exactly this gap.",
+      "how_it_is_checked": "ISIN and LEI candidates must pass their real check digit, so a twelve character product code cannot be counted as a security identifier. An all-zero address is discarded. Chain qualification requires the chain to sit in the same object as the address, not merely somewhere in the same file.",
+      "traversal_limit": "Object traversal is depth bounded at 8 and reads the first 200 members of any list, so a reference buried deeper than that in a very large document would not be found. Every surface in this population that carries a reference carries it well inside those bounds."
+    }
+  },
+  "predictions_stated_before_the_run": {
+    "disclosure": "These were written after reading this engine's own recorded data, which is how the population and the surface list were built, and before any issuer URL was fetched by this probe.",
+    "stated_before_the_run": [
+      "No issuer in this population serves a machine readable disclosure surface on an origin it operates itself.",
+      "Every machine readable surface in the population belongs to a third party aggregator rather than to the issuer whose figure it carries.",
+      "No path in the frozen conventional list answers with structured bytes on any issuer operated origin.",
+      "No surface in the population carries a chain qualified registry reference, so no disclosure identifies a single on-chain deployment without the reader guessing the network.",
+      "More than half of the population has no disclosure surface recorded by this node at all, and that refusal belongs to this node rather than to the issuer."
+    ],
+    "how_to_score_these": "Each prediction is either met or not by the published summary. A missed prediction stays in this file; it is not edited after the run."
+  },
+  "not_claimed": [
+    "This is not a measure of disclosure quality. An issuer serving a signed monthly attestation PDF prepared by an accounting firm is disclosing more than one serving an unsigned JSON file. The survey asks only whether a program can read the number, which is a different question and a smaller one.",
+    "This is not a market survey and not a ranking. The population is the set of issuers this node already tracks, which is not the set of largest issuers and not a sample of anything. No rate here should be quoted as a sector rate.",
+    "A refusal at the first limb is a fact about this node's coverage, not about the issuer. Those refusals are separated out in the summary and the headline is given both ways.",
+    "No issuer was contacted beyond a plain GET of URLs that are already public, plus the frozen conventional path list on origins the issuer already serves.",
+    "No registry address, contract address or identifier in this survey was supplied by the probe. Every reference reported was found inside bytes the surface itself served."
+  ],
+  "receipts": [
+    {
+      "entity": "BACKED",
+      "display_name": "Backed Finance",
+      "segment_role": "issuer",
+      "in_population_because": "this node exports a public dossier card for BACKED and it is a real world asset issuer",
+      "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/backed/",
+      "probed_at": "2026-08-02T04:34:04.198723+00:00",
+      "must_admit": false,
+      "full_admit": false,
+      "failed_limbs": [
+        "disclosure_surface_declared"
+      ],
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "limbs": {
+        "disclosure_surface_declared": {
+          "status": "fail",
+          "reason": "no_disclosure_surface_recorded_by_this_node",
+          "detail": {
+            "searched": [
+              "claim_ledger",
+              "srr_grounding"
+            ],
+            "note": "This node tracks the issuer but has recorded no disclosure URL for it. The refusal is against this node's coverage, not against the issuer."
+          }
+        },
+        "surface_resolves": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "machine_readable_media_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "body_parses_as_served_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "figure_addressable_by_key_path": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "as_of_date_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "issuer_operated_surface": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_chain_qualified": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "conventional_path_answers": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        }
+      },
+      "surfaces": [],
+      "conventional_paths_probed": []
+    },
+    {
+      "entity": "BLACKROCK",
+      "display_name": "BlackRock",
+      "segment_role": "issuer",
+      "in_population_because": "this node exports a public dossier card for BLACKROCK and it is a real world asset issuer",
+      "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/blackrock/",
+      "probed_at": "2026-08-02T04:34:10.381092+00:00",
+      "must_admit": false,
+      "full_admit": false,
+      "failed_limbs": [
+        "machine_readable_media_type",
+        "conventional_path_answers"
+      ],
+      "refuse_limb": "machine_readable_media_type",
+      "refuse_reason": "machine_readable_media_type:html_document",
+      "attribution": "issuer",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "limbs": {
+        "disclosure_surface_declared": {
+          "status": "ok",
+          "detail": {
+            "surfaces": 3,
+            "recorded_by": [
+              "claim_ledger"
+            ]
+          }
+        },
+        "surface_resolves": {
+          "status": "ok",
+          "detail": {
+            "url": "https://www.blackrock.com/corporate",
+            "http_status": 200,
+            "bytes": 216000
+          }
+        },
+        "machine_readable_media_type": {
+          "status": "fail",
+          "reason": "html_document",
+          "detail": {
+            "url": "https://www.blackrock.com/corporate",
+            "content_type_header": "text/html",
+            "media_type_sniffed": "html",
+            "meaning": "the disclosure is a document. A human can read it; a program needs a person, a parser or a third party who already did both"
+          }
+        },
+        "body_parses_as_served_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "figure_addressable_by_key_path": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "as_of_date_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "issuer_operated_surface": {
+          "status": "not_reached",
+          "reason": "no_machine_readable_surface_to_attribute"
+        },
+        "registry_ref_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_chain_qualified": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "conventional_path_answers": {
+          "status": "fail",
+          "reason": "no_conventional_disclosure_path_answered",
+          "detail": {
+            "origins": [
+              "https://www.blackrock.com"
+            ],
+            "paths_tried": 9,
+            "statuses": {
+              "404": 9
+            }
+          }
+        }
+      },
+      "surfaces": [
+        {
+          "url": "https://www.blackrock.com/corporate",
+          "recorded_by": "claim_ledger",
+          "recorded_note": "BlackRock — global asset manager",
+          "registrable_domain": "blackrock.com",
+          "issuer_operated": true,
+          "known_aggregator": false,
+          "http_status": 200,
+          "transport_error": null,
+          "bytes": 216000,
+          "content_type_header": "text/html",
+          "reach": 2,
+          "resolves": true,
+          "media_type_sniffed": "html",
+          "header_disagrees_with_bytes": false,
+          "machine_readable": false,
+          "refuse": "html_document"
+        },
+        {
+          "url": "https://rwa.xyz/assets/buidl",
+          "recorded_by": "claim_ledger",
+          "recorded_note": "BUIDL — tokenized treasury fund on-chain",
+          "registrable_domain": "rwa.xyz",
+          "issuer_operated": false,
+          "known_aggregator": true,
+          "http_status": 200,
+          "transport_error": null,
+          "bytes": 389843,
+          "content_type_header": "text/html",
+          "reach": 2,
+          "resolves": true,
+          "media_type_sniffed": "html",
+          "header_disagrees_with_bytes": false,
+          "machine_readable": false,
+          "refuse": "html_document"
+        },
+        {
+          "url": "https://defillama.com/protocol/blackrock-buidl",
+          "recorded_by": "claim_ledger",
+          "recorded_note": "DeFiLlama tracks BlackRock BUIDL protocol activity",
+          "registrable_domain": "defillama.com",
+          "issuer_operated": false,
+          "known_aggregator": true,
+          "http_status": 200,
+          "transport_error": null,
+          "bytes": 263728,
+          "content_type_header": "text/html",
+          "reach": 2,
+          "resolves": true,
+          "media_type_sniffed": "html",
+          "header_disagrees_with_bytes": false,
+          "machine_readable": false,
+          "refuse": "html_document"
+        }
+      ],
+      "conventional_paths_probed": [
+        {
+          "url": "https://www.blackrock.com/.well-known/rwa-disclosure.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://www.blackrock.com/.well-known/reserves.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://www.blackrock.com/.well-known/attestation.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://www.blackrock.com/.well-known/asset-disclosure.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://www.blackrock.com/.well-known/proof-of-reserves.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://www.blackrock.com/reserves.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://www.blackrock.com/disclosure.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://www.blackrock.com/attestations.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://www.blackrock.com/api/reserves",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        }
+      ]
+    },
+    {
+      "entity": "CIRCLE",
+      "display_name": "Circle",
+      "segment_role": "issuer",
+      "in_population_because": "this node exports a public dossier card for CIRCLE and it is a real world asset issuer",
+      "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/circle/",
+      "probed_at": "2026-08-02T04:34:15.587005+00:00",
+      "must_admit": false,
+      "full_admit": false,
+      "failed_limbs": [
+        "machine_readable_media_type",
+        "conventional_path_answers"
+      ],
+      "refuse_limb": "machine_readable_media_type",
+      "refuse_reason": "machine_readable_media_type:html_document",
+      "attribution": "issuer",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "limbs": {
+        "disclosure_surface_declared": {
+          "status": "ok",
+          "detail": {
+            "surfaces": 3,
+            "recorded_by": [
+              "claim_ledger"
+            ]
+          }
+        },
+        "surface_resolves": {
+          "status": "ok",
+          "detail": {
+            "url": "https://www.circle.com/usdc",
+            "http_status": 200,
+            "bytes": 369917
+          }
+        },
+        "machine_readable_media_type": {
+          "status": "fail",
+          "reason": "html_document",
+          "detail": {
+            "url": "https://www.circle.com/usdc",
+            "content_type_header": "text/html",
+            "media_type_sniffed": "html",
+            "meaning": "the disclosure is a document. A human can read it; a program needs a person, a parser or a third party who already did both"
+          }
+        },
+        "body_parses_as_served_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "figure_addressable_by_key_path": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "as_of_date_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "issuer_operated_surface": {
+          "status": "not_reached",
+          "reason": "no_machine_readable_surface_to_attribute"
+        },
+        "registry_ref_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_chain_qualified": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "conventional_path_answers": {
+          "status": "fail",
+          "reason": "no_conventional_disclosure_path_answered",
+          "detail": {
+            "origins": [
+              "https://www.circle.com"
+            ],
+            "paths_tried": 9,
+            "statuses": {
+              "404": 9
+            }
+          }
+        }
+      },
+      "surfaces": [
+        {
+          "url": "https://www.circle.com/usdc",
+          "recorded_by": "claim_ledger",
+          "recorded_note": "Circle issues USDC — regulated dollar stablecoin",
+          "registrable_domain": "circle.com",
+          "issuer_operated": true,
+          "known_aggregator": false,
+          "http_status": 200,
+          "transport_error": null,
+          "bytes": 369917,
+          "content_type_header": "text/html",
+          "reach": 2,
+          "resolves": true,
+          "media_type_sniffed": "html",
+          "header_disagrees_with_bytes": false,
+          "machine_readable": false,
+          "refuse": "html_document"
+        },
+        {
+          "url": "https://www.circle.com/en/transparency",
+          "recorded_by": "claim_ledger",
+          "recorded_note": "Circle publishes monthly USDC reserve attestations",
+          "registrable_domain": "circle.com",
+          "issuer_operated": true,
+          "known_aggregator": false,
+          "http_status": 200,
+          "transport_error": null,
+          "bytes": 457423,
+          "content_type_header": "text/html",
+          "reach": 2,
+          "resolves": true,
+          "media_type_sniffed": "html",
+          "header_disagrees_with_bytes": false,
+          "machine_readable": false,
+          "refuse": "html_document"
+        },
+        {
+          "url": "https://www.circle.com/en/cross-chain-transfer-protocol",
+          "recorded_by": "claim_ledger",
+          "recorded_note": "Cross-Chain Transfer Protocol (CCTP) for native USDC",
+          "registrable_domain": "circle.com",
+          "issuer_operated": true,
+          "known_aggregator": false,
+          "http_status": 200,
+          "transport_error": null,
+          "bytes": 300172,
+          "content_type_header": "text/html",
+          "reach": 2,
+          "resolves": true,
+          "media_type_sniffed": "html",
+          "header_disagrees_with_bytes": false,
+          "machine_readable": false,
+          "refuse": "html_document"
+        }
+      ],
+      "conventional_paths_probed": [
+        {
+          "url": "https://www.circle.com/.well-known/rwa-disclosure.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://www.circle.com/.well-known/reserves.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://www.circle.com/.well-known/attestation.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://www.circle.com/.well-known/asset-disclosure.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://www.circle.com/.well-known/proof-of-reserves.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://www.circle.com/reserves.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://www.circle.com/disclosure.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://www.circle.com/attestations.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://www.circle.com/api/reserves",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        }
+      ]
+    },
+    {
+      "entity": "CIRCLE_RESERVE_FUND",
+      "display_name": "Circle Reserve Fund",
+      "segment_role": "issuer",
+      "in_population_because": "this node exports a public dossier card for CIRCLE_RESERVE_FUND and it is a real world asset issuer",
+      "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/circle_reserve_fund/",
+      "probed_at": "2026-08-02T04:34:15.587050+00:00",
+      "must_admit": false,
+      "full_admit": false,
+      "failed_limbs": [
+        "disclosure_surface_declared"
+      ],
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "limbs": {
+        "disclosure_surface_declared": {
+          "status": "fail",
+          "reason": "no_disclosure_surface_recorded_by_this_node",
+          "detail": {
+            "searched": [
+              "claim_ledger",
+              "srr_grounding"
+            ],
+            "note": "This node tracks the issuer but has recorded no disclosure URL for it. The refusal is against this node's coverage, not against the issuer."
+          }
+        },
+        "surface_resolves": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "machine_readable_media_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "body_parses_as_served_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "figure_addressable_by_key_path": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "as_of_date_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "issuer_operated_surface": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_chain_qualified": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "conventional_path_answers": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        }
+      },
+      "surfaces": [],
+      "conventional_paths_probed": []
+    },
+    {
+      "entity": "MAPLE",
+      "display_name": "Maple Finance",
+      "segment_role": "issuer",
+      "in_population_because": "this node exports a public dossier card for MAPLE and it is a real world asset issuer",
+      "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/maple/",
+      "probed_at": "2026-08-02T04:34:15.587063+00:00",
+      "must_admit": false,
+      "full_admit": false,
+      "failed_limbs": [
+        "disclosure_surface_declared"
+      ],
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "limbs": {
+        "disclosure_surface_declared": {
+          "status": "fail",
+          "reason": "no_disclosure_surface_recorded_by_this_node",
+          "detail": {
+            "searched": [
+              "claim_ledger",
+              "srr_grounding"
+            ],
+            "note": "This node tracks the issuer but has recorded no disclosure URL for it. The refusal is against this node's coverage, not against the issuer."
+          }
+        },
+        "surface_resolves": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "machine_readable_media_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "body_parses_as_served_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "figure_addressable_by_key_path": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "as_of_date_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "issuer_operated_surface": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_chain_qualified": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "conventional_path_answers": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        }
+      },
+      "surfaces": [],
+      "conventional_paths_probed": []
+    },
+    {
+      "entity": "ONDO",
+      "display_name": "Ondo Finance",
+      "segment_role": "issuer",
+      "in_population_because": "this node exports a public dossier card for ONDO and it is a real world asset issuer",
+      "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/ondo/",
+      "probed_at": "2026-08-02T04:34:27.508949+00:00",
+      "must_admit": false,
+      "full_admit": false,
+      "failed_limbs": [
+        "machine_readable_media_type",
+        "conventional_path_answers"
+      ],
+      "refuse_limb": "machine_readable_media_type",
+      "refuse_reason": "machine_readable_media_type:html_document",
+      "attribution": "issuer",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "limbs": {
+        "disclosure_surface_declared": {
+          "status": "ok",
+          "detail": {
+            "surfaces": 4,
+            "recorded_by": [
+              "claim_ledger"
+            ]
+          }
+        },
+        "surface_resolves": {
+          "status": "ok",
+          "detail": {
+            "url": "https://ondo.finance/",
+            "http_status": 200,
+            "bytes": 646291
+          }
+        },
+        "machine_readable_media_type": {
+          "status": "fail",
+          "reason": "html_document",
+          "detail": {
+            "url": "https://ondo.finance/",
+            "content_type_header": "text/html",
+            "media_type_sniffed": "html",
+            "meaning": "the disclosure is a document. A human can read it; a program needs a person, a parser or a third party who already did both"
+          }
+        },
+        "body_parses_as_served_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "figure_addressable_by_key_path": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "as_of_date_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "issuer_operated_surface": {
+          "status": "not_reached",
+          "reason": "no_machine_readable_surface_to_attribute"
+        },
+        "registry_ref_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_chain_qualified": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "conventional_path_answers": {
+          "status": "fail",
+          "reason": "no_conventional_disclosure_path_answered",
+          "detail": {
+            "origins": [
+              "https://docs.ondo.finance",
+              "https://ondo.finance"
+            ],
+            "paths_tried": 18,
+            "statuses": {
+              "404": 18
+            }
+          }
+        }
+      },
+      "surfaces": [
+        {
+          "url": "https://ondo.finance/",
+          "recorded_by": "claim_ledger",
+          "recorded_note": "Ondo Finance — tokenized Treasuries and yield products",
+          "registrable_domain": "ondo.finance",
+          "issuer_operated": true,
+          "known_aggregator": false,
+          "http_status": 200,
+          "transport_error": null,
+          "bytes": 646291,
+          "content_type_header": "text/html",
+          "reach": 2,
+          "resolves": true,
+          "media_type_sniffed": "html",
+          "header_disagrees_with_bytes": false,
+          "machine_readable": false,
+          "refuse": "html_document"
+        },
+        {
+          "url": "https://docs.ondo.finance/general-access-products/usdy",
+          "recorded_by": "claim_ledger",
+          "recorded_note": "USDY — US Dollar Yield product documentation",
+          "registrable_domain": "ondo.finance",
+          "issuer_operated": true,
+          "known_aggregator": false,
+          "http_status": 200,
+          "transport_error": null,
+          "bytes": 273506,
+          "content_type_header": "text/html",
+          "reach": 2,
+          "resolves": true,
+          "media_type_sniffed": "html",
+          "header_disagrees_with_bytes": false,
+          "machine_readable": false,
+          "refuse": "html_document"
+        },
+        {
+          "url": "https://defillama.com/protocol/ondo-finance",
+          "recorded_by": "claim_ledger",
+          "recorded_note": "DeFiLlama tracks Ondo Finance protocol activity",
+          "registrable_domain": "defillama.com",
+          "issuer_operated": false,
+          "known_aggregator": true,
+          "http_status": 200,
+          "transport_error": null,
+          "bytes": 316236,
+          "content_type_header": "text/html",
+          "reach": 2,
+          "resolves": true,
+          "media_type_sniffed": "html",
+          "header_disagrees_with_bytes": false,
+          "machine_readable": false,
+          "refuse": "html_document"
+        },
+        {
+          "url": "https://rwa.xyz/assets/ousg",
+          "recorded_by": "claim_ledger",
+          "recorded_note": "OUSG — tokenized Treasuries on RWA.xyz",
+          "registrable_domain": "rwa.xyz",
+          "issuer_operated": false,
+          "known_aggregator": true,
+          "http_status": 200,
+          "transport_error": null,
+          "bytes": 255849,
+          "content_type_header": "text/html",
+          "reach": 2,
+          "resolves": true,
+          "media_type_sniffed": "html",
+          "header_disagrees_with_bytes": false,
+          "machine_readable": false,
+          "refuse": "html_document"
+        }
+      ],
+      "conventional_paths_probed": [
+        {
+          "url": "https://docs.ondo.finance/.well-known/rwa-disclosure.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "text/plain",
+          "answered_structured": false
+        },
+        {
+          "url": "https://docs.ondo.finance/.well-known/reserves.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "text/plain",
+          "answered_structured": false
+        },
+        {
+          "url": "https://docs.ondo.finance/.well-known/attestation.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "text/plain",
+          "answered_structured": false
+        },
+        {
+          "url": "https://docs.ondo.finance/.well-known/asset-disclosure.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "text/plain",
+          "answered_structured": false
+        },
+        {
+          "url": "https://docs.ondo.finance/.well-known/proof-of-reserves.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "text/plain",
+          "answered_structured": false
+        },
+        {
+          "url": "https://docs.ondo.finance/reserves.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "text/plain",
+          "answered_structured": false
+        },
+        {
+          "url": "https://docs.ondo.finance/disclosure.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "text/plain",
+          "answered_structured": false
+        },
+        {
+          "url": "https://docs.ondo.finance/attestations.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "text/plain",
+          "answered_structured": false
+        },
+        {
+          "url": "https://docs.ondo.finance/api/reserves",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://ondo.finance/.well-known/rwa-disclosure.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://ondo.finance/.well-known/reserves.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://ondo.finance/.well-known/attestation.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://ondo.finance/.well-known/asset-disclosure.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://ondo.finance/.well-known/proof-of-reserves.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://ondo.finance/reserves.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://ondo.finance/disclosure.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://ondo.finance/attestations.json",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://ondo.finance/api/reserves",
+          "http_status": 404,
+          "transport_error": "http_404",
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        }
+      ]
+    },
+    {
+      "entity": "ONDO_YIELD_ASSETS",
+      "display_name": "Ondo Yield Assets",
+      "segment_role": "issuer",
+      "in_population_because": "this node exports a public dossier card for ONDO_YIELD_ASSETS and it is a real world asset issuer",
+      "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/ondo_yield_assets/",
+      "probed_at": "2026-08-02T04:34:27.509081+00:00",
+      "must_admit": false,
+      "full_admit": false,
+      "failed_limbs": [
+        "disclosure_surface_declared"
+      ],
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "limbs": {
+        "disclosure_surface_declared": {
+          "status": "fail",
+          "reason": "no_disclosure_surface_recorded_by_this_node",
+          "detail": {
+            "searched": [
+              "claim_ledger",
+              "srr_grounding"
+            ],
+            "note": "This node tracks the issuer but has recorded no disclosure URL for it. The refusal is against this node's coverage, not against the issuer."
+          }
+        },
+        "surface_resolves": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "machine_readable_media_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "body_parses_as_served_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "figure_addressable_by_key_path": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "as_of_date_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "issuer_operated_surface": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_chain_qualified": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "conventional_path_answers": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        }
+      },
+      "surfaces": [],
+      "conventional_paths_probed": []
+    },
+    {
+      "entity": "PAXOS",
+      "display_name": "Paxos",
+      "segment_role": "issuer",
+      "in_population_because": "this node exports a public dossier card for PAXOS and it is a real world asset issuer",
+      "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/paxos/",
+      "probed_at": "2026-08-02T04:34:27.509116+00:00",
+      "must_admit": false,
+      "full_admit": false,
+      "failed_limbs": [
+        "disclosure_surface_declared"
+      ],
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "limbs": {
+        "disclosure_surface_declared": {
+          "status": "fail",
+          "reason": "no_disclosure_surface_recorded_by_this_node",
+          "detail": {
+            "searched": [
+              "claim_ledger",
+              "srr_grounding"
+            ],
+            "note": "This node tracks the issuer but has recorded no disclosure URL for it. The refusal is against this node's coverage, not against the issuer."
+          }
+        },
+        "surface_resolves": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "machine_readable_media_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "body_parses_as_served_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "figure_addressable_by_key_path": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "as_of_date_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "issuer_operated_surface": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_chain_qualified": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "conventional_path_answers": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        }
+      },
+      "surfaces": [],
+      "conventional_paths_probed": []
+    },
+    {
+      "entity": "SECURITIZE",
+      "display_name": "Securitize",
+      "segment_role": "issuer",
+      "in_population_because": "this node exports a public dossier card for SECURITIZE and it is a real world asset issuer",
+      "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/securitize/",
+      "probed_at": "2026-08-02T04:34:27.509134+00:00",
+      "must_admit": false,
+      "full_admit": false,
+      "failed_limbs": [
+        "disclosure_surface_declared"
+      ],
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "limbs": {
+        "disclosure_surface_declared": {
+          "status": "fail",
+          "reason": "no_disclosure_surface_recorded_by_this_node",
+          "detail": {
+            "searched": [
+              "claim_ledger",
+              "srr_grounding"
+            ],
+            "note": "This node tracks the issuer but has recorded no disclosure URL for it. The refusal is against this node's coverage, not against the issuer."
+          }
+        },
+        "surface_resolves": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "machine_readable_media_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "body_parses_as_served_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "figure_addressable_by_key_path": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "as_of_date_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "issuer_operated_surface": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_chain_qualified": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "conventional_path_answers": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        }
+      },
+      "surfaces": [],
+      "conventional_paths_probed": []
+    },
+    {
+      "entity": "SPIKO",
+      "display_name": "Spiko",
+      "segment_role": "issuer",
+      "in_population_because": "this node exports a public dossier card for SPIKO and it is a real world asset issuer",
+      "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/spiko/",
+      "probed_at": "2026-08-02T04:34:27.509150+00:00",
+      "must_admit": false,
+      "full_admit": false,
+      "failed_limbs": [
+        "disclosure_surface_declared"
+      ],
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "limbs": {
+        "disclosure_surface_declared": {
+          "status": "fail",
+          "reason": "no_disclosure_surface_recorded_by_this_node",
+          "detail": {
+            "searched": [
+              "claim_ledger",
+              "srr_grounding"
+            ],
+            "note": "This node tracks the issuer but has recorded no disclosure URL for it. The refusal is against this node's coverage, not against the issuer."
+          }
+        },
+        "surface_resolves": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "machine_readable_media_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "body_parses_as_served_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "figure_addressable_by_key_path": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "as_of_date_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "issuer_operated_surface": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_chain_qualified": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "conventional_path_answers": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        }
+      },
+      "surfaces": [],
+      "conventional_paths_probed": []
+    },
+    {
+      "entity": "TETHER",
+      "display_name": "Tether",
+      "segment_role": "issuer",
+      "in_population_because": "this node exports a public dossier card for TETHER and it is a real world asset issuer",
+      "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/tether/",
+      "probed_at": "2026-08-02T04:34:37.101413+00:00",
+      "must_admit": false,
+      "full_admit": false,
+      "failed_limbs": [
+        "machine_readable_media_type",
+        "conventional_path_answers"
+      ],
+      "refuse_limb": "machine_readable_media_type",
+      "refuse_reason": "machine_readable_media_type:html_document",
+      "attribution": "issuer",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "limbs": {
+        "disclosure_surface_declared": {
+          "status": "ok",
+          "detail": {
+            "surfaces": 3,
+            "recorded_by": [
+              "claim_ledger"
+            ]
+          }
+        },
+        "surface_resolves": {
+          "status": "ok",
+          "detail": {
+            "url": "https://tether.to/en/about-us",
+            "http_status": 200,
+            "bytes": 51375
+          }
+        },
+        "machine_readable_media_type": {
+          "status": "fail",
+          "reason": "html_document",
+          "detail": {
+            "url": "https://tether.to/en/about-us",
+            "content_type_header": "text/html",
+            "media_type_sniffed": "html",
+            "meaning": "the disclosure is a document. A human can read it; a program needs a person, a parser or a third party who already did both"
+          }
+        },
+        "body_parses_as_served_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "figure_addressable_by_key_path": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "as_of_date_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "issuer_operated_surface": {
+          "status": "not_reached",
+          "reason": "no_machine_readable_surface_to_attribute"
+        },
+        "registry_ref_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_chain_qualified": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "conventional_path_answers": {
+          "status": "fail",
+          "reason": "no_conventional_disclosure_path_answered",
+          "detail": {
+            "origins": [
+              "https://tether.to"
+            ],
+            "paths_tried": 9,
+            "statuses": {
+              "200": 9
+            }
+          }
+        }
+      },
+      "surfaces": [
+        {
+          "url": "https://tether.to/en/about-us",
+          "recorded_by": "claim_ledger",
+          "recorded_note": "Tether — global leader in stablecoin issuance",
+          "registrable_domain": "tether.to",
+          "issuer_operated": true,
+          "known_aggregator": false,
+          "http_status": 200,
+          "transport_error": null,
+          "bytes": 51375,
+          "content_type_header": "text/html",
+          "reach": 2,
+          "resolves": true,
+          "media_type_sniffed": "html",
+          "header_disagrees_with_bytes": false,
+          "machine_readable": false,
+          "refuse": "html_document"
+        },
+        {
+          "url": "https://tether.to/en/transparency",
+          "recorded_by": "claim_ledger",
+          "recorded_note": "USDT transparency — reserves and issuance",
+          "registrable_domain": "tether.to",
+          "issuer_operated": true,
+          "known_aggregator": false,
+          "http_status": 200,
+          "transport_error": null,
+          "bytes": 48742,
+          "content_type_header": "text/html",
+          "reach": 2,
+          "resolves": true,
+          "media_type_sniffed": "html",
+          "header_disagrees_with_bytes": false,
+          "machine_readable": false,
+          "refuse": "html_document"
+        },
+        {
+          "url": "https://tether.to/en/how-it-works",
+          "recorded_by": "claim_ledger",
+          "recorded_note": "How Tether works — pegged digital dollar",
+          "registrable_domain": "tether.to",
+          "issuer_operated": true,
+          "known_aggregator": false,
+          "http_status": 200,
+          "transport_error": null,
+          "bytes": 62018,
+          "content_type_header": "text/html",
+          "reach": 2,
+          "resolves": true,
+          "media_type_sniffed": "html",
+          "header_disagrees_with_bytes": false,
+          "machine_readable": false,
+          "refuse": "html_document"
+        }
+      ],
+      "conventional_paths_probed": [
+        {
+          "url": "https://tether.to/.well-known/rwa-disclosure.json",
+          "http_status": 200,
+          "transport_error": null,
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://tether.to/.well-known/reserves.json",
+          "http_status": 200,
+          "transport_error": null,
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://tether.to/.well-known/attestation.json",
+          "http_status": 200,
+          "transport_error": null,
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://tether.to/.well-known/asset-disclosure.json",
+          "http_status": 200,
+          "transport_error": null,
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://tether.to/.well-known/proof-of-reserves.json",
+          "http_status": 200,
+          "transport_error": null,
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://tether.to/reserves.json",
+          "http_status": 200,
+          "transport_error": null,
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://tether.to/disclosure.json",
+          "http_status": 200,
+          "transport_error": null,
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://tether.to/attestations.json",
+          "http_status": 200,
+          "transport_error": null,
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        },
+        {
+          "url": "https://tether.to/api/reserves",
+          "http_status": 200,
+          "transport_error": null,
+          "media_type_sniffed": "html",
+          "answered_structured": false
+        }
+      ]
+    },
+    {
+      "entity": "BLACKROCK_BUIDL",
+      "display_name": "BlackRock BUIDL",
+      "segment_role": "instrument",
+      "in_population_because": "this node exports a public dossier card for BLACKROCK_BUIDL and it is a real world asset instrument",
+      "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/blackrock_buidl/",
+      "probed_at": "2026-08-02T04:34:37.587773+00:00",
+      "must_admit": true,
+      "full_admit": false,
+      "failed_limbs": [
+        "issuer_operated_surface",
+        "registry_ref_present"
+      ],
+      "refuse_limb": "issuer_operated_surface",
+      "refuse_reason": "issuer_operated_surface:surface_is_third_party:llama.fi",
+      "attribution": "issuer",
+      "machine_readable_surface_exists": true,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "limbs": {
+        "disclosure_surface_declared": {
+          "status": "ok",
+          "detail": {
+            "surfaces": 1,
+            "recorded_by": [
+              "srr_grounding"
+            ]
+          }
+        },
+        "surface_resolves": {
+          "status": "ok",
+          "detail": {
+            "url": "https://api.llama.fi/protocol/blackrock-buidl",
+            "http_status": 200,
+            "bytes": 822364
+          }
+        },
+        "machine_readable_media_type": {
+          "status": "ok",
+          "detail": {
+            "media_type_sniffed": "json",
+            "content_type_header": "application/json",
+            "header_disagrees_with_bytes": false
+          }
+        },
+        "body_parses_as_served_type": {
+          "status": "ok",
+          "detail": {
+            "parsed_as": "json"
+          }
+        },
+        "figure_addressable_by_key_path": {
+          "status": "ok",
+          "detail": {
+            "key_path": "$.chainTvls.Binance.tvl[2].totalLiquidityUSD",
+            "key": "totalLiquidityUSD",
+            "value": 501626853.0
+          }
+        },
+        "as_of_date_present": {
+          "status": "ok",
+          "detail": {
+            "key_path": "$.chainTvls.Binance.tvl[0].date",
+            "key": "date",
+            "value": 1764806400
+          }
+        },
+        "issuer_operated_surface": {
+          "status": "fail",
+          "reason": "surface_is_third_party:llama.fi",
+          "detail": {
+            "registrable_domain": "llama.fi",
+            "known_aggregator": true,
+            "meaning": "the machine readable number exists, and the issuer is not the one serving it"
+          }
+        },
+        "registry_ref_present": {
+          "status": "fail",
+          "reason": "no_registry_reference_in_the_served_bytes"
+        },
+        "registry_ref_chain_qualified": {
+          "status": "not_reached",
+          "reason": "no_reference_to_qualify"
+        },
+        "conventional_path_answers": {
+          "status": "not_applicable",
+          "reason": "no_issuer_operated_origin_to_probe",
+          "detail": {
+            "note": "every recorded surface for this issuer is on a third party origin"
+          }
+        }
+      },
+      "surfaces": [
+        {
+          "url": "https://api.llama.fi/protocol/blackrock-buidl",
+          "recorded_by": "srr_grounding",
+          "recorded_note": "sensor grounding for instrument BUIDL via defillama_protocol_blackrock_buidl",
+          "registrable_domain": "llama.fi",
+          "issuer_operated": false,
+          "known_aggregator": true,
+          "http_status": 200,
+          "transport_error": null,
+          "bytes": 822364,
+          "content_type_header": "application/json",
+          "reach": 6,
+          "resolves": true,
+          "media_type_sniffed": "json",
+          "header_disagrees_with_bytes": false,
+          "machine_readable": true,
+          "truncated_at_probe_cap": false,
+          "parses": true,
+          "quantity": {
+            "key_path": "$.chainTvls.Binance.tvl[2].totalLiquidityUSD",
+            "key": "totalLiquidityUSD",
+            "value": 501626853.0
+          },
+          "as_of": {
+            "key_path": "$.chainTvls.Binance.tvl[0].date",
+            "key": "date",
+            "value": 1764806400
+          },
+          "registry_refs": {
+            "caip10": [],
+            "evm_addresses": [],
+            "isin": [],
+            "lei": [],
+            "any": false,
+            "chain_qualified": false,
+            "chain_evidence": null
+          }
+        }
+      ],
+      "conventional_paths_probed": []
+    },
+    {
+      "entity": "CIRCLE_USYC",
+      "display_name": "Circle USYC",
+      "segment_role": "instrument",
+      "in_population_because": "this node exports a public dossier card for CIRCLE_USYC and it is a real world asset instrument",
+      "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/circle_usyc/",
+      "probed_at": "2026-08-02T04:34:37.587834+00:00",
+      "must_admit": false,
+      "full_admit": false,
+      "failed_limbs": [
+        "disclosure_surface_declared"
+      ],
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "limbs": {
+        "disclosure_surface_declared": {
+          "status": "fail",
+          "reason": "no_disclosure_surface_recorded_by_this_node",
+          "detail": {
+            "searched": [
+              "claim_ledger",
+              "srr_grounding"
+            ],
+            "note": "This node tracks the issuer but has recorded no disclosure URL for it. The refusal is against this node's coverage, not against the issuer."
+          }
+        },
+        "surface_resolves": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "machine_readable_media_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "body_parses_as_served_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "figure_addressable_by_key_path": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "as_of_date_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "issuer_operated_surface": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_chain_qualified": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "conventional_path_answers": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        }
+      },
+      "surfaces": [],
+      "conventional_paths_probed": []
+    },
+    {
+      "entity": "OUSG",
+      "display_name": "OUSG",
+      "segment_role": "instrument",
+      "in_population_because": "this node exports a public dossier card for OUSG and it is a real world asset instrument",
+      "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/ousg/",
+      "probed_at": "2026-08-02T04:34:38.788347+00:00",
+      "must_admit": true,
+      "full_admit": false,
+      "failed_limbs": [
+        "as_of_date_present",
+        "issuer_operated_surface",
+        "registry_ref_chain_qualified"
+      ],
+      "refuse_limb": "as_of_date_present",
+      "refuse_reason": "as_of_date_present:no_as_of_date_on_the_surface",
+      "attribution": "issuer",
+      "machine_readable_surface_exists": true,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "limbs": {
+        "disclosure_surface_declared": {
+          "status": "ok",
+          "detail": {
+            "surfaces": 1,
+            "recorded_by": [
+              "srr_grounding"
+            ]
+          }
+        },
+        "surface_resolves": {
+          "status": "ok",
+          "detail": {
+            "url": "https://yields.llama.fi/pools",
+            "http_status": 200,
+            "bytes": 10857775
+          }
+        },
+        "machine_readable_media_type": {
+          "status": "ok",
+          "detail": {
+            "media_type_sniffed": "json",
+            "content_type_header": "application/json",
+            "header_disagrees_with_bytes": false
+          }
+        },
+        "body_parses_as_served_type": {
+          "status": "ok",
+          "detail": {
+            "parsed_as": "json"
+          }
+        },
+        "figure_addressable_by_key_path": {
+          "status": "ok",
+          "detail": {
+            "key_path": "$.data[0].tvlUsd",
+            "key": "tvlUsd",
+            "value": 17615478956.0
+          }
+        },
+        "as_of_date_present": {
+          "status": "fail",
+          "reason": "no_as_of_date_on_the_surface",
+          "detail": {
+            "note": "the surface serves a number with no time attached to it"
+          }
+        },
+        "issuer_operated_surface": {
+          "status": "fail",
+          "reason": "surface_is_third_party:llama.fi",
+          "detail": {
+            "registrable_domain": "llama.fi",
+            "known_aggregator": true,
+            "meaning": "the machine readable number exists, and the issuer is not the one serving it"
+          }
+        },
+        "registry_ref_present": {
+          "status": "ok",
+          "detail": {
+            "caip10": [],
+            "evm_addresses": [
+              "0x000000000000000000000000000000000006f89a",
+              "0x00000000000050806673b532d7486ac114c1de3f",
+              "0x000000000000780555bD0BCA3791f89f9542c2d6",
+              "0x000000000000780555bd0bca3791f89f9542c2d6",
+              "0x000000000000d0151e748d25b766e77efe2a6c83",
+              "0x0000000000085d4780B73119b644AE5ecd22b376",
+              "0x0000000000085d4780b73119b644ae5ecd22b376",
+              "0x0000000000095413afc295d19edeb1ad7b71c952"
+            ],
+            "isin": [],
+            "lei": []
+          }
+        },
+        "registry_ref_chain_qualified": {
+          "status": "fail",
+          "reason": "bare_address_without_chain_identifier",
+          "detail": {
+            "addresses": [
+              "0x000000000000000000000000000000000006f89a",
+              "0x00000000000050806673b532d7486ac114c1de3f",
+              "0x000000000000780555bD0BCA3791f89f9542c2d6",
+              "0x000000000000780555bd0bca3791f89f9542c2d6",
+              "0x000000000000d0151e748d25b766e77efe2a6c83",
+              "0x0000000000085d4780B73119b644AE5ecd22b376",
+              "0x0000000000085d4780b73119b644ae5ecd22b376",
+              "0x0000000000095413afc295d19edeb1ad7b71c952"
+            ],
+            "meaning": "the same twenty bytes can be a different contract on every chain, so a consumer cannot resolve this reference without guessing the network"
+          }
+        },
+        "conventional_path_answers": {
+          "status": "not_applicable",
+          "reason": "no_issuer_operated_origin_to_probe",
+          "detail": {
+            "note": "every recorded surface for this issuer is on a third party origin"
+          }
+        }
+      },
+      "surfaces": [
+        {
+          "url": "https://yields.llama.fi/pools",
+          "recorded_by": "srr_grounding",
+          "recorded_note": "sensor grounding for instrument OUSG via defillama_yields_ondo_ousg",
+          "registrable_domain": "llama.fi",
+          "issuer_operated": false,
+          "known_aggregator": true,
+          "http_status": 200,
+          "transport_error": null,
+          "bytes": 10857775,
+          "content_type_header": "application/json",
+          "reach": 5,
+          "resolves": true,
+          "media_type_sniffed": "json",
+          "header_disagrees_with_bytes": false,
+          "machine_readable": true,
+          "truncated_at_probe_cap": false,
+          "parses": true,
+          "quantity": {
+            "key_path": "$.data[0].tvlUsd",
+            "key": "tvlUsd",
+            "value": 17615478956.0
+          },
+          "as_of": null,
+          "registry_refs": {
+            "caip10": [],
+            "evm_addresses": [
+              "0x000000000000000000000000000000000006f89a",
+              "0x00000000000050806673b532d7486ac114c1de3f",
+              "0x000000000000780555bD0BCA3791f89f9542c2d6",
+              "0x000000000000780555bd0bca3791f89f9542c2d6",
+              "0x000000000000d0151e748d25b766e77efe2a6c83",
+              "0x0000000000085d4780B73119b644AE5ecd22b376",
+              "0x0000000000085d4780b73119b644ae5ecd22b376",
+              "0x0000000000095413afc295d19edeb1ad7b71c952"
+            ],
+            "isin": [],
+            "lei": [],
+            "any": true,
+            "chain_qualified": false,
+            "chain_evidence": null
+          }
+        }
+      ],
+      "conventional_paths_probed": []
+    },
+    {
+      "entity": "PAXOS_GOLD",
+      "display_name": "Pax Gold",
+      "segment_role": "instrument",
+      "in_population_because": "this node exports a public dossier card for PAXOS_GOLD and it is a real world asset instrument",
+      "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/paxos_gold/",
+      "probed_at": "2026-08-02T04:34:38.788393+00:00",
+      "must_admit": false,
+      "full_admit": false,
+      "failed_limbs": [
+        "disclosure_surface_declared"
+      ],
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "limbs": {
+        "disclosure_surface_declared": {
+          "status": "fail",
+          "reason": "no_disclosure_surface_recorded_by_this_node",
+          "detail": {
+            "searched": [
+              "claim_ledger",
+              "srr_grounding"
+            ],
+            "note": "This node tracks the issuer but has recorded no disclosure URL for it. The refusal is against this node's coverage, not against the issuer."
+          }
+        },
+        "surface_resolves": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "machine_readable_media_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "body_parses_as_served_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "figure_addressable_by_key_path": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "as_of_date_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "issuer_operated_surface": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_chain_qualified": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "conventional_path_answers": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        }
+      },
+      "surfaces": [],
+      "conventional_paths_probed": []
+    },
+    {
+      "entity": "TETHER_GOLD",
+      "display_name": "Tether Gold",
+      "segment_role": "instrument",
+      "in_population_because": "this node exports a public dossier card for TETHER_GOLD and it is a real world asset instrument",
+      "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/tether_gold/",
+      "probed_at": "2026-08-02T04:34:38.788403+00:00",
+      "must_admit": false,
+      "full_admit": false,
+      "failed_limbs": [
+        "disclosure_surface_declared"
+      ],
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "limbs": {
+        "disclosure_surface_declared": {
+          "status": "fail",
+          "reason": "no_disclosure_surface_recorded_by_this_node",
+          "detail": {
+            "searched": [
+              "claim_ledger",
+              "srr_grounding"
+            ],
+            "note": "This node tracks the issuer but has recorded no disclosure URL for it. The refusal is against this node's coverage, not against the issuer."
+          }
+        },
+        "surface_resolves": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "machine_readable_media_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "body_parses_as_served_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "figure_addressable_by_key_path": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "as_of_date_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "issuer_operated_surface": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_chain_qualified": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "conventional_path_answers": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        }
+      },
+      "surfaces": [],
+      "conventional_paths_probed": []
+    },
+    {
+      "entity": "USDY",
+      "display_name": "USDY",
+      "segment_role": "instrument",
+      "in_population_because": "this node exports a public dossier card for USDY and it is a real world asset instrument",
+      "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/usdy/",
+      "probed_at": "2026-08-02T04:34:38.788411+00:00",
+      "must_admit": false,
+      "full_admit": false,
+      "failed_limbs": [
+        "disclosure_surface_declared"
+      ],
+      "refuse_limb": "disclosure_surface_declared",
+      "refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node",
+      "attribution": "this_node",
+      "machine_readable_surface_exists": false,
+      "issuer_operated_machine_readable_surface_exists": false,
+      "limbs": {
+        "disclosure_surface_declared": {
+          "status": "fail",
+          "reason": "no_disclosure_surface_recorded_by_this_node",
+          "detail": {
+            "searched": [
+              "claim_ledger",
+              "srr_grounding"
+            ],
+            "note": "This node tracks the issuer but has recorded no disclosure URL for it. The refusal is against this node's coverage, not against the issuer."
+          }
+        },
+        "surface_resolves": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "machine_readable_media_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "body_parses_as_served_type": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "figure_addressable_by_key_path": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "as_of_date_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "issuer_operated_surface": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_present": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "registry_ref_chain_qualified": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        },
+        "conventional_path_answers": {
+          "status": "not_reached",
+          "reason": "earlier_limb_failed"
+        }
+      },
+      "surfaces": [],
+      "conventional_paths_probed": []
+    }
+  ],
+  "digest": "ce9c3eb42c04d9d8bfe9c40ffbdebca614eed14b818c39b9a189ee31ea203751"
+}

@@ -1,0 +1,168 @@
+{
+  "entity": "OUSG",
+  "display_name": "OUSG",
+  "segment_role": "instrument",
+  "in_population_because": "this node exports a public dossier card for OUSG and it is a real world asset instrument",
+  "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/ousg/",
+  "probed_at": "2026-08-02T04:34:38.788347+00:00",
+  "must_admit": true,
+  "full_admit": false,
+  "failed_limbs": [
+    "as_of_date_present",
+    "issuer_operated_surface",
+    "registry_ref_chain_qualified"
+  ],
+  "refuse_limb": "as_of_date_present",
+  "refuse_reason": "as_of_date_present:no_as_of_date_on_the_surface",
+  "attribution": "issuer",
+  "machine_readable_surface_exists": true,
+  "issuer_operated_machine_readable_surface_exists": false,
+  "limbs": {
+    "disclosure_surface_declared": {
+      "status": "ok",
+      "detail": {
+        "surfaces": 1,
+        "recorded_by": [
+          "srr_grounding"
+        ]
+      }
+    },
+    "surface_resolves": {
+      "status": "ok",
+      "detail": {
+        "url": "https://yields.llama.fi/pools",
+        "http_status": 200,
+        "bytes": 10857775
+      }
+    },
+    "machine_readable_media_type": {
+      "status": "ok",
+      "detail": {
+        "media_type_sniffed": "json",
+        "content_type_header": "application/json",
+        "header_disagrees_with_bytes": false
+      }
+    },
+    "body_parses_as_served_type": {
+      "status": "ok",
+      "detail": {
+        "parsed_as": "json"
+      }
+    },
+    "figure_addressable_by_key_path": {
+      "status": "ok",
+      "detail": {
+        "key_path": "$.data[0].tvlUsd",
+        "key": "tvlUsd",
+        "value": 17615478956.0
+      }
+    },
+    "as_of_date_present": {
+      "status": "fail",
+      "reason": "no_as_of_date_on_the_surface",
+      "detail": {
+        "note": "the surface serves a number with no time attached to it"
+      }
+    },
+    "issuer_operated_surface": {
+      "status": "fail",
+      "reason": "surface_is_third_party:llama.fi",
+      "detail": {
+        "registrable_domain": "llama.fi",
+        "known_aggregator": true,
+        "meaning": "the machine readable number exists, and the issuer is not the one serving it"
+      }
+    },
+    "registry_ref_present": {
+      "status": "ok",
+      "detail": {
+        "caip10": [],
+        "evm_addresses": [
+          "0x000000000000000000000000000000000006f89a",
+          "0x00000000000050806673b532d7486ac114c1de3f",
+          "0x000000000000780555bD0BCA3791f89f9542c2d6",
+          "0x000000000000780555bd0bca3791f89f9542c2d6",
+          "0x000000000000d0151e748d25b766e77efe2a6c83",
+          "0x0000000000085d4780B73119b644AE5ecd22b376",
+          "0x0000000000085d4780b73119b644ae5ecd22b376",
+          "0x0000000000095413afc295d19edeb1ad7b71c952"
+        ],
+        "isin": [],
+        "lei": []
+      }
+    },
+    "registry_ref_chain_qualified": {
+      "status": "fail",
+      "reason": "bare_address_without_chain_identifier",
+      "detail": {
+        "addresses": [
+          "0x000000000000000000000000000000000006f89a",
+          "0x00000000000050806673b532d7486ac114c1de3f",
+          "0x000000000000780555bD0BCA3791f89f9542c2d6",
+          "0x000000000000780555bd0bca3791f89f9542c2d6",
+          "0x000000000000d0151e748d25b766e77efe2a6c83",
+          "0x0000000000085d4780B73119b644AE5ecd22b376",
+          "0x0000000000085d4780b73119b644ae5ecd22b376",
+          "0x0000000000095413afc295d19edeb1ad7b71c952"
+        ],
+        "meaning": "the same twenty bytes can be a different contract on every chain, so a consumer cannot resolve this reference without guessing the network"
+      }
+    },
+    "conventional_path_answers": {
+      "status": "not_applicable",
+      "reason": "no_issuer_operated_origin_to_probe",
+      "detail": {
+        "note": "every recorded surface for this issuer is on a third party origin"
+      }
+    }
+  },
+  "surfaces": [
+    {
+      "url": "https://yields.llama.fi/pools",
+      "recorded_by": "srr_grounding",
+      "recorded_note": "sensor grounding for instrument OUSG via defillama_yields_ondo_ousg",
+      "registrable_domain": "llama.fi",
+      "issuer_operated": false,
+      "known_aggregator": true,
+      "http_status": 200,
+      "transport_error": null,
+      "bytes": 10857775,
+      "content_type_header": "application/json",
+      "reach": 5,
+      "resolves": true,
+      "media_type_sniffed": "json",
+      "header_disagrees_with_bytes": false,
+      "machine_readable": true,
+      "truncated_at_probe_cap": false,
+      "parses": true,
+      "quantity": {
+        "key_path": "$.data[0].tvlUsd",
+        "key": "tvlUsd",
+        "value": 17615478956.0
+      },
+      "as_of": null,
+      "registry_refs": {
+        "caip10": [],
+        "evm_addresses": [
+          "0x000000000000000000000000000000000006f89a",
+          "0x00000000000050806673b532d7486ac114c1de3f",
+          "0x000000000000780555bD0BCA3791f89f9542c2d6",
+          "0x000000000000780555bd0bca3791f89f9542c2d6",
+          "0x000000000000d0151e748d25b766e77efe2a6c83",
+          "0x0000000000085d4780B73119b644AE5ecd22b376",
+          "0x0000000000085d4780b73119b644ae5ecd22b376",
+          "0x0000000000095413afc295d19edeb1ad7b71c952"
+        ],
+        "isin": [],
+        "lei": [],
+        "any": true,
+        "chain_qualified": false,
+        "chain_evidence": null
+      }
+    }
+  ],
+  "conventional_paths_probed": [],
+  "ledger": "https://geniusflow-federation.vercel.app/rwa/ledger.json",
+  "ledger_digest": "ce9c3eb42c04d9d8bfe9c40ffbdebca614eed14b818c39b9a189ee31ea203751",
+  "expectations_digest": "28961d5d66629b9a0d370b1331bd7b7b66f7c857d78a47145e29567c7c7aef1a"
+}

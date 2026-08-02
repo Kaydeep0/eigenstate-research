@@ -22,6 +22,8 @@ Topics: **mcp**, **rwa**, **attestation**.
 11. Provenance: [provenance/](https://kaydeep0.github.io/eigenstate-research/provenance/) · OTS file under `opentimestamps/` · SWHIDs in federation `/api/agent` → `provenance`
 12. **Provenance census** (PEP 740 and SLSA over this engine's own 94 dependencies; 44 attested and verified, 0 with SLSA build provenance; expectations published before the run): https://kaydeep0.github.io/eigenstate-research/slsa/ · machine: [`/slsa/summary.json`](https://kaydeep0.github.io/eigenstate-research/slsa/summary.json). A census of one install set, never quote it as a PyPI-wide rate.
 
+13. **RWA disclosure interface survey** (17 tracked real world asset issuers and instruments; 0 of 17 serve a machine readable disclosure surface they operate; the 2 machine readable surfaces both belong to a third party aggregator; 0 of 45 conventional path requests answered; 0 of 15 surfaces carry a chain qualified registry reference; expectations published before the run): https://kaydeep0.github.io/eigenstate-research/rwa/ · machine: [`/rwa/summary.json`](https://kaydeep0.github.io/eigenstate-research/rwa/summary.json). Asks only whether the number is machine readable, not whether the disclosure is good. Never quote as a sector rate; 11 of the 17 refusals are this node's own coverage gap, so cite `attributable_to_issuer` for the issuer-attributable figure.
+
 In-repo pointer: [`README.md`](README.md) § Appendix: For agents. MCP source mirror: [`mcp/`](mcp/).
 
 **Host ops:** after parkash, run `./scripts/refresh-public.sh` (needs `GENIUSFLOW_ROOT` + `GENIUSFLOW_BUILDER_DEPLOY=1`), then push Pages - do not hand-edit proof tiles.  

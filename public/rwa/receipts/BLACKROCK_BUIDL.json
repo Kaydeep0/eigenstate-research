@@ -1,0 +1,136 @@
+{
+  "entity": "BLACKROCK_BUIDL",
+  "display_name": "BlackRock BUIDL",
+  "segment_role": "instrument",
+  "in_population_because": "this node exports a public dossier card for BLACKROCK_BUIDL and it is a real world asset instrument",
+  "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/blackrock_buidl/",
+  "probed_at": "2026-08-02T04:34:37.587773+00:00",
+  "must_admit": true,
+  "full_admit": false,
+  "failed_limbs": [
+    "issuer_operated_surface",
+    "registry_ref_present"
+  ],
+  "refuse_limb": "issuer_operated_surface",
+  "refuse_reason": "issuer_operated_surface:surface_is_third_party:llama.fi",
+  "attribution": "issuer",
+  "machine_readable_surface_exists": true,
+  "issuer_operated_machine_readable_surface_exists": false,
+  "limbs": {
+    "disclosure_surface_declared": {
+      "status": "ok",
+      "detail": {
+        "surfaces": 1,
+        "recorded_by": [
+          "srr_grounding"
+        ]
+      }
+    },
+    "surface_resolves": {
+      "status": "ok",
+      "detail": {
+        "url": "https://api.llama.fi/protocol/blackrock-buidl",
+        "http_status": 200,
+        "bytes": 822364
+      }
+    },
+    "machine_readable_media_type": {
+      "status": "ok",
+      "detail": {
+        "media_type_sniffed": "json",
+        "content_type_header": "application/json",
+        "header_disagrees_with_bytes": false
+      }
+    },
+    "body_parses_as_served_type": {
+      "status": "ok",
+      "detail": {
+        "parsed_as": "json"
+      }
+    },
+    "figure_addressable_by_key_path": {
+      "status": "ok",
+      "detail": {
+        "key_path": "$.chainTvls.Binance.tvl[2].totalLiquidityUSD",
+        "key": "totalLiquidityUSD",
+        "value": 501626853.0
+      }
+    },
+    "as_of_date_present": {
+      "status": "ok",
+      "detail": {
+        "key_path": "$.chainTvls.Binance.tvl[0].date",
+        "key": "date",
+        "value": 1764806400
+      }
+    },
+    "issuer_operated_surface": {
+      "status": "fail",
+      "reason": "surface_is_third_party:llama.fi",
+      "detail": {
+        "registrable_domain": "llama.fi",
+        "known_aggregator": true,
+        "meaning": "the machine readable number exists, and the issuer is not the one serving it"
+      }
+    },
+    "registry_ref_present": {
+      "status": "fail",
+      "reason": "no_registry_reference_in_the_served_bytes"
+    },
+    "registry_ref_chain_qualified": {
+      "status": "not_reached",
+      "reason": "no_reference_to_qualify"
+    },
+    "conventional_path_answers": {
+      "status": "not_applicable",
+      "reason": "no_issuer_operated_origin_to_probe",
+      "detail": {
+        "note": "every recorded surface for this issuer is on a third party origin"
+      }
+    }
+  },
+  "surfaces": [
+    {
+      "url": "https://api.llama.fi/protocol/blackrock-buidl",
+      "recorded_by": "srr_grounding",
+      "recorded_note": "sensor grounding for instrument BUIDL via defillama_protocol_blackrock_buidl",
+      "registrable_domain": "llama.fi",
+      "issuer_operated": false,
+      "known_aggregator": true,
+      "http_status": 200,
+      "transport_error": null,
+      "bytes": 822364,
+      "content_type_header": "application/json",
+      "reach": 6,
+      "resolves": true,
+      "media_type_sniffed": "json",
+      "header_disagrees_with_bytes": false,
+      "machine_readable": true,
+      "truncated_at_probe_cap": false,
+      "parses": true,
+      "quantity": {
+        "key_path": "$.chainTvls.Binance.tvl[2].totalLiquidityUSD",
+        "key": "totalLiquidityUSD",
+        "value": 501626853.0
+      },
+      "as_of": {
+        "key_path": "$.chainTvls.Binance.tvl[0].date",
+        "key": "date",
+        "value": 1764806400
+      },
+      "registry_refs": {
+        "caip10": [],
+        "evm_addresses": [],
+        "isin": [],
+        "lei": [],
+        "any": false,
+        "chain_qualified": false,
+        "chain_evidence": null
+      }
+    }
+  ],
+  "conventional_paths_probed": [],
+  "ledger": "https://geniusflow-federation.vercel.app/rwa/ledger.json",
+  "ledger_digest": "ce9c3eb42c04d9d8bfe9c40ffbdebca614eed14b818c39b9a189ee31ea203751",
+  "expectations_digest": "28961d5d66629b9a0d370b1331bd7b7b66f7c857d78a47145e29567c7c7aef1a"
+}

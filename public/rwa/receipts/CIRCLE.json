@@ -1,0 +1,209 @@
+{
+  "entity": "CIRCLE",
+  "display_name": "Circle",
+  "segment_role": "issuer",
+  "in_population_because": "this node exports a public dossier card for CIRCLE and it is a real world asset issuer",
+  "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/circle/",
+  "probed_at": "2026-08-02T04:34:15.587005+00:00",
+  "must_admit": false,
+  "full_admit": false,
+  "failed_limbs": [
+    "machine_readable_media_type",
+    "conventional_path_answers"
+  ],
+  "refuse_limb": "machine_readable_media_type",
+  "refuse_reason": "machine_readable_media_type:html_document",
+  "attribution": "issuer",
+  "machine_readable_surface_exists": false,
+  "issuer_operated_machine_readable_surface_exists": false,
+  "limbs": {
+    "disclosure_surface_declared": {
+      "status": "ok",
+      "detail": {
+        "surfaces": 3,
+        "recorded_by": [
+          "claim_ledger"
+        ]
+      }
+    },
+    "surface_resolves": {
+      "status": "ok",
+      "detail": {
+        "url": "https://www.circle.com/usdc",
+        "http_status": 200,
+        "bytes": 369917
+      }
+    },
+    "machine_readable_media_type": {
+      "status": "fail",
+      "reason": "html_document",
+      "detail": {
+        "url": "https://www.circle.com/usdc",
+        "content_type_header": "text/html",
+        "media_type_sniffed": "html",
+        "meaning": "the disclosure is a document. A human can read it; a program needs a person, a parser or a third party who already did both"
+      }
+    },
+    "body_parses_as_served_type": {
+      "status": "not_reached",
+      "reason": "earlier_limb_failed"
+    },
+    "figure_addressable_by_key_path": {
+      "status": "not_reached",
+      "reason": "earlier_limb_failed"
+    },
+    "as_of_date_present": {
+      "status": "not_reached",
+      "reason": "earlier_limb_failed"
+    },
+    "issuer_operated_surface": {
+      "status": "not_reached",
+      "reason": "no_machine_readable_surface_to_attribute"
+    },
+    "registry_ref_present": {
+      "status": "not_reached",
+      "reason": "earlier_limb_failed"
+    },
+    "registry_ref_chain_qualified": {
+      "status": "not_reached",
+      "reason": "earlier_limb_failed"
+    },
+    "conventional_path_answers": {
+      "status": "fail",
+      "reason": "no_conventional_disclosure_path_answered",
+      "detail": {
+        "origins": [
+          "https://www.circle.com"
+        ],
+        "paths_tried": 9,
+        "statuses": {
+          "404": 9
+        }
+      }
+    }
+  },
+  "surfaces": [
+    {
+      "url": "https://www.circle.com/usdc",
+      "recorded_by": "claim_ledger",
+      "recorded_note": "Circle issues USDC — regulated dollar stablecoin",
+      "registrable_domain": "circle.com",
+      "issuer_operated": true,
+      "known_aggregator": false,
+      "http_status": 200,
+      "transport_error": null,
+      "bytes": 369917,
+      "content_type_header": "text/html",
+      "reach": 2,
+      "resolves": true,
+      "media_type_sniffed": "html",
+      "header_disagrees_with_bytes": false,
+      "machine_readable": false,
+      "refuse": "html_document"
+    },
+    {
+      "url": "https://www.circle.com/en/transparency",
+      "recorded_by": "claim_ledger",
+      "recorded_note": "Circle publishes monthly USDC reserve attestations",
+      "registrable_domain": "circle.com",
+      "issuer_operated": true,
+      "known_aggregator": false,
+      "http_status": 200,
+      "transport_error": null,
+      "bytes": 457423,
+      "content_type_header": "text/html",
+      "reach": 2,
+      "resolves": true,
+      "media_type_sniffed": "html",
+      "header_disagrees_with_bytes": false,
+      "machine_readable": false,
+      "refuse": "html_document"
+    },
+    {
+      "url": "https://www.circle.com/en/cross-chain-transfer-protocol",
+      "recorded_by": "claim_ledger",
+      "recorded_note": "Cross-Chain Transfer Protocol (CCTP) for native USDC",
+      "registrable_domain": "circle.com",
+      "issuer_operated": true,
+      "known_aggregator": false,
+      "http_status": 200,
+      "transport_error": null,
+      "bytes": 300172,
+      "content_type_header": "text/html",
+      "reach": 2,
+      "resolves": true,
+      "media_type_sniffed": "html",
+      "header_disagrees_with_bytes": false,
+      "machine_readable": false,
+      "refuse": "html_document"
+    }
+  ],
+  "conventional_paths_probed": [
+    {
+      "url": "https://www.circle.com/.well-known/rwa-disclosure.json",
+      "http_status": 404,
+      "transport_error": "http_404",
+      "media_type_sniffed": "html",
+      "answered_structured": false
+    },
+    {
+      "url": "https://www.circle.com/.well-known/reserves.json",
+      "http_status": 404,
+      "transport_error": "http_404",
+      "media_type_sniffed": "html",
+      "answered_structured": false
+    },
+    {
+      "url": "https://www.circle.com/.well-known/attestation.json",
+      "http_status": 404,
+      "transport_error": "http_404",
+      "media_type_sniffed": "html",
+      "answered_structured": false
+    },
+    {
+      "url": "https://www.circle.com/.well-known/asset-disclosure.json",
+      "http_status": 404,
+      "transport_error": "http_404",
+      "media_type_sniffed": "html",
+      "answered_structured": false
+    },
+    {
+      "url": "https://www.circle.com/.well-known/proof-of-reserves.json",
+      "http_status": 404,
+      "transport_error": "http_404",
+      "media_type_sniffed": "html",
+      "answered_structured": false
+    },
+    {
+      "url": "https://www.circle.com/reserves.json",
+      "http_status": 404,
+      "transport_error": "http_404",
+      "media_type_sniffed": "html",
+      "answered_structured": false
+    },
+    {
+      "url": "https://www.circle.com/disclosure.json",
+      "http_status": 404,
+      "transport_error": "http_404",
+      "media_type_sniffed": "html",
+      "answered_structured": false
+    },
+    {
+      "url": "https://www.circle.com/attestations.json",
+      "http_status": 404,
+      "transport_error": "http_404",
+      "media_type_sniffed": "html",
+      "answered_structured": false
+    },
+    {
+      "url": "https://www.circle.com/api/reserves",
+      "http_status": 404,
+      "transport_error": "http_404",
+      "media_type_sniffed": "html",
+      "answered_structured": false
+    }
+  ],
+  "ledger": "https://geniusflow-federation.vercel.app/rwa/ledger.json",
+  "ledger_digest": "ce9c3eb42c04d9d8bfe9c40ffbdebca614eed14b818c39b9a189ee31ea203751",
+  "expectations_digest": "28961d5d66629b9a0d370b1331bd7b7b66f7c857d78a47145e29567c7c7aef1a"
+}

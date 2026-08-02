@@ -47,6 +47,29 @@ expectations file was published in an earlier commit than the results. No badge,
 - https://geniusflow-federation.vercel.app/slsa/index.json  (per-package receipt index)
 - https://geniusflow-federation.vercel.app/slsa/receipts/<normalized-name>.json
 
+## RWA disclosure interface conformance survey
+
+Seventeen real world asset issuers and tokenized instruments that this node already exports
+a dossier card for, checked for one thing only: can a program read the disclosed figure
+without a human, a document parser, or a third party who already did both. 0 of 17 serve a
+machine readable disclosure surface on an origin they operate. 2 of 15 recorded surfaces
+serve structured bytes and both belong to the same third party aggregator; the other 13 are
+HTML documents. 0 of 45 requests to a frozen list of conventional disclosure paths answered
+with structured bytes. 0 of 15 surfaces carry a chain qualified registry reference.
+
+Not a measure of disclosure quality: a signed attestation PDF is a stronger disclosure than
+an unsigned JSON file and a worse interface. Not a market survey and not a sector rate: the
+population is what this node tracks. 11 of the 17 refuse at the first limb because this node
+recorded no surface for them, which is this node's coverage gap and is reported separately.
+Expectations were published in an earlier commit than the results.
+
+- https://kaydeep0.github.io/eigenstate-research/rwa/  (human summary)
+- https://kaydeep0.github.io/eigenstate-research/rwa/expectations.json  (published before the run)
+- https://kaydeep0.github.io/eigenstate-research/rwa/summary.json
+- https://kaydeep0.github.io/eigenstate-research/rwa/ledger.json  (every receipt)
+- https://geniusflow-federation.vercel.app/rwa/index.json  (per-issuer receipt index)
+- https://geniusflow-federation.vercel.app/rwa/receipts/<ENTITY>.json
+
 ## This site (GitHub Pages) - humans
 
 - https://kaydeep0.github.io/eigenstate-research/
@@ -87,3 +110,8 @@ expectations file was published in an earlier commit than the results. No badge,
 - helixhash and witnessfield are published as source on GitHub but this engine declares
   versions of them the public index cannot satisfy. The provenance census refuses both by
   name rather than omitting them: /slsa/summary.json -> self_refusals.
+- RWA disclosure counts describe the 17 issuers this node tracks, not the sector: cite
+  /rwa/summary.json with its digest. 11 of the 17 refuse on this node's own missing
+  coverage, so quote attributable_to_issuer rather than the headline if you need the
+  issuer-attributable rate. The survey also publishes two defects it found in its own
+  probe: /rwa/summary.json -> probe_defects_fixed_before_publication.

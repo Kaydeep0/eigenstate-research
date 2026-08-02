@@ -16,6 +16,7 @@ Topics: **mcp**, **rwa**, **attestation**.
 5. A2A card: https://geniusflow-federation.vercel.app/.well-known/agent-card.json · JSON-RPC: `/api/a2a`
 6. ERC-8004 domain proof: https://geniusflow-federation.vercel.app/.well-known/agent-registration.json (empty `registrations`; named refusal - no agentId claimed)
 7. **ERC-8004 refusal ledger** (what share of registered Base agents resolve to nothing, named by limb): https://kaydeep0.github.io/eigenstate-research/erc8004/ · machine: `/erc8004/summary.json`, `/erc8004/ledger.json` · per-agent receipts: https://geniusflow-federation.vercel.app/erc8004/receipts/`<agentId>`.json
+7b. **RWA disclosure interface survey** (can a program read an RWA issuer's disclosed figure at all; 0 of 17 tracked issuers serve a machine readable surface they operate, and the 2 machine readable surfaces in the population both belong to a third party aggregator): https://kaydeep0.github.io/eigenstate-research/rwa/ · machine: `/rwa/summary.json`, `/rwa/ledger.json` · per-issuer receipts: https://geniusflow-federation.vercel.app/rwa/receipts/`<ENTITY>`.json
 8. Attestation proof shape: https://geniusflow-federation.vercel.app/docs/ATTESTATION_PROOF_SHAPE.md
 9. MCP / tool adapter: https://geniusflow-federation.vercel.app/docs/AGENT_TOOL_ADAPTER.md
 10. **Verify walkthrough** (curl admit/refuse for `AAVE_V3`): https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/
