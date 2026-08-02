@@ -110,8 +110,8 @@ export function buildReportLinkCatalog(opts: {
   const hubSlug = code.toLowerCase().replace(/_/g, '-');
   const entityHub = `${base}reports/${hubSlug}/`;
   const humanDossier = `${base}dossier/${code}/`;
-  const methodology = `${base}METHODOLOGY.md`;
-  const glossary = `${base}METHODOLOGY.md#numbers-glossary`;
+  const methodology = `${base}methodology/`;
+  const glossary = `${base}methodology/#glossary`;
   const verify = `${base}verify-walkthrough/`;
   const reportsIndex = `${base}reports/`;
 

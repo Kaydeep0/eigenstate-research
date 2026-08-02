@@ -1,0 +1,1073 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const fonts =
+  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
+
+const base = import.meta.env.BASE_URL;
+const fed = 'https://geniusflow-federation.vercel.app';
+const pages = 'https://kaydeep0.github.io/eigenstate-research';
+const requestAccess = `${base}request-access/`;
+const fieldState = `${base}field-state.json`;
+const onchain = `${base}onchain/`;
+const verifyWalk = `${base}verify-walkthrough/`;
+const predictions = `${base}predictions/`;
+const dossierCircle = `${base}federation/dossier/CIRCLE.json`;
+const dossierBlackrock = `${base}federation/dossier/BLACKROCK.json`;
+const dossierDtcc = `${base}federation/dossier/DTCC.json`;
+const proofShape = `${fed}/docs/ATTESTATION_PROOF_SHAPE.md`;
+const llms = `${fed}/llms.txt`;
+const fedStatus = `${fed}/api/status`;
+const doi = 'https://doi.org/10.5281/zenodo.18413995';
+const basescanExample =
+  'https://basescan.org/tx/0x5a132a48097c67063afcee39f3d06ee3f35166570b4eefcc18eefaa54d877a66';
+const plainMd = `${base}METHODOLOGY.md`;
+
+const nav = [
+  { href: '#loop', label: 'Measure / Publish / Act' },
+  { href: '#glossary', label: 'Glossary' },
+  { href: '#equation', label: 'Equation' },
+  { href: '#vault', label: 'Vault' },
+  { href: '#helix', label: 'Helix' },
+  { href: '#verify', label: 'Verify' },
+  { href: '#topology', label: 'Topology' },
+  { href: '#gaps', label: 'Gaps' },
+  { href: '#agents', label: 'Agents' },
+];
+
+const glossary = [
+  {
+    term: 'E, ΔI, A',
+    plain: 'How much new information an observation yields per unit cost',
+    note: 'E = ΔI / A. ΔI = surprise vs expected state; A = observation cost (API / work / time). Structural metric, not a price forecast.',
+  },
+  {
+    term: 'Φ_S',
+    plain: 'Settlement / signal pressure on an entity',
+    note: 'Primary entity field signal (unrealized settlement energy). Mirrored on public dossiers (own_numbers). Not volume, not INFRA_FLOW.',
+  },
+  {
+    term: 'κ vs Γ',
+    plain: 'κ = system coherence of the measured field; Γ (gamma) = extraction / force',
+    note: 'Separate keys (Brief B): κ stays on sys/measured coherence; Γ lives under entity physics (gamma). Never treat Γ as Φ_S or rename κ to mean gamma.',
+  },
+  {
+    term: 'PT / Protocol Truth',
+    plain: 'A Host act-readiness score from the engine SoT',
+    note: 'Shown on Track Record / proof tiles from HOST/state.json. Canonical act threshold ≈ 0.618. Below waist ≈ observe (measure / membrane publish); high-stakes act lanes stay gated.',
+  },
+  {
+    term: 'M1 / 199 / coverage',
+    plain: 'How much of the fixed topology map has been observed',
+    note: 'Denominator 199 (forbidden stale denoms 196/197/218/…). Coverage = m1_strict ∩ topology, baked as e.g. 192 / 199. Dossier count ≠ M1 denominator.',
+  },
+  {
+    term: 'SoT',
+    plain: 'Source of truth for public field tiles',
+    note: 'Engine HOST/state.json (κ, PT, parkash stamps) + M1 coverage ledger → stamped into Pages field-state.json at deploy. Tiles bake from that stamp, not frozen marketing HTML.',
+  },
+  {
+    term: 'vault@publish vs M1 ledger',
+    plain: 'Two different "obs" counts on report cards',
+    note: 'vault@publish (green badges) = trimmed cycle-vault rows present at report publish - not lifetime history. M1 ledger = lifetime m1_strict observation counts. Do not equate them.',
+  },
+  {
+    term: 'status_at_publish',
+    plain: 'Trust label on a published claim',
+    note: 'Set by VERIFY (fail-closed). Common values: ATTESTED (when spine admits), UNVERIFIED-PENDING (published but not attested). Federation proof_shape can refuse packages that invent attestation without a provenance spine.',
+  },
+  {
+    term: 'Assessable n / accuracy',
+    plain: 'How we score Host prediction outcomes',
+    note: 'TRUE/FALSE only (VOID excluded). A % appears only when assessable n ≥ 5. Thin samples show raw n - never a fake 100% from a handful of rows.',
+  },
+  {
+    term: 'Direction signals',
+    plain: 'Older claim-table labels (e.g. BUILDING, INFRA_FLOW)',
+    note: 'Retired on the current Track Record rebuild. INFRA_FLOW / cumulative volume is a different unit and must not be shown as Φ_S. Live surface: SoT scoreboard + field tiles.',
+  },
+  {
+    term: 'Helix / Base commit',
+    plain: 'On-chain fingerprint of vault / crossing state',
+    note: 'Local HelixHash chaining is continuous; Base commits to GeniusFlowSettlement are gated (wallet, balance, mirror flags). Attested when a tx lands - not every parkash.',
+  },
+  {
+    term: 'Return-wire ack',
+    plain: 'Optional consumption acknowledgment',
+    note: 'Federation /api/return_wire can ack that a consumer saw a package. Supports return-signal / Cell-E paths; it does not mean every vault row was published or attested.',
+  },
+];
+---
+
+<Layout
+  title="Methodology · Eigenstate Research"
+  description="How Eigenstate measures the tokenized settlement field: Measure, Publish, Act - equation, vault, helix honesty, verify gates, topology, and structural gaps."
+  fonts={fonts}
+>
+  <Fragment slot="head">
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .meth-hero {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 64px 24px 28px;
+      }
+
+      .meth-hero .eyebrow {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.15em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+
+      .meth-hero h1 {
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 4.5vw, 3rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        line-height: 1.1;
+        margin: 0 0 16px;
+      }
+
+      .meth-hero h1 .grad {
+        background: linear-gradient(135deg, var(--signal) 0%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .meth-hero .lede {
+        font-size: var(--text-base);
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin: 0 0 12px;
+        max-width: 640px;
+      }
+
+      .meth-hero .honesty {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin: 0;
+        max-width: 640px;
+      }
+
+      .meth-toc {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        background: rgb(247 245 241 / 92%);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .meth-toc-inner {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 10px 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 4px;
+        align-items: center;
+      }
+
+      .meth-toc a {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        color: var(--text-muted);
+        text-decoration: none;
+        padding: 6px 10px;
+        border-radius: var(--radius-sm);
+        white-space: nowrap;
+      }
+
+      .meth-toc a:hover,
+      .meth-toc a:focus-visible {
+        color: var(--text-primary);
+        background: var(--bg2);
+        outline: none;
+      }
+
+      .meth-body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 36px 24px 80px;
+      }
+
+      .meth-section {
+        margin-bottom: 56px;
+        padding-top: 12px;
+        scroll-margin-top: 64px;
+      }
+
+      .meth-section > .section-label {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--signal);
+        margin-bottom: 8px;
+      }
+
+      .meth-section > h2 {
+        font-family: var(--font-heading);
+        font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        margin: 0 0 12px;
+        line-height: 1.2;
+      }
+
+      .meth-section > .plain,
+      .meth-section > p {
+        font-size: var(--text-base);
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin: 0 0 14px;
+        max-width: 680px;
+      }
+
+      .meth-section a {
+        color: var(--signal-dim);
+      }
+
+      .verb-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin: 20px 0 18px;
+      }
+
+      .verb-card {
+        border: 1px solid var(--border);
+        background: var(--bg2);
+        padding: 18px 16px;
+        border-radius: var(--radius-sm);
+      }
+
+      .verb-card .verb {
+        font-family: var(--font-heading);
+        font-size: var(--text-lg);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0 0 8px;
+        letter-spacing: -0.01em;
+      }
+
+      .verb-card p {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin: 0 0 10px;
+      }
+
+      .verb-card .not {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        line-height: 1.5;
+        margin: 0;
+        padding-top: 10px;
+        border-top: 1px solid var(--border);
+      }
+
+      .eq-block {
+        font-family: var(--font-mono);
+        font-size: clamp(1.4rem, 3vw, 1.85rem);
+        font-weight: 600;
+        color: var(--text-primary);
+        letter-spacing: 0.04em;
+        padding: 20px 22px;
+        margin: 16px 0 18px;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--border-live);
+        max-width: 420px;
+      }
+
+      .term-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 18px;
+      }
+
+      .term-list li {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.65;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--border);
+        max-width: 680px;
+      }
+
+      .term-list strong {
+        font-family: var(--font-mono);
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .example {
+        margin: 18px 0;
+        padding: 16px 18px;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        max-width: 720px;
+      }
+
+      .example .ex-label {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--signal);
+        margin: 0 0 8px;
+      }
+
+      .example p {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.65;
+        margin: 0;
+      }
+
+      .example p + p {
+        margin-top: 8px;
+      }
+
+      .example.pair {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px 18px;
+      }
+
+      .example.pair .ex-label {
+        grid-column: 1 / -1;
+      }
+
+      .example .limb {
+        padding: 10px 12px;
+        background: var(--bg);
+        border-radius: var(--radius-sm);
+      }
+
+      .example .limb .tag {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .example .limb.admit .tag {
+        color: var(--status-success);
+      }
+
+      .example .limb.refuse .tag {
+        color: var(--status-warning);
+      }
+
+      .example .limb.loud .tag {
+        color: var(--signal);
+      }
+
+      .example .limb.quiet .tag {
+        color: var(--text-muted);
+      }
+
+      .without {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        line-height: 1.65;
+        margin: 16px 0 0;
+        padding: 12px 14px;
+        background: rgb(0 0 0 / 2.5%);
+        border-left: 2px solid var(--border-strong);
+        max-width: 720px;
+      }
+
+      .without strong {
+        color: var(--text-secondary);
+        font-weight: 600;
+      }
+
+      .rail-list {
+        counter-reset: rail;
+        list-style: none;
+        padding: 0;
+        margin: 16px 0 18px;
+      }
+
+      .rail-list li {
+        counter-increment: rail;
+        position: relative;
+        padding: 14px 14px 14px 48px;
+        margin-bottom: 10px;
+        border: 1px solid var(--border);
+        background: var(--bg2);
+        border-radius: var(--radius-sm);
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.65;
+        max-width: 720px;
+      }
+
+      .rail-list li::before {
+        content: counter(rail);
+        position: absolute;
+        left: 14px;
+        top: 14px;
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        font-weight: 600;
+        color: var(--signal);
+      }
+
+      .rail-list strong {
+        color: var(--text-primary);
+      }
+
+      .topo-cats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px 16px;
+        margin: 16px 0 18px;
+        max-width: 720px;
+        list-style: none;
+        padding: 0;
+      }
+
+      .topo-cats li {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.5;
+        padding: 6px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .links-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        margin: 14px 0 0;
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+      }
+
+      .links-row a {
+        color: var(--signal-dim);
+        text-decoration: none;
+      }
+
+      .links-row a:hover {
+        text-decoration: underline;
+      }
+
+      .agent-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin: 16px 0;
+      }
+
+      .agent-link {
+        display: block;
+        padding: 14px 16px;
+        border: 1px solid var(--border);
+        background: var(--bg2);
+        border-radius: var(--radius-sm);
+        text-decoration: none;
+      }
+
+      .agent-link:hover {
+        border-color: var(--border-strong);
+      }
+
+      .agent-link .al-label {
+        font-family: var(--font-heading);
+        font-size: var(--text-sm);
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 0 0 4px;
+      }
+
+      .agent-link .al-url {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-muted);
+        word-break: break-all;
+        line-height: 1.45;
+      }
+
+      .glossary-wrap {
+        width: 100%;
+        overflow-x: auto;
+        margin: 18px 0 8px;
+        border: 1px solid var(--border);
+      }
+
+      .glossary-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: var(--text-sm);
+        margin: 0;
+      }
+
+      .glossary-table th,
+      .glossary-table td {
+        text-align: left;
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+        color: var(--text-secondary);
+        line-height: 1.55;
+      }
+
+      .glossary-table th {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: var(--text-muted);
+        background: var(--bg2);
+        position: sticky;
+        top: 0;
+      }
+
+      .glossary-table td.term {
+        font-family: var(--font-mono);
+        font-weight: 600;
+        color: var(--text-primary);
+        white-space: nowrap;
+        min-width: 140px;
+      }
+
+      .meth-foot {
+        margin-top: 40px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      .meth-foot a {
+        color: var(--signal-dim);
+      }
+
+      @media (width <= 760px) {
+        .verb-grid,
+        .example.pair,
+        .topo-cats,
+        .agent-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .meth-hero {
+          padding-top: 48px;
+        }
+
+        .glossary-table td.term {
+          white-space: normal;
+        }
+      }
+    </style>
+  </Fragment>
+
+  <Nav cta={{ label: 'Request Pilot', href: requestAccess }} />
+
+  <header class="meth-hero" id="main">
+    <div class="eyebrow">Eigenstate Research · measurement loop</div>
+    <h1><span class="grad">Methodology</span></h1>
+    <p class="lede">
+      How Eigenstate measures the tokenized settlement field - three verbs, one loop, honest gates.
+      Plain language first; precise engine terms where Host needs them.
+    </p>
+    <p class="honesty">
+      Structural measurement · not a trade signal · Base commits only when gates pass
+    </p>
+  </header>
+
+  <nav class="meth-toc" aria-label="Methodology walkthrough">
+    <div class="meth-toc-inner">
+      {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+    </div>
+  </nav>
+
+  <div class="meth-body">
+    <section class="meth-section" id="loop">
+      <div class="section-label">The loop</div>
+      <h2>Measure · Publish · Act</h2>
+      <p class="plain">
+        One parkash cycle can measure without publishing, and publish without acting. Most cycles stay
+        measure-only.
+      </p>
+
+      <div class="verb-grid">
+        <div class="verb-card">
+          <p class="verb">Measure</p>
+          <p>Sensors and parkash cycles observe entities; qualifying rows land in the vault.</p>
+          <p class="not">Not a trade signal</p>
+        </div>
+        <div class="verb-card">
+          <p class="verb">Publish</p>
+          <p>
+            Reports and claims go out with verification status (<code>status_at_publish</code>) when
+            the membrane admits them.
+          </p>
+          <p class="not">Not every observation is published</p>
+        </div>
+        <div class="verb-card">
+          <p class="verb">Act</p>
+          <p>Build, deploy, connect, or settlement paths when Host / gates allow.</p>
+          <p class="not">Observe-heavy today; act lanes are gated</p>
+        </div>
+      </div>
+
+      <div class="example">
+        <p class="ex-label">Example: CIRCLE parkash</p>
+        <p>
+          A parkash cycle <strong>measures</strong> CIRCLE (vault + dossier numbers update). A Pages
+          report may <strong>publish</strong> later with <code>status_at_publish</code>.
+          <strong>Act</strong> (on-chain helix commit or other gated paths) only runs when Host/gates
+          allow - so most cycles stay measure-only.
+        </p>
+      </div>
+
+      <p class="without">
+        <strong>Without this engine:</strong> desks still split those jobs across Bloomberg/Refinitiv,
+        EDGAR, Slack, and counsel. The loop exists; it is manual, slow, and rarely hashed as one
+        measurement chain.
+      </p>
+    </section>
+
+    <section class="meth-section" id="glossary">
+      <div class="section-label">Reference</div>
+      <h2>Numbers glossary</h2>
+      <p class="plain">
+        Website tiles and report cards use these terms. Plain language first; precise engine meaning
+        in the same row.
+      </p>
+
+      <div class="glossary-wrap">
+        <table class="glossary-table">
+          <thead>
+            <tr>
+              <th>Term</th>
+              <th>Plain language</th>
+              <th>Precise / honest note</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              glossary.map((row) => (
+                <tr>
+                  <td class="term">{row.term}</td>
+                  <td>{row.plain}</td>
+                  <td>{row.note}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <div class="links-row">
+        <a href={fieldState}>field-state.json</a>
+        <a href={`${base}track-record/`}>Track Record</a>
+        <a href={onchain}>On-Chain Proof Index</a>
+      </div>
+    </section>
+
+    <section class="meth-section" id="equation">
+      <div class="section-label">1 · Core equation</div>
+      <h2>E = ΔI / A</h2>
+      <p class="plain">
+        We score how much <em>new</em> information an entity produces relative to the cost of watching
+        it. High score → the entity is moving the field. Low score → it is moving with the field.
+      </p>
+
+      <div class="eq-block" aria-label="Kirandeep's Law">E = ΔI / A</div>
+
+      <ul class="term-list">
+        <li>
+          <strong>E</strong> - information efficiency (Kirandeep's Law;
+          <a href={doi} target="_blank" rel="noopener">DOI 10.5281/zenodo.18413995</a>)
+        </li>
+        <li>
+          <strong>ΔI</strong> - information gained when the observed state differs from the expected
+          state (bits / surprise)
+        </li>
+        <li>
+          <strong>A</strong> - observation cost (API work, processing, wall time)
+        </li>
+      </ul>
+
+      <p>
+        This is a <strong>structural</strong> metric, not a price forecast. The field is the topology
+        of obligations among <strong>199</strong> tracked entities (M1 denominator). Live coverage is
+        reported as M1 strict in
+        <a href={fieldState}><code>field-state.json</code></a> - not a frozen marketing number such as
+        196/197.
+      </p>
+
+      <div class="example pair">
+        <p class="ex-label">Example: quiet vs loud SEC day</p>
+        <div class="limb loud">
+          <span class="tag">Loud</span>
+          <p>
+            New filing / rulemaking vs prior expected state → large ΔI for roughly the same parse cost
+            A → high E.
+          </p>
+        </div>
+        <div class="limb quiet">
+          <span class="tag">Quiet</span>
+          <p>
+            Same feed pull, no material change → mostly confirmation → low E. Same sensor, different
+            information yield.
+          </p>
+        </div>
+      </div>
+
+      <div class="example">
+        <p class="ex-label">Example: BUIDL / TVL tick</p>
+        <p>
+          A DefiLlama TVL step-change on a tokenized fund (e.g. BUIDL) is high-E. A flat reprint of
+          yesterday's number is low-E. Surprise per observation cost, not "TVL went up so buy."
+        </p>
+      </div>
+
+      <p class="without">
+        <strong>Without this engine:</strong> analysts open EDGAR by hand and decide "this matters" by
+        inbox volume. That judgment is real; it is rarely scored as surprise-per-cost across a fixed
+        entity set.
+      </p>
+    </section>
+
+    <section class="meth-section" id="vault">
+      <div class="section-label">2 · The vault</div>
+      <h2>Append-only measurement log</h2>
+      <p class="plain">
+        When an observation is worth more than it costs to take, we append it. Changing an old row
+        breaks later hashes / parent checks.
+      </p>
+
+      <ul class="term-list">
+        <li>Entity codename</li>
+        <li>Observation timestamp</li>
+        <li><strong>ΔI</strong> / <strong>E</strong> at observation time</li>
+        <li>
+          Chain integrity fields (<code>vault_fingerprint</code> and/or <code>sha.hash</code> with
+          parent-consistency checks)
+        </li>
+      </ul>
+
+      <p>
+        <strong>Φ_S</strong> and <strong>κ</strong> live on entity field state and are mirrored on
+        public dossiers (<code>own_numbers</code>). Do not confuse κ with <strong>Γ</strong> (gamma).
+        The vault is primarily a <strong>measure</strong> surface - not every vault row becomes a
+        public article.
+      </p>
+
+      <div class="example">
+        <p class="ex-label">Example: CIRCLE parkash → dossier mirror</p>
+        <p>
+          After a qualifying observation of CIRCLE or BLACKROCK, the private vault appends a chained
+          row. The public mirror of measured field state - including Φ_S and κ - is the federation
+          dossier, not a guarantee that every vault row ships as a report. We do not paste fake vault
+          hashes here.
+        </p>
+      </div>
+
+      <div class="links-row">
+        <a href={dossierCircle}>CIRCLE.json</a>
+        <a href={dossierBlackrock}>BLACKROCK.json</a>
+        <a href={`${base}dossier/CIRCLE/`}>CIRCLE HTML dossier</a>
+      </div>
+
+      <p class="without">
+        <strong>Without this engine:</strong> the analogous record lives in research notes, CRM rows,
+        or auditor workpapers - useful, but not an append-only, hash-chained measurement log with
+        public dossier digests.
+      </p>
+    </section>
+
+    <section class="meth-section" id="helix">
+      <div class="section-label">3 · Helix commit</div>
+      <h2>On-chain when gates pass</h2>
+      <p class="plain">
+        Sometimes we fingerprint vault state and post it to Base mainnet so outsiders can
+        timestamp-check a claim. That is an attestation <em>when it lands</em> - not a promise that
+        every parkash writes a new transaction.
+      </p>
+
+      <ul class="term-list">
+        <li>Local HelixHash chaining of vault / crossing state is continuous.</li>
+        <li>
+          On-chain helix commits call <code>GeniusFlowSettlement</code> on Base
+          (<code>0x3A2d6599d5409c1A87609c38dB9b1619e47F6b02</code>) with a fingerprint as
+          <code>evidenceHash</code> when the commit path succeeds.
+        </li>
+        <li>
+          Settlement vault → mirror is <strong>partial</strong> today
+          (<code>SETTLEMENT_MIRROR_ENABLED</code> + sevadar interlocks). EAS outbound remains gated.
+        </li>
+      </ul>
+
+      <div class="example pair">
+        <p class="ex-label">Example: when Base tx does / doesn't land</p>
+        <div class="limb admit">
+          <span class="tag">Gates pass</span>
+          <p>
+            Wallet, balance, and mirror flags allow a commit → fingerprint lands on Base. Prefer the
+            <a href={onchain}>On-Chain Proof Index</a> over any single hard-coded hash in prose.
+          </p>
+        </div>
+        <div class="limb refuse">
+          <span class="tag">Gates fail</span>
+          <p>
+            Mirror off or wallet/balance blocks → local HelixHash still advances, but
+            <strong>no new Basescan tx</strong> that cycle. Partial mirror means "attested when it
+            lands."
+          </p>
+        </div>
+      </div>
+
+      <div class="example">
+        <p class="ex-label">Example: early Base commit</p>
+        <p>
+          Historical example (with <code>0x</code> prefix):
+          <a href={basescanExample} target="_blank" rel="noopener">view on Basescan</a>. Confirm
+          settlement contract and input data. For machine admit/refuse, use federation
+          <code>/api/verify</code> and
+          <a href={proofShape} target="_blank" rel="noopener">proof_shape v1</a>.
+        </p>
+      </div>
+
+      <div class="links-row">
+        <a href={onchain}>On-Chain Proof Index</a>
+        <a href={basescanExample} target="_blank" rel="noopener">Example Basescan tx</a>
+        <a href={proofShape} target="_blank" rel="noopener">ATTESTATION_PROOF_SHAPE.md</a>
+      </div>
+
+      <p class="without">
+        <strong>Without this engine:</strong> teams timestamp claims with PDF hashes, notaries, or
+        ad-hoc explorer checks. Those practices work for deals; they do not continuously fingerprint
+        an internal measurement vault.
+      </p>
+    </section>
+
+    <section class="meth-section" id="verify">
+      <div class="section-label">4 · Verification</div>
+      <h2>Fact-check + VERIFY + proof_shape</h2>
+      <p class="plain">
+        Before something is treated as a published claim, the stack checks it. Wrong high-confidence
+        claims get blocked; uncertain ones get flagged; public consumers should read the published
+        status, not assume "attested."
+      </p>
+
+      <ol class="rail-list">
+        <li>
+          <strong>Dispatch fact-checker</strong> (pre-queue) - confidence bands on disputed claims:
+          ≥ 0.90 → block (<code>BLOCKED_FACT_CHECK</code>); 0.60–0.89 → flag for human review; &lt;
+          0.60 → log only. Plus codename-leak and on-chain timestamp gates.
+        </li>
+        <li>
+          <strong>VERIFY gate</strong> - source-grounded resolve for report claims; embeds
+          <code>status_at_publish</code> (fail-closed; never upgrades a miss to ATTESTED).
+        </li>
+        <li>
+          <strong>Federation proof_shape v1</strong> - admit/refuse limbs
+          (<code>registry_ref</code> → <code>refuse_or_admit</code> → <code>provenance_spine</code> on
+          <code>/api/package</code> and <code>/api/verify</code>. Cheap copies that invent attestation
+          labels fail.
+        </li>
+      </ol>
+
+      <div class="example pair">
+        <p class="ex-label">Example: proof_shape admit / refuse</p>
+        <div class="limb admit">
+          <span class="tag">Admit</span>
+          <p>
+            Package carries a real <code>registry_ref</code> and provenance spine → can admit under
+            proof_shape v1.
+          </p>
+        </div>
+        <div class="limb refuse">
+          <span class="tag">Refuse</span>
+          <p>
+            Cheap copy that stamps <code>ATTESTED</code> without that spine → refuses. Separately: a
+            disputed claim scored ≥ 0.90 is blocked before the publish queue.
+          </p>
+        </div>
+      </div>
+
+      <div class="links-row">
+        <a href={verifyWalk}>Verify walkthrough</a>
+        <a href={proofShape} target="_blank" rel="noopener">proof_shape spec</a>
+        <a href={fedStatus} target="_blank" rel="noopener">Federation /api/status</a>
+      </div>
+
+      <p class="without">
+        <strong>Without this engine:</strong> verification is editorial review or "check the source
+        link." The status is usually implicit in a byline, not a machine-checkable
+        <code>status_at_publish</code> / proof_shape admit-or-refuse.
+      </p>
+    </section>
+
+    <section class="meth-section" id="topology">
+      <div class="section-label">5 · Topology</div>
+      <h2>Fixed map of 199 entities</h2>
+      <p class="plain">
+        We watch a fixed map of institutions and rails that matter for tokenized fixed income -
+        regulators, custodians, issuers, chains, benchmarks - and update each entity's field state
+        every cycle.
+      </p>
+
+      <p>
+        M1 topology denominator = <strong>199</strong> (forbidden/stale denoms such as 196/197/218 are
+        not used). Federation may expose more dossier cards than the M1-199 set; dossier count ≠ M1
+        denominator.
+      </p>
+
+      <ul class="topo-cats">
+        <li>Regulatory bodies (SEC, OCC, ESMA, BIS, FSB, FRB)</li>
+        <li>Settlement infrastructure (DTCC, Euroclear, DTC, tri-party)</li>
+        <li>Tokenized issuers (BUIDL, OUSG, BENJI, WTGXX, …)</li>
+        <li>Custody / prime (BNY, State Street, JPMorgan, …)</li>
+        <li>Market infrastructure (Coinbase, Base, Ethereum)</li>
+        <li>Benchmark infrastructure (NY Fed SOFR chain)</li>
+        <li>Jurisdiction frameworks (US, EU, UK, …)</li>
+        <li>Emerging settlement layers (Canton, DTCC tokenization, …)</li>
+      </ul>
+
+      <div class="example pair">
+        <p class="ex-label">Example: DTCC vs random token</p>
+        <div class="limb admit">
+          <span class="tag">In map</span>
+          <p>
+            <a href={dossierDtcc}>DTCC</a> sits in M1 as settlement infrastructure - clearing/custody
+            rails tokenized fixed income still depends on.
+          </p>
+        </div>
+        <div class="limb refuse">
+          <span class="tag">Not a substitute</span>
+          <p>
+            A random newly listed token is not in that map. Watching its price does not substitute for
+            observing DTCC's position in the obligation graph. Role ≠ market cap or tweet volume.
+          </p>
+        </div>
+      </div>
+
+      <p class="without">
+        <strong>Without this engine:</strong> coverage maps live as Excel universes or "who we follow
+        on X." Those lists are often good for news; they rarely encode settlement-role topology with a
+        fixed M1 denominator.
+      </p>
+    </section>
+
+    <section class="meth-section" id="gaps">
+      <div class="section-label">6 · Gap detector</div>
+      <h2>What the topology needs vs what markets assume</h2>
+      <p class="plain">
+        We look for things the topology <em>needs</em> that markets or product design still treat as
+        optional or equivalent when they are not.
+      </p>
+
+      <p>
+        Gap distance = what correct function requires − what current pricing / product design assumes.
+        Large, persistent distance → structural gap. Gap <strong>publication</strong> coverage is
+        tracked separately from vault measure.
+      </p>
+
+      <div class="example">
+        <p class="ex-label">Example: LIBOR_EQUIVALENT</p>
+        <p>
+          Markets treat SOFR + ISDA fallback as a full LIBOR replacement, but the topology still needs
+          a sovereign-backed term structure the transition did not supply. Gap id
+          <code>LIBOR_EQUIVALENT</code> (first logged prediction:
+          <a href={predictions}>$300 Trillion Structural Gap…</a> /
+          <code>LIBOR_EQUIVALENT_001</code>). Publishing a SOFR article does <strong>not</strong> close
+          the gap - measure and publish coverage are separate rails.
+        </p>
+      </div>
+
+      <div class="example">
+        <p class="ex-label">Example: SOFR three-body</p>
+        <p>
+          Overnight benchmark, Treasury issuance velocity, and tokenized settlement mechanics remain a
+          primary structural gap. SOFR-linked products that treat overnight exposure as term exposure
+          are structurally false under this lens.
+        </p>
+      </div>
+
+      <p class="without">
+        <strong>Without this engine:</strong> the same tension shows up in ISDA papers and conference
+        panels. What is usually missing is a durable, machine-tracked gap id with separate measure vs
+        publish coverage.
+      </p>
+    </section>
+
+    <section class="meth-section" id="agents">
+      <div class="section-label">Machine entry</div>
+      <h2>For agents</h2>
+      <p class="plain">
+        Prefer federation + Pages over inventing live counts or on-chain status. The GeniusFlow engine
+        repo is private.
+      </p>
+
+      <div class="agent-grid">
+        <a class="agent-link" href={pages}>
+          <p class="al-label">Human site</p>
+          <p class="al-url">{pages}/</p>
+        </a>
+        <a class="agent-link" href={plainMd}>
+          <p class="al-label">Plain markdown (agents)</p>
+          <p class="al-url">METHODOLOGY.md</p>
+        </a>
+        <a class="agent-link" href={verifyWalk}>
+          <p class="al-label">Verify walkthrough</p>
+          <p class="al-url">status → dossier → package/verify</p>
+        </a>
+        <a class="agent-link" href={llms} target="_blank" rel="noopener">
+          <p class="al-label">Machine cold-start</p>
+          <p class="al-url">federation llms.txt</p>
+        </a>
+        <a class="agent-link" href={fedStatus} target="_blank" rel="noopener">
+          <p class="al-label">Status / SLA</p>
+          <p class="al-url">/api/status</p>
+        </a>
+        <a class="agent-link" href={proofShape} target="_blank" rel="noopener">
+          <p class="al-label">Proof shape</p>
+          <p class="al-url">ATTESTATION_PROOF_SHAPE.md</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="meth-foot">
+      SoT for Host/Pages: engine <code>HOST/state.json</code> + M1 coverage ledger →
+      <a href={fieldState}>field-state.json</a> at deploy.
+      Plain markdown for agents:
+      <a href={plainMd}>METHODOLOGY.md</a>.
+      Equation DOI:
+      <a href={doi} target="_blank" rel="noopener">10.5281/zenodo.18413995</a>.
+    </div>
+  </div>
+
+  <Footer />
+</Layout>

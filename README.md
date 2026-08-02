@@ -4,7 +4,7 @@
 [![Deploy to GitHub Pages](https://github.com/Kaydeep0/eigenstate-research/actions/workflows/deploy.yml/badge.svg)](https://github.com/Kaydeep0/eigenstate-research/actions/workflows/deploy.yml)
 [![status: research / pre-revenue](https://img.shields.io/badge/status-research%20%2F%20pre--revenue-informational)](#status-limits-and-non-goals)
 
-[**Site**](https://kaydeep0.github.io/eigenstate-research/) · [**Methodology**](METHODOLOGY.md) · [**Verify walkthrough**](https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/) · [**Ledgers**](#measured-ledgers) · [**Agent index**](https://geniusflow-federation.vercel.app/llms.txt)
+[**Site**](https://kaydeep0.github.io/eigenstate-research/) · [**Methodology**](https://kaydeep0.github.io/eigenstate-research/methodology/) · [**Verify walkthrough**](https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/) · [**Ledgers**](#measured-ledgers) · [**Agent index**](https://geniusflow-federation.vercel.app/llms.txt)
 
 Independent measurement of tokenized fixed-income and RWA settlement structure. Observe, measure,
 verify, publish. This repo is the public face: reports, dossier mirrors, measured ledgers, MCP
@@ -163,7 +163,7 @@ flowchart LR
   VER -.->|when gates allow| B[Base commit]
 ```
 
-Base attestation is gated, not per cycle. Depth and caveats: [METHODOLOGY.md](METHODOLOGY.md).
+Base attestation is gated, not per cycle. Depth and caveats: [Methodology](https://kaydeep0.github.io/eigenstate-research/methodology/) ([md](METHODOLOGY.md)).
 
 ### E = ΔI / A
 
@@ -387,7 +387,7 @@ it is not, because that is the part most projects leave out.
 **Research, pre-revenue.** Public artifacts are real (reports, dossiers, Basescan commits when
 published). There is no claimed customer book, bank partnership, or production settlement product
 on this face. Coverage and on-chain mirror paths are partial by design; see
-[METHODOLOGY.md](METHODOLOGY.md) for what is live versus gated.
+[Methodology](https://kaydeep0.github.io/eigenstate-research/methodology/) ([md](METHODOLOGY.md)) for what is live versus gated.
 
 ### Non-goals
 
@@ -447,7 +447,7 @@ PYTHONPATH=engine python3 engine/tools/refresh_public_surfaces.py --site /path/t
 
 | Topic | Where |
 |-------|-------|
-| Methodology, full depth | [METHODOLOGY.md](METHODOLOGY.md) (core equation, vault, helix commit, verification, topology, gap detector, numbers glossary) |
+| Methodology, full depth | [Human walkthrough](https://kaydeep0.github.io/eigenstate-research/methodology/) · [METHODOLOGY.md](METHODOLOGY.md) for agents |
 | HelixHash primitive | [HELIXHASH.md](HELIXHASH.md) · [Kaydeep0/helixhash](https://github.com/Kaydeep0/helixhash) |
 | Verify walkthrough, copy-paste | [verify-walkthrough/](https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/) (status, dossier, package and verify for `AAVE_V3`) |
 | Signal reports | [reports/](https://kaydeep0.github.io/eigenstate-research/reports/), entity-grouped with expandable timelines, plus [entity hubs](https://kaydeep0.github.io/eigenstate-research/reports/circle/) carrying publish-time Φ_S / κ |

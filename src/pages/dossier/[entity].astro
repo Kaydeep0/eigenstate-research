@@ -34,8 +34,8 @@ const claims = Array.isArray(card?.claims) ? (card.claims as unknown[]) : [];
 const base = import.meta.env.BASE_URL;
 const machineJson = `${base}federation/dossier/${code}.json`;
 const reportIndex = `${base}reports/`;
-const methodology = `${base}METHODOLOGY.md`;
-const glossary = `${base}METHODOLOGY.md#numbers-glossary`;
+const methodology = `${base}methodology/`;
+const glossary = `${base}methodology/#glossary`;
 const verify = `${base}verify-walkthrough/`;
 const display = code.replace(/_/g, ' ');
 

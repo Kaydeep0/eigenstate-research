@@ -126,8 +126,8 @@ if (!isHub) {
   base = import.meta.env.BASE_URL;
   reportSlug = slugFor(entry.id);
   humanDossier = `${base}dossier/${entityCode}/`;
-  methodology = `${base}METHODOLOGY.md`;
-  glossary = `${base}METHODOLOGY.md#numbers-glossary`;
+  methodology = `${base}methodology/`;
+  glossary = `${base}methodology/#glossary`;
   verifyWalkthrough = `${base}verify-walkthrough/`;
 
   const { article } = prepareReportBody(entry.body, entityCode);
