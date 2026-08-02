@@ -1,0 +1,121 @@
+{
+  "claim_key": "FED_FOMC",
+  "entity": "FED",
+  "regulator": "Board of Governors of the Federal Reserve System",
+  "headline": "FOMC — monetary policy decisions",
+  "expected": "FOMC",
+  "source_url": "https://www.federalreserve.gov/monetarypolicy/fomc.htm",
+  "published_status": "ATTESTED-PRIMARY",
+  "published_at": "2026-07-29T17:12:42.884016+00:00",
+  "checked_at": "2026-08-02T05:20:07.212300+00:00",
+  "must_admit": true,
+  "full_admit": false,
+  "refuse_limb": "source_is_machine_readable",
+  "refuse_reason": "source_is_machine_readable:html_document",
+  "attribution": "publisher",
+  "must_limbs_failed": [],
+  "should_limbs_failed": [
+    "source_is_machine_readable"
+  ],
+  "limbs": {
+    "source_url_recorded": {
+      "outcome": "ok",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomc.htm"
+    },
+    "expected_string_recorded": {
+      "outcome": "ok",
+      "expected": "FOMC"
+    },
+    "source_resolves": {
+      "outcome": "ok",
+      "status": 200,
+      "bytes": 97382
+    },
+    "expected_string_present_in_served_bytes": {
+      "outcome": "ok",
+      "match_basis": "literal"
+    },
+    "expected_string_survives_tag_stripping": {
+      "outcome": "ok",
+      "match_basis": "literal"
+    },
+    "source_on_regulator_origin": {
+      "outcome": "ok",
+      "registrable_domain": "federalreserve.gov",
+      "operator": "Board of Governors of the Federal Reserve System"
+    },
+    "source_is_machine_readable": {
+      "outcome": "fail",
+      "reason": "html_document",
+      "attribution": "publisher",
+      "media_type": "html"
+    },
+    "ledger_rows_agree": {
+      "outcome": "ok",
+      "status": "ATTESTED-PRIMARY",
+      "rows": 1
+    },
+    "citation_is_a_primary_filing": {
+      "outcome": "fail",
+      "reason": "citation_is_not_a_primary_filing:regulator_website_page",
+      "attribution": "this_node"
+    },
+    "full_text_index_exists": {
+      "outcome": "fail",
+      "reason": "no_free_full_text_index_for:federalreserve.gov",
+      "attribution": "no_index_exists",
+      "note": "The Federal Reserve operates no free full text index over its own statements that a program can query the way EDGAR can be queried. The corroboration limb therefore has no index to ask, and the refusal is recorded against the absence of an index rather than against the claim or against this node."
+    },
+    "full_text_index_answers": {
+      "outcome": "not_reached"
+    },
+    "independent_filing_corroborates": {
+      "outcome": "not_reached"
+    },
+    "corroborating_document_authored_by_the_regulator": {
+      "outcome": "not_reached"
+    }
+  },
+  "evidence": {
+    "source_fetch": {
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomc.htm",
+      "final_url": "https://www.federalreserve.gov/monetarypolicy/fomc.htm",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 97382,
+      "truncated_at_probe_cap": false,
+      "error": null,
+      "fetched_at": "2026-08-02T05:20:07.211352+00:00"
+    },
+    "match": {
+      "found": true,
+      "match_basis": "literal",
+      "note": "expected_found_in_source_body"
+    },
+    "match_after_tag_stripping": {
+      "found": true,
+      "match_basis": "literal",
+      "note": "expected_found_in_source_body"
+    },
+    "media_type_sniffed": "html",
+    "ledger_rows": {
+      "count": 1,
+      "statuses": [
+        "ATTESTED-PRIMARY"
+      ],
+      "row_ids": [
+        "8c5be70e-7de6-4957-b60c-313af013dc23"
+      ],
+      "reports": [
+        "REVALIDATION_20260729"
+      ]
+    }
+  },
+  "reproduce": {
+    "api_verify": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.federalreserve.gov%2Fmonetarypolicy%2Ffomc.htm&expected=FOMC",
+    "note": "The expected string test on this receipt applies the same rule as that endpoint, against the same URL. A reader who gets a different answer has found either a page that changed between the two requests or a defect, and both are worth reporting."
+  },
+  "ledger": "https://geniusflow-federation.vercel.app/grounded-claims/ledger.json",
+  "ledger_digest": "20b2faf73e04f9abb1fe861885ed56bef3099ebf0a863cc625fab8b79f30274f",
+  "expectations_digest": "dc8f54dfef2d82e8889a762b5949c1fdf7e12c8ec88baa9ef4f2b347ebe1d4dc"
+}

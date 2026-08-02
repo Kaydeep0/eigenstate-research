@@ -1,0 +1,103 @@
+{
+  "probe": "grounded_claim_corpus",
+  "generated_at": "2026-08-02T05:20:17.615362+00:00",
+  "digest": "20b2faf73e04f9abb1fe861885ed56bef3099ebf0a863cc625fab8b79f30274f",
+  "expectations_digest": "dc8f54dfef2d82e8889a762b5949c1fdf7e12c8ec88baa9ef4f2b347ebe1d4dc",
+  "count": 6,
+  "scope": "One receipt per claim in the corpus. Any key not listed here returns 404 because it is not in the corpus, not because the file is missing. The population rule is in expectations.json and what it deliberately leaves out is named there.",
+  "urls": {
+    "expectations": "https://geniusflow-federation.vercel.app/grounded-claims/expectations.json",
+    "ledger": "https://geniusflow-federation.vercel.app/grounded-claims/ledger.json",
+    "summary": "https://geniusflow-federation.vercel.app/grounded-claims/summary.json",
+    "readme": "https://geniusflow-federation.vercel.app/grounded-claims/README.md",
+    "receipt": "https://geniusflow-federation.vercel.app/grounded-claims/receipts/{CLAIM_KEY}.json",
+    "human_page": "https://kaydeep0.github.io/eigenstate-research/grounded-claims/",
+    "verify_endpoint": "https://geniusflow-federation.vercel.app/api/verify"
+  },
+  "claims": [
+    {
+      "claim_key": "FED_FOMC",
+      "entity": "FED",
+      "regulator": "Board of Governors of the Federal Reserve System",
+      "expected": "FOMC",
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomc.htm",
+      "must_admit": true,
+      "full_admit": false,
+      "refuse_limb": "source_is_machine_readable",
+      "refuse_reason": "source_is_machine_readable:html_document",
+      "attribution": "publisher",
+      "receipt": "https://geniusflow-federation.vercel.app/grounded-claims/receipts/FED_FOMC.json",
+      "reproduce": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.federalreserve.gov%2Fmonetarypolicy%2Ffomc.htm&expected=FOMC"
+    },
+    {
+      "claim_key": "FED_FEDNOW",
+      "entity": "FED",
+      "regulator": "Board of Governors of the Federal Reserve System",
+      "expected": "FedNow",
+      "source_url": "https://www.federalreserve.gov/paymentsystems/fednow_about.htm",
+      "must_admit": true,
+      "full_admit": false,
+      "refuse_limb": "source_is_machine_readable",
+      "refuse_reason": "source_is_machine_readable:html_document",
+      "attribution": "publisher",
+      "receipt": "https://geniusflow-federation.vercel.app/grounded-claims/receipts/FED_FEDNOW.json",
+      "reproduce": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.federalreserve.gov%2Fpaymentsystems%2Ffednow_about.htm&expected=FedNow"
+    },
+    {
+      "claim_key": "FED_FEDERAL_RESERVE",
+      "entity": "FED",
+      "regulator": "Board of Governors of the Federal Reserve System",
+      "expected": "Federal Reserve",
+      "source_url": "https://www.federalreserve.gov/aboutthefed.htm",
+      "must_admit": true,
+      "full_admit": false,
+      "refuse_limb": "source_is_machine_readable",
+      "refuse_reason": "source_is_machine_readable:html_document",
+      "attribution": "publisher",
+      "receipt": "https://geniusflow-federation.vercel.app/grounded-claims/receipts/FED_FEDERAL_RESERVE.json",
+      "reproduce": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.federalreserve.gov%2Faboutthefed.htm&expected=Federal%20Reserve"
+    },
+    {
+      "claim_key": "SEC_SAB_121",
+      "entity": "SEC",
+      "regulator": "U.S. Securities and Exchange Commission",
+      "expected": "SAB 121",
+      "source_url": "https://www.sec.gov/rules-regulations/staff-guidance/staff-accounting-bulletins/staff-accounting-bulletin-122",
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "ledger_rows_agree",
+      "refuse_reason": "ledger_rows_agree:ledger_rows_disagree:ATTESTED-PRIMARY|CONTRADICTED",
+      "attribution": "this_node",
+      "receipt": "https://geniusflow-federation.vercel.app/grounded-claims/receipts/SEC_SAB_121.json",
+      "reproduce": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.sec.gov%2Frules-regulations%2Fstaff-guidance%2Fstaff-accounting-bulletins%2Fstaff-accounting-bulletin-122&expected=SAB%20121"
+    },
+    {
+      "claim_key": "SEC_INVESTMENT_CONTRACT",
+      "entity": "SEC",
+      "regulator": "U.S. Securities and Exchange Commission",
+      "expected": "investment contract",
+      "source_url": "https://www.sec.gov/corpfin/framework-investment-contract-analysis-digital-assets",
+      "must_admit": true,
+      "full_admit": false,
+      "refuse_limb": "source_is_machine_readable",
+      "refuse_reason": "source_is_machine_readable:html_document",
+      "attribution": "publisher",
+      "receipt": "https://geniusflow-federation.vercel.app/grounded-claims/receipts/SEC_INVESTMENT_CONTRACT.json",
+      "reproduce": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.sec.gov%2Fcorpfin%2Fframework-investment-contract-analysis-digital-assets&expected=investment%20contract"
+    },
+    {
+      "claim_key": "SEC_PROTECT_INVESTORS",
+      "entity": "SEC",
+      "regulator": "U.S. Securities and Exchange Commission",
+      "expected": "protect investors",
+      "source_url": "https://www.sec.gov/about",
+      "must_admit": true,
+      "full_admit": false,
+      "refuse_limb": "source_is_machine_readable",
+      "refuse_reason": "source_is_machine_readable:html_document",
+      "attribution": "publisher",
+      "receipt": "https://geniusflow-federation.vercel.app/grounded-claims/receipts/SEC_PROTECT_INVESTORS.json",
+      "reproduce": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.sec.gov%2Fabout&expected=protect%20investors"
+    }
+  ]
+}

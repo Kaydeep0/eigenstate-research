@@ -1,0 +1,207 @@
+{
+  "claim_key": "SEC_SAB_121",
+  "entity": "SEC",
+  "regulator": "U.S. Securities and Exchange Commission",
+  "headline": "SAB 121 rescinded via Staff Accounting Bulletin 122 (January 2025)",
+  "expected": "SAB 121",
+  "source_url": "https://www.sec.gov/rules-regulations/staff-guidance/staff-accounting-bulletins/staff-accounting-bulletin-122",
+  "published_status": "CONTRADICTED",
+  "published_at": "2026-08-02T01:38:07.831666+00:00",
+  "checked_at": "2026-08-02T05:20:11.804536+00:00",
+  "must_admit": false,
+  "full_admit": false,
+  "refuse_limb": "ledger_rows_agree",
+  "refuse_reason": "ledger_rows_agree:ledger_rows_disagree:ATTESTED-PRIMARY|CONTRADICTED",
+  "attribution": "this_node",
+  "must_limbs_failed": [
+    "ledger_rows_agree"
+  ],
+  "should_limbs_failed": [
+    "source_is_machine_readable"
+  ],
+  "limbs": {
+    "source_url_recorded": {
+      "outcome": "ok",
+      "url": "https://www.sec.gov/rules-regulations/staff-guidance/staff-accounting-bulletins/staff-accounting-bulletin-122"
+    },
+    "expected_string_recorded": {
+      "outcome": "ok",
+      "expected": "SAB 121"
+    },
+    "source_resolves": {
+      "outcome": "ok",
+      "status": 200,
+      "bytes": 71887
+    },
+    "expected_string_present_in_served_bytes": {
+      "outcome": "ok",
+      "match_basis": "abbreviation_expansion"
+    },
+    "expected_string_survives_tag_stripping": {
+      "outcome": "ok",
+      "match_basis": "abbreviation_expansion"
+    },
+    "source_on_regulator_origin": {
+      "outcome": "ok",
+      "registrable_domain": "sec.gov",
+      "operator": "U.S. Securities and Exchange Commission"
+    },
+    "source_is_machine_readable": {
+      "outcome": "fail",
+      "reason": "html_document",
+      "attribution": "publisher",
+      "media_type": "html"
+    },
+    "ledger_rows_agree": {
+      "outcome": "fail",
+      "reason": "ledger_rows_disagree:ATTESTED-PRIMARY|CONTRADICTED",
+      "attribution": "this_node",
+      "rows": 6,
+      "statuses": [
+        "ATTESTED-PRIMARY",
+        "CONTRADICTED"
+      ],
+      "note": "This node's own ledger holds this claim at more than one verdict. The published card serves one of them and says nothing about the other."
+    },
+    "citation_is_a_primary_filing": {
+      "outcome": "fail",
+      "reason": "citation_is_not_a_primary_filing:regulator_website_page",
+      "attribution": "this_node"
+    },
+    "full_text_index_exists": {
+      "outcome": "ok",
+      "index": "EDGAR full text search",
+      "endpoint": "https://efts.sec.gov/LATEST/search-index",
+      "auth": "none; an identifying user agent is required"
+    },
+    "full_text_index_answers": {
+      "outcome": "ok",
+      "total_hits": 954,
+      "returned": 3
+    },
+    "independent_filing_corroborates": {
+      "outcome": "ok",
+      "filer": "Customers Bancorp, Inc.  (CUBB, CUBI, CUBI-PE, CUBI-PF)  (CIK 0001488813)",
+      "form": "CORRESP",
+      "file_date": "2022-10-28",
+      "document_url": "https://www.sec.gov/Archives/edgar/data/1488813/000148881322000093/filename1.htm"
+    },
+    "corroborating_document_authored_by_the_regulator": {
+      "outcome": "fail",
+      "reason": "corroborating_filer_is_a_registrant_not_the_regulator",
+      "attribution": "no_index_exists",
+      "filer": "Customers Bancorp, Inc.  (CUBB, CUBI, CUBI-PE, CUBI-PF)  (CIK 0001488813)",
+      "cik": "1488813",
+      "note": "The filing corroborates that the string is used in a primary document. It does not make the filer authoritative for the claim, and neither regulator in this corpus files on EDGAR."
+    }
+  },
+  "evidence": {
+    "source_fetch": {
+      "url": "https://www.sec.gov/rules-regulations/staff-guidance/staff-accounting-bulletins/staff-accounting-bulletin-122",
+      "final_url": "https://www.sec.gov/rules-regulations/staff-guidance/staff-accounting-bulletins/staff-accounting-bulletin-122",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 71887,
+      "truncated_at_probe_cap": false,
+      "error": null,
+      "fetched_at": "2026-08-02T05:20:09.381577+00:00"
+    },
+    "match": {
+      "found": true,
+      "match_basis": "abbreviation_expansion",
+      "note": "expected_abbreviation_expansion_found_in_source_body"
+    },
+    "match_after_tag_stripping": {
+      "found": true,
+      "match_basis": "abbreviation_expansion",
+      "note": "expected_abbreviation_expansion_found_in_source_body"
+    },
+    "media_type_sniffed": "html",
+    "ledger_rows": {
+      "count": 6,
+      "statuses": [
+        "ATTESTED-PRIMARY",
+        "CONTRADICTED"
+      ],
+      "row_ids": [
+        "03322f1f-9d22-46cd-8b96-98835bdf2131",
+        "5675d9de-6ae6-4279-ab12-005de916f525",
+        "32478b77-9a05-44ac-8b44-6449077186e1",
+        "5ad946bb-954c-4b22-a0f2-e8501f36f836",
+        "5cc08668-1b34-4039-aba1-94b1afb2bbfd",
+        "ff3792d3-78a4-411f-96be-2a867096749f"
+      ],
+      "reports": [
+        "REVALIDATION_20260729",
+        "REVALIDATION_20260729_LIVE",
+        "SEC_20260801",
+        "SEC_20260802"
+      ]
+    },
+    "full_text_search": {
+      "endpoint": "https://efts.sec.gov/LATEST/search-index",
+      "query": "\"SAB 121\"",
+      "request_url": "https://efts.sec.gov/LATEST/search-index?q=%22SAB%20121%22",
+      "status": 200,
+      "error": null,
+      "total_hits": 954,
+      "hits": [
+        {
+          "id": "0001488813-22-000093:filename1.htm",
+          "accession": "0001488813-22-000093",
+          "filename": "filename1.htm",
+          "cik": "1488813",
+          "filer": "Customers Bancorp, Inc.  (CUBB, CUBI, CUBI-PE, CUBI-PF)  (CIK 0001488813)",
+          "form": "CORRESP",
+          "file_date": "2022-10-28",
+          "document_url": "https://www.sec.gov/Archives/edgar/data/1488813/000148881322000093/filename1.htm"
+        },
+        {
+          "id": "0001437749-23-021171:filename1.htm",
+          "accession": "0001437749-23-021171",
+          "filename": "filename1.htm",
+          "cik": "1686400",
+          "filer": "Salt Blockchain Inc.  (CIK 0001686400)",
+          "form": "CORRESP",
+          "file_date": "2023-07-31",
+          "document_url": "https://www.sec.gov/Archives/edgar/data/1686400/000143774923021171/filename1.htm"
+        },
+        {
+          "id": "0001709585-23-000005:wflPublic2022p.pdf",
+          "accession": "0001709585-23-000005",
+          "filename": "wflPublic2022p.pdf",
+          "cik": "1709585",
+          "filer": "WEBULL FINANCIAL LLC  (CIK 0001709585)",
+          "form": "X-17A-5",
+          "file_date": "2023-04-28",
+          "document_url": "https://www.sec.gov/Archives/edgar/data/1709585/000170958523000005/wflPublic2022p.pdf"
+        }
+      ],
+      "total_hits_relation": "eq"
+    },
+    "filings_fetched": [
+      {
+        "id": "0001488813-22-000093:filename1.htm",
+        "accession": "0001488813-22-000093",
+        "filename": "filename1.htm",
+        "cik": "1488813",
+        "filer": "Customers Bancorp, Inc.  (CUBB, CUBI, CUBI-PE, CUBI-PF)  (CIK 0001488813)",
+        "form": "CORRESP",
+        "file_date": "2022-10-28",
+        "document_url": "https://www.sec.gov/Archives/edgar/data/1488813/000148881322000093/filename1.htm",
+        "status": 200,
+        "bytes": 228214,
+        "expected_found_in_filing_body": true,
+        "match_basis": "literal",
+        "error": null
+      }
+    ]
+  },
+  "reproduce": {
+    "api_verify": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.sec.gov%2Frules-regulations%2Fstaff-guidance%2Fstaff-accounting-bulletins%2Fstaff-accounting-bulletin-122&expected=SAB%20121",
+    "note": "The expected string test on this receipt applies the same rule as that endpoint, against the same URL. A reader who gets a different answer has found either a page that changed between the two requests or a defect, and both are worth reporting."
+  },
+  "ledger": "https://geniusflow-federation.vercel.app/grounded-claims/ledger.json",
+  "ledger_digest": "20b2faf73e04f9abb1fe861885ed56bef3099ebf0a863cc625fab8b79f30274f",
+  "expectations_digest": "dc8f54dfef2d82e8889a762b5949c1fdf7e12c8ec88baa9ef4f2b347ebe1d4dc"
+}

@@ -1,0 +1,714 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import corpus from '../../data/grounded_claims.json';
+
+const fonts =
+  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
+
+const base = import.meta.env.BASE_URL;
+const fed = 'https://geniusflow-federation.vercel.app';
+const requestAccess = `${base}request-access/`;
+
+interface Corpus {
+  generated_at: string;
+  digest: string;
+  expectations_digest: string;
+  expectations_generated_at: string;
+  probe_version: string;
+  probe_version_at_expectations: string;
+  subject: { what: string; engine_commit: string; claim_source: string };
+  question: { asked: string; not_asked: string; why_it_is_separate: string };
+  population_rule: string;
+  match_rule: string;
+  search_query_rule: string;
+  claims_in_corpus: number;
+  ledger_rows_behind_them: number;
+  must_admit: number;
+  must_refuse: number;
+  full_admit: number;
+  full_refuse: number;
+  still_grounded_at_cited_url: number;
+  grounded_in_visible_text: number;
+  citations_that_are_primary_filings: number;
+  machine_readable_sources: number;
+  ledger_rows_agree: number;
+  ledger_rows_disagree: number;
+  full_text_index_exists: number;
+  full_text_index_answered: number;
+  independently_corroborated_by_a_filing: number;
+  corroborated_by_the_regulator_itself: number;
+  filing_documents_fetched: number;
+  refuse_limb_counts: Record<string, number>;
+  top_refuse_reasons: Record<string, number>;
+  refusal_attribution: Record<string, number>;
+  by_regulator: Record<string, { claims: number; must_admit: number; full_admit: number }>;
+  limb_order_frozen: string[];
+  limb_chains: Record<string, string[]>;
+  limb_chain_rule: string;
+  limb_spec_level: Record<string, string>;
+  limb_outcomes: Record<
+    string,
+    { ok: number; fail: number; not_applicable: number; absent: number; not_reached: number }
+  >;
+  full_text_indexes: Record<
+    string,
+    { exists: boolean; name: string | null; endpoint: string | null; note: string }
+  >;
+  pre_freeze_observations: {
+    observed: string;
+    why_it_is_here: string;
+    effect_on_predictions: string;
+  }[];
+  probe_defects_fixed_before_publication: { defect: string; effect: string; fix: string }[];
+  predictions_scored: {
+    id: number;
+    prediction: string;
+    blind: boolean;
+    basis: string;
+    observed: string;
+    met: boolean;
+  }[];
+  per_claim: {
+    claim_key: string;
+    entity: string;
+    regulator: string;
+    headline: string;
+    expected: string;
+    source_url: string;
+    published_status: string;
+    ledger_rows: number;
+    ledger_statuses: string[];
+    must_admit: boolean;
+    full_admit: boolean;
+    refuse_reason: string | null;
+    attribution: string;
+    still_grounded: boolean;
+    corroborating_filing: string | null;
+    corroborating_filer: string | null;
+    receipt: string;
+    reproduce: string;
+  }[];
+  prior_art: { work: string; url: string; relation: string }[];
+  not_claimed: string[];
+}
+
+const c = corpus as unknown as Corpus;
+const n = c.claims_in_corpus;
+
+function formatDate(iso: string): string {
+  const d = new Date(iso);
+  return isNaN(d.getTime()) ? iso : d.toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
+}
+
+function chainOf(limb: string): string {
+  const hit = Object.entries(c.limb_chains).find(([, members]) => members.includes(limb));
+  return hit ? hit[0] : '';
+}
+
+const headlines = [
+  {
+    value: `${c.still_grounded_at_cited_url}`,
+    sub: `of ${n} claims`,
+    label: 'still carry their expected string at the cited URL',
+    note: 'Rechecked today, by the same rule the public verify endpoint applies. Nothing else on this node re-reads these pages.',
+  },
+  {
+    value: `${c.citations_that_are_primary_filings}`,
+    sub: `of ${n} claims`,
+    label: 'cite a primary filing rather than a website page',
+    note: 'Every citation in this corpus points at a regulator page describing a rule, not at the document itself.',
+  },
+  {
+    value: `${c.ledger_rows_disagree}`,
+    sub: `of ${n} claims`,
+    label: 'are held at two verdicts inside this node',
+    note: 'This node published one side and said nothing about the other until this corpus asked.',
+  },
+  {
+    value: `${c.corroborated_by_the_regulator_itself}`,
+    sub: `of ${n} claims`,
+    label: 'are corroborated by the regulator itself',
+    note: `${c.independently_corroborated_by_a_filing} are corroborated by a registrant's filing. Neither regulator files on EDGAR, so no document here is the regulator speaking.`,
+  },
+];
+
+const refuseRows = Object.entries(c.refuse_limb_counts).sort((a, b) => b[1] - a[1]);
+const attributionRows = Object.entries(c.refusal_attribution).sort((a, b) => b[1] - a[1]);
+const regulatorRows = Object.entries(c.by_regulator);
+const firstReproduce = c.per_claim[0]?.reproduce ?? '';
+---
+
+<Layout
+  title="Grounded claim corpus · Eigenstate Research"
+  description="Every SEC and Federal Reserve claim this node publishes, rechecked against what those URLs serve today and against the free EDGAR full text index. Expectations published before the run."
+  fonts={fonts}
+>
+  <Fragment slot="head">
+    <style>
+      .page-hero {
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 72px 24px 20px;
+        text-align: center;
+      }
+
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.15em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .page-hero h1 {
+        font-family: var(--font-heading);
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        line-height: 1.15;
+        margin: 0 0 16px;
+      }
+
+      .page-hero .grad {
+        background: linear-gradient(135deg, var(--signal) 0%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .explainer {
+        font-size: var(--text-base);
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin: 0 auto 12px;
+        max-width: 640px;
+      }
+
+      .honesty {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin: 0 auto;
+        max-width: 640px;
+      }
+
+      .wrap {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 8px 24px 80px;
+      }
+
+      .runline {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        line-height: 1.8;
+        padding: 14px 16px;
+        background: var(--bg2);
+        border-left: 3px solid var(--border-live);
+        margin: 20px 0 32px;
+        overflow-wrap: anywhere;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-bottom: 36px;
+      }
+
+      .card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-sm);
+        padding: 20px 18px;
+      }
+
+      .card .big {
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+
+      .card .ci {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        margin-bottom: 10px;
+      }
+
+      .card .lab {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.5;
+        margin-bottom: 8px;
+      }
+
+      .card .note {
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      h2 {
+        font-family: var(--font-heading);
+        font-size: var(--text-lg);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 36px 0 10px;
+        letter-spacing: -0.01em;
+      }
+
+      p.body {
+        font-size: var(--text-base);
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin: 0 0 14px;
+      }
+
+      p.body a,
+      .links-row a,
+      td a {
+        color: var(--signal-dim);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        margin: 8px 0 18px;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 9px 10px;
+        border-bottom: 1px solid var(--border);
+        color: var(--text-secondary);
+        vertical-align: top;
+      }
+
+      th {
+        color: var(--text-muted);
+        font-size: var(--text-xs);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      td.n {
+        text-align: right;
+        color: var(--text-primary);
+      }
+
+      td.verdict {
+        color: var(--text-primary);
+        white-space: nowrap;
+      }
+
+      .links-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+        margin: 12px 0 8px;
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+      }
+
+      .links-row a {
+        text-decoration: none;
+      }
+
+      .links-row a:hover {
+        text-decoration: underline;
+      }
+
+      pre.cmd {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        line-height: 1.55;
+        background: #1a1a1a;
+        color: #e8e6e1;
+        padding: 16px 18px;
+        border-radius: var(--radius-sm);
+        overflow-x: auto;
+        margin: 0 0 12px;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+
+      ul.plain {
+        margin: 0 0 16px 18px;
+        padding: 0;
+      }
+
+      ul.plain li {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin-bottom: 6px;
+      }
+
+      .callout {
+        background: var(--bg2);
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-sm);
+        padding: 18px 20px;
+        margin: 8px 0 20px;
+      }
+
+      .callout p {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin: 0 0 10px;
+      }
+
+      .callout p:last-child {
+        margin-bottom: 0;
+      }
+
+      code.path {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-secondary);
+        overflow-wrap: anywhere;
+      }
+
+      @media (width <= 640px) {
+        .page-hero {
+          padding-top: 48px;
+        }
+
+        pre.cmd {
+          font-size: 11px;
+          padding: 14px;
+        }
+      }
+    </style>
+  </Fragment>
+
+  <Nav cta={{ label: 'Request Pilot', href: requestAccess }} />
+
+  <div class="page-hero" id="main">
+    <div class="eyebrow">Grounded claims · read-only · expectations first</div>
+    <h1>A citation is <span class="grad">not</span> a check</h1>
+    <p class="explainer">
+      This node publishes claims with a source URL and an expected string, and tells readers they
+      can verify any of them. Each URL was fetched once, at verification time, and the verdict has
+      been served out of a file ever since. Nothing re-reads the page. This corpus re-reads every
+      regulator grounded claim on the node, names each refusal by the limb that failed, and says
+      who the refusal belongs to.
+    </p>
+    <p class="honesty">
+      Not a judgement about whether any claim is true · not a survey of regulator practice · the
+      whole corpus, not a sample · the first refusal it found is against this node
+    </p>
+  </div>
+
+  <section class="wrap">
+    <div class="runline">
+      Corpus {n} distinct claims carried by {c.ledger_rows_behind_them} rows of this node's verified
+      claim ledger, all six already served under current-claims<br />
+      Engine commit <code>{c.subject.engine_commit?.slice(0, 12)}</code> · source <code
+        class="path">{c.subject.claim_source}</code
+      ><br />
+      Expectations digest <code>{c.expectations_digest}</code> published {
+        formatDate(c.expectations_generated_at)
+      }<br />
+      Ledger digest <code>{c.digest}</code> run {formatDate(c.generated_at)} · probe v{
+        c.probe_version
+      }
+    </div>
+
+    <div class="cards">
+      {
+        headlines.map((h) => (
+          <div class="card">
+            <div class="big">{h.value}</div>
+            <div class="ci">{h.sub}</div>
+            <div class="lab">{h.label}</div>
+            <div class="note">{h.note}</div>
+          </div>
+        ))
+      }
+    </div>
+
+    <h2>The one that refuses is ours</h2>
+    <div class="callout">
+      <p>
+        Of the {n} claims, {c.must_refuse} misses a MUST limb, and it is not the regulator's fault. This
+        node's own verified claim ledger holds the SAB 121 claim at
+        <code class="path">ATTESTED-PRIMARY</code> in four rows and at <code class="path"
+          >CONTRADICTED</code
+        > in two. The published card serves one of those verdicts. Nothing on the node said the other
+        existed.
+      </p>
+      <p>
+        The <code class="path">ledger_rows_agree</code> limb exists because that disagreement showed
+        up while the population was being resolved, and it is disclosed in the expectations file as an
+        observation rather than presented afterwards as a blind prediction.
+      </p>
+    </div>
+
+    <h2>What the recheck found</h2>
+    <table>
+      <thead>
+        <tr><th>Regulator</th><th class="n">Claims</th><th class="n">MUST clear</th><th class="n"
+            >Full clear</th
+          ></tr>
+      </thead>
+      <tbody>
+        {
+          regulatorRows.map(([name, row]) => (
+            <tr>
+              <td>{name}</td>
+              <td class="n">{row.claims}</td>
+              <td class="n">{row.must_admit}</td>
+              <td class="n">{row.full_admit}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+    <p class="body">
+      All {c.still_grounded_at_cited_url} of {n} expected strings are still present in the bytes
+      served today, and all {c.grounded_in_visible_text} survive HTML tag stripping, so none of them
+      is grounded in markup a reader would never see. Not one of the {n} sources serves machine readable
+      bytes, so a program that wants these facts still has to scrape a page written for a person.
+    </p>
+
+    <h2>Where they refuse</h2>
+    <table>
+      <thead>
+        <tr><th>Strongest failing limb</th><th class="n">Claims</th></tr>
+      </thead>
+      <tbody>
+        {
+          refuseRows.map(([limb, count]) => (
+            <tr>
+              <td>{limb}</td>
+              <td class="n">{count}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr><th>Who the refusal belongs to</th><th class="n">Claims</th></tr>
+      </thead>
+      <tbody>
+        {
+          attributionRows.map(([who, count]) => (
+            <tr>
+              <td>{who}</td>
+              <td class="n">{count}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+
+    <h2>What EDGAR could and could not do</h2>
+    <p class="body">
+      The SEC operates a free full text index over registrant filings that any program can query
+      without credentials, needing only an identifying user agent. The Federal Reserve operates no
+      equivalent over its own statements. Of the {n} claims, {c.full_text_index_exists} had an index
+      to ask and {n - c.full_text_index_exists} did not, and that refusal belongs to the absence of an
+      index rather than to the claim or to this node.
+    </p>
+    <p class="body">
+      Where an index existed it answered for {c.full_text_index_answered} of {
+        c.full_text_index_exists
+      }. This probe then fetched {c.filing_documents_fetched} filing documents and found the recorded
+      string in {c.independently_corroborated_by_a_filing} of them.
+    </p>
+    <div class="callout">
+      <p>
+        Every corroborating document is a registrant's filing. A utility, a bank holding company and
+        a tax exempt trust are the parties whose filings carry these phrases. That is corroboration
+        that the string is used in a primary document. It is not authority for the claim.
+      </p>
+      <p>
+        Neither the SEC nor the Federal Reserve files on EDGAR as a registrant, so the limb asking
+        whether the corroborating document was authored by the regulator cannot pass for any claim
+        here. The empty regulator CIK sets that make that true were published in the expectations
+        file rather than filled with a plausible looking number.
+      </p>
+    </div>
+
+    <h2>Three chains, kept apart</h2>
+    <p class="body">{c.limb_chain_rule}</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Limb</th><th>Chain</th><th>Level</th><th class="n">ok</th><th class="n">fail</th><th
+            class="n">not reached</th
+          >
+        </tr>
+      </thead>
+      <tbody>
+        {
+          c.limb_order_frozen.map((limb) => (
+            <tr>
+              <td>{limb}</td>
+              <td>{chainOf(limb)}</td>
+              <td>{c.limb_spec_level[limb]}</td>
+              <td class="n">{c.limb_outcomes[limb].ok}</td>
+              <td class="n">{c.limb_outcomes[limb].fail}</td>
+              <td class="n">{c.limb_outcomes[limb].not_reached}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+
+    <h2>Predictions, scored, and which were blind</h2>
+    <p class="body">
+      These were written into the expectations file and published before the run, at digest {
+        c.expectations_digest.slice(0, 16)
+      }. Each records whether it was blind. Two were not, and both are explained below rather than
+      presented as clean hits.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Prediction</th><th>Observed</th><th class="verdict">Result</th><th class="verdict"
+            >Blind</th
+          ></tr>
+      </thead>
+      <tbody>
+        {
+          c.predictions_scored.map((p) => (
+            <tr>
+              <td>{p.prediction}</td>
+              <td>{p.observed}</td>
+              <td class="verdict">{p.met ? 'met' : 'missed'}</td>
+              <td class="verdict">{p.blind ? 'yes' : 'no'}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+
+    <h2>Two things seen before the freeze</h2>
+    <div class="callout">
+      {
+        c.pre_freeze_observations.map((o) => (
+          <p>
+            <strong>{o.observed}</strong> {o.why_it_is_here} ({o.effect_on_predictions})
+          </p>
+        ))
+      }
+    </div>
+
+    <h2>Per claim</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Claim</th><th>Expected</th><th>Verdict</th><th>Refuse reason</th><th>Receipt</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          c.per_claim.map((r) => (
+            <tr>
+              <td>{r.claim_key}</td>
+              <td>{r.expected}</td>
+              <td class="verdict">{r.must_admit ? 'admit' : 'refuse'}</td>
+              <td>{r.refuse_reason ?? 'none'}</td>
+              <td>
+                <a href={r.receipt} rel="noopener">
+                  json
+                </a>
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+
+    <h2>Check one yourself, without this repository</h2>
+    <p class="body">
+      The expected string test here is the rule the public verify endpoint applies, against the same
+      URL, so any single receipt can be reproduced from a browser:
+    </p>
+    <pre class="cmd">{firstReproduce}</pre>
+    <p class="body">
+      A different answer means either the page changed between the two requests or there is a defect
+      here, and both are worth reporting.
+    </p>
+
+    <h2>A defect this corpus found in itself</h2>
+    <div class="callout">
+      <p>
+        The first run exposed a fault in the probe rather than in the corpus. It is recorded instead
+        of quietly fixed, because a probe that hides its own misses has no standing to publish
+        anyone else's. The population, the limb order, the admit rules and the predictions were not
+        touched, so the expectations digest is unchanged and still verifies.
+      </p>
+      {
+        c.probe_defects_fixed_before_publication.map((d) => (
+          <p>
+            <strong>{d.defect}.</strong> {d.effect} {d.fix}
+          </p>
+        ))
+      }
+    </div>
+
+    <h2>Prior art</h2>
+    <ul class="plain">
+      {
+        c.prior_art.map((item) => (
+          <li>
+            <a href={item.url} rel="noopener">
+              {item.work}
+            </a>
+            : {item.relation}
+          </li>
+        ))
+      }
+    </ul>
+
+    <h2>Read it yourself</h2>
+    <div class="links-row">
+      <a href={`${fed}/grounded-claims/expectations.json`} rel="noopener">expectations.json</a>
+      <a href={`${fed}/grounded-claims/ledger.json`} rel="noopener">ledger.json</a>
+      <a href={`${fed}/grounded-claims/summary.json`} rel="noopener">summary.json</a>
+      <a href={`${fed}/grounded-claims/index.json`} rel="noopener">index.json</a>
+      <a href={`${fed}/grounded-claims/README.md`} rel="noopener">README.md</a>
+    </div>
+    <p class="body">
+      One claim at a time: <code class="path">{fed}/grounded-claims/receipts/&lt;CLAIM_KEY&gt;.json</code
+      >. Any key not in the corpus returns 404, which is the population boundary rather than a
+      missing file.
+    </p>
+
+    <h2>Re-run it</h2>
+    <pre class="cmd">PYTHONPATH=engine python3 engine/tools/grounded_claim_run.py expect
+PYTHONPATH=engine python3 engine/tools/grounded_claim_run.py run
+PYTHONPATH=engine python3 engine/tools/grounded_claim_export.py</pre>
+    <p class="body">
+      The expectations file pins the population, every source URL and every expected string, so a
+      disagreement is about what the pages served, not about which claims were picked. <code
+        class="path">run</code
+      > aborts if the expectations digest stops matching its contents.
+    </p>
+
+    <h2>What this is not</h2>
+    <ul class="plain">
+      {c.not_claimed.map((item) => <li>{item}</li>)}
+    </ul>
+  </section>
+
+  <Footer />
+</Layout>

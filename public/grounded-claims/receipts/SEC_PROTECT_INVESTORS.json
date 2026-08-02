@@ -1,0 +1,196 @@
+{
+  "claim_key": "SEC_PROTECT_INVESTORS",
+  "entity": "SEC",
+  "regulator": "U.S. Securities and Exchange Commission",
+  "headline": "SEC mission — investor protection and securities markets",
+  "expected": "protect investors",
+  "source_url": "https://www.sec.gov/about",
+  "published_status": "ATTESTED-PRIMARY",
+  "published_at": "2026-08-02T01:38:08.303317+00:00",
+  "checked_at": "2026-08-02T05:20:17.614971+00:00",
+  "must_admit": true,
+  "full_admit": false,
+  "refuse_limb": "source_is_machine_readable",
+  "refuse_reason": "source_is_machine_readable:html_document",
+  "attribution": "publisher",
+  "must_limbs_failed": [],
+  "should_limbs_failed": [
+    "source_is_machine_readable"
+  ],
+  "limbs": {
+    "source_url_recorded": {
+      "outcome": "ok",
+      "url": "https://www.sec.gov/about"
+    },
+    "expected_string_recorded": {
+      "outcome": "ok",
+      "expected": "protect investors"
+    },
+    "source_resolves": {
+      "outcome": "ok",
+      "status": 200,
+      "bytes": 69687
+    },
+    "expected_string_present_in_served_bytes": {
+      "outcome": "ok",
+      "match_basis": "literal"
+    },
+    "expected_string_survives_tag_stripping": {
+      "outcome": "ok",
+      "match_basis": "literal"
+    },
+    "source_on_regulator_origin": {
+      "outcome": "ok",
+      "registrable_domain": "sec.gov",
+      "operator": "U.S. Securities and Exchange Commission"
+    },
+    "source_is_machine_readable": {
+      "outcome": "fail",
+      "reason": "html_document",
+      "attribution": "publisher",
+      "media_type": "html"
+    },
+    "ledger_rows_agree": {
+      "outcome": "ok",
+      "status": "ATTESTED-PRIMARY",
+      "rows": 5
+    },
+    "citation_is_a_primary_filing": {
+      "outcome": "fail",
+      "reason": "citation_is_not_a_primary_filing:regulator_website_page",
+      "attribution": "this_node"
+    },
+    "full_text_index_exists": {
+      "outcome": "ok",
+      "index": "EDGAR full text search",
+      "endpoint": "https://efts.sec.gov/LATEST/search-index",
+      "auth": "none; an identifying user agent is required"
+    },
+    "full_text_index_answers": {
+      "outcome": "ok",
+      "total_hits": 10000,
+      "returned": 3
+    },
+    "independent_filing_corroborates": {
+      "outcome": "ok",
+      "filer": "SEI TAX EXEMPT TRUST  (CIK 0000701817)",
+      "form": "497",
+      "file_date": "2009-04-13",
+      "document_url": "https://www.sec.gov/Archives/edgar/data/701817/000110465909023864/a09-9970_1497.htm"
+    },
+    "corroborating_document_authored_by_the_regulator": {
+      "outcome": "fail",
+      "reason": "corroborating_filer_is_a_registrant_not_the_regulator",
+      "attribution": "no_index_exists",
+      "filer": "SEI TAX EXEMPT TRUST  (CIK 0000701817)",
+      "cik": "701817",
+      "note": "The filing corroborates that the string is used in a primary document. It does not make the filer authoritative for the claim, and neither regulator in this corpus files on EDGAR."
+    }
+  },
+  "evidence": {
+    "source_fetch": {
+      "url": "https://www.sec.gov/about",
+      "final_url": "https://www.sec.gov/about",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 69687,
+      "truncated_at_probe_cap": false,
+      "error": null,
+      "fetched_at": "2026-08-02T05:20:15.448183+00:00"
+    },
+    "match": {
+      "found": true,
+      "match_basis": "literal",
+      "note": "expected_found_in_source_body"
+    },
+    "match_after_tag_stripping": {
+      "found": true,
+      "match_basis": "literal",
+      "note": "expected_found_in_source_body"
+    },
+    "media_type_sniffed": "html",
+    "ledger_rows": {
+      "count": 5,
+      "statuses": [
+        "ATTESTED-PRIMARY"
+      ],
+      "row_ids": [
+        "cbf0abdf-9d9d-46db-9729-ddda32a0dae6",
+        "e91baf42-1a6c-40d7-ad4c-e128ec05d37e",
+        "5adfab64-5de6-40ba-a5c8-56e18c3065fe",
+        "56cdba86-923f-4637-961d-29916525a76c",
+        "1e2912f5-2f05-4985-a3ac-cb20f815341a"
+      ],
+      "reports": [
+        "REVALIDATION_20260729",
+        "SEC_20260801",
+        "SEC_20260802"
+      ]
+    },
+    "full_text_search": {
+      "endpoint": "https://efts.sec.gov/LATEST/search-index",
+      "query": "\"protect investors\"",
+      "request_url": "https://efts.sec.gov/LATEST/search-index?q=%22protect%20investors%22",
+      "status": 200,
+      "error": null,
+      "total_hits": 10000,
+      "hits": [
+        {
+          "id": "0001104659-09-023864:a09-9970_1497.htm",
+          "accession": "0001104659-09-023864",
+          "filename": "a09-9970_1497.htm",
+          "cik": "701817",
+          "filer": "SEI TAX EXEMPT TRUST  (CIK 0000701817)",
+          "form": "497",
+          "file_date": "2009-04-13",
+          "document_url": "https://www.sec.gov/Archives/edgar/data/701817/000110465909023864/a09-9970_1497.htm"
+        },
+        {
+          "id": "0001193125-07-219220:d497.htm",
+          "accession": "0001193125-07-219220",
+          "filename": "d497.htm",
+          "cik": "1011378",
+          "filer": "UNIVERSAL INSTITUTIONAL FUNDS INC  (CIK 0001011378)",
+          "form": "497",
+          "file_date": "2007-10-16",
+          "document_url": "https://www.sec.gov/Archives/edgar/data/1011378/000119312507219220/d497.htm"
+        },
+        {
+          "id": "0001193125-07-219225:d497.htm",
+          "accession": "0001193125-07-219225",
+          "filename": "d497.htm",
+          "cik": "741375",
+          "filer": "MORGAN STANLEY INSTITUTIONAL FUND TRUST  (CIK 0000741375)",
+          "form": "497",
+          "file_date": "2007-10-16",
+          "document_url": "https://www.sec.gov/Archives/edgar/data/741375/000119312507219225/d497.htm"
+        }
+      ],
+      "total_hits_relation": "gte"
+    },
+    "filings_fetched": [
+      {
+        "id": "0001104659-09-023864:a09-9970_1497.htm",
+        "accession": "0001104659-09-023864",
+        "filename": "a09-9970_1497.htm",
+        "cik": "701817",
+        "filer": "SEI TAX EXEMPT TRUST  (CIK 0000701817)",
+        "form": "497",
+        "file_date": "2009-04-13",
+        "document_url": "https://www.sec.gov/Archives/edgar/data/701817/000110465909023864/a09-9970_1497.htm",
+        "status": 200,
+        "bytes": 34911,
+        "expected_found_in_filing_body": true,
+        "match_basis": "literal",
+        "error": null
+      }
+    ]
+  },
+  "reproduce": {
+    "api_verify": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.sec.gov%2Fabout&expected=protect%20investors",
+    "note": "The expected string test on this receipt applies the same rule as that endpoint, against the same URL. A reader who gets a different answer has found either a page that changed between the two requests or a defect, and both are worth reporting."
+  },
+  "ledger": "https://geniusflow-federation.vercel.app/grounded-claims/ledger.json",
+  "ledger_digest": "20b2faf73e04f9abb1fe861885ed56bef3099ebf0a863cc625fab8b79f30274f",
+  "expectations_digest": "dc8f54dfef2d82e8889a762b5949c1fdf7e12c8ec88baa9ef4f2b347ebe1d4dc"
+}

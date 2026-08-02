@@ -1,0 +1,196 @@
+{
+  "claim_key": "SEC_INVESTMENT_CONTRACT",
+  "entity": "SEC",
+  "regulator": "U.S. Securities and Exchange Commission",
+  "headline": "Howey test — investment contract jurisdiction for tokenized assets",
+  "expected": "investment contract",
+  "source_url": "https://www.sec.gov/corpfin/framework-investment-contract-analysis-digital-assets",
+  "published_status": "ATTESTED-PRIMARY",
+  "published_at": "2026-08-02T01:38:09.223581+00:00",
+  "checked_at": "2026-08-02T05:20:14.873798+00:00",
+  "must_admit": true,
+  "full_admit": false,
+  "refuse_limb": "source_is_machine_readable",
+  "refuse_reason": "source_is_machine_readable:html_document",
+  "attribution": "publisher",
+  "must_limbs_failed": [],
+  "should_limbs_failed": [
+    "source_is_machine_readable"
+  ],
+  "limbs": {
+    "source_url_recorded": {
+      "outcome": "ok",
+      "url": "https://www.sec.gov/corpfin/framework-investment-contract-analysis-digital-assets"
+    },
+    "expected_string_recorded": {
+      "outcome": "ok",
+      "expected": "investment contract"
+    },
+    "source_resolves": {
+      "outcome": "ok",
+      "status": 200,
+      "bytes": 99589
+    },
+    "expected_string_present_in_served_bytes": {
+      "outcome": "ok",
+      "match_basis": "literal"
+    },
+    "expected_string_survives_tag_stripping": {
+      "outcome": "ok",
+      "match_basis": "literal"
+    },
+    "source_on_regulator_origin": {
+      "outcome": "ok",
+      "registrable_domain": "sec.gov",
+      "operator": "U.S. Securities and Exchange Commission"
+    },
+    "source_is_machine_readable": {
+      "outcome": "fail",
+      "reason": "html_document",
+      "attribution": "publisher",
+      "media_type": "html"
+    },
+    "ledger_rows_agree": {
+      "outcome": "ok",
+      "status": "ATTESTED-PRIMARY",
+      "rows": 5
+    },
+    "citation_is_a_primary_filing": {
+      "outcome": "fail",
+      "reason": "citation_is_not_a_primary_filing:regulator_website_page",
+      "attribution": "this_node"
+    },
+    "full_text_index_exists": {
+      "outcome": "ok",
+      "index": "EDGAR full text search",
+      "endpoint": "https://efts.sec.gov/LATEST/search-index",
+      "auth": "none; an identifying user agent is required"
+    },
+    "full_text_index_answers": {
+      "outcome": "ok",
+      "total_hits": 10000,
+      "returned": 3
+    },
+    "independent_filing_corroborates": {
+      "outcome": "ok",
+      "filer": "PENN VIRGINIA CORP  (CIK 0000077159)",
+      "form": "11-K",
+      "file_date": "2006-06-28",
+      "document_url": "https://www.sec.gov/Archives/edgar/data/77159/000119312506137924/d11k.htm"
+    },
+    "corroborating_document_authored_by_the_regulator": {
+      "outcome": "fail",
+      "reason": "corroborating_filer_is_a_registrant_not_the_regulator",
+      "attribution": "no_index_exists",
+      "filer": "PENN VIRGINIA CORP  (CIK 0000077159)",
+      "cik": "77159",
+      "note": "The filing corroborates that the string is used in a primary document. It does not make the filer authoritative for the claim, and neither regulator in this corpus files on EDGAR."
+    }
+  },
+  "evidence": {
+    "source_fetch": {
+      "url": "https://www.sec.gov/corpfin/framework-investment-contract-analysis-digital-assets",
+      "final_url": "https://www.sec.gov/about/divisions-offices/division-corporation-finance/framework-investment-contract-analysis-digital-assets",
+      "status": 200,
+      "content_type": "text/html",
+      "bytes": 99589,
+      "truncated_at_probe_cap": false,
+      "error": null,
+      "fetched_at": "2026-08-02T05:20:12.650499+00:00"
+    },
+    "match": {
+      "found": true,
+      "match_basis": "literal",
+      "note": "expected_found_in_source_body"
+    },
+    "match_after_tag_stripping": {
+      "found": true,
+      "match_basis": "literal",
+      "note": "expected_found_in_source_body"
+    },
+    "media_type_sniffed": "html",
+    "ledger_rows": {
+      "count": 5,
+      "statuses": [
+        "ATTESTED-PRIMARY"
+      ],
+      "row_ids": [
+        "d26ab8af-0ab0-4383-8350-643264713169",
+        "91551793-c18f-40c4-9462-a8d6b1b91837",
+        "646d06a7-bce6-49b8-ab8f-8201efb6126b",
+        "b0b6fd32-7795-43c0-9194-9e6ee2c4557b",
+        "9e66d042-eb18-4494-8c2e-3b9598ca17a7"
+      ],
+      "reports": [
+        "REVALIDATION_20260729",
+        "SEC_20260801",
+        "SEC_20260802"
+      ]
+    },
+    "full_text_search": {
+      "endpoint": "https://efts.sec.gov/LATEST/search-index",
+      "query": "\"investment contract\"",
+      "request_url": "https://efts.sec.gov/LATEST/search-index?q=%22investment%20contract%22",
+      "status": 200,
+      "error": null,
+      "total_hits": 10000,
+      "hits": [
+        {
+          "id": "0001193125-06-137924:d11k.htm",
+          "accession": "0001193125-06-137924",
+          "filename": "d11k.htm",
+          "cik": "77159",
+          "filer": "PENN VIRGINIA CORP  (CIK 0000077159)",
+          "form": "11-K",
+          "file_date": "2006-06-28",
+          "document_url": "https://www.sec.gov/Archives/edgar/data/77159/000119312506137924/d11k.htm"
+        },
+        {
+          "id": "0001193125-07-149976:d11k.htm",
+          "accession": "0001193125-07-149976",
+          "filename": "d11k.htm",
+          "cik": "77159",
+          "filer": "PENN VIRGINIA CORP  (CIK 0000077159)",
+          "form": "11-K",
+          "file_date": "2007-07-05",
+          "document_url": "https://www.sec.gov/Archives/edgar/data/77159/000119312507149976/d11k.htm"
+        },
+        {
+          "id": "0000798354-26-000023:fi-20260625.htm",
+          "accession": "0000798354-26-000023",
+          "filename": "fi-20260625.htm",
+          "cik": "798354",
+          "filer": "FISERV INC  (FISV)  (CIK 0000798354)",
+          "form": "11-K",
+          "file_date": "2026-06-25",
+          "document_url": "https://www.sec.gov/Archives/edgar/data/798354/000079835426000023/fi-20260625.htm"
+        }
+      ],
+      "total_hits_relation": "gte"
+    },
+    "filings_fetched": [
+      {
+        "id": "0001193125-06-137924:d11k.htm",
+        "accession": "0001193125-06-137924",
+        "filename": "d11k.htm",
+        "cik": "77159",
+        "filer": "PENN VIRGINIA CORP  (CIK 0000077159)",
+        "form": "11-K",
+        "file_date": "2006-06-28",
+        "document_url": "https://www.sec.gov/Archives/edgar/data/77159/000119312506137924/d11k.htm",
+        "status": 200,
+        "bytes": 395088,
+        "expected_found_in_filing_body": true,
+        "match_basis": "literal",
+        "error": null
+      }
+    ]
+  },
+  "reproduce": {
+    "api_verify": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.sec.gov%2Fcorpfin%2Fframework-investment-contract-analysis-digital-assets&expected=investment%20contract",
+    "note": "The expected string test on this receipt applies the same rule as that endpoint, against the same URL. A reader who gets a different answer has found either a page that changed between the two requests or a defect, and both are worth reporting."
+  },
+  "ledger": "https://geniusflow-federation.vercel.app/grounded-claims/ledger.json",
+  "ledger_digest": "20b2faf73e04f9abb1fe861885ed56bef3099ebf0a863cc625fab8b79f30274f",
+  "expectations_digest": "dc8f54dfef2d82e8889a762b5949c1fdf7e12c8ec88baa9ef4f2b347ebe1d4dc"
+}

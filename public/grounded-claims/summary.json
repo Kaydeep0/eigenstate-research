@@ -1,0 +1,523 @@
+{
+  "probe": "grounded_claim_corpus",
+  "probe_version": "1.0.1",
+  "generated_at": "2026-08-02T05:20:17.615362+00:00",
+  "digest": "20b2faf73e04f9abb1fe861885ed56bef3099ebf0a863cc625fab8b79f30274f",
+  "expectations_digest": "dc8f54dfef2d82e8889a762b5949c1fdf7e12c8ec88baa9ef4f2b347ebe1d4dc",
+  "expectations_generated_at": "2026-08-02T05:18:03.844604+00:00",
+  "expectations": "https://geniusflow-federation.vercel.app/grounded-claims/expectations.json",
+  "probe_version_at_expectations": "1.0.0",
+  "probe_defects_fixed_before_publication": [
+    {
+      "defect": "the headline refusal was the earliest failing limb, not the strongest",
+      "effect": "Every source in this corpus is an HTML page, so source_is_machine_readable failed for all six claims at position seven of the citation chain. The one claim that also misses a MUST, because this node's own ledger holds it at two different verdicts, reported the SHOULD failure as its refuse_limb and the MUST failure appeared only inside must_limbs_failed. The summary counted the MUST correctly and the headline understated it.",
+      "fix": "The receipt now names the first failing MUST limb, and falls back to a SHOULD only when no MUST failed. Because the three chains run independently there is no single sequence for limbs to fail in, so severity is the only ordering that means anything."
+    }
+  ],
+  "subject": {
+    "what": "the regulator grounded claims this node already publishes, rechecked against what those URLs serve today and against a free public filing index",
+    "engine_commit": "748d1868d632cd0ef1d3edd8c01d840836528f1f",
+    "claim_source": "data/verification/claim_ledger.jsonl",
+    "published_mirror": "https://geniusflow-federation.vercel.app/federation/current-claims/"
+  },
+  "question": {
+    "asked": "Is the claim this node published still grounded today, by the same route this node tells readers to use, and can a program corroborate it in a primary filing without a human?",
+    "not_asked": "Whether the claim is true, whether the regulator's page is correct, or whether the verdict this node assigned was the right one at the time. The corpus asks whether the grounding still holds, which is narrower than any of those.",
+    "why_it_is_separate": "A citation is not a check. This node fetched each URL once, at verification time, and has served the verdict out of a file ever since. Nothing re-reads the page. If the regulator rewrites it, the claim keeps its badge and the reader is never told."
+  },
+  "population_rule": "A claim is in the corpus iff this node's verified claim ledger holds at least one row for it, the row's source_url sits on a registrable domain operated by a regulator this corpus covers, and the row carries a non-empty recorded value. The unit is the distinct pair of source URL and expected string, not the ledger row. The rule is frozen here, before results.",
+  "covered_regulator_domains": [
+    "federalreserve.gov",
+    "sec.gov"
+  ],
+  "claim_sources": {
+    "claim_ledger": "data/verification/claim_ledger.jsonl, the verified claim ledger. Every row whose source_url is on a covered regulator origin contributes its recorded value as the expected string and its source_url as the surface to recheck.",
+    "published_mirror": "The same six claims are the ones this node already serves publicly at https://geniusflow-federation.vercel.app/federation/current-claims/SEC.json and .../FED.json, so the corpus is rechecking exactly what a reader is being shown, not a private subset."
+  },
+  "rejected_claim_sources": [
+    {
+      "source": "report HTML and dossier prose",
+      "reason": "An expected string lifted out of a rendered report is a string this node chose after seeing the page. The public /api/verify endpoint already refuses that input for the same reason, and this corpus applies the same bar to itself."
+    },
+    {
+      "source": "any regulator claim this node has not already published",
+      "reason": "The corpus measures what is already being served to readers. Adding a claim because it would check out would make the headline a fact about the additions."
+    }
+  ],
+  "excluded_from_population": [
+    {
+      "excluded": "every claim on a non-regulator origin",
+      "count_note": "The verified claim ledger holds rows against base.org, github.com, defillama.com, ripple.com, dtcc.com and around thirty other domains. They are out of this corpus, which is about regulator grounded claims specifically."
+    },
+    {
+      "excluded": "CFTC, FinCEN, OCC, FDIC, Treasury, state regulators",
+      "count_note": "These sit on this node's primary domain list but carry no grounded claim row in the verified claim ledger, so there is nothing to recheck. The corpus reports the absence rather than manufacturing a claim to fill it."
+    }
+  ],
+  "limb_order_frozen": [
+    "source_url_recorded",
+    "expected_string_recorded",
+    "source_resolves",
+    "expected_string_present_in_served_bytes",
+    "expected_string_survives_tag_stripping",
+    "source_on_regulator_origin",
+    "source_is_machine_readable",
+    "ledger_rows_agree",
+    "citation_is_a_primary_filing",
+    "full_text_index_exists",
+    "full_text_index_answers",
+    "independent_filing_corroborates",
+    "corroborating_document_authored_by_the_regulator"
+  ],
+  "limb_chains": {
+    "citation": [
+      "source_url_recorded",
+      "expected_string_recorded",
+      "source_resolves",
+      "expected_string_present_in_served_bytes",
+      "expected_string_survives_tag_stripping",
+      "source_on_regulator_origin",
+      "source_is_machine_readable"
+    ],
+    "record": [
+      "ledger_rows_agree"
+    ],
+    "corroboration": [
+      "citation_is_a_primary_filing",
+      "full_text_index_exists",
+      "full_text_index_answers",
+      "independent_filing_corroborates",
+      "corroborating_document_authored_by_the_regulator"
+    ]
+  },
+  "limb_chain_rule": "Chains are evaluated independently. A failure inside one chain stops that chain and marks the limbs after it not_reached, and it does not touch the other chains. This is deliberate: the RWA disclosure survey this node published earlier had to correct a limb that was sequenced behind an unrelated failure, made zero requests, and still scored its prediction as met.",
+  "limb_spec_level": {
+    "source_url_recorded": "MUST",
+    "expected_string_recorded": "MUST",
+    "source_resolves": "MUST",
+    "expected_string_present_in_served_bytes": "MUST",
+    "expected_string_survives_tag_stripping": "SHOULD",
+    "source_on_regulator_origin": "SHOULD",
+    "source_is_machine_readable": "SHOULD",
+    "ledger_rows_agree": "MUST",
+    "citation_is_a_primary_filing": "OBSERVED",
+    "full_text_index_exists": "OBSERVED",
+    "full_text_index_answers": "OBSERVED",
+    "independent_filing_corroborates": "OBSERVED",
+    "corroborating_document_authored_by_the_regulator": "OBSERVED"
+  },
+  "statuses": {
+    "ok": "limb observed to pass",
+    "fail": "limb observed to fail; counts against the claim at its stated level",
+    "not_applicable": "limb cannot apply to this claim",
+    "absent": "an optional artifact was not published; not counted as a failure",
+    "not_reached": "an earlier limb in the same chain failed, so this one was never observed; it is neither a pass nor an exemption. Chains are independent, so a failure in one chain never marks a limb in another chain not_reached."
+  },
+  "match_rule": "The expected string test is the rule the public /api/verify endpoint applies: a case insensitive substring match against the decoded body, plus one abbreviation expansion that maps SAB <n> onto Staff Accounting Bulletin No. <n>. Matching against the decoded body rather than stripped text is what makes a receipt reproducible against the live endpoint. Whether the string also survives tag stripping is a separate limb.",
+  "full_text_indexes": {
+    "sec.gov": {
+      "exists": true,
+      "name": "EDGAR full text search",
+      "endpoint": "https://efts.sec.gov/LATEST/search-index",
+      "human_ui": "https://efts.sec.gov/LATEST/search-index?q=",
+      "auth": "none; an identifying user agent is required",
+      "covers": "registrant filings from 2001 onward",
+      "note": "This is an index of what registrants filed, not an index of what the Commission published. A filing that repeats a phrase is a company describing the regulator, which is corroboration of the string and not authority for the claim."
+    },
+    "federalreserve.gov": {
+      "exists": false,
+      "name": null,
+      "endpoint": null,
+      "auth": null,
+      "covers": null,
+      "note": "The Federal Reserve operates no free full text index over its own statements that a program can query the way EDGAR can be queried. The corroboration limb therefore has no index to ask, and the refusal is recorded against the absence of an index rather than against the claim or against this node."
+    }
+  },
+  "search_query_rule": "One query per claim, the expected string in quotes and nothing else. No form filter, no date window, no synonym expansion. Narrowing a query until a claim corroborates would make the result a fact about the narrowing.",
+  "request_discipline": {
+    "user_agent": "GeniusFlowGroundedClaimProbe/1.0.0 (kiran@oxfordprioritymortgage.com; +https://geniusflow-federation.vercel.app/grounded-claims/; read-only claim recheck; one GET per URL)",
+    "spacing_seconds": 0.4,
+    "note": "The SEC asks automated readers to identify themselves and stay under ten requests a second. This probe carries a contact address and spaces requests an order of magnitude below that ceiling."
+  },
+  "pre_freeze_observations": [
+    {
+      "observed": "While resolving the population from the claim ledger, the six distinct claims turned out to be carried by nineteen rows, and the rows for one claim do not all agree. The SAB 121 claim is held at ATTESTED-PRIMARY by four rows and at CONTRADICTED by two.",
+      "why_it_is_here": "This was visible in the population resolution itself and could not be unseen before the limbs were written. It is disclosed rather than dressed up as a blind prediction, and the ledger_rows_agree limb exists because of it.",
+      "effect_on_predictions": "prediction 6 is marked not blind"
+    },
+    {
+      "observed": "During probe development one query was issued against the EDGAR full text index for the string FedNow, and one document it returned was fetched. The index answered with hits and the string was present in the document body. The filer was a utility company, not the Federal Reserve.",
+      "why_it_is_here": "The rest of the probe was exercised against strings outside the population, but this one query was not, and a prediction about whether the index answers is partly informed by it.",
+      "effect_on_predictions": "prediction 4 is marked not blind"
+    }
+  ],
+  "claims_in_corpus": 6,
+  "ledger_rows_behind_them": 19,
+  "must_admit": 5,
+  "must_refuse": 1,
+  "full_admit": 0,
+  "full_refuse": 6,
+  "still_grounded_at_cited_url": 6,
+  "grounded_in_visible_text": 6,
+  "citations_that_are_primary_filings": 0,
+  "machine_readable_sources": 0,
+  "ledger_rows_agree": 5,
+  "ledger_rows_disagree": 1,
+  "full_text_index_exists": 3,
+  "full_text_index_answered": 3,
+  "independently_corroborated_by_a_filing": 3,
+  "corroborated_by_the_regulator_itself": 0,
+  "filing_documents_fetched": 3,
+  "refuse_limb_counts": {
+    "source_is_machine_readable": 5,
+    "ledger_rows_agree": 1
+  },
+  "top_refuse_reasons": {
+    "source_is_machine_readable:html_document": 5,
+    "ledger_rows_agree:ledger_rows_disagree:ATTESTED-PRIMARY|CONTRADICTED": 1
+  },
+  "refusal_attribution": {
+    "publisher": 5,
+    "this_node": 1
+  },
+  "by_regulator": {
+    "Board of Governors of the Federal Reserve System": {
+      "claims": 3,
+      "must_admit": 3,
+      "full_admit": 0
+    },
+    "U.S. Securities and Exchange Commission": {
+      "claims": 3,
+      "must_admit": 2,
+      "full_admit": 0
+    }
+  },
+  "limb_outcomes": {
+    "source_url_recorded": {
+      "ok": 6,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "expected_string_recorded": {
+      "ok": 6,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "source_resolves": {
+      "ok": 6,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "expected_string_present_in_served_bytes": {
+      "ok": 6,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "expected_string_survives_tag_stripping": {
+      "ok": 6,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "source_on_regulator_origin": {
+      "ok": 6,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "source_is_machine_readable": {
+      "ok": 0,
+      "fail": 6,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "ledger_rows_agree": {
+      "ok": 5,
+      "fail": 1,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "citation_is_a_primary_filing": {
+      "ok": 0,
+      "fail": 6,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "full_text_index_exists": {
+      "ok": 3,
+      "fail": 3,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "full_text_index_answers": {
+      "ok": 3,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 3
+    },
+    "independent_filing_corroborates": {
+      "ok": 3,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 3
+    },
+    "corroborating_document_authored_by_the_regulator": {
+      "ok": 0,
+      "fail": 3,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 3
+    }
+  },
+  "predictions_scored": [
+    {
+      "id": 1,
+      "prediction": "No claim in this corpus cites a primary filing document. Every citation is a regulator website page describing one.",
+      "blind": false,
+      "basis": "The source URLs are in the frozen population file and can be read there. This is stated because it is the finding the corpus exists to record, not because the answer was uncertain.",
+      "observed": "0 of 6 citations were primary filings",
+      "met": true
+    },
+    {
+      "id": 2,
+      "prediction": "Every claim's expected string is still present in the bytes served at its cited URL today.",
+      "blind": true,
+      "basis": "No URL in the population had been fetched when this file was written.",
+      "observed": "6 of 6 expected strings were present in the bytes served today",
+      "met": true
+    },
+    {
+      "id": 3,
+      "prediction": "No source in this corpus serves machine readable bytes.",
+      "blind": true,
+      "basis": "No URL in the population had been fetched when this file was written.",
+      "observed": "0 of 6 sources served machine readable bytes",
+      "met": true
+    },
+    {
+      "id": 4,
+      "prediction": "The free EDGAR full text index answers with at least one hit for every claim in this corpus that has an index to ask, and the Federal Reserve claims have none, because no free full text index exists over the Federal Reserve's own statements.",
+      "blind": false,
+      "basis": "One pre freeze query for the string FedNow returned hits. See pre_freeze_observations.",
+      "observed": "3 of 3 claims with an index answered with a hit; 3 Federal Reserve claims had no index to ask",
+      "met": true
+    },
+    {
+      "id": 5,
+      "prediction": "No claim in this corpus is corroborated by a primary document the regulator itself authored. Where a filing carries the string, the filer is a registrant describing the regulator.",
+      "blind": true,
+      "basis": "The regulator CIK sets are empty in the frozen file, so the limb cannot pass, but whether any filing corroborates at all was unknown.",
+      "observed": "0 of 6 claims were corroborated by a document the regulator authored",
+      "met": true
+    },
+    {
+      "id": 6,
+      "prediction": "This node's own ledger holds at least one claim whose rows disagree about its verdict, and the published card serves one side of that disagreement without saying the other exists.",
+      "blind": false,
+      "basis": "Seen while resolving the population. See pre_freeze_observations.",
+      "observed": "1 of 6 claims had ledger rows that disagree",
+      "met": true
+    },
+    {
+      "id": 7,
+      "prediction": "At least half the claims in this corpus are corroborated by the body of an independent primary filing the index returned.",
+      "blind": true,
+      "basis": "No filing had been fetched for any population string when this file was written.",
+      "observed": "3 of 6 claims were corroborated by an independent filing body",
+      "met": true
+    }
+  ],
+  "per_claim": [
+    {
+      "claim_key": "FED_FOMC",
+      "entity": "FED",
+      "regulator": "Board of Governors of the Federal Reserve System",
+      "headline": "FOMC — monetary policy decisions",
+      "expected": "FOMC",
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/fomc.htm",
+      "published_status": "ATTESTED-PRIMARY",
+      "ledger_rows": 1,
+      "ledger_statuses": [
+        "ATTESTED-PRIMARY"
+      ],
+      "must_admit": true,
+      "full_admit": false,
+      "refuse_limb": "source_is_machine_readable",
+      "refuse_reason": "source_is_machine_readable:html_document",
+      "attribution": "publisher",
+      "still_grounded": true,
+      "corroborating_filing": null,
+      "corroborating_filer": null,
+      "receipt": "https://geniusflow-federation.vercel.app/grounded-claims/receipts/FED_FOMC.json",
+      "reproduce": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.federalreserve.gov%2Fmonetarypolicy%2Ffomc.htm&expected=FOMC"
+    },
+    {
+      "claim_key": "FED_FEDNOW",
+      "entity": "FED",
+      "regulator": "Board of Governors of the Federal Reserve System",
+      "headline": "FedNow — instant payment service",
+      "expected": "FedNow",
+      "source_url": "https://www.federalreserve.gov/paymentsystems/fednow_about.htm",
+      "published_status": "ATTESTED-PRIMARY",
+      "ledger_rows": 1,
+      "ledger_statuses": [
+        "ATTESTED-PRIMARY"
+      ],
+      "must_admit": true,
+      "full_admit": false,
+      "refuse_limb": "source_is_machine_readable",
+      "refuse_reason": "source_is_machine_readable:html_document",
+      "attribution": "publisher",
+      "still_grounded": true,
+      "corroborating_filing": null,
+      "corroborating_filer": null,
+      "receipt": "https://geniusflow-federation.vercel.app/grounded-claims/receipts/FED_FEDNOW.json",
+      "reproduce": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.federalreserve.gov%2Fpaymentsystems%2Ffednow_about.htm&expected=FedNow"
+    },
+    {
+      "claim_key": "FED_FEDERAL_RESERVE",
+      "entity": "FED",
+      "regulator": "Board of Governors of the Federal Reserve System",
+      "headline": "Federal Reserve — central bank of the United States",
+      "expected": "Federal Reserve",
+      "source_url": "https://www.federalreserve.gov/aboutthefed.htm",
+      "published_status": "ATTESTED-PRIMARY",
+      "ledger_rows": 1,
+      "ledger_statuses": [
+        "ATTESTED-PRIMARY"
+      ],
+      "must_admit": true,
+      "full_admit": false,
+      "refuse_limb": "source_is_machine_readable",
+      "refuse_reason": "source_is_machine_readable:html_document",
+      "attribution": "publisher",
+      "still_grounded": true,
+      "corroborating_filing": null,
+      "corroborating_filer": null,
+      "receipt": "https://geniusflow-federation.vercel.app/grounded-claims/receipts/FED_FEDERAL_RESERVE.json",
+      "reproduce": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.federalreserve.gov%2Faboutthefed.htm&expected=Federal%20Reserve"
+    },
+    {
+      "claim_key": "SEC_SAB_121",
+      "entity": "SEC",
+      "regulator": "U.S. Securities and Exchange Commission",
+      "headline": "SAB 121 rescinded via Staff Accounting Bulletin 122 (January 2025)",
+      "expected": "SAB 121",
+      "source_url": "https://www.sec.gov/rules-regulations/staff-guidance/staff-accounting-bulletins/staff-accounting-bulletin-122",
+      "published_status": "CONTRADICTED",
+      "ledger_rows": 6,
+      "ledger_statuses": [
+        "ATTESTED-PRIMARY",
+        "CONTRADICTED"
+      ],
+      "must_admit": false,
+      "full_admit": false,
+      "refuse_limb": "ledger_rows_agree",
+      "refuse_reason": "ledger_rows_agree:ledger_rows_disagree:ATTESTED-PRIMARY|CONTRADICTED",
+      "attribution": "this_node",
+      "still_grounded": true,
+      "corroborating_filing": "https://www.sec.gov/Archives/edgar/data/1488813/000148881322000093/filename1.htm",
+      "corroborating_filer": "Customers Bancorp, Inc.  (CUBB, CUBI, CUBI-PE, CUBI-PF)  (CIK 0001488813)",
+      "receipt": "https://geniusflow-federation.vercel.app/grounded-claims/receipts/SEC_SAB_121.json",
+      "reproduce": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.sec.gov%2Frules-regulations%2Fstaff-guidance%2Fstaff-accounting-bulletins%2Fstaff-accounting-bulletin-122&expected=SAB%20121"
+    },
+    {
+      "claim_key": "SEC_INVESTMENT_CONTRACT",
+      "entity": "SEC",
+      "regulator": "U.S. Securities and Exchange Commission",
+      "headline": "Howey test — investment contract jurisdiction for tokenized assets",
+      "expected": "investment contract",
+      "source_url": "https://www.sec.gov/corpfin/framework-investment-contract-analysis-digital-assets",
+      "published_status": "ATTESTED-PRIMARY",
+      "ledger_rows": 5,
+      "ledger_statuses": [
+        "ATTESTED-PRIMARY"
+      ],
+      "must_admit": true,
+      "full_admit": false,
+      "refuse_limb": "source_is_machine_readable",
+      "refuse_reason": "source_is_machine_readable:html_document",
+      "attribution": "publisher",
+      "still_grounded": true,
+      "corroborating_filing": "https://www.sec.gov/Archives/edgar/data/77159/000119312506137924/d11k.htm",
+      "corroborating_filer": "PENN VIRGINIA CORP  (CIK 0000077159)",
+      "receipt": "https://geniusflow-federation.vercel.app/grounded-claims/receipts/SEC_INVESTMENT_CONTRACT.json",
+      "reproduce": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.sec.gov%2Fcorpfin%2Fframework-investment-contract-analysis-digital-assets&expected=investment%20contract"
+    },
+    {
+      "claim_key": "SEC_PROTECT_INVESTORS",
+      "entity": "SEC",
+      "regulator": "U.S. Securities and Exchange Commission",
+      "headline": "SEC mission — investor protection and securities markets",
+      "expected": "protect investors",
+      "source_url": "https://www.sec.gov/about",
+      "published_status": "ATTESTED-PRIMARY",
+      "ledger_rows": 5,
+      "ledger_statuses": [
+        "ATTESTED-PRIMARY"
+      ],
+      "must_admit": true,
+      "full_admit": false,
+      "refuse_limb": "source_is_machine_readable",
+      "refuse_reason": "source_is_machine_readable:html_document",
+      "attribution": "publisher",
+      "still_grounded": true,
+      "corroborating_filing": "https://www.sec.gov/Archives/edgar/data/701817/000110465909023864/a09-9970_1497.htm",
+      "corroborating_filer": "SEI TAX EXEMPT TRUST  (CIK 0000701817)",
+      "receipt": "https://geniusflow-federation.vercel.app/grounded-claims/receipts/SEC_PROTECT_INVESTORS.json",
+      "reproduce": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.sec.gov%2Fabout&expected=protect%20investors"
+    }
+  ],
+  "not_claimed": [
+    "This is not a judgement about whether any claim is true. A string being present in a page is evidence that the page says it, and nothing more. A string being absent is evidence that this node's grounding no longer holds, not that the fact changed.",
+    "A corroborating EDGAR filing is a registrant's document. It shows the phrase is used in a primary filing. It does not make the filer authoritative for the claim, and neither regulator in this corpus files on EDGAR as a registrant.",
+    "This is not a survey of regulator disclosure practice. The population is six claims this node already publishes, which is the whole of its regulator grounded corpus and not a sample of anything. No rate here should be read as a rate about the SEC or the Fed.",
+    "The corpus is small on purpose and the size is the finding, not a limitation being excused. Six claims is the entire regulator grounded surface this node serves.",
+    "No regulator was contacted beyond plain GETs of URLs that are already public, plus one query per claim against a public search index, with an identifying user agent carrying a contact address and request spacing an order of magnitude under the SEC's published ceiling.",
+    "The SEC full text search index covers filings from 2001 onward. A claim whose only corroborating filing predates 2001 would be recorded here as uncorroborated, and that limit belongs to the index."
+  ],
+  "prior_art": [
+    {
+      "work": "SEC EDGAR full text search",
+      "url": "https://efts.sec.gov/LATEST/search-index?q=",
+      "relation": "The free index this corpus queries. It is the SEC's own service and it needs no credentials, only an identifying user agent."
+    },
+    {
+      "work": "SEC webmaster guidance on automated access",
+      "url": "https://www.sec.gov/os/webmaster-faq#developers",
+      "relation": "Sets the request ceiling and the user agent expectation this probe stays well inside."
+    },
+    {
+      "work": "This node's own /api/verify endpoint",
+      "url": "https://geniusflow-federation.vercel.app/api/verify",
+      "relation": "The grounded string rule the corpus applies is that endpoint's rule, reproduced so any receipt can be reproduced against the live service."
+    },
+    {
+      "work": "This node's RWA disclosure interface survey",
+      "url": "https://geniusflow-federation.vercel.app/rwa/README.md",
+      "relation": "Published a defect against itself where a limb sequenced behind an earlier failure made zero requests and still scored its prediction as met. This corpus separates its limbs into independent chains from the start because of it."
+    }
+  ],
+  "ledger": "https://geniusflow-federation.vercel.app/grounded-claims/ledger.json",
+  "receipt_lookup": "https://geniusflow-federation.vercel.app/grounded-claims/receipts/<CLAIM_KEY>.json",
+  "human_summary": "https://geniusflow-federation.vercel.app/grounded-claims/README.md",
+  "human_page": "https://kaydeep0.github.io/eigenstate-research/grounded-claims/",
+  "mirrored_at": "https://kaydeep0.github.io/eigenstate-research/grounded-claims/",
+  "mirror_note": "This file is a mirror of the run identified by the digest above. The federation origin serves the same digest plus one file per claim in the corpus."
+}
