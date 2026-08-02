@@ -1,62 +1,153 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import { createMarkdownProcessor } from '@astrojs/markdown-remark';
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
-import { slugFor } from '../../lib/reports';
+import EntityHub from '../../components/EntityHub.astro';
+import { slugFor, hubSlugForEntityCode } from '../../lib/reports';
 import { prepareReportBody, loadClaimSourceLinks } from '../../lib/reportBody';
 import { buildReportLinkCatalog } from '../../lib/federationLinks';
 import { loadSot, entityCodeFromReportId, resolveReportMetrics, formatNum } from '../../lib/sot';
 
 export async function getStaticPaths() {
   const reports = await getCollection('reports');
-  return reports.map((entry) => ({
+  const reportPaths = reports.map((entry) => ({
     params: { slug: slugFor(entry.id) },
-    props: { entry, allReports: reports },
+    props: { kind: 'report' as const, entry, allReports: reports },
   }));
+
+  const byEntity = new Map<string, typeof reports>();
+  for (const r of reports) {
+    const code = entityCodeFromReportId(r.data.id);
+    const list = byEntity.get(code) ?? [];
+    list.push(r);
+    byEntity.set(code, list);
+  }
+
+  const hubPaths = [...byEntity.entries()].map(([code, items]) => {
+    const seriesSorted = [...items].sort((a, b) => b.data.date_iso.localeCompare(a.data.date_iso));
+    const hubSlug = hubSlugForEntityCode(code);
+    return {
+      params: { slug: hubSlug },
+      props: {
+        kind: 'hub' as const,
+        entityCode: code,
+        entityDisplay: seriesSorted[0].data.entity_display,
+        hubSlug,
+        series: seriesSorted.map((r) => ({
+          slug: slugFor(r.id),
+          date_iso: r.data.date_iso,
+          date_label: r.data.date,
+          phi_s: r.data.phi_s,
+          kappa: r.data.kappa,
+          vault_records: r.data.vault_records,
+        })),
+        latestSlug: slugFor(seriesSorted[0].id),
+        latestDateIso: seriesSorted[0].data.date_iso,
+      },
+    };
+  });
+
+  return [...reportPaths, ...hubPaths];
 }
 
-const { entry, allReports } = Astro.props;
-const { entity_display, date, date_iso, phi_s: publishPhi, kappa: publishKap, vault_records, id } = entry.data;
-const sot = loadSot();
-const entityCode = entityCodeFromReportId(id);
-const metrics = resolveReportMetrics(entityCode, { phi_s: publishPhi, kappa: publishKap });
-const { phi_s, kappa, using_live, live, publish_phi_s, publish_kappa } = metrics;
-const m1LedgerObs = (sot.entity_m1_obs_counts || {})[entityCode] ?? 0;
+const isHub = Astro.props.kind === 'hub';
 
-const base = import.meta.env.BASE_URL;
-const reportSlug = slugFor(entry.id);
-const humanDossier = `${base}dossier/${entityCode}/`;
-const methodology = `${base}METHODOLOGY.md`;
-const glossary = `${base}METHODOLOGY.md#numbers-glossary`;
-const verifyWalkthrough = `${base}verify-walkthrough/`;
+let entity_display = '';
+let date = '';
+let date_iso = '';
+let vault_records = 0;
+let id = '';
+let phi_s = 0;
+let kappa = 0;
+let using_live = false;
+let live: ReturnType<typeof resolveReportMetrics>['live'] = {
+  phi_s: null,
+  kappa: null,
+  source: 'none',
+};
+let publish_phi_s = 0;
+let publish_kappa = 0;
+let m1LedgerObs = 0;
+let base = import.meta.env.BASE_URL;
+let reportSlug = '';
+let entityCode = '';
+let hubSlug = '';
+let humanDossier = '';
+let methodology = '';
+let glossary = '';
+let verifyWalkthrough = '';
+let articleHtml = '';
+let issuerSources: ReturnType<typeof loadClaimSourceLinks> = [];
+let regulatorSources: ReturnType<typeof loadClaimSourceLinks> = [];
+let otherClaimSources: ReturnType<typeof loadClaimSourceLinks> = [];
+let humanPages: ReturnType<typeof buildReportLinkCatalog>['human'] = [];
+let machineLinks: ReturnType<typeof buildReportLinkCatalog>['machine'] = [];
+let vercelApps: ReturnType<typeof buildReportLinkCatalog>['vercelApps'] = [];
+let fingerprints: ReturnType<typeof buildReportLinkCatalog>['fingerprints'] = {
+  node_id: '',
+  chain_hash: '',
+  granth_head: '',
+  granth_length: 0,
+};
+let siblings: Array<{ slug: string; entity_display: string; live_phi: number; date_iso: string }> = [];
+let sot = loadSot();
+let fonts =
+  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
+let description = '';
 
-const { article } = prepareReportBody(entry.body, entityCode);
-// Singleton processor (avoid one Shiki highlighter per report page).
-const g = globalThis as typeof globalThis & { __eigenReportMd?: Awaited<ReturnType<typeof createMarkdownProcessor>> };
-if (!g.__eigenReportMd) {
-  g.__eigenReportMd = await createMarkdownProcessor({ gfm: true, smartypants: false });
-}
-const processor = g.__eigenReportMd;
-const { code: articleHtml } = await processor.render(article);
+if (!isHub) {
+  const { entry, allReports } = Astro.props as {
+    kind: 'report';
+    entry: CollectionEntry<'reports'>;
+    allReports: CollectionEntry<'reports'>[];
+  };
+  entity_display = entry.data.entity_display;
+  date = entry.data.date;
+  date_iso = entry.data.date_iso;
+  vault_records = entry.data.vault_records;
+  id = entry.data.id;
+  const publishPhi = entry.data.phi_s;
+  const publishKap = entry.data.kappa;
+  sot = loadSot();
+  entityCode = entityCodeFromReportId(id);
+  hubSlug = hubSlugForEntityCode(entityCode);
+  const metrics = resolveReportMetrics(entityCode, { phi_s: publishPhi, kappa: publishKap });
+  ({ phi_s, kappa, using_live, live, publish_phi_s, publish_kappa } = metrics);
+  m1LedgerObs = (sot.entity_m1_obs_counts || {})[entityCode] ?? 0;
 
-const claimSources = loadClaimSourceLinks(entityCode);
-const issuerSources = claimSources.filter((s) => s.group === 'issuer');
-const regulatorSources = claimSources.filter((s) => s.group === 'regulator');
-const otherClaimSources = claimSources.filter((s) => s.group === 'other');
+  base = import.meta.env.BASE_URL;
+  reportSlug = slugFor(entry.id);
+  humanDossier = `${base}dossier/${entityCode}/`;
+  methodology = `${base}METHODOLOGY.md`;
+  glossary = `${base}METHODOLOGY.md#numbers-glossary`;
+  verifyWalkthrough = `${base}verify-walkthrough/`;
 
-const links = buildReportLinkCatalog({
-  entityCode,
-  entityDisplay: entity_display,
-  reportId: id,
-  reportSlug,
-  siteBase: base,
-});
-const { human: humanPages, machine: machineLinks, vercelApps, fingerprints } = links;
+  const { article } = prepareReportBody(entry.body, entityCode);
+  const g = globalThis as typeof globalThis & {
+    __eigenReportMd?: Awaited<ReturnType<typeof createMarkdownProcessor>>;
+  };
+  if (!g.__eigenReportMd) {
+    g.__eigenReportMd = await createMarkdownProcessor({ gfm: true, smartypants: false });
+  }
+  const processor = g.__eigenReportMd;
+  ({ code: articleHtml } = await processor.render(article));
 
-/** One related report per entity (highest live Φ_S), excluding this entity. */
-const siblings = (() => {
+  const claimSources = loadClaimSourceLinks(entityCode);
+  issuerSources = claimSources.filter((s) => s.group === 'issuer');
+  regulatorSources = claimSources.filter((s) => s.group === 'regulator');
+  otherClaimSources = claimSources.filter((s) => s.group === 'other');
+
+  const links = buildReportLinkCatalog({
+    entityCode,
+    entityDisplay: entity_display,
+    reportId: id,
+    reportSlug,
+    siteBase: base,
+  });
+  ({ human: humanPages, machine: machineLinks, vercelApps, fingerprints } = links);
+
   const byCode = new Map<
     string,
     { slug: string; entity_display: string; live_phi: number; date_iso: string }
@@ -80,15 +171,42 @@ const siblings = (() => {
       byCode.set(code, candidate);
     }
   }
-  return [...byCode.values()].sort((a, b) => b.live_phi - a.live_phi).slice(0, 6);
-})();
+  siblings = [...byCode.values()].sort((a, b) => b.live_phi - a.live_phi).slice(0, 6);
 
-const fonts =
-  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
+  description = `${entity_display} field position report. Live Φ_S = ${phi_s.toFixed(4)}, κ = ${kappa.toFixed(4)}. Eigenstate Research.`;
+}
 
-const description = `${entity_display} field position report. Live Φ_S = ${phi_s.toFixed(4)}, κ = ${kappa.toFixed(4)}. Eigenstate Research.`;
+const hubProps = isHub
+  ? (Astro.props as {
+      kind: 'hub';
+      entityCode: string;
+      entityDisplay: string;
+      hubSlug: string;
+      series: Array<{
+        slug: string;
+        date_iso: string;
+        date_label: string;
+        phi_s: number;
+        kappa: number;
+        vault_records: number;
+      }>;
+      latestSlug: string;
+      latestDateIso: string;
+    })
+  : null;
 ---
 
+{
+  isHub && hubProps ? (
+    <EntityHub
+      entityCode={hubProps.entityCode}
+      entityDisplay={hubProps.entityDisplay}
+      hubSlug={hubProps.hubSlug}
+      series={hubProps.series}
+      latestSlug={hubProps.latestSlug}
+      latestDateIso={hubProps.latestDateIso}
+    />
+  ) : (
 <Layout title={`${entity_display} · Signal Report · Eigenstate Research`} description={description} fonts={fonts}>
   <Fragment slot="head">
     <style>
@@ -508,6 +626,9 @@ const description = `${entity_display} field position report. Live Φ_S = ${phi_
 
   <div class="report-hero" id="main">
     <a href={`${base}reports/`} class="report-back">← All signal reports</a>
+    <a href={`${base}reports/${hubSlug}/`} class="report-back" style="margin-left: 16px;">
+      {entity_display} hub →
+    </a>
     <div class="eyebrow">Signal report</div>
     <h1 class="report-entity">{entity_display}</h1>
     <p class="report-date">Publication date {date}</p>
@@ -729,3 +850,5 @@ const description = `${entity_display} field position report. Live Φ_S = ${phi_
 
   <Footer variant="full" />
 </Layout>
+  )
+}

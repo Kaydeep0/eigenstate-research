@@ -107,6 +107,8 @@ export function buildReportLinkCatalog(opts: {
       : `${FEDERATION_BASE}/api/report_feed?entity=${encodeURIComponent(code)}`;
 
   const canon = `${PAGES_ORIGIN}/reports/${opts.reportSlug}/`;
+  const hubSlug = code.toLowerCase().replace(/_/g, '-');
+  const entityHub = `${base}reports/${hubSlug}/`;
   const humanDossier = `${base}dossier/${code}/`;
   const methodology = `${base}METHODOLOGY.md`;
   const glossary = `${base}METHODOLOGY.md#numbers-glossary`;
@@ -115,6 +117,7 @@ export function buildReportLinkCatalog(opts: {
 
   const human: HumanLink[] = [
     { href: canon, label: 'Canonical report', note: 'this page' },
+    { href: entityHub, label: 'Entity hub', note: 'publish history + measurement evolution' },
     { href: humanDossier, label: 'Entity dossier (HTML)', note: `live SoT card for ${opts.entityDisplay}` },
     { href: methodology, label: 'Methodology', note: 'field equations and publish honesty' },
     { href: glossary, label: 'Numbers glossary', note: 'Φ_S, κ, vault@publish, M1 ledger' },

@@ -111,3 +111,93 @@ export function ptSparklinePoints(
     .join(' ');
   return { points, min, max };
 }
+
+export type PublishMetricStamp = {
+  date_iso: string;
+  phi_s: number;
+  kappa: number;
+  vault_records: number;
+  slug: string;
+};
+
+/** Minimum distinct publish stamps before an evolution chart is honest. */
+export const EVOLUTION_MIN_STAMPS = 2;
+
+function polylineForValues(
+  vals: number[],
+  width: number,
+  height: number,
+  pad: number
+): { points: string; min: number; max: number } {
+  if (vals.length < 2) return { points: '', min: 0, max: 0 };
+  const min = Math.min(...vals);
+  const max = Math.max(...vals);
+  const span = max - min || 1;
+  const usableH = height - pad * 2;
+  const step = width / (vals.length - 1);
+  const points = vals
+    .map((v, i) => {
+      const x = i * step;
+      const y = pad + (1 - (v - min) / span) * usableH;
+      return `${x.toFixed(1)},${y.toFixed(1)}`;
+    })
+    .join(' ');
+  return { points, min, max };
+}
+
+/**
+ * Dual SVG polylines for publish-time Φ_S / κ series (oldest→newest).
+ * Each metric is scaled independently so both remain readable.
+ */
+export function publishEvolutionPolylines(
+  stamps: PublishMetricStamp[],
+  width = 640,
+  height = 180,
+  pad = 14
+): {
+  ok: boolean;
+  phiPoints: string;
+  kappaPoints: string;
+  phiMin: number;
+  phiMax: number;
+  kappaMin: number;
+  kappaMax: number;
+  width: number;
+  height: number;
+  labels: string[];
+} {
+  const ordered = [...stamps].sort((a, b) => a.date_iso.localeCompare(b.date_iso));
+  const phiVals = ordered.map((s) => Number(s.phi_s)).filter((v) => Number.isFinite(v));
+  const kapVals = ordered.map((s) => Number(s.kappa)).filter((v) => Number.isFinite(v));
+  if (ordered.length < EVOLUTION_MIN_STAMPS || phiVals.length < EVOLUTION_MIN_STAMPS) {
+    return {
+      ok: false,
+      phiPoints: '',
+      kappaPoints: '',
+      phiMin: 0,
+      phiMax: 0,
+      kappaMin: 0,
+      kappaMax: 0,
+      width,
+      height,
+      labels: [],
+    };
+  }
+  const phi = polylineForValues(phiVals, width, height, pad);
+  const kap =
+    kapVals.length >= EVOLUTION_MIN_STAMPS
+      ? polylineForValues(kapVals, width, height, pad)
+      : { points: '', min: 0, max: 0 };
+  return {
+    ok: true,
+    phiPoints: phi.points,
+    kappaPoints: kap.points,
+    phiMin: phi.min,
+    phiMax: phi.max,
+    kappaMin: kap.min,
+    kappaMax: kap.max,
+    width,
+    height,
+    labels: ordered.map((s) => s.date_iso),
+  };
+}
