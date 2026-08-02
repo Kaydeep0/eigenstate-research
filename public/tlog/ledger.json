@@ -3749,7 +3749,14 @@
       ]
     }
   ],
-  "rescored_at": "2026-08-02T05:47:29.957193+00:00",
+  "rescored_at": "2026-08-02T06:09:16.157168+00:00",
   "rescore_note": "The scored predictions and the rendered artifacts were re-derived from this stored batch without refetching anything, to attach a note to a prediction that missed. The rescore refuses to write if any verdict changes. Re-running the batch instead would have destroyed the cold start this batch reports, because the first run already appended its checkpoints to the record the next run compares against.",
-  "digest": "2fac8d58913200fc84dd821f297204308cae5e705cd140e512752277e1cccb47"
+  "not_claimed_after_the_freeze": [
+    {
+      "added": "2026-08-02",
+      "why": "raised while researching this ecosystem's terms of art, after the expectations for this ledger were already committed",
+      "note": "Two components this node publishes elsewhere carry names that are terms of art here, and neither is what the name suggests to a reader arriving from this community. `witnessfield` is not an implementation of the C2SP tlog-witness protocol and issues no cosignature. `helixhash` is a hash chain, which is tamper evident only to a verifier willing to replay the whole chain, and it is not an RFC 6962 Merkle tree: it offers no inclusion proof, no consistency proof and no efficient evidence against equivocation. Both names predate this ledger. They are disambiguated here rather than defended, because a page that spends its length separating a monitor from a witness should not leave its own naming to be guessed."
+    }
+  ],
+  "digest": "1e9ae859e742abe6cfb6dabb7e5d337cba88d3f3cc0715ceb8a5a9bdc3821603"
 }

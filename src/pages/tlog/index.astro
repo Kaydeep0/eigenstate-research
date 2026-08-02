@@ -93,6 +93,7 @@ interface Batch {
   }[];
   prior_art: { work: string; url: string; relation: string }[];
   not_claimed: string[];
+  not_claimed_after_the_freeze?: { added: string; why: string; note: string }[];
 }
 
 const b = batch as unknown as Batch;
@@ -724,6 +725,22 @@ PYTHONPATH=engine python3 engine/tools/tlog_monitor_export.py</pre>
     <ul class="plain">
       {b.not_claimed.map((item) => <li>{item}</li>)}
     </ul>
+    {
+      (b.not_claimed_after_the_freeze ?? []).length > 0 && (
+        <div class="callout">
+          <p>
+            Added after the expectations were frozen, and kept separate rather than folded into
+            the list above, because editing a frozen list after the fact would defeat the reason
+            for freezing it.
+          </p>
+          {(b.not_claimed_after_the_freeze ?? []).map((item) => (
+            <p>
+              <strong>Added {item.added}</strong>, {item.why}: {item.note}
+            </p>
+          ))}
+        </div>
+      )
+    }
   </section>
 
   <Footer />

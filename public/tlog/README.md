@@ -1,6 +1,6 @@
 # Transparency log batch monitor
 
-Generated 2026-08-02T05:43:57.760810+00:00 · probe v1.0.0 · digest `2fac8d58913200fc`
+Generated 2026-08-02T05:43:57.760810+00:00 · probe v1.0.0 · digest `1e9ae859e742abe6`
 
 The population, every verification key and where it came from, the limbs with their admit conditions and seven predictions were published before this batch at digest `78cb2f5444df2da2`, in an earlier commit.
 
@@ -135,3 +135,9 @@ PYTHONPATH=engine python3 engine/tools/tlog_monitor_export.py
 - A signature this monitor fails to verify is recorded as this monitor failing to verify it. The verifiers here are hand rolled in pure Python because this engine carries no cryptography library, and a hand rolled verifier that disagrees with a log operated by Google is overwhelmingly more likely to be the broken party.
 - This is not coverage of the transparency log ecosystem. The population is a frozen list drawn from public log lists, and no rate here should be read as a rate over all logs.
 - No log was contacted beyond plain GETs of endpoints that are already public, with an identifying user agent.
+
+## What this is not, added after the expectations were frozen
+
+These were not in the expectations file. They are kept separate rather than folded into the list above, because editing a frozen list after the fact would defeat the reason for freezing it.
+
+- Added 2026-08-02, raised while researching this ecosystem's terms of art, after the expectations for this ledger were already committed: Two components this node publishes elsewhere carry names that are terms of art here, and neither is what the name suggests to a reader arriving from this community. `witnessfield` is not an implementation of the C2SP tlog-witness protocol and issues no cosignature. `helixhash` is a hash chain, which is tamper evident only to a verifier willing to replay the whole chain, and it is not an RFC 6962 Merkle tree: it offers no inclusion proof, no consistency proof and no efficient evidence against equivocation. Both names predate this ledger. They are disambiguated here rather than defended, because a page that spends its length separating a monitor from a witness should not leave its own naming to be guessed.
