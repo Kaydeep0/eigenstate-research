@@ -6,6 +6,7 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { slugFor } from '../../lib/reports';
 import { prepareReportBody, loadClaimSourceLinks } from '../../lib/reportBody';
+import { buildReportLinkCatalog } from '../../lib/federationLinks';
 import { loadSot, entityCodeFromReportId, resolveReportMetrics, formatNum } from '../../lib/sot';
 
 export async function getStaticPaths() {
@@ -25,19 +26,13 @@ const { phi_s, kappa, using_live, live, publish_phi_s, publish_kappa } = metrics
 const m1LedgerObs = (sot.entity_m1_obs_counts || {})[entityCode] ?? 0;
 
 const base = import.meta.env.BASE_URL;
+const reportSlug = slugFor(entry.id);
 const humanDossier = `${base}dossier/${entityCode}/`;
-const machineDossierJson = `${base}federation/dossier/${entityCode}.json`;
-const machineClaimsJson = `${base}federation/current-claims/${entityCode}.json`;
 const methodology = `${base}METHODOLOGY.md`;
 const glossary = `${base}METHODOLOGY.md#numbers-glossary`;
 const verifyWalkthrough = `${base}verify-walkthrough/`;
-const paragraphJournal = 'https://paragraph.com/@eigenstate';
-const machineFeed = `https://geniusflow-federation.vercel.app/api/report_feed?entity=${encodeURIComponent(entityCode)}`;
-const machineManifest = 'https://geniusflow-federation.vercel.app/api/manifest';
-const machineChain = 'https://geniusflow-federation.vercel.app/api/chain';
-const machineAgent = 'https://geniusflow-federation.vercel.app/.well-known/geniusflow.json';
 
-const { article, agent } = prepareReportBody(entry.body, entityCode);
+const { article } = prepareReportBody(entry.body, entityCode);
 // Singleton processor (avoid one Shiki highlighter per report page).
 const g = globalThis as typeof globalThis & { __eigenReportMd?: Awaited<ReturnType<typeof createMarkdownProcessor>> };
 if (!g.__eigenReportMd) {
@@ -45,12 +40,20 @@ if (!g.__eigenReportMd) {
 }
 const processor = g.__eigenReportMd;
 const { code: articleHtml } = await processor.render(article);
-const agentHtml = agent ? (await processor.render(agent)).code : '';
 
 const claimSources = loadClaimSourceLinks(entityCode);
 const issuerSources = claimSources.filter((s) => s.group === 'issuer');
 const regulatorSources = claimSources.filter((s) => s.group === 'regulator');
 const otherClaimSources = claimSources.filter((s) => s.group === 'other');
+
+const links = buildReportLinkCatalog({
+  entityCode,
+  entityDisplay: entity_display,
+  reportId: id,
+  reportSlug,
+  siteBase: base,
+});
+const { human: humanPages, machine: machineLinks, vercelApps, fingerprints } = links;
 
 /** One related report per entity (highest live Φ_S), excluding this entity. */
 const siblings = (() => {
@@ -379,6 +382,49 @@ const description = `${entity_display} field position report. Live Φ_S = ${phi_
         font-size: var(--text-xs);
       }
 
+      .machine-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .machine-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 10px;
+        align-items: baseline;
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+      }
+
+      .machine-row a {
+        color: var(--signal);
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        word-break: break-all;
+      }
+
+      .machine-note {
+        color: var(--text-muted);
+        font-size: var(--text-xs);
+      }
+
+      .fp-block {
+        margin-top: 16px;
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      .fp-block code {
+        color: var(--signal);
+        background: rgb(47 90 99 / 8%);
+        padding: 1px 5px;
+        border-radius: var(--radius-sm);
+      }
+
       .topology-list {
         display: flex;
         flex-direction: column;
@@ -438,14 +484,11 @@ const description = `${entity_display} field position report. Live Φ_S = ${phi_
         color: var(--text-secondary);
       }
 
-      .for-agents .agent-body :global(h2),
-      .for-agents .agent-body :global(h3) {
+      .for-agents .agent-intro {
+        margin-bottom: 10px;
         font-size: var(--text-sm);
-        margin: 16px 0 8px;
-      }
-
-      .for-agents .agent-body :global(table) {
-        font-size: var(--text-xs);
+        color: var(--text-secondary);
+        line-height: 1.55;
       }
 
       @media (width <= 640px) {
@@ -579,13 +622,15 @@ const description = `${entity_display} field position report. Live Φ_S = ${phi_
           </>
         )
       }
-      <div class="sources-group">Eigenstate Pages</div>
-      <div><a href={methodology}>Methodology</a> · field equations and publish honesty</div>
-      <div><a href={glossary}>Numbers glossary</a> · Φ_S, κ, vault@publish, M1 ledger</div>
-      <div><a href={humanDossier}>Entity dossier (HTML)</a> · live SoT card for {entity_display}</div>
-      <div><a href={verifyWalkthrough}>Verify walkthrough</a> · human federation check</div>
-      <div><a href={`${base}reports/`}>Related reports</a> · other tracked entities</div>
-      <div><a href={paragraphJournal}>Paragraph journal</a> · long-form distribution</div>
+      <div class="sources-group">Eigenstate Pages &amp; federation surfaces</div>
+      {
+        humanPages.map((s) => (
+          <div>
+            <a href={s.href}>{s.label}</a>
+            {s.note ? <> · {s.note}</> : null}
+          </div>
+        ))
+      }
     </div>
   </div>
 
@@ -606,26 +651,78 @@ const description = `${entity_display} field position report. Live Φ_S = ${phi_
   <div class="for-agents">
     <div class="section-label">For agents</div>
     <details>
-      <summary>Machine feeds · Node 34539544 (collapsed)</summary>
+      <summary>APIs · Vercel apps · federation traverse · Node {fingerprints.node_id} (collapsed)</summary>
       <div class="agent-body">
-        <p>
-          Cold-agent entry for verified analysis. Prefer the human pages above first.
-          Full walkthrough: <a href={verifyWalkthrough}>verify-walkthrough</a>.
+        <p class="agent-intro">
+          Cold-agent entry for Node <code>{fingerprints.node_id}</code> / <code>{entityCode}</code>.
+          Prefer human pages above first. Traverse: agent entry → manifest → entity feed → dossier →
+          chain verify → canonical report. Walkthrough:{' '}
+          <a href={verifyWalkthrough}>verify-walkthrough</a>.
         </p>
-        {agentHtml ? <div set:html={agentHtml} /> : null}
-        <p style="margin-top: 12px;">
-          <a class="machine-link" href={machineDossierJson}>machine dossier · {entityCode}.json</a>
-          {' · '}
-          <a class="machine-link" href={machineClaimsJson}>machine claims · {entityCode}.json</a>
-          {' · '}
-          <a class="machine-link" href={machineFeed}>machine feed · report_feed</a>
-          {' · '}
-          <a class="machine-link" href={machineManifest}>machine · api/manifest</a>
-          {' · '}
-          <a class="machine-link" href={machineChain}>machine · api/chain</a>
-          {' · '}
-          <a class="machine-link" href={machineAgent}>machine · agent descriptor</a>
-        </p>
+
+        <div class="sources-group">Machine JSON &amp; federation APIs</div>
+        <div class="machine-list">
+          {
+            machineLinks.map((s) => (
+              <div class="machine-row">
+                <a href={s.href}>{s.label}</a>
+                {s.note ? <span class="machine-note">· {s.note}</span> : null}
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="sources-group" style="margin-top: 16px;">Vercel apps</div>
+        <div class="machine-list">
+          {
+            vercelApps.map((s) => (
+              <div class="machine-row">
+                <a href={s.href}>{s.label}</a>
+                {s.feed_url && s.feed_url !== s.href ? (
+                  <a class="machine-link" href={s.feed_url}>
+                    feed
+                  </a>
+                ) : null}
+                {s.federation_card && s.federation_card !== s.href ? (
+                  <a class="machine-link" href={s.federation_card}>
+                    federation card
+                  </a>
+                ) : null}
+                {s.note ? <span class="machine-note">· {s.note}</span> : null}
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="fp-block">
+          <div>
+            <strong>entity:</strong> <code>{entityCode}</code>
+            {' · '}
+            <strong>report_id:</strong> <code>{id}</code>
+          </div>
+          {
+            fingerprints.chain_hash ? (
+              <div>
+                <strong>Build fingerprint:</strong>{' '}
+                <code>{fingerprints.chain_hash.slice(0, 16)}…</code> (match{' '}
+                <code>builds[].chain_hash</code> for <code>{entityCode}</code> in api/manifest, then
+                verify via api/chain)
+              </div>
+            ) : null
+          }
+          {
+            fingerprints.granth_head ? (
+              <div>
+                <strong>Granth head:</strong> <code>{fingerprints.granth_head.slice(0, 16)}…</code> ·
+                length {fingerprints.granth_length}
+              </div>
+            ) : null
+          }
+          <div style="margin-top: 8px;">
+            <strong>Verify:</strong> GET api/manifest → find <code>builds[].target==entity</code> →
+            match chain_hash → GET api/chain.
+          </div>
+        </div>
       </div>
     </details>
   </div>
