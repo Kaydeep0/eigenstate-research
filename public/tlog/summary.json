@@ -1,8 +1,8 @@
 {
   "probe": "transparency_log_batch_monitor",
   "probe_version": "1.0.0",
-  "generated_at": "2026-08-02T05:34:50.807043+00:00",
-  "digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "generated_at": "2026-08-02T05:43:57.760810+00:00",
+  "digest": "2fac8d58913200fc84dd821f297204308cae5e705cd140e512752277e1cccb47",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290",
   "expectations_generated_at": "2026-08-02T05:32:13.733964+00:00",
   "expectations": "https://geniusflow-federation.vercel.app/tlog/expectations.json",
@@ -155,12 +155,12 @@
   "signature_schemes_unsupported": 1,
   "keys_obtained_independently": 22,
   "trees_advanced_between_reads": 11,
-  "entries_added_between_reads": 54133,
+  "entries_added_between_reads": 51218,
   "consistency_proofs_served": 11,
   "consistency_proofs_recomputed": 11,
   "trees_that_shrank": 0,
   "checkpoints_with_witness_cosignatures": 0,
-  "logs_with_a_prior_batch_on_record": 0,
+  "logs_with_a_prior_batch_on_record": 23,
   "disagreements": [],
   "disagreement_count": 0,
   "refuse_limb_counts": {
@@ -279,8 +279,8 @@
       "not_reached": 0
     },
     "prior_batch_checkpoint_on_record": {
-      "ok": 0,
-      "fail": 23,
+      "ok": 23,
+      "fail": 0,
       "not_applicable": 0,
       "absent": 0,
       "not_reached": 0
@@ -332,8 +332,15 @@
       "prediction": "This monitor holds no prior batch for any log, because this is the first batch, so the cross run comparison refuses for every log in the population.",
       "blind": false,
       "basis": "This is determined by the fact that this is run one. It is written down so the cold start is a scored line in the ledger rather than an omission.",
-      "observed": "0 of 23 logs had a prior batch on record",
-      "met": true
+      "observed": "23 of 23 logs had a prior batch on record",
+      "met": false,
+      "notes_written_after_a_result": [
+        {
+          "written_after_batch_generated_at": "2026-08-02T05:43:57.760810+00:00",
+          "observed_then": "23 of 23 logs had a prior batch on record",
+          "note": "This prediction was written for the first batch and it was right for the first batch. On every batch after that it is wrong by construction, because the cold start it described is over: this monitor now holds a prior checkpoint for all 23 logs and the cross run comparison no longer refuses for a lack of history. The line is left in the frozen prediction set and left scored as missed rather than retired, because retiring a prediction the moment it stops flattering the run is the habit this ledger exists to avoid. Read it as a dated statement that has since been overtaken."
+        }
+      ]
     },
     {
       "id": 7,
@@ -342,7 +349,18 @@
       "basis": "The expectations file already records that this monitor has not implemented tile reconstruction for the Go checksum database. It is scored so the refusal is counted rather than mentioned.",
       "observed": "0 of 23 logs refused for a reason attributed to this monitor",
       "met": false,
-      "note_written_after_the_result": "This missed, and it missed for two separate reasons that are worth keeping apart. The prediction was operationalised as the headline refusal attribution, which is the single strongest failing limb, rather than as any limb on any log. A probe attributed refusal does exist in this batch: Rekor's checkpoint uses a note signature scheme this monitor has not implemented, and that limb refuses with the refusal charged to this monitor. It is not the headline for Rekor because a MUST limb fails first, and it is not a re-derivation limb, which is what the prediction named. The second reason is the one the prediction was really about: the Go checksum database was expected to refuse a re-derivation limb because this monitor cannot reconstruct tile based proofs, and its tree did not advance during the forty five second window, so that limb was never reached. A quiet log did not exercise the gap the prediction pointed at. Neither the scorer nor the window was changed after seeing this."
+      "notes_written_after_a_result": [
+        {
+          "written_after_batch_generated_at": "2026-08-02T05:34:50.807043+00:00",
+          "observed_then": "0 of 23 logs refused for a reason attributed to this monitor",
+          "note": "This missed, and it missed for two separate reasons that are worth keeping apart. The prediction was operationalised as the headline refusal attribution, which is the single strongest failing limb, rather than as any limb on any log. A probe attributed refusal does exist in this batch: Rekor's checkpoint uses a note signature scheme this monitor has not implemented, and that limb refuses with the refusal charged to this monitor. It is not the headline for Rekor because a MUST limb fails first, and it is not a re-derivation limb, which is what the prediction named. The second reason is the one the prediction was really about: the Go checksum database was expected to refuse a re-derivation limb because this monitor cannot reconstruct tile based proofs, and its tree did not advance during the forty five second window, so that limb was never reached. A quiet log did not exercise the gap the prediction pointed at. Neither the scorer nor the window was changed after seeing this."
+        },
+        {
+          "written_after_batch_generated_at": "2026-08-02T05:43:57.760810+00:00",
+          "observed_then": "0 of 23 logs refused for a reason attributed to this monitor",
+          "note": "Missed again on the second batch, for the same structural reason and with one new fact worth recording against this monitor. The Go checksum database did move between the two batches, from tree size 58590582 to 58590854, so the advance the first note said never happened has now happened. This monitor still did not ask for a proof of it, because the consistency limbs are scoped to the two reads inside a single batch and the cross batch pair is only recorded, never proven. That is a real gap in the monitor and not a property of the log: the strongest check a batch monitor can run is exactly the one across batches, and this version does not run it. It is named here rather than added quietly, because the limb order is frozen in the expectations file and widening it belongs to a new probe version with its own expectations committed first."
+        }
+      ]
     }
   ],
   "per_log": [
@@ -391,9 +409,9 @@
       "refuse_limb": null,
       "refuse_reason": null,
       "attribution": null,
-      "first_size": 1468244661,
-      "second_size": 1468250716,
-      "entries_added": 6055,
+      "first_size": 1468299031,
+      "second_size": 1468304618,
+      "entries_added": 5587,
       "proof_nodes": 24,
       "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/sphinx.ct.digicert.com_2026h2.json"
     },
@@ -408,10 +426,10 @@
       "refuse_limb": null,
       "refuse_reason": null,
       "attribution": null,
-      "first_size": 38181119,
-      "second_size": 38181154,
-      "entries_added": 35,
-      "proof_nodes": 17,
+      "first_size": 38181371,
+      "second_size": 38181393,
+      "entries_added": 22,
+      "proof_nodes": 18,
       "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/sphinx.ct.digicert.com_2027h1.json"
     },
     {
@@ -442,10 +460,10 @@
       "refuse_limb": null,
       "refuse_reason": null,
       "attribution": null,
-      "first_size": 1515491652,
-      "second_size": 1515497879,
-      "entries_added": 6227,
-      "proof_nodes": 21,
+      "first_size": 1515546766,
+      "second_size": 1515552310,
+      "entries_added": 5544,
+      "proof_nodes": 23,
       "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/wyvern.ct.digicert.com_2026h2.json"
     },
     {
@@ -459,10 +477,10 @@
       "refuse_limb": null,
       "refuse_reason": null,
       "attribution": null,
-      "first_size": 48179214,
-      "second_size": 48179416,
-      "entries_added": 202,
-      "proof_nodes": 18,
+      "first_size": 48180696,
+      "second_size": 48180852,
+      "entries_added": 156,
+      "proof_nodes": 19,
       "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/wyvern.ct.digicert.com_2027h1.json"
     },
     {
@@ -493,10 +511,10 @@
       "refuse_limb": null,
       "refuse_reason": null,
       "attribution": null,
-      "first_size": 1922205928,
-      "second_size": 1922213339,
-      "entries_added": 7411,
-      "proof_nodes": 20,
+      "first_size": 1922271995,
+      "second_size": 1922279015,
+      "entries_added": 7020,
+      "proof_nodes": 24,
       "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/ct.googleapis.com_logs_eu1_xenon2026h2.json"
     },
     {
@@ -510,10 +528,10 @@
       "refuse_limb": null,
       "refuse_reason": null,
       "attribution": null,
-      "first_size": 97740901,
-      "second_size": 97741932,
-      "entries_added": 1031,
-      "proof_nodes": 22,
+      "first_size": 97749657,
+      "second_size": 97750595,
+      "entries_added": 938,
+      "proof_nodes": 21,
       "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/ct.googleapis.com_logs_eu1_xenon2027h1.json"
     },
     {
@@ -527,10 +545,10 @@
       "refuse_limb": null,
       "refuse_reason": null,
       "attribution": null,
-      "first_size": 2281693199,
-      "second_size": 2281702148,
-      "entries_added": 8949,
-      "proof_nodes": 30,
+      "first_size": 2281773943,
+      "second_size": 2281782781,
+      "entries_added": 8838,
+      "proof_nodes": 18,
       "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/ct.googleapis.com_logs_us1_argon2026h2.json"
     },
     {
@@ -544,10 +562,10 @@
       "refuse_limb": null,
       "refuse_reason": null,
       "attribution": null,
-      "first_size": 164742560,
-      "second_size": 164744704,
-      "entries_added": 2144,
-      "proof_nodes": 16,
+      "first_size": 164761368,
+      "second_size": 164763310,
+      "entries_added": 1942,
+      "proof_nodes": 17,
       "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/ct.googleapis.com_logs_us1_argon2027h1.json"
     },
     {
@@ -561,8 +579,8 @@
       "refuse_limb": null,
       "refuse_reason": null,
       "attribution": null,
-      "first_size": 58590582,
-      "second_size": 58590582,
+      "first_size": 58590854,
+      "second_size": 58590854,
       "entries_added": 0,
       "proof_nodes": null,
       "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/sum.golang.org.json"
@@ -578,8 +596,8 @@
       "refuse_limb": null,
       "refuse_reason": null,
       "attribution": null,
-      "first_size": 1483055905,
-      "second_size": 1483055905,
+      "first_size": 1483103970,
+      "second_size": 1483103970,
       "entries_added": 0,
       "proof_nodes": null,
       "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/elephant2026h2.ct.sectigo.com.json"
@@ -595,8 +613,8 @@
       "refuse_limb": null,
       "refuse_reason": null,
       "attribution": null,
-      "first_size": 117555104,
-      "second_size": 117555104,
+      "first_size": 117560696,
+      "second_size": 117560696,
       "entries_added": 0,
       "proof_nodes": null,
       "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/elephant2027h1.ct.sectigo.com.json"
@@ -629,8 +647,8 @@
       "refuse_limb": null,
       "refuse_reason": null,
       "attribution": null,
-      "first_size": 1793061034,
-      "second_size": 1793061034,
+      "first_size": 1793127438,
+      "second_size": 1793127438,
       "entries_added": 0,
       "proof_nodes": null,
       "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/tiger2026h2.ct.sectigo.com.json"
@@ -646,10 +664,10 @@
       "refuse_limb": null,
       "refuse_reason": null,
       "attribution": null,
-      "first_size": 129503074,
-      "second_size": 129505432,
-      "entries_added": 2358,
-      "proof_nodes": 20,
+      "first_size": 129512654,
+      "second_size": 129512654,
+      "entries_added": 0,
+      "proof_nodes": null,
       "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/tiger2027h1.ct.sectigo.com.json"
     },
     {
@@ -680,10 +698,10 @@
       "refuse_limb": "public_key_obtained_independently_of_the_log",
       "refuse_reason": "public_key_obtained_independently_of_the_log:only_key_source_read_is_the_log_itself",
       "attribution": "ecosystem",
-      "first_size": 2197320522,
-      "second_size": 2197332918,
-      "entries_added": 12396,
-      "proof_nodes": 23,
+      "first_size": 2197425668,
+      "second_size": 2197436369,
+      "entries_added": 10701,
+      "proof_nodes": 21,
       "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/rekor.sigstore.dev.json"
     },
     {
@@ -697,10 +715,10 @@
       "refuse_limb": null,
       "refuse_reason": null,
       "attribution": null,
-      "first_size": 2359435567,
-      "second_size": 2359442892,
-      "entries_added": 7325,
-      "proof_nodes": 21,
+      "first_size": 2359466486,
+      "second_size": 2359466486,
+      "entries_added": 0,
+      "proof_nodes": null,
       "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/ct2026-a.trustasia.com_log2026a.json"
     },
     {
@@ -714,10 +732,10 @@
       "refuse_limb": null,
       "refuse_reason": null,
       "attribution": null,
-      "first_size": 2380730537,
-      "second_size": 2380730537,
-      "entries_added": 0,
-      "proof_nodes": null,
+      "first_size": 2380761114,
+      "second_size": 2380771487,
+      "entries_added": 10373,
+      "proof_nodes": 25,
       "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/ct2026-b.trustasia.com_log2026b.json"
     },
     {
@@ -731,10 +749,10 @@
       "refuse_limb": null,
       "refuse_reason": null,
       "attribution": null,
-      "first_size": 46928430,
-      "second_size": 46928430,
-      "entries_added": 0,
-      "proof_nodes": null,
+      "first_size": 46928816,
+      "second_size": 46928913,
+      "entries_added": 97,
+      "proof_nodes": 14,
       "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/hetu2027.trustasia.com_hetu2027.json"
     }
   ],

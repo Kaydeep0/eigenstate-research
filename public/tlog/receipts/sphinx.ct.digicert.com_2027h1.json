@@ -26,8 +26,8 @@
     },
     "checkpoint_carries_tree_size_and_root_hash": {
       "outcome": "ok",
-      "tree_size": 38181119,
-      "root_hash": "0cc4271d7bfdde4c53a2fe8cb250caa256278e2e12ba0860d4174675595fb7d3"
+      "tree_size": 38181371,
+      "root_hash": "b5f50515ea654fc4e39f92ca5169ed94899d74f97ef92facdfcc1eab416bf929"
     },
     "checkpoint_carries_a_signature": {
       "outcome": "ok",
@@ -48,31 +48,30 @@
       "note": "A Certificate Transparency signed tree head has no place to carry a witness cosignature, so this is a fact about the format as much as about the log."
     },
     "prior_batch_checkpoint_on_record": {
-      "outcome": "fail",
-      "reason": "no_prior_batch_for_this_log_on_this_monitor",
-      "attribution": "probe",
-      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+      "outcome": "ok",
+      "prior_read_at": "2026-08-02T05:34:34.560061+00:00",
+      "prior_tree_size": 38181154
     },
     "second_read_answered": {
       "outcome": "ok",
-      "tree_size": 38181154
+      "tree_size": 38181393
     },
     "tree_did_not_shrink_between_reads": {
       "outcome": "ok",
-      "first_size": 38181119,
-      "second_size": 38181154,
-      "entries_added": 35
+      "first_size": 38181371,
+      "second_size": 38181393,
+      "entries_added": 22
     },
     "consistency_proof_served": {
       "outcome": "ok",
-      "nodes": 17
+      "nodes": 18
     },
     "consistency_proof_recomputes_to_the_second_root": {
       "outcome": "ok",
       "reason": "both_roots_recomputed",
-      "first_size": 38181119,
-      "second_size": 38181154,
-      "proof_nodes": 17
+      "first_size": 38181371,
+      "second_size": 38181393,
+      "proof_nodes": 18
     }
   },
   "evidence": {
@@ -81,14 +80,14 @@
       "status": 200,
       "error": null,
       "bytes": 239,
-      "read_at": "2026-08-02T05:33:36.324685+00:00",
-      "body_sha256": "cf095fe92758f3ca47eaea1416da8673082b846e616852d525395183e124bbe1",
+      "read_at": "2026-08-02T05:42:44.379543+00:00",
+      "body_sha256": "8266300da4bec393ef90611037cc7eee0a62880c34a351aeb12a4523841be632",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 38181119,
-      "timestamp": 1785648812804,
+      "tree_size": 38181371,
+      "timestamp": 1785649363257,
       "signature_lines": 1,
-      "root_hash_hex": "0cc4271d7bfdde4c53a2fe8cb250caa256278e2e12ba0860d4174675595fb7d3",
+      "root_hash_hex": "b5f50515ea654fc4e39f92ca5169ed94899d74f97ef92facdfcc1eab416bf929",
       "raw_body": null
     },
     "signature_check": {
@@ -96,34 +95,43 @@
       "verified": true,
       "scheme": "ecdsa_p256_ct_v1"
     },
+    "prior_batch": {
+      "log_key": "sphinx.ct.digicert.com/2027h1",
+      "read": "second_read",
+      "read_at": "2026-08-02T05:34:34.560061+00:00",
+      "tree_size": 38181154,
+      "root_hash": "806fed9fa0d5d1b30c6ead4f6054d0d3727f196cc6accf6b8d63134d3bfacb62",
+      "body_sha256": "da549fa09b14777fc39d0ceb4c5fd7a07157e35106991d279e7f8b6439671c7b"
+    },
     "second_read": {
       "url": "https://sphinx.ct.digicert.com/2027h1/ct/v1/get-sth",
       "status": 200,
       "error": null,
-      "bytes": 243,
-      "read_at": "2026-08-02T05:34:34.560061+00:00",
-      "body_sha256": "da549fa09b14777fc39d0ceb4c5fd7a07157e35106991d279e7f8b6439671c7b",
+      "bytes": 239,
+      "read_at": "2026-08-02T05:43:42.205043+00:00",
+      "body_sha256": "c986f81a7f4f4e62d7d06ea59d97f71aca6473ddbef1e7209642d3630cf50567",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 38181154,
-      "timestamp": 1785648873782,
+      "tree_size": 38181393,
+      "timestamp": 1785649421274,
       "signature_lines": 1,
-      "root_hash_hex": "806fed9fa0d5d1b30c6ead4f6054d0d3727f196cc6accf6b8d63134d3bfacb62"
+      "root_hash_hex": "72e8c22ce333fb7ae3e4b48fd1cce43f888690ec7eff17550c11cbc49d3c7246"
     },
     "consistency_request": {
       "served": true,
-      "url": "https://sphinx.ct.digicert.com/2027h1/ct/v1/get-sth-consistency?first=38181119&second=38181154",
+      "url": "https://sphinx.ct.digicert.com/2027h1/ct/v1/get-sth-consistency?first=38181371&second=38181393",
       "proof": [
-        "84995a41f705d03ed5c7052d1093d9b15150a71a325e57f41b3d80d5a74a7d8e",
-        "f04d9a62e38bdaeb56ff29699fe64a1721b7941ac0c926f4caf17716a42c0d05",
-        "619f77db7674c22d3c39a6eaeabb36fd91c6d700457776fd5cdce31de97536df",
-        "b531b67856c26dd1789c7107fff30b9ce6e70883a8ee18ac129deef5168654e2",
-        "a83a465f48daa35deb69f5758eb6ef904ff9f7a6983b057ac22331389c62b163",
-        "d1df1653fddc8830afae3e251bee68264bcea621927d27355b92373484f62510",
-        "d3f90a079bc84716bdc65e01169fcd6188f1cd0f999a320905fa2c758e5abc5c",
-        "604f1d2ee3c4a8a46fc1925a1540ce3cd685ed7d857925b9efce38af4b7a118c",
-        "47f49ef8779b8de07dbca5bf13e95f303a0457a3c4bfb16091f4f9c96cba9b57",
-        "a6d2a4f87ee0981fe88305588c9aac987bb6c89469ec794b5e42b7e7aed8d410",
+        "2346431a29b2fa1f9861145a28bce0bbf06e0e0ac9f2be00d0699af5d43abb7e",
+        "95e65c45941bafe979f91df4d7fe181fdf557aaf925411ce4c6a735ad5a7686e",
+        "99f84cf1f03fd9750c7653c7cf08b06876f1e90fb855435ca52826bec7d2679d",
+        "d6cd2736f97d7102ea380b27162f92e5fc590b7ce547da5a1557749d27c3840c",
+        "e89e80b614b3f2779238a0b3e02f27ca2ed88150ec84d6fe6dee9ed7c7e28248",
+        "189951dcb53d4c8da967fd7961427833ebd38695216f3ad36f91d2013d473e19",
+        "1376ac90044110212af1d06786d8e2c9d20517e8c48301d7011ffeac6a30e7ca",
+        "f855c43f801e4a65165b1759ee9ef90b249122467e05f016d1489d2a57a1280d",
+        "abea2b9faa115e013693c544df4f5fcdf023b8a8510838a82776f0ef371e012a",
+        "6100a38336bcb48238a77a9ffd290befc6644c33ca2c7fbef28e4478f363524b",
+        "87689c326e1301bd95d2ee9c9c7d16d6a2c806fc76e47db958b00198ce821c00",
         "35f516d8588b340b0ef4340676e30df1c8945d9f20d488acf2ee70b3911d4924",
         "20fdd2ab6f327988b1142e4ecadb3174a0f8379dd2022afda82ac55bd54ef251",
         "f83a1f2d34859043ebbaf5b0ca5ae43e33468e644d2654f993a98e6d1238176d",
@@ -132,12 +140,12 @@
         "91ba1893c565550b5634c255fe478040a01ea8d067a8db2e3c61ca2dd441e1ea",
         "2fdf0806c666a73313acaccc8c566573aed67d661636fbd05550f07bf7725d52"
       ],
-      "nodes": 17
+      "nodes": 18
     }
   },
   "tree_advanced_between_reads": true,
-  "entries_added_between_reads": 35,
-  "checked_at": "2026-08-02T05:34:50.805841+00:00",
+  "entries_added_between_reads": 22,
+  "checked_at": "2026-08-02T05:43:57.758980+00:00",
   "must_admit": true,
   "full_admit": true,
   "refuse_limb": null,
@@ -147,6 +155,6 @@
   "should_limbs_failed": [],
   "receipt_filename": "sphinx.ct.digicert.com_2027h1.json",
   "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
-  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "ledger_digest": "2fac8d58913200fc84dd821f297204308cae5e705cd140e512752277e1cccb47",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
 }

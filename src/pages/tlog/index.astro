@@ -70,7 +70,11 @@ interface Batch {
     blind: boolean;
     observed: string;
     met: boolean;
-    note_written_after_the_result?: string;
+    notes_written_after_a_result?: {
+      written_after_batch_generated_at: string;
+      observed_then: string;
+      note: string;
+    }[];
   }[];
   per_log: {
     log_key: string;
@@ -628,9 +632,17 @@ const missed = b.predictions_scored.filter((p) => !p.met);
       missed.length > 0 && (
         <div class="callout">
           {missed.map((p) => (
-            <p>
-              <strong>Missed:</strong> {p.prediction} {p.note_written_after_the_result}
-            </p>
+            <Fragment>
+              <p>
+                <strong>Missed:</strong> {p.prediction} Observed: {p.observed}.
+              </p>
+              {(p.notes_written_after_a_result ?? []).map((note) => (
+                <p>
+                  <strong>Written after the batch of {formatDate(note.written_after_batch_generated_at)}</strong>,
+                  which observed {note.observed_then}: {note.note}
+                </p>
+              ))}
+            </Fragment>
           ))}
         </div>
       )

@@ -18,7 +18,7 @@
     "checkpoint_endpoint_answers_without_credentials": {
       "outcome": "ok",
       "status": 200,
-      "bytes": 239
+      "bytes": 243
     },
     "checkpoint_parses_in_its_declared_format": {
       "outcome": "ok",
@@ -26,8 +26,8 @@
     },
     "checkpoint_carries_tree_size_and_root_hash": {
       "outcome": "ok",
-      "tree_size": 48179214,
-      "root_hash": "fa4af045966440ebfbf0d052f17fbfc3ae81fcbd127ecb2e99ad819a9bbd3d65"
+      "tree_size": 48180696,
+      "root_hash": "d9f71ae439ea69d6e901302c6c3c494ee72bfc84075af49a98138dc3b8b9a89b"
     },
     "checkpoint_carries_a_signature": {
       "outcome": "ok",
@@ -48,31 +48,30 @@
       "note": "A Certificate Transparency signed tree head has no place to carry a witness cosignature, so this is a fact about the format as much as about the log."
     },
     "prior_batch_checkpoint_on_record": {
-      "outcome": "fail",
-      "reason": "no_prior_batch_for_this_log_on_this_monitor",
-      "attribution": "probe",
-      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+      "outcome": "ok",
+      "prior_read_at": "2026-08-02T05:34:36.584803+00:00",
+      "prior_tree_size": 48179416
     },
     "second_read_answered": {
       "outcome": "ok",
-      "tree_size": 48179416
+      "tree_size": 48180852
     },
     "tree_did_not_shrink_between_reads": {
       "outcome": "ok",
-      "first_size": 48179214,
-      "second_size": 48179416,
-      "entries_added": 202
+      "first_size": 48180696,
+      "second_size": 48180852,
+      "entries_added": 156
     },
     "consistency_proof_served": {
       "outcome": "ok",
-      "nodes": 18
+      "nodes": 19
     },
     "consistency_proof_recomputes_to_the_second_root": {
       "outcome": "ok",
       "reason": "both_roots_recomputed",
-      "first_size": 48179214,
-      "second_size": 48179416,
-      "proof_nodes": 18
+      "first_size": 48180696,
+      "second_size": 48180852,
+      "proof_nodes": 19
     }
   },
   "evidence": {
@@ -80,15 +79,15 @@
       "url": "https://wyvern.ct.digicert.com/2027h1/ct/v1/get-sth",
       "status": 200,
       "error": null,
-      "bytes": 239,
-      "read_at": "2026-08-02T05:33:37.678907+00:00",
-      "body_sha256": "70af24c6b4b0f1057a19421650ae6ab306ea02134dbb834da2b2ef4438c6afd7",
+      "bytes": 243,
+      "read_at": "2026-08-02T05:42:45.780469+00:00",
+      "body_sha256": "321218e1ba8e005974252e49aa153d4f0e80f9678c828c226141eefce9378198",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 48179214,
-      "timestamp": 1785648817194,
+      "tree_size": 48180696,
+      "timestamp": 1785649365381,
       "signature_lines": 1,
-      "root_hash_hex": "fa4af045966440ebfbf0d052f17fbfc3ae81fcbd127ecb2e99ad819a9bbd3d65",
+      "root_hash_hex": "d9f71ae439ea69d6e901302c6c3c494ee72bfc84075af49a98138dc3b8b9a89b",
       "raw_body": null
     },
     "signature_check": {
@@ -96,32 +95,41 @@
       "verified": true,
       "scheme": "ecdsa_p256_ct_v1"
     },
+    "prior_batch": {
+      "log_key": "wyvern.ct.digicert.com/2027h1",
+      "read": "second_read",
+      "read_at": "2026-08-02T05:34:36.584803+00:00",
+      "tree_size": 48179416,
+      "root_hash": "377bd4fc3582368a8a22c9974437615109982f3e19d230b5cffcf723363bdaec",
+      "body_sha256": "a3b60d3e470823f2a58a2e808837ec0e6d4cd3507928925c4b515ca866f70f77"
+    },
     "second_read": {
       "url": "https://wyvern.ct.digicert.com/2027h1/ct/v1/get-sth",
       "status": 200,
       "error": null,
       "bytes": 239,
-      "read_at": "2026-08-02T05:34:36.584803+00:00",
-      "body_sha256": "a3b60d3e470823f2a58a2e808837ec0e6d4cd3507928925c4b515ca866f70f77",
+      "read_at": "2026-08-02T05:43:44.193687+00:00",
+      "body_sha256": "31be4c40ee4e31f8ed3c54036637afeb279c99d766a5cb84c74e0c19336d6a7b",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 48179416,
-      "timestamp": 1785648876122,
+      "tree_size": 48180852,
+      "timestamp": 1785649423157,
       "signature_lines": 1,
-      "root_hash_hex": "377bd4fc3582368a8a22c9974437615109982f3e19d230b5cffcf723363bdaec"
+      "root_hash_hex": "05559d492a082709104ab2c0b5f7b2a8374e65c404d1713704c5454df00978b4"
     },
     "consistency_request": {
       "served": true,
-      "url": "https://wyvern.ct.digicert.com/2027h1/ct/v1/get-sth-consistency?first=48179214&second=48179416",
+      "url": "https://wyvern.ct.digicert.com/2027h1/ct/v1/get-sth-consistency?first=48180696&second=48180852",
       "proof": [
-        "9e05173930764ba1502ce4e7e3dd35698f7b9c022edc4ea6d1feeb38e52329f9",
-        "2d4b8e9443d7456716dcb9c2b776c9a778a1b277e08503332d890a7e5094f419",
-        "84ac243367e578ad9ae1cd03c4cfd23c95bc6675f1ed04a22c9c13a91bb64ab9",
-        "934d2da71f0e7d8699e784371ce81b8ede3c32f1fa5f9172877f48fbf1baa7be",
-        "34c8f7e94dee17b75485106875ee66610d361cf29561bb24f7c14ed28724ae87",
-        "00c889f2deec76b87773eb2fe4130a67a78e6533fece4d3a6e5a32f322acbb2d",
-        "6a836dd41dfb8eb13bb412a537f12dd642bcd785b1f85b06096ce073d44719b3",
-        "838b9eb657111160448cbf25014fd51423cf9b9d206f92a3588d041c89507a4e",
+        "1ce7e906fd782ab7f61edcba5d137e74da12e910848fb8b1089961c599e79757",
+        "61591bdd8047cd3443082f5ed22239956cd24b1124bb23b94d7705bfc1342847",
+        "66836f89adaec2800dbdb9aa5d4c5ed22cab5386c1efe57c02e7dc818508672c",
+        "8847cd2cb13a84f22fe5bd053351b95896bbe0c959518a764703a298c6f8c425",
+        "c703cd1c8fc8f2c8bbb76724aee2e90d7a229ef365668fa8a2cd52502cf14f80",
+        "e5e8c3d5bb508d9f67aa32f3fcade971009d86d093b9386c7fba7db338592d6e",
+        "88998a4f89ea0f7a7810747b82bada7fe03a51cc807105ccf0ac14ee92151be1",
+        "38b390de7fd77953646199bab4a3276ae9f26403b85d3361334b5c2bd7f8556c",
+        "9dfa90bf32444043af4f3f3a7a9a07c259324496c18103fef2311e56f050f5a9",
         "437106f9e80e0ea2757e30ff944b8a8702b171705257e317fe96626e8a2e8ccf",
         "54f58b5fd49f2bc1d713b8d96f4cf298b14d6c4dcee4a1b0ba02d8f0a76c26b3",
         "90c840ea1d08db8b006dcfc2ecb38923971debecc3ad5bd531228c4327722258",
@@ -133,12 +141,12 @@
         "3121c12d8f15a89a2ca18699e7d2e3f54f8951f35ba4b5c7e0ac291f0ee28a02",
         "9d55adebc8f60d65c551d24bd53fae9c532fcf4c3a741ef08691c21a4f7c06ff"
       ],
-      "nodes": 18
+      "nodes": 19
     }
   },
   "tree_advanced_between_reads": true,
-  "entries_added_between_reads": 202,
-  "checked_at": "2026-08-02T05:34:50.805860+00:00",
+  "entries_added_between_reads": 156,
+  "checked_at": "2026-08-02T05:43:57.758998+00:00",
   "must_admit": true,
   "full_admit": true,
   "refuse_limb": null,
@@ -148,6 +156,6 @@
   "should_limbs_failed": [],
   "receipt_filename": "wyvern.ct.digicert.com_2027h1.json",
   "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
-  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "ledger_digest": "2fac8d58913200fc84dd821f297204308cae5e705cd140e512752277e1cccb47",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
 }

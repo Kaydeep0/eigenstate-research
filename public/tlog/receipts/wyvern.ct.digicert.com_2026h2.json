@@ -18,7 +18,7 @@
     "checkpoint_endpoint_answers_without_credentials": {
       "outcome": "ok",
       "status": 200,
-      "bytes": 241
+      "bytes": 245
     },
     "checkpoint_parses_in_its_declared_format": {
       "outcome": "ok",
@@ -26,8 +26,8 @@
     },
     "checkpoint_carries_tree_size_and_root_hash": {
       "outcome": "ok",
-      "tree_size": 1515491652,
-      "root_hash": "5ea5014f5d5adbb2a9ff3fd8b65909ee5db824582312af6c21760133c91779ed"
+      "tree_size": 1515546766,
+      "root_hash": "a5466eed31cafe9abd29d604cb9b1ddf5b83cb409c6f1eaf0f9f03380fb4e3cd"
     },
     "checkpoint_carries_a_signature": {
       "outcome": "ok",
@@ -48,31 +48,30 @@
       "note": "A Certificate Transparency signed tree head has no place to carry a witness cosignature, so this is a fact about the format as much as about the log."
     },
     "prior_batch_checkpoint_on_record": {
-      "outcome": "fail",
-      "reason": "no_prior_batch_for_this_log_on_this_monitor",
-      "attribution": "probe",
-      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+      "outcome": "ok",
+      "prior_read_at": "2026-08-02T05:34:35.825721+00:00",
+      "prior_tree_size": 1515497879
     },
     "second_read_answered": {
       "outcome": "ok",
-      "tree_size": 1515497879
+      "tree_size": 1515552310
     },
     "tree_did_not_shrink_between_reads": {
       "outcome": "ok",
-      "first_size": 1515491652,
-      "second_size": 1515497879,
-      "entries_added": 6227
+      "first_size": 1515546766,
+      "second_size": 1515552310,
+      "entries_added": 5544
     },
     "consistency_proof_served": {
       "outcome": "ok",
-      "nodes": 21
+      "nodes": 23
     },
     "consistency_proof_recomputes_to_the_second_root": {
       "outcome": "ok",
       "reason": "both_roots_recomputed",
-      "first_size": 1515491652,
-      "second_size": 1515497879,
-      "proof_nodes": 21
+      "first_size": 1515546766,
+      "second_size": 1515552310,
+      "proof_nodes": 23
     }
   },
   "evidence": {
@@ -80,15 +79,15 @@
       "url": "https://wyvern.ct.digicert.com/2026h2/ct/v1/get-sth",
       "status": 200,
       "error": null,
-      "bytes": 241,
-      "read_at": "2026-08-02T05:33:37.258816+00:00",
-      "body_sha256": "30646356e897fe2f750c2ec26acdc251545e5274058f5c185e9a20474a975270",
+      "bytes": 245,
+      "read_at": "2026-08-02T05:42:45.334993+00:00",
+      "body_sha256": "91b65401ec1fc6006e0471dc7372e2276539268c849f6a373a1d51f62f985262",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 1515491652,
-      "timestamp": 1785648816894,
+      "tree_size": 1515546766,
+      "timestamp": 1785649365052,
       "signature_lines": 1,
-      "root_hash_hex": "5ea5014f5d5adbb2a9ff3fd8b65909ee5db824582312af6c21760133c91779ed",
+      "root_hash_hex": "a5466eed31cafe9abd29d604cb9b1ddf5b83cb409c6f1eaf0f9f03380fb4e3cd",
       "raw_body": null
     },
     "signature_check": {
@@ -96,38 +95,48 @@
       "verified": true,
       "scheme": "ecdsa_p256_ct_v1"
     },
+    "prior_batch": {
+      "log_key": "wyvern.ct.digicert.com/2026h2",
+      "read": "second_read",
+      "read_at": "2026-08-02T05:34:35.825721+00:00",
+      "tree_size": 1515497879,
+      "root_hash": "f1eabc12dfb5b6fe96ba2436fed7fc2fb9c7b6fa1ecc6840749daa18ec6b0f82",
+      "body_sha256": "e2c2a4f8de9636cf2b9b82079d35122047fb62e24779e21b0f8ed533a54ffad2"
+    },
     "second_read": {
       "url": "https://wyvern.ct.digicert.com/2026h2/ct/v1/get-sth",
       "status": 200,
       "error": null,
       "bytes": 241,
-      "read_at": "2026-08-02T05:34:35.825721+00:00",
-      "body_sha256": "e2c2a4f8de9636cf2b9b82079d35122047fb62e24779e21b0f8ed533a54ffad2",
+      "read_at": "2026-08-02T05:43:43.455276+00:00",
+      "body_sha256": "9317f49f079763e3842ce9b4ffbb7a837834bb88aa4a3c8dc932ff57e5d5c497",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 1515497879,
-      "timestamp": 1785648875524,
+      "tree_size": 1515552310,
+      "timestamp": 1785649423098,
       "signature_lines": 1,
-      "root_hash_hex": "f1eabc12dfb5b6fe96ba2436fed7fc2fb9c7b6fa1ecc6840749daa18ec6b0f82"
+      "root_hash_hex": "eb461299dd5b0f4784617d87469d0ac4d95ea9fcdad2ba20a8a6aa574f75090d"
     },
     "consistency_request": {
       "served": true,
-      "url": "https://wyvern.ct.digicert.com/2026h2/ct/v1/get-sth-consistency?first=1515491652&second=1515497879",
+      "url": "https://wyvern.ct.digicert.com/2026h2/ct/v1/get-sth-consistency?first=1515546766&second=1515552310",
       "proof": [
-        "e68425d7024b4a9eb30416e833d5b137426533e3508d3da169212a79e46715b2",
-        "2d492347c723295319b166a554784f090c8158c0c8853e7d20e54de4ac401491",
-        "fd2f9164fcaf4bc9655ea8279424476731d71a49aa3cf343797f736856ee1e00",
-        "6f1c51394f3402b38b4c527ace7e7e873c63401811bc63cd9fa5e44e323ba65b",
-        "eec8fab03cf9d50fd5309aa65adee46609dec2ead58fc40ce904a2515c12ba7b",
-        "a614244a19d134ef524934936bc3cf5d9b815707efaa06485d78ce583f368c94",
-        "34717fd6d529951bebc27b82b8da63aa30d29a114a04de87ec02fdb514e4ce04",
-        "303fd02a6c8074d211e3318f1b4efb1c1791f143b9ec0638052bbdd06100ee5f",
-        "eb1cedf35b9b008af8344d8dc8e19436682a4690b8fdfc896cdd07f60ff554f1",
-        "a4da40af1c7dbb2385c2abd0adf45c2bcdc7beba4f11c7269bdbaa318497efd1",
-        "4420e06b99c8e584844ccf000b4891fc983d71262f313f9c8a933cf60dfdc692",
-        "4843b77ce6a5a9d955029166c6fc92fe811e04a7d7374abf55291ab20652f900",
-        "560d091dc7ffbffa0a440d30e6ea27c0cf080f4cb770494f117f3337d92627d4",
-        "4b94f30d71d8bd97c39463fd8f1b1594aeec57da025521700fc94eaf11429506",
+        "8fda4ac089020dec75732d59c7e8fd71b36a34e43c03ca954b3f29d6d4cbb962",
+        "64e40493f37b7ca79a8e02465d0c0251c68193def1c09e9d9ae51209de34f4ac",
+        "cbade64eda2d8084d52a9729a95d46b6a960545796bb29445f9510095acf749c",
+        "9f6588f7ace317a5dc62dc9174c9593edbab545cebff389c3c1f9f5bd85b36ca",
+        "0a5df8fe45a429e5308ff2335743e88eb1bb278c01b2a0713be49c835444be33",
+        "4f1ab9106c1c37a41b51d20c70584192dce9104cf4d40c6ee6dd7479bba03314",
+        "e6bffeeda381be5d9afd5b2374a2bfb8423c4158e04bc71d4137042b052bda01",
+        "b674cf77f5c53a13be9e390eaa0211db17620e6b2ba94afd236a9e0c1a75f832",
+        "48037f12318ed8a03f5695f27dc610e26a76817480c810917c9fb51e70a63f87",
+        "e30fd22f47e32b3f602c0317802630fb31421c5aef668643d144edce3a705892",
+        "6af378510c8932c5d20cf40b00a2ff7106a85118097808f2526e4ebda3e1b3fd",
+        "33a595996ff7ee27a626b5a52dfa15c9a0c98a6f4f5ff52f793a464604e5ddbf",
+        "1edf7f873a0a3ae75b7ebb31be220d5722a928769c8611b0558177d9fa394a4e",
+        "4d2b09d3f646b6bdc522d27db81a6c137d8ff9af48ef9c7766896494489e730e",
+        "6af5c5155cd054d0b17399c76fa5c7d4e9882ecfa6c94a2b9a4e385fb40c05c8",
+        "6e11b03f6370a250cc635a1a881c66e29a1c4f04bac1ae68a5fe92ffcc428b57",
         "3bb511336b396842471389d063951db7ee59d4f7b9bf1d331fa26d7fd2d3a832",
         "ced1c3e1651fb09d76db07c32c66caa4f2dc7894b5e352ecc39e3bf5b74326a8",
         "e8d7b1046de7e159d5cde42f740f0c17ada77b6f2974f56a4f97187ee7b9d42c",
@@ -136,12 +145,12 @@
         "4c96714d292d58d986d50c2a0804d2d532d63eac6bd912ea441361d169fb65b4",
         "54b6293546d4463e72a04dc984a14273de7982a3c1f91d0e91a0553d59c225f4"
       ],
-      "nodes": 21
+      "nodes": 23
     }
   },
   "tree_advanced_between_reads": true,
-  "entries_added_between_reads": 6227,
-  "checked_at": "2026-08-02T05:34:50.805852+00:00",
+  "entries_added_between_reads": 5544,
+  "checked_at": "2026-08-02T05:43:57.758992+00:00",
   "must_admit": true,
   "full_admit": true,
   "refuse_limb": null,
@@ -151,6 +160,6 @@
   "should_limbs_failed": [],
   "receipt_filename": "wyvern.ct.digicert.com_2026h2.json",
   "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
-  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "ledger_digest": "2fac8d58913200fc84dd821f297204308cae5e705cd140e512752277e1cccb47",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
 }

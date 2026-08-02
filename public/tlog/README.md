@@ -1,6 +1,6 @@
 # Transparency log batch monitor
 
-Generated 2026-08-02T05:34:50.807043+00:00 · probe v1.0.0 · digest `ed5ebec4afeb1b4e`
+Generated 2026-08-02T05:43:57.760810+00:00 · probe v1.0.0 · digest `2fac8d58913200fc`
 
 The population, every verification key and where it came from, the limbs with their admit conditions and seven predictions were published before this batch at digest `78cb2f5444df2da2`, in an earlier commit.
 
@@ -14,7 +14,7 @@ This node does the second thing. It cosigns nothing, it is on no witness list, a
 
 - **23 of 23** logs served a checkpoint with no credentials.
 - **22 of 23** checkpoint signatures verified against a key this monitor obtained from somewhere other than the log.
-- **11 of 23** trees advanced between the two reads, adding 54133 entries in a 45 second window.
+- **11 of 23** trees advanced between the two reads, adding 51218 entries in a 45 second window.
 - **11 of 11** served consistency proofs recomputed to the root the log published.
 - **0 of 23** trees shrank or served two roots at one size.
 - **0 of 23** checkpoints carried a signature beyond the log's own.
@@ -22,7 +22,7 @@ This node does the second thing. It cosigns nothing, it is on no witness list, a
 
 ## Cold start, stated plainly
 
-This monitor holds a prior batch for 0 of 23 logs, because this is the first batch. Everything above is a within-batch result: two reads 45 seconds apart and the proof between them. Cross-run comparison starts from the next batch, and this run appended 46 checkpoints to the append only record it will compare against.
+This monitor holds a prior batch for 23 of 23 logs, because this is the first batch. Everything above is a within-batch result: two reads 45 seconds apart and the proof between them. Cross-run comparison starts from the next batch, and this run appended 46 checkpoints to the append only record it will compare against.
 
 ## The arithmetic is hand rolled, and it is self-tested first
 
@@ -53,7 +53,7 @@ Chains are evaluated independently. A failure inside one chain stops that chain 
 - `consistency_proof_served` (MUST, rederive chain): ok 11, fail 0, not applicable 12, not reached 0
 - `consistency_proof_recomputes_to_the_second_root` (MUST, rederive chain): ok 11, fail 0, not applicable 12, not reached 0
 - `checkpoint_carries_witness_cosignatures` (OBSERVED, observe chain): ok 0, fail 23, not applicable 0, not reached 0
-- `prior_batch_checkpoint_on_record` (OBSERVED, observe chain): ok 0, fail 23, not applicable 0, not reached 0
+- `prior_batch_checkpoint_on_record` (OBSERVED, observe chain): ok 23, fail 0, not applicable 0, not reached 0
 
 ## Where they refuse, and who the refusal belongs to
 
@@ -70,9 +70,11 @@ Chains are evaluated independently. A failure inside one chain stops that chain 
 - met (blind): No tree in the population shrinks between the two reads in this batch. Observed: 0 of 23 trees shrank or served two roots at one size.
 - met (blind): Every consistency proof this monitor requests recomputes to the second root the log published. Observed: 11 of 11 served proofs recomputed to the second root.
 - met (blind): Fewer than half the checkpoints in the population carry a witness cosignature beyond the log's own signature. Observed: 0 of 23 checkpoints carried a witness cosignature.
-- met (not blind): This monitor holds no prior batch for any log, because this is the first batch, so the cross run comparison refuses for every log in the population. Observed: 0 of 23 logs had a prior batch on record.
+- missed (not blind): This monitor holds no prior batch for any log, because this is the first batch, so the cross run comparison refuses for every log in the population. Observed: 23 of 23 logs had a prior batch on record.
+  - Written after the batch of 2026-08-02T05:43:57.760810+00:00, which observed 23 of 23 logs had a prior batch on record: This prediction was written for the first batch and it was right for the first batch. On every batch after that it is wrong by construction, because the cold start it described is over: this monitor now holds a prior checkpoint for all 23 logs and the cross run comparison no longer refuses for a lack of history. The line is left in the frozen prediction set and left scored as missed rather than retired, because retiring a prediction the moment it stops flattering the run is the habit this ledger exists to avoid. Read it as a dated statement that has since been overtaken.
 - missed (not blind): At least one log in the population refuses a re-derivation limb for a reason that belongs to this monitor rather than to the log. Observed: 0 of 23 logs refused for a reason attributed to this monitor.
-  - Written after the result: This missed, and it missed for two separate reasons that are worth keeping apart. The prediction was operationalised as the headline refusal attribution, which is the single strongest failing limb, rather than as any limb on any log. A probe attributed refusal does exist in this batch: Rekor's checkpoint uses a note signature scheme this monitor has not implemented, and that limb refuses with the refusal charged to this monitor. It is not the headline for Rekor because a MUST limb fails first, and it is not a re-derivation limb, which is what the prediction named. The second reason is the one the prediction was really about: the Go checksum database was expected to refuse a re-derivation limb because this monitor cannot reconstruct tile based proofs, and its tree did not advance during the forty five second window, so that limb was never reached. A quiet log did not exercise the gap the prediction pointed at. Neither the scorer nor the window was changed after seeing this.
+  - Written after the batch of 2026-08-02T05:34:50.807043+00:00, which observed 0 of 23 logs refused for a reason attributed to this monitor: This missed, and it missed for two separate reasons that are worth keeping apart. The prediction was operationalised as the headline refusal attribution, which is the single strongest failing limb, rather than as any limb on any log. A probe attributed refusal does exist in this batch: Rekor's checkpoint uses a note signature scheme this monitor has not implemented, and that limb refuses with the refusal charged to this monitor. It is not the headline for Rekor because a MUST limb fails first, and it is not a re-derivation limb, which is what the prediction named. The second reason is the one the prediction was really about: the Go checksum database was expected to refuse a re-derivation limb because this monitor cannot reconstruct tile based proofs, and its tree did not advance during the forty five second window, so that limb was never reached. A quiet log did not exercise the gap the prediction pointed at. Neither the scorer nor the window was changed after seeing this.
+  - Written after the batch of 2026-08-02T05:43:57.760810+00:00, which observed 0 of 23 logs refused for a reason attributed to this monitor: Missed again on the second batch, for the same structural reason and with one new fact worth recording against this monitor. The Go checksum database did move between the two batches, from tree size 58590582 to 58590854, so the advance the first note said never happened has now happened. This monitor still did not ask for a proof of it, because the consistency limbs are scoped to the two reads inside a single batch and the cross batch pair is only recorded, never proven. That is a real gap in the monitor and not a property of the log: the strongest check a batch monitor can run is exactly the one across batches, and this version does not run it. It is named here rather than added quietly, because the limb order is frozen in the expectations file and widening it belongs to a new probe version with its own expectations committed first.
 
 ## Per log
 

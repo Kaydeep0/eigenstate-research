@@ -1,114 +1,113 @@
 {
   "probe": "erc8004_base_identity_probe",
   "probe_version": "1.0.0",
-  "generated_at": "2026-08-02T03:11:04.127287+00:00",
-  "digest": "ab79fc3924f1e61171105fe196959f74bdf23590a1cd88f6dfd165eb4b23e7f4",
+  "generated_at": "2026-08-02T05:48:10.056391+00:00",
+  "digest": "f01dd0580950e1f7c9f82f6c0ec6b7d7aafcd43261bc5bd36d214277df6ad6a0",
   "chain": {
     "caip2": "eip155:8453",
     "identity_registry": "0x8004A169FB4a3325136EB29fA0ceB6D2e539a432",
     "agent_registry_caip10": "eip155:8453:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432",
-    "pinned_block": 49425346,
-    "pinned_block_hash": "0x97014cd4dc754208212af9ba955c98ad78a73aa0696085e71fa3ac483827cdef"
+    "pinned_block": 49430006,
+    "pinned_block_hash": "0x2f1c73af317d6e81bd3b198a8287ef244f8ea25b0d628ae21304365bb21196ea"
   },
-  "population_at_pinned_block": 60444,
+  "population_at_pinned_block": 60455,
   "sampled": 500,
-  "no_agent_uri_rate": 0.348,
+  "no_agent_uri_rate": 0.306,
   "no_agent_uri_rate_ci95": [
-    0.30755,
-    0.390768
+    0.267213,
+    0.347746
   ],
-  "unresolvable_rate": 0.432,
+  "unresolvable_rate": 0.364,
   "unresolvable_rate_ci95": [
-    0.389261,
-    0.475775
+    0.323011,
+    0.407063
   ],
-  "must_admit": 135,
-  "must_refuse": 365,
-  "must_miss_rate": 0.73,
+  "must_admit": 143,
+  "must_refuse": 357,
+  "must_miss_rate": 0.714,
   "must_miss_rate_ci95": [
-    0.689441,
-    0.767052
+    0.672876,
+    0.751861
   ],
-  "full_admit": 45,
-  "full_refuse": 455,
-  "full_miss_rate": 0.91,
+  "full_admit": 56,
+  "full_refuse": 444,
+  "full_miss_rate": 0.888,
   "full_miss_rate_ci95": [
-    0.88169,
-    0.932058
+    0.857346,
+    0.912738
   ],
   "refuse_limb_counts": {
-    "agent_uri_resolves": 216,
-    "registration_schema_valid": 140,
-    "registration_self_reference": 89,
-    "registration_parses": 9,
-    "endpoint_answers_today": 1
+    "agent_uri_resolves": 182,
+    "registration_schema_valid": 155,
+    "registration_self_reference": 83,
+    "registration_parses": 20,
+    "endpoint_answers_today": 4
   },
   "top_refuse_reasons": {
-    "agent_uri_resolves:empty_agent_uri": 174,
-    "registration_schema_valid:no_registration_type_declared": 135,
-    "registration_self_reference:no_registrations_entry": 81,
-    "agent_uri_resolves:http_404": 18,
-    "registration_parses:json_parse_error:Expecting value: line 1 column 1 (char 0)": 9,
-    "registration_self_reference:registrations_do_not_match_onchain_identity": 8,
-    "agent_uri_resolves:http_500": 5,
-    "registration_schema_valid:no_services_list": 4,
-    "agent_uri_resolves:http_403": 3,
-    "agent_uri_resolves:[Errno 61] Connection refused": 3,
-    "agent_uri_resolves:timed out": 2,
-    "agent_uri_resolves:unsupported_uri_scheme:type": 2
+    "agent_uri_resolves:empty_agent_uri": 153,
+    "registration_schema_valid:no_registration_type_declared": 150,
+    "registration_self_reference:no_registrations_entry": 74,
+    "registration_parses:json_parse_error:Expecting value: line 1 column 1 (char 0)": 19,
+    "agent_uri_resolves:http_404": 10,
+    "registration_self_reference:registrations_do_not_match_onchain_identity": 9,
+    "agent_uri_resolves:http_500": 6,
+    "registration_schema_valid:no_services_list": 5,
+    "endpoint_answers_today:no_declared_endpoint_answered": 4,
+    "agent_uri_resolves:[Errno 61] Connection refused": 2,
+    "agent_uri_resolves:http_530": 1,
+    "agent_uri_resolves:unsupported_uri_scheme:thuggy-10": 1
   },
   "limb_outcomes": {
     "agent_uri_resolves": {
-      "ok": 284,
-      "fail": 216,
+      "ok": 318,
+      "fail": 182,
       "not_applicable": 0,
       "absent": 0,
       "not_reached": 0
     },
     "registration_parses": {
-      "ok": 275,
-      "fail": 9,
+      "ok": 298,
+      "fail": 20,
       "not_applicable": 0,
       "absent": 0,
-      "not_reached": 216
+      "not_reached": 182
     },
     "registration_schema_valid": {
-      "ok": 135,
-      "fail": 140,
+      "ok": 143,
+      "fail": 155,
       "not_applicable": 0,
       "absent": 0,
-      "not_reached": 225
+      "not_reached": 202
     },
     "registration_self_reference": {
-      "ok": 46,
-      "fail": 229,
+      "ok": 60,
+      "fail": 238,
       "not_applicable": 0,
       "absent": 0,
-      "not_reached": 225
+      "not_reached": 202
     },
     "endpoint_answers_today": {
-      "ok": 82,
-      "fail": 37,
-      "not_applicable": 156,
+      "ok": 77,
+      "fail": 42,
+      "not_applicable": 179,
       "absent": 0,
-      "not_reached": 225
+      "not_reached": 202
     },
     "domain_wellknown_proof": {
       "ok": 0,
-      "fail": 13,
-      "not_applicable": 183,
-      "absent": 79,
-      "not_reached": 225
+      "fail": 16,
+      "not_applicable": 205,
+      "absent": 77,
+      "not_reached": 202
     }
   },
   "agent_uri_schemes": {
-    "none": 174,
-    "https": 153,
-    "data": 135,
-    "ipfs": 27,
-    "not_a_uri": 6,
-    "http": 4,
-    "contract": 1
+    "https": 180,
+    "none": 153,
+    "data": 126,
+    "ipfs": 31,
+    "not_a_uri": 8,
+    "http": 2
   },
   "ledger": "https://geniusflow-federation.vercel.app/erc8004/ledger.json",
   "receipt_lookup": "https://geniusflow-federation.vercel.app/erc8004/receipts/<agentId>.json",

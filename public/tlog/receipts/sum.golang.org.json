@@ -26,8 +26,8 @@
     },
     "checkpoint_carries_tree_size_and_root_hash": {
       "outcome": "ok",
-      "tree_size": 58590582,
-      "root_hash": "39790584467d52479e1b9ff841f506fde0c32d2923aaa57e918df477a2990584"
+      "tree_size": 58590854,
+      "root_hash": "c8b3fff227d09355c3d26b07866b192cd6d110c73a21da7bb45d936b0d704b36"
     },
     "checkpoint_carries_a_signature": {
       "outcome": "ok",
@@ -48,19 +48,18 @@
       "note": null
     },
     "prior_batch_checkpoint_on_record": {
-      "outcome": "fail",
-      "reason": "no_prior_batch_for_this_log_on_this_monitor",
-      "attribution": "probe",
-      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+      "outcome": "ok",
+      "prior_read_at": "2026-08-02T05:34:44.216728+00:00",
+      "prior_tree_size": 58590582
     },
     "second_read_answered": {
       "outcome": "ok",
-      "tree_size": 58590582
+      "tree_size": 58590854
     },
     "tree_did_not_shrink_between_reads": {
       "outcome": "ok",
-      "first_size": 58590582,
-      "second_size": 58590582,
+      "first_size": 58590854,
+      "second_size": 58590854,
       "entries_added": 0
     },
     "consistency_proof_served": {
@@ -79,16 +78,16 @@
       "status": 200,
       "error": null,
       "bytes": 188,
-      "read_at": "2026-08-02T05:33:42.467899+00:00",
-      "body_sha256": "0c2f75b79f0f87408a42bd9b8af0fff02816f788af9a458487c5ed2e3fc05f02",
+      "read_at": "2026-08-02T05:42:50.086248+00:00",
+      "body_sha256": "f439ef4f4defcbae4e8b0480ed185886eda367a280b1361fa67eebc644314efd",
       "parsed": true,
       "format": "c2sp_signed_note",
       "origin": "go.sum database tree",
-      "tree_size": 58590582,
+      "tree_size": 58590854,
       "signature_lines": 1,
       "extension_lines": [],
-      "root_hash_hex": "39790584467d52479e1b9ff841f506fde0c32d2923aaa57e918df477a2990584",
-      "raw_body": "go.sum database tree\n58590582\nOXkFhEZ9UkeeG5/4QfUG/eDDLSkjqqV+kY30d6KZBYQ=\n\n— sum.golang.org Az3grvnnotrupRJ6zHOA98NswfRV4tCIF3noJGoEzMwXSQ2rU6d/wJaWJ9mdvz2FmnGTciQcI8WxF5IS0wNJ7dusuAw=\n"
+      "root_hash_hex": "c8b3fff227d09355c3d26b07866b192cd6d110c73a21da7bb45d936b0d704b36",
+      "raw_body": "go.sum database tree\n58590854\nyLP/8ifQk1XD0msHhmsZLNbREMc6Idp7tF2Taw1wSzY=\n\n— sum.golang.org Az3grlBb0TFOcY8iD8eRK/yWWjPOROIkdVEmmxkCAcFbBKLcMOHmIDF6bghC1b2s7CUrohamI5P2PQNNar8yetSgfQU=\n"
     },
     "signature_check": {
       "supported": true,
@@ -96,25 +95,33 @@
       "scheme": "ed25519_note",
       "by": "sum.golang.org"
     },
+    "prior_batch": {
+      "log_key": "sum.golang.org",
+      "read": "second_read",
+      "read_at": "2026-08-02T05:34:44.216728+00:00",
+      "tree_size": 58590582,
+      "root_hash": "39790584467d52479e1b9ff841f506fde0c32d2923aaa57e918df477a2990584",
+      "body_sha256": "0c2f75b79f0f87408a42bd9b8af0fff02816f788af9a458487c5ed2e3fc05f02"
+    },
     "second_read": {
       "url": "https://sum.golang.org/latest",
       "status": 200,
       "error": null,
       "bytes": 188,
-      "read_at": "2026-08-02T05:34:44.216728+00:00",
-      "body_sha256": "0c2f75b79f0f87408a42bd9b8af0fff02816f788af9a458487c5ed2e3fc05f02",
+      "read_at": "2026-08-02T05:43:51.639879+00:00",
+      "body_sha256": "f439ef4f4defcbae4e8b0480ed185886eda367a280b1361fa67eebc644314efd",
       "parsed": true,
       "format": "c2sp_signed_note",
       "origin": "go.sum database tree",
-      "tree_size": 58590582,
+      "tree_size": 58590854,
       "signature_lines": 1,
       "extension_lines": [],
-      "root_hash_hex": "39790584467d52479e1b9ff841f506fde0c32d2923aaa57e918df477a2990584"
+      "root_hash_hex": "c8b3fff227d09355c3d26b07866b192cd6d110c73a21da7bb45d936b0d704b36"
     }
   },
   "tree_advanced_between_reads": false,
   "entries_added_between_reads": 0,
-  "checked_at": "2026-08-02T05:34:50.805890+00:00",
+  "checked_at": "2026-08-02T05:43:57.759029+00:00",
   "must_admit": true,
   "full_admit": true,
   "refuse_limb": null,
@@ -124,6 +131,6 @@
   "should_limbs_failed": [],
   "receipt_filename": "sum.golang.org.json",
   "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
-  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "ledger_digest": "2fac8d58913200fc84dd821f297204308cae5e705cd140e512752277e1cccb47",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
 }

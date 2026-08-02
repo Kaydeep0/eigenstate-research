@@ -1,6 +1,6 @@
 # Grounded claim corpus: the SEC and Fed claims this node publishes, rechecked
 
-Generated 2026-08-02T05:20:17.615362+00:00 · probe v1.0.1 · digest `20b2faf73e04f9ab`
+Generated 2026-08-02T05:42:58.920879+00:00 · probe v1.0.1 · digest `5df1c68a86bd62be`
 
 The population, every source URL and expected string, the limbs with their admit conditions and seven predictions were published before this run at digest `dc8f54dfef2d82e8`, in an earlier commit. Nothing in that file was edited afterwards.
 

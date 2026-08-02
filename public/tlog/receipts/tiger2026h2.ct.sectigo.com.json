@@ -18,7 +18,7 @@
     "checkpoint_endpoint_answers_without_credentials": {
       "outcome": "ok",
       "status": 200,
-      "bytes": 241
+      "bytes": 245
     },
     "checkpoint_parses_in_its_declared_format": {
       "outcome": "ok",
@@ -26,8 +26,8 @@
     },
     "checkpoint_carries_tree_size_and_root_hash": {
       "outcome": "ok",
-      "tree_size": 1793061034,
-      "root_hash": "cb18f0fe4b121d297b067d1e0088115fc1cfc3faa738f3eee1cd3cd6ad5aa7f6"
+      "tree_size": 1793127438,
+      "root_hash": "b0680d162a08b640f0fbcd14ed94cb8a84f122e98161595331373273a9ea1c36"
     },
     "checkpoint_carries_a_signature": {
       "outcome": "ok",
@@ -48,19 +48,18 @@
       "note": "A Certificate Transparency signed tree head has no place to carry a witness cosignature, so this is a fact about the format as much as about the log."
     },
     "prior_batch_checkpoint_on_record": {
-      "outcome": "fail",
-      "reason": "no_prior_batch_for_this_log_on_this_monitor",
-      "attribution": "probe",
-      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+      "outcome": "ok",
+      "prior_read_at": "2026-08-02T05:34:45.423546+00:00",
+      "prior_tree_size": 1793061034
     },
     "second_read_answered": {
       "outcome": "ok",
-      "tree_size": 1793061034
+      "tree_size": 1793127438
     },
     "tree_did_not_shrink_between_reads": {
       "outcome": "ok",
-      "first_size": 1793061034,
-      "second_size": 1793061034,
+      "first_size": 1793127438,
+      "second_size": 1793127438,
       "entries_added": 0
     },
     "consistency_proof_served": {
@@ -78,15 +77,15 @@
       "url": "https://tiger2026h2.ct.sectigo.com/ct/v1/get-sth",
       "status": 200,
       "error": null,
-      "bytes": 241,
-      "read_at": "2026-08-02T05:33:43.900766+00:00",
-      "body_sha256": "0e504f40d2e8d01e26c533d3272bd71a88db1389ce329401c2f11611b320a522",
+      "bytes": 245,
+      "read_at": "2026-08-02T05:42:51.590681+00:00",
+      "body_sha256": "adea93b0b63e0ca0bcd7219f745fddb6107cc83d5f99942fd47dbb3b7cb687d1",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 1793061034,
-      "timestamp": 1785648764635,
+      "tree_size": 1793127438,
+      "timestamp": 1785649305123,
       "signature_lines": 1,
-      "root_hash_hex": "cb18f0fe4b121d297b067d1e0088115fc1cfc3faa738f3eee1cd3cd6ad5aa7f6",
+      "root_hash_hex": "b0680d162a08b640f0fbcd14ed94cb8a84f122e98161595331373273a9ea1c36",
       "raw_body": null
     },
     "signature_check": {
@@ -94,24 +93,32 @@
       "verified": true,
       "scheme": "ecdsa_p256_ct_v1"
     },
+    "prior_batch": {
+      "log_key": "tiger2026h2.ct.sectigo.com",
+      "read": "second_read",
+      "read_at": "2026-08-02T05:34:45.423546+00:00",
+      "tree_size": 1793061034,
+      "root_hash": "cb18f0fe4b121d297b067d1e0088115fc1cfc3faa738f3eee1cd3cd6ad5aa7f6",
+      "body_sha256": "0e504f40d2e8d01e26c533d3272bd71a88db1389ce329401c2f11611b320a522"
+    },
     "second_read": {
       "url": "https://tiger2026h2.ct.sectigo.com/ct/v1/get-sth",
       "status": 200,
       "error": null,
-      "bytes": 241,
-      "read_at": "2026-08-02T05:34:45.423546+00:00",
-      "body_sha256": "0e504f40d2e8d01e26c533d3272bd71a88db1389ce329401c2f11611b320a522",
+      "bytes": 245,
+      "read_at": "2026-08-02T05:43:52.860254+00:00",
+      "body_sha256": "adea93b0b63e0ca0bcd7219f745fddb6107cc83d5f99942fd47dbb3b7cb687d1",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 1793061034,
-      "timestamp": 1785648764635,
+      "tree_size": 1793127438,
+      "timestamp": 1785649305123,
       "signature_lines": 1,
-      "root_hash_hex": "cb18f0fe4b121d297b067d1e0088115fc1cfc3faa738f3eee1cd3cd6ad5aa7f6"
+      "root_hash_hex": "b0680d162a08b640f0fbcd14ed94cb8a84f122e98161595331373273a9ea1c36"
     }
   },
   "tree_advanced_between_reads": false,
   "entries_added_between_reads": 0,
-  "checked_at": "2026-08-02T05:34:50.805908+00:00",
+  "checked_at": "2026-08-02T05:43:57.759049+00:00",
   "must_admit": true,
   "full_admit": true,
   "refuse_limb": null,
@@ -121,6 +128,6 @@
   "should_limbs_failed": [],
   "receipt_filename": "tiger2026h2.ct.sectigo.com.json",
   "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
-  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "ledger_digest": "2fac8d58913200fc84dd821f297204308cae5e705cd140e512752277e1cccb47",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
 }

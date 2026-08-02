@@ -1,0 +1,414 @@
+{
+  "index": "measured ledgers published by this node, with their run history",
+  "tool": "ledger_refresh v1.0.0",
+  "generated_at": "2026-08-02T05:51:20.189055+00:00",
+  "ledgers_indexed": 5,
+  "runs_on_record": 10,
+  "ledgers_with_one_run_only": 0,
+  "ledgers_whose_counters_held_between_the_last_two_runs": 4,
+  "headline_counters_that_moved_on_the_latest_refresh": 4,
+  "rate_comparisons_whose_intervals_still_overlap": 2,
+  "what_an_overlapping_interval_means": "A counter can move while the published 95 percent intervals of the two runs still overlap. That is a move this measurement cannot distinguish from sampling noise, and it is counted separately here so a re-run is not mistaken for a finding.",
+  "what_this_is": "An append only record of every publication of every measured ledger on this node. Each row is copied from the summary.json that was actually served, so a row can be checked against the digest it names.",
+  "what_this_is_not": "Not a measurement of its own. This index does not fetch any subject, does not score any ledger and cannot make a refusal disappear. If a ledger is wrong, it is wrong here too, twice, with both digests shown.",
+  "append_only_rule": "A row is appended when a ledger publishes a digest this file has not recorded before. Prior rows are never edited or removed, including when a later run makes an earlier one look bad.",
+  "reading_a_delta": "A change in a headline counter between two runs is a change in what the world served, in what the probe asked, or in the probe itself. The probe version sits on every row so the third case can be ruled out before the first two are argued.",
+  "urls": {
+    "index": "https://geniusflow-federation.vercel.app/ledgers/index.json",
+    "readme": "https://geniusflow-federation.vercel.app/ledgers/README.md",
+    "human_page": "https://kaydeep0.github.io/eigenstate-research/ledgers/",
+    "runs_jsonl": "https://geniusflow-federation.vercel.app/ledgers/runs.jsonl"
+  },
+  "ledgers": [
+    {
+      "ledger": "erc8004",
+      "title": "ERC-8004 Base refusal ledger",
+      "unit": "sampled registration",
+      "runs_on_record": 2,
+      "first_run_at": "2026-08-02T03:11:04.127287+00:00",
+      "latest_run_at": "2026-08-02T05:48:10.056391+00:00",
+      "latest_digest": "f01dd0580950e1f7c9f82f6c0ec6b7d7aafcd43261bc5bd36d214277df6ad6a0",
+      "latest_probe_version": "1.0.0",
+      "human_page": "https://kaydeep0.github.io/eigenstate-research/erc8004/",
+      "machine_summary": "https://geniusflow-federation.vercel.app/erc8004/summary.json",
+      "rerun_command": "PYTHONPATH=engine python3 engine/tools/erc8004_probe_run.py --sample 500",
+      "comparability": "Two runs of this ledger are two samples, not two looks at the same set. Each run pins a fresh Base block and draws 500 agent ids seeded by that block hash, from a registry that keeps growing, so the rows compared here overlap only by chance. A count that moves by single digits is sampling noise before it is news. The published rate and its 95 percent interval are the comparison that means something, and they are shown below the counts.",
+      "runs": [
+        {
+          "run_index": 1,
+          "generated_at": "2026-08-02T03:11:04.127287+00:00",
+          "digest": "ab79fc3924f1e61171105fe196959f74bdf23590a1cd88f6dfd165eb4b23e7f4",
+          "probe_version": "1.0.0",
+          "counts": {
+            "full_admit": 45,
+            "full_refuse": 455,
+            "must_admit": 135,
+            "must_refuse": 365
+          },
+          "rates": {
+            "full_miss_rate": {
+              "ci95": [
+                0.88169,
+                0.932058
+              ],
+              "rate": 0.91
+            },
+            "must_miss_rate": {
+              "ci95": [
+                0.689441,
+                0.767052
+              ],
+              "rate": 0.73
+            }
+          },
+          "top_refuse_reason": "agent_uri_resolves:empty_agent_uri"
+        },
+        {
+          "run_index": 2,
+          "generated_at": "2026-08-02T05:48:10.056391+00:00",
+          "digest": "f01dd0580950e1f7c9f82f6c0ec6b7d7aafcd43261bc5bd36d214277df6ad6a0",
+          "probe_version": "1.0.0",
+          "counts": {
+            "full_admit": 56,
+            "full_refuse": 444,
+            "must_admit": 143,
+            "must_refuse": 357
+          },
+          "rates": {
+            "full_miss_rate": {
+              "ci95": [
+                0.857346,
+                0.912738
+              ],
+              "rate": 0.888
+            },
+            "must_miss_rate": {
+              "ci95": [
+                0.672876,
+                0.751861
+              ],
+              "rate": 0.714
+            }
+          },
+          "top_refuse_reason": "agent_uri_resolves:empty_agent_uri"
+        }
+      ],
+      "latest_delta": {
+        "from_digest": "ab79fc3924f1e61171105fe196959f74bdf23590a1cd88f6dfd165eb4b23e7f4",
+        "to_digest": "f01dd0580950e1f7c9f82f6c0ec6b7d7aafcd43261bc5bd36d214277df6ad6a0",
+        "from_generated_at": "2026-08-02T03:11:04.127287+00:00",
+        "to_generated_at": "2026-08-02T05:48:10.056391+00:00",
+        "changes": [
+          {
+            "counter": "must_admit",
+            "before": 135,
+            "after": 143,
+            "change": 8
+          },
+          {
+            "counter": "must_refuse",
+            "before": 365,
+            "after": 357,
+            "change": -8
+          },
+          {
+            "counter": "full_admit",
+            "before": 45,
+            "after": 56,
+            "change": 11
+          },
+          {
+            "counter": "full_refuse",
+            "before": 455,
+            "after": 444,
+            "change": -11
+          }
+        ],
+        "rate_comparison": [
+          {
+            "rate": "must_miss_rate",
+            "before": 0.73,
+            "after": 0.714,
+            "before_ci95": [
+              0.689441,
+              0.767052
+            ],
+            "after_ci95": [
+              0.672876,
+              0.751861
+            ],
+            "intervals_overlap": true,
+            "reading": "the two 95 percent intervals overlap, so this run does not establish that the underlying rate moved at all"
+          },
+          {
+            "rate": "full_miss_rate",
+            "before": 0.91,
+            "after": 0.888,
+            "before_ci95": [
+              0.88169,
+              0.932058
+            ],
+            "after_ci95": [
+              0.857346,
+              0.912738
+            ],
+            "intervals_overlap": true,
+            "reading": "the two 95 percent intervals overlap, so this run does not establish that the underlying rate moved at all"
+          }
+        ]
+      }
+    },
+    {
+      "ledger": "slsa",
+      "title": "SLSA and PEP 740 census of this node's own dependencies",
+      "unit": "resolved distribution",
+      "runs_on_record": 2,
+      "first_run_at": "2026-08-02T03:44:42.624241+00:00",
+      "latest_run_at": "2026-08-02T05:44:04.783517+00:00",
+      "latest_digest": "0c23b0305508b27607895a32440e1d4949cebe5e43e20cf568f4dfbf11e61a00",
+      "latest_probe_version": "1.0.0",
+      "human_page": "https://kaydeep0.github.io/eigenstate-research/slsa/",
+      "machine_summary": "https://geniusflow-federation.vercel.app/slsa/summary.json",
+      "rerun_command": "/tmp/slsa_venv/bin/python engine/tools/slsa_provenance_run.py run",
+      "comparability": "A census, not a sample: both runs cover every distribution pip resolves for this node's requirements file. A count that moves is a real change in what PyPI served or in what the requirements resolve to, and neither is noise.",
+      "runs": [
+        {
+          "run_index": 1,
+          "generated_at": "2026-08-02T03:44:42.624241+00:00",
+          "digest": "1fa8727b43a70663787f48da845df0caa947f94f39a9c41964d87aadf9bce44c",
+          "probe_version": "1.0.0",
+          "counts": {
+            "full_admit": 0,
+            "full_refuse": 94,
+            "must_admit": 44,
+            "must_refuse": 50
+          },
+          "rates": {
+            "full_refuse_rate": {
+              "rate": 1.0
+            },
+            "must_refuse_rate": {
+              "rate": 0.5319
+            }
+          },
+          "top_refuse_reason": "provenance_published:no_provenance_published"
+        },
+        {
+          "run_index": 2,
+          "generated_at": "2026-08-02T05:44:04.783517+00:00",
+          "digest": "0c23b0305508b27607895a32440e1d4949cebe5e43e20cf568f4dfbf11e61a00",
+          "probe_version": "1.0.0",
+          "counts": {
+            "full_admit": 0,
+            "full_refuse": 94,
+            "must_admit": 44,
+            "must_refuse": 50
+          },
+          "rates": {
+            "full_refuse_rate": {
+              "rate": 1.0
+            },
+            "must_refuse_rate": {
+              "rate": 0.5319
+            }
+          },
+          "top_refuse_reason": "provenance_published:no_provenance_published"
+        }
+      ],
+      "latest_delta": {
+        "from_digest": "1fa8727b43a70663787f48da845df0caa947f94f39a9c41964d87aadf9bce44c",
+        "to_digest": "0c23b0305508b27607895a32440e1d4949cebe5e43e20cf568f4dfbf11e61a00",
+        "from_generated_at": "2026-08-02T03:44:42.624241+00:00",
+        "to_generated_at": "2026-08-02T05:44:04.783517+00:00",
+        "changes": [],
+        "rate_comparison": [
+          {
+            "rate": "must_refuse_rate",
+            "before": 0.5319,
+            "after": 0.5319
+          },
+          {
+            "rate": "full_refuse_rate",
+            "before": 1.0,
+            "after": 1.0
+          }
+        ]
+      },
+      "trend": "the headline counters did not move between the last two runs. The digests still differ because timestamps and per row detail differ."
+    },
+    {
+      "ledger": "rwa",
+      "title": "Real world asset disclosure interface survey",
+      "unit": "issuer",
+      "runs_on_record": 2,
+      "first_run_at": "2026-08-02T04:34:38.790773+00:00",
+      "latest_run_at": "2026-08-02T05:43:24.872498+00:00",
+      "latest_digest": "e4d5d4e38e707632fcbfe2f23a5a0a58c989eaa19176cde8971fb171b4d369f1",
+      "latest_probe_version": "1.0.2",
+      "human_page": "https://kaydeep0.github.io/eigenstate-research/rwa/",
+      "machine_summary": "https://geniusflow-federation.vercel.app/rwa/summary.json",
+      "rerun_command": "PYTHONPATH=engine python3 engine/tools/rwa_disclosure_run.py run",
+      "comparability": "The population is frozen in the expectations file and identical across runs, so a count that moves is an issuer that changed what it serves. Still not a sector rate: the population is what this node already tracks.",
+      "runs": [
+        {
+          "run_index": 1,
+          "generated_at": "2026-08-02T04:34:38.790773+00:00",
+          "digest": "ce9c3eb42c04d9d8bfe9c40ffbdebca614eed14b818c39b9a189ee31ea203751",
+          "probe_version": "1.0.2",
+          "counts": {
+            "full_admit": 0,
+            "full_refuse": 17,
+            "must_admit": 2,
+            "must_refuse": 15
+          },
+          "rates": {
+            "must_refuse_rate": {
+              "rate": 0.8824
+            }
+          },
+          "top_refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node"
+        },
+        {
+          "run_index": 2,
+          "generated_at": "2026-08-02T05:43:24.872498+00:00",
+          "digest": "e4d5d4e38e707632fcbfe2f23a5a0a58c989eaa19176cde8971fb171b4d369f1",
+          "probe_version": "1.0.2",
+          "counts": {
+            "full_admit": 0,
+            "full_refuse": 17,
+            "must_admit": 2,
+            "must_refuse": 15
+          },
+          "rates": {
+            "must_refuse_rate": {
+              "rate": 0.8824
+            }
+          },
+          "top_refuse_reason": "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node"
+        }
+      ],
+      "latest_delta": {
+        "from_digest": "ce9c3eb42c04d9d8bfe9c40ffbdebca614eed14b818c39b9a189ee31ea203751",
+        "to_digest": "e4d5d4e38e707632fcbfe2f23a5a0a58c989eaa19176cde8971fb171b4d369f1",
+        "from_generated_at": "2026-08-02T04:34:38.790773+00:00",
+        "to_generated_at": "2026-08-02T05:43:24.872498+00:00",
+        "changes": [],
+        "rate_comparison": [
+          {
+            "rate": "must_refuse_rate",
+            "before": 0.8824,
+            "after": 0.8824
+          }
+        ]
+      },
+      "trend": "the headline counters did not move between the last two runs. The digests still differ because timestamps and per row detail differ."
+    },
+    {
+      "ledger": "grounded-claims",
+      "title": "EDGAR and Federal Reserve grounded claim corpus",
+      "unit": "claim",
+      "runs_on_record": 2,
+      "first_run_at": "2026-08-02T05:20:17.615362+00:00",
+      "latest_run_at": "2026-08-02T05:42:58.920879+00:00",
+      "latest_digest": "5df1c68a86bd62bedb83b28f8f59bcdbf7a9cd597895b215a26e9584d6504aa4",
+      "latest_probe_version": "1.0.1",
+      "human_page": "https://kaydeep0.github.io/eigenstate-research/grounded-claims/",
+      "machine_summary": "https://geniusflow-federation.vercel.app/grounded-claims/summary.json",
+      "rerun_command": "PYTHONPATH=engine python3 engine/tools/grounded_claim_run.py run",
+      "comparability": "The corpus is frozen in the expectations file and identical across runs, so a count that moves is a regulator page that changed under a citation this node already made.",
+      "runs": [
+        {
+          "run_index": 1,
+          "generated_at": "2026-08-02T05:20:17.615362+00:00",
+          "digest": "20b2faf73e04f9abb1fe861885ed56bef3099ebf0a863cc625fab8b79f30274f",
+          "probe_version": "1.0.1",
+          "counts": {
+            "full_admit": 0,
+            "full_refuse": 6,
+            "must_admit": 5,
+            "must_refuse": 1
+          },
+          "rates": {},
+          "top_refuse_reason": "source_is_machine_readable:html_document"
+        },
+        {
+          "run_index": 2,
+          "generated_at": "2026-08-02T05:42:58.920879+00:00",
+          "digest": "5df1c68a86bd62bedb83b28f8f59bcdbf7a9cd597895b215a26e9584d6504aa4",
+          "probe_version": "1.0.1",
+          "counts": {
+            "full_admit": 0,
+            "full_refuse": 6,
+            "must_admit": 5,
+            "must_refuse": 1
+          },
+          "rates": {},
+          "top_refuse_reason": "source_is_machine_readable:html_document"
+        }
+      ],
+      "latest_delta": {
+        "from_digest": "20b2faf73e04f9abb1fe861885ed56bef3099ebf0a863cc625fab8b79f30274f",
+        "to_digest": "5df1c68a86bd62bedb83b28f8f59bcdbf7a9cd597895b215a26e9584d6504aa4",
+        "from_generated_at": "2026-08-02T05:20:17.615362+00:00",
+        "to_generated_at": "2026-08-02T05:42:58.920879+00:00",
+        "changes": [],
+        "rate_comparison": []
+      },
+      "trend": "the headline counters did not move between the last two runs. The digests still differ because timestamps and per row detail differ."
+    },
+    {
+      "ledger": "tlog",
+      "title": "Transparency log batch monitor",
+      "unit": "log",
+      "runs_on_record": 2,
+      "first_run_at": "2026-08-02T05:34:50.807043+00:00",
+      "latest_run_at": "2026-08-02T05:43:57.760810+00:00",
+      "latest_digest": "2fac8d58913200fc84dd821f297204308cae5e705cd140e512752277e1cccb47",
+      "latest_probe_version": "1.0.0",
+      "human_page": "https://kaydeep0.github.io/eigenstate-research/tlog/",
+      "machine_summary": "https://geniusflow-federation.vercel.app/tlog/summary.json",
+      "rerun_command": "PYTHONPATH=engine python3 engine/tools/tlog_monitor_run.py run",
+      "comparability": "The same 23 logs every batch, so counts are directly comparable. What is not comparable is the cold start: the first batch held no prior checkpoint for any log and every batch after it does, which changes what some limbs can even reach.",
+      "runs": [
+        {
+          "run_index": 1,
+          "generated_at": "2026-08-02T05:34:50.807043+00:00",
+          "digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+          "probe_version": "1.0.0",
+          "counts": {
+            "full_admit": 22,
+            "must_admit": 22,
+            "must_refuse": 1
+          },
+          "rates": {},
+          "top_refuse_reason": "public_key_obtained_independently_of_the_log:only_key_source_read_is_the_log_itself"
+        },
+        {
+          "run_index": 2,
+          "generated_at": "2026-08-02T05:43:57.760810+00:00",
+          "digest": "2fac8d58913200fc84dd821f297204308cae5e705cd140e512752277e1cccb47",
+          "probe_version": "1.0.0",
+          "counts": {
+            "full_admit": 22,
+            "must_admit": 22,
+            "must_refuse": 1
+          },
+          "rates": {},
+          "top_refuse_reason": "public_key_obtained_independently_of_the_log:only_key_source_read_is_the_log_itself"
+        }
+      ],
+      "latest_delta": {
+        "from_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+        "to_digest": "2fac8d58913200fc84dd821f297204308cae5e705cd140e512752277e1cccb47",
+        "from_generated_at": "2026-08-02T05:34:50.807043+00:00",
+        "to_generated_at": "2026-08-02T05:43:57.760810+00:00",
+        "changes": [],
+        "rate_comparison": []
+      },
+      "trend": "the headline counters did not move between the last two runs. The digests still differ because timestamps and per row detail differ."
+    }
+  ],
+  "digest": "e9f0455394a31ee0885b0f40370882f1e328cc983800906ae4081292e46c3da2",
+  "mirrored_at": "https://kaydeep0.github.io/eigenstate-research/ledgers/",
+  "mirror_note": "This file is a mirror of the index identified by the digest above. Both origins carry the same rows."
+}

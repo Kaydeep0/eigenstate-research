@@ -26,8 +26,8 @@
     },
     "checkpoint_carries_tree_size_and_root_hash": {
       "outcome": "ok",
-      "tree_size": 1468244661,
-      "root_hash": "1f9580c16521950cf87d7ed21be8dccc7f66f662ef8326ee2a9d5fe22a0b2a8f"
+      "tree_size": 1468299031,
+      "root_hash": "0d2d9d15fcacc503d7f5d605b27a12069fbb46d6609a18552542b57219f32a15"
     },
     "checkpoint_carries_a_signature": {
       "outcome": "ok",
@@ -48,20 +48,19 @@
       "note": "A Certificate Transparency signed tree head has no place to carry a witness cosignature, so this is a fact about the format as much as about the log."
     },
     "prior_batch_checkpoint_on_record": {
-      "outcome": "fail",
-      "reason": "no_prior_batch_for_this_log_on_this_monitor",
-      "attribution": "probe",
-      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+      "outcome": "ok",
+      "prior_read_at": "2026-08-02T05:34:33.624945+00:00",
+      "prior_tree_size": 1468250716
     },
     "second_read_answered": {
       "outcome": "ok",
-      "tree_size": 1468250716
+      "tree_size": 1468304618
     },
     "tree_did_not_shrink_between_reads": {
       "outcome": "ok",
-      "first_size": 1468244661,
-      "second_size": 1468250716,
-      "entries_added": 6055
+      "first_size": 1468299031,
+      "second_size": 1468304618,
+      "entries_added": 5587
     },
     "consistency_proof_served": {
       "outcome": "ok",
@@ -70,8 +69,8 @@
     "consistency_proof_recomputes_to_the_second_root": {
       "outcome": "ok",
       "reason": "both_roots_recomputed",
-      "first_size": 1468244661,
-      "second_size": 1468250716,
+      "first_size": 1468299031,
+      "second_size": 1468304618,
       "proof_nodes": 24
     }
   },
@@ -81,14 +80,14 @@
       "status": 200,
       "error": null,
       "bytes": 241,
-      "read_at": "2026-08-02T05:33:35.809093+00:00",
-      "body_sha256": "151956caadb6553eb54dd37d6659651851096cce86247527527b53555bcc3afc",
+      "read_at": "2026-08-02T05:42:43.868158+00:00",
+      "body_sha256": "9a2f08c4c4064b762eb2f3049a5adc28e7cfa41f514c2077e97292bcc060b914",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 1468244661,
-      "timestamp": 1785648815449,
+      "tree_size": 1468299031,
+      "timestamp": 1785649363494,
       "signature_lines": 1,
-      "root_hash_hex": "1f9580c16521950cf87d7ed21be8dccc7f66f662ef8326ee2a9d5fe22a0b2a8f",
+      "root_hash_hex": "0d2d9d15fcacc503d7f5d605b27a12069fbb46d6609a18552542b57219f32a15",
       "raw_body": null
     },
     "signature_check": {
@@ -96,42 +95,50 @@
       "verified": true,
       "scheme": "ecdsa_p256_ct_v1"
     },
+    "prior_batch": {
+      "log_key": "sphinx.ct.digicert.com/2026h2",
+      "read": "second_read",
+      "read_at": "2026-08-02T05:34:33.624945+00:00",
+      "tree_size": 1468250716,
+      "root_hash": "362886c29099dece4eb11e172262b202c989f51c82b36b8f7abfdfec85292752",
+      "body_sha256": "6d55b5b4cf810c7990fde311745aed282ce11f4b302c6b87d6ecc666f8fe0d7a"
+    },
     "second_read": {
       "url": "https://sphinx.ct.digicert.com/2026h2/ct/v1/get-sth",
       "status": 200,
       "error": null,
       "bytes": 241,
-      "read_at": "2026-08-02T05:34:33.624945+00:00",
-      "body_sha256": "6d55b5b4cf810c7990fde311745aed282ce11f4b302c6b87d6ecc666f8fe0d7a",
+      "read_at": "2026-08-02T05:43:41.311611+00:00",
+      "body_sha256": "77769e4e30fb4cf3676bc8c4d4e3918bf30bcd968d00c2950877508cd1be47a4",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 1468250716,
-      "timestamp": 1785648873310,
+      "tree_size": 1468304618,
+      "timestamp": 1785649421021,
       "signature_lines": 1,
-      "root_hash_hex": "362886c29099dece4eb11e172262b202c989f51c82b36b8f7abfdfec85292752"
+      "root_hash_hex": "4b4f9ac07b3a29ad8dbabeb441f3222c3fcf734e3b1aec420791f0bdfefeab03"
     },
     "consistency_request": {
       "served": true,
-      "url": "https://sphinx.ct.digicert.com/2026h2/ct/v1/get-sth-consistency?first=1468244661&second=1468250716",
+      "url": "https://sphinx.ct.digicert.com/2026h2/ct/v1/get-sth-consistency?first=1468299031&second=1468304618",
       "proof": [
-        "6cc3b23422dedca9a1ef186820bbc1eab5735141e3d74039c148dd246da61544",
-        "3d41836e7d402e0f3d655314339a4d310077419b8e810dc097b8acd330d71e95",
-        "4b679029da0a3c1cdc89d91d98eeaecbecb89fea95a78e7682f985215868cf64",
-        "9498f9ea04028e4ce9d254ea1a619d0052d5a7e0c8fdedac55609b03c4869792",
-        "d40df41b59e11001789d657ca959d38237979e785a3bf231f0d16f9ea33ccbce",
-        "73897b67b78105b4cde535cce4275bbe479a0bc6cd36cc987bdc586154335962",
-        "7f02a90d4442ba7d2f2dfe57625194ef7d448ee119fc41a77f0f15a8ba70fc37",
-        "be854a5cfe20fc35a95046d091841b9ca95ca27d276a5ef6d10c6b5a7f443f98",
-        "ed3840bf2ff75ed9c6b3cbf3e281c7091ac83be2128ff5597a6ac8b43199568e",
-        "fc8b50595b72ff33c2b414ed9ed5686f3edfc9ad63e4063cd765526137dd672f",
-        "eeb865e436e1bb5b1fe63bfe8025001a1ac11b6d8b24f471e47e53391b4181c5",
-        "f9f96dded49042023130c594e6d9bdda0149c412aa52de06a2960085d672fd67",
-        "dbaa2234eb3c0a92de64bbf5dee6ac25572f8974ce91c8b39a3bd2c09e1770d5",
-        "205ac320ea8080ecf53094b8c08853ce13e4cd8cd32a37949b63b6d0a03a36bf",
-        "888e6a75b6320fbd07bd668516b5ad8d488c8eae368943bdc0c56a7d9854f8ee",
-        "153d782091f7fda4776bb178a1b25715d40e9cfd12d28b90bb93819eef50de67",
-        "35e3372464e5cab0aae147b71f246f05bdeb88a2394bc4ce67301e6a91a2ef3f",
-        "01c455f7a49daff349246236dc1cb7c75c681da36fe25e3d56d5b47de0104c5b",
+        "481e90d9856b49dbb78f143c09be362c82a0d644c01642d64dd8cd75fa72e85a",
+        "a442cc774eaef4c36ccbf11948f4d569dde8ab0b12a1cd8915b435a621548c4e",
+        "dc8cea54611d009c93d8eeecbee279ac19955c50d458859877138f4fa6adfeee",
+        "0b76f4479dd59e681d7b388741d572a49e63a9df503f4db04a4330aebe91ef53",
+        "4ac5e7083d700fa1cafed7708ca0c25532c1a63b42b421d4be427e6e89e5af1c",
+        "bf1352ed115db68ccd6a05c01d4e1ad027c1460bc8d908b2f569faac5a28c721",
+        "01844df62ed24ecf86dbd8f7ae4b6d62e1610b4bb507f2bd58b0612d0a387373",
+        "72f914cf8659d51bf60d89a3aa10f08a58c4a6a797aed089598b7419fec5fba1",
+        "74977faf2737c0a032ebcf28a43c80ea3dd50698d0bba7df2e91a4012bb6a626",
+        "a75d3647ccba98a1d08a8f2195a9a7697bf96581e500287681c5eef0b2135ab4",
+        "fcd370555446f53ce402dba8e225f374be4ef19871063cf501ab5866897d7178",
+        "7525b238973b651db5e1d086e8fbd8f8124707d108331992c2666706a0841d9c",
+        "98d0fb04391115f2f493c5e87c0fa9d09c49974a292fd04a6b13f17f242a820d",
+        "30797de0099bac6cb8102519e7f697b19007b98d2e0d0cdec5f96a63a9b2a2fe",
+        "4d322fcee8d16e58fc9bbbd260e51fa3ba161b116214bccec507ee28430a389b",
+        "17b0b41a311bdc5f5538e64c1226cae004d73bd7f91bac0cf878773017cc7380",
+        "73c52cd319adf991ddc72196ba94eeef1ff8f1a9e72ff485aca164dd7aca1eb1",
+        "9f1c0e39e005d995342ac2874a63d4b42e92d13cfbe8d2262de35c54cfc12a57",
         "d0b7966ff624f3e612bfd98ddf739f2cb57e1ca85079871c99a508d4fbcd7207",
         "d3bc3ee3ecb8cb5a7b0cea58b0f5f69c821f9367a701e0cfd6e71ea468dd4403",
         "88a7f84faa49a0768f1f85a408b8dda2cdb57e253360d16f9325bbfd7a9c350b",
@@ -143,8 +150,8 @@
     }
   },
   "tree_advanced_between_reads": true,
-  "entries_added_between_reads": 6055,
-  "checked_at": "2026-08-02T05:34:50.805829+00:00",
+  "entries_added_between_reads": 5587,
+  "checked_at": "2026-08-02T05:43:57.758968+00:00",
   "must_admit": true,
   "full_admit": true,
   "refuse_limb": null,
@@ -154,6 +161,6 @@
   "should_limbs_failed": [],
   "receipt_filename": "sphinx.ct.digicert.com_2026h2.json",
   "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
-  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "ledger_digest": "2fac8d58913200fc84dd821f297204308cae5e705cd140e512752277e1cccb47",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
 }

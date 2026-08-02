@@ -29,8 +29,8 @@
     },
     "checkpoint_carries_tree_size_and_root_hash": {
       "outcome": "ok",
-      "tree_size": 2197320522,
-      "root_hash": "d67aaae18e13bd7ddfb81aad986c511ef6042ec9a73da75d0220022940e2cd40"
+      "tree_size": 2197425668,
+      "root_hash": "f2cc38246c78344613d3f6386ccff8fff0cad3a0eee15fc05030fac1f616b38b"
     },
     "checkpoint_carries_a_signature": {
       "outcome": "ok",
@@ -53,31 +53,30 @@
       "note": null
     },
     "prior_batch_checkpoint_on_record": {
-      "outcome": "fail",
-      "reason": "no_prior_batch_for_this_log_on_this_monitor",
-      "attribution": "probe",
-      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+      "outcome": "ok",
+      "prior_read_at": "2026-08-02T05:34:46.892579+00:00",
+      "prior_tree_size": 2197332918
     },
     "second_read_answered": {
       "outcome": "ok",
-      "tree_size": 2197332918
+      "tree_size": 2197436369
     },
     "tree_did_not_shrink_between_reads": {
       "outcome": "ok",
-      "first_size": 2197320522,
-      "second_size": 2197332918,
-      "entries_added": 12396
+      "first_size": 2197425668,
+      "second_size": 2197436369,
+      "entries_added": 10701
     },
     "consistency_proof_served": {
       "outcome": "ok",
-      "nodes": 23
+      "nodes": 21
     },
     "consistency_proof_recomputes_to_the_second_root": {
       "outcome": "ok",
       "reason": "both_roots_recomputed",
-      "first_size": 2197320522,
-      "second_size": 2197332918,
-      "proof_nodes": 23
+      "first_size": 2197425668,
+      "second_size": 2197436369,
+      "proof_nodes": 21
     }
   },
   "evidence": {
@@ -86,61 +85,67 @@
       "status": 200,
       "error": null,
       "bytes": 1151,
-      "read_at": "2026-08-02T05:33:45.962342+00:00",
-      "body_sha256": "af5285319a2340932a706fbaf902efd06b4b4aaefd482d4341f66ebadf8224d1",
+      "read_at": "2026-08-02T05:42:53.113643+00:00",
+      "body_sha256": "af382f471dca959c7c60daf19ee0f76b775b56f5899efda07e1a55199a9ffe4f",
       "parsed": true,
       "format": "c2sp_signed_note",
       "origin": "rekor.sigstore.dev - 1193050959916656506",
-      "tree_size": 2197320522,
+      "tree_size": 2197425668,
       "signature_lines": 1,
       "extension_lines": [],
-      "declared_tree_size": 2197320522,
-      "declared_root_hash": "d67aaae18e13bd7ddfb81aad986c511ef6042ec9a73da75d0220022940e2cd40",
-      "root_hash_hex": "d67aaae18e13bd7ddfb81aad986c511ef6042ec9a73da75d0220022940e2cd40",
-      "raw_body": "{\"inactiveShards\":[{\"rootHash\":\"4d006aa46efcb607dd51d900b1213754c50cc9251c3405c6c2561d9d6a2f3239\",\"signedTreeHead\":\"rekor.sigstore.dev - 3904496407287907110\\n4163431\\nTQBqpG78tgfdUdkAsSE3VMUMySUcNAXGwlYdnWovMjk=\\n\\n— rekor.sigstore.dev wNI9ajBEAiBhhgpYV9Y0ykm/yD4y1zdgP+EsYgRZgrnXf/Qkpa/O6AIgRB2V3xuZjHkhFkkSar6ep/AJf+/5I8VuaNUfP8WE9Gg=\\n\",\"treeID\":\"3904496407287907110\",\"treeSize\":4163431},{\"rootHash\":\"2b9c578071e120aa84c9858783daa671565e4165f3a7dfa199aad81940299d8e\",\"signedTreeHead\":\"rekor.sigstore.dev - 2605736670972794746\\n117740831\\nK5xXgHHhIKqEyYWHg9qmcVZeQWXzp9+hmarYGUApnY4=\\n\\n— rekor.sigstore.dev wNI9ajBEAh99+cmSdM0zPu4yxEkqsbojhacZXUIM8VVLOrcXq6U3AiEAnCQRshsdKNvKbDWxT3gz7zKdkTwLByp97RY3Da5sP78=\\n\",\"treeID\":\"2605736670972794746\",\"treeSize\":117740831}],\"rootHash\":\"d67aaae18e13bd7ddfb81aad986c511ef6042ec9a73da75d0220022940e2cd40\",\"signedTreeHead\":\"rekor.sigstore.dev - 1193050959916656506\\n2197320522\\n1nqq4Y4TvX3fuBqtmGxRHvYELsmnPaddAiACKUDizUA=\\n\\n— rekor.sigstore.dev wNI9ajBFAiEA+dwQEal1BbxDbwSGsrae4FXY4gjmDp3V869TGAfyyNkCIHTnzHNwM7u39Guq7R/IsTtSOOc2LrshjdcLkpMfJot1\\n\",\"treeID\":\"1193050959916656506\",\"treeSize\":2197320522}\n"
+      "declared_tree_size": 2197425668,
+      "declared_root_hash": "f2cc38246c78344613d3f6386ccff8fff0cad3a0eee15fc05030fac1f616b38b",
+      "root_hash_hex": "f2cc38246c78344613d3f6386ccff8fff0cad3a0eee15fc05030fac1f616b38b",
+      "raw_body": "{\"inactiveShards\":[{\"rootHash\":\"4d006aa46efcb607dd51d900b1213754c50cc9251c3405c6c2561d9d6a2f3239\",\"signedTreeHead\":\"rekor.sigstore.dev - 3904496407287907110\\n4163431\\nTQBqpG78tgfdUdkAsSE3VMUMySUcNAXGwlYdnWovMjk=\\n\\n— rekor.sigstore.dev wNI9ajBFAiEAs29xThbJxmKXGqRa5vqdnDYUvxbm+y96VSNkrBLAEiICIHWbVLl1TXdlBhFSl8PSYk5waTgejrQjb9OYkT9q+3fy\\n\",\"treeID\":\"3904496407287907110\",\"treeSize\":4163431},{\"rootHash\":\"2b9c578071e120aa84c9858783daa671565e4165f3a7dfa199aad81940299d8e\",\"signedTreeHead\":\"rekor.sigstore.dev - 2605736670972794746\\n117740831\\nK5xXgHHhIKqEyYWHg9qmcVZeQWXzp9+hmarYGUApnY4=\\n\\n— rekor.sigstore.dev wNI9ajBFAiAnP2OPExBRFUrqkuKKj49uO6mZ/ucGlBUIMv0y4H2VdAIhAN6Zb6ydZfT03OEnyW2BKdLgi0BwgtTy26a6lKYduLol\\n\",\"treeID\":\"2605736670972794746\",\"treeSize\":117740831}],\"rootHash\":\"f2cc38246c78344613d3f6386ccff8fff0cad3a0eee15fc05030fac1f616b38b\",\"signedTreeHead\":\"rekor.sigstore.dev - 1193050959916656506\\n2197425668\\n8sw4JGx4NEYT0/Y4bM/4//DK06Du4V/AUDD6wfYWs4s=\\n\\n— rekor.sigstore.dev wNI9ajBFAiEAxNDfGWqCckLrL5pFIxzeMSH83hlWIh/+wGDhguYvCcECIBy846tM8SgcK/kGkTPzNnOvxXDwOB3UVKTZcQMeWetJ\\n\",\"treeID\":\"1193050959916656506\",\"treeSize\":2197425668}\n"
     },
     "signature_check": {
       "supported": false,
       "verified": false,
       "reason": "signature_scheme_not_implemented_by_this_monitor:ecdsa_p256_note"
     },
+    "prior_batch": {
+      "log_key": "rekor.sigstore.dev",
+      "read": "second_read",
+      "read_at": "2026-08-02T05:34:46.892579+00:00",
+      "tree_size": 2197332918,
+      "root_hash": "e4cd8bcf642ce8bfb71fb2e08247b5c2ea5624d35dd418df2ccc8e3644c513f7",
+      "body_sha256": "37420ded0060bf00bc39d74d2d3053c81e913df29e0e60898b04e442e958d5a8"
+    },
     "second_read": {
       "url": "https://rekor.sigstore.dev/api/v1/log",
       "status": 200,
       "error": null,
       "bytes": 1151,
-      "read_at": "2026-08-02T05:34:46.892579+00:00",
-      "body_sha256": "37420ded0060bf00bc39d74d2d3053c81e913df29e0e60898b04e442e958d5a8",
+      "read_at": "2026-08-02T05:43:53.870140+00:00",
+      "body_sha256": "78170ef6398f24972981661c16674460d26f68cac054ead6acdb8f38619ae0db",
       "parsed": true,
       "format": "c2sp_signed_note",
       "origin": "rekor.sigstore.dev - 1193050959916656506",
-      "tree_size": 2197332918,
+      "tree_size": 2197436369,
       "signature_lines": 1,
       "extension_lines": [],
-      "declared_tree_size": 2197332918,
-      "declared_root_hash": "e4cd8bcf642ce8bfb71fb2e08247b5c2ea5624d35dd418df2ccc8e3644c513f7",
-      "root_hash_hex": "e4cd8bcf642ce8bfb71fb2e08247b5c2ea5624d35dd418df2ccc8e3644c513f7"
+      "declared_tree_size": 2197436369,
+      "declared_root_hash": "591c4d013175a4f39e79b200fcf1f16f36f3dd1f256330206283589ea4c68b50",
+      "root_hash_hex": "591c4d013175a4f39e79b200fcf1f16f36f3dd1f256330206283589ea4c68b50"
     },
     "consistency_request": {
       "served": true,
-      "url": "https://rekor.sigstore.dev/api/v1/log/proof?firstSize=2197320522&lastSize=2197332918",
+      "url": "https://rekor.sigstore.dev/api/v1/log/proof?firstSize=2197425668&lastSize=2197436369",
       "proof": [
-        "b96172d23a86e17a5c60c78834595b2914fb6be4ebe03756cbcb64497e23076b",
-        "4c279fd39c62c5fc3ee8776480d17fc0233f0da5f145dcb1cf67f2dd52422b0b",
-        "68617408bc9cf1e7676fe074df291ebf2b93584fb4874e692f56fa23d5823f1b",
-        "1f75bbac4a95e4769c6775249af18df215ac2d835bbf346d1c540a9498bfcb87",
-        "68ea50ff516606db6821705beeee525c6c417e70d3698d826955f60ce824e35c",
-        "58f0e9363c667f28f491888110b8f6e233730dc735691fe0d7cb64e378d7433d",
-        "63f3beb80778ae841b602c49fa33ce3d65ae618cdbf255cd454cf8dec67907cf",
-        "31ecad3a4ff419932f5e49e3e990f4b8eb9c1a78242212137c2a48abe1445eb2",
-        "7fe9b202053abbb0b1bb14bc5462bc1f30628ff0f7034302c8e88d0806a1af46",
-        "3697a5cd3a596f687eed17a00b9fa54f73c45f42a0c550a411cd02c9f258ad47",
-        "d6fe9c45b567173b71843b7f3628ce9c9c55cc6cf8e0e20ffe85b3b89499dbeb",
-        "337a98d1189f0088d2564a948dd0aed39b6972dd6662e0984965ed3a2758a1e6",
-        "d7443c0f0f02f2bcddc1a1b21cc5ab9e60f6990082bbee087a5a4e209eb36415",
-        "9ff5435dd2d0e77ea2670238af9985a94b66d65096ee53cfb858d84c380d3fbe",
-        "d0cfa4572011ccc296a6e12808dd81f83a7940559f5c6c9c646319c17f09c81a",
-        "fd6c03f32b059baf0aea2e7bcd512a7085fee483097e4901c3590da21409e493",
+        "a8c033c66130d090894969898eeaeb824fdefa74491c7959587bea5194bf16e5",
+        "30d90ee9969ed569521a3be7f4a7b85967317d95f1b09a22c95b053700a1091d",
+        "9fd62326b4b82865fc44d1f67d115ab67d26398a7a91f8c86e1a1a03e1bd6dd1",
+        "a4d5fcf8f0a6630c28dba7447bc4ecdff672ff0a10cbf1edcd5bc129945625df",
+        "b0f54f98993660c188f894c24b207ecc51dfd57b153a0bc16a5e612678141c84",
+        "6555ba36e7e1dc69639c344382c0eb583adf322abd0c6c91040f7f8d7049fbee",
+        "74a7f51c9e1c23e30a2920893049e6ef62f402fdf0685350a0a4b8af9bcaa40c",
+        "71ce10505035f67f067afe49e233fc791dd0de1043aacbf90113cadd3958a1ed",
+        "570b3bb8b9f3a753749abc5e975e901604d2afa4101aa5f71163ad2f079b8fa6",
+        "68c8d544b2eac12a665fd24d46768fd45bbc9734d9580f6a74542e8503255b32",
+        "62170149c2b521ab74d7c7af2fdf2defe7264d750bb65c2345d5bb7fc7eefcf2",
+        "5540e145670ab767257ae1e046a9bf8fd316c51d857ca39da579c5f60c59bc65",
+        "b014ff7e37d26f0553407652ab78fae773ce160e68b1648ad31054d5c40bddd6",
+        "1650457eb5445578ed7a7776bf9509afc9f1c5bbb838ef8a5a46a233ce725469",
         "b7c9589ea639f9ca512bde2f9214403c6b719120b3d4166110db4661bcb9880b",
         "03704d5fa3d59fd84cb2e20a95297aea4bb7c6214a5913ec86078432eb99cee7",
         "168d2829367f0c73ac1a95e25d95570675ad73ebe040934400402e59b5beef17",
@@ -149,12 +154,12 @@
         "3767317bcbdeaa2de21bf1067f5cc06a0b784aab162b0832c4d09e8120dceb4b",
         "c47fc30ac78b1ebf5e2a8613f2ab0e4592bbcd5744198587b95b6c56b0fde706"
       ],
-      "nodes": 23
+      "nodes": 21
     }
   },
   "tree_advanced_between_reads": true,
-  "entries_added_between_reads": 12396,
-  "checked_at": "2026-08-02T05:34:50.805922+00:00",
+  "entries_added_between_reads": 10701,
+  "checked_at": "2026-08-02T05:43:57.759071+00:00",
   "must_admit": false,
   "full_admit": false,
   "refuse_limb": "public_key_obtained_independently_of_the_log",
@@ -169,6 +174,6 @@
   ],
   "receipt_filename": "rekor.sigstore.dev.json",
   "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
-  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "ledger_digest": "2fac8d58913200fc84dd821f297204308cae5e705cd140e512752277e1cccb47",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
 }

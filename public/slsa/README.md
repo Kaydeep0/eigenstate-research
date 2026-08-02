@@ -1,6 +1,6 @@
 # Provenance census of one engine's own dependencies
 
-Generated 2026-08-02T03:44:42.624241+00:00 · probe v1.0.0 · digest `1fa8727b43a70663`
+Generated 2026-08-02T05:44:04.783517+00:00 · probe v1.0.0 · digest `0c23b0305508b276`
 
 Expectations for every package below were published before this run, at digest `d089f5dc2f47169f`, in a separate commit. The admit rule for each limb was fixed then and is not edited now.
 

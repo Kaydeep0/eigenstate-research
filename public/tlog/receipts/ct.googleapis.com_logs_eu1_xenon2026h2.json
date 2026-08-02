@@ -26,8 +26,8 @@
     },
     "checkpoint_carries_tree_size_and_root_hash": {
       "outcome": "ok",
-      "tree_size": 1922205928,
-      "root_hash": "7d0d8dc48efcdcf954378bf3efca3bc1f36025e9e27e1d769a3c89df0a34311b"
+      "tree_size": 1922271995,
+      "root_hash": "4b45af0dfa81a46aa52b5d2ec3eb20278b1fec9a6031bb2890fcbee08cde47a8"
     },
     "checkpoint_carries_a_signature": {
       "outcome": "ok",
@@ -48,31 +48,30 @@
       "note": "A Certificate Transparency signed tree head has no place to carry a witness cosignature, so this is a fact about the format as much as about the log."
     },
     "prior_batch_checkpoint_on_record": {
-      "outcome": "fail",
-      "reason": "no_prior_batch_for_this_log_on_this_monitor",
-      "attribution": "probe",
-      "note": "This monitor has just started. The cross run comparison has nothing to compare against and the cold start is recorded rather than hidden."
+      "outcome": "ok",
+      "prior_read_at": "2026-08-02T05:34:38.631195+00:00",
+      "prior_tree_size": 1922213339
     },
     "second_read_answered": {
       "outcome": "ok",
-      "tree_size": 1922213339
+      "tree_size": 1922279015
     },
     "tree_did_not_shrink_between_reads": {
       "outcome": "ok",
-      "first_size": 1922205928,
-      "second_size": 1922213339,
-      "entries_added": 7411
+      "first_size": 1922271995,
+      "second_size": 1922279015,
+      "entries_added": 7020
     },
     "consistency_proof_served": {
       "outcome": "ok",
-      "nodes": 20
+      "nodes": 24
     },
     "consistency_proof_recomputes_to_the_second_root": {
       "outcome": "ok",
       "reason": "both_roots_recomputed",
-      "first_size": 1922205928,
-      "second_size": 1922213339,
-      "proof_nodes": 20
+      "first_size": 1922271995,
+      "second_size": 1922279015,
+      "proof_nodes": 24
     }
   },
   "evidence": {
@@ -81,14 +80,14 @@
       "status": 200,
       "error": null,
       "bytes": 241,
-      "read_at": "2026-08-02T05:33:39.463552+00:00",
-      "body_sha256": "88e3ff8b97f509ae0c6ed6e29a8d29913587b8cfca35408124574f01915a211b",
+      "read_at": "2026-08-02T05:42:46.901265+00:00",
+      "body_sha256": "a3609914f6a6016981d81db0ab5b4b16ebf406209a470b3d6c083c96a45d1d60",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 1922205928,
-      "timestamp": 1785648758880,
+      "tree_size": 1922271995,
+      "timestamp": 1785649306467,
       "signature_lines": 1,
-      "root_hash_hex": "7d0d8dc48efcdcf954378bf3efca3bc1f36025e9e27e1d769a3c89df0a34311b",
+      "root_hash_hex": "4b45af0dfa81a46aa52b5d2ec3eb20278b1fec9a6031bb2890fcbee08cde47a8",
       "raw_body": null
     },
     "signature_check": {
@@ -96,37 +95,49 @@
       "verified": true,
       "scheme": "ecdsa_p256_ct_v1"
     },
+    "prior_batch": {
+      "log_key": "ct.googleapis.com/logs/eu1/xenon2026h2",
+      "read": "second_read",
+      "read_at": "2026-08-02T05:34:38.631195+00:00",
+      "tree_size": 1922213339,
+      "root_hash": "c87bbd9f83746bc65b83e577aacbe98232b34c1b2597bf9f5c54a3e0ce9636b8",
+      "body_sha256": "e242ed56e00e9ba3516d450d10740840ff601de17b9158716659f3eb1a3b753d"
+    },
     "second_read": {
       "url": "https://ct.googleapis.com/logs/eu1/xenon2026h2/ct/v1/get-sth",
       "status": 200,
       "error": null,
-      "bytes": 241,
-      "read_at": "2026-08-02T05:34:38.631195+00:00",
-      "body_sha256": "e242ed56e00e9ba3516d450d10740840ff601de17b9158716659f3eb1a3b753d",
+      "bytes": 245,
+      "read_at": "2026-08-02T05:43:46.181677+00:00",
+      "body_sha256": "954baf2b0518d3b5c9dfb8b1a6b4fca85172c8152306da598c3fe6fde60bb5e1",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 1922213339,
-      "timestamp": 1785648818074,
+      "tree_size": 1922279015,
+      "timestamp": 1785649365793,
       "signature_lines": 1,
-      "root_hash_hex": "c87bbd9f83746bc65b83e577aacbe98232b34c1b2597bf9f5c54a3e0ce9636b8"
+      "root_hash_hex": "9124d5bf7fbd9d487451680742fb524adf1e9eae5ecd2ac9c4503b01c0b23c58"
     },
     "consistency_request": {
       "served": true,
-      "url": "https://ct.googleapis.com/logs/eu1/xenon2026h2/ct/v1/get-sth-consistency?first=1922205928&second=1922213339",
+      "url": "https://ct.googleapis.com/logs/eu1/xenon2026h2/ct/v1/get-sth-consistency?first=1922271995&second=1922279015",
       "proof": [
-        "91e6c7de4ed7f2f5f44a4803441cfa999439ea0ba4113a3eef934a7de99fbe72",
-        "7c1846fd8d4514b5680352f31c6b1ed6a3193eebc549953b0f1208f7891cfe1c",
-        "4b547b6f46f7a0467f5b26f4f4a6f6b936905c090818695c6868e64e749eab9d",
-        "8eaef87ed8ee1d46c91c2364818f181eae609d16759f09a65427a151a989313c",
-        "575da241b7f62d9ef4d260f368259b631a36711749d2308de49ee58a10dd577f",
-        "e50ede1b313ab0b245fa21044e44b42ee3fdb399d889844263a67184b6b32202",
-        "fef6586ad563623910ff6727746c9d13e9e8c3d9a1d97ef2174cf3e74724059c",
-        "cf7e503b11f73d7d48236d7c7a40db81dc46d8734c480aec2816f3abb406dc23",
-        "a74cb526f7f9eb4c8b23c7a81d042d8feb302ba608fb61d9a6031e72e4b13b12",
-        "b8586e16703057c948f3ff1ebe4a766e25fc561385344b1b573774047e3a502e",
-        "1b250af9d9716ba6d0002d0422ed7ed60cf62348465e8b5dcd6c2a2ed644a3c2",
-        "126cfd61010ab401354ea3d7f0687873116a31ab48f9331ff408a5f49ba5fedf",
-        "5a2d60f815e0d526cef0bc6e13dbbbee42b05b5d3d7db707d9cefb295f7c4103",
+        "ac11bef5753758bcc9b7007446b22e6fb42eac15bb9d87b7b605bc9a84568ffe",
+        "958082824b3acff957b26ce8abe1398781412c6a9e908087df2089cf627ba647",
+        "3a2abc8599811cd2008df6ea205c320ae42f787beaf43fd995ed1830eeb0eaed",
+        "382a2870aab2c80cb59b4902e4877dcd01f57b391454396335ffb7647a8a0eaf",
+        "16d97ae4c7aad39457ab65bdf3a564bb559133db61f94a565c32fc1afcdbcafb",
+        "667a68451ec5af9099a06c6e6c4e3d4a6a55a88dc03f0fcb7b185d805e763112",
+        "180d8f91c754656c395245f3e6c65b904ef4a9c96e7c601960013d6455ca5413",
+        "9990d54fd5a57114f69a9284c08e0ca0ae91165c62d6235c2f8fcd3db7840f6f",
+        "ee9605b6c5b69e4b702db62310ba73ae89d80bb34fa40a453faba28bdaa18b1e",
+        "303befcbf06515eb5122ecd90dca26bc25b019e28f27352a2af506398ae7ded1",
+        "8e9dc9bb1a5c6202bc2e6549cdcc80c1615b95943dcdbb76935d260fe15b42af",
+        "6acc4c108adb4098e84b1a21ff843ab8e98f81d5c0d7b6be3eaf760faab6417c",
+        "4b9ab3cb5075d3d2d15af99910e71f3d5b775e3ba655d11e717b1f8a344dc6c3",
+        "6a2b6b0391d33314804a970dd2c6975939334780ed564921bbbdac62a5b3f5ee",
+        "43b33941f166633410a060ca5bf8a69a4cd72c546f19d0b3dd97bd38cc8a4248",
+        "bdd2764a62d86db096ed8f263be6d1ae746e9da3dc047f71487b882f30782d24",
+        "3e6ee733c49176c8aab58b70014eb6e9ed0d98218f27d961b4906e3e4d74fe37",
         "87aa6c6d15d21e909559f88b06a5b0df8e872e8281c3d1ca0d209fe2f00240d3",
         "6cc43609e46b3c29f11a1b792e58d10c0b64ecb57d35f9c44eb6b6d4ce2c1909",
         "25bd9d3418d108dbf6052d66163d4eb78af50a4c5a04e4311c6f5cf7d1ce2a00",
@@ -135,12 +146,12 @@
         "522d360d1728fe7112c591f9b6c5d1bd4b9abca1c0a23b1d8f7a61d959105196",
         "3fd2f0b4a327b9bd6dac1546ba6a55ed92286c62dc345ea2d559fbaf3871c0a0"
       ],
-      "nodes": 20
+      "nodes": 24
     }
   },
   "tree_advanced_between_reads": true,
-  "entries_added_between_reads": 7411,
-  "checked_at": "2026-08-02T05:34:50.805872+00:00",
+  "entries_added_between_reads": 7020,
+  "checked_at": "2026-08-02T05:43:57.759008+00:00",
   "must_admit": true,
   "full_admit": true,
   "refuse_limb": null,
@@ -150,6 +161,6 @@
   "should_limbs_failed": [],
   "receipt_filename": "ct.googleapis.com_logs_eu1_xenon2026h2.json",
   "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
-  "ledger_digest": "ed5ebec4afeb1b4e111520493867417c836109898c74b7bba4266ca170c8e4cc",
+  "ledger_digest": "2fac8d58913200fc84dd821f297204308cae5e705cd140e512752277e1cccb47",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
 }
