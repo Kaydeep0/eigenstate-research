@@ -86,6 +86,14 @@ const headlines = [
 const refuseRows = Object.entries(p.refuse_limb_counts).sort((a, b) => b[1] - a[1]);
 const reasonRows = Object.entries(p.top_refuse_reasons).slice(0, 8);
 const limbs = p.methodology.limb_order_frozen;
+
+/* Prior art comparison. Both figures are derived from the same probe file rather
+   than typed in, so they cannot drift from the tables below on a re-run. */
+const mustAdmitRate = pct(1 - p.must_miss_rate);
+const priorArt = {
+  xiong: 'https://arxiv.org/abs/2606.26028',
+  mafrur: 'https://arxiv.org/abs/2606.12128',
+};
 ---
 
 <Layout
@@ -317,10 +325,10 @@ const limbs = p.methodology.limb_order_frozen;
     <div class="eyebrow">ERC-8004 · Base · read-only</div>
     <h1>The <span class="grad">refusal</span> ledger</h1>
     <p class="explainer">
-      Explorers already list and score the agents registered under ERC-8004. Nobody publishes the
-      misses, so a registration that resolves to nothing looks exactly like a working one until you
-      fetch it. This is that fetch, for a random sample of the Base Identity Registry, with every
-      refusal named by the limb that failed.
+      Published studies have already measured how few ERC-8004 registrations resolve to a working
+      agent. What they report is a rate. What none of them ship is the artifact underneath it: a
+      sample a stranger can redraw, a named refusal limb for every agent, and one receipt you can
+      fetch by agentId. This is that, for a random sample of the Base Identity Registry.
     </p>
     <p class="honesty">
       Not a reputation score · no ranking · no agent contacted beyond a plain GET of a URL it
@@ -350,6 +358,38 @@ const limbs = p.methodology.limb_order_frozen;
         ))
       }
     </div>
+
+    <h2>Prior art, and what this adds</h2>
+    <p class="body">
+      This is not the first measurement of ERC-8004 registration quality and does not claim to be.
+      Xiong et al., <a href={priorArt.xiong} target="_blank" rel="noopener">Can Trustless Agents Be
+      Trusted?</a> (arXiv 2606.26028), crawled the full Identity Registry population on Ethereum,
+      BSC and Base through 13 May 2026 and report 37% of Base agents with no agentURI, 26.9%
+      carrying a valid ERC-8004 registration file, and 15% exposing a valid file with at least one
+      declared service. Mafrur and Khusumanegara, <a href={priorArt.mafrur} target="_blank" rel="noopener"
+      >From Agent Identity to Agent Economy</a> (arXiv 2606.12128), reach the same shape on Ethereum
+      from a different dataset: registration heavy, operationally shallow.
+    </p>
+    <p class="body">
+      This ledger corroborates that by a different method and a later sample. Theirs is a full
+      population crawl ending 13 May 2026; this is a {p.sampled} agent uniform draw from Base,
+      taken in the run of {formatDate(p.generated_at).slice(0, 10)} at block {num(p.chain.pinned_block)}
+      and seeded by that block's hash. Against
+      their 37% of Base agents with no agentURI, this sample reads {pct(p.no_agent_uri_rate)} (95% CI
+      {ci(p.no_agent_uri_rate_ci95)}). Against their 26.9% with a valid registration file, {mustAdmitRate}
+      of this sample clears every limb the ERC states as MUST. Two methods, two samples, months
+      apart, landing in the same place is the useful part. The agreement is the result, not the
+      novelty.
+    </p>
+    <p class="body">
+      What a published rate does not give you is the thing underneath it. The addition here is
+      operational. The sample is redrawable by a third party from public data, because the seed is
+      the pinned block hash and nothing else. The limb order is frozen, so a refusal names the limb
+      that failed first instead of a general verdict. Every rate carries a Wilson interval. Every
+      sampled agentId has a receipt carrying the exact HTTP status or transport error, so a
+      disagreement is a fetch rather than an argument. A rate you can read is a claim. A receipt you
+      can fetch is a claim someone else can overturn.
+    </p>
 
     <h2>Where they fail first</h2>
     <p class="body">
