@@ -124,8 +124,10 @@ Honest, outsider-facing. Grounded in what the public stack actually ships today.
 |------|------|
 | Methodology (full depth) | [METHODOLOGY.md](METHODOLOGY.md) |
 | **Verify walkthrough** (copy-paste) | [verify-walkthrough/](https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/) — status → dossier → package/verify for `AAVE_V3` |
-| Signal reports | [reports/](https://kaydeep0.github.io/eigenstate-research/reports/) |
+| Signal reports (entity-grouped) | [reports/](https://kaydeep0.github.io/eigenstate-research/reports/) with expandable timelines + [entity hubs](https://kaydeep0.github.io/eigenstate-research/reports/circle/) with publish-time Φ_S / κ |
+| Track Record / predictions | [track-record/](https://kaydeep0.github.io/eigenstate-research/track-record/) · [predictions/](https://kaydeep0.github.io/eigenstate-research/predictions/) |
 | On-chain proof index | [onchain/](https://kaydeep0.github.io/eigenstate-research/onchain/) |
+| Provenance (OTS + SWH pointer) | [provenance/](https://kaydeep0.github.io/eigenstate-research/provenance/) |
 | Federation verify (technical) | [geniusflow-federation.vercel.app](https://geniusflow-federation.vercel.app/) → `/api/manifest`, `/api/chain`, `/api/verify`, `/api/package` |
 
 **5-minute demo** (from this repo root; toy stack — not the private engine):
@@ -144,10 +146,18 @@ HelixHash: [Kaydeep0/helixhash](https://github.com/Kaydeep0/helixhash). The scri
 | Surface | Role |
 |---------|------|
 | [GitHub Pages](https://kaydeep0.github.io/eigenstate-research/) | Human research site (canonical website) |
-| [This repo](https://github.com/Kaydeep0/eigenstate-research) | Public GitHub face — reports, static federation mirrors, docs |
-| [Federation (Vercel)](https://geniusflow-federation.vercel.app/) | Live verify wire, OpenAPI, agent docs |
+| [This repo](https://github.com/Kaydeep0/eigenstate-research) | Public GitHub face: reports, static federation mirrors, MCP source, provenance |
+| [Federation (Vercel)](https://geniusflow-federation.vercel.app/) | Live verify wire, OpenAPI, MCP `/api/mcp`, A2A card, ERC-8004 domain proof |
 | [helixhash](https://github.com/Kaydeep0/helixhash) · [witnessfield](https://github.com/Kaydeep0/witnessfield) | Public integrity / evidence libs |
-| `geniusflow-engine` | **Private** runtime — not cloneable without access |
+| `geniusflow-engine` | **Private** runtime; not cloneable without access |
+
+### Recent public UX (Aug 2026)
+
+- **Entity hubs** under `/reports/<entity>/` (publish-time Φ_S / κ evolution + series timeline)
+- **Signal Reports index** grouped by entity with expandable dated timelines
+- **Track Record** = falsifiable Host claim register (not marketing accuracy %); **Predictions** page for open structural gaps
+- **Provenance:** OpenTimestamps commitment over helix head (calendar promise until `ots upgrade`) + SWH archival request pointer
+- **MCP public source:** [`mcp/`](mcp/) in this repo; live remote at federation `/api/mcp` + `/server.json`
 
 ---
 
@@ -195,7 +205,7 @@ CI fails on hardcoded stale denoms (196/197) or fake 100% accuracy marketing in 
 
 ## Appendix: For agents
 
-Pages stays the human website. Machine cold-start is federation — not this README’s top matter, and not a clone of the private engine.
+Pages stays the human website. Machine cold-start is federation; not this README’s top matter, and not a clone of the private engine.
 
 **Canonical start:** https://geniusflow-federation.vercel.app/llms.txt
 
@@ -204,10 +214,19 @@ Pages stays the human website. Machine cold-start is federation — not this REA
 | Agent index (`llms.txt`) | https://geniusflow-federation.vercel.app/llms.txt |
 | OpenAPI 3 | https://geniusflow-federation.vercel.app/openapi.json |
 | Status / SLA | https://geniusflow-federation.vercel.app/api/status |
+| MCP remote | https://geniusflow-federation.vercel.app/api/mcp |
+| MCP registry declaration | https://geniusflow-federation.vercel.app/server.json |
+| A2A agent card | https://geniusflow-federation.vercel.app/.well-known/agent-card.json |
+| A2A JSON-RPC | https://geniusflow-federation.vercel.app/api/a2a |
+| ERC-8004 domain proof | https://geniusflow-federation.vercel.app/.well-known/agent-registration.json |
 | Attestation proof shape | https://geniusflow-federation.vercel.app/docs/ATTESTATION_PROOF_SHAPE.md |
 | Tool adapter / MCP | https://geniusflow-federation.vercel.app/docs/AGENT_TOOL_ADAPTER.md |
+| OTS commitment (file) | https://kaydeep0.github.io/eigenstate-research/provenance/opentimestamps/helix-head-917f0e3036931e14.txt |
+| MCP public source (this repo) | https://github.com/Kaydeep0/eigenstate-research/tree/main/mcp |
 | **Verify walkthrough** (human + curl) | https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/ |
 | Pages `llms.txt` (pointer) | https://kaydeep0.github.io/eigenstate-research/llms.txt |
 | In-repo pointer | [`AGENTS.md`](AGENTS.md) |
 
 Traverse: hub → status → dossier → `/api/package` / `/api/verify` (proof_shape admit/refuse) → optional `/api/return_wire` → canonical report on Pages. Walkthrough: [verify-walkthrough/](https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/).
+
+**Host-pending (not agent work):** MCP registry publish · A2A probe-receipt `gh` comments (bodies in private engine `docs/a2a_comments/`) · `ots upgrade` after Bitcoin confirm. Do not invent an ERC-8004 registration miss-rate until the probe ledger is published and linked here.
