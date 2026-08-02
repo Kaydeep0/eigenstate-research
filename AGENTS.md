@@ -20,6 +20,7 @@ Topics: **mcp**, **rwa**, **attestation**.
 9. **Verify walkthrough** (curl admit/refuse for `AAVE_V3`): https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/
 10. Human research (Pages): https://kaydeep0.github.io/eigenstate-research/ · entity-grouped [reports/](https://kaydeep0.github.io/eigenstate-research/reports/) · [track-record/](https://kaydeep0.github.io/eigenstate-research/track-record/)
 11. Provenance: [provenance/](https://kaydeep0.github.io/eigenstate-research/provenance/) · OTS file under `opentimestamps/` · SWHIDs in federation `/api/agent` → `provenance`
+12. **Provenance census** (PEP 740 and SLSA over this engine's own 94 dependencies; 44 attested and verified, 0 with SLSA build provenance; expectations published before the run): https://kaydeep0.github.io/eigenstate-research/slsa/ · machine: [`/slsa/summary.json`](https://kaydeep0.github.io/eigenstate-research/slsa/summary.json). A census of one install set, never quote it as a PyPI-wide rate.
 
 In-repo pointer: [`README.md`](README.md) § Appendix: For agents. MCP source mirror: [`mcp/`](mcp/).
 

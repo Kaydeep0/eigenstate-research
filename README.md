@@ -222,6 +222,10 @@ Pages stays the human website. Machine cold-start is federation; not this README
 | **ERC-8004 refusal ledger** (Base, read-only probe) | https://kaydeep0.github.io/eigenstate-research/erc8004/ |
 | ERC-8004 ledger, machine readable | `/erc8004/summary.json` and `/erc8004/ledger.json` on both origins |
 | ERC-8004 per-agent receipt | https://geniusflow-federation.vercel.app/erc8004/receipts/`<agentId>`.json |
+| **Provenance census** (this engine's own dependencies, PEP 740 and SLSA) | https://kaydeep0.github.io/eigenstate-research/slsa/ |
+| Provenance expectations, published before the run | `/slsa/expectations.json` on both origins |
+| Provenance census, machine readable | `/slsa/summary.json` and `/slsa/ledger.json` on both origins |
+| Provenance per-package receipt | https://geniusflow-federation.vercel.app/slsa/receipts/`<normalized-name>`.json |
 | Attestation proof shape | https://geniusflow-federation.vercel.app/docs/ATTESTATION_PROOF_SHAPE.md |
 | Tool adapter / MCP | https://geniusflow-federation.vercel.app/docs/AGENT_TOOL_ADAPTER.md |
 | OTS commitment (file) | https://kaydeep0.github.io/eigenstate-research/provenance/opentimestamps/helix-head-917f0e3036931e14.txt |
@@ -239,5 +243,17 @@ endpoint liveness are counted (91.0 percent, CI 88.2 to 93.2). The largest singl
 on-chain identity carrying no agentURI at all, 174 of 500. Every refusal names its limb:
 [/erc8004/](https://kaydeep0.github.io/eigenstate-research/erc8004/). Cite that interval or
 nothing.
+
+**Supply chain provenance is measured on this engine's own dependencies.** A census, not a
+sample: all 94 distributions pip resolves for this engine's `requirements.txt`. 44 serve a
+PEP 740 attestation and all 44 verify against Fulcio and Rekor with a digest computed from
+downloaded bytes. 50 serve none. 0 carry SLSA build provenance, because every attestation in
+the set is a PyPI publish attestation, which binds an upload to a workflow and does not
+describe the build. The expectations file was committed before the run
+([/slsa/expectations.json](https://kaydeep0.github.io/eigenstate-research/slsa/expectations.json)),
+and the probe refuses its own author first: two host-published roots are declared at versions
+the public index cannot satisfy. Read it at
+[/slsa/](https://kaydeep0.github.io/eigenstate-research/slsa/). These counts describe one
+dependency set and are not a PyPI-wide rate.
 
 **Host-pending (not agent work):** MCP registry publish · A2A probe-receipt `gh` comments (bodies in private engine `docs/a2a_comments/`) · `ots upgrade` after Bitcoin confirm.

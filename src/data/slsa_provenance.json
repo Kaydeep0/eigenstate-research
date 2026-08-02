@@ -1,0 +1,226 @@
+{
+  "probe": "slsa_provenance_census",
+  "probe_version": "1.0.0",
+  "generated_at": "2026-08-02T03:44:42.624241+00:00",
+  "digest": "1fa8727b43a70663787f48da845df0caa947f94f39a9c41964d87aadf9bce44c",
+  "expectations_digest": "d089f5dc2f47169f77d83f4b4374334c580f85102640ffea3b46e8c4697a71aa",
+  "expectations_generated_at": "2026-08-02T03:41:42.805849+00:00",
+  "expectations": "https://geniusflow-federation.vercel.app/slsa/expectations.json",
+  "subject": {
+    "what": "the dependency set this engine installs for itself",
+    "requirements_file": "requirements.txt",
+    "requirements_sha256": "7e1faf942c6cddc14cc4a137a2a83c98635bae2cb66528f14bf42fcd672319eb",
+    "engine_commit": "c9e1ab67d08c866c7005ab61f107018b6ec724b6",
+    "resolver": "pip via /private/tmp/slsa_venv/bin/python",
+    "python": "3.11.15",
+    "platform": "Darwin arm64",
+    "platform_note": "Wheel selection is platform specific, so the artifact list is the one this machine would install. A different platform resolves different wheel filenames for the same versions, and would need its own run."
+  },
+  "census_not_sample": "Every distribution the resolver picks for this engine's own requirements.txt is included, so these counts describe one dependency set exactly. They are not an estimate of any rate across PyPI and carry no confidence interval because there is nothing to extrapolate from.",
+  "expectation_count": 94,
+  "must_admit": 44,
+  "must_refuse": 50,
+  "must_refuse_rate": 0.5319,
+  "full_admit": 0,
+  "full_refuse": 94,
+  "full_refuse_rate": 1.0,
+  "provenance_published_count": 44,
+  "provenance_missing_count": 50,
+  "provenance_missing_rate": 0.5319,
+  "slsa_build_provenance_count": 0,
+  "slsa_build_provenance_rate": 0.0,
+  "refuse_limb_counts": {
+    "provenance_published": 48,
+    "predicate_is_slsa_build_provenance": 42,
+    "index_resolves": 2,
+    "signer_matches_declared_source": 2
+  },
+  "top_refuse_reasons": {
+    "provenance_published:no_provenance_published": 48,
+    "predicate_is_slsa_build_provenance:publish_attestation_not_build_provenance": 42,
+    "index_resolves:declared_range_unsatisfiable_on_pypi": 1,
+    "signer_matches_declared_source:signer_repo_mismatch:numpy/numpy!=numpy/numpy-release": 1,
+    "index_resolves:project_not_on_pypi": 1,
+    "signer_matches_declared_source:signer_repo_mismatch:tox-dev/py-filelock!=tox-dev/filelock": 1
+  },
+  "limb_outcomes": {
+    "index_resolves": {
+      "ok": 92,
+      "fail": 2,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 0
+    },
+    "provenance_published": {
+      "ok": 44,
+      "fail": 48,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 2
+    },
+    "bundle_wellformed": {
+      "ok": 44,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 50
+    },
+    "artifact_bytes_match_index": {
+      "ok": 44,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 50
+    },
+    "signature_verifies": {
+      "ok": 44,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 50
+    },
+    "signer_matches_declared_source": {
+      "ok": 42,
+      "fail": 2,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 50
+    },
+    "predicate_is_slsa_build_provenance": {
+      "ok": 0,
+      "fail": 44,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 50
+    },
+    "attestation_in_transparency_log": {
+      "ok": 44,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 50
+    }
+  },
+  "publisher_kinds": {
+    "none": 50,
+    "GitHub": 44
+  },
+  "predicate_types": {
+    "https://docs.pypi.org/attestations/publish/v1": 44
+  },
+  "bytes_downloaded": 35769965,
+  "predictions_scored": [
+    {
+      "prediction": "Fewer than half of these distributions will serve any PEP 740 attestation.",
+      "observed": "44 of 94 served an attestation",
+      "met": true
+    },
+    {
+      "prediction": "No distribution in this set will carry a SLSA build provenance predicate.",
+      "observed": "0 of 94 carried one",
+      "met": true
+    },
+    {
+      "prediction": "Both host published roots will refuse at the first limb.",
+      "observed": "2 roots failed index_resolves",
+      "met": true
+    },
+    {
+      "prediction": "Every attestation that verifies will also be in the transparency log.",
+      "observed": "44 of 44 verified attestations carried a log entry",
+      "met": true
+    }
+  ],
+  "signer_source_mismatches": [
+    {
+      "package": "numpy",
+      "declared_on_pypi": "numpy/numpy",
+      "signed_from": "numpy/numpy-release",
+      "reading": "A project may upload from a repository other than the one it lists as its source, and a renamed repository keeps answering on its old name. Neither is evidence of wrongdoing. What is recorded is that a consumer pinning the declared source would not match the signer."
+    },
+    {
+      "package": "filelock",
+      "declared_on_pypi": "tox-dev/py-filelock",
+      "signed_from": "tox-dev/filelock",
+      "reading": "A project may upload from a repository other than the one it lists as its source, and a renamed repository keeps answering on its old name. Neither is evidence of wrongdoing. What is recorded is that a consumer pinning the declared source would not match the signer."
+    }
+  ],
+  "self_refusals": [
+    {
+      "package": "helixhash",
+      "declared_line": "helixhash>=1.0",
+      "reason": "declared_range_unsatisfiable_on_pypi",
+      "latest_published_on_pypi": "0.1.1"
+    },
+    {
+      "package": "witnessfield",
+      "declared_line": "witnessfield>=1.0",
+      "reason": "project_not_on_pypi",
+      "latest_published_on_pypi": null
+    }
+  ],
+  "methodology": {
+    "what_this_is": "A refusal ledger over the dependency set this engine installs for itself. For every distribution the resolver picks it asks whether PyPI serves a PEP 740 attestation, downloads the artifact, hashes the bytes, verifies the signature against that computed digest, and then asks the separate question of whether the verified predicate is SLSA build provenance or a publish attestation.",
+    "why_two_questions": "A publish attestation binds an artifact to an uploading workflow. SLSA build provenance describes how the artifact was built. Treating the first as the second is the common error this ledger is built to make visible, so they are separate limbs and a receipt names which one is missing.",
+    "dogfood": "The subject is this engine's own dependency set, so the probe can and does refuse its own author's packages. The n is small and fully enumerated rather than large and estimated.",
+    "politeness": "Sequential requests with spacing, a 20 second timeout, an identifying user agent that links back to this ledger, and artifacts downloaded only when an attestation exists to check them against.",
+    "digest_discipline": "The digest compared against the signature is computed by this probe over bytes it downloaded, not quoted from an API response.",
+    "limb_order_frozen": [
+      "index_resolves",
+      "provenance_published",
+      "bundle_wellformed",
+      "artifact_bytes_match_index",
+      "signature_verifies",
+      "signer_matches_declared_source",
+      "predicate_is_slsa_build_provenance",
+      "attestation_in_transparency_log"
+    ],
+    "limb_spec_level": {
+      "index_resolves": "MUST",
+      "provenance_published": "MUST",
+      "bundle_wellformed": "MUST",
+      "artifact_bytes_match_index": "MUST",
+      "signature_verifies": "MUST",
+      "signer_matches_declared_source": "SHOULD",
+      "predicate_is_slsa_build_provenance": "OBSERVED",
+      "attestation_in_transparency_log": "OBSERVED"
+    },
+    "statuses": {
+      "ok": "limb observed to pass",
+      "fail": "limb observed to fail; counts against the package",
+      "not_applicable": "limb cannot apply to this package",
+      "absent": "an optional artifact was not published; not counted as a failure",
+      "not_reached": "an earlier limb failed, so this one was never observed; it is neither a pass nor an exemption"
+    },
+    "known_limits": [
+      "One resolution on one platform at one moment. Wheel filenames are platform specific, so another machine resolves a different artifact list for the same declared versions.",
+      "The signer identity is checked against the publisher PyPI reports and then cross checked against the source repository the project declares in its own PyPI metadata. Both facts come from PyPI, so a PyPI that lies about both consistently would pass that limb. The signature verification itself does not depend on PyPI: it goes to the Fulcio chain and the Rekor log.",
+      "A 404 from the integrity endpoint is recorded as a refusal, not an absence. The uploader may have chosen not to attest, or may predate PEP 740. Neither case is distinguished here.",
+      "Only GitHub publisher slugs are cross checked against declared source. Other publisher kinds refuse that limb by name rather than passing unchecked.",
+      "Version ranges float, so re-running resolves a newer set. The expectations file pins exactly which artifacts a given run covered."
+    ],
+    "tooling": {
+      "verifier": "pypi-attestations, which wraps sigstore-python",
+      "verification_reaches": "Fulcio certificate chain and Rekor transparency log",
+      "resolver": "pip install --dry-run --report"
+    },
+    "sources": {
+      "pep_740": "https://peps.python.org/pep-0740/",
+      "pypi_attestations_docs": "https://docs.pypi.org/attestations/",
+      "pypi_integrity_api": "https://docs.pypi.org/api/integrity/",
+      "slsa_provenance": "https://slsa.dev/spec/v1.0/provenance"
+    }
+  },
+  "not_claimed": [
+    "This is a census of one dependency set, not a sample of PyPI. It supports no claim about the index as a whole and no rate here should be quoted as one.",
+    "A refusal names what this probe observed at one moment from one machine. It is not a judgement about a maintainer, and an unattested package is not an unsafe package.",
+    "Verifying a signature says a specific workflow in a specific repository produced the upload. It does not say the code is good, the build was clean, or the maintainer is honest.",
+    "No package was contacted beyond the public index endpoints and a plain download of artifacts this engine already installs."
+  ],
+  "ledger": "https://geniusflow-federation.vercel.app/slsa/ledger.json",
+  "receipt_lookup": "https://geniusflow-federation.vercel.app/slsa/receipts/<normalized-name>.json",
+  "human_summary": "https://geniusflow-federation.vercel.app/slsa/README.md",
+  "human_page": "https://kaydeep0.github.io/eigenstate-research/slsa/",
+  "mirrored_at": "https://kaydeep0.github.io/eigenstate-research/slsa/",
+  "mirror_note": "This file is a mirror of the run identified by digest above. The federation origin serves the same digest plus one file per package in the census."
+}

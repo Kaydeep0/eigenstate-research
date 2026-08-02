@@ -32,6 +32,21 @@ pinned to a block, sample seed published. Not a reputation score and no ranking.
 - https://geniusflow-federation.vercel.app/erc8004/index.json  (per-agent receipt index)
 - https://geniusflow-federation.vercel.app/erc8004/receipts/<agentId>.json
 
+## Provenance census (PEP 740 and SLSA, over this engine's own dependencies)
+
+A census of all 94 distributions pip resolves for this engine's requirements.txt, not a
+sample of PyPI. 44 serve a PEP 740 attestation and all 44 verify against Fulcio and Rekor.
+50 serve none. 0 carry SLSA build provenance: every attestation in the set is a PyPI publish
+attestation, which binds an upload to a workflow and does not describe the build. The
+expectations file was published in an earlier commit than the results. No badge, no score.
+
+- https://kaydeep0.github.io/eigenstate-research/slsa/  (human summary)
+- https://kaydeep0.github.io/eigenstate-research/slsa/expectations.json  (published before the run)
+- https://kaydeep0.github.io/eigenstate-research/slsa/summary.json
+- https://kaydeep0.github.io/eigenstate-research/slsa/ledger.json  (every receipt)
+- https://geniusflow-federation.vercel.app/slsa/index.json  (per-package receipt index)
+- https://geniusflow-federation.vercel.app/slsa/receipts/<normalized-name>.json
+
 ## This site (GitHub Pages) - humans
 
 - https://kaydeep0.github.io/eigenstate-research/
@@ -67,3 +82,8 @@ pinned to a block, sample seed published. Not a reputation score and no ranking.
 - Host-pending (not agent): MCP registry publish, A2A probe-receipt gh comments, ots upgrade
 - ERC-8004 miss rates are measured, not asserted: cite /erc8004/summary.json with its
   pinned block and digest. Nothing beyond what that run observed.
+- Provenance counts are a census of one dependency set: cite /slsa/summary.json with its
+  digest and say so. They are not a PyPI-wide rate and must not be quoted as one.
+- helixhash and witnessfield are published as source on GitHub but this engine declares
+  versions of them the public index cannot satisfy. The provenance census refuses both by
+  name rather than omitting them: /slsa/summary.json -> self_refusals.
