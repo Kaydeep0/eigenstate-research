@@ -81,6 +81,11 @@ The ERC prints these keys under a MUST structure and then demotes the top four t
 - Full ledger with every receipt: https://geniusflow-federation.vercel.app/erc8004/ledger.json
 - Headline only: https://geniusflow-federation.vercel.app/erc8004/summary.json
 - One agent: https://geniusflow-federation.vercel.app/erc8004/receipts/<agentId>.json
+- Which agentIds were drawn: https://geniusflow-federation.vercel.app/erc8004/index.json
+
+Receipts exist for the 500 sampled agentIds only, so any other id returns 404.
+That is the sample boundary, not a missing file. The seed below says how the boundary
+was drawn, and re-running with a larger sample moves it.
 
 ## Re-run it
 
