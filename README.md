@@ -156,7 +156,7 @@ HelixHash: [Kaydeep0/helixhash](https://github.com/Kaydeep0/helixhash). The scri
 - **Entity hubs** under `/reports/<entity>/` (publish-time Φ_S / κ evolution + series timeline)
 - **Signal Reports index** grouped by entity with expandable dated timelines
 - **Track Record** = falsifiable Host claim register (not marketing accuracy %); **Predictions** page for open structural gaps
-- **Provenance:** OpenTimestamps commitment over helix head (calendar promise until `ots upgrade`) + SWH archival request pointer
+- **Provenance:** OpenTimestamps commitment over helix head (Bitcoin-attested, block **960660**) + SWH archival request pointer
 - **MCP public source:** [`mcp/`](mcp/) in this repo; live remote at federation `/api/mcp` + `/server.json`
 
 ---
@@ -256,4 +256,4 @@ the public index cannot satisfy. Read it at
 [/slsa/](https://kaydeep0.github.io/eigenstate-research/slsa/). These counts describe one
 dependency set and are not a PyPI-wide rate.
 
-**Host-pending (not agent work):** MCP registry publish (`io.github.Kaydeep0/geniusflow-federation`, case-sensitive) · `ots upgrade` after Bitcoin confirm (proof: `public/provenance/opentimestamps/helix-head-917f0e3036931e14.txt.ots`). **A2A day-5 probe-receipt comments: posted.**
+**Host-done (2026-08-01/02):** MCP registry published `io.github.Kaydeep0/geniusflow-federation` **1.0.0** (duplicate-version re-publish expected/refused). OTS helix-head verified via lite-client — Bitcoin block **960660** (proof: `public/provenance/opentimestamps/helix-head-917f0e3036931e14.txt.ots`). **A2A day-5 probe-receipt comments: posted.**

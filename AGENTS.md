@@ -25,4 +25,4 @@ Topics: **mcp**, **rwa**, **attestation**.
 In-repo pointer: [`README.md`](README.md) § Appendix: For agents. MCP source mirror: [`mcp/`](mcp/).
 
 **Host ops:** after parkash, run `./scripts/refresh-public.sh` (needs `GENIUSFLOW_ROOT` + `GENIUSFLOW_BUILDER_DEPLOY=1`), then push Pages - do not hand-edit proof tiles.  
-**Host-pending membership clicks** (agents must not): MCP registry publish (`io.github.Kaydeep0/geniusflow-federation`) · `ots upgrade`. **A2A day-5 comments: posted.** Cite the ERC-8004 probe ledger for miss-rate; do not invent one.
+**Host-done membership clicks:** MCP registry published `io.github.Kaydeep0/geniusflow-federation` **1.0.0** · OTS helix-head Bitcoin-attested at block **960660**. **A2A day-5 comments: posted.** Cite the ERC-8004 probe ledger for miss-rate; do not invent one.

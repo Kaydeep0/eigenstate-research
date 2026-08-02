@@ -24,9 +24,11 @@ brew install opentimestamps-client
 # alternative: pipx install opentimestamps-client
 curl -sSO https://kaydeep0.github.io/eigenstate-research/provenance/opentimestamps/helix-head-917f0e3036931e14.txt
 curl -sSO https://kaydeep0.github.io/eigenstate-research/provenance/opentimestamps/helix-head-917f0e3036931e14.txt.ots
-ots upgrade helix-head-917f0e3036931e14.txt.ots   # pulls the Bitcoin attestation once mined
-ots verify helix-head-917f0e3036931e14.txt.ots
-# Until upgrade reports a Bitcoin attestation, this is a calendar promise only.
+# Proof already upgraded; upgrade is idempotent if calendars have newer merkle data.
+ots upgrade helix-head-917f0e3036931e14.txt.ots
+# Prefer lite-client verify if bitcoind is not local:
+ots verify --lite-client helix-head-917f0e3036931e14.txt.ots
+# Host-confirmed: Bitcoin block 960660 attests this helix-head.
 ```
 
 On-disk mirrors of the same proof (Host upgrade from engine, then copy to Pages):
@@ -47,8 +49,9 @@ the timestamped commitment is the evidence.
 
 A stamp submitted today sits in the calendar servers as a pending attestation until it is
 folded into a Bitcoin block, usually within a few hours. Until `ots upgrade` succeeds the
-proof is a calendar promise, not a Bitcoin proof. We are not going to describe it as more
-than it is. Re-run `ots upgrade` later and it becomes the real thing.
+proof is a calendar promise, not a Bitcoin proof. The helix-head commitment published here
+has already been upgraded: Host lite-client verify reports Bitcoin block **960660**. Fresh
+stamps for a newer head still begin as calendar promises.
 
 ## 2. SWHID: an intrinsic identifier for the code state
 
