@@ -21,6 +21,17 @@
 - https://geniusflow-federation.vercel.app/api/a2a  (A2A JSON-RPC)
 - https://geniusflow-federation.vercel.app/.well-known/agent-registration.json  (ERC-8004 domain proof; empty registrations)
 
+## ERC-8004 refusal ledger (read-only probe over the Base Identity Registry)
+
+Registry eip155:8453:0x8004A169FB4a3325136EB29fA0ceB6D2e539a432. Refusals named by limb,
+pinned to a block, sample seed published. Not a reputation score and no ranking.
+
+- https://kaydeep0.github.io/eigenstate-research/erc8004/  (human summary)
+- https://kaydeep0.github.io/eigenstate-research/erc8004/summary.json
+- https://kaydeep0.github.io/eigenstate-research/erc8004/ledger.json  (every receipt)
+- https://geniusflow-federation.vercel.app/erc8004/index.json  (per-agent receipt index)
+- https://geniusflow-federation.vercel.app/erc8004/receipts/<agentId>.json
+
 ## This site (GitHub Pages) - humans
 
 - https://kaydeep0.github.io/eigenstate-research/
@@ -54,4 +65,5 @@
 - PUBLIC: eigenstate-research, helixhash, witnessfield, federation Vercel origin
 - PRIVATE: geniusflow-engine runtime, sangat-canon, sangat-architecture
 - Host-pending (not agent): MCP registry publish, A2A probe-receipt gh comments, ots upgrade
-- No ERC-8004 population miss-rate claimed until a probe ledger is published
+- ERC-8004 miss rates are measured, not asserted: cite /erc8004/summary.json with its
+  pinned block and digest. Nothing beyond what that run observed.
