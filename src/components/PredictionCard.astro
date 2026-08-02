@@ -24,7 +24,7 @@ interface OnChainProof {
 
 interface Props {
   id: string;
-  status: 'pending' | 'confirmed' | 'refuted';
+  status: 'pending' | 'confirmed' | 'refuted' | 'void';
   logged_at: string;
   title: string;
   claim: string;
@@ -46,7 +46,7 @@ const leverage = engine_signal.settlement_leverage_normalized ?? engine_signal.s
 const txShort = `${on_chain_proof.tx_hash.slice(0, 8)}...${on_chain_proof.tx_hash.slice(-4)}`;
 ---
 
-<div class={`prediction-card status-${status}`}>
+<div class={`prediction-card status-${status}`} id={id}>
   <div class="pred-top">
     <div class="pred-id">ID: {id} &nbsp;·&nbsp; Logged {loggedDisplay}</div>
     <span class={`pred-status ${status}`}>{status.toUpperCase()}</span>
@@ -180,6 +180,10 @@ const txShort = `${on_chain_proof.tx_hash.slice(0, 8)}...${on_chain_proof.tx_has
     background: var(--status-error);
   }
 
+  .prediction-card.status-void::before {
+    background: var(--text-muted);
+  }
+
   .pred-top {
     display: flex;
     align-items: flex-start;
@@ -221,6 +225,12 @@ const txShort = `${on_chain_proof.tx_hash.slice(0, 8)}...${on_chain_proof.tx_has
     background: rgb(220 38 38 / 8%);
     color: var(--status-error);
     border: 1px solid rgb(220 38 38 / 30%);
+  }
+
+  .pred-status.void {
+    background: rgb(113 113 122 / 12%);
+    color: var(--text-muted);
+    border: 1px solid rgb(113 113 122 / 35%);
   }
 
   .pred-title {

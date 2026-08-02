@@ -4,26 +4,31 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import PredictionCard from '../../components/PredictionCard.astro';
+import { loadSot } from '../../lib/sot';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
+
+const base = import.meta.env.BASE_URL;
+const sot = loadSot();
+const sb = sot.predictions_scoreboard;
 
 const predictions = (await getCollection('predictions')).sort((a, b) =>
   b.data.logged_at.localeCompare(a.data.logged_at)
 );
 
 const stats = {
-  total: predictions.length,
+  cards: predictions.length,
   pending: predictions.filter((p) => p.data.status === 'pending').length,
-  confirmed: predictions.filter((p) => p.data.status === 'confirmed').length,
   refuted: predictions.filter((p) => p.data.status === 'refuted').length,
-  maxGapScore: Math.max(...predictions.map((p) => p.data.engine_signal.gap_score)),
+  voided: predictions.filter((p) => p.data.status === 'void').length,
+  confirmed: predictions.filter((p) => p.data.status === 'confirmed').length,
 };
 ---
 
 <Layout
-  title="Predictions — Eigenstate Research"
-  description="Structural gap predictions logged before outcome is known. Each entry is timestamped and committed to Base mainnet before publication. Falsifiable claims about the tokenized finance settlement layer."
+  title="Predictions · Eigenstate Research"
+  description="Human claim-detail cards for early structural gap predictions. Scored Host register and outcomes live on Track Record."
   fonts={fonts}
 >
   <Fragment slot="head">
@@ -51,45 +56,80 @@ const stats = {
       .container {
         max-width: 1100px;
         margin: 0 auto;
-        padding: 60px 40px;
+        padding: 56px 40px 60px;
       }
 
-      .page-header {
-        margin-bottom: 48px;
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        color: var(--signal);
+        text-transform: uppercase;
+        margin-bottom: 12px;
       }
 
       .page-title {
         font-family: var(--font-heading);
-        font-size: clamp(22px, 3vw, 34px);
+        font-size: clamp(24px, 3vw, 36px);
         font-weight: 800;
-        letter-spacing: 0.08em;
-        margin-bottom: 8px;
+        letter-spacing: 0.04em;
+        margin-bottom: 12px;
       }
 
       .page-sub {
         color: var(--text-secondary);
         font-size: var(--text-base);
-        max-width: 680px;
-        line-height: 1.6;
-        margin-top: 12px;
+        max-width: 720px;
+        line-height: 1.65;
+        margin-bottom: 24px;
+      }
+
+      .panel {
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 18px 20px;
+        margin-bottom: 28px;
+        background: rgb(47 90 99 / 6%);
+        border-color: rgb(47 90 99 / 30%);
+      }
+
+      .panel p {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.65;
+        margin-bottom: 10px;
+      }
+
+      .panel p:last-child {
+        margin-bottom: 0;
+      }
+
+      .panel a {
+        color: var(--signal);
+        text-decoration: none;
+      }
+
+      .panel a:hover {
+        text-decoration: underline;
       }
 
       .stats-row {
         display: flex;
         flex-wrap: wrap;
         gap: 14px;
-        margin-bottom: 48px;
+        margin-bottom: 36px;
       }
 
       .stat-pill {
         background: var(--bg-card);
         border: 1px solid var(--border);
         border-radius: var(--radius-md);
-        padding: 16px 24px;
+        padding: 14px 20px;
         display: flex;
         flex-direction: column;
         gap: 4px;
-        min-width: 140px;
+        min-width: 120px;
       }
 
       .stat-pill .label {
@@ -111,93 +151,17 @@ const stats = {
         color: var(--status-warning);
       }
 
-      .stat-pill .value-green {
-        color: var(--status-success);
-      }
-
       .stat-pill .value-muted {
         color: var(--text-muted);
       }
 
-      .stat-pill .value-t1 {
-        color: var(--text-primary);
+      .stat-pill .value-error {
+        color: var(--status-error);
       }
 
       .stat-pill .note {
         font-size: var(--text-xs);
         color: var(--text-muted);
-      }
-
-      .method-block {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-lg);
-        padding: 32px;
-        margin-top: 48px;
-      }
-
-      .method-block h3 {
-        font-family: var(--font-heading);
-        font-size: var(--text-sm);
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        margin-bottom: 20px;
-        color: var(--text-secondary);
-        text-transform: uppercase;
-      }
-
-      .method-beats {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .method-beat {
-        display: grid;
-        grid-template-columns: 32px 1fr;
-        gap: 16px;
-        align-items: start;
-      }
-
-      .method-beat .beat-marker {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        font-weight: 600;
-        color: var(--accent-dark);
-        letter-spacing: 0.05em;
-        padding-top: 2px;
-      }
-
-      .method-beat p {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-        line-height: 1.7;
-      }
-
-      @media (width <= 640px) {
-        .method-beat {
-          grid-template-columns: 24px 1fr;
-          gap: 12px;
-        }
-      }
-
-      .method-block code {
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        color: var(--signal);
-        background: rgb(47 90 99 / 8%);
-        padding: 2px 6px;
-        border-radius: var(--radius-sm);
-      }
-
-      .method-block strong {
-        color: var(--text-primary);
-        display: block;
-        margin-bottom: 4px;
-      }
-
-      .method-block a {
-        color: var(--signal);
       }
 
       .section-title {
@@ -208,16 +172,11 @@ const stats = {
         color: var(--text-muted);
         text-transform: uppercase;
         margin-bottom: 20px;
-        margin-top: 48px;
+        margin-top: 8px;
         border-top: 1px solid var(--border);
-        padding-top: 32px;
+        padding-top: 28px;
       }
 
-      /* Sliding carousel — one prediction card in full focus at a time
-         instead of three dense cards stacked in an endless scroll. The
-         track is a real scroll container (scroll-snap-type), so touch swipe
-         and keyboard scrolling work natively; JS only syncs the arrow
-         buttons/dots to scroll position. */
       .predictions-carousel {
         position: relative;
       }
@@ -270,9 +229,6 @@ const stats = {
         align-items: center;
         justify-content: center;
         padding: 0;
-        transition:
-          border-color 0.2s ease,
-          color 0.2s ease;
       }
 
       .carousel-arrow:hover:not(:disabled) {
@@ -299,14 +255,106 @@ const stats = {
         border-radius: 50%;
         background: var(--border-strong);
         cursor: pointer;
-        transition:
-          background 0.2s ease,
-          transform 0.2s ease;
       }
 
       .carousel-dot.active {
         background: var(--accent);
         transform: scale(1.35);
+      }
+
+      .method-block {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 28px;
+        margin-top: 40px;
+      }
+
+      .method-block h3 {
+        font-family: var(--font-heading);
+        font-size: var(--text-sm);
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 14px;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+      }
+
+      .method-block p {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin-bottom: 12px;
+      }
+
+      .method-block p:last-child {
+        margin-bottom: 0;
+      }
+
+      .method-block a {
+        color: var(--signal);
+      }
+
+      .sources-panel,
+      .for-agents {
+        margin-top: 36px;
+      }
+
+      .section-label {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 14px;
+      }
+
+      .sources-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .sources-list a {
+        color: var(--signal);
+        text-decoration: none;
+        font-size: var(--text-sm);
+      }
+
+      .sources-list a:hover {
+        text-decoration: underline;
+      }
+
+      .for-agents details {
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 12px 16px;
+        color: var(--text-muted);
+        font-size: var(--text-sm);
+      }
+
+      .for-agents summary {
+        cursor: pointer;
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .agent-body {
+        margin-top: 14px;
+        color: var(--text-secondary);
+        line-height: 1.65;
+      }
+
+      .agent-body ul {
+        margin: 8px 0 0 18px;
+      }
+
+      .agent-body a {
+        color: var(--signal);
+        word-break: break-all;
       }
 
       @media (width <= 640px) {
@@ -320,129 +368,136 @@ const stats = {
   <Nav active="predictions" />
 
   <div class="container" id="main">
-    <div class="page-header">
-      <h1 class="page-title">STRUCTURAL PREDICTIONS</h1>
-      <p class="page-sub">
-        Gap-level predictions logged before any public claim is made. Each entry is timestamped,
-        falsifiable, and committed to Base mainnet before publication. The engine does not
-        post-explain events. It names them first.
+    <div class="eyebrow">Eigenstate Research · Claim detail cards</div>
+    <h1 class="page-title">Structural predictions</h1>
+    <p class="page-sub">
+      Human-readable cards for early gap predictions: claim text, falsifiable condition, and
+      Base mainnet commit. Scored outcomes for the full Host register live on Track Record.
+    </p>
+
+    <div class="panel">
+      <p>
+        <strong>Where outcomes are scored:</strong>
+        <a href={`${base}track-record/`}>Track Record</a>
+        holds the Host prediction register ({sb.n_total} claims · {sb.n_open} open ·
+        {` ${sb.n_resolved} `}resolved) and explains FALSE / VOID / PARTIAL. This page is
+        the claim-detail surface for the early cards below, not a second scoreboard.
+      </p>
+      <p>
+        Why publish at all: deadlines make Host claims falsifiable so the engine can score
+        calibration honesty. Accuracy % waits until assessable n ≥ 5.
       </p>
     </div>
 
     <div class="stats-row">
       <div class="stat-pill">
-        <div class="label">Total</div>
-        <div class="value">{stats.total}</div>
-        <div class="note">formal predictions</div>
+        <div class="label">Detail cards</div>
+        <div class="value">{stats.cards}</div>
+        <div class="note">on this page</div>
       </div>
       <div class="stat-pill">
         <div class="label">Pending</div>
         <div class="value value-amber">{stats.pending}</div>
-        <div class="note">awaiting outcome</div>
-      </div>
-      <div class="stat-pill">
-        <div class="label">Confirmed</div>
-        <div class="value value-green">{stats.confirmed}</div>
-        <div class="note">&nbsp;</div>
+        <div class="note">awaiting close</div>
       </div>
       <div class="stat-pill">
         <div class="label">Refuted</div>
-        <div class="value value-muted">{stats.refuted}</div>
-        <div class="note">&nbsp;</div>
+        <div class="value value-error">{stats.refuted}</div>
+        <div class="note">FALSE on Track Record</div>
       </div>
       <div class="stat-pill">
-        <div class="label">Max Gap Score</div>
-        <div class="value">{stats.maxGapScore.toFixed(1)}</div>
-        <div class="note">FED / LIBOR</div>
+        <div class="label">Void</div>
+        <div class="value value-muted">{stats.voided}</div>
+        <div class="note">unresolvable as written</div>
       </div>
       <div class="stat-pill">
-        <div class="label">Markets Covered</div>
-        <div class="value value-t1">3</div>
-        <div class="note">US rates · India derivatives</div>
+        <div class="label">Host register</div>
+        <div class="value">{sb.n_total}</div>
+        <div class="note">
+          <a href={`${base}track-record/`}>See Track Record</a>
+        </div>
       </div>
     </div>
 
-    <div class="section-title">Active Predictions</div>
+    <div class="section-title">Claim cards</div>
 
     <div class="predictions-carousel">
       <div class="carousel-track" id="predictionsTrack">
-        {predictions.map((p) => (
-          <div class="carousel-slide">
-            <PredictionCard {...p.data} />
-          </div>
-        ))}
+        {
+          predictions.map((p) => (
+            <div class="carousel-slide">
+              <PredictionCard {...p.data} />
+            </div>
+          ))
+        }
       </div>
       <div class="carousel-controls">
-        <button class="carousel-arrow" id="predPrev" aria-label="Previous prediction" type="button">←</button>
+        <button class="carousel-arrow" id="predPrev" aria-label="Previous prediction" type="button"
+          >←</button
+        >
         <div class="carousel-dots" id="predDots">
-          {predictions.map((_, i) => (
-            <button class="carousel-dot" aria-label={`Go to prediction ${i + 1}`} type="button" />
-          ))}
+          {
+            predictions.map((_, i) => (
+              <button class="carousel-dot" aria-label={`Go to prediction ${i + 1}`} type="button" />
+            ))
+          }
         </div>
-        <button class="carousel-arrow" id="predNext" aria-label="Next prediction" type="button">→</button>
+        <button class="carousel-arrow" id="predNext" aria-label="Next prediction" type="button"
+          >→</button
+        >
       </div>
     </div>
 
     <div class="method-block">
-      <h3>Methodology</h3>
-      <div class="method-beats">
-        <div class="method-beat">
-          <span class="beat-marker">01</span>
-          <p>
-            <strong>What is a structural prediction?</strong>
-            A structural prediction identifies a gap between what a market structure currently prices
-            and what the underlying settlement mechanics require. It is not a price call. It is a
-            claim that a specific structural fragility exists and will manifest during stress. The
-            engine surfaces these via <code>liquidity_gap_detector.py</code>, which computes
-            gap_ratio = notional exposure / daily settlement volume.
-          </p>
-        </div>
-        <div class="method-beat">
-          <span class="beat-marker">02</span>
-          <p>
-            <strong>Logging protocol</strong>
-            Each prediction is written to <code>predictions/predictions.json</code> before any public
-            statement is made. The engine state at that moment is committed to Base mainnet via the
-            GeniusFlow Settlement Contract. The on-chain block timestamp is the proof of priority: the
-            prediction existed before the outcome was observable.
-          </p>
-        </div>
-        <div class="method-beat">
-          <span class="beat-marker">03</span>
-          <p>
-            <strong>Falsifiability requirement</strong>
-            Every entry must include an explicit falsifiable condition: a specific observable event
-            that would either confirm or refute the prediction. Entries without a falsifiable
-            condition are not logged. The prediction window is open-ended for structural predictions
-            (no arbitrary 30-day cutoff, since these gaps can persist for years before resolution).
-          </p>
-        </div>
-        <div class="method-beat">
-          <span class="beat-marker">04</span>
-          <p>
-            <strong>Gap score</strong>
-            Normalized 0-10 scale. 10.0 is the maximum, assigned when gap_ratio exceeds 100:1 and
-            settlement_leverage_normalized exceeds 8×. LIBOR_EQUIVALENT is the first prediction logged
-            at maximum score. The score is derived from: <code>E = ΔI / A</code> (Kirandeep's Law of
-            Emergence). <em>ΔI</em> = information differential between observable rate and implied
-            settlement rate. <em>A</em> = action cost to correct (proxied by regulatory response lag).
-          </p>
-        </div>
-        <div class="method-beat">
-          <span class="beat-marker">05</span>
-          <p>
-            <strong>Relationship to Track Record</strong>
-            The <a href={`${import.meta.env.BASE_URL}track-record/`}>Track Record page</a> shows entity-level
-            Φ_S (settlement pressure) readings. Predictions here are gap-level: they name a structural
-            fragility in the global settlement layer, not an entity's pressure reading on a given day.
-            They are the engine's highest-conviction, lowest-frequency outputs.
-          </p>
-        </div>
+      <h3>How this relates to Track Record</h3>
+      <p>
+        These cards are gap-level claim prose with on-chain commit timestamps. The
+        <a href={`${base}track-record/`}>Track Record</a> page is the scored Host register:
+        deadlines, TRUE/FALSE/VOID/PARTIAL outcomes, thin-n accuracy rules, and live engine
+        SoT (PT, κ, M1) labeled separately from prediction outcomes.
+      </p>
+      <p>
+        FALSE means the claim failed its resolution criteria by deadline. VOID means the
+        claim could not be scored as written. See Track Record for the three resolved Host
+        closes and the full open count.
+      </p>
+    </div>
+
+    <div class="sources-panel">
+      <div class="section-label">Sources &amp; human pages</div>
+      <div class="sources-list">
+        <a href={`${base}track-record/`}>Track Record · scored Host register</a>
+        <a href={`${base}track-record/#INDIA_BANKNIFTY_001`}>BankNifty outcome (FALSE)</a>
+        <a href={`${base}track-record/#FED_EXTRACTION_001`}>Fed extraction outcome (VOID)</a>
+        <a href={`${base}track-record/#PHYSICS_T_A_DOLLAR_001`}>Physics T_A→$ outcome (PARTIAL)</a>
+        <a href={`${base}METHODOLOGY.md`}>Methodology</a>
+        <a href={`${base}onchain/`}>On-chain proof index</a>
       </div>
+    </div>
+
+    <div class="for-agents">
+      <details>
+        <summary>For agents (machine JSON)</summary>
+        <div class="agent-body">
+          <p>Prefer human pages above. Machine endpoints are secondary.</p>
+          <ul>
+            <li>
+              Cards API: <a href={`${base}api/predictions.json`}>api/predictions.json</a>
+            </li>
+            <li>
+              Scoreboard SoT:{' '}
+              <a href={`${base}field-state.json`}>field-state.json</a> → predictions_scoreboard
+            </li>
+          </ul>
+        </div>
+      </details>
     </div>
   </div>
 
-  <Footer variant="minimal" note="Predictions are logged before outcomes are known. This is not financial advice." />
+  <Footer
+    variant="minimal"
+    note="Claim cards are logged before outcomes are known. Scored register: Track Record. Not financial advice."
+  />
 
   <script>
     import { initCarousel } from '../../scripts/carousel';
@@ -453,5 +508,19 @@ const stats = {
       nextSelector: '#predNext',
       dotsSelector: '#predDots',
     });
+
+    // Deep-link: /predictions/#INDIA_BANKNIFTY_001 scrolls that card into the carousel.
+    const hash = window.location.hash.replace(/^#/, '');
+    if (hash) {
+      const el = document.getElementById(hash);
+      if (el) {
+        const slide = el.closest('.carousel-slide');
+        const track = document.querySelector('#predictionsTrack');
+        if (slide instanceof HTMLElement && track instanceof HTMLElement) {
+          track.scrollLeft = slide.offsetLeft;
+        }
+        el.scrollIntoView({ block: 'nearest' });
+      }
+    }
   </script>
 </Layout>

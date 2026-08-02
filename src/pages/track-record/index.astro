@@ -3,6 +3,11 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { loadSot, formatNum, ptSparklinePoints } from '../../lib/sot';
+import {
+  PREDICTION_OUTCOMES,
+  outcomeKind,
+  outcomeLabel,
+} from '../../lib/predictionOutcomes';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -38,15 +43,30 @@ const seriesStart = series[0]?.t_close?.slice?.(0, 10) || '';
 const seriesEnd = series[series.length - 1]?.t_close?.slice?.(0, 10) || '';
 
 function fmtUtc(iso: string | null | undefined): string {
-  if (!iso) return '—';
+  if (!iso) return 'n/a';
   const d = new Date(iso);
-  return Number.isNaN(d.getTime()) ? iso : d.toISOString().replace('T', ' ').replace(/\.\d+Z$/, ' UTC');
+  return Number.isNaN(d.getTime())
+    ? iso
+    : d.toISOString().replace('T', ' ').replace(/\.\d+Z$/, ' UTC');
 }
+
+function resolveHref(pathOrUrl: string | undefined): string | null {
+  if (!pathOrUrl) return null;
+  if (pathOrUrl.startsWith('http')) return pathOrUrl;
+  return `${base}${pathOrUrl.replace(/^\//, '')}`;
+}
+
+const resolvedRows = (sb.resolved || []).map((row) => {
+  const id = row.prediction_id || '';
+  const meta = PREDICTION_OUTCOMES[id];
+  const kind = outcomeKind(row);
+  return { row, id, meta, kind, label: outcomeLabel(kind) };
+});
 ---
 
 <Layout
-  title="Prediction Track Record — Eigenstate Research"
-  description="Verifiable measurement track record from engine SoT: M1 coverage, Protocol Truth, κ, and honest assessable claim counts. E = ΔI/A."
+  title="Host Claim Register · Eigenstate Research"
+  description="Verifiable Host prediction register: scored claims with deadlines, honest assessable counts, and live engine SoT. Public falsifiability, not marketing accuracy."
   fonts={fonts}
 >
   <Fragment slot="head">
@@ -72,9 +92,9 @@ function fmtUtc(iso: string | null | undefined): string {
       }
 
       .container {
-        max-width: 1200px;
+        max-width: 1100px;
         margin: 0 auto;
-        padding: 60px 40px;
+        padding: 56px 40px 60px;
       }
 
       @media (width <= 640px) {
@@ -87,7 +107,7 @@ function fmtUtc(iso: string | null | undefined): string {
         font-family: var(--font-mono);
         font-size: var(--text-xs);
         font-weight: 600;
-        letter-spacing: 0.25em;
+        letter-spacing: 0.2em;
         color: var(--signal);
         text-transform: uppercase;
         margin-bottom: 12px;
@@ -95,10 +115,10 @@ function fmtUtc(iso: string | null | undefined): string {
 
       .page-title {
         font-family: var(--font-heading);
-        font-size: clamp(24px, 3vw, 36px);
+        font-size: clamp(26px, 3.2vw, 40px);
         font-weight: 800;
-        letter-spacing: 0.08em;
-        margin-bottom: 8px;
+        letter-spacing: 0.04em;
+        margin-bottom: 12px;
       }
 
       .page-sub {
@@ -106,226 +126,229 @@ function fmtUtc(iso: string | null | undefined): string {
         font-size: var(--text-base);
         margin-bottom: 28px;
         max-width: 720px;
-        line-height: 1.6;
-      }
-
-      .sot-banner {
-        background: rgb(47 90 99 / 8%);
-        border: 1px solid var(--border-strong);
-        border-left: 3px solid var(--signal);
-        border-radius: var(--radius-md);
-        padding: 16px 20px;
-        margin-bottom: 36px;
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
         line-height: 1.65;
       }
 
-      .sot-banner strong {
-        color: var(--text-primary);
+      .panel {
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 20px 22px;
+        margin-bottom: 20px;
+        background: var(--bg-card, transparent);
       }
 
-      .sot-banner a {
-        color: var(--signal);
-        text-decoration: none;
+      .panel.explain {
+        border-color: rgb(47 90 99 / 30%);
+        background: rgb(47 90 99 / 6%);
       }
 
-      .sot-banner a:hover {
-        text-decoration: underline;
+      .panel.engine {
+        border-color: var(--border);
+        background: transparent;
       }
 
-      .sot-stamp {
+      .panel-title {
         font-family: var(--font-mono);
         font-size: var(--text-xs);
-        color: var(--text-muted);
-        margin-top: 8px;
-      }
-
-      .stats-instrument {
-        padding: 4px;
-        margin-bottom: 48px;
-      }
-
-      .stats-hero-row {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 16px;
-        margin-bottom: 16px;
-      }
-
-      @media (width <= 760px) {
-        .stats-hero-row {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .stat-hero,
-      .stat-chart {
-        background: var(--bg-card);
-        border: 1px solid var(--border-strong);
-        border-radius: var(--radius-lg);
-        padding: 28px 32px;
-      }
-
-      @media (width <= 480px) {
-        .stat-hero,
-        .stat-chart {
-          padding: 20px;
-        }
-      }
-
-      .stat-hero-label,
-      .stat-chart-label {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        letter-spacing: 0.08em;
-        color: var(--text-muted);
+        letter-spacing: 0.1em;
         text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 12px;
+      }
+
+      .panel p,
+      .readout p {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.65;
         margin-bottom: 10px;
       }
 
-      .stat-hero-value {
-        font-family: var(--font-heading);
-        font-size: var(--text-4xl);
-        font-weight: 700;
-        line-height: 1;
+      .panel p:last-child,
+      .readout p:last-child {
+        margin-bottom: 0;
+      }
+
+      .panel strong {
         color: var(--text-primary);
+        font-weight: 600;
       }
 
-      .stat-hero-value.thin {
-        color: var(--status-warning);
-        font-size: var(--text-3xl);
-      }
-
-      .stat-chart-value {
-        font-family: var(--font-heading);
-        font-size: var(--text-2xl);
-        font-weight: 700;
-        color: var(--signal);
-      }
-
-      .stat-hero-note,
-      .stat-chart-note {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-        margin-top: 8px;
-      }
-
-      .pt-sparkline {
-        display: block;
-        width: 100%;
-        height: auto;
-        margin-top: 12px;
-      }
-
-      .stats-secondary {
+      .readout {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: 1fr 1fr;
         gap: 16px;
+        margin-bottom: 28px;
       }
 
-      @media (width <= 900px) {
-        .stats-secondary {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (width <= 560px) {
-        .stats-secondary {
+      @media (width <= 720px) {
+        .readout {
           grid-template-columns: 1fr;
         }
       }
 
-      .stat-card-sm {
-        background: var(--bg-card);
+      .readout-card {
         border: 1px solid var(--border);
         border-radius: var(--radius-md);
         padding: 18px 20px;
+        background: var(--bg-card);
       }
 
-      .stat-label {
+      .readout-card h3 {
+        font-family: var(--font-heading);
+        font-size: var(--text-sm);
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text-primary);
+        margin-bottom: 10px;
+      }
+
+      .outcome-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .outcome-list li {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.55;
+      }
+
+      .outcome-list strong {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.04em;
+        color: var(--text-primary);
+      }
+
+      .metrics-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px 32px;
+      }
+
+      .metric {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        min-width: 100px;
+      }
+
+      .metric-label {
         font-family: var(--font-mono);
         font-size: var(--text-xs);
         letter-spacing: 0.08em;
         color: var(--text-muted);
         text-transform: uppercase;
-        margin-bottom: 8px;
       }
 
-      .stat-value {
+      .metric-value {
         font-family: var(--font-heading);
         font-size: var(--text-lg);
         font-weight: 700;
         color: var(--text-primary);
       }
 
-      .stat-note {
+      .metric-value.cyan {
+        color: var(--signal);
+      }
+
+      .metric-value.thin {
+        color: var(--status-warning);
+      }
+
+      .metric-note {
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+      }
+
+      .panel-note {
         font-size: var(--text-sm);
         color: var(--text-secondary);
-        margin-top: 6px;
+        line-height: 1.55;
+        margin-top: 14px;
+      }
+
+      .hero-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 20px;
+        margin-top: 14px;
+      }
+
+      .hero-links a,
+      .inline-link {
+        color: var(--signal);
+        text-decoration: none;
+        font-size: var(--text-sm);
+      }
+
+      .hero-links a:hover,
+      .inline-link:hover {
+        text-decoration: underline;
+      }
+
+      .pt-sparkline {
+        display: block;
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        margin-top: 10px;
+      }
+
+      .sot-stamp {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        margin-top: 10px;
       }
 
       .section-title {
         font-family: var(--font-heading);
         font-size: var(--text-base);
         font-weight: 700;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.08em;
         color: var(--text-secondary);
         text-transform: uppercase;
-        margin-bottom: 20px;
-        margin-top: 48px;
+        margin: 40px 0 16px;
       }
 
-      .table-wrap {
-        overflow-x: auto;
+      .claim-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .claim-card {
         border: 1px solid var(--border-strong);
         border-radius: var(--radius-lg);
+        padding: 20px 22px;
+        background: var(--bg-card);
       }
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: var(--text-sm);
+      .claim-top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px 14px;
+        margin-bottom: 10px;
       }
 
-      thead tr {
-        background: var(--bg2);
+      .claim-title {
+        font-family: var(--font-heading);
+        font-size: var(--text-base);
+        font-weight: 700;
+        color: var(--text-primary);
+        flex: 1 1 220px;
       }
 
-      th {
+      .claim-id {
         font-family: var(--font-mono);
         font-size: var(--text-xs);
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
         color: var(--text-muted);
-        padding: 14px 16px;
-        text-align: left;
-        border-bottom: 1px solid var(--border-live);
-        white-space: nowrap;
-      }
-
-      td {
-        padding: 14px 16px;
-        border-bottom: 1px solid var(--border);
-        vertical-align: middle;
-      }
-
-      tr:last-child td {
-        border-bottom: none;
-      }
-
-      tbody tr:nth-child(even) td {
-        background: rgb(0 0 0 / 3%);
-      }
-
-      .cell-mono {
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-      }
-
-      .cell-id {
-        font-weight: 500;
       }
 
       .status {
@@ -360,41 +383,91 @@ function fmtUtc(iso: string | null | undefined): string {
         color: var(--text-muted);
       }
 
+      .status-partial {
+        color: var(--status-warning);
+      }
+
+      .claim-meta {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        margin-bottom: 10px;
+      }
+
+      .claim-body {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.65;
+        margin-bottom: 8px;
+      }
+
+      .claim-why {
+        font-size: var(--text-sm);
+        color: var(--text-primary);
+        line-height: 1.65;
+        margin-top: 8px;
+      }
+
+      .claim-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+        margin-top: 12px;
+      }
+
       .empty-note {
         padding: 28px;
         font-family: var(--font-mono);
         font-size: var(--text-sm);
         color: var(--text-muted);
         text-align: center;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+      }
+
+      .open-summary {
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 20px 22px;
+        background: var(--bg-card);
+      }
+
+      .open-summary .big {
+        font-family: var(--font-heading);
+        font-size: var(--text-2xl);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 6px;
       }
 
       .method-block {
         background: var(--bg-card);
         border: 1px solid var(--border);
         border-radius: var(--radius-lg);
-        padding: 32px;
-        margin-top: 48px;
+        padding: 28px;
+        margin-top: 8px;
       }
 
       .method-block h3 {
         font-family: var(--font-heading);
-        font-size: var(--text-base);
+        font-size: var(--text-sm);
         font-weight: 700;
         letter-spacing: 0.08em;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         color: var(--text-secondary);
+        text-transform: uppercase;
       }
 
       .method-beats {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 16px;
       }
 
       .method-beat {
         display: grid;
         grid-template-columns: 32px 1fr;
-        gap: 16px;
+        gap: 14px;
         align-items: start;
       }
 
@@ -408,60 +481,85 @@ function fmtUtc(iso: string | null | undefined): string {
       }
 
       .method-block p {
-        font-size: var(--text-base);
+        font-size: var(--text-sm);
         color: var(--text-secondary);
         line-height: 1.7;
       }
 
       .method-block code {
         font-family: var(--font-mono);
-        font-size: var(--text-base);
+        font-size: var(--text-sm);
         color: var(--signal);
         background: rgb(47 90 99 / 8%);
         padding: 2px 6px;
         border-radius: var(--radius-sm);
       }
 
-      .verify-strip {
-        background: rgb(47 90 99 / 6%);
-        border: 1px solid var(--border-strong);
-        border-radius: var(--radius-lg);
-        padding: 20px 24px;
-        margin-top: 32px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 24px;
-        align-items: center;
+      .sources-panel,
+      .for-agents {
+        margin-top: 36px;
       }
 
-      .verify-item {
+      .section-label {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 14px;
+      }
+
+      .sources-list {
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: 8px;
       }
 
-      .verify-label {
+      .sources-list a {
+        color: var(--signal);
+        text-decoration: none;
+        font-size: var(--text-sm);
+      }
+
+      .sources-list a:hover {
+        text-decoration: underline;
+      }
+
+      .for-agents details {
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 12px 16px;
+        color: var(--text-muted);
+        font-size: var(--text-sm);
+      }
+
+      .for-agents summary {
+        cursor: pointer;
         font-family: var(--font-mono);
         font-size: var(--text-xs);
         letter-spacing: 0.08em;
-        color: var(--text-muted);
         text-transform: uppercase;
+        color: var(--text-muted);
       }
 
-      .verify-value {
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
+      .agent-body {
+        margin-top: 14px;
+        color: var(--text-secondary);
+        line-height: 1.65;
+      }
+
+      .agent-body ul {
+        margin: 8px 0 0 18px;
+      }
+
+      .agent-body a {
         color: var(--signal);
         word-break: break-all;
       }
 
-      .verify-value a {
-        color: var(--signal);
-        text-decoration: none;
-      }
-
-      .verify-value a:hover {
-        text-decoration: underline;
+      .agent-body code {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
       }
     </style>
   </Fragment>
@@ -469,212 +567,287 @@ function fmtUtc(iso: string | null | undefined): string {
   <Nav active="track-record" />
 
   <div class="container" id="main">
-    <div class="eyebrow">EIGENSTATE RESEARCH · VERIFIABLE TRACK RECORD</div>
-    <h1 class="page-title">PREDICTION TRACK RECORD</h1>
+    <div class="eyebrow">Eigenstate Research · Host claim register</div>
+    <h1 class="page-title">Prediction track record</h1>
     <p class="page-sub">
-      Live field metrics and scored Host claims, rebuilt from engine SoT at bake time — not a frozen
-      April 2026 HTML snapshot.
+      Verifiable Host claims with deadlines, scored when the window closes. This page is a
+      public falsifiability register for Protocol Truth honesty, not a finished accuracy
+      brochure.
     </p>
 
-    <aside class="sot-banner" aria-label="Source of truth">
-      <strong>SoT (source of truth)</strong> for these numbers is the GeniusFlow engine measurement
-      state: <code>HOST/state.json</code> (κ, Protocol Truth, parkash stamps) and the M1 coverage
-      ledger (strict observations ∩ topology / 199). Pages copies a stamp into
-      <code>public/field-state.json</code> on deploy.
-      <a href={`${base}METHODOLOGY.md#numbers-glossary`}>What do these numbers mean? → Methodology</a>
+    <div class="panel explain">
+      <div class="panel-title">Why this page exists</div>
+      <p>
+        Predictions are <strong>Host claims with deadlines</strong> so the engine can score
+        calibration and Protocol Truth honesty. Publishing them makes the board falsifiable
+        in public. Most rows are still open: {sb.n_open} of {sb.n_total} Host predictions
+        have not resolved yet. The board is a <strong>register</strong>, not a completed
+        track record.
+      </p>
+      <p>
+        Accuracy percent is gated at assessable n ≥ 5 so a thin sample cannot fake 100%.
+        Right now: {accuracyNote}.
+      </p>
+    </div>
+
+    <div class="readout">
+      <div class="readout-card">
+        <h3>How to read outcomes</h3>
+        <ul class="outcome-list">
+          <li>
+            <strong>FALSE</strong>
+            The claim failed its resolution criteria by the deadline. No spin.
+          </li>
+          <li>
+            <strong>VOID</strong>
+            The claim could not be scored as written (broken presupposition or unresolvable
+            leg). Excluded from assessable TRUE/FALSE n.
+          </li>
+          <li>
+            <strong>PARTIAL</strong>
+            At least one leg resolved and at least one leg remains open or untestable. Not
+            a single TRUE/FALSE; excluded from assessable n.
+          </li>
+          <li>
+            <strong>OPEN</strong>
+            Deadline has not produced a Host-executed close yet.
+          </li>
+        </ul>
+      </div>
+      <div class="readout-card">
+        <h3>Assessable scoreboard</h3>
+        <div class="metrics-row" style="margin-bottom: 12px;">
+          <div class="metric">
+            <div class="metric-label">Assessable</div>
+            <div class={`metric-value ${sb.accuracy_pct == null ? 'thin' : ''}`}>{accuracyLabel}</div>
+            <div class="metric-note">{accuracyNote}</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Host register</div>
+            <div class="metric-value">{sb.n_total}</div>
+            <div class="metric-note">{sb.n_open} open · {sb.n_resolved} resolved</div>
+          </div>
+        </div>
+        <p>
+          Assessable means resolved with a TRUE or FALSE outcome only. VOID and PARTIAL do
+          not enter the percentage numerator or denominator.
+        </p>
+      </div>
+    </div>
+
+    <aside class="panel engine" aria-label="Engine state at stamp">
+      <div class="panel-title">Engine state at stamp (not prediction outcomes)</div>
+      <div class="metrics-row">
+        <div class="metric">
+          <div class="metric-label">Protocol Truth</div>
+          <div class="metric-value cyan">{formatNum(pt, 4)}</div>
+          <div class="metric-note">act threshold {formatNum(field.canonical_act_threshold, 3)}</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Coherence (κ)</div>
+          <div class="metric-value">{formatNum(kappa, 4)}</div>
+          <div class="metric-note">HOST κ at last stamp</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">M1 coverage</div>
+          <div class="metric-value cyan">{cov.headline}</div>
+          <div class="metric-note">{cov.m1_strict_pct}% · m1_strict ledger</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">M1 confirmed</div>
+          <div class="metric-value">{cov.m1_confirmed_n} / {cov.m1_denominator}</div>
+          <div class="metric-note">confirmed subset of strict</div>
+        </div>
+      </div>
+      {
+        spark.points ? (
+          <svg width="300" height="60" viewBox="0 0 300 60" class="pt-sparkline" aria-label="PT series">
+            <polyline
+              points={spark.points}
+              fill="none"
+              stroke="#2f5a63"
+              stroke-width="1.5"
+              stroke-linejoin="round"
+              opacity="0.8"
+            ></polyline>
+            {seriesStart && (
+              <text x="2" y="58" font-size="9" fill="#71717a" font-family="JetBrains Mono">
+                {seriesStart}
+              </text>
+            )}
+            {seriesEnd && (
+              <text
+                x="298"
+                y="58"
+                font-size="9"
+                fill="#71717a"
+                font-family="JetBrains Mono"
+                text-anchor="end"
+              >
+                {seriesEnd}
+              </text>
+            )}
+          </svg>
+        ) : null
+      }
+      <p class="panel-note">
+        These tiles are live field metrics from the GeniusFlow engine stamp
+        (<code>public/field-state.json</code>). They describe measurement state at parkash,
+        not whether a Host claim hit or missed.
+      </p>
+      <div class="hero-links">
+        <a href={`${base}METHODOLOGY.md#numbers-glossary`}>Numbers glossary</a>
+        <a href={`${base}METHODOLOGY.md`}>Methodology</a>
+        <a href={`${base}predictions/`}>Claim detail cards</a>
+      </div>
       <div class="sot-stamp">
         Stamp {fmtUtc(generatedAt)} · last parkash {fmtUtc(parkashAt)}
       </div>
     </aside>
 
-    <div class="stats-instrument bracket">
-      <div class="stats-hero-row">
-        <div class="stat-hero">
-          <div class="stat-hero-label">Assessable accuracy</div>
-          <div class={`stat-hero-value ${sb.accuracy_pct == null ? 'thin' : ''}`}>{accuracyLabel}</div>
-          <div class="stat-hero-note">{accuracyNote}</div>
-        </div>
-        <div class="stat-chart">
-          <div class="stat-chart-label">Protocol Truth (PT)</div>
-          <div class="stat-chart-value">{formatNum(pt, 4)}</div>
-          <div class="stat-chart-note">
-            From HOST SoT · act threshold {formatNum(field.canonical_act_threshold, 3)}
-          </div>
-          {
-            spark.points ? (
-              <svg width="300" height="60" viewBox="0 0 300 60" class="pt-sparkline" aria-label="PT series">
-                <polyline
-                  points={spark.points}
-                  fill="none"
-                  stroke="#2f5a63"
-                  stroke-width="1.5"
-                  stroke-linejoin="round"
-                  opacity="0.8"
-                ></polyline>
-                {seriesStart && (
-                  <text x="2" y="58" font-size="9" fill="#71717a" font-family="JetBrains Mono">
-                    {seriesStart}
-                  </text>
-                )}
-                {seriesEnd && (
-                  <text
-                    x="298"
-                    y="58"
-                    font-size="9"
-                    fill="#71717a"
-                    font-family="JetBrains Mono"
-                    text-anchor="end"
-                  >
-                    {seriesEnd}
-                  </text>
-                )}
-              </svg>
-            ) : (
-              <p class="stat-chart-note">No cycle_history series in this stamp.</p>
-            )
-          }
-        </div>
-      </div>
-
-      <div class="stats-secondary">
-        <div class="stat-card-sm">
-          <div class="stat-label">M1 coverage</div>
-          <div class="stat-value">{cov.headline}</div>
-          <div class="stat-note">{cov.m1_strict_pct}% · m1_strict ledger</div>
-        </div>
-        <div class="stat-card-sm">
-          <div class="stat-label">Coherence (κ)</div>
-          <div class="stat-value">{formatNum(kappa, 4)}</div>
-          <div class="stat-note">HOST κ at last stamp</div>
-        </div>
-        <div class="stat-card-sm">
-          <div class="stat-label">Host predictions</div>
-          <div class="stat-value">{sb.n_total}</div>
-          <div class="stat-note">{sb.n_open} open · {sb.n_resolved} resolved</div>
-        </div>
-        <div class="stat-card-sm">
-          <div class="stat-label">M1 confirmed</div>
-          <div class="stat-value">{cov.m1_confirmed_n} / {cov.m1_denominator}</div>
-          <div class="stat-note">confirmed subset of strict coverage</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-title">Resolved Host claims (SoT scoreboard)</div>
-    <div class="table-wrap bracket">
+    <div class="section-title" id="resolved">Resolved claims</div>
+    <div class="claim-list">
       {
-        sb.resolved && sb.resolved.length > 0 ? (
-          <table>
-            <thead>
-              <tr>
-                <th>Prediction</th>
-                <th>Deadline</th>
-                <th>Outcome</th>
-                <th>Calibration weight</th>
-                <th>Resolved</th>
-              </tr>
-            </thead>
-            <tbody>
-              {sb.resolved.map((row) => {
-                const outcome = (row.outcome || '').toUpperCase();
-                const statusClass =
-                  outcome === 'TRUE'
-                    ? 'status-true'
-                    : outcome === 'FALSE'
-                      ? 'status-false'
-                      : 'status-void';
-                return (
-                  <tr>
-                    <td class="cell-id">{row.prediction_id}</td>
-                    <td class="cell-mono">{row.deadline || '—'}</td>
-                    <td>
-                      <span class={`status ${statusClass}`}>{outcome || row.status}</span>
-                    </td>
-                    <td class="cell-mono">{row.calibration_weight ?? '—'}</td>
-                    <td class="cell-mono">{row.resolved_at ? String(row.resolved_at).slice(0, 10) : '—'}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+        resolvedRows.length > 0 ? (
+          resolvedRows.map(({ row, id, meta, kind, label }) => {
+            const statusClass =
+              kind === 'TRUE'
+                ? 'status-true'
+                : kind === 'FALSE'
+                  ? 'status-false'
+                  : kind === 'RESOLVED_PARTIAL'
+                    ? 'status-partial'
+                    : 'status-void';
+            const detail = resolveHref(meta?.detailHref);
+            return (
+              <article class="claim-card" id={id}>
+                <div class="claim-top">
+                  <h2 class="claim-title">{meta?.title || id}</h2>
+                  <span class={`status ${statusClass}`}>{label}</span>
+                </div>
+                <div class="claim-id">{id}</div>
+                <div class="claim-meta">
+                  Deadline {row.deadline || 'n/a'}
+                  {' · '}
+                  Resolved {row.resolved_at ? String(row.resolved_at).slice(0, 10) : 'n/a'}
+                  {' · '}
+                  Calibration weight {row.calibration_weight ?? 'n/a'}
+                </div>
+                {meta?.claim && <p class="claim-body">{meta.claim}</p>}
+                {meta?.why ? (
+                  <p class="claim-why">{meta.why}</p>
+                ) : (
+                  <p class="claim-why">
+                    Outcome recorded in SoT scoreboard. See Host prediction register for the
+                    resolution record.
+                  </p>
+                )}
+                <div class="claim-links">
+                  {detail && <a class="inline-link" href={detail}>Claim detail</a>}
+                  {(meta?.evidence || []).map((e) => (
+                    <a class="inline-link" href={e.href} target="_blank" rel="noopener noreferrer">
+                      {e.label}
+                    </a>
+                  ))}
+                </div>
+              </article>
+            );
+          })
         ) : (
           <p class="empty-note">No resolved Host claims in this SoT stamp.</p>
         )
       }
     </div>
-    <p class="stat-note" style="margin-top: 12px;">
-      {sb.note} On-chain gap predictions (separate surface):{' '}
-      <a href={`${base}predictions/`} style="color: var(--signal);">Predictions</a>.
-      INFRA_FLOW / cumulative volume is <em>not</em> Φ_S — prior track-record rows that placed volume
-      in the Φ_S column were retired with this rebuild.
-    </p>
 
-    <div class="method-block">
-      <h3>METHODOLOGY</h3>
-      <p class="stat-note" style="margin-bottom: 16px;">
-        <a href={`${base}METHODOLOGY.md#numbers-glossary`} style="color: var(--signal);">What do these numbers mean? → Methodology</a>
+    <div class="section-title" id="open">Open claims</div>
+    <div class="open-summary">
+      <div class="big">{sb.n_open} open</div>
+      <p class="claim-body">
+        Of {sb.n_total} Host predictions in the register, {sb.n_open} remain open and
+        {` ${sb.n_resolved} `}have a Host-executed close (including VOID and PARTIAL). Early
+        gap-prediction claim cards (human prose + on-chain commit) live on the
+        <a class="inline-link" href={`${base}predictions/`}> Predictions</a> page. The full
+        scored register is this Track Record surface, rebuilt from engine SoT.
       </p>
+    </div>
+
+    <div class="section-title">Why we publish predictions</div>
+    <div class="method-block">
+      <h3>Method (scoreboard rules)</h3>
       <div class="method-beats">
         <div class="method-beat">
           <span class="beat-marker">01</span>
           <p>
-            <strong>Φ_S (settlement pressure)</strong> is the engine's primary entity signal — unrealized
-            settlement energy at entity granularity. Derivation: <code>E = ΔI / A</code>. Volume /
-            INFRA_FLOW totals are a different unit and must not be shown as Φ_S without an explicit
-            volume label.
+            <strong>Falsifiability first.</strong> Each Host claim names an observable
+            condition and a deadline. The point is calibration honesty for Protocol Truth,
+            not marketing win-rate theater.
           </p>
         </div>
         <div class="method-beat">
           <span class="beat-marker">02</span>
           <p>
-            <strong>M1 coverage</strong> counts entities with at least one <code>m1_strict</code> ledger
-            observation, filtered to topology, over denominator <strong>199</strong>. Forbidden stale
-            denoms (196/197/…) are never used.
+            <strong>Thin-n gate.</strong> Accuracy % appears only when assessable n ≥ 5
+            (TRUE/FALSE only; VOID excluded). Below that threshold we show raw counts so a
+            sample of one cannot read as 0% or 100% certainty.
           </p>
         </div>
         <div class="method-beat">
           <span class="beat-marker">03</span>
           <p>
-            <strong>Accuracy</strong> uses Host prediction resolutions with TRUE/FALSE outcomes only
-            (VOID excluded). A percentage is shown only when assessable n ≥ 5 — thin samples stay as
-            raw n, not a fake 100%.
+            <strong>Register, not finished ledger.</strong> {sb.n_open} claims are still
+            open. Resolved rows here are Host-executed closes from the prediction register
+            stamped into <code>field-state.json</code>.
           </p>
         </div>
         <div class="method-beat">
           <span class="beat-marker">04</span>
           <p>
-            <strong>Report “vault@publish” badges</strong> count trimmed cycle-vault rows present when
-            that report was published — not lifetime M1 observations. See Signal Reports tooltips.
+            <strong>Field metrics are separate.</strong> PT, κ, and M1 coverage describe
+            engine measurement state. They are not prediction outcomes. Φ_S is settlement
+            pressure (E = ΔI / A), not INFRA_FLOW volume.
           </p>
         </div>
       </div>
     </div>
 
-    <div class="verify-strip">
-      <div class="verify-item">
-        <div class="verify-label">Settlement Contract</div>
-        <div class="verify-value">0x3A2d6599d5409c1A87609c38dB9b1619e47F6b02</div>
+    <div class="sources-panel">
+      <div class="section-label">Sources &amp; human pages</div>
+      <div class="sources-list">
+        <a href={`${base}predictions/`}>Predictions · claim detail cards</a>
+        <a href={`${base}METHODOLOGY.md#numbers-glossary`}>Numbers glossary</a>
+        <a href={`${base}METHODOLOGY.md`}>Full methodology</a>
+        <a href={`${base}onchain/`}>On-chain proof index</a>
+        <a href={`${base}verify-walkthrough/`}>Verify walkthrough</a>
+        <a href="https://www.federalreserve.gov/releases/h41/">Federal Reserve H.4.1</a>
+        <a href="https://www.nseindia.com/">NSE India</a>
+        <a href="https://www.sebi.gov.in/">SEBI</a>
       </div>
-      <div class="verify-item">
-        <div class="verify-label">Chain</div>
-        <div class="verify-value">Base Mainnet (8453)</div>
-      </div>
-      <div class="verify-item">
-        <div class="verify-label">On-Chain Commit</div>
-        <div class="verify-value"><a href={`${base}onchain/`}>On-Chain Proof Index</a></div>
-      </div>
-      <div class="verify-item">
-        <div class="verify-label">Methodology</div>
-        <div class="verify-value">
-          <a href={`${base}METHODOLOGY.md#numbers-glossary`}>What do these numbers mean?</a>
-          {' · '}
-          <a href={`${base}METHODOLOGY.md`}>Full methodology</a>
+    </div>
+
+    <div class="for-agents">
+      <details>
+        <summary>For agents (machine JSON)</summary>
+        <div class="agent-body">
+          <p>
+            Prefer human pages above. Machine mirrors are secondary for verification and
+            tooling.
+          </p>
+          <ul>
+            <li>
+              SoT stamp:{' '}
+              <a href={`${base}field-state.json`}><code>field-state.json</code></a>
+              {' '}→ <code>predictions_scoreboard</code>
+            </li>
+            <li>
+              Gap-prediction cards API:{' '}
+              <a href={`${base}api/predictions.json`}><code>api/predictions.json</code></a>
+            </li>
+            <li>
+              Settlement contract (Base): <code>0x3A2d6599d5409c1A87609c38dB9b1619e47F6b02</code>
+            </li>
+          </ul>
         </div>
-      </div>
-      <div class="verify-item">
-        <div class="verify-label">SoT stamp</div>
-        <div class="verify-value">{fmtUtc(generatedAt)}</div>
-      </div>
+      </details>
     </div>
   </div>
 
@@ -685,8 +858,6 @@ function fmtUtc(iso: string | null | undefined): string {
 
   <script>
     import { initReveal } from '../../scripts/reveal';
-    initReveal({ selector: '.stat-hero, .stat-chart' });
-    initReveal({ selector: '.stat-card-sm' });
-    initReveal({ selector: '.method-beat' });
+    initReveal({ selector: '.claim-card, .readout-card, .panel' });
   </script>
 </Layout>

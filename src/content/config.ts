@@ -17,7 +17,7 @@ const predictions = defineCollection({
   type: 'data',
   schema: z.object({
     id: z.string(),
-    status: z.enum(['pending', 'confirmed', 'refuted']),
+    status: z.enum(['pending', 'confirmed', 'refuted', 'void']),
     logged_at: z.string(),
     gap_id: z.string(),
     title: z.string(),
