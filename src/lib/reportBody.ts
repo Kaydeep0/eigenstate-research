@@ -8,7 +8,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const AGENT_BLOCK_RE =
-  /\n##\s+(?:Node\s+\d+\s*[—\-].*?agent billboard|For agents|Federation traverse \(agents\)|Federation cross-reference)\s*\n[\s\S]*?(?=\n---+\s*\n|\n##\s+(?!For agents)|$)/gi;
+  /\n##\s+(?:Node\s+\d+\s*(?:[—\-]|,\s*).*?agent billboard|For agents|Federation traverse \(agents\)|Federation cross-reference)\s*\n[\s\S]*?(?=\n---+\s*\n|\n##\s+(?!For agents)|$)/gi;
 
 /** Hero already shows live + publish snapshot metrics; drop body duplicate tables. */
 const KEY_METRICS_RE =
@@ -38,6 +38,7 @@ export function stripEmDashes(text: string): string {
     .replace(/\u2011/g, '-')
     .replace(/ -- /g, ', ')
     .replace(/ , /g, ', ')
+    .replace(/,\s{2,}/g, ', ')
     .replace(/,\s*,/g, ',')
     .replace(/\s+\./g, '.')
     .replace(/:\s*,/g, ':');
@@ -176,8 +177,13 @@ export function prepareReportBody(
   text = rewriteReportUrls(text, entityCode);
   text = stripDuplicateSnapshotTable(text);
   const { article, agent } = extractAgentBlocks(text);
+  // Template already renders a "For agents" section label; drop duplicate H2.
+  const agentClean = stripEmDashes(rewriteReportUrls(agent, entityCode)).replace(
+    /^##\s+(?:For agents|Node\s+\d+[\s\S]*?agent billboard)\s*\n+/i,
+    ''
+  );
   return {
     article: stripTrailingBoilerplate(renameReportSections(article)),
-    agent: stripEmDashes(rewriteReportUrls(agent, entityCode)),
+    agent: agentClean.trim(),
   };
 }
