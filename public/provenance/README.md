@@ -20,12 +20,19 @@ Files in `opentimestamps/`:
 ### Verify it yourself
 
 ```bash
-pipx install opentimestamps-client
+brew install opentimestamps-client
+# alternative: pipx install opentimestamps-client
 curl -sSO https://kaydeep0.github.io/eigenstate-research/provenance/opentimestamps/helix-head-917f0e3036931e14.txt
 curl -sSO https://kaydeep0.github.io/eigenstate-research/provenance/opentimestamps/helix-head-917f0e3036931e14.txt.ots
 ots upgrade helix-head-917f0e3036931e14.txt.ots   # pulls the Bitcoin attestation once mined
 ots verify helix-head-917f0e3036931e14.txt.ots
+# Until upgrade reports a Bitcoin attestation, this is a calendar promise only.
 ```
+
+On-disk mirrors of the same proof (Host upgrade from engine, then copy to Pages):
+
+- Engine: `~/Desktop/GENIUSFLOW_OS/workspace/geniusflow/data/attestation/opentimestamps/helix-head-917f0e3036931e14.txt.ots`
+- Pages: `~/GENIUSFLOW_OS/workspace/eigenstate-research/public/provenance/opentimestamps/helix-head-917f0e3036931e14.txt.ots`
 
 Then check the head is still the head:
 

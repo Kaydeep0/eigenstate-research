@@ -256,4 +256,4 @@ the public index cannot satisfy. Read it at
 [/slsa/](https://kaydeep0.github.io/eigenstate-research/slsa/). These counts describe one
 dependency set and are not a PyPI-wide rate.
 
-**Host-pending (not agent work):** MCP registry publish · A2A probe-receipt `gh` comments (bodies in private engine `docs/a2a_comments/`) · `ots upgrade` after Bitcoin confirm.
+**Host-pending (not agent work):** MCP registry publish (`io.github.Kaydeep0/geniusflow-federation`, case-sensitive) · `ots upgrade` after Bitcoin confirm (proof: `public/provenance/opentimestamps/helix-head-917f0e3036931e14.txt.ots`). **A2A day-5 probe-receipt comments: posted.**

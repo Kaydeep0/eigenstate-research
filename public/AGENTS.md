@@ -25,4 +25,4 @@ Topics: **mcp**, **rwa**, **attestation**.
 In-repo pointer: [`README.md`](README.md) § Appendix: For agents. MCP source mirror: [`mcp/`](mcp/).
 
 **Host ops:** after parkash, run `./scripts/refresh-public.sh` (needs `GENIUSFLOW_ROOT` + `GENIUSFLOW_BUILDER_DEPLOY=1`), then push Pages - do not hand-edit proof tiles.  
-**Host-pending membership clicks** (agents must not): MCP registry publish · A2A `gh` comments · `ots upgrade`. The registration miss rate is no longer a belief: cite the probe ledger in item 7, with its pinned block and digest, and nothing beyond it.
+**Host-pending membership clicks** (agents must not): MCP registry publish (`io.github.Kaydeep0/geniusflow-federation`) · `ots upgrade`. **A2A day-5 comments: posted.** The registration miss rate is no longer a belief: cite the probe ledger in item 7, with its pinned block and digest, and nothing beyond it.

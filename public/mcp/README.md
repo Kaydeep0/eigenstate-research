@@ -1,7 +1,7 @@
 # MCP server for the GeniusFlow federation
 
 Public source for the MCP server listed in the official registry as
-`io.github.kaydeep0/geniusflow-federation`. The engine repository is private, so this is
+`io.github.Kaydeep0/geniusflow-federation`. The engine repository is private, so this is
 the public home the registry entry points at.
 
 Two ways to connect. Both talk to the same public federation origin, and neither needs a
