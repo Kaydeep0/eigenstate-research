@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/Kaydeep0/eigenstate-research/actions/workflows/ci.yml/badge.svg)](https://github.com/Kaydeep0/eigenstate-research/actions/workflows/ci.yml)
 [![Deploy to GitHub Pages](https://github.com/Kaydeep0/eigenstate-research/actions/workflows/deploy.yml/badge.svg)](https://github.com/Kaydeep0/eigenstate-research/actions/workflows/deploy.yml)
+[![status: research / pre-revenue](https://img.shields.io/badge/status-research%20%2F%20pre--revenue-informational)](#status-limits-and-non-goals)
 
 [**Site**](https://kaydeep0.github.io/eigenstate-research/) · [**Methodology**](METHODOLOGY.md) · [**Verify walkthrough**](https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/) · [**Ledgers**](#measured-ledgers) · [**Agent index**](https://geniusflow-federation.vercel.app/llms.txt)
 
@@ -284,7 +285,8 @@ dossier card for, asked one question: can a program read the disclosed figure wi
 document parser, or a third party who already did both.
 
 - **0 of 17** serve a machine readable disclosure surface on an origin they operate.
-- **2 of 17** have a machine readable surface recorded at all, and both belong to the same third
+- **2 of 17** have a machine readable surface recorded at all (**2 of the 15** recorded surfaces
+  serve structured bytes; the other 13 are HTML documents), and both belong to the same third
   party aggregator. That is why this engine's own reserve figures for BUIDL and OUSG come from
   DefiLlama rather than from BlackRock, Securitize or Ondo.
 - **0 of 45** requests to a frozen list of conventional disclosure paths answered with structured
