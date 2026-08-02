@@ -2,30 +2,10 @@
 
 Generated 2026-08-02T03:11:04.127287+00:00 · probe v1.0.0 · digest `ab79fc3924f1e611`
 
-Published studies have already measured how few ERC-8004 registrations resolve to a
-working agent. What they report is a rate. What none of them ship is the artifact
-underneath it: a sample a stranger can redraw, a named refusal limb for every agent, and
-one fetchable receipt per agentId. This is that ledger.
-
-## Prior art
-
-- Xiong et al., *Can Trustless Agents Be Trusted? An Empirical Study of the ERC-8004
-  Decentralized AI Agent Ecosystem*, arXiv 2606.26028. Full Identity Registry population
-  on Ethereum, BSC and Base through 13 May 2026. Reports 37% of Base agents with no
-  agentURI, 26.9% carrying a valid ERC-8004 registration file, 15% with a valid file and
-  at least one declared service.
-- Mafrur and Khusumanegara, *From Agent Identity to Agent Economy: Measuring the
-  Operational Readiness of ERC-8004 AI Agents*, arXiv 2606.12128. Same shape on Ethereum
-  from a different dataset: registration heavy, operationally shallow.
-
-This run corroborates those findings by a different method and a later sample: a
-500-agent uniform draw from Base at a pinned block, roughly three months after their end
-block, against their full population crawl. Their 37% empty agentURI on Base reads 34.8%
-here (95% CI 30.8% to 39.1%); their 26.9% with a valid registration file reads 27.0%
-clearing every MUST limb here. The agreement across independent methods is the result.
-The addition is operational: a redrawable seeded sample, a frozen limb order so each
-refusal names the limb that failed first, Wilson intervals on every rate, and a fetchable
-receipt per sampled agentId.
+Explorers already list and score the agents registered under ERC-8004. This ledger
+publishes the other half: the share of registrations that resolve to nothing, so a
+dead entry and a working one do not look identical once you fetch them. Every
+refusal is named by the limb that failed.
 
 ## What was measured
 

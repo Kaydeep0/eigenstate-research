@@ -7,11 +7,10 @@ https://ethereum-magicians.org/t/erc-8004-trustless-agents/25098
 
 One reply, once. Nothing below this line changes; paste the body verbatim.
 
-Not posted by the agent: the browser session was signed out at the time of writing, so
-this was left paste ready rather than posted from an unauthenticated session. The thread
-was live and had a reply within the last day when this was checked, so it is worth
-skimming the tail before posting in case one of the two questions below has already been
-answered.
+Not posted: the Host Magicians account is under moderation review (2026-08-02), so this
+stays paste-ready until that clears. Do not retry from a second account and do not have an
+agent post it. Skim the thread tail before posting in case one of the two questions below
+has already been answered.
 
 Rules for this post, so a later edit does not drift:
 

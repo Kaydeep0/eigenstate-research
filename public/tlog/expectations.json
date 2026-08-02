@@ -1,0 +1,605 @@
+{
+  "expectations": "transparency_log_batch_monitor",
+  "probe_version": "1.0.0",
+  "generated_at": "2026-08-02T05:32:13.733964+00:00",
+  "published_before_results": true,
+  "role": {
+    "this_node_is": "monitor",
+    "this_node_is_not": "witness",
+    "monitor": "Reads checkpoints, verifies signatures against keys obtained elsewhere, and recomputes consistency proofs. Holds no key. Can run on a batch cadence.",
+    "witness": "Holds a key, stays online, and cosigns a checkpoint to attest it saw that tree head and no other at that size. This node does none of that.",
+    "what_a_batch_monitor_cannot_do": [
+      "Catch a split view that is served to one reader and withdrawn before the next batch. A monitor sees the log at the instants it reads it and says nothing about the gaps.",
+      "Give anyone else an attestation. A monitor's output is a claim about what one reader saw. A witness cosignature is a claim other parties can rely on, and this node produces none.",
+      "Detect anything at all about a log it does not read. The population is frozen and small, and the ledger reports it as a population rather than as coverage."
+    ]
+  },
+  "subject": {
+    "what": "public transparency logs, read on a batch cadence and re-derived by a monitor that holds no key and cosigns nothing",
+    "engine_commit": "72e9477c3f02dcc6b785a641852cb807c86a67eb"
+  },
+  "question": {
+    "asked": "Can a reader with no key and no account read a log's checkpoint, check its signature against a key the log did not hand it, and recompute the log's own next root from a proof the log served?",
+    "not_asked": "Whether the log is honest to anybody else, whether it served a different view to another reader, or whether its contents are correct. A monitor sees the log at the instants it reads it.",
+    "why_it_is_separate": "Witnessing and monitoring are different jobs and the difference is a key. Claiming to witness without cosigning would be a false claim, so this node does the job it can actually do and says which one that is."
+  },
+  "population_rule": "A log is in the population iff it appears in a public list of transparency logs that this node did not write, serves a checkpoint or signed tree head over plain HTTPS with no credentials, and can be read by a program without an account. The rule is frozen here, before any checkpoint is read.",
+  "population_count": 23,
+  "ct_logs": 21,
+  "non_ct_logs": 2,
+  "key_evidence": {
+    "ct_log_list": {
+      "url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "status": 200,
+      "sha256": "9c97e7dfea0b2ff4426cb347aa197e3982d9a3c5fbe26fde8fd42e600bdb8007",
+      "usable_logs": 21,
+      "list_version": "89.5",
+      "log_list_timestamp": "2026-08-01T13:35:47Z"
+    },
+    "go_sumdb_key": {
+      "url": "https://raw.githubusercontent.com/golang/go/master/src/cmd/go/internal/modfetch/key.go",
+      "status": 200,
+      "sha256": "f692a48e918dfd0647cb8b660a706dd14e44b5ad75d490a2d242b8a4b990178e"
+    },
+    "rekor_key": {
+      "url": "https://rekor.sigstore.dev/api/v1/log/publicKey",
+      "status": 200,
+      "sha256": "446f8522b990b9a2cca331c8c0536f231286073e545e650b990f5888c02f3766",
+      "served_by_the_log_itself": true
+    }
+  },
+  "second_read_gap_seconds": 45,
+  "second_read_rule": "Every checkpoint is read twice in the same batch, with a frozen gap between the reads. The gap is written here so it cannot be widened afterwards until something interesting appears. Where the tree advanced, the consistency proof between the two observed sizes is requested and recomputed. Where it did not, there is nothing to prove and the receipt says so instead of charging the log.",
+  "verifiers_implemented_here": {
+    "why": "This engine carries no cryptography library, so ECDSA over P-256, Ed25519 and the RFC 6962 consistency recomputation are implemented in pure Python in engine/bridge/tlog_monitor_probe.py.",
+    "discipline": "Each verifier is self-tested with a positive and a negative case before the run is allowed to charge anybody, and the self-test result is published in the ledger. The Merkle self-test builds consistency proofs from the recursive definition in RFC 6962 section 2.1.2 and verifies them with the separate iterative algorithm, for every pair of sizes in an eight leaf tree, and also checks that a tampered proof is rejected.",
+    "what_a_failure_means": "A signature this monitor fails to verify is recorded as this monitor failing to verify it. It is not published as a claim that the log is wrong."
+  },
+  "limb_order_frozen": [
+    "log_listed_in_a_public_list",
+    "public_key_obtained_independently_of_the_log",
+    "checkpoint_endpoint_answers_without_credentials",
+    "checkpoint_parses_in_its_declared_format",
+    "checkpoint_carries_tree_size_and_root_hash",
+    "checkpoint_carries_a_signature",
+    "signature_scheme_supported_by_this_monitor",
+    "signature_verifies_against_the_published_key",
+    "second_read_answered",
+    "tree_did_not_shrink_between_reads",
+    "consistency_proof_served",
+    "consistency_proof_recomputes_to_the_second_root",
+    "checkpoint_carries_witness_cosignatures",
+    "prior_batch_checkpoint_on_record"
+  ],
+  "limb_chains": {
+    "read": [
+      "log_listed_in_a_public_list",
+      "public_key_obtained_independently_of_the_log",
+      "checkpoint_endpoint_answers_without_credentials",
+      "checkpoint_parses_in_its_declared_format",
+      "checkpoint_carries_tree_size_and_root_hash",
+      "checkpoint_carries_a_signature"
+    ],
+    "verify": [
+      "signature_scheme_supported_by_this_monitor",
+      "signature_verifies_against_the_published_key"
+    ],
+    "rederive": [
+      "second_read_answered",
+      "tree_did_not_shrink_between_reads",
+      "consistency_proof_served",
+      "consistency_proof_recomputes_to_the_second_root"
+    ],
+    "observe": [
+      "checkpoint_carries_witness_cosignatures",
+      "prior_batch_checkpoint_on_record"
+    ]
+  },
+  "limb_chain_rule": "Chains are evaluated independently. A failure inside one chain stops that chain and does not touch the others, so a log whose signature scheme this monitor cannot read is still read, still compared across the two reads, and still counted.",
+  "limb_chain": {
+    "log_listed_in_a_public_list": "read",
+    "public_key_obtained_independently_of_the_log": "read",
+    "checkpoint_endpoint_answers_without_credentials": "read",
+    "checkpoint_parses_in_its_declared_format": "read",
+    "checkpoint_carries_tree_size_and_root_hash": "read",
+    "checkpoint_carries_a_signature": "read",
+    "signature_scheme_supported_by_this_monitor": "verify",
+    "signature_verifies_against_the_published_key": "verify",
+    "second_read_answered": "rederive",
+    "tree_did_not_shrink_between_reads": "rederive",
+    "consistency_proof_served": "rederive",
+    "consistency_proof_recomputes_to_the_second_root": "rederive",
+    "checkpoint_carries_witness_cosignatures": "observe",
+    "prior_batch_checkpoint_on_record": "observe"
+  },
+  "limb_spec_level": {
+    "log_listed_in_a_public_list": "MUST",
+    "public_key_obtained_independently_of_the_log": "MUST",
+    "checkpoint_endpoint_answers_without_credentials": "MUST",
+    "checkpoint_parses_in_its_declared_format": "MUST",
+    "checkpoint_carries_tree_size_and_root_hash": "MUST",
+    "checkpoint_carries_a_signature": "MUST",
+    "signature_scheme_supported_by_this_monitor": "SHOULD",
+    "signature_verifies_against_the_published_key": "MUST",
+    "second_read_answered": "MUST",
+    "tree_did_not_shrink_between_reads": "MUST",
+    "consistency_proof_served": "MUST",
+    "consistency_proof_recomputes_to_the_second_root": "MUST",
+    "checkpoint_carries_witness_cosignatures": "OBSERVED",
+    "prior_batch_checkpoint_on_record": "OBSERVED"
+  },
+  "limb_definitions": {
+    "log_listed_in_a_public_list": "The log appears in a public list of logs that this monitor did not write, so its membership is not something this node asserted.",
+    "public_key_obtained_independently_of_the_log": "The verification key came from an origin other than the log itself. A log that is the only source of its own key cannot be checked by a reader who did not already trust it, and that is a property of the ecosystem rather than a defect in the log.",
+    "checkpoint_endpoint_answers_without_credentials": "A plain GET of the checkpoint endpoint answers 2xx with a body, with no API key, no token and no account.",
+    "checkpoint_parses_in_its_declared_format": "The body parses as the format the log declares: a JSON signed tree head for Certificate Transparency, or a C2SP signed note for a checkpoint log.",
+    "checkpoint_carries_tree_size_and_root_hash": "The parsed checkpoint carries a tree size and a root hash of the expected length.",
+    "checkpoint_carries_a_signature": "The parsed checkpoint carries at least one signature line.",
+    "signature_scheme_supported_by_this_monitor": "The signature uses a scheme this monitor implements. A scheme it does not implement is a limitation of this monitor and the refusal is attributed to the probe.",
+    "signature_verifies_against_the_published_key": "The signature verifies against the independently obtained key. A failure here is recorded as this monitor failing to verify, not as the log being wrong.",
+    "second_read_answered": "A second read of the same checkpoint endpoint, later in the same batch, answered.",
+    "tree_did_not_shrink_between_reads": "The tree size in the second read is greater than or equal to the first, and where the sizes are equal the root hashes are identical. A shrinking tree or a different root at the same size is the disagreement this monitor exists to record.",
+    "consistency_proof_served": "The log served a consistency proof between the two observed sizes. Where the tree did not advance between the reads there is nothing to prove and the limb records that rather than charging the log.",
+    "consistency_proof_recomputes_to_the_second_root": "Recomputing the second root from the first root and the served proof, by the RFC 6962 algorithm, lands on the root the log published. This is the whole of what a monitor does.",
+    "checkpoint_carries_witness_cosignatures": "The checkpoint carries signature lines beyond the log's own, which is what a witness cosignature looks like on the wire.",
+    "prior_batch_checkpoint_on_record": "This monitor holds a checkpoint for this log from an earlier batch, so it can compare across runs and not only within one. On the first run this refuses for every log, and that cold start is the honest state of a monitor that has just started."
+  },
+  "admit_rules": {
+    "must_admit": "Every MUST limb is ok. A log that misses one is a log this monitor could not re-derive on this batch, which is a statement about this batch and this monitor as much as about the log.",
+    "full_admit": "Every MUST and every SHOULD limb is ok. OBSERVED limbs charge nothing.",
+    "attribution": "probe covers a scheme this monitor does not implement, arithmetic it got wrong, and a cold ledger. publisher covers what the log served. ecosystem covers a property of how keys and lists are distributed that no single log chose. unresolved covers a verification failure that could be either side and has not been corroborated."
+  },
+  "statuses": {
+    "ok": "limb observed to pass",
+    "fail": "limb observed to fail; counts against the log at its stated level",
+    "not_applicable": "limb cannot apply on this batch, and charges nothing",
+    "absent": "an optional artifact was not published; not counted as a failure",
+    "not_reached": "an earlier limb in the same chain failed, so this one was never observed. Chains are independent, so a failure in one never marks a limb in another not_reached."
+  },
+  "request_discipline": {
+    "user_agent": "GeniusFlowTlogMonitor/1.0.0 (+https://geniusflow-federation.vercel.app/tlog/; read-only batch monitor; no cosigning; one GET per endpoint)",
+    "spacing_seconds": 0.25,
+    "note": "Read only. Two checkpoint reads and at most one proof request per log."
+  },
+  "predictions": [
+    {
+      "id": 1,
+      "prediction": "Every log in the population serves a checkpoint over plain HTTPS with no credentials of any kind.",
+      "blind": true
+    },
+    {
+      "id": 2,
+      "prediction": "Every Certificate Transparency checkpoint signature verifies against the key published in the log list, using the verifier implemented in this repository.",
+      "blind": true
+    },
+    {
+      "id": 3,
+      "prediction": "No tree in the population shrinks between the two reads in this batch.",
+      "blind": true
+    },
+    {
+      "id": 4,
+      "prediction": "Every consistency proof this monitor requests recomputes to the second root the log published.",
+      "blind": true
+    },
+    {
+      "id": 5,
+      "prediction": "Fewer than half the checkpoints in the population carry a witness cosignature beyond the log's own signature.",
+      "blind": true
+    },
+    {
+      "id": 6,
+      "prediction": "This monitor holds no prior batch for any log, because this is the first batch, so the cross run comparison refuses for every log in the population.",
+      "blind": false,
+      "basis": "This is determined by the fact that this is run one. It is written down so the cold start is a scored line in the ledger rather than an omission."
+    },
+    {
+      "id": 7,
+      "prediction": "At least one log in the population refuses a re-derivation limb for a reason that belongs to this monitor rather than to the log.",
+      "blind": false,
+      "basis": "The expectations file already records that this monitor has not implemented tile reconstruction for the Go checksum database. It is scored so the refusal is counted rather than mentioned."
+    }
+  ],
+  "not_claimed": [
+    "This node is a monitor, not a witness. It holds no key, cosigns nothing, and appears on no witness list. Nothing in this ledger is an attestation anybody else can rely on.",
+    "A batch monitor cannot see a split view that is served to one reader and withdrawn before the next batch. It sees the log at the instants it reads it and says nothing about the gaps between them.",
+    "A signature this monitor fails to verify is recorded as this monitor failing to verify it. The verifiers here are hand rolled in pure Python because this engine carries no cryptography library, and a hand rolled verifier that disagrees with a log operated by Google is overwhelmingly more likely to be the broken party.",
+    "This is not coverage of the transparency log ecosystem. The population is a frozen list drawn from public log lists, and no rate here should be read as a rate over all logs.",
+    "No log was contacted beyond plain GETs of endpoints that are already public, with an identifying user agent."
+  ],
+  "prior_art": [
+    {
+      "work": "RFC 6962, Certificate Transparency",
+      "url": "https://www.rfc-editor.org/rfc/rfc6962",
+      "relation": "Defines the signed tree head, the get-sth and get-sth-consistency endpoints this monitor calls, the TreeHeadSignature input it reconstructs, and the consistency proof verification algorithm it implements."
+    },
+    {
+      "work": "RFC 9162, Certificate Transparency version 2.0",
+      "url": "https://www.rfc-editor.org/rfc/rfc9162",
+      "relation": "Restates the same Merkle constructions and is explicit about the separation between logs, monitors and auditors that this ledger relies on."
+    },
+    {
+      "work": "C2SP signed note and tlog checkpoint",
+      "url": "https://github.com/C2SP/C2SP/blob/main/signed-note.md",
+      "relation": "The text checkpoint format the Go checksum database and Sigstore serve, which this monitor parses: origin line, tree size, base64 root hash, blank line, signature lines."
+    },
+    {
+      "work": "C2SP tlog-witness",
+      "url": "https://github.com/C2SP/C2SP/blob/main/tlog-witness.md",
+      "relation": "The witness protocol this node deliberately does not implement. A witness cosigns with a key and this node holds none."
+    },
+    {
+      "work": "transparency.dev",
+      "url": "https://transparency.dev/",
+      "relation": "The ecosystem this work sits inside, and the source of the witness and monitor distinction the ledger is built around."
+    },
+    {
+      "work": "Sigsum",
+      "url": "https://www.sigsum.org/",
+      "relation": "A log design where witness cosigning is mandatory rather than optional, which is the contrast that makes counting cosignatures on other logs worth doing."
+    },
+    {
+      "work": "Go checksum database design",
+      "url": "https://go.dev/design/25530-sumdb",
+      "relation": "The tile based transparent log this monitor reads a checkpoint from and cannot yet prove consistency over."
+    }
+  ],
+  "expected_population": [
+    {
+      "log_key": "ct.cloudflare.com/logs/nimbus2026",
+      "description": "Cloudflare 'Nimbus2026'",
+      "operator": "Cloudflare",
+      "log_id": "yzj3FYl8hKFEX1vB3fvJbvKaWc1HCmkFhbDLFMMUWOc=",
+      "checkpoint_url": "https://ct.cloudflare.com/logs/nimbus2026/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE2FxhT6xq0iCATopC9gStS9SxHHmOKTLeaVNZ661488Aq8tARXQV+6+jB0983v5FkRm4OJxPqu29GJ1iG70Ahow==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://ct.cloudflare.com/logs/nimbus2026/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "ct.cloudflare.com/logs/nimbus2027",
+      "description": "Cloudflare 'Nimbus2027'",
+      "operator": "Cloudflare",
+      "log_id": "TGPcmOWcHauI9h6KPd6uj6tEozd7X5uUw/uhnPzBviY=",
+      "checkpoint_url": "https://ct.cloudflare.com/logs/nimbus2027/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEYjd/jE0EoAhNBbfcNhrTb7F0x10KZK8r2SDjx1GdjJ75hJrHx2OCQ+BXRjXi+czoREN1u0j9cWl8d6OoPMPogQ==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://ct.cloudflare.com/logs/nimbus2027/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "sphinx.ct.digicert.com/2026h2",
+      "description": "DigiCert 'Sphinx2026h2'",
+      "operator": "DigiCert",
+      "log_id": "lE5Dh/rswe+B8xkkJqgYZQHH0184AgE/cmd9VTcuGdg=",
+      "checkpoint_url": "https://sphinx.ct.digicert.com/2026h2/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEquD0JkRQT/2inuaA4HC1sc6UpfiXgURVQmQcInmnZFnTiZMhZvsJgWAfYlU0OIykOC6slQzr7U9kvEVC9wZ6zQ==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://sphinx.ct.digicert.com/2026h2/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "sphinx.ct.digicert.com/2027h1",
+      "description": "DigiCert 'sphinx2027h1'",
+      "operator": "DigiCert",
+      "log_id": "RqI5Z8YNtkaHxm89+ZmUdpOmphEghFfVVefj0KHZtkY=",
+      "checkpoint_url": "https://sphinx.ct.digicert.com/2027h1/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvirIq1XPwgwG7BnbMh2zoUbEt+T8z8XAtg9lo8jma+aaTQl8iVCypUFXtLpt4/SHaoUzbvcjDX/6B1IbL3OoIQ==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://sphinx.ct.digicert.com/2027h1/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "sphinx.ct.digicert.com/2027h2",
+      "description": "DigiCert 'sphinx2027h2'",
+      "operator": "DigiCert",
+      "log_id": "H7D4qS2K3aEhd2wF4qouFbrLxitlOTaVV2qqtS4R0R0=",
+      "checkpoint_url": "https://sphinx.ct.digicert.com/2027h2/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEUCe23M889mAsUVeTTBcNsAmP374ZWQboLdR8RdGwM3VZ6P/sDwhrL7wK4zrXPh3HwLDDLxDjvRBeivUSbpZSwA==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://sphinx.ct.digicert.com/2027h2/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "wyvern.ct.digicert.com/2026h2",
+      "description": "DigiCert 'Wyvern2026h2'",
+      "operator": "DigiCert",
+      "log_id": "wjF+V0UZo0XufzjespBB68fCIVoiv3/Vta12mtkOUs0=",
+      "checkpoint_url": "https://wyvern.ct.digicert.com/2026h2/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEenPbSvLeT+zhFBu+pqk8IbhFEs16iCaRIFb1STLDdWzL6XwTdTWcbOzxMTzB3puME5K3rT0PoZyPSM50JxgjmQ==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://wyvern.ct.digicert.com/2026h2/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "wyvern.ct.digicert.com/2027h1",
+      "description": "DigiCert 'Wyvern2027h1'",
+      "operator": "DigiCert",
+      "log_id": "ABpdGhwtk3W2SFV4+C9xoa5u7zl9KXyK4xV7yt7hoB4=",
+      "checkpoint_url": "https://wyvern.ct.digicert.com/2027h1/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEastxYj1mntGuyv74k4f+yaIx+ZEzlSJ+iVTYWlw8SpSKJ4TfxYWuBhnETlhpyG/5seJn0mOSnVgXsZ1JRflI7g==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://wyvern.ct.digicert.com/2027h1/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "wyvern.ct.digicert.com/2027h2",
+      "description": "DigiCert 'Wyvern2027h2'",
+      "operator": "DigiCert",
+      "log_id": "N6oHzCFvLm2RnHCdJNj3MbAPKxR8YhzAkaX6GoTYFt0=",
+      "checkpoint_url": "https://wyvern.ct.digicert.com/2027h2/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEuOg8hcgaYT/MShxpag2Hige0zsLzz8vOLZXp6faCdzM+Mn/njyU9ROAuwDxuu88/Grxn46kmehdOKVDFexbdSg==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://wyvern.ct.digicert.com/2027h2/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "ct.googleapis.com/logs/eu1/xenon2026h2",
+      "description": "Google 'Xenon2026h2' log",
+      "operator": "Google",
+      "log_id": "2AlVO5RPev/IFhlvlE+Fq7D4/F6HVSYPFdEucrtFSxQ=",
+      "checkpoint_url": "https://ct.googleapis.com/logs/eu1/xenon2026h2/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE5Xd4lXEos5XJpcx6TOgyA5Z7/C4duaTbQ6C9aXL5Rbqaw+mW1XDnDX7JlRUninIwZYZDU9wRRBhJmCVopzwFvw==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://ct.googleapis.com/logs/eu1/xenon2026h2/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "ct.googleapis.com/logs/eu1/xenon2027h1",
+      "description": "Google 'Xenon2027h1'",
+      "operator": "Google",
+      "log_id": "RMK9DOkUDmSlyUoBkwpaobs1lw4A7hEWiWgqHETXtWY=",
+      "checkpoint_url": "https://ct.googleapis.com/logs/eu1/xenon2027h1/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE/6WcA4VRSljIfTdY48+pFRLLtLrmTb88cGDdl8Gv3E2LduG4jgJ3AK5iNMFGhpbRRLi5B3rPlBaXVywuR5IFDg==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://ct.googleapis.com/logs/eu1/xenon2027h1/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "ct.googleapis.com/logs/us1/argon2026h2",
+      "description": "Google 'Argon2026h2' log",
+      "operator": "Google",
+      "log_id": "1219ENGn9XfCx+lf1wC/+YLJM1pl4dCzAXMXwMjFaXc=",
+      "checkpoint_url": "https://ct.googleapis.com/logs/us1/argon2026h2/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEKjpni/66DIYrSlGK6Rf+e6F2c/28ZUvDJ79N81+gyimAESAyeNZ++TRgjHWg9TVQnKHTSU0T1TtqDupFnSQTIg==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://ct.googleapis.com/logs/us1/argon2026h2/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "ct.googleapis.com/logs/us1/argon2027h1",
+      "description": "Google 'Argon2027h1'",
+      "operator": "Google",
+      "log_id": "1tWNqdAXU/NqSqDHV0kCr+vH3CzTjNn3ZMgMiRkenwI=",
+      "checkpoint_url": "https://ct.googleapis.com/logs/us1/argon2027h1/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEKHRm0H/zUaFA6Idz5cGvGO3tCPQyfGMgJmVBOPyKAP6mGM1IiNXi4CLomOUyYj0YN74p+eGVApFMsM4h/jzCsA==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://ct.googleapis.com/logs/us1/argon2027h1/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "sum.golang.org",
+      "description": "Go checksum database",
+      "operator": "Google, for the Go project",
+      "checkpoint_url": "https://sum.golang.org/latest",
+      "checkpoint_format": "c2sp_signed_note",
+      "signature_scheme": "ed25519_note",
+      "key_source_url": "https://raw.githubusercontent.com/golang/go/master/src/cmd/go/internal/modfetch/key.go",
+      "key_source_note": "The verification key is distributed inside the Go toolchain source, on an origin the log does not operate. That is what independent key distribution looks like.",
+      "consistency_endpoint": null,
+      "consistency_note": "Consistency is proved through the tlog tile API rather than a single proof endpoint. This monitor has not implemented tile reconstruction, so the re-derivation limbs refuse and the refusal belongs to this monitor.",
+      "listed_in": "named individually in the expectations file",
+      "published_key_line": "sum.golang.org+033de0ae+Ac4zctda0e5eza+HJyk9SxEdh+s3Ux18htTTAD8OuAn8",
+      "public_key_b64": "zjNy11rR7l7Nr4cnKT1LER2H6zdTHXyG1NMAPw64Cfw=",
+      "key_algorithm_byte": 1,
+      "key_hash": "033de0ae"
+    },
+    {
+      "log_key": "elephant2026h2.ct.sectigo.com",
+      "description": "Sectigo 'Elephant2026h2'",
+      "operator": "Sectigo",
+      "log_id": "r2eIO1ewTt2Pptl+9i6o64EKx3Fg8CReVdYML+eFhzo=",
+      "checkpoint_url": "https://elephant2026h2.ct.sectigo.com/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEO/t4Uwkoou78zkCchh9tfAKbIUJmbOoUAb8szD8StnnHFKAVY5kq1Ljs8YD7CfzdD7xcVjmQYpbtNUhxRMRtmA==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://elephant2026h2.ct.sectigo.com/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "elephant2027h1.ct.sectigo.com",
+      "description": "Sectigo 'Elephant2027h1'",
+      "operator": "Sectigo",
+      "log_id": "YEyar3p/d18B1Ab8kg3ImesLHH34yVIb+voXdzuXi8k=",
+      "checkpoint_url": "https://elephant2027h1.ct.sectigo.com/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE4fu36JygUwaaVO+ddWJ97FJZlA5SjPLmT+RHwg0pavkIrbT1b5LNQrsaEw0CoGraf7BkzKZf7PC8gYAScw2woA==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://elephant2027h1.ct.sectigo.com/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "elephant2027h2.ct.sectigo.com",
+      "description": "Sectigo 'Elephant2027h2'",
+      "operator": "Sectigo",
+      "log_id": "okkM3NuOM6QAMhdg1tTVGiA2GR6nfZaL4mqKAPb///c=",
+      "checkpoint_url": "https://elephant2027h2.ct.sectigo.com/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAECTPhpJnRFroRRpP/1DdAns+PrnmUywtqIV+EeL4Jg8zKouoW7kuAkYo+kZeoHtyK7CBhflIlMk7T2Qrn4w/t8g==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://elephant2027h2.ct.sectigo.com/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "tiger2026h2.ct.sectigo.com",
+      "description": "Sectigo 'Tiger2026h2'",
+      "operator": "Sectigo",
+      "log_id": "yKPEf8ezrbk1awE/anoSbeM6TkOlxkb5l605dZkdz5o=",
+      "checkpoint_url": "https://tiger2026h2.ct.sectigo.com/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfJFUD/FRkonvZIA9ZT1J3yvA4EpSp3innbIVpMTDR1oCe5vguapheQ7wYiWaCES1EL1B+2BEC+P5bUfwF44lnA==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://tiger2026h2.ct.sectigo.com/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "tiger2027h1.ct.sectigo.com",
+      "description": "Sectigo 'Tiger2027h1'",
+      "operator": "Sectigo",
+      "log_id": "HJ9oLOn68EVpUPgbloqH3dsyENhM5siy44JSSsTPWZ8=",
+      "checkpoint_url": "https://tiger2027h1.ct.sectigo.com/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEmMQofpsDjCVYzF4jXdFWM/ioYBJIPcsQQrNAHE6v4lOsADoI+/jN1lph8x4K3NgnXDXwmyJcFwRYgVOBMhaYhA==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://tiger2027h1.ct.sectigo.com/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "tiger2027h2.ct.sectigo.com",
+      "description": "Sectigo 'Tiger2027h2'",
+      "operator": "Sectigo",
+      "log_id": "A4AqwmL24F4D+Lxve5hRMk/Xaj31t1lRdeIi+46b1fY=",
+      "checkpoint_url": "https://tiger2027h2.ct.sectigo.com/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEb0AgkemhsPmYe1goCSy5ncf2lG9vtK6f+SzODKJMYEgPOT+z93cUEKM1EaTuo09rozfdqhjeihIl25y9A3JhyQ==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://tiger2027h2.ct.sectigo.com/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "rekor.sigstore.dev",
+      "description": "Sigstore Rekor, active shard",
+      "operator": "Sigstore",
+      "checkpoint_url": "https://rekor.sigstore.dev/api/v1/log",
+      "checkpoint_format": "rekor_json_wrapping_a_signed_note",
+      "signature_scheme": "ecdsa_p256_note",
+      "key_source_url": "https://rekor.sigstore.dev/api/v1/log/publicKey",
+      "key_source_note": "The only key source this monitor reads is the log's own endpoint. Sigstore distributes the same key through a TUF root on a separate origin, which is the independent path, and this monitor has not implemented TUF. The independence limb refuses and the refusal is attributed to the ecosystem rather than to the log.",
+      "consistency_endpoint": "https://rekor.sigstore.dev/api/v1/log/proof",
+      "consistency_note": "Serves a consistency proof between two tree sizes as hex hashes.",
+      "listed_in": "named individually in the expectations file",
+      "public_key_b64": "BEGINPUBLICKEYnMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE2G2Y+2tabdTV5BcGiBIx0a9fAFwrnkBbmLSGtks4L3qX6yYY0zufBnhC8Ur/iy55GhWP/9A/bY2LhC30M9+RYtwnENDPUBLICKEYn"
+    },
+    {
+      "log_key": "ct2026-a.trustasia.com/log2026a",
+      "description": "TrustAsia 'log2026a'",
+      "operator": "TrustAsia",
+      "log_id": "dNudWPfUfp39eHoWKpkcGM9pjafHKZGMmhiwRQ26RLw=",
+      "checkpoint_url": "https://ct2026-a.trustasia.com/log2026a/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEp056yaYH+f907JjLSeEAJLNZLoP9wHA1M0xjynSDwDxbU0B8MR81pF8P5O5PiRfoWy7FrAAFyXY3RZcDFf9gWQ==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://ct2026-a.trustasia.com/log2026a/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "ct2026-b.trustasia.com/log2026b",
+      "description": "TrustAsia 'log2026b'",
+      "operator": "TrustAsia",
+      "log_id": "Jbfv3qETAZPtkweXcKoyKiZiDeNayKp8dRl94LGp4GU=",
+      "checkpoint_url": "https://ct2026-b.trustasia.com/log2026b/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEDxKMqebj7GLu31jIUOYmcHYQtwQ5s6f4THM7wzhaEgBM4NoOFopFMgoxqiLHnX0FU8eelOqbV0a/T6R++9/6hQ==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://ct2026-b.trustasia.com/log2026b/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    },
+    {
+      "log_key": "hetu2027.trustasia.com/hetu2027",
+      "description": "TrustAsia 'HETU2027'",
+      "operator": "TrustAsia",
+      "log_id": "7drrgVxjITRJtHvlB3kFq9DZMUfCesUUazvFjkPptsc=",
+      "checkpoint_url": "https://hetu2027.trustasia.com/hetu2027/ct/v1/get-sth",
+      "checkpoint_format": "ct_v1_sth",
+      "signature_scheme": "ecdsa_p256_ct_v1",
+      "public_key_b64": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE14jG8D9suqIVWPtTNOL33uXKZ4mUnnOMrIwOWeZU7GtoDRCWIXfy/9/SC8lTAbtP2NOP4wjIufAk6f64sY4DWg==",
+      "key_source_url": "https://www.gstatic.com/ct/log_list/v3/log_list.json",
+      "key_source_note": "The key comes from the public CT log list, which is served on an origin the log does not operate. A monitor can therefore check the signature without asking the log what its own key is.",
+      "consistency_endpoint": "https://hetu2027.trustasia.com/hetu2027/ct/v1/get-sth-consistency",
+      "consistency_note": "RFC 6962 get-sth-consistency, first and second as query parameters.",
+      "listed_in": "Google Chrome CT log list v3"
+    }
+  ],
+  "urls": {
+    "expectations": "https://geniusflow-federation.vercel.app/tlog/expectations.json",
+    "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
+    "summary": "https://geniusflow-federation.vercel.app/tlog/summary.json",
+    "readme": "https://geniusflow-federation.vercel.app/tlog/README.md",
+    "index": "https://geniusflow-federation.vercel.app/tlog/index.json",
+    "receipt": "https://geniusflow-federation.vercel.app/tlog/receipts/{LOG_KEY}.json",
+    "human_page": "https://kaydeep0.github.io/eigenstate-research/tlog/"
+  },
+  "digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
+}

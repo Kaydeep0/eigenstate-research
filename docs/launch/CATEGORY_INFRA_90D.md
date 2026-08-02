@@ -13,6 +13,10 @@ prints in `python3 run.py orient` and at the end of every `python3 run.py parkas
 `python3 run.py host-actions done <id>`. Week 1 Magicians post is currently blocked on account
 moderation review.
 
+**Ready when Magicians unbans:** paste bodies in this folder are number-checked against live
+`summary.json` files (2026-08-02). Zenodo draft metadata is in [`ZENODO_LEDGER_DEPOSIT.md`](ZENODO_LEDGER_DEPOSIT.md).
+Do not retry Magicians from a second account.
+
 ---
 
 ## Scoreboard (track these)
@@ -38,11 +42,12 @@ If those move, this is becoming infrastructure. If only GitHub stars move, it is
 
 ### Week 1 (now)
 
-- [ ] **Host:** Post Ethereum Magicians ERC-8004 reply from [`ETHEREUM_MAGICIANS_ERC8004.md`](ETHEREUM_MAGICIANS_ERC8004.md)
+- [ ] **Host:** Post Ethereum Magicians ERC-8004 reply from [`ETHEREUM_MAGICIANS_ERC8004.md`](ETHEREUM_MAGICIANS_ERC8004.md) (**blocked:** account under moderation review)
 - [ ] **Host:** Stay in that thread; answer technical pushback only
-- [ ] **Agent-ok:** Keep `/erc8004/`, `/slsa/`, `/rwa/` machine URLs live; cite/redraw boxes on human pages
+- [x] **Agent-ok:** Keep `/erc8004/`, `/slsa/`, `/rwa/` machine URLs live; cite/redraw boxes on human pages
+- [x] **Agent-ok:** `/grounded-claims/` live on Pages (regulator EDGAR/Fed corpus). Federation receipts still need Vercel redeploy. `/tlog/` not landed.
 - [ ] **Agent-ok:** Log Magicians post URL into the scoreboard when Host pastes it back
-- [ ] **Integrate if landed:** EDGAR/Fed corpus and tlog monitor URLs into this doc and `POST_TODAY.md` (sibling may still be running)
+- [ ] **Host (optional):** Zenodo draft from [`ZENODO_LEDGER_DEPOSIT.md`](ZENODO_LEDGER_DEPOSIT.md); Host clicks Publish
 
 ### Weeks 2–3
 
@@ -96,10 +101,11 @@ Product Hunt, Indie Hackers, crypto TG shill rooms, star-for-star, MCP Discord p
 | Draft | Path | Status |
 |-------|------|--------|
 | Host 60-minute checklist | [`POST_TODAY.md`](POST_TODAY.md) | Ready |
-| Ethereum Magicians ERC-8004 | [`ETHEREUM_MAGICIANS_ERC8004.md`](ETHEREUM_MAGICIANS_ERC8004.md) | Paste-ready; thread URL + body; **not posted** (session was signed out) |
-| HN ERC-8004 | [`HN_ERC8004.md`](HN_ERC8004.md) | Paste-ready; Day 3–7 after Magicians |
-| RWA disclosure discussion | [`RWA_DISCLOSURE_DISCUSSION.md`](RWA_DISCLOSURE_DISCUSSION.md) | Paste-ready draft; post after Magicians settles |
-| SLSA / PEP 740 (discuss.python.org) | [`DISCUSS_PYTHON_SLSA.md`](DISCUSS_PYTHON_SLSA.md) | Stub body + rules; re-run census before posting; separate story |
+| Ethereum Magicians ERC-8004 | [`ETHEREUM_MAGICIANS_ERC8004.md`](ETHEREUM_MAGICIANS_ERC8004.md) | Paste-ready; **blocked on Magicians account review** |
+| HN ERC-8004 | [`HN_ERC8004.md`](HN_ERC8004.md) | Paste-ready; numbers match live summary; Day 3–7 after Magicians |
+| RWA disclosure discussion | [`RWA_DISCLOSURE_DISCUSSION.md`](RWA_DISCLOSURE_DISCUSSION.md) | Paste-ready; numbers match live summary; after Magicians settles |
+| SLSA / PEP 740 (discuss.python.org) | [`DISCUSS_PYTHON_SLSA.md`](DISCUSS_PYTHON_SLSA.md) | Paste-ready; numbers match live summary; re-run census before posting; separate story |
+| Zenodo / DOI prep | [`ZENODO_LEDGER_DEPOSIT.md`](ZENODO_LEDGER_DEPOSIT.md) | Draft metadata + file list; Host publishes |
 
 Playbook alias: `docs/rwa_disclosure_discussion_draft.md` redirects to the RWA draft under `docs/launch/`.
 
@@ -112,12 +118,11 @@ Playbook alias: `docs/rwa_disclosure_discussion_draft.md` redirects to the RWA d
 | ERC-8004 | https://kaydeep0.github.io/eigenstate-research/erc8004/ | …/erc8004/summary.json | `https://geniusflow-federation.vercel.app/erc8004/receipts/<agentId>.json` |
 | SLSA / PEP 740 | https://kaydeep0.github.io/eigenstate-research/slsa/ | …/slsa/summary.json | `https://geniusflow-federation.vercel.app/slsa/receipts/<normalized-name>.json` |
 | RWA disclosure | https://kaydeep0.github.io/eigenstate-research/rwa/ | …/rwa/summary.json | `https://geniusflow-federation.vercel.app/rwa/receipts/<ENTITY>.json` |
+| Grounded claims (EDGAR/Fed) | https://kaydeep0.github.io/eigenstate-research/grounded-claims/ | …/grounded-claims/summary.json | Pages serves ledger + receipts under `/grounded-claims/receipts/`; federation mirror pending Vercel redeploy |
+| Transparency-log monitor | `/tlog/` | not live | Sibling probe WIP (`tlog_monitor_probe.py`); do not invent URLs |
 
 ERC-8004 redraw seed: pinned Base block hash only
 (`random.Random(int(pinned_block_hash[-16:], 16)).sample(range(1, N + 1), 500)`).
-
-EDGAR / Fed grounded-claim corpus and transparency-log monitor: **pending sibling ship**.
-When those land, add rows here and a line in `POST_TODAY.md`. Do not invent URLs.
 
 ---
 

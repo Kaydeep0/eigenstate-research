@@ -67,12 +67,14 @@ descriptor under `provenance.software_identifiers`:
 curl -sS https://geniusflow-federation.vercel.app/api/agent | python3 -m json.tool
 ```
 
-This repository has been submitted to Software Heritage for archival. Archival is
-asynchronous and not under our control, so we publish the request URL rather than a claim
-that it finished:
+This repository has been submitted to Software Heritage for archival. Checked
+2026-08-02 against the save request API:
 
 - <https://archive.softwareheritage.org/api/1/origin/save/2407683/>
+- `save_request_status`: accepted
+- `save_task_status`: **succeeded**
+- `visit_status`: full
+- `snapshot_swhid`: `swh:1:snp:821f510dc9b5f0db7d265be85287e6046470b91b`
 
-Read `save_task_status` there for the real state. The engine repository is private, so its
-revisions are not archivable; the identifier is still intrinsic and still checkable by
-anyone who receives the revision.
+The engine repository is private, so its revisions are not archivable; the identifier is
+still intrinsic and still checkable by anyone who receives the revision.

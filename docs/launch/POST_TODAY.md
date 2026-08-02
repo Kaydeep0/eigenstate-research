@@ -14,6 +14,17 @@ Paste body: [`ETHEREUM_MAGICIANS_ERC8004.md`](ETHEREUM_MAGICIANS_ERC8004.md).
 > `python3 run.py parkash`. When the account is back, paste once, then close the item with
 > `python3 run.py host-actions done magicians_erc8004_post --url <permalink>`.
 
+### Ready when unbanned (do not post yet)
+
+| Pack item | Path / URL | Status |
+|-----------|------------|--------|
+| Magicians body | [`ETHEREUM_MAGICIANS_ERC8004.md`](ETHEREUM_MAGICIANS_ERC8004.md) | Paste-ready; matches live 73% / 91% / 34.8% |
+| HN body | [`HN_ERC8004.md`](HN_ERC8004.md) | Paste-ready; Day 3–7 after Magicians |
+| RWA body | [`RWA_DISCLOSURE_DISCUSSION.md`](RWA_DISCLOSURE_DISCUSSION.md) | Paste-ready; 0/17 + 2/4-of-6 attributable |
+| SLSA body | [`DISCUSS_PYTHON_SLSA.md`](DISCUSS_PYTHON_SLSA.md) | Paste-ready; 44 / 50 / 0 of 94 |
+| Zenodo deposit | [`ZENODO_LEDGER_DEPOSIT.md`](ZENODO_LEDGER_DEPOSIT.md) | Metadata + file list; Host clicks Publish |
+| Ledgers live | `/erc8004/`, `/slsa/`, `/rwa/`, `/grounded-claims/` | Pages 200. Federation `/grounded-claims/` pending redeploy. `/tlog/` not landed. |
+
 ---
 
 ## Minute 0–5: Confirm you are logged in
@@ -64,12 +75,14 @@ Paste body: [`ETHEREUM_MAGICIANS_ERC8004.md`](ETHEREUM_MAGICIANS_ERC8004.md).
 | Item | Status |
 |------|--------|
 | Magicians paste-ready draft (thread URL + body) | **Done** in repo |
-| HN / RWA / SLSA paste drafts | **Done** in repo (do not post today) |
-| Cite/redraw boxes on `/erc8004/`, `/slsa/`, `/rwa/` | **Done** in repo (live after Pages deploy) |
+| HN / RWA / SLSA paste drafts | **Done** in repo; numbers match live summaries (do not post today) |
+| Cite/redraw boxes on `/erc8004/`, `/slsa/`, `/rwa/` | **Done** and live |
+| Grounded-claims (EDGAR/Fed corpus) | **Pages live** at `/grounded-claims/`. Federation mirror pending Vercel redeploy. |
+| tlog / transparency monitor | **Not landed** (sibling WIP). |
+| Zenodo / DOI | **Prep done**: `ZENODO_LEDGER_DEPOSIT.md` (Host publishes) |
 | 90-day scoreboard doc | **Done**: `CATEGORY_INFRA_90D.md` |
 | Actually posting Magicians | **Blocked: account held for moderation review** (Host tried 2026-08-02). Re-checked every parkash. |
 | HN / discuss.python.org posts | **Blocked on Host** + sequencing |
-| EDGAR/Fed corpus + tlog monitor public URLs | **Not landed yet** (sibling still in flight). When they ship, add URLs here and in the 90-day doc. |
 
 ---
 

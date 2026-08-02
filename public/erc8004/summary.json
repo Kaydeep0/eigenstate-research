@@ -116,7 +116,7 @@
   "human_page": "https://kaydeep0.github.io/eigenstate-research/erc8004/",
   "methodology": {
     "what_this_is": "A refusal ledger over the ERC-8004 Identity Registry on Base. For a uniform sample of registered agents it fetches the declared agentURI, runs six named limbs, and publishes the receipt including every refusal. It is not a reputation score and does not rank agents.",
-    "why_not_a_score": "Explorers already list and score registered agents. What nobody publishes is the population of registrations that resolve to nothing, so a dead registration and a working one look identical until someone fetches them. The artifact here is the miss, named by limb.",
+    "why_not_a_score": "Explorers already list and score registered agents. This ledger publishes the other half: registrations that resolve to nothing, so a dead registration and a working one do not look identical once someone fetches them. The artifact here is the miss, named by limb.",
     "read_only": "Every chain interaction is eth_call at a pinned block. No transaction is sent, no key is used, nothing is written to any chain.",
     "politeness": "One GET per declared URL, at most two endpoints per agent, 12 second timeout, 512 KB body cap, identifying user agent that links back to this ledger.",
     "sampling": "Uniform sample without replacement of up to 500 agentIds from 1..N at a pinned block, seeded by that block's hash. The seed is published, so the id set is redrawable by a third party with stdlib random.Random and no input from this node.",
