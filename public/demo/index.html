@@ -277,7 +277,7 @@
 
   <!-- Install -->
   <div class="install-block">
-    <code>pip install helixhash requests &amp;&amp; python3 demo/eigenstate_demo.py</code>
+    <code>pip install helixhash &amp;&amp; python3 public/demo/eigenstate_demo.py</code>
     <button class="copy-btn" onclick="copyInstall(this)">Copy</button>
   </div>
 
@@ -289,6 +289,10 @@
     <!-- SOFR -->
     <div class="obs-card">
       <div class="obs-name">Observation 1 — SOFR overnight rate (FRED public API)</div>
+      <div class="obs-row">
+        <span class="key">Source</span>
+        <span class="val" id="sofr-src">loading…</span>
+      </div>
       <div class="obs-row">
         <span class="key">Rate today</span>
         <span class="val highlight" id="sofr-cur">loading…</span>
@@ -315,6 +319,10 @@
     <div class="obs-card">
       <div class="obs-name">Observation 2 — BlackRock BUIDL TVL (DeFiLlama public API)</div>
       <div class="obs-row">
+        <span class="key">Source</span>
+        <span class="val" id="buidl-src">loading…</span>
+      </div>
+      <div class="obs-row">
         <span class="key">TVL today</span>
         <span class="val highlight" id="buidl-cur">loading…</span>
       </div>
@@ -340,11 +348,15 @@
     <div class="obs-card">
       <div class="obs-name">Observation 3 — Ethereum go-ethereum GitHub stars (GitHub public API)</div>
       <div class="obs-row">
+        <span class="key">Source</span>
+        <span class="val" id="eth-src">loading…</span>
+      </div>
+      <div class="obs-row">
         <span class="key">Stars today</span>
         <span class="val highlight" id="eth-cur">loading…</span>
       </div>
       <div class="obs-row">
-        <span class="key">Stars last week (baseline)</span>
+        <span class="key">Stars baseline (pinned)</span>
         <span class="val" id="eth-prev">50,910</span>
       </div>
       <div class="obs-row">
@@ -377,8 +389,11 @@
     <div class="chain-explain">
       Each fingerprint is SHA-256 of (observation data + previous fingerprint).
       Altering any value above instantly breaks every subsequent hash.
-      The engine runs the same chain on its full vault of 60+ entities
-      and commits the fingerprint to Base mainnet every 2 hours.
+      The engine runs the same chain across its full vault and commits the
+      fingerprint to Base mainnet when its wallet, balance, and mirror gates
+      pass. Local chaining is continuous; the on-chain commit is not, so the
+      latest commit below can be older than today. Every commit that landed is
+      in the <a href="../onchain/">On-Chain Proof Index</a>.
     </div>
   </div>
 
@@ -474,9 +489,9 @@ async function fetchSOFR() {
     const cur  = parseFloat(rows[rows.length - 1][1]);
     const prev = parseFloat(rows[rows.length - 2][1]);
     const date = rows[rows.length - 1][0];
-    return { cur, prev, date };
+    return { cur, prev, date, live: true };
   } catch (e) {
-    return { cur: 3.61, prev: 3.57, date: '2026-04-10 (cached)' };
+    return { cur: 3.61, prev: 3.57, date: 'pinned fallback', live: false };
   }
 }
 
@@ -501,9 +516,9 @@ async function fetchBUIDL() {
       }
       prev = bestVal;
     }
-    return { cur, prev };
+    return { cur, prev, live: true };
   } catch (e) {
-    return { cur: 2_984_123_890, prev: 2_901_000_000 };
+    return { cur: 2_984_123_890, prev: 2_901_000_000, live: false };
   }
 }
 
@@ -513,26 +528,34 @@ async function fetchETH() {
       headers: { 'User-Agent': 'eigenstate-demo/1.0' }
     });
     const d = await res.json();
-    return { cur: d.stargazers_count || 50979, prev: 50910 };
+    if (!d.stargazers_count) throw new Error('no stargazers_count in response');
+    return { cur: d.stargazers_count, prev: 50910, live: true };
   } catch (e) {
-    return { cur: 50979, prev: 50910 };
+    return { cur: 50979, prev: 50910, live: false };
   }
+}
+
+function normaliseCommit(commit) {
+  const tx = String(commit.tx_hash || '').replace(/^0x/, '');
+  return { ...commit, tx_hash: tx, basescan_url: `https://basescan.org/tx/0x${tx}` };
 }
 
 async function fetchLatestCommit() {
   try {
-    // Load from onchain/ which parkash syncs every cycle
-    const res = await fetch('../onchain/helix_commits.json');
+    // helix_commits.json is published beside this page and refreshed
+    // whenever a Helix commit lands on Base.
+    const res = await fetch('./helix_commits.json');
+    if (!res.ok) throw new Error(`helix_commits.json ${res.status}`);
     const commits = await res.json();
-    return commits[commits.length - 1];
+    if (!Array.isArray(commits) || commits.length === 0) throw new Error('empty commit list');
+    return normaliseCommit(commits[commits.length - 1]);
   } catch (e) {
-    return {
+    return normaliseCommit({
       block_number: 44655585,
       tx_hash: '8bbb3cd5d6e3dfb54a8f7fe957d0ae4e0f3a5ae52ba4e927aefa6808c781c017',
       committed_at: '2026-04-13T17:15:16.295677+00:00',
       n_crossings: 63,
-      basescan_url: 'https://basescan.org/tx/8bbb3cd5d6e3dfb54a8f7fe957d0ae4e0f3a5ae52ba4e927aefa6808c781c017',
-    };
+    });
   }
 }
 
@@ -593,19 +616,26 @@ async function main() {
   const dI_buidl = safeDeltaI(buidl.cur, buidl.prev);
   const dI_eth   = safeDeltaI(eth.cur, eth.prev);
 
+  // A browser read can be refused by CORS or rate limits where the Python
+  // script succeeds, so every card says which of the two it is showing.
+  const sourceLabel = (live) => live ? 'live public endpoint' : 'pinned fallback (fetch blocked)';
+
   // Update SOFR card
+  set('sofr-src',  sourceLabel(sofr.live));
   set('sofr-cur',  fmt.pct(sofr.cur)  + (sofr.date ? ` (${sofr.date})` : ''));
   set('sofr-prev', fmt.pct(sofr.prev));
   set('sofr-di',   fmt.bits(dI_sofr));
   set('sofr-e',    fmt.e(dI_sofr));
 
   // Update BUIDL card
+  set('buidl-src',  sourceLabel(buidl.live));
   set('buidl-cur',  fmt.usd(buidl.cur));
   set('buidl-prev', fmt.usd(buidl.prev));
   set('buidl-di',   fmt.bits(dI_buidl));
   set('buidl-e',    fmt.e(dI_buidl));
 
   // Update ETH card
+  set('eth-src',  sourceLabel(eth.live));
   set('eth-cur',  fmt.int(eth.cur));
   set('eth-prev', fmt.int(eth.prev));
   set('eth-di',   fmt.bits(dI_eth));
@@ -641,7 +671,7 @@ async function main() {
 // ── Copy install command ───────────────────────────────────────────────────────
 
 function copyInstall(btn) {
-  navigator.clipboard.writeText('pip install helixhash requests && python3 demo/eigenstate_demo.py')
+  navigator.clipboard.writeText('pip install helixhash && python3 public/demo/eigenstate_demo.py')
     .then(() => {
       btn.textContent = 'Copied';
       btn.classList.add('copied');

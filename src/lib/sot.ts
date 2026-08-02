@@ -16,6 +16,16 @@ export function loadSot(): PagesSot {
   return fieldState;
 }
 
+/**
+ * M1 ledger observation count for one entity code.
+ * The stamp is a plain JSON map, so an unknown code reads as 0 rather than
+ * failing the build.
+ */
+export function m1LedgerObsFor(entityCode: string): number {
+  const counts = fieldState.entity_m1_obs_counts as Record<string, number> | undefined;
+  return counts?.[entityCode] ?? 0;
+}
+
 /** Extract entity codename from report id like SEC_20260801 → SEC. */
 export function entityCodeFromReportId(id: string): string {
   const m = id.match(/^(.+)_(\d{8})$/);

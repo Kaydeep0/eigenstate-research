@@ -8,7 +8,13 @@ import EntityHub from '../../components/EntityHub.astro';
 import { slugFor, hubSlugForEntityCode } from '../../lib/reports';
 import { prepareReportBody, loadClaimSourceLinks } from '../../lib/reportBody';
 import { buildReportLinkCatalog } from '../../lib/federationLinks';
-import { loadSot, entityCodeFromReportId, resolveReportMetrics, formatNum } from '../../lib/sot';
+import {
+  loadSot,
+  entityCodeFromReportId,
+  resolveReportMetrics,
+  formatNum,
+  m1LedgerObsFor,
+} from '../../lib/sot';
 
 export async function getStaticPaths() {
   const reports = await getCollection('reports');
@@ -115,7 +121,7 @@ if (!isHub) {
   hubSlug = hubSlugForEntityCode(entityCode);
   const metrics = resolveReportMetrics(entityCode, { phi_s: publishPhi, kappa: publishKap });
   ({ phi_s, kappa, using_live, live, publish_phi_s, publish_kappa } = metrics);
-  m1LedgerObs = (sot.entity_m1_obs_counts || {})[entityCode] ?? 0;
+  m1LedgerObs = m1LedgerObsFor(entityCode);
 
   base = import.meta.env.BASE_URL;
   reportSlug = slugFor(entry.id);
@@ -494,8 +500,8 @@ const hubProps = isHub
         margin-top: 0;
       }
 
-      .machine-link {
-        color: var(--text-muted) !important;
+      a.machine-link {
+        color: var(--text-muted);
         font-family: var(--font-mono);
         font-size: var(--text-xs);
       }

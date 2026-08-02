@@ -4,13 +4,17 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { slugFor, hubSlugForEntityCode } from '../../lib/reports';
-import { loadSot, entityCodeFromReportId, resolveReportMetrics } from '../../lib/sot';
+import {
+  loadSot,
+  entityCodeFromReportId,
+  resolveReportMetrics,
+  m1LedgerObsFor,
+} from '../../lib/sot';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
 
 const sot = loadSot();
-const m1Obs = sot.entity_m1_obs_counts || {};
 const reports = (await getCollection('reports')).map((r) => {
   const code = entityCodeFromReportId(r.data.id);
   const m = resolveReportMetrics(code, { phi_s: r.data.phi_s, kappa: r.data.kappa });
@@ -18,7 +22,7 @@ const reports = (await getCollection('reports')).map((r) => {
     ...r,
     slug: slugFor(r.id),
     entityCode: code,
-    m1LedgerObs: m1Obs[code] ?? 0,
+    m1LedgerObs: m1LedgerObsFor(code),
     live_phi_s: m.phi_s,
     live_kappa: m.kappa,
     using_live: m.using_live,

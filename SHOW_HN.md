@@ -12,7 +12,7 @@ pip install helixhash
 
 Each observation is chained to the previous one via SHA-256. Altering any record breaks every subsequent fingerprint. You can commit the chain fingerprint to any EVM blockchain for an immutable timestamp.
 
-The library came out of building a financial measurement engine that watches public data sources, measures information efficiency using E = delta_I / A (log-ratio surprise divided by computational cost), and commits vault fingerprints to Base mainnet every 2 hours.
+The library came out of building a financial measurement engine that watches public data sources, measures information efficiency using E = delta_I / A (log-ratio surprise divided by computational cost), and commits vault fingerprints to Base mainnet when its wallet, balance, and mirror gates pass. Chaining is continuous; the on-chain commit is not every cycle.
 
 Simple demo:
 
@@ -35,11 +35,12 @@ print(h.PT)            # 0-1 score (threshold at 1/golden ratio = 0.618)
 The full demo fetches live public data (SOFR from FRED, BlackRock BUIDL TVL from DeFiLlama, Ethereum GitHub stars) and chains them into a fingerprint you can verify against on-chain commits:
 
 ```
-pip install helixhash requests
-python3 demo/eigenstate_demo.py
+python3 -m venv .venv && . .venv/bin/activate
+pip install helixhash
+python3 public/demo/eigenstate_demo.py
 ```
 
-The engine has made 9 Base mainnet commits. All verifiable at basescan.org.
+Every Base mainnet commit the engine has made is listed in the proof index, each one verifiable at basescan.org. Read the count off the index rather than off this post, which goes stale the moment the next commit lands.
 
 On-chain proof index: https://kaydeep0.github.io/eigenstate-research/onchain/
 

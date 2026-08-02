@@ -130,14 +130,30 @@ Honest, outsider-facing. Grounded in what the public stack actually ships today.
 | Provenance (OTS + SWH pointer) | [provenance/](https://kaydeep0.github.io/eigenstate-research/provenance/) |
 | Federation verify (technical) | [geniusflow-federation.vercel.app](https://geniusflow-federation.vercel.app/) → `/api/manifest`, `/api/chain`, `/api/verify`, `/api/package` |
 
-**5-minute demo** (from this repo root; toy stack — not the private engine):
+**5-minute demo** (toy stack, not the private engine). Python 3.8+, no API keys, no accounts.
+
+From this repo root:
 
 ```bash
-pip install helixhash requests
+python3 -m venv .venv && . .venv/bin/activate
+pip install helixhash
 python3 public/demo/eigenstate_demo.py
 ```
 
-HelixHash: [Kaydeep0/helixhash](https://github.com/Kaydeep0/helixhash). The script pulls a few public series, appends them into a local HelixHash chain, and points at a historical Basescan tx / Proof Index. Demo ≠ production cadence, full topology coverage, or continuous on-chain commits.
+Without cloning, in any empty directory:
+
+```bash
+python3 -m venv .venv && . .venv/bin/activate
+pip install helixhash
+curl -sO https://kaydeep0.github.io/eigenstate-research/demo/eigenstate_demo.py
+python3 eigenstate_demo.py
+```
+
+The venv is what makes `pip install` work on a stock macOS or Debian box, where a
+system-wide `pip install` is refused as an externally managed environment. Only
+`helixhash` is needed; the script uses the standard library for everything else.
+
+HelixHash: [Kaydeep0/helixhash](https://github.com/Kaydeep0/helixhash). The script reads three public series (FRED SOFR, DeFiLlama BUIDL TVL, GitHub stars), measures each as `delta_I = |log2(current / prior)|`, crosses them into a local HelixHash chain, then tampers with one entry in-process so you watch `verify()` flip to `False` and back. It ends on the latest Base commit in the bundled index. If a source is unreachable the run still completes on pinned fallback values and labels each observation as live or fallback. Demo is not production cadence, full topology coverage, or continuous on-chain commits.
 
 ---
 
@@ -214,18 +230,23 @@ Pages stays the human website. Machine cold-start is federation; not this README
 | Agent index (`llms.txt`) | https://geniusflow-federation.vercel.app/llms.txt |
 | OpenAPI 3 | https://geniusflow-federation.vercel.app/openapi.json |
 | Status / SLA | https://geniusflow-federation.vercel.app/api/status |
-| MCP remote | https://geniusflow-federation.vercel.app/api/mcp |
+| MCP remote (JSON-RPC over POST; a browser GET returns 405 by design) | https://geniusflow-federation.vercel.app/api/mcp |
 | MCP registry declaration | https://geniusflow-federation.vercel.app/server.json |
+| MCP registry entry (live lookup) | https://registry.modelcontextprotocol.io/v0/servers?search=geniusflow |
 | A2A agent card | https://geniusflow-federation.vercel.app/.well-known/agent-card.json |
 | A2A JSON-RPC | https://geniusflow-federation.vercel.app/api/a2a |
 | ERC-8004 domain proof | https://geniusflow-federation.vercel.app/.well-known/agent-registration.json |
 | **ERC-8004 refusal ledger** (Base, read-only probe) | https://kaydeep0.github.io/eigenstate-research/erc8004/ |
 | ERC-8004 ledger, machine readable | `/erc8004/summary.json` and `/erc8004/ledger.json` on both origins |
-| ERC-8004 per-agent receipt | https://geniusflow-federation.vercel.app/erc8004/receipts/`<agentId>`.json |
+| ERC-8004 per-agent receipt (federation origin only) | `https://geniusflow-federation.vercel.app/erc8004/receipts/<agentId>.json` (worked example: [agent 13](https://geniusflow-federation.vercel.app/erc8004/receipts/13.json)) |
 | **Provenance census** (this engine's own dependencies, PEP 740 and SLSA) | https://kaydeep0.github.io/eigenstate-research/slsa/ |
 | Provenance expectations, published before the run | `/slsa/expectations.json` on both origins |
 | Provenance census, machine readable | `/slsa/summary.json` and `/slsa/ledger.json` on both origins |
-| Provenance per-package receipt | https://geniusflow-federation.vercel.app/slsa/receipts/`<normalized-name>`.json |
+| Provenance per-package receipt (federation origin only) | `https://geniusflow-federation.vercel.app/slsa/receipts/<normalized-name>.json` (worked example: [anthropic](https://geniusflow-federation.vercel.app/slsa/receipts/anthropic.json)) |
+| **RWA disclosure interface survey** (17 tracked issuers, machine readable or not) | https://kaydeep0.github.io/eigenstate-research/rwa/ |
+| RWA expectations, published before the run | `/rwa/expectations.json` on both origins |
+| RWA survey, machine readable | `/rwa/summary.json` and `/rwa/ledger.json` on both origins |
+| RWA per-issuer receipt (federation origin only) | `https://geniusflow-federation.vercel.app/rwa/receipts/<ENTITY>.json` (worked example: [BLACKROCK_BUIDL](https://geniusflow-federation.vercel.app/rwa/receipts/BLACKROCK_BUIDL.json)) |
 | Attestation proof shape | https://geniusflow-federation.vercel.app/docs/ATTESTATION_PROOF_SHAPE.md |
 | Tool adapter / MCP | https://geniusflow-federation.vercel.app/docs/AGENT_TOOL_ADAPTER.md |
 | OTS commitment (file) | https://kaydeep0.github.io/eigenstate-research/provenance/opentimestamps/helix-head-917f0e3036931e14.txt |
@@ -255,5 +276,22 @@ and the probe refuses its own author first: two host-published roots are declare
 the public index cannot satisfy. Read it at
 [/slsa/](https://kaydeep0.github.io/eigenstate-research/slsa/). These counts describe one
 dependency set and are not a PyPI-wide rate.
+
+**RWA disclosure is measured as an interface, not as a document.** Seventeen real world asset
+issuers and tokenized instruments that this node already publishes a dossier card for, asked
+one question: can a program read the disclosed figure without a human, a document parser, or
+a third party who already did both. **0 of 17** serve a machine readable disclosure surface on
+an origin they operate. Two of the fifteen recorded surfaces serve structured bytes and both
+belong to the same third party aggregator, so this engine's own reserve figures for BUIDL and
+OUSG come from DefiLlama rather than from BlackRock, Securitize or Ondo. **0 of 45** requests
+to a frozen list of conventional disclosure paths answered with structured bytes, because no
+such convention exists to follow. **0 of 15** surfaces carry a chain qualified registry
+reference, so no disclosure here identifies a single deployment without the reader guessing
+the network. Expectations were published in an earlier commit
+([/rwa/expectations.json](https://kaydeep0.github.io/eigenstate-research/rwa/expectations.json)),
+and the survey publishes two defects it found in its own probe. Read it at
+[/rwa/](https://kaydeep0.github.io/eigenstate-research/rwa/). This is not a measure of
+disclosure quality and not a sector rate: the population is what this node tracks, and eleven
+of the seventeen refuse at the first limb on this node's own missing coverage.
 
 **Host-done (2026-08-01/02):** MCP registry published `io.github.Kaydeep0/geniusflow-federation` **1.0.0** (duplicate-version re-publish expected/refused). OTS helix-head verified via lite-client — Bitcoin block **960660** (proof: `public/provenance/opentimestamps/helix-head-917f0e3036931e14.txt.ots`). **A2A day-5 probe-receipt comments: posted.**

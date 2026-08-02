@@ -4,11 +4,185 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Provenance - Eigenstate Research</title>
-  <meta http-equiv="refresh" content="0; url=./README.md" />
-  <link rel="canonical" href="./README.md" />
+  <meta name="description" content="Independent time roots and intrinsic identifiers for the Eigenstate chain head: an OpenTimestamps Bitcoin attestation and SWHID identifiers, both checkable without asking us for anything." />
+  <style>
+    :root {
+      --bg:      #0d0d0f;
+      --surface: #141417;
+      --border:  #2a2a30;
+      --text:    #e2e2e8;
+      --muted:   #7a7a88;
+      --accent:  #7f9cf5;
+      --mono:    'JetBrains Mono', 'Fira Mono', 'Consolas', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      padding: 0 16px;
+    }
+    .page { max-width: 720px; margin: 0 auto; padding: 48px 0 80px; }
+    .label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    h1 { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 12px; }
+    h2 { font-size: 17px; font-weight: 600; margin: 40px 0 12px; }
+    h3 { font-size: 14px; font-weight: 600; margin: 24px 0 8px; color: var(--muted); }
+    p { margin-bottom: 14px; }
+    .subtitle { color: var(--muted); margin-bottom: 32px; max-width: 600px; }
+    a { color: var(--accent); }
+    ul { margin: 0 0 14px 20px; }
+    li { margin-bottom: 6px; }
+    code { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+    pre {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      overflow-x: auto;
+      margin-bottom: 16px;
+    }
+    pre code { color: var(--text); white-space: pre; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 14px; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .footer-nav {
+      margin-top: 56px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+    .footer-nav a { color: var(--muted); text-decoration: none; }
+    .footer-nav a:hover { color: var(--text); }
+  </style>
 </head>
 <body>
-  <p>Provenance index: <a href="./README.md">README.md</a> ·
-    <a href="./opentimestamps/">OpenTimestamps</a></p>
+<div class="page">
+
+  <div class="label">Eigenstate Research</div>
+  <h1>Provenance: independent time roots and intrinsic identifiers</h1>
+  <p class="subtitle">
+    Two things live here, both free, both checkable without asking us for anything.
+  </p>
+
+  <h2>1. A second time root over the chain head</h2>
+
+  <p>
+    The append-only chain is already anchored to RFC-3161 time authorities. Those are one
+    family. If you distrust that family, you distrust every anchor at once. So the head is
+    also stamped with <a href="https://opentimestamps.org/">OpenTimestamps</a>, which anchors
+    the same hash to Bitcoin through public calendar servers. The two roots share no operator,
+    no key and no failure mode.
+  </p>
+
+  <p>Files in <a href="./opentimestamps/"><code>opentimestamps/</code></a>:</p>
+
+  <table>
+    <thead>
+      <tr><th>File</th><th>What it is</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="./opentimestamps/helix-head-917f0e3036931e14.txt"><code>helix-head-917f0e3036931e14.txt</code></a></td>
+        <td>The commitment: node id, chain head hash, index, length, and the public endpoint that serves the same head. Plain text, readable without tools.</td>
+      </tr>
+      <tr>
+        <td><a href="./opentimestamps/helix-head-917f0e3036931e14.txt.ots"><code>helix-head-917f0e3036931e14.txt.ots</code></a></td>
+        <td>The OpenTimestamps proof for that exact file.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Verify it yourself</h3>
+
+<pre><code>brew install opentimestamps-client
+# alternative: pipx install opentimestamps-client
+curl -sSO https://kaydeep0.github.io/eigenstate-research/provenance/opentimestamps/helix-head-917f0e3036931e14.txt
+curl -sSO https://kaydeep0.github.io/eigenstate-research/provenance/opentimestamps/helix-head-917f0e3036931e14.txt.ots
+# Proof already upgraded; upgrade is idempotent if calendars have newer merkle data.
+ots upgrade helix-head-917f0e3036931e14.txt.ots
+# Prefer lite-client verify if bitcoind is not local:
+ots verify --lite-client helix-head-917f0e3036931e14.txt.ots
+# Host-confirmed: Bitcoin block 960660 attests this helix-head.</code></pre>
+
+  <p>Then check the head is still the head:</p>
+
+<pre><code>curl -sS https://geniusflow-federation.vercel.app/api/chain | head -c 200</code></pre>
+
+  <p>
+    If the endpoint reports a different hash for the same index, the history was rewritten and
+    the timestamped commitment is the evidence.
+  </p>
+
+  <h3>What a fresh stamp does and does not prove</h3>
+
+  <div class="callout">
+    A stamp submitted today sits in the calendar servers as a pending attestation until it is
+    folded into a Bitcoin block, usually within a few hours. Until <code>ots upgrade</code>
+    succeeds the proof is a calendar promise, not a Bitcoin proof. The helix-head commitment
+    published here has already been upgraded: Host lite-client verify reports Bitcoin block
+    <strong>960660</strong>. Fresh stamps for a newer head still begin as calendar promises.
+  </div>
+
+  <h2>2. SWHID: an intrinsic identifier for the code state</h2>
+
+  <p>
+    <a href="https://www.softwareheritage.org/software-hash-identifier-swhid/">SWHID</a>,
+    ISO/IEC 18670:2025, identifies a software artifact by content rather than by location. For
+    git, <code>swh:1:rev:&lt;sha&gt;</code> is the commit object hash, so anyone holding the
+    revision can recompute it with no registry, no account and no network in the trust path.
+  </p>
+
+  <p>
+    The current SWHIDs for the code behind each bake are published in the federation agent
+    descriptor under <code>provenance.software_identifiers</code>:
+  </p>
+
+<pre><code>curl -sS https://geniusflow-federation.vercel.app/api/agent | python3 -m json.tool</code></pre>
+
+  <p>
+    This repository has been submitted to Software Heritage for archival. Archival is
+    asynchronous and not under our control, so we publish the request URL rather than a claim
+    that it finished:
+  </p>
+
+  <ul>
+    <li><a href="https://archive.softwareheritage.org/api/1/origin/save/2407683/">archive.softwareheritage.org/api/1/origin/save/2407683/</a></li>
+  </ul>
+
+  <p>
+    Read <code>save_task_status</code> there for the real state. The engine repository is
+    private, so its revisions are not archivable; the identifier is still intrinsic and still
+    checkable by anyone who receives the revision.
+  </p>
+
+  <div class="footer-nav">
+    <a href="../">Research</a>
+    <a href="./README.md">This page as markdown</a>
+    <a href="./opentimestamps/">OpenTimestamps files</a>
+    <a href="../onchain/">On-Chain Proof Index</a>
+    <a href="../METHODOLOGY.md">Methodology</a>
+  </div>
+
+</div>
 </body>
 </html>

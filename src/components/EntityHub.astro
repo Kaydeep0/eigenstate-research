@@ -11,6 +11,7 @@ import {
   loadSot,
   resolveReportMetrics,
   formatNum,
+  m1LedgerObsFor,
   publishEvolutionPolylines,
   EVOLUTION_MIN_STAMPS,
   type PublishMetricStamp,
@@ -43,7 +44,7 @@ const publish = latest
   : { phi_s: 0, kappa: 0 };
 const metrics = resolveReportMetrics(entityCode, publish);
 const { phi_s, kappa, using_live, live } = metrics;
-const m1LedgerObs = (sot.entity_m1_obs_counts || {})[entityCode] ?? 0;
+const m1LedgerObs = m1LedgerObsFor(entityCode);
 
 const base = import.meta.env.BASE_URL;
 const hubUrl = `${base}reports/${hubSlug}/`;

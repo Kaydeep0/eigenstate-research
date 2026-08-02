@@ -83,13 +83,13 @@ The Eigenstate engine commits to Base mainnet. You can commit to any EVM chain y
 
 ## On-chain verification
 
-The Eigenstate engine has made 11 Base mainnet commits. All verifiable at basescan.org.
-
-Latest commit:
-https://basescan.org/tx/26a24d5aebcd2e15911618f6b5593956baf3d95e0fd05db6fb622779c0b5cbb4
+Every Base mainnet commit the Eigenstate engine has made is listed in the proof index, each one verifiable at basescan.org. The index is the count; a number written here would be stale by the next commit.
 
 Full on-chain index:
 https://kaydeep0.github.io/eigenstate-research/onchain/
+
+Machine readable:
+https://kaydeep0.github.io/eigenstate-research/api/onchain.json
 
 ## Honest limitations
 

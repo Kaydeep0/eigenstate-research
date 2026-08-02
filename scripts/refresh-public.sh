@@ -57,5 +57,11 @@ if [[ -f "${ROOT}/METHODOLOGY.md" ]]; then
   cp "${ROOT}/METHODOLOGY.md" "${ROOT}/public/METHODOLOGY.md"
 fi
 
+# The 5-minute demo reads the commit index published beside it. Without this
+# copy it drifts behind /onchain/ and points outsiders at a stale Base tx.
+if [[ -f "${ROOT}/src/data/helix_commits.json" ]]; then
+  cp "${ROOT}/src/data/helix_commits.json" "${ROOT}/public/demo/helix_commits.json"
+fi
+
 echo "Done. Commit public/field-state.json + federation mirrors, then push Pages."
 echo "Legacy alias: ./scripts/refresh-sot.sh → this script."
