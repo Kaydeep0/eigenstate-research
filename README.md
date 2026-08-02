@@ -219,6 +219,9 @@ Pages stays the human website. Machine cold-start is federation; not this README
 | A2A agent card | https://geniusflow-federation.vercel.app/.well-known/agent-card.json |
 | A2A JSON-RPC | https://geniusflow-federation.vercel.app/api/a2a |
 | ERC-8004 domain proof | https://geniusflow-federation.vercel.app/.well-known/agent-registration.json |
+| **ERC-8004 refusal ledger** (Base, read-only probe) | https://kaydeep0.github.io/eigenstate-research/erc8004/ |
+| ERC-8004 ledger, machine readable | `/erc8004/summary.json` and `/erc8004/ledger.json` on both origins |
+| ERC-8004 per-agent receipt | https://geniusflow-federation.vercel.app/erc8004/receipts/`<agentId>`.json |
 | Attestation proof shape | https://geniusflow-federation.vercel.app/docs/ATTESTATION_PROOF_SHAPE.md |
 | Tool adapter / MCP | https://geniusflow-federation.vercel.app/docs/AGENT_TOOL_ADAPTER.md |
 | OTS commitment (file) | https://kaydeep0.github.io/eigenstate-research/provenance/opentimestamps/helix-head-917f0e3036931e14.txt |
@@ -229,4 +232,12 @@ Pages stays the human website. Machine cold-start is federation; not this README
 
 Traverse: hub → status → dossier → `/api/package` / `/api/verify` (proof_shape admit/refuse) → optional `/api/return_wire` → canonical report on Pages. Walkthrough: [verify-walkthrough/](https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/).
 
-**Host-pending (not agent work):** MCP registry publish · A2A probe-receipt `gh` comments (bodies in private engine `docs/a2a_comments/`) · `ots upgrade` after Bitcoin confirm. Do not invent an ERC-8004 registration miss-rate until the probe ledger is published and linked here.
+**ERC-8004 miss rate is now measured, not asserted.** 500 agentIds drawn uniformly from the
+60444 registered on Base at block 49425346: 365 refuse at least one limb the ERC states as
+MUST (73.0 percent, 95 percent CI 68.9 to 76.7), and 455 refuse once self-reference and
+endpoint liveness are counted (91.0 percent, CI 88.2 to 93.2). The largest single cause is an
+on-chain identity carrying no agentURI at all, 174 of 500. Every refusal names its limb:
+[/erc8004/](https://kaydeep0.github.io/eigenstate-research/erc8004/). Cite that interval or
+nothing.
+
+**Host-pending (not agent work):** MCP registry publish · A2A probe-receipt `gh` comments (bodies in private engine `docs/a2a_comments/`) · `ots upgrade` after Bitcoin confirm.
