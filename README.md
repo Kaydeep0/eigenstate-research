@@ -123,6 +123,7 @@ Honest, outsider-facing. Grounded in what the public stack actually ships today.
 | Path | Link |
 |------|------|
 | Methodology (full depth) | [METHODOLOGY.md](METHODOLOGY.md) |
+| **Verify walkthrough** (copy-paste) | [verify-walkthrough/](https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/) — status → dossier → package/verify for `AAVE_V3` |
 | Signal reports | [reports/](https://kaydeep0.github.io/eigenstate-research/reports/) |
 | On-chain proof index | [onchain/](https://kaydeep0.github.io/eigenstate-research/onchain/) |
 | Federation verify (technical) | [geniusflow-federation.vercel.app](https://geniusflow-federation.vercel.app/) → `/api/manifest`, `/api/chain`, `/api/verify`, `/api/package` |
@@ -205,7 +206,8 @@ Pages stays the human website. Machine cold-start is federation — not this REA
 | Status / SLA | https://geniusflow-federation.vercel.app/api/status |
 | Attestation proof shape | https://geniusflow-federation.vercel.app/docs/ATTESTATION_PROOF_SHAPE.md |
 | Tool adapter / MCP | https://geniusflow-federation.vercel.app/docs/AGENT_TOOL_ADAPTER.md |
+| **Verify walkthrough** (human + curl) | https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/ |
 | Pages `llms.txt` (pointer) | https://kaydeep0.github.io/eigenstate-research/llms.txt |
 | In-repo pointer | [`AGENTS.md`](AGENTS.md) |
 
-Traverse: hub → manifest → entity feed / dossier → chain verify → canonical report on Pages.
+Traverse: hub → status → dossier → `/api/package` / `/api/verify` (proof_shape admit/refuse) → optional `/api/return_wire` → canonical report on Pages. Walkthrough: [verify-walkthrough/](https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/).

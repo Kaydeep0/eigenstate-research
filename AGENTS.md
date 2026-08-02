@@ -14,7 +14,8 @@ Topics: **mcp**, **rwa**, **attestation**.
 3. Status / SLA: https://geniusflow-federation.vercel.app/api/status
 4. Attestation proof shape: https://geniusflow-federation.vercel.app/docs/ATTESTATION_PROOF_SHAPE.md
 5. MCP / tool adapter: https://geniusflow-federation.vercel.app/docs/AGENT_TOOL_ADAPTER.md
-6. Human research (Pages): https://kaydeep0.github.io/eigenstate-research/
+6. **Verify walkthrough** (curl admit/refuse for `AAVE_V3`): https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/
+7. Human research (Pages): https://kaydeep0.github.io/eigenstate-research/
 
 In-repo pointer: [`README.md`](README.md) § Appendix: For agents.
 

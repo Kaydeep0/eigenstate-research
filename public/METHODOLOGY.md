@@ -167,6 +167,7 @@ Gap id **`LIBOR_EQUIVALENT`**: markets treat SOFR + ISDA fallback as a full LIBO
 
 - Human site: https://kaydeep0.github.io/eigenstate-research/
 - This file: https://kaydeep0.github.io/eigenstate-research/METHODOLOGY.md
+- **Verify walkthrough** (copy-paste status → dossier → package/verify): https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/
 - Machine cold-start: https://geniusflow-federation.vercel.app/llms.txt
 - Status / SLA: https://geniusflow-federation.vercel.app/api/status
 - Proof shape: https://geniusflow-federation.vercel.app/docs/ATTESTATION_PROOF_SHAPE.md

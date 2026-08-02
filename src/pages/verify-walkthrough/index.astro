@@ -1,0 +1,386 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const fonts =
+  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
+
+const base = import.meta.env.BASE_URL;
+const fed = 'https://geniusflow-federation.vercel.app';
+const proofShape = `${fed}/docs/ATTESTATION_PROOF_SHAPE.md`;
+const methodology = `${base}METHODOLOGY.md`;
+const numbersGlossary = `${base}METHODOLOGY.md#numbers-glossary`;
+const requestAccess = `${base}request-access/`;
+const demoReport = `${base}reports/aave-v3-20260801/`;
+
+/** Live-tested 2026-08-01 against federation — admit when posted as-is. */
+const admitBody = `{
+  "claim_id": "d1eb5014-5ea5-44e2-bf2e-957df5a4e111",
+  "claim_text": "Aave v3 developer documentation",
+  "status_at_publish": "ATTESTED-PRIMARY",
+  "grounding": {
+    "source_url": "https://docs.aave.com/developers/aave-v3/overview",
+    "expected": "v3",
+    "location": ""
+  },
+  "verified_at": "2026-08-01T15:28:19.940673+00:00",
+  "expires_at": "2026-10-30T15:28:19+00:00"
+}`;
+
+const refuseBody = `{
+  "claim_id": "walkthrough-invented",
+  "claim_text": "Invented attestation without grounding",
+  "status_at_publish": "ATTESTED"
+}`;
+---
+
+<Layout
+  title="Verify Walkthrough — Eigenstate Research"
+  description="Copy-paste federation walkthrough: status → dossier → package/verify for one real entity (AAVE_V3). Admit vs refuse, proof_shape, return-wire."
+  fonts={fonts}
+>
+  <Fragment slot="head">
+    <style>
+      .page-hero {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 72px 24px 24px;
+        text-align: center;
+      }
+
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.15em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .page-hero h1 {
+        font-family: var(--font-heading);
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        line-height: 1.15;
+        margin: 0 0 16px;
+      }
+
+      .page-hero .grad {
+        background: linear-gradient(135deg, var(--signal) 0%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .explainer {
+        font-size: var(--text-base);
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin: 0 auto 12px;
+        max-width: 600px;
+      }
+
+      .honesty {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin: 0 auto;
+        max-width: 600px;
+      }
+
+      .walk-section {
+        padding: 8px 24px 80px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .step {
+        margin-bottom: 36px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .step:last-of-type {
+        border-bottom: none;
+      }
+
+      .step-label {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--signal);
+        margin-bottom: 8px;
+      }
+
+      .step h2 {
+        font-family: var(--font-heading);
+        font-size: var(--text-lg);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0 0 10px;
+        letter-spacing: -0.01em;
+      }
+
+      .step p {
+        font-size: var(--text-base);
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin: 0 0 14px;
+      }
+
+      .step a {
+        color: var(--signal-dim);
+      }
+
+      .expect {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+        line-height: 1.65;
+        margin: 0 0 14px;
+        padding: 12px 14px;
+        background: var(--bg2);
+        border-left: 3px solid var(--border-live);
+      }
+
+      .expect.admit {
+        border-left-color: var(--status-success);
+      }
+
+      .expect.refuse {
+        border-left-color: var(--status-warning);
+      }
+
+      pre.cmd {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        line-height: 1.55;
+        background: #1a1a1a;
+        color: #e8e6e1;
+        padding: 16px 18px;
+        border-radius: var(--radius-sm);
+        overflow-x: auto;
+        margin: 0 0 8px;
+        white-space: pre;
+      }
+
+      .cmd-note {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        margin: 0 0 8px;
+      }
+
+      .links-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+        margin: 8px 0 28px;
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+      }
+
+      .links-row a {
+        color: var(--signal-dim);
+        text-decoration: none;
+      }
+
+      .links-row a:hover {
+        text-decoration: underline;
+      }
+
+      .cta-block {
+        margin-top: 16px;
+        padding: 28px 24px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-sm);
+        text-align: center;
+      }
+
+      .cta-block p {
+        font-size: var(--text-base);
+        color: var(--text-secondary);
+        margin: 0 0 16px;
+        line-height: 1.6;
+      }
+
+      @media (width <= 640px) {
+        .page-hero {
+          padding-top: 48px;
+        }
+
+        pre.cmd {
+          font-size: 11px;
+          padding: 14px;
+        }
+      }
+    </style>
+  </Fragment>
+
+  <Nav cta={{ label: 'Request Pilot', href: requestAccess }} />
+
+  <div class="page-hero" id="main">
+    <div class="eyebrow">Federation · return path</div>
+    <h1>Verify <span class="grad">walkthrough</span></h1>
+    <p class="explainer">
+      How an outsider or agent hits live federation verify/package for one real entity —
+      <code>AAVE_V3</code> — and reads admit vs refuse. No signup. Best-effort Vercel.
+    </p>
+    <p class="honesty">
+      Research measurement surface · not bank settlement · not a paid product
+    </p>
+  </div>
+
+  <section class="walk-section">
+    <div class="links-row">
+      <a href={proofShape} target="_blank" rel="noopener">proof_shape spec</a>
+      <a href={numbersGlossary}>Methodology · numbers glossary</a>
+      <a href={`${fed}/llms.txt`} target="_blank" rel="noopener">llms.txt</a>
+      <a href={demoReport}>Aave V3 report</a>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Step 1</div>
+      <h2>OpenAPI + status</h2>
+      <p>
+        Confirm the live base and that baked endpoints (dossier, package, verify) are present.
+        Tier is <code>best_effort_vercel</code> — no uptime SLA.
+      </p>
+      <pre class="cmd">{`curl -sS ${fed}/openapi.json | jq '{title:.info.title, version:.info.version}'
+curl -sS ${fed}/api/status | jq '{ok, tier, spec_version, n_dossiers:.surfaces.n_dossiers, baked:.surfaces.baked_endpoints}'`}</pre>
+      <p class="expect">
+        Expect <code>ok: true</code>, <code>tier: "best_effort_vercel"</code>, and
+        <code>baked_endpoints.package</code> / <code>verify</code> / <code>dossier</code> true.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Step 2</div>
+      <h2>Dossier for one entity</h2>
+      <p>
+        Pull <code>AAVE_V3</code> (also works: <code>CIRCLE</code>). Use a claim from
+        <code>claims[]</code> — do not invent <code>expected</code> from HTML.
+      </p>
+      <pre class="cmd">{`curl -sS '${fed}/api/dossier?entity=AAVE_V3' \\
+  | jq '{entity, digest, phi_s:.own_numbers.phi_s, kappa:.own_numbers.kappa, n_claims:(.claims|length), claim0:.claims[0]}'`}</pre>
+      <p class="expect">
+        Expect JSON with <code>entity: "AAVE_V3"</code>, a digest, and at least one claim carrying
+        <code>grounding.source_url</code> + <code>expected</code> and
+        <code>status_at_publish</code> (e.g. <code>ATTESTED-PRIMARY</code>).
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Step 3</div>
+      <h2>Package — admit (preferred: pipe from dossier)</h2>
+      <p>
+        POST the published claim object to <code>/api/package</code>. Prefer piping
+        <code>claims[0]</code> so fields stay current after rebakes.
+      </p>
+      <pre class="cmd">{`CLAIM=$(curl -sS '${fed}/api/dossier?entity=AAVE_V3' | jq '.claims[0]')
+curl -sS -X POST ${fed}/api/package \\
+  -H 'Content-Type: application/json' \\
+  -d "$CLAIM" \\
+  | jq '{disposition, reason, proof_shape, return:._return_wire.outcome}'`}</pre>
+      <p class="cmd-note">
+        Minimal honest body that admitted live (needs <code>grounding</code> +
+        <code>verified_at</code> + <code>expires_at</code> — omitting expiry refuses):
+      </p>
+      <pre class="cmd">{`curl -sS -X POST ${fed}/api/package \\
+  -H 'Content-Type: application/json' \\
+  -d @- <<'EOF' | jq '{disposition, reason, proof_shape}'
+${admitBody}
+EOF`}</pre>
+      <p class="expect admit">
+        Expect <code>disposition: "admitted"</code>, <code>reason: "attested_published_claim"</code>,
+        <code>proof_shape.admitted: true</code>, empty <code>failed_limbs</code>,
+        <code>refuse_limb: null</code>. Response may include <code>_return_wire</code> ack.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Step 4</div>
+      <h2>Package — refuse (invented attestation)</h2>
+      <p>
+        A body that stamps ATTESTED without grounding / expiry fails closed. That is the point of
+        <a href={proofShape} target="_blank" rel="noopener">proof_shape</a>.
+      </p>
+      <pre class="cmd">{`curl -sS -X POST ${fed}/api/package \\
+  -H 'Content-Type: application/json' \\
+  -d @- <<'EOF' | jq '{disposition, reason, proof_shape}'
+${refuseBody}
+EOF`}</pre>
+      <p class="expect refuse">
+        Expect <code>disposition: "withheld"</code>, <code>exhibited_refusal: true</code>,
+        <code>proof_shape.admitted: false</code>, non-empty <code>failed_limbs</code>
+        (typically <code>refuse_or_admit</code> and/or <code>provenance_spine</code>), and a set
+        <code>refuse_limb</code>. HTTP is still 200 — refuse is in the JSON, not a 4xx.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Step 5</div>
+      <h2>Verify grounding (source_url + expected)</h2>
+      <p>
+        Re-check that the published <code>expected</code> string appears in the fetched source.
+        Take both values from the dossier claim — never invent them.
+      </p>
+      <pre class="cmd">{`curl -sS -G '${fed}/api/verify' \\
+  --data-urlencode 'source_url=https://docs.aave.com/developers/aave-v3/overview' \\
+  --data-urlencode 'expected=v3' \\
+  | jq '{status, found, note, proof_shape}'`}</pre>
+      <p class="expect admit">
+        Live check: <code>found: true</code>, <code>status: "ATTESTED-PRIMARY"</code>,
+        <code>proof_shape.admitted: true</code>. A wrong <code>expected</code> refuses
+        (<code>admitted: false</code>) without upgrading the miss.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Step 6</div>
+      <h2>Return-wire (optional ack)</h2>
+      <p>
+        After package/verify, federation may record a consumption ack on
+        <code>/api/return_wire</code>. This is a return-signal path — not proof that every vault
+        row was published. See the <a href={numbersGlossary}>numbers glossary</a> row
+        “Return-wire ack”.
+      </p>
+      <pre class="cmd">{`curl -sS ${fed}/api/return_wire | jq '{ok, wire, n, note, capital}'`}</pre>
+      <p class="expect">
+        Expect <code>ok: true</code> and a small ack ring. <code>capital: "HOLD"</code> is normal
+        on this public tier.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Read next</div>
+      <h2>Admit vs refuse · glossary</h2>
+      <p>
+        Limbs (order frozen): <code>registry_ref</code> → <code>refuse_or_admit</code> →
+        <code>provenance_spine</code>. Admit only when every limb is ok. Spec:
+        <a href={proofShape} target="_blank" rel="noopener">ATTESTATION_PROOF_SHAPE.md</a>.
+        Field terms (E, Φ_S, κ, status_at_publish, return-wire):
+        <a href={numbersGlossary}>Methodology · Numbers glossary</a>.
+      </p>
+      <p class="honesty" style="text-align: left; max-width: none;">
+        CIRCLE works the same: swap <code>entity=CIRCLE</code> in step 2 and pipe its
+        <code>claims[0]</code>.
+      </p>
+    </div>
+
+    <div class="cta-block">
+      <p>
+        Done with the wire? Request design-partner pilot access — free intake, no payment step.
+      </p>
+      <a href={requestAccess} class="btn btn-md btn-gradient">Request Pilot Access</a>
+    </div>
+  </section>
+
+  <Footer variant="full" />
+</Layout>

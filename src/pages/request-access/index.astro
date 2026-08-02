@@ -10,6 +10,7 @@ const base = import.meta.env.BASE_URL;
 const demoReport = `${base}reports/aave-v3-20260801/`;
 const methodology = `${base}METHODOLOGY.md`;
 const federationLlms = 'https://geniusflow-federation.vercel.app/llms.txt';
+const verifyWalkthrough = `${base}verify-walkthrough/`;
 const hostEmail = 'ksekhon9851@Gmail.com';
 ---
 
@@ -317,6 +318,7 @@ const hostEmail = 'ksekhon9851@Gmail.com';
             After you write in: read
             <a href={methodology}>Methodology</a> ·
             <a href={demoReport}>demo report (Aave V3)</a> ·
+            <a href={verifyWalkthrough}>verify walkthrough</a> ·
             <a href={federationLlms} target="_blank" rel="noopener">federation llms.txt</a>
           </li>
         </ul>
@@ -333,6 +335,7 @@ const hostEmail = 'ksekhon9851@Gmail.com';
     const methodology = `${base}METHODOLOGY.md`;
     const demoReport = `${base}reports/aave-v3-20260801/`;
     const federationLlms = 'https://geniusflow-federation.vercel.app/llms.txt';
+    const verifyWalkthrough = `${base}verify-walkthrough/`;
 
     initForm({
       formId: 'pilotForm',
@@ -345,6 +348,8 @@ const hostEmail = 'ksekhon9851@Gmail.com';
         `<a href="${methodology}">Methodology</a>`,
         '·',
         `<a href="${demoReport}">Demo report (Aave V3)</a>`,
+        '·',
+        `<a href="${verifyWalkthrough}">Verify walkthrough</a>`,
         '·',
         `<a href="${federationLlms}" target="_blank" rel="noopener">Federation llms.txt</a>`,
       ].join(' '),
