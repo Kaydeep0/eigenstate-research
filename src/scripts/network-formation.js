@@ -356,7 +356,7 @@ export class NetworkFormation {
     }
 
     drawPhaseIndicator() {
-        const labels = ['Waves 1-5: Consolidated', 'Wave 6: Clustering', 'Wave 6: Accelerating'];
+        const labels = ['Waves 1-5: Consolidated', 'Current: Clustering', 'Current: Accelerating'];
         const currentLabel = labels[this.phase];
 
         const boxWidth = 200;

@@ -23,6 +23,15 @@ if rg -n --glob 'src/pages/**/*.{astro,ts}' --glob 'src/components/**/*.{astro,t
   fail=1
 fi
 
+# Fake Wave-6 capture / confidence marketing (allow "not a Wave-6 capture forecast" prose).
+if rg -n --glob 'src/pages/**/*.{astro,ts,js}' --glob 'src/components/**/*.{astro,ts}' --glob 'src/scripts/**/*.js' \
+  -e 'Wave 6[^\n]{0,40}90%' -e '90%[^\n]{0,40}(confidence|Concentration|Wave 6)' \
+  -e 'Wave 6 Progress' -e 'Concentration Probability' \
+  . 2>/dev/null | rg -v 'not a Wave-6' | rg -v 'no projected' | rg -v 'Wave-6 capture forecast'; then
+  echo "FAIL: Wave 6 / 90% marketing overclaim in Astro sources" >&2
+  fail=1
+fi
+
 # field-state must exist and use denom 199
 if [[ ! -f public/field-state.json ]]; then
   echo "FAIL: missing public/field-state.json" >&2
