@@ -1,0 +1,269 @@
+/*
+  Ranking / measured-actor table IA (DefiLlama-inspired layout, measurement brand).
+  Shared by ledger indexes, reports index, and entity hubs.
+*/
+
+.rank-hero {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 56px 24px 12px;
+}
+
+.rank-hero .eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.rank-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin: 0 0 12px;
+}
+
+.rank-hero .lede {
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0 0 20px;
+  max-width: 640px;
+}
+
+.rank-primary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 20px;
+  margin: 0 0 8px;
+}
+
+.rank-primary .rate {
+  font-family: var(--font-heading);
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.rank-primary .rate-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  max-width: 28rem;
+  line-height: 1.5;
+}
+
+.rank-delta {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0 0 16px;
+  max-width: 40rem;
+}
+
+.rank-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 8px 24px 64px;
+}
+
+.rank-runline {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.75;
+  padding: 10px 0 18px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 18px;
+  overflow-wrap: anywhere;
+}
+
+.rank-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin: 0 0 28px;
+  border: 1px solid var(--border);
+}
+
+.rank-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  margin: 0;
+}
+
+.rank-table th,
+.rank-table td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+
+.rank-table th {
+  color: var(--text-muted);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  background: var(--bg2);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.rank-table td.n,
+.rank-table th.n {
+  text-align: right;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.rank-table td.verdict {
+  color: var(--text-primary);
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.rank-table td.verdict.is-refuse {
+  color: var(--status-error);
+}
+
+.rank-table td.verdict.is-admit {
+  color: var(--status-success);
+}
+
+.rank-table a {
+  color: var(--signal-dim);
+  text-decoration: none;
+}
+
+.rank-table a:hover {
+  text-decoration: underline;
+}
+
+.rank-table tr:hover td {
+  background: rgb(0 0 0 / 2%);
+}
+
+.rank-table .subject {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.rank-table .child-row td:first-child {
+  padding-left: 28px;
+}
+
+.rank-table .child-row {
+  background: rgb(0 0 0 / 1.5%);
+}
+
+.rank-expand {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 2px 7px;
+  margin-right: 8px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.rank-expand:hover,
+.rank-expand:focus-visible {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+  outline: none;
+}
+
+.rank-expand[aria-expanded='true'] {
+  color: var(--signal);
+  border-color: var(--border-live);
+}
+
+.rank-footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.rank-footer h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 28px 0 8px;
+}
+
+.rank-footer p,
+.rank-footer li {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.rank-footer .links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin: 10px 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.rank-footer .links-row a {
+  color: var(--signal-dim);
+  text-decoration: none;
+}
+
+.rank-footer .links-row a:hover {
+  text-decoration: underline;
+}
+
+.rank-footer .honesty {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 16px 0 0;
+}
+
+.rank-footer pre.cmd {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.55;
+  background: #1a1a1a;
+  color: #e8e6e1;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  margin: 0 0 12px;
+  white-space: pre;
+}
+
+@media (width <= 640px) {
+  .rank-hero {
+    padding-top: 40px;
+  }
+
+  .rank-table th,
+  .rank-table td {
+    padding: 7px 8px;
+  }
+}

@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import survey from '../../data/rwa_disclosure.json';
+import { ledgerDeltaLine } from '../../lib/ledgerContext';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -18,13 +19,9 @@ interface Survey {
   expectations_digest: string;
   expectations_generated_at: string;
   probe_version: string;
-  probe_version_at_expectations: string;
   subject: { what: string; engine_commit: string; dossier_source: string };
-  question: { asked: string; not_asked: string; why_it_is_separate: string };
-  population_rule: string;
   issuers_in_population: number;
   no_surface_recorded_by_this_node: number;
-  issuers_with_a_recorded_surface: number;
   must_admit: number;
   must_refuse: number;
   full_admit: number;
@@ -42,12 +39,10 @@ interface Survey {
   limb_spec_level: Record<string, string>;
   surfaces: {
     recorded: number;
-    resolved: number;
     machine_readable: number;
     issuer_operated: number;
     issuer_operated_and_machine_readable: number;
     media_types_sniffed: Record<string, number>;
-    registrable_domains: Record<string, number>;
   };
   conventional_paths: {
     requests: number;
@@ -59,7 +54,6 @@ interface Survey {
   registry_ref_discipline: {
     surfaces_naming_any_reference: number;
     surfaces_with_chain_qualified_reference: number;
-    why: string;
     how_it_is_checked: string;
   };
   predictions_scored: { prediction: string; observed: string; met: boolean }[];
@@ -89,646 +83,246 @@ function formatDate(iso: string): string {
   return isNaN(d.getTime()) ? iso : d.toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
 }
 
-const headlines = [
-  {
-    value: `${s.issuer_operated_machine_readable_surface_exists}`,
-    sub: `of ${n} issuers`,
-    label: 'serve a machine readable disclosure they operate themselves',
-    note: 'Not a low number. Zero. No issuer in this population publishes a structured reserve or asset figure on an origin it controls.',
-  },
-  {
-    value: `${s.surfaces.machine_readable}`,
-    sub: `of ${s.surfaces.recorded} surfaces`,
-    label: 'serve structured bytes at all',
-    note: 'Both belong to the same third party aggregator. The number is readable, and the issuer is not the one publishing it.',
-  },
-  {
-    value: `${s.conventional_paths.answered_structured}`,
-    sub: `of ${s.conventional_paths.requests} requests`,
-    label: 'to a conventional disclosure path answered',
-    note: 'Nine paths across five issuer operated origins. There is no location an issuer could serve this from even if it wanted to.',
-  },
-  {
-    value: `${s.no_surface_recorded_by_this_node}`,
-    sub: `of ${n} issuers`,
-    label: 'have no surface recorded by this node',
-    note: 'That refusal belongs to this node, not to the issuer. The rate below is also given with them excluded.',
-  },
-];
-
+const refuseRate = `${((100 * s.must_refuse) / n).toFixed(1)}%`;
+const delta = ledgerDeltaLine('rwa', 'must_refuse_rate');
 const refuseRows = Object.entries(s.refuse_limb_counts).sort((a, b) => b[1] - a[1]);
 const mediaRows = Object.entries(s.surfaces.media_types_sniffed).sort((a, b) => b[1] - a[1]);
 const statusRows = Object.entries(s.conventional_paths.status_counts).sort((a, b) => b[1] - a[1]);
-const soft200 = s.conventional_paths.status_counts['200'] ?? 0;
+const subjects = [...s.per_issuer].sort((a, b) => {
+  if (a.must_admit !== b.must_admit) return a.must_admit ? 1 : -1;
+  return a.entity.localeCompare(b.entity);
+});
 ---
 
 <Layout
-  title="RWA disclosure interface conformance survey · Eigenstate Research"
-  description="Seventeen real world asset issuers and tokenized instruments, checked for whether a program can read their disclosed figure without a human, a document parser, or a third party. Expectations published before the run."
+  title="RWA disclosure survey · Eigenstate Research"
+  description="Real world asset issuers and tokenized instruments, checked for whether a program can read their disclosed figure without a human, a document parser, or a third party."
   fonts={fonts}
 >
-  <Fragment slot="head">
-    <style>
-      .page-hero {
-        max-width: 820px;
-        margin: 0 auto;
-        padding: 72px 24px 20px;
-        text-align: center;
-      }
-
-      .eyebrow {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        letter-spacing: 0.15em;
-        color: var(--text-muted);
-        text-transform: uppercase;
-        margin-bottom: 16px;
-      }
-
-      .page-hero h1 {
-        font-family: var(--font-heading);
-        font-size: clamp(1.75rem, 4vw, 2.5rem);
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        color: var(--text-primary);
-        line-height: 1.15;
-        margin: 0 0 16px;
-      }
-
-      .page-hero .grad {
-        background: linear-gradient(135deg, var(--signal) 0%, var(--accent) 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .explainer {
-        font-size: var(--text-base);
-        color: var(--text-secondary);
-        line-height: 1.7;
-        margin: 0 auto 12px;
-        max-width: 640px;
-      }
-
-      .honesty {
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        color: var(--text-muted);
-        line-height: 1.6;
-        margin: 0 auto;
-        max-width: 640px;
-      }
-
-      .wrap {
-        max-width: 880px;
-        margin: 0 auto;
-        padding: 8px 24px 80px;
-      }
-
-      .runline {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--text-muted);
-        line-height: 1.8;
-        padding: 14px 16px;
-        background: var(--bg2);
-        border-left: 3px solid var(--border-live);
-        margin: 20px 0 32px;
-        overflow-wrap: anywhere;
-      }
-
-      .cite-box {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--text-muted);
-        line-height: 1.75;
-        padding: 14px 16px;
-        background: var(--bg2);
-        border-left: 3px solid var(--signal-dim);
-        margin: 0 0 28px;
-        overflow-wrap: anywhere;
-      }
-
-      .cite-box .cite-title {
-        color: var(--text-secondary);
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        margin-bottom: 8px;
-      }
-
-      .cite-box a {
-        color: var(--signal-dim);
-      }
-
-      .cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 16px;
-        margin-bottom: 36px;
-      }
-
-      .card {
-        background: var(--bg-card);
-        border: 1px solid var(--border-strong);
-        border-radius: var(--radius-sm);
-        padding: 20px 18px;
-      }
-
-      .card .big {
-        font-family: var(--font-heading);
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--text-primary);
-        line-height: 1;
-        margin-bottom: 4px;
-      }
-
-      .card .ci {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--text-muted);
-        margin-bottom: 10px;
-      }
-
-      .card .lab {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-        line-height: 1.5;
-        margin-bottom: 8px;
-      }
-
-      .card .note {
-        font-size: var(--text-xs);
-        color: var(--text-muted);
-        line-height: 1.6;
-      }
-
-      h2 {
-        font-family: var(--font-heading);
-        font-size: var(--text-lg);
-        font-weight: 700;
-        color: var(--text-primary);
-        margin: 36px 0 10px;
-        letter-spacing: -0.01em;
-      }
-
-      p.body {
-        font-size: var(--text-base);
-        color: var(--text-secondary);
-        line-height: 1.7;
-        margin: 0 0 14px;
-      }
-
-      p.body a,
-      .links-row a,
-      td a {
-        color: var(--signal-dim);
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        margin: 8px 0 18px;
-      }
-
-      th,
-      td {
-        text-align: left;
-        padding: 9px 10px;
-        border-bottom: 1px solid var(--border);
-        color: var(--text-secondary);
-      }
-
-      th {
-        color: var(--text-muted);
-        font-size: var(--text-xs);
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        font-weight: 500;
-      }
-
-      td.n {
-        text-align: right;
-        color: var(--text-primary);
-      }
-
-      td.verdict {
-        color: var(--text-primary);
-        white-space: nowrap;
-      }
-
-      .links-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px 20px;
-        margin: 12px 0 8px;
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-      }
-
-      .links-row a {
-        text-decoration: none;
-      }
-
-      .links-row a:hover {
-        text-decoration: underline;
-      }
-
-      pre.cmd {
-        font-family: var(--font-mono);
-        font-size: 12px;
-        line-height: 1.55;
-        background: #1a1a1a;
-        color: #e8e6e1;
-        padding: 16px 18px;
-        border-radius: var(--radius-sm);
-        overflow-x: auto;
-        margin: 0 0 12px;
-        white-space: pre;
-      }
-
-      ul.plain {
-        margin: 0 0 16px 18px;
-        padding: 0;
-      }
-
-      ul.plain li {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-        line-height: 1.7;
-        margin-bottom: 6px;
-      }
-
-      .callout {
-        background: var(--bg2);
-        border: 1px solid var(--border-strong);
-        border-radius: var(--radius-sm);
-        padding: 18px 20px;
-        margin: 8px 0 20px;
-      }
-
-      .callout p {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-        line-height: 1.7;
-        margin: 0 0 10px;
-      }
-
-      .callout p:last-child {
-        margin-bottom: 0;
-      }
-
-      code.path {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--text-secondary);
-      }
-
-      @media (width <= 640px) {
-        .page-hero {
-          padding-top: 48px;
-        }
-
-        pre.cmd {
-          font-size: 11px;
-          padding: 14px;
-        }
-      }
-    </style>
-  </Fragment>
-
   <Nav cta={{ label: 'Request Pilot', href: requestAccess }} />
 
-  <div class="page-hero" id="main">
+  <div class="rank-hero" id="main">
     <div class="eyebrow">RWA disclosure · read-only · expectations first</div>
-    <h1>The reserve number a machine <span class="grad">cannot</span> read</h1>
-    <p class="explainer">
-      Everyone publishes how much tokenized real world asset value exists. Nobody publishes whether
-      the issuer of that value serves a number a program can read. An attestation PDF signed by an
-      accounting firm is a strong disclosure and a useless interface. This survey asks only the
-      interface question, of the issuers this node already tracks, and names every refusal by the
-      limb that failed.
+    <h1>The reserve number a machine cannot read</h1>
+    <p class="lede">
+      Interface question only: does the issuer serve a structured figure a program can fetch? Not a
+      market survey and not a quality ranking of PDF attestations.
     </p>
-    <p class="honesty">
-      Not a measure of disclosure quality · not a market survey and not a ranking · no score, no
-      badge · every URL came from this engine's own recorded data
-    </p>
+    <div class="rank-primary">
+      <div class="rate">{refuseRate}</div>
+      <div class="rate-label">
+        MUST refuse rate · {s.must_refuse} of {n} issuers · issuer-operated machine-readable surfaces:{' '}
+        {s.issuer_operated_machine_readable_surface_exists}
+      </div>
+    </div>
+    {delta && <p class="rank-delta">{delta}</p>}
   </div>
 
-  <section class="wrap">
-    <div class="runline">
-      Population {n} real world asset issuers and tokenized instruments, every one carrying a
-      dossier card this node exports<br />
-      Candidate surfaces {s.surfaces.recorded}, all drawn from this engine's own recorded data ·
-      engine commit <code>{s.subject.engine_commit?.slice(0, 12)}</code><br />
-      Expectations digest <code>{s.expectations_digest}</code> published {
-        formatDate(s.expectations_generated_at)
-      }<br />
-      Ledger digest <code>{s.digest}</code> run {formatDate(s.generated_at)} · probe v{
-        s.probe_version
-      }
+  <section class="rank-wrap">
+    <div class="rank-runline">
+      Population {n} · engine <code>{s.subject.engine_commit?.slice(0, 12)}</code> · expectations{' '}
+      <code>{s.expectations_digest.slice(0, 16)}</code> · run {formatDate(s.generated_at)} · probe v
+      {s.probe_version}
     </div>
 
-    <div class="cite-box">
-      <div class="cite-title">How to cite / re-check</div>
-      Cite{' '}
-      <a href={`${base}rwa/expectations.json`}>expectations.json</a> (published first) and{' '}
-      <a href={`${base}rwa/summary.json`}>summary.json</a>. One issuer at a time:{' '}
-      <code>{fed}/rwa/receipts/&lt;ENTITY&gt;.json</code>
-      <br />
-      Population is this node's tracked issuers, not a sector sample. For issuer-attributable
-      figures cite <code>attributable_to_issuer</code>, not the raw 0 of {n} alone.
+    <div class="rank-table-wrap">
+      <table class="rank-table">
+        <thead>
+          <tr>
+            <th>Entity</th>
+            <th>Role</th>
+            <th>Verdict</th>
+            <th>Refuse limb</th>
+            <th>Attribution</th>
+            <th>Receipt</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            subjects.map((r) => (
+              <tr>
+                <td class="subject">{r.display_name || r.entity}</td>
+                <td>{r.segment_role}</td>
+                <td class:list={['verdict', r.must_admit ? 'is-admit' : 'is-refuse']}>
+                  {r.must_admit ? 'admit' : 'refuse'}
+                </td>
+                <td>{r.refuse_limb ?? 'no refuse'}</td>
+                <td>{r.attribution}</td>
+                <td>
+                  <a href={r.receipt} rel="noopener">
+                    json
+                  </a>
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
     </div>
 
-    <div class="cards">
-      {
-        headlines.map((h) => (
-          <div class="card">
-            <div class="big">{h.value}</div>
-            <div class="ci">{h.sub}</div>
-            <div class="lab">{h.label}</div>
-            <div class="note">{h.note}</div>
-          </div>
-        ))
-      }
-    </div>
-
-    <h2>The distinction this survey exists for</h2>
-    <div class="callout">
-      <p>
-        A <strong>machine readable number about an issuer</strong> is not the same thing as an
-        <strong>issuer publishing a machine readable number</strong>. In this population only the
-        first exists.
+    <div class="rank-footer">
+      <p class="honesty">
+        Not a measure of disclosure quality · not a market survey · no score, no badge · every URL
+        came from this engine's own recorded data
       </p>
+
+      <h2>How to cite / re-check</h2>
+      <div class="links-row">
+        <a href={`${fed}/rwa/expectations.json`} rel="noopener">expectations.json</a>
+        <a href={`${fed}/rwa/ledger.json`} rel="noopener">ledger.json</a>
+        <a href={`${fed}/rwa/summary.json`} rel="noopener">summary.json</a>
+        <a href={`${fed}/rwa/index.json`} rel="noopener">index.json</a>
+        <a href={`${fed}/rwa/README.md`} rel="noopener">README.md</a>
+      </div>
       <p>
-        This engine's own reserve figures for BUIDL and OUSG are read from DefiLlama, not from
-        BlackRock, Securitize or Ondo, because no issuer here serves an equivalent. Every consumer
-        of those figures, this node included, holds a dependency on a third party that the issuer
-        never agreed to and cannot be held to. When the aggregator renames a field, the issuer's
-        disclosure has not changed and the consumer still breaks.
+        For issuer-attributable figures cite <code>attributable_to_issuer</code> ({
+          s.attributable_to_issuer.must_refuse
+        } of {s.attributable_to_issuer.n} still refuse), not the raw {s.must_refuse} of {n} alone.
       </p>
+
+      <h2>Where they fail</h2>
+      <div class="rank-table-wrap">
+        <table class="rank-table">
+          <thead>
+            <tr><th>First failing limb</th><th class="n">Issuers</th></tr>
+          </thead>
+          <tbody>
+            {
+              refuseRows.map(([limb, count]) => (
+                <tr>
+                  <td>{limb}</td>
+                  <td class="n">{count}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Surfaces served</h2>
+      <div class="rank-table-wrap">
+        <table class="rank-table">
+          <thead>
+            <tr><th>Media type sniffed</th><th class="n">Surfaces</th></tr>
+          </thead>
+          <tbody>
+            {
+              mediaRows.map(([type, count]) => (
+                <tr>
+                  <td>{type}</td>
+                  <td class="n">{count}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Conventional paths</h2>
       <p>
-        The same engine's sensor grounding file records the gap for a fourth issuer in its own
-        notes: BENJI omitted, no live primary AUM endpoint yet. That was written down before this
-        survey existed and is quoted here rather than discovered by it.
+        {s.conventional_paths.requests} requests across {s.conventional_paths.origins.length} issuer
+        origins · {s.conventional_paths.answered_structured} answered structured. See{' '}
+        <a href={caip10} rel="noopener">CAIP-10</a> for chain-qualified refs (
+        {s.registry_ref_discipline.surfaces_with_chain_qualified_reference} of{' '}
+        {s.surfaces.recorded}).
       </p>
-    </div>
+      <div class="rank-table-wrap">
+        <table class="rank-table">
+          <thead>
+            <tr><th>HTTP status</th><th class="n">Responses</th></tr>
+          </thead>
+          <tbody>
+            {
+              statusRows.map(([code, count]) => (
+                <tr>
+                  <td>{code}</td>
+                  <td class="n">{count}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
 
-    <h2>Where the {n} issuers fail</h2>
-    <table>
-      <thead>
-        <tr><th>First failing limb</th><th class="n">Issuers</th></tr>
-      </thead>
-      <tbody>
-        {
-          refuseRows.map(([limb, count]) => (
+      <h2>Limbs</h2>
+      <div class="rank-table-wrap">
+        <table class="rank-table">
+          <thead>
             <tr>
-              <td>{limb}</td>
-              <td class="n">{count}</td>
+              <th>Limb</th><th>Level</th><th class="n">ok</th><th class="n">fail</th><th class="n"
+                >n/a</th
+              ><th class="n">not reached</th>
             </tr>
+          </thead>
+          <tbody>
+            {
+              s.limb_order_frozen.map((limb) => (
+                <tr>
+                  <td>{limb}</td>
+                  <td>{s.limb_spec_level[limb]}</td>
+                  <td class="n">{s.limb_outcomes[limb].ok}</td>
+                  <td class="n">{s.limb_outcomes[limb].fail}</td>
+                  <td class="n">{s.limb_outcomes[limb].not_applicable}</td>
+                  <td class="n">{s.limb_outcomes[limb].not_reached}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Predictions</h2>
+      <div class="rank-table-wrap">
+        <table class="rank-table">
+          <thead>
+            <tr><th>Prediction</th><th>Observed</th><th>Result</th></tr>
+          </thead>
+          <tbody>
+            {
+              s.predictions_scored.map((row) => (
+                <tr>
+                  <td>{row.prediction}</td>
+                  <td>{row.observed}</td>
+                  <td class="verdict">{row.met ? 'met' : 'missed'}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Probe defects recorded</h2>
+      <ul>
+        {
+          s.probe_defects_fixed_before_publication.map((d) => (
+            <li>
+              <strong>{d.defect}.</strong> {d.effect} {d.fix}
+            </li>
           ))
         }
-      </tbody>
-    </table>
-    <p class="body">
-      Eleven of those refusals are <code class="path">no_disclosure_surface_recorded_by_this_node</code
-      >, which is a fact about this node's coverage rather than about the issuer. Excluding them
-      entirely, {s.attributable_to_issuer.must_refuse} of {s.attributable_to_issuer.n} issuers with a
-      recorded surface still fail at least one MUST limb, and {s.full_admit} of {n} clear the full
-      level.
-    </p>
+      </ul>
 
-    <h2>What the surfaces actually served</h2>
-    <table>
-      <thead>
-        <tr><th>Media type sniffed from the bytes</th><th class="n">Surfaces</th></tr>
-      </thead>
-      <tbody>
+      <h2>Not tracked</h2>
+      <ul>
         {
-          mediaRows.map(([type, count]) => (
-            <tr>
-              <td>{type}</td>
-              <td class="n">{count}</td>
-            </tr>
+          s.named_but_not_tracked.map((row) => (
+            <li>
+              <strong>{row.issuer}</strong>: {row.reason}
+            </li>
           ))
         }
-      </tbody>
-    </table>
-    <p class="body">
-      The type charged is the one the bytes support, sniffed from the body. A Content-Type header is
-      a claim, not evidence. Of {s.surfaces.recorded} recorded surfaces, {s.surfaces.issuer_operated}
-      sit on an origin the issuer operates and {s.surfaces.issuer_operated_and_machine_readable} of
-      those serve structured data.
-    </p>
+      </ul>
 
-    <h2>Is there a convention to follow</h2>
-    <p class="body">
-      No. The survey asked {s.conventional_paths.requests} times across {
-        s.conventional_paths.origins.length
-      } issuer operated origins, using a path list frozen and published before the run:
-    </p>
-    <ul class="plain">
-      {s.conventional_paths.paths_tried.map((p) => <li><code class="path">{p}</code></li>)}
-    </ul>
-    <table>
-      <thead>
-        <tr><th>HTTP status</th><th class="n">Responses</th></tr>
-      </thead>
-      <tbody>
-        {
-          statusRows.map(([code, count]) => (
-            <tr>
-              <td>{code}</td>
-              <td class="n">{count}</td>
-            </tr>
-          ))
-        }
-      </tbody>
-    </table>
-    <p class="body">
-      None of these paths is a registered well-known URI and none is specified by any standard,
-      which is the point. There is no location an RWA issuer could serve a reserve figure from even
-      if it wanted to, and no field name it could use that a consumer would already know how to
-      read. {
-        soft200 > 0 &&
-          `The ${soft200} responses that returned 200 served no structured bytes: they are catch-all routes answering every path with the application shell. Reading those as a pass would have turned a routing default into a conformance result.`
-      }
-    </p>
-
-    <h2>registry_ref discipline</h2>
-    <p class="body">
-      Of {s.surfaces.recorded} recorded surfaces, {
-        s.registry_ref_discipline.surfaces_naming_any_reference
-      } name any on-chain or securities identifier at all, and {
-        s.registry_ref_discipline.surfaces_with_chain_qualified_reference
-      } name one that is chain qualified. A disclosure that names a contract without naming its
-      chain does not identify a deployment: the same twenty bytes can be a different contract on
-      every EVM network, so a consumer has to guess or ask.
-      <a href={caip10} rel="noopener">CAIP-10</a> exists to close exactly this gap.
-    </p>
-    <p class="body">
-      {s.registry_ref_discipline.how_it_is_checked} Every identifier reported here was found inside
-      bytes the surface itself served. This probe supplies none of its own, so there is no address
-      in this ledger a reader has to take on trust from us.
-    </p>
-
-    <h2>Limbs</h2>
-    <p class="body">
-      There is no specification to cite for any of this, and pretending otherwise would be the same
-      error the survey exists to catch. MUST means a consumer cannot read the number without it,
-      SHOULD means the consumer can read it but cannot rely on it, OBSERVED means the limb records a
-      fact and charges nothing. <code class="path">not_reached</code> means an earlier limb failed
-      first, so this one was never observed: it is neither a pass nor an exemption.
-    </p>
-    <table>
-      <thead>
-        <tr>
-          <th>Limb</th><th>Level</th><th class="n">ok</th><th class="n">fail</th><th class="n">n/a</th
-          ><th class="n">not reached</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          s.limb_order_frozen.map((limb) => (
-            <tr>
-              <td>{limb}</td>
-              <td>{s.limb_spec_level[limb]}</td>
-              <td class="n">{s.limb_outcomes[limb].ok}</td>
-              <td class="n">{s.limb_outcomes[limb].fail}</td>
-              <td class="n">{s.limb_outcomes[limb].not_applicable}</td>
-              <td class="n">{s.limb_outcomes[limb].not_reached}</td>
-            </tr>
-          ))
-        }
-      </tbody>
-    </table>
-
-    <h2>Predictions, scored</h2>
-    <p class="body">
-      These were written into the expectations file and published before the run, at digest {
-        s.expectations_digest.slice(0, 16)
-      }. They are scored here without editing.
-    </p>
-    <table>
-      <thead>
-        <tr><th>Prediction</th><th>Observed</th><th class="verdict">Result</th></tr>
-      </thead>
-      <tbody>
-        {
-          s.predictions_scored.map((p) => (
-            <tr>
-              <td>{p.prediction}</td>
-              <td>{p.observed}</td>
-              <td class="verdict">{p.met ? 'met' : 'missed'}</td>
-            </tr>
-          ))
-        }
-      </tbody>
-    </table>
-
-    <h2>Per issuer</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Entity</th><th>Role</th><th>Verdict</th><th>Refuse reason</th><th>Receipt</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          s.per_issuer.map((r) => (
-            <tr>
-              <td>{r.entity}</td>
-              <td>{r.segment_role}</td>
-              <td class="verdict">{r.must_admit ? 'admit' : 'refuse'}</td>
-              <td>{r.refuse_reason ?? 'none'}</td>
-              <td>
-                <a href={r.receipt} rel="noopener">
-                  json
-                </a>
-              </td>
-            </tr>
-          ))
-        }
-      </tbody>
-    </table>
-
-    <h2>Two defects this survey found in itself</h2>
-    <div class="callout">
-      <p>
-        The first run exposed faults in the probe rather than in the population. They are recorded
-        instead of quietly fixed, because a probe that hides its own misses has no standing to
-        publish anyone else's. The population, the limb order, the admit rules and the predictions
-        were not touched, so the expectations digest is unchanged and still verifies.
-      </p>
-      {
-        s.probe_defects_fixed_before_publication.map((d) => (
-          <p>
-            <strong>{d.defect}.</strong> {d.effect} {d.fix}
-          </p>
-        ))
-      }
-    </div>
-
-    <h2>Who is not here</h2>
-    <p class="body">
-      The population is the set of issuers this node already tracks, which is not the set of largest
-      issuers and not a sample of anything. Issuers named in the request for this survey that this
-      node holds no dossier card for were left out rather than added to satisfy the request.
-    </p>
-    <ul class="plain">
-      {
-        s.named_but_not_tracked.map((row) => (
-          <li>
-            <strong>{row.issuer}</strong>: {row.reason}
-          </li>
-        ))
-      }
-    </ul>
-
-    <h2>A source this survey refused to use</h2>
-    <ul class="plain">
-      {
-        s.rejected_surface_sources.map((row) => (
-          <li>
-            <code class="path">
-              {row.source} · {row.field}
-            </code>
-            : {row.reason}
-          </li>
-        ))
-      }
-    </ul>
-
-    <h2>Read it yourself</h2>
-    <div class="links-row">
-      <a href={`${fed}/rwa/expectations.json`} rel="noopener">expectations.json</a>
-      <a href={`${fed}/rwa/ledger.json`} rel="noopener">ledger.json</a>
-      <a href={`${fed}/rwa/summary.json`} rel="noopener">summary.json</a>
-      <a href={`${fed}/rwa/index.json`} rel="noopener">index.json</a>
-      <a href={`${fed}/rwa/README.md`} rel="noopener">README.md</a>
-    </div>
-    <p class="body">
-      One issuer at a time: <code class="path">{fed}/rwa/receipts/&lt;ENTITY&gt;.json</code>. Any
-      entity not in the population returns 404, which is the population boundary rather than a
-      missing file.
-    </p>
-
-    <h2>Re-run it</h2>
-    <pre class="cmd">PYTHONPATH=engine python3 engine/tools/rwa_disclosure_run.py expect
+      <h2>Re-run</h2>
+      <pre class="cmd">PYTHONPATH=engine python3 engine/tools/rwa_disclosure_run.py expect
 PYTHONPATH=engine python3 engine/tools/rwa_disclosure_run.py run
 PYTHONPATH=engine python3 engine/tools/rwa_pages_export.py</pre>
-    <p class="body">
-      The expectations file pins the population and every candidate surface, so a disagreement is
-      about what the surfaces served, not about which issuers were picked. <code class="path">run</code
-      > aborts if the expectations digest stops matching its contents.
-    </p>
 
-    <h2>What this is not</h2>
-    <ul class="plain">
-      {s.not_claimed.map((item) => <li>{item}</li>)}
-    </ul>
+      <h2>What this is not</h2>
+      <ul>
+        {s.not_claimed.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
   </section>
 
   <Footer />

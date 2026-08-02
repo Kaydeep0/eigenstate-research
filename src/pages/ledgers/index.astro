@@ -26,7 +26,6 @@ interface RateMove {
   after: number;
   before_ci95?: [number, number];
   after_ci95?: [number, number];
-  intervals_overlap?: boolean;
   reading?: string;
 }
 
@@ -83,421 +82,179 @@ function localPath(entry: LedgerEntry): string {
   return `${base}${entry.ledger}/`;
 }
 
-const headlines = [
-  {
-    value: `${h.runs_on_record}`,
-    sub: `across ${h.ledgers_indexed} ledgers`,
-    label: 'publications on record',
-    note: 'Every row is copied from a summary.json that was actually served, and named by the digest that served it.',
-  },
-  {
-    value: `${h.ledgers_indexed - h.ledgers_with_one_run_only}`,
-    sub: `of ${h.ledgers_indexed} ledgers`,
-    label: 'have been re-derived at least once',
-    note: 'A ledger with one run is a snapshot. It is labelled as one below rather than left to read as a standing claim.',
-  },
-  {
-    value: `${h.headline_counters_that_moved_on_the_latest_refresh}`,
-    sub: 'this refresh',
-    label: 'headline counters moved between runs',
-    note: `Every one of them on the sampled ledger, and ${h.rate_comparisons_whose_intervals_still_overlap} of the rate comparisons behind them still have overlapping intervals. A move is not automatically a finding.`,
-  },
-  {
-    value: `${h.ledgers_whose_counters_held_between_the_last_two_runs}`,
-    sub: `of ${h.ledgers_indexed} ledgers`,
-    label: 'held every headline counter',
-    note: 'The digests still differ, because timestamps and per row detail differ. Identical counters are not an identical file.',
-  },
-];
+function pctRate(n: number): string {
+  if (n <= 1 && n >= 0) return `${(100 * n).toFixed(1)}%`;
+  return String(n);
+}
+
+function primaryRate(entry: LedgerEntry): { label: string; value: string } {
+  const latest = entry.runs[entry.runs.length - 1];
+  const rates = latest?.rates || {};
+  const prefer = ['must_miss_rate', 'must_refuse_rate', 'full_refuse_rate', 'full_miss_rate'];
+  for (const key of prefer) {
+    if (rates[key]) return { label: key.replace(/_/g, ' '), value: pctRate(rates[key].rate) };
+  }
+  const first = Object.entries(rates)[0];
+  if (first) return { label: first[0].replace(/_/g, ' '), value: pctRate(first[1].rate) };
+  const counts = latest?.counts || {};
+  const refuse = counts.must_refuse ?? counts.must_miss;
+  const pop =
+    counts.sampled ??
+    counts.expectation_count ??
+    counts.issuers_in_population ??
+    counts.claims_in_corpus ??
+    counts.logs_in_population;
+  if (refuse != null && pop) {
+    return { label: 'must refuse share', value: `${((100 * refuse) / pop).toFixed(1)}%` };
+  }
+  return { label: 'runs on record', value: String(entry.runs_on_record) };
+}
+
+function deltaShort(entry: LedgerEntry): string {
+  const move = entry.latest_delta?.rate_comparison?.[0];
+  if (move) {
+    return `${pctRate(move.before)} → ${pctRate(move.after)}`;
+  }
+  if (entry.runs_on_record < 2) return 'snapshot';
+  return 'held';
+}
+
+const rows = [...h.ledgers].sort((a, b) => b.latest_run_at.localeCompare(a.latest_run_at));
 ---
 
 <Layout
-  title="Measured ledgers and their run history · Eigenstate Research"
-  description="Every measured ledger this node publishes, with one append only row per publication, so a reader can check whether a number held the second time the same probe asked the same question."
+  title="Measured ledgers · Eigenstate Research"
+  description="Every measured ledger this node publishes, with one append-only row per publication, so a reader can check whether a number held the second time."
   fonts={fonts}
 >
-  <Fragment slot="head">
-    <style>
-      .page-hero {
-        max-width: 820px;
-        margin: 0 auto;
-        padding: 72px 24px 20px;
-        text-align: center;
-      }
-
-      .eyebrow {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        letter-spacing: 0.15em;
-        color: var(--text-muted);
-        text-transform: uppercase;
-        margin-bottom: 16px;
-      }
-
-      .page-hero h1 {
-        font-family: var(--font-heading);
-        font-size: clamp(1.75rem, 4vw, 2.5rem);
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        color: var(--text-primary);
-        line-height: 1.15;
-        margin: 0 0 16px;
-      }
-
-      .page-hero .grad {
-        background: linear-gradient(135deg, var(--signal) 0%, var(--accent) 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .explainer {
-        font-size: var(--text-base);
-        color: var(--text-secondary);
-        line-height: 1.7;
-        margin: 0 auto 12px;
-        max-width: 640px;
-      }
-
-      .honesty {
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        color: var(--text-muted);
-        line-height: 1.6;
-        margin: 0 auto;
-        max-width: 640px;
-      }
-
-      .wrap {
-        max-width: 880px;
-        margin: 0 auto;
-        padding: 8px 24px 80px;
-      }
-
-      .runline {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--text-muted);
-        line-height: 1.8;
-        padding: 14px 16px;
-        background: var(--bg2);
-        border-left: 3px solid var(--border-live);
-        margin: 20px 0 32px;
-        overflow-wrap: anywhere;
-      }
-
-      .cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 16px;
-        margin-bottom: 36px;
-      }
-
-      .card {
-        background: var(--bg-card);
-        border: 1px solid var(--border-strong);
-        border-radius: var(--radius-sm);
-        padding: 20px 18px;
-      }
-
-      .card .big {
-        font-family: var(--font-heading);
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--text-primary);
-        line-height: 1;
-        margin-bottom: 4px;
-      }
-
-      .card .ci {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--text-muted);
-        margin-bottom: 10px;
-      }
-
-      .card .lab {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-        line-height: 1.5;
-        margin-bottom: 8px;
-      }
-
-      .card .note {
-        font-size: var(--text-xs);
-        color: var(--text-muted);
-        line-height: 1.6;
-      }
-
-      h2 {
-        font-family: var(--font-heading);
-        font-size: var(--text-lg);
-        font-weight: 700;
-        color: var(--text-primary);
-        margin: 36px 0 10px;
-        letter-spacing: -0.01em;
-      }
-
-      h3 {
-        font-family: var(--font-heading);
-        font-size: var(--text-base);
-        font-weight: 600;
-        color: var(--text-primary);
-        margin: 28px 0 4px;
-      }
-
-      p.body {
-        font-size: var(--text-base);
-        color: var(--text-secondary);
-        line-height: 1.7;
-        margin: 0 0 14px;
-      }
-
-      p.body a,
-      .links-row a,
-      td a {
-        color: var(--signal-dim);
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        margin: 8px 0 12px;
-      }
-
-      th,
-      td {
-        text-align: left;
-        padding: 9px 10px;
-        border-bottom: 1px solid var(--border);
-        color: var(--text-secondary);
-        vertical-align: top;
-      }
-
-      th {
-        color: var(--text-muted);
-        font-size: var(--text-xs);
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        font-weight: 500;
-      }
-
-      td.n {
-        text-align: right;
-        color: var(--text-primary);
-      }
-
-      .subline {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--text-muted);
-        margin: 0 0 8px;
-      }
-
-      .trend {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-        line-height: 1.7;
-        margin: 0 0 10px;
-      }
-
-      .delta {
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        color: var(--text-primary);
-        margin: 0 0 10px;
-      }
-
-      .links-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px 20px;
-        margin: 6px 0 10px;
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-      }
-
-      .links-row a {
-        text-decoration: none;
-      }
-
-      .links-row a:hover {
-        text-decoration: underline;
-      }
-
-      pre.cmd {
-        font-family: var(--font-mono);
-        font-size: 12px;
-        line-height: 1.55;
-        background: #1a1a1a;
-        color: #e8e6e1;
-        padding: 14px 16px;
-        border-radius: var(--radius-sm);
-        overflow-x: auto;
-        margin: 0 0 12px;
-        white-space: pre;
-      }
-
-      .callout {
-        background: var(--bg2);
-        border: 1px solid var(--border-strong);
-        border-radius: var(--radius-sm);
-        padding: 18px 20px;
-        margin: 8px 0 20px;
-      }
-
-      .callout p {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-        line-height: 1.7;
-        margin: 0 0 10px;
-      }
-
-      .callout p:last-child {
-        margin-bottom: 0;
-      }
-
-      @media (width <= 640px) {
-        .page-hero {
-          padding-top: 48px;
-        }
-
-        pre.cmd {
-          font-size: 11px;
-          padding: 12px;
-        }
-      }
-    </style>
-  </Fragment>
-
   <Nav cta={{ label: 'Request Pilot', href: requestAccess }} />
 
-  <div class="page-hero" id="main">
-    <div class="eyebrow">Measured ledgers · append only run history</div>
-    <h1>Every ledger, and <span class="grad">every time</span> it was published</h1>
-    <p class="explainer">
-      A measurement published once is a snapshot wearing the clothes of a standing claim. The only
-      way to tell the difference is to point the same probe at the same population again and show
-      both answers. This page is that record: one row per publication, never edited, with the
-      digest that served each one.
+  <div class="rank-hero" id="main">
+    <div class="eyebrow">Measured ledgers · append-only run history</div>
+    <h1>Every ledger, every publication</h1>
+    <p class="lede">
+      Same probe, same population, second answer. This index measures nothing itself; it only shows
+      whether a published rate held.
     </p>
-    <p class="honesty">
-      This index measures nothing itself · it cannot make a refusal disappear · a ledger that is
-      wrong is wrong here too, twice, with both digests shown
+    <div class="rank-primary">
+      <div class="rate">{h.runs_on_record}</div>
+      <div class="rate-label">
+        publications on record · {h.ledgers_indexed} ledgers · {
+          h.headline_counters_that_moved_on_the_latest_refresh
+        } headline counters moved on the latest refresh
+      </div>
+    </div>
+    <p class="rank-delta">
+      {h.ledgers_indexed - h.ledgers_with_one_run_only} of {h.ledgers_indexed} re-derived at least
+      once · {h.rate_comparisons_whose_intervals_still_overlap} rate comparisons still overlap
     </p>
   </div>
 
-  <section class="wrap">
-    <div class="runline">
-      {h.ledgers_indexed} ledgers · {h.runs_on_record} publications on record<br />
-      Index digest <code>{h.digest}</code> generated {formatDate(h.generated_at)}<br />
-      Built by {h.tool} · raw rows at <code>runs.jsonl</code> on both origins
+  <section class="rank-wrap">
+    <div class="rank-runline">
+      Index digest <code>{h.digest.slice(0, 16)}</code> · {formatDate(h.generated_at)} · {h.tool}
     </div>
 
-    <div class="cards">
-      {
-        headlines.map((card) => (
-          <div class="card">
-            <div class="big">{card.value}</div>
-            <div class="ci">{card.sub}</div>
-            <div class="lab">{card.label}</div>
-            <div class="note">{card.note}</div>
-          </div>
-        ))
-      }
-    </div>
-
-    <h2>What this index is not</h2>
-    <div class="callout">
-      <p>{h.what_this_is_not}</p>
-      <p>{h.append_only_rule}</p>
-      <p>{h.reading_a_delta}</p>
-      <p>{h.what_an_overlapping_interval_means}</p>
-    </div>
-
-    <h2>Ledgers</h2>
-
-    {
-      h.ledgers.map((entry) => (
-        <Fragment>
-          <h3>{entry.title}</h3>
-          <p class="subline">
-            /{entry.ledger}/ · one row is one {entry.unit} · {entry.runs_on_record} publication
-            {entry.runs_on_record === 1 ? '' : 's'} on record
-          </p>
-          <table>
-            <thead>
-              <tr>
-                <th>Run</th>
-                <th>Published</th>
-                <th>Probe</th>
-                <th>Digest</th>
-                <th>Headline counters</th>
-              </tr>
-            </thead>
-            <tbody>
-              {entry.runs.map((run) => (
+    <div class="rank-table-wrap">
+      <table class="rank-table">
+        <thead>
+          <tr>
+            <th>Ledger</th>
+            <th>Primary rate</th>
+            <th class="n">Δ</th>
+            <th class="n">Runs</th>
+            <th>Latest</th>
+            <th>Page</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            rows.map((entry) => {
+              const primary = primaryRate(entry);
+              return (
                 <tr>
-                  <td class="n">{run.run_index}</td>
-                  <td>{formatDate(run.generated_at)}</td>
-                  <td>v{run.probe_version}</td>
+                  <td class="subject">{entry.title}</td>
                   <td>
-                    <code>{run.digest.slice(0, 12)}</code>
+                    {primary.value}{' '}
+                    <span style="color: var(--text-muted);">{primary.label}</span>
                   </td>
+                  <td class="n">{deltaShort(entry)}</td>
+                  <td class="n">{entry.runs_on_record}</td>
+                  <td>{formatDate(entry.latest_run_at)}</td>
                   <td>
-                    {Object.entries(run.counts ?? {})
-                      .map(([key, value]) => `${key.replace(/_/g, ' ')} ${value}`)
-                      .join(', ') || 'not carried in summary'}
+                    <a href={localPath(entry)}>open</a>
+                    {' · '}
+                    <a href={entry.machine_summary}>json</a>
                   </td>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-          <p class="trend">
-            <strong>Comparing two runs of this ledger:</strong> {entry.comparability}
-          </p>
-          {entry.trend && <p class="trend">{entry.trend}</p>}
-          {entry.latest_delta && entry.latest_delta.changes.length > 0 && (
-            <p class="delta">
-              Moved on the latest refresh:{' '}
-              {entry.latest_delta.changes
-                .map(
-                  (change) =>
-                    `${change.counter.replace(/_/g, ' ')} ${change.before} to ${change.after} (${
-                      change.change > 0 ? '+' : ''
-                    }${change.change})`
-                )
-                .join(' · ')}
-            </p>
-          )}
-          {(entry.latest_delta?.rate_comparison ?? []).length > 0 && (
-            <div class="callout">
-              {(entry.latest_delta?.rate_comparison ?? []).map((move) => (
-                <p>
-                  <strong>{move.rate.replace(/_/g, ' ')}</strong> {move.before}
-                  {move.before_ci95 && ` [${move.before_ci95[0]}, ${move.before_ci95[1]}]`} then{' '}
-                  {move.after}
-                  {move.after_ci95 && ` [${move.after_ci95[0]}, ${move.after_ci95[1]}]`}
-                  {move.reading ? `, and ${move.reading}` : ', published without an interval'}
-                </p>
-              ))}
-            </div>
-          )}
-          <div class="links-row">
-            <a href={localPath(entry)}>Human page</a>
-            <a href={entry.machine_summary}>Machine summary</a>
-          </div>
-          <pre class="cmd">{entry.rerun_command}</pre>
-        </Fragment>
-      ))
-    }
+              );
+            })
+          }
+        </tbody>
+      </table>
+    </div>
 
-    <h2>Machine readable</h2>
-    <div class="links-row">
-      <a href={h.urls.index}>index.json</a>
-      <a href={h.urls.runs_jsonl}>runs.jsonl</a>
+    <div class="rank-footer">
+      <p class="honesty">
+        This index measures nothing itself · it cannot make a refusal disappear · a ledger that is
+        wrong is wrong here too, twice, with both digests shown
+      </p>
+
+      <h2>Reading a delta</h2>
+      <p>{h.reading_a_delta}</p>
+      <p>{h.what_an_overlapping_interval_means}</p>
+      <p>{h.append_only_rule}</p>
+      <p>{h.what_this_is_not}</p>
+
+      {
+        rows.map((entry) => (
+          <Fragment>
+            <h2>{entry.title}</h2>
+            <p>
+              /{entry.ledger}/ · {entry.runs_on_record} publication
+              {entry.runs_on_record === 1 ? '' : 's'} · {entry.comparability}
+            </p>
+            {entry.trend && <p>{entry.trend}</p>}
+            <div class="rank-table-wrap">
+              <table class="rank-table">
+                <thead>
+                  <tr>
+                    <th>Run</th>
+                    <th>Published</th>
+                    <th>Probe</th>
+                    <th>Digest</th>
+                    <th>Headline counters</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {entry.runs.map((run) => (
+                    <tr>
+                      <td class="n">{run.run_index}</td>
+                      <td>{formatDate(run.generated_at)}</td>
+                      <td>v{run.probe_version}</td>
+                      <td>
+                        <code>{run.digest.slice(0, 12)}</code>
+                      </td>
+                      <td>
+                        {Object.entries(run.counts ?? {})
+                          .map(([key, value]) => `${key.replace(/_/g, ' ')} ${value}`)
+                          .join(', ') || 'not carried in summary'}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <pre class="cmd">{entry.rerun_command}</pre>
+          </Fragment>
+        ))
+      }
+
+      <h2>Machine readable</h2>
+      <div class="links-row">
+        <a href={h.urls.index}>index.json</a>
+        <a href={h.urls.runs_jsonl}>runs.jsonl</a>
+      </div>
     </div>
   </section>
 

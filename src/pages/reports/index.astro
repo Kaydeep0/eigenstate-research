@@ -11,6 +11,7 @@ import {
   m1LedgerObsFor,
 } from '../../lib/sot';
 import { annotateEntityCode, REPORT_FACETS } from '../../lib/displayKind';
+import { groupActorsByFamily } from '../../lib/actorFamilies';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -31,7 +32,6 @@ const reports = (await getCollection('reports')).map((r) => {
 });
 type ReportRow = (typeof reports)[number];
 
-/** One card per entity; dated reports collapse into a newest→oldest series. */
 const byEntity = new Map<string, ReportRow[]>();
 for (const r of reports) {
   const list = byEntity.get(r.entityCode) ?? [];
@@ -64,30 +64,19 @@ const entityGroups = [...byEntity.entries()]
   })
   .sort((a, b) => b.latestDate.localeCompare(a.latestDate));
 
+type EntityGroup = (typeof entityGroups)[number];
+const families = groupActorsByFamily(entityGroups);
 const publicActorCount = entityGroups.filter((g) => g.public_default).length;
 const demotedCount = entityGroups.filter((g) => g.demoted).length;
+const rootCount = families.length;
 
-/** Featured = highest Φ_S among public actors (not REPUTATION / presence sinks). */
-const featured = entityGroups
-  .filter((g) => g.public_default)
-  .reduce(
-    (best, g) => (best == null || g.live_phi_s > best.live_phi_s ? g : best),
-    null as (typeof entityGroups)[number] | null
-  );
 const base = import.meta.env.BASE_URL;
-const vaultTip = 'Cycle vault rows at publish (trimmed); not M1 lifetime observations';
 
 function parseIsoDate(iso: string): Date | null {
   const m = String(iso || '').match(/^(\d{4})-(\d{2})-(\d{2})/);
   if (!m) return null;
   const d = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
   return isNaN(d.getTime()) ? null : d;
-}
-function formatLong(iso: string): string {
-  const d = parseIsoDate(iso);
-  return d
-    ? d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-    : iso;
 }
 function formatShort(iso: string): string {
   const d = parseIsoDate(iso);
@@ -98,36 +87,14 @@ function formatShort(iso: string): string {
 ---
 
 <Layout
-  title="Signal Reports — Eigenstate Research"
-  description="Dated topology signal reports for the tokenized settlement layer. Re-check cited evidence and public APIs before relying on a report as current state."
+  title="Measured actors · Eigenstate Research"
+  description="Public actors we observe with dated signal reports. Kind, latest report, last activity; Φ_S secondary. Dimensions demoted."
   fonts={fonts}
 >
   <Fragment slot="head">
     <style>
-      *,
-      *::before,
-      *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        font-family: var(--font-body);
-        font-weight: 300;
-        background: var(--bg);
-        color: var(--text-primary);
-        line-height: 1.7;
-      }
-
-      /* ── Page hero ── */
       .page-hero {
-        padding: 80px 40px 64px;
-        text-align: center;
+        padding: 64px 40px 36px;
         border-bottom: 1px solid var(--border);
         background: var(--bg2);
       }
@@ -136,203 +103,62 @@ function formatShort(iso: string): string {
         font-family: var(--font-mono);
         font-size: var(--text-xs);
         font-weight: 600;
-        letter-spacing: 0.3em;
-        color: var(--accent);
-        margin-bottom: 16px;
+        letter-spacing: 0.2em;
+        color: var(--text-muted);
+        margin-bottom: 12px;
         text-transform: uppercase;
       }
 
       .page-hero h1 {
         font-family: var(--font-heading);
-        font-size: var(--text-5xl);
-        font-weight: 900;
-        letter-spacing: 0.08em;
-        line-height: 1;
-        margin-bottom: 24px;
-        background: linear-gradient(135deg, var(--text-primary) 0%, var(--signal) 60%, var(--text-primary) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        margin-bottom: 12px;
+        color: var(--text-primary);
       }
 
       .page-hero .explainer {
         font-size: var(--text-base);
         color: var(--text-secondary);
         max-width: 640px;
-        margin: 0 auto 36px;
-        line-height: 1.7;
+        line-height: 1.65;
+        margin-bottom: 10px;
       }
 
-      /* ── Sections ── */
+      .sot-note {
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+        max-width: 640px;
+        line-height: 1.6;
+      }
+
+      .sot-note a {
+        color: var(--signal);
+        text-decoration: none;
+      }
+
       section {
-        padding: 64px 40px;
+        padding: 40px 40px 64px;
       }
 
       .container {
-        max-width: 1200px;
+        max-width: 1100px;
         margin: 0 auto;
-      }
-
-      .eyebrow {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        font-weight: 600;
-        letter-spacing: 0.25em;
-        color: var(--signal);
-        text-transform: uppercase;
-        margin-bottom: 12px;
-      }
-
-      .section-title {
-        font-family: var(--font-heading);
-        font-size: var(--text-2xl);
-        font-weight: 800;
-        letter-spacing: 0.05em;
-        margin-bottom: 8px;
       }
 
       .section-sub {
         font-size: var(--text-sm);
         color: var(--text-muted);
-        margin-bottom: 40px;
-        font-family: var(--font-mono);
-      }
-
-      .divider {
-        width: 60px;
-        height: 2px;
-        background: linear-gradient(90deg, var(--signal-dim), transparent);
-        margin-bottom: 40px;
-      }
-
-      .grad {
-        background: linear-gradient(135deg, var(--accent), var(--status-error));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      /* ── Featured hero card ── */
-      .featured-section {
-        background: var(--bg2);
-        border-top: 1px solid var(--border);
-        border-bottom: 1px solid var(--border);
-      }
-
-      .featured-loading {
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        color: var(--text-muted);
-        letter-spacing: 0.15em;
-      }
-
-      .featured-card {
-        background: var(--bg-card);
-        border: 1px solid var(--border-strong);
-        border-left: 4px solid var(--accent);
-        padding: 48px;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 48px;
-        align-items: center;
-        text-decoration: none;
-        transition: border-color 0.2s;
-      }
-
-      .featured-card:hover {
-        border-left-color: var(--status-error);
-      }
-
-      .fc-badge {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        font-weight: 600;
-        letter-spacing: 0.2em;
-        color: var(--accent);
-        text-transform: uppercase;
-        margin-bottom: 16px;
-      }
-
-      .fc-entity {
-        font-family: var(--font-heading);
-        font-size: var(--text-3xl);
-        font-weight: 800;
-        letter-spacing: 0.04em;
-        color: var(--text-primary);
         margin-bottom: 20px;
-        line-height: 1.1;
-      }
-
-      .fc-meta {
-        display: flex;
-        gap: 32px;
-        align-items: center;
-        flex-wrap: wrap;
-      }
-
-      .fc-phi {
         font-family: var(--font-mono);
-        font-size: var(--text-xl);
-        font-weight: 600;
-        color: var(--accent);
       }
 
-      .fc-kappa {
-        font-family: var(--font-mono);
-        font-size: var(--text-xl);
-        font-weight: 600;
-        color: var(--signal);
-      }
-
-      .fc-vault {
-        font-family: var(--font-mono);
-        font-size: var(--text-lg);
-        color: var(--status-success);
-      }
-
-      .fc-label {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--text-muted);
-        letter-spacing: 0.1em;
-        margin-bottom: 4px;
-      }
-
-      .fc-right {
-        text-align: right;
-      }
-
-      .fc-date {
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        color: var(--text-muted);
-        margin-bottom: 20px;
-      }
-
-      .fc-read {
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        font-weight: 600;
-        letter-spacing: 0.1em;
-        padding: 14px 28px;
-        background: var(--accent);
-        color: #fff;
-        text-decoration: none;
-        display: inline-block;
-        border-radius: var(--radius-sm);
-        transition: all 0.2s;
-      }
-
-      .fc-read:hover {
-        background: var(--accent-dark);
-        transform: translateY(-1px);
-      }
-
-      /* ── Reports filter bar ── */
       .reports-filter-bar {
         display: flex;
         gap: 16px;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
         flex-wrap: wrap;
       }
 
@@ -340,7 +166,7 @@ function formatShort(iso: string): string {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         align-items: center;
       }
 
@@ -364,7 +190,6 @@ function formatShort(iso: string): string {
         color: var(--text-secondary);
         cursor: pointer;
         user-select: none;
-        transition: border-color 0.15s, color 0.15s, background 0.15s;
       }
 
       .reports-facets .filt:hover {
@@ -378,23 +203,6 @@ function formatShort(iso: string): string {
         background: rgb(62 111 239 / 10%);
       }
 
-      .ec-facet {
-        font-family: var(--font-mono);
-        font-size: 10px;
-        font-weight: 600;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: var(--text-muted);
-        background: rgb(148 163 184 / 12%);
-        padding: 3px 7px;
-        border-radius: var(--radius-sm);
-      }
-
-      .ec-facet.is-demoted {
-        color: var(--signal);
-        background: rgb(47 90 99 / 12%);
-      }
-
       .reports-search {
         flex: 1;
         min-width: 200px;
@@ -405,10 +213,6 @@ function formatShort(iso: string): string {
         border: 1px solid var(--border);
         border-radius: var(--radius-sm);
         color: var(--text-primary);
-      }
-
-      .reports-search::placeholder {
-        color: var(--text-muted);
       }
 
       .reports-search:focus {
@@ -429,7 +233,7 @@ function formatShort(iso: string): string {
       }
 
       .reports-empty {
-        padding: 48px;
+        padding: 32px;
         text-align: center;
         font-family: var(--font-mono);
         font-size: var(--text-sm);
@@ -438,286 +242,118 @@ function formatShort(iso: string): string {
         border-top: none;
       }
 
-      /* ── Entity groups (time series) ── */
-      .reports-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1px;
-        background: var(--border);
+      .actors-table-wrap {
         border: 1px solid var(--border);
+        overflow-x: auto;
       }
 
-      .entity-card {
-        background: var(--bg);
-        padding: 24px 24px 16px;
-        display: flex;
-        flex-direction: column;
-        border-left: 3px solid transparent;
-        transition: background 0.2s, border-color 0.2s;
-      }
-
-      .entity-card:hover {
-        background: var(--bg-card);
-        border-left-color: var(--accent);
-      }
-
-      .ec-title-row {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 10px;
-        margin-bottom: 14px;
-      }
-
-      .ec-entity {
-        font-family: var(--font-heading);
+      .actors-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: var(--font-mono);
         font-size: var(--text-sm);
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        color: var(--text-primary);
-        line-height: 1.3;
       }
 
-      .ec-count {
-        flex-shrink: 0;
-        font-family: var(--font-mono);
+      .actors-table th,
+      .actors-table td {
+        text-align: left;
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border);
+        color: var(--text-secondary);
+        vertical-align: middle;
+      }
+
+      .actors-table th {
         font-size: 10px;
-        font-weight: 600;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: var(--text-muted);
-        background: rgb(148 163 184 / 12%);
-        padding: 3px 7px;
-        border-radius: var(--radius-sm);
-        white-space: nowrap;
-        text-decoration: none;
-        transition: color 0.15s, background 0.15s;
-      }
-
-      .ec-count:hover {
-        color: var(--accent);
-        background: rgb(62 111 239 / 12%);
-      }
-
-      .ec-entity-link {
-        font-family: inherit;
-        font-size: inherit;
-        font-weight: inherit;
-        letter-spacing: inherit;
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .ec-entity-link:hover {
-        color: var(--accent);
-      }
-
-      .ec-metrics {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        margin-bottom: 12px;
-      }
-
-      .ec-phi {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        font-weight: 600;
-        color: var(--accent);
-        background: rgb(62 111 239 / 10%);
-        padding: 3px 8px;
-        border-radius: var(--radius-sm);
-      }
-
-      .ec-kappa {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--signal);
-        background: rgb(47 90 99 / 10%);
-        padding: 3px 8px;
-        border-radius: var(--radius-sm);
-      }
-
-      .ec-live {
-        font-family: var(--font-mono);
-        font-size: 10px;
-        font-weight: 600;
         letter-spacing: 0.08em;
         text-transform: uppercase;
+        color: var(--text-muted);
+        background: var(--bg2);
+        font-weight: 500;
+      }
+
+      .actors-table td.n,
+      .actors-table th.n {
+        text-align: right;
+        white-space: nowrap;
+      }
+
+      .actors-table .actor-name {
+        color: var(--text-primary);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .actors-table .actor-name:hover {
+        color: var(--accent);
+      }
+
+      .actors-table .phi-sec {
+        color: var(--text-muted);
+        font-size: 12px;
+      }
+
+      .actors-table .kind-chip {
+        font-size: 10px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        background: rgb(148 163 184 / 12%);
+        padding: 2px 7px;
+        border-radius: var(--radius-sm);
+      }
+
+      .actors-table .kind-chip.is-demoted {
         color: var(--signal);
         background: rgb(47 90 99 / 12%);
-        padding: 3px 7px;
-        border-radius: var(--radius-sm);
       }
 
-      .ec-vault {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--status-success);
-        background: rgb(21 128 61 / 8%);
-        padding: 3px 8px;
-        border-radius: var(--radius-sm);
-        cursor: help;
+      .actors-table tr.child-row td:first-child {
+        padding-left: 32px;
       }
 
-      .ec-m1 {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--text-secondary);
-        background: rgb(148 163 184 / 12%);
-        padding: 3px 8px;
-        border-radius: var(--radius-sm);
-        cursor: help;
+      .actors-table tr.child-row {
+        background: rgb(0 0 0 / 1.5%);
       }
 
-      .sot-note {
-        font-size: var(--text-sm);
-        color: var(--text-muted);
-        max-width: 640px;
-        margin: 0 auto 28px;
-        line-height: 1.6;
-      }
-
-      .sot-note a {
-        color: var(--signal);
-        text-decoration: none;
-      }
-
-      .ec-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 4px;
-      }
-
-      .ec-date {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--text-muted);
-      }
-
-      .ec-cta {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        font-weight: 600;
-        color: var(--signal-dim);
-        text-decoration: none;
-        letter-spacing: 0.04em;
-      }
-
-      .ec-cta:hover {
-        color: var(--accent);
-      }
-
-      .ec-hub-link {
-        display: block;
-        margin-top: 10px;
-        padding-top: 10px;
-        border-top: 1px solid var(--border);
-        font-family: var(--font-mono);
-        font-size: 11px;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
+      .actors-table a.subtle {
         color: var(--signal-dim);
         text-decoration: none;
       }
 
-      .ec-hub-link:hover {
-        color: var(--accent);
+      .actors-table a.subtle:hover {
+        text-decoration: underline;
       }
 
-      .ec-series {
-        margin-top: 6px;
-      }
-
-      .ec-series summary {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: var(--text-muted);
-        cursor: pointer;
-        list-style: none;
-        user-select: none;
-        padding: 4px 0;
-      }
-
-      .ec-series summary::-webkit-details-marker {
+      .mobile-cards {
         display: none;
       }
 
-      .ec-series summary::before {
-        content: '+ ';
-        color: var(--signal-dim);
-      }
-
-      .ec-series[open] summary::before {
-        content: '- ';
-      }
-
-      .ec-series summary:hover {
-        color: var(--text-secondary);
-      }
-
-      .ec-timeline {
-        list-style: none;
-        margin: 8px 0 4px;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        max-height: 220px;
-        overflow-y: auto;
-        border-left: 2px solid var(--border);
-      }
-
-      .ec-tl-item {
-        display: block;
-        text-decoration: none;
-        padding: 8px 0 8px 12px;
-        margin-left: -2px;
-        border-left: 2px solid transparent;
-        transition: background 0.15s, border-color 0.15s;
-      }
-
-      .ec-tl-item:hover {
-        background: rgb(62 111 239 / 6%);
-        border-left-color: var(--accent);
-      }
-
-      .ec-tl-item.is-latest {
-        border-left-color: var(--signal-dim);
-      }
-
-      .ec-tl-date {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        color: var(--text-primary);
-        margin-bottom: 4px;
-      }
-
-      .ec-tl-metrics {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        font-family: var(--font-mono);
-        font-size: 10px;
-        color: var(--text-muted);
-      }
-
-      .ec-tl-metrics .pub {
-        color: var(--text-secondary);
-      }
-
-      .ec-tl-metrics .vault {
-        color: var(--status-success);
-      }
-
-      /* ── Tiers ── */
       .tiers-section {
         background: var(--bg2);
         border-top: 1px solid var(--border);
+      }
+
+      .section-title {
+        font-family: var(--font-heading);
+        font-size: var(--text-2xl);
+        font-weight: 800;
+        letter-spacing: 0.03em;
+        margin-bottom: 8px;
+      }
+
+      .grad {
+        background: linear-gradient(135deg, var(--accent), var(--status-error));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .divider {
+        width: 60px;
+        height: 2px;
+        background: linear-gradient(90deg, var(--signal-dim), transparent);
+        margin-bottom: 32px;
       }
 
       .tiers-list {
@@ -730,18 +366,10 @@ function formatShort(iso: string): string {
 
       .tier {
         background: var(--bg);
-        padding: 32px 36px;
+        padding: 28px 32px;
         display: grid;
         grid-template-columns: 1fr auto;
         gap: 2rem;
-        align-items: start;
-        border-left: 3px solid transparent;
-        transition: all 0.2s;
-      }
-
-      .tier:hover {
-        background: var(--bg-card);
-        border-left-color: var(--signal-dim);
       }
 
       .tier-name {
@@ -749,8 +377,7 @@ function formatShort(iso: string): string {
         font-size: var(--text-sm);
         font-weight: 700;
         letter-spacing: 0.05em;
-        color: var(--text-primary);
-        margin-bottom: 10px;
+        margin-bottom: 8px;
       }
 
       .tier-desc {
@@ -765,7 +392,6 @@ function formatShort(iso: string): string {
         font-size: var(--text-xs);
         color: var(--text-muted);
         margin-top: 10px;
-        letter-spacing: 0.03em;
       }
 
       .tier-price {
@@ -773,7 +399,6 @@ function formatShort(iso: string): string {
         font-size: var(--text-xl);
         font-weight: 600;
         color: var(--accent);
-        white-space: nowrap;
         text-align: right;
       }
 
@@ -785,37 +410,20 @@ function formatShort(iso: string): string {
         margin-top: 4px;
       }
 
-      /* ── Request form ── */
       .request-section {
         border-top: 1px solid var(--border);
       }
 
       .request-heading {
         text-align: center;
-        margin-bottom: 40px;
-      }
-
-      .request-eyebrow {
-        justify-content: center;
-        display: flex;
-      }
-
-      .request-title {
-        font-size: var(--text-2xl);
-      }
-
-      .request-sub {
-        font-size: var(--text-base);
-        color: var(--text-secondary);
-        margin-top: 12px;
-        line-height: 1.8;
+        margin-bottom: 32px;
       }
 
       .form-wrap {
         background: var(--bg-card);
         border: 1px solid var(--border-strong);
         border-radius: var(--radius-sm);
-        padding: 48px;
+        padding: 40px;
         max-width: 760px;
         margin: 0 auto;
       }
@@ -851,32 +459,6 @@ function formatShort(iso: string): string {
         border: 1px solid var(--border);
         border-radius: var(--radius-sm);
         color: var(--text-primary);
-        transition: border-color 0.2s;
-      }
-
-      .form-group input:focus,
-      .form-group select:focus,
-      .form-group textarea:focus {
-        outline: none;
-        border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgb(62 111 239 / 15%);
-      }
-
-      .form-group input::placeholder,
-      .form-group textarea::placeholder {
-        color: var(--text-muted);
-      }
-
-      .form-group select {
-        cursor: pointer;
-      }
-
-      .form-group select option {
-        background: var(--bg-card);
-      }
-
-      .form-wrap .btn {
-        margin-top: 8px;
       }
 
       .form-msg {
@@ -908,48 +490,51 @@ function formatShort(iso: string): string {
         text-decoration: none;
       }
 
-      /* ── Responsive ── */
-      @media (width <= 900px) {
-        .reports-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (width <= 640px) {
-        .page-hero {
-          padding: 56px 20px 48px;
-        }
-
-        .page-hero h1 {
-          font-size: var(--text-2xl);
-        }
-
+      @media (width <= 720px) {
+        .page-hero,
         section {
-          padding: 48px 20px;
+          padding-left: 20px;
+          padding-right: 20px;
         }
 
-        .featured-card {
-          grid-template-columns: 1fr;
-          gap: 24px;
+        .desktop-table {
+          display: none;
         }
 
-        .fc-right {
-          text-align: left;
+        .mobile-cards {
+          display: block;
         }
 
-        .fc-entity {
-          font-size: var(--text-xl);
+        .mobile-card {
+          border: 1px solid var(--border);
+          border-bottom: none;
+          padding: 14px 16px;
+          background: var(--bg);
         }
 
-        .reports-grid {
-          grid-template-columns: 1fr;
+        .mobile-card:last-child {
+          border-bottom: 1px solid var(--border);
+        }
+
+        .mobile-card .name {
+          font-family: var(--font-heading);
+          font-weight: 700;
+          margin-bottom: 6px;
+        }
+
+        .mobile-card .meta {
+          font-family: var(--font-mono);
+          font-size: 12px;
+          color: var(--text-muted);
+          line-height: 1.6;
         }
 
         .tier {
           grid-template-columns: 1fr;
         }
 
-        .tier-price {
+        .tier-price,
+        .tier-unit {
           text-align: left;
         }
 
@@ -958,7 +543,7 @@ function formatShort(iso: string): string {
         }
 
         .form-wrap {
-          padding: 28px 20px;
+          padding: 24px 18px;
         }
       }
     </style>
@@ -966,80 +551,26 @@ function formatShort(iso: string): string {
 
   <Nav active="reports" cta={{ label: 'Request Report', href: '#request' }} />
 
-  <!-- ── Page hero ── -->
   <div class="page-hero" id="main">
-    <div class="eyebrow">EIGENSTATE RESEARCH · TOPOLOGY SIGNAL REPORTS</div>
-    <h1>SIGNAL REPORTS</h1>
+    <div class="eyebrow">Eigenstate Research · measured actors</div>
+    <h1>Measured actors</h1>
     <p class="explainer">
-      Dated topology research snapshots for the tokenized settlement layer. Each report records
-      settlement pressure, field coherence, and information flow at its publication time; re-check
-      cited evidence and public APIs before relying on it as current state.
+      Actors we observe with dated signal reports. Dimensions stay measurable but sit under the
+      Dimensions facet, not as peers of public actors.
     </p>
     <p class="sot-note">
-      Live M1 coverage (SoT): <strong>{sot.coverage.headline}</strong> (engine ledger, not report badges).
-      Green badges are <strong>vault@publish</strong> (trimmed cycle-vault rows at publish), not lifetime observations.
-      <a href={`${base}METHODOLOGY.md#numbers-glossary`}>What do these numbers mean? → Methodology</a> ·
-      <a href={`${base}METHODOLOGY.md`}>Full methodology</a> ·
+      Live M1 coverage (SoT): <strong>{sot.coverage.headline}</strong>. Φ_S is a secondary column,
+      not the default sort.{' '}
+      <a href={`${base}METHODOLOGY.md#numbers-glossary`}>Numbers glossary</a> ·{' '}
       <a href={`${base}track-record/`}>Track Record</a>
     </p>
-    <a href="#request" class="btn btn-lg btn-gradient">Request a Report →</a>
   </div>
 
-  <!-- ── Featured: highest Φ_S ── -->
-  <section class="featured-section">
-    <div class="container">
-      <div class="eyebrow">HIGHEST SETTLEMENT PRESSURE · FEATURED REPORT</div>
-      {
-        featured ? (
-          <a href={`${base}reports/${featured.hubSlug}/`} class="featured-card">
-            <div>
-              <div class="fc-badge">Settlement Pressure · Top Entity</div>
-              <div class="fc-entity">{featured.entityDisplay}</div>
-              <div class="fc-meta">
-                <div>
-                  <div class="fc-label">Settlement Pressure{featured.using_live ? ' · live' : ''}</div>
-                  <div class="fc-phi">Φ_S = {featured.live_phi_s.toFixed(4)}</div>
-                </div>
-                <div>
-                  <div class="fc-label">Field Coherence{featured.using_live ? ' · live' : ''}</div>
-                  <div class="fc-kappa">κ = {featured.live_kappa.toFixed(4)}</div>
-                </div>
-                <div>
-                  <div class="fc-label" title={vaultTip}>vault@publish</div>
-                  <div class="fc-vault" title={vaultTip}>{featured.latest.data.vault_records} rows</div>
-                </div>
-                {featured.m1LedgerObs > 0 && (
-                  <div>
-                    <div class="fc-label" title="m1_strict ledger rows for this entity (SoT)">M1 ledger</div>
-                    <div class="fc-vault" style="color: var(--text-secondary);" title="Coverage-ledger m1_strict count for this entity">
-                      {featured.m1LedgerObs} obs
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-            <div class="fc-right">
-              <div class="fc-date">{formatLong(featured.latestDate)}</div>
-              <span class="fc-read">Open hub →</span>
-            </div>
-          </a>
-        ) : (
-          <div class="featured-loading">No reports published yet.</div>
-        )
-      }
-    </div>
-  </section>
-
-  <!-- ── Entity groups with dated time series ── -->
   <section>
     <div class="container">
-      <div class="eyebrow">ENTITY TIME SERIES</div>
-      <h2 class="section-title">Tracked <span class="grad">entities</span></h2>
       <div class="section-sub">
-        One card per entity. Default index is <strong>public actors</strong> (regulators, issuers,
-        institutions, chains) — like DefiLlama protocols, not metric columns. Engine dimensions
-        (reputation, presence) stay measurable but sit under <strong>Dimensions</strong>.
-        {publicActorCount} public · {demotedCount} demoted · {entityGroups.length} total · {reports.length} published.
+        Default: public actors · {publicActorCount} public · {demotedCount} demoted · {rootCount}{' '}
+        parent rows · {entityGroups.length} entities · {reports.length} dated reports
       </div>
 
       <div class="reports-filter-bar">
@@ -1047,8 +578,8 @@ function formatShort(iso: string): string {
           type="text"
           id="reportsSearch"
           class="reports-search"
-          placeholder="Search by entity name…"
-          aria-label="Search entities by name"
+          placeholder="Search by actor name…"
+          aria-label="Search actors by name"
         />
         <select id="reportsFacet" class="reports-sort" aria-label="Facet filter" hidden>
           {REPORT_FACETS.map((f) => (
@@ -1058,10 +589,10 @@ function formatShort(iso: string): string {
           ))}
           <option value="all">All (incl. dimensions)</option>
         </select>
-        <select id="reportsSort" class="reports-sort" aria-label="Sort entities">
-          <option value="newest">Newest activity</option>
-          <option value="phi-desc">Highest Φ_S</option>
-          <option value="az">A–Z</option>
+        <select id="reportsSort" class="reports-sort" aria-label="Sort actors">
+          <option value="newest" selected>Newest activity</option>
+          <option value="az">A-Z</option>
+          <option value="phi-desc">Φ_S (secondary)</option>
         </select>
       </div>
 
@@ -1077,11 +608,120 @@ function formatShort(iso: string): string {
         <span class="filt" data-f="all">All</span>
       </div>
 
-      <div class="reports-grid" id="reportsGrid">
+      <div class="actors-table-wrap desktop-table">
+        <table class="actors-table" id="actorsTable">
+          <thead>
+            <tr>
+              <th>Actor</th>
+              <th>Kind</th>
+              <th>Latest report</th>
+              <th>Last activity</th>
+              <th class="n">Φ_S</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="reportsGrid">
+            {
+              families.map(({ parent: g, children }) => (
+                <>
+                  <tr
+                    class="actor-row"
+                    data-entity={g.entityDisplay}
+                    data-phi-s={g.live_phi_s}
+                    data-date-iso={g.latestDate}
+                    data-name={g.entityDisplay}
+                    data-display-kind={g.display_kind}
+                    data-public-default={g.public_default ? 'true' : 'false'}
+                    data-demoted={g.demoted ? 'true' : 'false'}
+                    data-family-id={g.entityCode}
+                    style={g.demoted && g.public_default === false ? 'display: none;' : undefined}
+                  >
+                    <td>
+                      {children.length > 0 && (
+                        <button
+                          type="button"
+                          class="rank-expand"
+                          aria-expanded="false"
+                          aria-controls={`kids-${g.entityCode}`}
+                          data-expand={g.entityCode}
+                          data-count={children.length}
+                        >
+                          +{children.length}
+                        </button>
+                      )}
+                      <a class="actor-name" href={`${base}reports/${g.hubSlug}/`}>
+                        {g.entityDisplay}
+                      </a>
+                    </td>
+                    <td>
+                      <span class:list={['kind-chip', { 'is-demoted': g.demoted }]}>
+                        {g.facet_label}
+                      </span>
+                    </td>
+                    <td>
+                      <a class="subtle" href={`${base}reports/${g.latest.slug}/`}>
+                        {g.count} {g.count === 1 ? 'report' : 'reports'}
+                      </a>
+                    </td>
+                    <td>{formatShort(g.latestDate)}</td>
+                    <td class="n phi-sec">{g.live_phi_s.toFixed(3)}</td>
+                    <td>
+                      <a class="subtle" href={`${base}reports/${g.hubSlug}/`}>
+                        hub
+                      </a>
+                    </td>
+                  </tr>
+                  {children.map((child: EntityGroup) => (
+                    <tr
+                      class="child-row"
+                      id={`kid-${child.entityCode}`}
+                      data-parent={g.entityCode}
+                      data-entity={child.entityDisplay}
+                      data-phi-s={child.live_phi_s}
+                      data-date-iso={child.latestDate}
+                      data-name={child.entityDisplay}
+                      data-display-kind={child.display_kind}
+                      data-public-default={child.public_default ? 'true' : 'false'}
+                      data-demoted={child.demoted ? 'true' : 'false'}
+                      hidden
+                    >
+                      <td>
+                        <a class="actor-name" href={`${base}reports/${child.hubSlug}/`}>
+                          {child.entityDisplay}
+                        </a>
+                      </td>
+                      <td>
+                        <span class:list={['kind-chip', { 'is-demoted': child.demoted }]}>
+                          {child.facet_label}
+                        </span>
+                      </td>
+                      <td>
+                        <a class="subtle" href={`${base}reports/${child.latest.slug}/`}>
+                          {child.count} {child.count === 1 ? 'report' : 'reports'}
+                        </a>
+                      </td>
+                      <td>{formatShort(child.latestDate)}</td>
+                      <td class="n phi-sec">{child.live_phi_s.toFixed(3)}</td>
+                      <td>
+                        <a class="subtle" href={`${base}reports/${child.hubSlug}/`}>
+                          hub
+                        </a>
+                      </td>
+                    </tr>
+                  ))}
+                </>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="reports-empty" id="reportsEmpty" style="display: none;">No actors match.</div>
+
+      <div class="mobile-cards" id="mobileCards">
         {
-          entityGroups.map((g) => (
-            <article
-              class="entity-card"
+          families.map(({ parent: g, children }) => (
+            <div
+              class="mobile-card actor-row"
               data-entity={g.entityDisplay}
               data-phi-s={g.live_phi_s}
               data-date-iso={g.latestDate}
@@ -1091,81 +731,25 @@ function formatShort(iso: string): string {
               data-demoted={g.demoted ? 'true' : 'false'}
               style={g.demoted && g.public_default === false ? 'display: none;' : undefined}
             >
-              <div class="ec-title-row">
-                <div class="ec-entity">
-                  <a class="ec-entity-link" href={`${base}reports/${g.hubSlug}/`}>{g.entityDisplay}</a>
-                </div>
-                <a
-                  class="ec-count"
-                  href={`${base}reports/${g.hubSlug}/`}
-                  title={`Open ${g.entityDisplay} hub`}
-                >
-                  {g.count} {g.count === 1 ? 'report' : 'reports'}
+              <div class="name">
+                <a class="actor-name" href={`${base}reports/${g.hubSlug}/`}>
+                  {g.entityDisplay}
                 </a>
               </div>
-              <div class="ec-metrics">
-                <span class:list={['ec-facet', { 'is-demoted': g.demoted }]}>{g.facet_label}</span>
-                <span class="ec-phi">Φ_S {g.live_phi_s.toFixed(3)}</span>
-                <span class="ec-kappa">κ {g.live_kappa.toFixed(3)}</span>
-                {g.using_live && (
-                  <span class="ec-live" title="Φ_S / κ from live dossier SoT overlay">live</span>
-                )}
-                <span class="ec-vault" title={vaultTip}>
-                  vault@pub {g.latest.data.vault_records}
-                </span>
-                {g.m1LedgerObs > 0 && (
-                  <span class="ec-m1" title="m1_strict coverage-ledger rows for this entity (SoT); not vault@publish">
-                    M1 {g.m1LedgerObs}
-                  </span>
-                )}
+              <div class="meta">
+                {g.facet_label} · {formatShort(g.latestDate)} · Φ_S {g.live_phi_s.toFixed(3)}
+                {children.length > 0 && ` · ${children.length} instruments`}
               </div>
-              <div class="ec-footer">
-                <span class="ec-date">Latest {formatShort(g.latestDate)}</span>
-                <a class="ec-cta" href={`${base}reports/${g.latest.slug}/`}>Read latest →</a>
-              </div>
-              <a class="ec-hub-link" href={`${base}reports/${g.hubSlug}/`}>
-                {g.count > 1
-                  ? `Timeline · ${g.count} dated reports → hub`
-                  : 'Entity hub →'}
-              </a>
-              {g.count > 1 && (
-                <details class="ec-series">
-                  <summary>Quick list on this card</summary>
-                  <ol class="ec-timeline">
-                    {g.series.map((r, i) => (
-                      <li>
-                        <a
-                          href={`${base}reports/${r.slug}/`}
-                          class:list={['ec-tl-item', { 'is-latest': i === 0 }]}
-                        >
-                          <div class="ec-tl-date">
-                            {formatShort(r.data.date_iso)}
-                            {i === 0 ? ' · latest' : ''}
-                          </div>
-                          <div class="ec-tl-metrics">
-                            <span class="pub">Φ_S {r.data.phi_s.toFixed(3)}</span>
-                            <span class="pub">κ {r.data.kappa.toFixed(3)}</span>
-                            <span class="vault" title={vaultTip}>vault@pub {r.data.vault_records}</span>
-                          </div>
-                        </a>
-                      </li>
-                    ))}
-                  </ol>
-                </details>
-              )}
-            </article>
+            </div>
           ))
         }
       </div>
-      <div class="reports-empty" id="reportsEmpty" style="display: none;">No entities match your search.</div>
     </div>
   </section>
 
-  <!-- ── Pricing tiers ── -->
   <section class="tiers-section">
     <div class="container">
-      <div class="eyebrow">REPORTS</div>
-      <h2 class="section-title">The information field, <span class="grad">made visible.</span></h2>
+      <h2 class="section-title">Report <span class="grad">tiers</span></h2>
       <div class="divider"></div>
       <div class="tiers-list">
         <div class="tier">
@@ -1184,15 +768,13 @@ function formatShort(iso: string): string {
         </div>
         <div class="tier">
           <div>
-            <div class="tier-name">SECTOR REPORT — INFORMATION FLOW</div>
+            <div class="tier-name">SECTOR REPORT</div>
             <div class="tier-desc">
-              Full analysis of the information flow sector: 164 entities, 158 currently breaking,
-              Φ_S scores, loop velocity rankings, recommended positions. Updated weekly on atomic
-              cycle.
+              Full analysis of the information flow sector with Φ_S scores, loop velocity rankings,
+              and recommended positions. Updated weekly on atomic cycle.
             </div>
             <div class="tier-inc">
-              Includes: full sector map · weekly Δ · top breaking entities · forming loops · field
-              equations
+              Includes: full sector map · weekly Δ · top breaking entities · forming loops
             </div>
           </div>
           <div><div class="tier-price">$490</div><div class="tier-unit">per month</div></div>
@@ -1202,8 +784,7 @@ function formatShort(iso: string): string {
             <div class="tier-name">CUSTOM TOPOLOGY BRIEFING</div>
             <div class="tier-desc">
               Bespoke analysis for your investment thesis, regulatory question, or infrastructure
-              positioning. Includes methodology session and engine output for the engagement
-              period.
+              positioning.
             </div>
             <div class="tier-inc">
               Includes: custom entity set · methodology session · engine output · follow-up Q&A
@@ -1215,15 +796,11 @@ function formatShort(iso: string): string {
     </div>
   </section>
 
-  <!-- ── Request a Report ── -->
   <section class="request-section" id="request">
     <div class="container">
       <div class="request-heading">
-        <div class="eyebrow request-eyebrow">REQUEST A REPORT</div>
-        <h2 class="section-title request-title">
-          Get the topology read on<br /><span class="grad">your entity or sector.</span>
-        </h2>
-        <p class="request-sub">Tell us what you're tracking. Response within 24 hours.</p>
+        <h2 class="section-title">Request a report</h2>
+        <p class="section-sub" style="text-align:center;">Response within 24 hours.</p>
       </div>
       <div class="form-wrap">
         <div class="form-row">
@@ -1239,32 +816,17 @@ function formatShort(iso: string): string {
           <label for="ft">Report type</label>
           <select id="ft">
             <option value="" disabled selected>Select report type</option>
-            <option>Single entity report — $59</option>
-            <option>Sector report — $490/month</option>
-            <option>Custom briefing — $2,400</option>
-            <option>Not sure — send me a sample</option>
+            <option>Single entity report · $59</option>
+            <option>Sector report · $490/month</option>
+            <option>Custom briefing · $2,400</option>
+            <option>Not sure · send me a sample</option>
           </select>
         </div>
         <div class="form-group">
           <label for="fent">Entity or sector of interest</label>
-          <textarea
-            id="fent"
-            rows="3"
-            placeholder="e.g. Circle, Coinbase, OCC regulatory loop, GENIUS Act implementation, stablecoin issuance layer…"
-          ></textarea>
+          <textarea id="fent" rows="3" placeholder="e.g. Circle, Coinbase, OCC regulatory loop…"></textarea>
         </div>
-        <button class="btn btn-md btn-block" id="submitBtn" type="button">
-          REQUEST REPORT
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-            ><path
-              d="M3 8h10M8 3l5 5-5 5"
-              stroke="white"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></path></svg
-          >
-        </button>
+        <button class="btn btn-md btn-block" id="submitBtn" type="button">REQUEST REPORT</button>
         <div class="form-msg" id="msg"></div>
         <p class="form-note">Or email: <a href="mailto:ksekhon9851@Gmail.com">ksekhon9851@Gmail.com</a></p>
       </div>
@@ -1274,14 +836,11 @@ function formatShort(iso: string): string {
   <Footer variant="full" />
 
   <script>
-    import { initReveal } from '../../scripts/reveal';
     import { initFilterList } from '../../scripts/filter-list';
-
-    initReveal({ selector: '.featured-card, .entity-card' });
 
     initFilterList({
       containerSelector: '#reportsGrid',
-      itemSelector: '.entity-card',
+      itemSelector: '.actor-row',
       searchInputSelector: '#reportsSearch',
       searchFields: ['entity'],
       filterSelectSelector: '#reportsFacet',
@@ -1303,7 +862,36 @@ function formatShort(iso: string): string {
       emptyStateSelector: '#reportsEmpty',
     });
 
+    // Keep child rows under parents after sort/filter; hide kids when parent is filtered out.
+    const tbody = document.getElementById('reportsGrid');
+    function reattachChildren() {
+      if (!tbody) return;
+      tbody.querySelectorAll<HTMLElement>('.actor-row').forEach((row) => {
+        const id = row.dataset.familyId;
+        if (!id) return;
+        const kids = Array.from(
+          tbody.querySelectorAll<HTMLElement>(`.child-row[data-parent="${id}"]`)
+        );
+        let anchor: Element = row;
+        kids.forEach((kid) => {
+          anchor.after(kid);
+          anchor = kid;
+        });
+        const parentHidden = row.style.display === 'none';
+        const btn = row.querySelector<HTMLButtonElement>('.rank-expand');
+        const expanded = btn?.getAttribute('aria-expanded') === 'true';
+        kids.forEach((kid) => {
+          kid.hidden = parentHidden || !expanded;
+        });
+      });
+    }
+    const sortSelect = document.getElementById('reportsSort');
     const facetSelect = document.getElementById('reportsFacet') as HTMLSelectElement | null;
+    const search = document.getElementById('reportsSearch');
+    sortSelect?.addEventListener('change', () => queueMicrotask(reattachChildren));
+    facetSelect?.addEventListener('change', () => queueMicrotask(reattachChildren));
+    search?.addEventListener('input', () => queueMicrotask(reattachChildren));
+
     const facetBar = document.getElementById('reportsFacets');
     facetBar?.querySelectorAll<HTMLElement>('.filt').forEach((chip) => {
       chip.addEventListener('click', () => {
@@ -1314,10 +902,48 @@ function formatShort(iso: string): string {
         }
         facetBar.querySelectorAll('.filt').forEach((c) => c.classList.remove('is-on'));
         chip.classList.add('is-on');
+        queueMicrotask(reattachChildren);
       });
     });
-    // Apply default Public actors filter (hides demoted dimensions on load).
     facetSelect?.dispatchEvent(new Event('change'));
+
+    document.querySelectorAll<HTMLButtonElement>('.rank-expand[data-expand]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.expand || '';
+        const count = btn.dataset.count || '';
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        const next = !open;
+        btn.setAttribute('aria-expanded', String(next));
+        btn.textContent = next ? `-${count}` : `+${count}`;
+        document.querySelectorAll<HTMLElement>(`.child-row[data-parent="${id}"]`).forEach((row) => {
+          row.hidden = !next;
+        });
+      });
+    });
+
+    // Mobile cards share the same filter dataset via a second pass.
+    initFilterList({
+      containerSelector: '#mobileCards',
+      itemSelector: '.actor-row',
+      searchInputSelector: '#reportsSearch',
+      searchFields: ['entity'],
+      filterSelectSelector: '#reportsFacet',
+      customFilter: (el, filterValue) => {
+        const v = filterValue || 'public';
+        if (v === 'all') return true;
+        if (v === 'public') return el.dataset.publicDefault === 'true';
+        if (v === 'dimension') {
+          return el.dataset.displayKind === 'dimension' || el.dataset.demoted === 'true';
+        }
+        return el.dataset.displayKind === v;
+      },
+      sortSelectSelector: '#reportsSort',
+      sortOptions: {
+        newest: { field: 'dateIso', direction: 'desc', type: 'string' },
+        'phi-desc': { field: 'phiS', direction: 'desc', type: 'number' },
+        az: { field: 'name', direction: 'asc', type: 'string' },
+      },
+    });
 
     async function submitForm() {
       const eInput = document.getElementById('fe') as HTMLInputElement;
@@ -1340,11 +966,11 @@ function formatShort(iso: string): string {
             organization: (document.getElementById('fo') as HTMLInputElement).value,
             report_type: (document.getElementById('ft') as HTMLSelectElement).value,
             entity_interest: (document.getElementById('fent') as HTMLTextAreaElement).value,
-            _subject: 'Eigenstate — signal report request',
+            _subject: 'Eigenstate signal report request',
           }),
         });
         if (r.ok) {
-          msg.textContent = 'Received. Response within 24 hours. — Eigenstate Research';
+          msg.textContent = 'Received. Response within 24 hours.';
           msg.className = 'form-msg ok';
         } else {
           msg.textContent = 'Something went wrong. Email ksekhon9851@Gmail.com directly.';

@@ -16,6 +16,7 @@ import {
   EVOLUTION_MIN_STAMPS,
   type PublishMetricStamp,
 } from '../lib/sot';
+import { resolveEntityVerify } from '../lib/entityVerify';
 
 interface SeriesItem {
   slug: string;
@@ -45,6 +46,7 @@ const publish = latest
 const metrics = resolveReportMetrics(entityCode, publish);
 const { phi_s, kappa, using_live, live } = metrics;
 const m1LedgerObs = m1LedgerObsFor(entityCode);
+const verify = resolveEntityVerify(entityCode);
 
 const base = import.meta.env.BASE_URL;
 const hubUrl = `${base}reports/${hubSlug}/`;
@@ -155,6 +157,61 @@ function formatShort(iso: string): string {
         margin-bottom: 28px;
       }
 
+      .verify-hero {
+        border: 1px solid var(--border-strong);
+        border-left: 4px solid var(--signal);
+        background: var(--bg2);
+        padding: 18px 20px;
+        margin-bottom: 22px;
+      }
+
+      .verify-hero.is-refuse {
+        border-left-color: var(--status-error);
+      }
+
+      .verify-hero.is-admit {
+        border-left-color: var(--status-success);
+      }
+
+      .verify-hero.is-hold {
+        border-left-color: var(--text-muted);
+      }
+
+      .verify-label {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 6px;
+      }
+
+      .verify-verdict {
+        font-family: var(--font-heading);
+        font-size: var(--text-2xl);
+        font-weight: 700;
+        color: var(--text-primary);
+        line-height: 1.2;
+        margin-bottom: 6px;
+      }
+
+      .verify-limb {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-primary);
+        margin-bottom: 6px;
+      }
+
+      .verify-detail {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .verify-detail a {
+        color: var(--signal-dim);
+      }
+
       .metrics-row {
         display: flex;
         flex-wrap: wrap;
@@ -173,9 +230,9 @@ function formatShort(iso: string): string {
 
       .metric-value {
         font-family: var(--font-mono);
-        font-size: var(--text-xl);
+        font-size: var(--text-lg);
         font-weight: 600;
-        color: var(--accent);
+        color: var(--text-secondary);
       }
 
       .metric-value.cyan {
@@ -183,7 +240,7 @@ function formatShort(iso: string): string {
       }
 
       .metric-value.muted {
-        color: var(--text-secondary);
+        color: var(--text-muted);
       }
 
       .live-badge {
@@ -435,6 +492,44 @@ function formatShort(iso: string): string {
       {series.length} dated {series.length === 1 ? 'report' : 'reports'} · latest {formatLong(latestDateIso)}
     </p>
 
+    <div
+      class:list={[
+        'verify-hero',
+        {
+          'is-admit': verify.verdict === 'admit',
+          'is-refuse': verify.verdict === 'refuse' || verify.verdict === 'mixed',
+          'is-hold': verify.hold,
+        },
+      ]}
+    >
+      <div class="verify-label">
+        Last verify outcome · {verify.source === 'none' ? 'unavailable' : verify.source.replace(/_/g, ' ')}
+      </div>
+      <div class="verify-verdict">{verify.label}</div>
+      <div class="verify-limb">
+        {
+          verify.hold
+            ? 'HOLD: no Pages-local admit/refuse limb for this entity'
+            : verify.refuse_limb
+              ? `Refuse limb: ${verify.refuse_limb}`
+              : 'Refuse limb: no refuse'
+        }
+      </div>
+      <p class="verify-detail">
+        {verify.detail}
+        {
+          verify.receipt_url && (
+            <>
+              {' '}
+              <a href={verify.receipt_url} rel="noopener">
+                Receipt json
+              </a>
+            </>
+          )
+        }
+      </p>
+    </div>
+
     <div class="metrics-row">
       <div>
         <div class="metric-label">
@@ -464,18 +559,14 @@ function formatShort(iso: string): string {
     <div class="cta-row">
       <a class="cta-primary" href={latestUrl}>Read latest →</a>
       <a class="cta-secondary" href={humanDossier}>Entity dossier</a>
-      <a class="cta-secondary" href={glossary}>Numbers glossary</a>
-      <a class="cta-secondary" href={methodology}>Methodology</a>
     </div>
 
     <p class="note">
       {
         using_live
-          ? `Hero Φ_S / κ overlay the live dossier SoT${live.compiled_at ? ` (compiled ${String(live.compiled_at).slice(0, 19)}Z)` : ''}. Publish history and the evolution chart below use dated report frontmatter (publish-time stamps), not a reconstructed live ledger.`
-          : `No live dossier mirror for ${entityCode} in this deploy. Hero numbers fall back to the latest publish frontmatter.`
+          ? `Φ_S / κ overlay the live dossier SoT${live.compiled_at ? ` (compiled ${String(live.compiled_at).slice(0, 19)}Z)` : ''}. Evolution chart uses publish-time frontmatter stamps only.`
+          : `No live dossier mirror for ${entityCode} in this deploy. Φ_S / κ fall back to the latest publish frontmatter.`
       }
-      {' '}
-      <a href={glossary}>What do these numbers mean?</a>
     </p>
 
     <!-- Publish history -->
@@ -597,9 +688,19 @@ function formatShort(iso: string): string {
       }
     </section>
 
-    <p class="hub-sub" style="margin-top: 8px;">
-      Canonical hub path: <code>{hubUrl}</code>
-    </p>
+    <div class="rank-footer" style="margin-top: 8px; border-top: 1px solid var(--border); padding-top: 20px;">
+      <div class="links-row">
+        <a href={methodology}>Methodology</a>
+        <a href={`${base}federation/dossier/${entityCode}.json`}>dossier.json</a>
+        <a href={glossary}>Numbers glossary / expectations</a>
+        <a href={humanDossier}>Human dossier</a>
+      </div>
+      <p class="honesty">
+        Admit/refuse comes from Pages-local conformance ledgers (RWA, grounded claims) or the
+        current-claims mirror when present. HOLD means none of those surfaces cover this entity yet.
+        Canonical hub: <code>{hubUrl}</code>
+      </p>
+    </div>
   </div>
 
   <Footer variant="full" />

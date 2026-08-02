@@ -1,0 +1,77 @@
+{
+  "schema_version": "eigenstate.actor-families.v1",
+  "note": "Presentation-only parent/child collapse for the reports index. Explicit links are mirrored from engine measurement_links.json (issuer/instrument joins). Prefix heuristic covers remaining COINBASE_*/CIRCLE_*/etc. peers when the parent code also has a report. Not topology physics.",
+  "links": [
+    {
+      "child": "CIRCLE_RESERVE_FUND",
+      "parent": "CIRCLE",
+      "relation": "fund_of"
+    },
+    {
+      "child": "CIRCLE_USYC",
+      "parent": "CIRCLE",
+      "relation": "issuer_product"
+    },
+    {
+      "child": "OUSG",
+      "parent": "ONDO",
+      "relation": "issuer_product"
+    },
+    {
+      "child": "USDY",
+      "parent": "ONDO",
+      "relation": "issuer_product"
+    },
+    {
+      "child": "ONDO_YIELD_ASSETS",
+      "parent": "ONDO",
+      "relation": "issuer_product"
+    },
+    {
+      "child": "FED_RRP",
+      "parent": "FED",
+      "relation": "facility_of"
+    },
+    {
+      "child": "CITI_TREASURY_SERVICES",
+      "parent": "CITIGROUP",
+      "relation": "division_of"
+    },
+    {
+      "child": "BLACKROCK_BUIDL",
+      "parent": "BLACKROCK",
+      "relation": "issuer_product"
+    },
+    {
+      "child": "TETHER_GOLD",
+      "parent": "TETHER",
+      "relation": "issuer_product"
+    },
+    {
+      "child": "PAXOS_GOLD",
+      "parent": "PAXOS",
+      "relation": "issuer_product"
+    },
+    {
+      "child": "COINBASE_SPOT",
+      "parent": "COINBASE",
+      "relation": "division_of"
+    },
+    {
+      "child": "COINBASE_BRIDGE",
+      "parent": "COINBASE",
+      "relation": "division_of"
+    },
+    {
+      "child": "AAVE_FORUM",
+      "parent": "AAVE_GOVERNANCE",
+      "relation": "facility_of"
+    },
+    {
+      "child": "AAVE_V3",
+      "parent": "AAVE_GOVERNANCE",
+      "relation": "issuer_product"
+    }
+  ],
+  "prefix_heuristic": true
+}

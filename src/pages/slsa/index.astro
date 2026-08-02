@@ -3,6 +3,9 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import census from '../../data/slsa_provenance.json';
+import { ledgerDeltaLine } from '../../lib/ledgerContext';
+import fs from 'node:fs';
+import path from 'node:path';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -60,8 +63,17 @@ interface Census {
   };
 }
 
-const c = census as unknown as Census;
+type Receipt = {
+  package: string;
+  normalized_name: string;
+  version: string;
+  must_admit: boolean;
+  full_admit: boolean;
+  first_failing_limb: string | null;
+  first_refuse_reason: string | null;
+};
 
+const c = census as unknown as Census;
 const n = c.expectation_count;
 const share = (x: number) => `${((100 * x) / n).toFixed(1)}%`;
 const num = (x: number) => x.toLocaleString('en-US');
@@ -71,619 +83,295 @@ function formatDate(iso: string): string {
   return isNaN(d.getTime()) ? iso : d.toISOString().replace('T', ' ').slice(0, 16) + ' UTC';
 }
 
-const headlines = [
-  {
-    value: share(c.provenance_missing_count),
-    sub: `${c.provenance_missing_count} of ${n}`,
-    label: 'serve no attestation at all',
-    note: 'PyPI returns 404 from the integrity endpoint. There is nothing to verify, so nothing was verified.',
-  },
-  {
-    value: share(c.must_admit),
-    sub: `${c.must_admit} of ${n}`,
-    label: 'pass every MUST limb',
-    note: 'An attestation exists, the downloaded bytes hash to the digest the index recorded, and the signature verifies against that computed digest.',
-  },
-  {
-    value: `${c.slsa_build_provenance_count}`,
-    sub: `of ${n}`,
-    label: 'carry SLSA build provenance',
-    note: 'Every attestation in this set is a PyPI publish attestation. It binds an upload to a workflow and says nothing about how the artifact was built.',
-  },
-  {
-    value: share(c.full_refuse),
-    sub: `${c.full_refuse} of ${n}`,
-    label: 'refuse at the full level',
-    note: 'The full level adds the signer to source cross check and the two observed limbs. Nothing in this dependency set clears it.',
-  },
-];
+let receipts: Receipt[] = [];
+try {
+  const raw = JSON.parse(
+    fs.readFileSync(path.join(process.cwd(), 'public', 'slsa', 'ledger.json'), 'utf8')
+  ) as { receipts?: Receipt[] };
+  receipts = [...(raw.receipts || [])].sort((a, b) => {
+    if (a.must_admit !== b.must_admit) return a.must_admit ? 1 : -1;
+    return a.normalized_name.localeCompare(b.normalized_name);
+  });
+} catch {
+  receipts = [];
+}
 
+const delta = ledgerDeltaLine('slsa', 'must_refuse_rate');
 const refuseRows = Object.entries(c.refuse_limb_counts).sort((a, b) => b[1] - a[1]);
 const reasonRows = Object.entries(c.top_refuse_reasons).slice(0, 8);
 const limbs = c.methodology.limb_order_frozen;
 const predicateRows = Object.entries(c.predicate_types);
+const refuseRate = share(c.must_refuse);
 ---
 
 <Layout
-  title="Provenance census of one engine's own dependencies · Eigenstate Research"
-  description="Every distribution this engine installs, checked for a PEP 740 attestation, verified against Sigstore, and then asked the separate question of whether the attestation is SLSA build provenance. Expectations published before the run."
+  title="Provenance census · Eigenstate Research"
+  description="Every distribution this engine installs, checked for a PEP 740 attestation, verified against Sigstore, and then asked whether the attestation is SLSA build provenance."
   fonts={fonts}
 >
-  <Fragment slot="head">
-    <style>
-      .page-hero {
-        max-width: 820px;
-        margin: 0 auto;
-        padding: 72px 24px 20px;
-        text-align: center;
-      }
-
-      .eyebrow {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        letter-spacing: 0.15em;
-        color: var(--text-muted);
-        text-transform: uppercase;
-        margin-bottom: 16px;
-      }
-
-      .page-hero h1 {
-        font-family: var(--font-heading);
-        font-size: clamp(1.75rem, 4vw, 2.5rem);
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        color: var(--text-primary);
-        line-height: 1.15;
-        margin: 0 0 16px;
-      }
-
-      .page-hero .grad {
-        background: linear-gradient(135deg, var(--signal) 0%, var(--accent) 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .explainer {
-        font-size: var(--text-base);
-        color: var(--text-secondary);
-        line-height: 1.7;
-        margin: 0 auto 12px;
-        max-width: 640px;
-      }
-
-      .honesty {
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        color: var(--text-muted);
-        line-height: 1.6;
-        margin: 0 auto;
-        max-width: 640px;
-      }
-
-      .wrap {
-        max-width: 880px;
-        margin: 0 auto;
-        padding: 8px 24px 80px;
-      }
-
-      .runline {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--text-muted);
-        line-height: 1.8;
-        padding: 14px 16px;
-        background: var(--bg2);
-        border-left: 3px solid var(--border-live);
-        margin: 20px 0 32px;
-        overflow-wrap: anywhere;
-      }
-
-      .cite-box {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--text-muted);
-        line-height: 1.75;
-        padding: 14px 16px;
-        background: var(--bg2);
-        border-left: 3px solid var(--signal-dim);
-        margin: 0 0 28px;
-        overflow-wrap: anywhere;
-      }
-
-      .cite-box .cite-title {
-        color: var(--text-secondary);
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        margin-bottom: 8px;
-      }
-
-      .cite-box a {
-        color: var(--signal-dim);
-      }
-
-      .cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 16px;
-        margin-bottom: 36px;
-      }
-
-      .card {
-        background: var(--bg-card);
-        border: 1px solid var(--border-strong);
-        border-radius: var(--radius-sm);
-        padding: 20px 18px;
-      }
-
-      .card .big {
-        font-family: var(--font-heading);
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--text-primary);
-        line-height: 1;
-        margin-bottom: 4px;
-      }
-
-      .card .ci {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--text-muted);
-        margin-bottom: 10px;
-      }
-
-      .card .lab {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-        line-height: 1.5;
-        margin-bottom: 8px;
-      }
-
-      .card .note {
-        font-size: var(--text-xs);
-        color: var(--text-muted);
-        line-height: 1.6;
-      }
-
-      h2 {
-        font-family: var(--font-heading);
-        font-size: var(--text-lg);
-        font-weight: 700;
-        color: var(--text-primary);
-        margin: 36px 0 10px;
-        letter-spacing: -0.01em;
-      }
-
-      p.body {
-        font-size: var(--text-base);
-        color: var(--text-secondary);
-        line-height: 1.7;
-        margin: 0 0 14px;
-      }
-
-      p.body a,
-      .links-row a {
-        color: var(--signal-dim);
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-        margin: 8px 0 18px;
-      }
-
-      th,
-      td {
-        text-align: left;
-        padding: 9px 10px;
-        border-bottom: 1px solid var(--border);
-        color: var(--text-secondary);
-      }
-
-      th {
-        color: var(--text-muted);
-        font-size: var(--text-xs);
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        font-weight: 500;
-      }
-
-      td.n {
-        text-align: right;
-        color: var(--text-primary);
-      }
-
-      td.verdict {
-        color: var(--text-primary);
-        white-space: nowrap;
-      }
-
-      .links-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px 20px;
-        margin: 12px 0 8px;
-        font-family: var(--font-mono);
-        font-size: var(--text-sm);
-      }
-
-      .links-row a {
-        text-decoration: none;
-      }
-
-      .links-row a:hover {
-        text-decoration: underline;
-      }
-
-      pre.cmd {
-        font-family: var(--font-mono);
-        font-size: 12px;
-        line-height: 1.55;
-        background: #1a1a1a;
-        color: #e8e6e1;
-        padding: 16px 18px;
-        border-radius: var(--radius-sm);
-        overflow-x: auto;
-        margin: 0 0 12px;
-        white-space: pre;
-      }
-
-      ul.plain {
-        margin: 0 0 16px 18px;
-        padding: 0;
-      }
-
-      ul.plain li {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-        line-height: 1.7;
-        margin-bottom: 6px;
-      }
-
-      .callout {
-        background: var(--bg2);
-        border: 1px solid var(--border-strong);
-        border-radius: var(--radius-sm);
-        padding: 18px 20px;
-        margin: 8px 0 20px;
-      }
-
-      .callout p {
-        font-size: var(--text-sm);
-        color: var(--text-secondary);
-        line-height: 1.7;
-        margin: 0 0 10px;
-      }
-
-      .callout p:last-child {
-        margin-bottom: 0;
-      }
-
-      @media (width <= 640px) {
-        .page-hero {
-          padding-top: 48px;
-        }
-
-        pre.cmd {
-          font-size: 11px;
-          padding: 14px;
-        }
-      }
-    </style>
-  </Fragment>
-
   <Nav cta={{ label: 'Request Pilot', href: requestAccess }} />
 
-  <div class="page-hero" id="main">
-    <div class="eyebrow">PEP 740 · SLSA · read-only · census</div>
-    <h1>What the supply chain <span class="grad">actually</span> signs</h1>
-    <p class="explainer">
-      Two questions get collapsed into one. Does a package carry an attestation that verifies, and
-      does that attestation describe how the package was built? This is the full dependency set of
-      one working engine, checked against both, with the expectations published before the run and
-      every refusal named by the limb that failed.
+  <div class="rank-hero" id="main">
+    <div class="eyebrow">PEP 740 · SLSA · census of one install set</div>
+    <h1>What the supply chain actually signs</h1>
+    <p class="lede">
+      Full dependency set of one working engine: attestation present, digest match, signature
+      verify, then the separate question of SLSA build provenance. Expectations published first.
     </p>
-    <p class="honesty">
-      A census of one install set, not a sample of PyPI · no badge, no score, no ranking · an
-      unattested package is not an unsafe package
-    </p>
+    <div class="rank-primary">
+      <div class="rate">{refuseRate}</div>
+      <div class="rate-label">
+        MUST refuse rate · {c.must_refuse} of {n} distributions · {share(c.provenance_missing_count)}{' '}
+        serve no attestation
+      </div>
+    </div>
+    {delta && <p class="rank-delta">{delta}</p>}
   </div>
 
-  <section class="wrap">
-    <div class="runline">
-      Subject <code>{c.subject.requirements_file}</code> at engine commit <code
-        >{c.subject.engine_commit?.slice(0, 12)}</code
-      ><br />
-      Requirements SHA-256 <code>{c.subject.requirements_sha256}</code><br />
-      Resolved for {c.subject.platform} · Python {c.subject.python} · {n} distributions · {
-        num(c.bytes_downloaded)
-      } bytes downloaded and hashed<br />
-      Expectations digest <code>{c.expectations_digest}</code> published {
-        formatDate(c.expectations_generated_at)
-      }<br />
-      Ledger digest <code>{c.digest}</code> run {formatDate(c.generated_at)}
+  <section class="rank-wrap">
+    <div class="rank-runline">
+      Subject <code>{c.subject.requirements_file}</code> · engine{' '}
+      <code>{c.subject.engine_commit?.slice(0, 12)}</code> · {n} distributions ·{' '}
+      {num(c.bytes_downloaded)} bytes hashed · run {formatDate(c.generated_at)} · digest{' '}
+      <code>{c.digest.slice(0, 16)}</code>
     </div>
 
-    <div class="cite-box">
-      <div class="cite-title">How to cite / re-check</div>
-      Cite{' '}
-      <a href={`${base}slsa/expectations.json`}>expectations.json</a> (published first) and{' '}
-      <a href={`${base}slsa/summary.json`}>summary.json</a>. One package at a time:{' '}
-      <code>{fed}/slsa/receipts/&lt;normalized-name&gt;.json</code>
-      <br />
-      This is a census of one install set, not a sample. A later run resolves a later set; the
-      expectations file pins which artifact filenames and digests a given run covered.
+    <div class="rank-table-wrap">
+      <table class="rank-table">
+        <thead>
+          <tr>
+            <th>Package</th>
+            <th>Version</th>
+            <th>Verdict</th>
+            <th>Refuse limb</th>
+            <th>Receipt</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            receipts.map((r) => (
+              <tr>
+                <td class="subject">{r.normalized_name || r.package}</td>
+                <td>{r.version}</td>
+                <td class:list={['verdict', r.must_admit ? 'is-admit' : 'is-refuse']}>
+                  {r.must_admit ? 'admit' : 'refuse'}
+                </td>
+                <td>{r.first_failing_limb ?? 'no refuse'}</td>
+                <td>
+                  <a
+                    href={`${fed}/slsa/receipts/${r.normalized_name || r.package}.json`}
+                    rel="noopener"
+                  >
+                    json
+                  </a>
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
     </div>
 
-    <div class="cards">
+    <h2 style="font-family: var(--font-heading); font-size: var(--text-lg); margin: 8px 0 10px;">
+      Where they fail first
+    </h2>
+    <div class="rank-table-wrap">
+      <table class="rank-table">
+        <thead>
+          <tr><th>First failing limb</th><th class="n">Packages</th></tr>
+        </thead>
+        <tbody>
+          {
+            refuseRows.map(([limb, count]) => (
+              <tr>
+                <td>{limb}</td>
+                <td class="n">{count}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="rank-footer">
+      <p class="honesty">
+        A census of one install set, not a sample of PyPI · no badge, no score · an unattested
+        package is not an unsafe package · publish attestation is not SLSA build provenance
+      </p>
+
+      <h2>How to cite / re-check</h2>
+      <div class="links-row">
+        <a href={`${base}slsa/expectations.json`}>expectations.json</a>
+        <a href={`${base}slsa/summary.json`}>summary.json</a>
+        <a href={`${base}slsa/ledger.json`}>ledger.json</a>
+        <a href={`${base}slsa/README.md`}>method</a>
+        <a href={`${fed}/slsa/index.json`} target="_blank" rel="noopener">per-package index</a>
+        <a href={pep740} target="_blank" rel="noopener">PEP 740</a>
+        <a href={slsaSpec} target="_blank" rel="noopener">SLSA provenance</a>
+      </div>
+
+      <h2>Predicate types</h2>
+      <div class="rank-table-wrap">
+        <table class="rank-table">
+          <thead>
+            <tr><th>Verified predicate type</th><th class="n">Packages</th></tr>
+          </thead>
+          <tbody>
+            {
+              predicateRows.map(([t, count]) => (
+                <tr>
+                  <td>{t}</td>
+                  <td class="n">{count}</td>
+                </tr>
+              ))
+            }
+            <tr>
+              <td>https://slsa.dev/provenance/v1</td>
+              <td class="n">{c.slsa_build_provenance_count}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Predictions (scored)</h2>
+      <div class="rank-table-wrap">
+        <table class="rank-table">
+          <thead>
+            <tr><th>Stated before the run</th><th>Observed</th><th class="n">Verdict</th></tr>
+          </thead>
+          <tbody>
+            {
+              c.predictions_scored.map((row) => (
+                <tr>
+                  <td>{row.prediction}</td>
+                  <td>{row.observed}</td>
+                  <td class="verdict n">{row.met ? 'met' : 'missed'}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Named reasons</h2>
+      <div class="rank-table-wrap">
+        <table class="rank-table">
+          <thead>
+            <tr><th>Limb and reason</th><th class="n">Packages</th></tr>
+          </thead>
+          <tbody>
+            {
+              reasonRows.map(([reason, count]) => (
+                <tr>
+                  <td>{reason}</td>
+                  <td class="n">{count}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Every limb</h2>
+      <div class="rank-table-wrap">
+        <table class="rank-table">
+          <thead>
+            <tr>
+              <th>Limb</th>
+              <th>Level</th>
+              <th class="n">ok</th>
+              <th class="n">fail</th>
+              <th class="n">n/a</th>
+              <th class="n">absent</th>
+              <th class="n">not reached</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              limbs.map((limb) => (
+                <tr>
+                  <td>{limb}</td>
+                  <td>{c.methodology.limb_spec_level[limb]}</td>
+                  <td class="n">{c.limb_outcomes[limb].ok}</td>
+                  <td class="n">{c.limb_outcomes[limb].fail}</td>
+                  <td class="n">{c.limb_outcomes[limb].not_applicable}</td>
+                  <td class="n">{c.limb_outcomes[limb].absent}</td>
+                  <td class="n">{c.limb_outcomes[limb].not_reached}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
       {
-        headlines.map((h) => (
-          <div class="card">
-            <div class="big">{h.value}</div>
-            <div class="ci">{h.sub}</div>
-            <div class="lab">{h.label}</div>
-            <div class="note">{h.note}</div>
-          </div>
-        ))
+        c.signer_source_mismatches.length > 0 && (
+          <>
+            <h2>Signer / source mismatches</h2>
+            <div class="rank-table-wrap">
+              <table class="rank-table">
+                <thead>
+                  <tr>
+                    <th>Package</th>
+                    <th>Declared source</th>
+                    <th>Signed from</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {c.signer_source_mismatches.map((m) => (
+                    <tr>
+                      <td>{m.package}</td>
+                      <td>{m.declared_on_pypi}</td>
+                      <td>{m.signed_from}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )
       }
-    </div>
 
-    <h2>The distinction this ledger exists for</h2>
-    <div class="callout">
-      <p>
-        A <strong>publish attestation</strong> says a named workflow in a named repository uploaded
-        this exact file. That is worth having. It is not build provenance.
-      </p>
-      <p>
-        <strong>SLSA build provenance</strong> says how the artifact was produced: the builder, the
-        source it was built from, the parameters. It is what lets you check that a wheel came from
-        the commit it claims.
-      </p>
-      <p>
-        Every attestation in this dependency set is the first kind. A project that treats a verified
-        PyPI attestation as SLSA build provenance is claiming more than it holds.
-      </p>
-    </div>
-    <table>
-      <thead>
-        <tr><th>Verified predicate type</th><th class="n">Packages</th></tr>
-      </thead>
-      <tbody>
-        {
-          predicateRows.map(([t, count]) => (
-            <tr>
-              <td>{t}</td>
-              <td class="n">{count}</td>
-            </tr>
-          ))
-        }
-        <tr>
-          <td>https://slsa.dev/provenance/v1</td>
-          <td class="n">{c.slsa_build_provenance_count}</td>
-        </tr>
-      </tbody>
-    </table>
+      {
+        c.self_refusals.length > 0 && (
+          <>
+            <h2>Self refusals</h2>
+            <div class="rank-table-wrap">
+              <table class="rank-table">
+                <thead>
+                  <tr>
+                    <th>Declared</th>
+                    <th>Reason</th>
+                    <th>Latest on PyPI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {c.self_refusals.map((r) => (
+                    <tr>
+                      <td>{r.declared_line}</td>
+                      <td>{r.reason}</td>
+                      <td>{r.latest_published_on_pypi ?? 'not published'}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )
+      }
 
-    <h2>Predictions, written down first</h2>
-    <p class="body">
-      The expectations file was committed and published at digest <code
-        >{c.expectations_digest.slice(0, 16)}</code
-      > before a single package was checked, and the run refuses to start if that file's digest stops
-      matching its contents. These four predictions were in it.
-    </p>
-    <table>
-      <thead>
-        <tr><th>Stated before the run</th><th>Observed</th><th class="n">Verdict</th></tr>
-      </thead>
-      <tbody>
-        {
-          c.predictions_scored.map((p) => (
-            <tr>
-              <td>{p.prediction}</td>
-              <td>{p.observed}</td>
-              <td class="verdict n">{p.met ? 'met' : 'missed'}</td>
-            </tr>
-          ))
-        }
-      </tbody>
-    </table>
-
-    <h2>Where they fail first</h2>
-    <p class="body">
-      Limbs run in a frozen order and a refusal names the first one that failed, so these counts
-      partition the census rather than double-counting it.
-    </p>
-    <table>
-      <thead>
-        <tr><th>First failing limb</th><th class="n">Packages</th></tr>
-      </thead>
-      <tbody>
-        {
-          refuseRows.map(([limb, count]) => (
-            <tr>
-              <td>{limb}</td>
-              <td class="n">{count}</td>
-            </tr>
-          ))
-        }
-      </tbody>
-    </table>
-
-    <h2>Named reasons</h2>
-    <table>
-      <thead>
-        <tr><th>Limb and reason</th><th class="n">Packages</th></tr>
-      </thead>
-      <tbody>
-        {
-          reasonRows.map(([reason, count]) => (
-            <tr>
-              <td>{reason}</td>
-              <td class="n">{count}</td>
-            </tr>
-          ))
-        }
-      </tbody>
-    </table>
-
-    <h2>Every limb, reported separately</h2>
-    <p class="body">
-      <code>not reached</code> means an earlier limb failed first, so this one was never observed: it
-      is neither a pass nor an exemption. The digest compared against each signature is one this
-      probe computed over bytes it downloaded, never a digest quoted back from an API.
-    </p>
-    <table>
-      <thead>
-        <tr>
-          <th>Limb</th>
-          <th>Level</th>
-          <th class="n">ok</th>
-          <th class="n">fail</th>
-          <th class="n">n/a</th>
-          <th class="n">absent</th>
-          <th class="n">not reached</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          limbs.map((limb) => (
-            <tr>
-              <td>{limb}</td>
-              <td>{c.methodology.limb_spec_level[limb]}</td>
-              <td class="n">{c.limb_outcomes[limb].ok}</td>
-              <td class="n">{c.limb_outcomes[limb].fail}</td>
-              <td class="n">{c.limb_outcomes[limb].not_applicable}</td>
-              <td class="n">{c.limb_outcomes[limb].absent}</td>
-              <td class="n">{c.limb_outcomes[limb].not_reached}</td>
-            </tr>
-          ))
-        }
-      </tbody>
-    </table>
-
-    <h2>The part that did work</h2>
-    <p class="body">
-      Every attestation that exists in this set verified. All {c.limb_outcomes.signature_verifies.ok}
-      passed Sigstore verification against the Fulcio certificate chain and the Rekor transparency
-      log, the digest computed over the downloaded bytes matched the index in every case, and every
-      one was discoverable in the log. The gap here is adoption, not broken cryptography, and a
-      refusal ledger that only ever prints bad news is not measuring anything.
-    </p>
-
-    {
-      c.signer_source_mismatches.length > 0 && (
-        <>
-          <h2>Anomalies, and why they are not accusations</h2>
-          <p class="body">
-            The signer to source limb compares two facts a maintainer sets in two different places:
-            the repository PyPI reports as the signer, and the source repository the project
-            declares in its own PyPI metadata. They disagreed twice.
-          </p>
-          <table>
-            <thead>
-              <tr>
-                <th>Package</th>
-                <th>Declared source</th>
-                <th>Signed from</th>
-              </tr>
-            </thead>
-            <tbody>
-              {c.signer_source_mismatches.map((m) => (
-                <tr>
-                  <td>{m.package}</td>
-                  <td>{m.declared_on_pypi}</td>
-                  <td>{m.signed_from}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p class="body">
-            A project may build and upload from a repository other than the one it lists as its
-            source, and a repository that has been renamed keeps answering on its old name. Both are
-            ordinary and neither is evidence of wrongdoing. What the receipt records is that an
-            automated consumer pinning the declared source repository would not match the signer,
-            which is a real cost of the naming gap even when nobody did anything wrong.
-          </p>
-        </>
-      )
-    }
-
-    {
-      c.self_refusals.length > 0 && (
-        <>
-          <h2>What the probe found about its own author</h2>
-          <p class="body">
-            The first limb failed on this engine's own declared roots before it failed on anyone
-            else's package.
-          </p>
-          <table>
-            <thead>
-              <tr>
-                <th>Declared</th>
-                <th>Reason</th>
-                <th>Latest on PyPI</th>
-              </tr>
-            </thead>
-            <tbody>
-              {c.self_refusals.map((r) => (
-                <tr>
-                  <td>{r.declared_line}</td>
-                  <td>{r.reason}</td>
-                  <td>{r.latest_published_on_pypi ?? 'not published'}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p class="body">
-            Both are packages this host publishes. The engine declares a version range the public
-            index cannot satisfy, which means a third party following this{' '}
-            <code>requirements.txt</code> cannot reproduce the environment. That is a refusal
-            against the author of the probe, found by the probe, published here rather than fixed
-            quietly first.
-          </p>
-        </>
-      )
-    }
-
-    <h2>Read it yourself</h2>
-    <div class="links-row">
-      <a href={`${base}slsa/expectations.json`}>expectations.json (published first)</a>
-      <a href={`${base}slsa/summary.json`}>summary.json</a>
-      <a href={`${base}slsa/ledger.json`}>ledger.json (every receipt)</a>
-      <a href={`${base}slsa/README.md`}>method, in prose</a>
-      <a href={`${fed}/slsa/index.json`} target="_blank" rel="noopener">per-package index</a>
-      <a href={pep740} target="_blank" rel="noopener">PEP 740</a>
-      <a href={slsaSpec} target="_blank" rel="noopener">SLSA provenance</a>
-    </div>
-    <p class="body">One package's receipt, by normalized name, from the federation origin:</p>
-    <pre class="cmd">{`curl -sS ${fed}/slsa/receipts/cryptography.json | jq '{package, version, must_admit, first_refuse_reason, limbs}'`}</pre>
-
-    <h2>Re-run it</h2>
-    <p class="body">
-      The probe is stdlib only apart from the verifier, which is not an engine runtime dependency.
-      When it is missing the signature limb refuses by name rather than passing, so an unverified run
-      can never read as a verified one.
-    </p>
-    <pre
-      class="cmd">{`python3 -m venv .slsa && .slsa/bin/pip install pypi-attestations
+      <h2>Re-run</h2>
+      <pre
+        class="cmd"
+      >{`python3 -m venv .slsa && .slsa/bin/pip install pypi-attestations
 .slsa/bin/python engine/tools/slsa_provenance_run.py expect
 .slsa/bin/python engine/tools/slsa_provenance_run.py run`}</pre>
-    <p class="body">
-      Version ranges float, so a later run resolves a later set and the counts move. The expectations
-      file pins exactly which artifact filenames and digests a given run covered, so a disagreement
-      is about what the index served rather than about which packages were picked.
-    </p>
 
-    <h2>What this cannot tell you</h2>
-    <ul class="plain">
-      {c.methodology.known_limits.map((l) => <li>{l}</li>)}
-      <li>
-        This is a census of one dependency set. It supports no claim about PyPI as a whole, and no
-        rate here should be quoted as one.
-      </li>
-    </ul>
+      <h2>What this cannot tell you</h2>
+      <ul>
+        {c.methodology.known_limits.map((l) => <li>{l}</li>)}
+      </ul>
+    </div>
   </section>
 
   <Footer />
