@@ -608,7 +608,7 @@ const soft200 = s.conventional_paths.status_counts['200'] ?? 0;
               <td>{r.entity}</td>
               <td>{r.segment_role}</td>
               <td class="verdict">{r.must_admit ? 'admit' : 'refuse'}</td>
-              <td>{r.refuse_reason ?? '—'}</td>
+              <td>{r.refuse_reason ?? 'none'}</td>
               <td>
                 <a href={r.receipt} rel="noopener">
                   json
