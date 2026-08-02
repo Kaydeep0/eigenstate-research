@@ -48,7 +48,7 @@ interface Probe {
 const p = probe as unknown as Probe;
 
 const pct = (x: number) => `${(100 * x).toFixed(1)}%`;
-const ci = (r: [number, number]) => `${(100 * r[0]).toFixed(1)}–${(100 * r[1]).toFixed(1)}%`;
+const ci = (r: [number, number]) => `${(100 * r[0]).toFixed(1)} to ${(100 * r[1]).toFixed(1)}%`;
 const num = (n: number) => n.toLocaleString('en-US');
 
 function formatDate(iso: string): string {

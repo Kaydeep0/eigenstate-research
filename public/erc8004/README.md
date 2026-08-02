@@ -32,22 +32,22 @@ named by the limb that failed.
 
 ## Where they fail
 
-- `agent_uri_resolves` — first failing limb for 216 of 500 sampled agents
-- `registration_schema_valid` — first failing limb for 140 of 500 sampled agents
-- `registration_self_reference` — first failing limb for 89 of 500 sampled agents
-- `registration_parses` — first failing limb for 9 of 500 sampled agents
-- `endpoint_answers_today` — first failing limb for 1 of 500 sampled agents
+- `agent_uri_resolves`: first failing limb for 216 of 500 sampled agents
+- `registration_schema_valid`: first failing limb for 140 of 500 sampled agents
+- `registration_self_reference`: first failing limb for 89 of 500 sampled agents
+- `registration_parses`: first failing limb for 9 of 500 sampled agents
+- `endpoint_answers_today`: first failing limb for 1 of 500 sampled agents
 
 Most common named reasons:
 
-- `agent_uri_resolves:empty_agent_uri` — 174
-- `registration_schema_valid:no_registration_type_declared` — 135
-- `registration_self_reference:no_registrations_entry` — 81
-- `agent_uri_resolves:http_404` — 18
-- `registration_parses:json_parse_error:Expecting value: line 1 column 1 (char 0)` — 9
-- `registration_self_reference:registrations_do_not_match_onchain_identity` — 8
-- `agent_uri_resolves:http_500` — 5
-- `registration_schema_valid:no_services_list` — 4
+- `agent_uri_resolves:empty_agent_uri`: 174
+- `registration_schema_valid:no_registration_type_declared`: 135
+- `registration_self_reference:no_registrations_entry`: 81
+- `agent_uri_resolves:http_404`: 18
+- `registration_parses:json_parse_error:Expecting value: line 1 column 1 (char 0)`: 9
+- `registration_self_reference:registrations_do_not_match_onchain_identity`: 8
+- `agent_uri_resolves:http_500`: 5
+- `registration_schema_valid:no_services_list`: 4
 
 ## Limbs
 
@@ -55,12 +55,12 @@ Each limb is reported separately so a refusal names which one failed. `absent` a
 `not_applicable` never count against an agent, and `not_reached` means an earlier limb
 failed first so this one was never observed.
 
-- `agent_uri_resolves` (MUST) — ok 284, fail 216, not applicable 0, absent 0, not reached 0
-- `registration_parses` (MUST) — ok 275, fail 9, not applicable 0, absent 0, not reached 216
-- `registration_schema_valid` (MUST) — ok 135, fail 140, not applicable 0, absent 0, not reached 225
-- `registration_self_reference` (SHOULD) — ok 46, fail 229, not applicable 0, absent 0, not reached 225
-- `endpoint_answers_today` (OBSERVED) — ok 82, fail 37, not applicable 156, absent 0, not reached 225
-- `domain_wellknown_proof` (MAY) — ok 0, fail 13, not applicable 183, absent 79, not reached 225
+- `agent_uri_resolves` (MUST): ok 284, fail 216, not applicable 0, absent 0, not reached 0
+- `registration_parses` (MUST): ok 275, fail 9, not applicable 0, absent 0, not reached 216
+- `registration_schema_valid` (MUST): ok 135, fail 140, not applicable 0, absent 0, not reached 225
+- `registration_self_reference` (SHOULD): ok 46, fail 229, not applicable 0, absent 0, not reached 225
+- `endpoint_answers_today` (OBSERVED): ok 82, fail 37, not applicable 156, absent 0, not reached 225
+- `domain_wellknown_proof` (MAY): ok 0, fail 13, not applicable 183, absent 79, not reached 225
 
 ## Structural fields left out, and not counted as refusals
 
