@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
 import { loadSot, formatNum } from '../lib/sot';
+import erc8004 from '../data/erc8004_probe.json';
 
 const fonts =
   "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap";
@@ -56,6 +57,10 @@ const topPhiOther = topPhi.filter(
 const helixPrefix =
   (sot as { helix?: { fingerprint_prefix?: string | null } }).helix?.fingerprint_prefix || null;
 const gExternal = sot.field.G_external_cumulative;
+const ercMustMiss = `${(100 * erc8004.must_miss_rate).toFixed(1)}%`;
+const ercMustMissCi = erc8004.must_miss_rate_ci95
+  .map((x) => (100 * x).toFixed(1))
+  .join(' to ');
 ---
 
 <Layout
@@ -462,7 +467,7 @@ const gExternal = sot.field.G_external_cumulative;
                         </div>
                         <div class="power-law-row highlight">
                             <span class="wave-label">OUTPUT</span>
-                            <span class="wave-stat">signal reports · RWA attestations · $GENIU on Base</span>
+                            <span class="wave-stat">signal reports · RWA disclosure survey · ERC-8004 refusal ledger</span>
                             <span class="wave-value">→</span>
                         </div>
                     </div>
@@ -591,7 +596,7 @@ const gExternal = sot.field.G_external_cumulative;
                         &nbsp;·&nbsp;
                         <a href="https://paragraph.com/@eigenstate" target="_blank" rel="noopener" style="color:var(--signal);text-decoration:none;font-size:13px;">Research →</a>
                         &nbsp;·&nbsp;
-                        <span style="color:var(--text-muted);font-size:13px;">$GENIU · Base · 0x9f4A...D681</span>
+                        <a href="erc8004/" style="color:var(--signal);text-decoration:none;font-size:13px;">ERC-8004 refusal ledger →</a>
                     </p>
                 </div>
 
@@ -625,9 +630,9 @@ const gExternal = sot.field.G_external_cumulative;
                         <p class="engine-tile-note">commits gated · see proof index</p>
                     </div>
                     <div class="engine-tile">
-                        <p class="engine-tile-label">writer coin</p>
-                        <p class="engine-tile-value orange">$GENIU</p>
-                        <p class="engine-tile-note">Base · 0x9f4A...D681</p>
+                        <p class="engine-tile-label">ERC-8004 MUST miss</p>
+                        <p class="engine-tile-value orange">{ercMustMiss}</p>
+                        <p class="engine-tile-note">{erc8004.sampled} sampled on Base · 95% CI {ercMustMissCi}%</p>
                     </div>
                 </div>
             </div>
@@ -666,6 +671,9 @@ const gExternal = sot.field.G_external_cumulative;
             <a href="reports/" style="color:var(--signal);text-decoration:none;">Signal reports &amp; pricing →</a>
             &nbsp;·&nbsp;
             <a href="https://geniusflow-rwa.vercel.app" style="color:var(--text-secondary);text-decoration:none;">RWA registry →</a>
+        </p>
+        <p style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);margin-top:1.25rem;opacity:0.7;">
+            Writer coin, unrelated to the research surfaces above and not required to read any of them: $GENIU · Base · 0x9f4A...D681
         </p>
     </section>
 
