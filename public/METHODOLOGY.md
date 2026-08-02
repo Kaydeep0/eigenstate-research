@@ -16,6 +16,27 @@ A parkash cycle **measures** CIRCLE (vault + dossier numbers update); a Pages re
 
 ---
 
+## Numbers glossary
+
+Website tiles and report cards use these terms. Plain language first; precise engine meaning in the same row. Deeper sections below expand the measurement loop.
+
+| Term | Plain language | Precise / honest note |
+|------|----------------|------------------------|
+| **E, ΔI, A** | How much *new* information an observation yields per unit cost | **E = ΔI / A**. **ΔI** = surprise vs expected state; **A** = observation cost (API/work/time). Structural metric, not a price forecast. |
+| **Φ_S** | Settlement / signal pressure on an entity | Primary entity field signal (unrealized settlement energy). Mirrored on public dossiers (`own_numbers`). Not volume, not INFRA_FLOW. |
+| **κ** vs **Γ** | **κ** = system coherence of the measured field; **Γ** (gamma) = extraction / force | Separate keys (Brief B): κ stays on sys/measured coherence; Γ lives under entity physics (`gamma`). Never treat Γ as Φ_S or rename κ to mean gamma. |
+| **PT / Protocol Truth** | A Host act-readiness score from the engine SoT | Shown on Track Record / proof tiles from `HOST/state.json`. Canonical act threshold ≈ **0.618** (`canonical_act_threshold`). **Below waist ≈ observe** (measure / membrane publish); high-stakes act lanes stay gated — not a promise that every cycle “acts.” |
+| **M1 / 199 / coverage** | How much of the fixed topology map has been observed | Denominator **199** (forbidden stale denoms 196/197/218/…). Coverage = `m1_strict` ∩ topology, baked as e.g. `192 / 199`. Dossier count ≠ M1 denominator. |
+| **SoT** | Source of truth for public field tiles | Engine `HOST/state.json` (κ, PT, parkash stamps) + M1 coverage ledger → stamped into Pages [`public/field-state.json`](field-state.json) at deploy. Tiles bake from that stamp, not frozen marketing HTML. |
+| **vault@publish** vs **M1 ledger** | Two different “obs” counts on report cards | **vault@publish** (green badges) = trimmed cycle-vault rows present at report publish — not lifetime history. **M1 ledger** = lifetime `m1_strict` observation counts for that entity in the coverage ledger. Do not equate them. |
+| **status_at_publish** | Trust label on a published claim | Set by VERIFY (fail-closed). Common values: **ATTESTED** (primary/derived when spine admits), **UNVERIFIED-PENDING** (published but not attested). Federation **proof_shape** can **refuse** packages that invent attestation without a provenance spine. |
+| **Assessable n / accuracy** | How we score Host prediction outcomes | TRUE/FALSE only (VOID excluded). A **%** appears only when assessable **n ≥ 5**. Thin samples show raw n — never a fake 100% from a handful of rows. |
+| **Direction signals** | Older claim-table labels (e.g. BUILDING, INFRA_FLOW) | **Retired** on the current Track Record rebuild. INFRA_FLOW / cumulative volume is a different unit and must not be shown as Φ_S. Live surface: SoT scoreboard + field tiles. |
+| **Helix / Base commit** | On-chain fingerprint of vault / crossing state | Local HelixHash chaining is continuous; **Base** commits to `GeniusFlowSettlement` are **gated** (wallet, balance, mirror flags). Attested when a tx lands — not every parkash. See [On-Chain Proof Index](onchain/). |
+| **Return-wire ack** | Optional consumption acknowledgment | Federation `/api/return_wire` can ack that a consumer saw a package. Supports return-signal / Cell-E paths; it does **not** mean every vault row was published or attested. |
+
+---
+
 ## 1. The core equation
 
 **Plain language.** We score how much *new* information an entity produces relative to the cost of watching it. High score → the entity is moving the field. Low score → it is moving with the field.

@@ -481,7 +481,7 @@ function fmtUtc(iso: string | null | undefined): string {
       state: <code>HOST/state.json</code> (κ, Protocol Truth, parkash stamps) and the M1 coverage
       ledger (strict observations ∩ topology / 199). Pages copies a stamp into
       <code>public/field-state.json</code> on deploy.
-      See <a href={`${base}METHODOLOGY.md`}>Methodology</a>.
+      <a href={`${base}METHODOLOGY.md#numbers-glossary`}>What do these numbers mean? → Methodology</a>
       <div class="sot-stamp">
         Stamp {fmtUtc(generatedAt)} · last parkash {fmtUtc(parkashAt)}
       </div>
@@ -611,6 +611,9 @@ function fmtUtc(iso: string | null | undefined): string {
 
     <div class="method-block">
       <h3>METHODOLOGY</h3>
+      <p class="stat-note" style="margin-bottom: 16px;">
+        <a href={`${base}METHODOLOGY.md#numbers-glossary`} style="color: var(--signal);">What do these numbers mean? → Methodology</a>
+      </p>
       <div class="method-beats">
         <div class="method-beat">
           <span class="beat-marker">01</span>
@@ -662,7 +665,11 @@ function fmtUtc(iso: string | null | undefined): string {
       </div>
       <div class="verify-item">
         <div class="verify-label">Methodology</div>
-        <div class="verify-value"><a href={`${base}METHODOLOGY.md`}>METHODOLOGY.md</a></div>
+        <div class="verify-value">
+          <a href={`${base}METHODOLOGY.md#numbers-glossary`}>What do these numbers mean?</a>
+          {' · '}
+          <a href={`${base}METHODOLOGY.md`}>Full methodology</a>
+        </div>
       </div>
       <div class="verify-item">
         <div class="verify-label">SoT stamp</div>
