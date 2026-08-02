@@ -79,7 +79,7 @@ From a clone of this repo:
 
 ```bash
 python3 -m venv .venv && . .venv/bin/activate
-pip install helixhash
+pip install 'helixhash>=1.0'
 python3 public/demo/eigenstate_demo.py
 ```
 
@@ -87,7 +87,7 @@ Without cloning, in any empty directory:
 
 ```bash
 python3 -m venv .venv && . .venv/bin/activate
-pip install helixhash
+pip install 'helixhash>=1.0'
 curl -sO https://kaydeep0.github.io/eigenstate-research/demo/eigenstate_demo.py
 python3 eigenstate_demo.py
 ```
@@ -101,7 +101,7 @@ script uses the standard library for everything else.
 
 ```bash
 python3.12 -m venv .venv && source .venv/bin/activate
-pip install helixhash
+pip install 'helixhash>=1.0'
 python3 public/demo/eigenstate_demo.py
 ```
 

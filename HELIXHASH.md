@@ -2,88 +2,77 @@
 
 The cryptographic primitive underlying Eigenstate Research. Open source. Available to anyone.
 
-    pip install helixhash
+```bash
+pip install 'helixhash>=1.0'
+```
+
+PyPI: https://pypi.org/project/helixhash/1.0.0/  
+Source: https://github.com/Kaydeep0/helixhash
 
 ## What it does
 
-HelixHash creates a hash-chained observation log with built-in memory accumulation and a protocol truth score. Each observation is chained to the previous one via SHA-256. Altering any record breaks every subsequent fingerprint.
+HelixHash is a tamper-evident append-only log. It proves a sequence of
+bytestrings existed in this order at these times and has not been altered.
+It makes **no** claim about whether the payloads are true, meaningful, or
+correct — that is policy (witness / scoring layers), not protocol.
+
+Each `append` produces a SHA-256 hash that covers index, payload, timestamp,
+optional signer pubkey, and the previous hash. Altering any field breaks
+`verify()`.
 
 ## Quick start
 
-    from helixhash import HelixHash, Crossing
+```python
+from helixhash import HelixHash
 
-    h = HelixHash()
+h = HelixHash()
+h.append(b"first event")
+h.append(b"second event")
+print(h.verify())  # True
+print(h.head)      # tip SHA-256 hex
+print(h.length)    # 2
+```
 
-    h.cross(Crossing(
-        delta_I=2.0,
-        A=1.0,
-        kappa=0.62,
-        C=0.9,
-        label="SOFR rate change"
-    ))
+## API (v1.0)
 
-    h.cross(Crossing(
-        delta_I=0.5,
-        A=1.0,
-        kappa=0.63,
-        C=0.9,
-        label="BUIDL TVL movement"
-    ))
+```python
+class HelixHash:
+    def append(self, payload: bytes, signer=None) -> Entry
+    def verify(self) -> bool
+    def export(self) -> list[dict]
+    @classmethod
+    def from_export(cls, entries: list[dict]) -> "HelixHash"
+    @property
+    def head(self) -> str
+    @property
+    def length(self) -> int
+```
 
-    print(h.verify())     # True: chain intact
-    print(h.fingerprint)  # 64-char SHA-256
-    print(h.PT)           # protocol truth score
-    print(h.G)            # accumulated mass
+## Breaking change from 0.1.1
 
-## How the chaining works
+v0.1.1 baked Crossing / PT / Fibonacci / PHI into the library. v1.0 removed
+that policy surface entirely. There is no `Crossing`, `cross()`, `PT`, `G`,
+or `analysis` module on PyPI 1.0+. Encode observation metadata yourself and
+`append` the bytes (e.g. JSON).
 
-Each crossing produces:
+Historical Zenodo prior-art package (cosmology-era API): DOI
+[10.5281/zenodo.18413995](https://doi.org/10.5281/zenodo.18413995) (v0.1.1).
 
-    SHA256(n | delta_I | A | kappa | C |
-           timestamp | prev_fingerprint)
+## How to commit your head hash on-chain
 
-The previous fingerprint is embedded in every new one. Altering any field breaks every subsequent fingerprint at that exact point. `h.verify()` checks the full chain in O(n).
-
-## How the memory works
-
-    G(1) = E(1)
-    G(2) = G(1) + E(2)
-    G(n) = G(n-1) + G(n-2) + epsilon * E(n)
-
-Older high-efficiency observations retain persistent weight through Fibonacci recurrence. This is a design choice: the unique solution to the unit-coefficient two-state recurrence. Not proven optimal — labeled as a design choice throughout.
-
-## PT and the golden ratio threshold
-
-    PT = kappa * E_current * (sum_dI / sum_A) * C
-
-Below 0.618: accumulating (quantum regime)
-At 0.618: golden ratio threshold
-Above 0.618: classical regime (committed)
-
-The golden ratio appears because 1/phi is the fixed point of the Fibonacci recurrence in continuous form.
-
-## Parameters
-
-    delta_I  log-ratio surprise in bits
-             log2(state_new / state_expected)
-    A        computational cost of observation
-    kappa    system coherence (0 to 1)
-    C        credibility score (0 to 1)
-    label    human-readable description
-
-## How to commit your fingerprint on-chain
-
-1. Run your observation sequence
-2. Read `h.fingerprint` (64-char hex string)
+1. Append your observation payloads
+2. Read `h.head` (64-char hex)
 3. Submit it as calldata in any EVM transaction
 4. The block timestamp is your immutable proof
-5. Anyone can verify: recompute and compare
+5. Anyone can verify: recompute the chain and compare
 
-The Eigenstate engine commits to Base mainnet. You can commit to any EVM chain you choose.
+The Eigenstate engine commits to Base mainnet when its gates allow. You can
+commit to any EVM chain you choose.
 
 ## On-chain verification
 
-Every Base mainnet commit the Eigenstate engine has made is listed in the proof index, each one verifiable at basescan.org. The index is the count; a number written here would be stale by the next commit.
+Every Base mainnet commit the Eigenstate engine has made is listed in the
+proof index, each one verifiable at basescan.org.
 
 Full on-chain index:
 https://kaydeep0.github.io/eigenstate-research/onchain/
@@ -93,6 +82,6 @@ https://kaydeep0.github.io/eigenstate-research/api/onchain.json
 
 ## Honest limitations
 
-- `delta_I` is a log-ratio proxy, not exact KL divergence. Approximates entropy reduction but is not identical to it.
-- Fibonacci accumulation is a design choice, not a proven optimum.
-- PT threshold at golden ratio is derived from the Fibonacci fixed point, not from empirical calibration.
+- Timestamps use `time.time()`; sub-microsecond ordering is not guaranteed.
+- Signing requires optional `cryptography` (`pip install helixhash[signing]`).
+- This is not an RFC 6962 Merkle tree: no inclusion/consistency proofs.

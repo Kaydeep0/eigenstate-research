@@ -277,7 +277,7 @@
 
   <!-- Install -->
   <div class="install-block">
-    <code>pip install helixhash &amp;&amp; python3 public/demo/eigenstate_demo.py</code>
+    <code>pip install 'helixhash>=1.0' &amp;&amp; python3 public/demo/eigenstate_demo.py</code>
     <button class="copy-btn" onclick="copyInstall(this)">Copy</button>
   </div>
 
@@ -440,7 +440,8 @@
 
 <script>
 // ── HelixHash in-browser (pure JS port of the Python algorithm) ───────────────
-// Matches helixhash/core.py exactly: same Fibonacci recurrence, same PT formula,
+// Browser-only toy (historical 0.1.1-era scoring). helixhash>=1.0 on PyPI is append(bytes) only — see eigenstate_demo.py / HELIXHASH.md.
+// Former note: matched helixhash/core.py Fibonacci recurrence + PT formula,
 // same SHA-256 payload format. Fingerprints should match the Python script output
 // for the same (delta_I, A, kappa, C, timestamp) inputs.
 // Note: browser JS cannot match Python timestamps exactly, so fingerprints will
@@ -671,7 +672,7 @@ async function main() {
 // ── Copy install command ───────────────────────────────────────────────────────
 
 function copyInstall(btn) {
-  navigator.clipboard.writeText('pip install helixhash && python3 public/demo/eigenstate_demo.py')
+  navigator.clipboard.writeText('pip install 'helixhash>=1.0' && python3 public/demo/eigenstate_demo.py')
     .then(() => {
       btn.textContent = 'Copied';
       btn.classList.add('copied');

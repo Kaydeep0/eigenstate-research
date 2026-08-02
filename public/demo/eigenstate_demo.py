@@ -2,11 +2,11 @@
 Eigenstate Demo: live observations, cryptographic chain, on-chain verification pointer.
 
 Usage (from this repo root):
-    pip install helixhash
+    pip install 'helixhash>=1.0'
     python3 public/demo/eigenstate_demo.py
 
 Usage (no clone, any empty directory):
-    pip install helixhash
+    pip install 'helixhash>=1.0'
     curl -sO https://kaydeep0.github.io/eigenstate-research/demo/eigenstate_demo.py
     python3 eigenstate_demo.py
 
@@ -17,7 +17,7 @@ still completes on pinned fallback values and says so in the output.
 What this demonstrates:
   1. Three observations from real public data sources
   2. Each observation measured as information gained (delta_I = log2 surprise)
-  3. All three chained via HelixHash (SHA-256 fingerprint chain)
+  3. All three chained via HelixHash.append (SHA-256 tip hash)
   4. A tamper check: altering one observation breaks verify()
   5. Pointer to historical Base commits (when the private engine's gates allow)
 
@@ -37,15 +37,31 @@ import urllib.request
 from pathlib import Path
 
 try:
-    from helixhash import HelixHash, Crossing
+    from helixhash import HelixHash, __version__ as HELIXHASH_VERSION
 except ImportError:
-    print("helixhash not installed. Run: pip install helixhash")
+    print("helixhash not installed. Run: pip install 'helixhash>=1.0'")
     sys.exit(1)
 
-if not hasattr(HelixHash, "cross"):
+def _helix_ok(version: str) -> bool:
+    parts = []
+    for tok in version.split("."):
+        num = ""
+        for ch in tok:
+            if ch.isdigit():
+                num += ch
+            else:
+                break
+        if num == "":
+            break
+        parts.append(int(num))
+    while len(parts) < 3:
+        parts.append(0)
+    return tuple(parts[:3]) >= (1, 0, 0) and hasattr(HelixHash, "append")
+
+if not _helix_ok(HELIXHASH_VERSION):
     print(
-        "Installed helixhash is missing HelixHash.cross(Crossing(...)).\n"
-        "This demo needs helixhash >= 0.1.1. Run: pip install -U helixhash"
+        "This demo needs helixhash >= 1.0 (append(bytes) API).\n"
+        f"Installed: {HELIXHASH_VERSION!r}. Run: pip install -U 'helixhash>=1.0'"
     )
     sys.exit(1)
 
@@ -54,12 +70,8 @@ REMOTE_COMMITS = (
     "https://kaydeep0.github.io/eigenstate-research/demo/helix_commits.json"
 )
 
-# Coherence input to HelixHash. 1/phi is the library's stated equilibrium value
-# and this demo has no independent coherence measurement to offer instead.
-KAPPA = 0.618
-
-# Credibility input. A live read of a public endpoint gets 1.0; a pinned
-# fallback value gets less, because a cached number is weaker evidence.
+# Credibility annotation for observation payloads (policy, not HelixHash protocol).
+# A live read of a public endpoint gets 1.0; a pinned fallback gets less.
 C_LIVE = 1.0
 C_FALLBACK = 0.5
 
@@ -86,7 +98,7 @@ def safe_delta_I(current: float, previous: float) -> float:
 
     Uses log-ratio as a proxy for Bayesian surprise:
     when current/previous is far from 1, more information was gained.
-    Minimum 0.0010 bits, because HelixHash requires delta_I > 0 and a
+    Minimum 0.0010 bits so the demo never records a zero-surprise observation;
     static series still cost something to observe.
     """
     if previous <= 0 or current <= 0:
@@ -316,8 +328,9 @@ def main():
     print(f"  {'Efficiency (E = delta_I / A):':<30} {dI_eth:.6f}")
     print()
 
-    # HelixHash public API: each observation is one Crossing appended to a
-    # SHA-256 fingerprint chain. See https://github.com/Kaydeep0/helixhash
+    # HelixHash v1.0: append opaque bytes; library proves order + non-tampering only.
+    # Observation metrics stay in the payload JSON (policy), not in the protocol API.
+    # See https://github.com/Kaydeep0/helixhash / https://pypi.org/project/helixhash/1.0.0/
     h = HelixHash()
     plan = [
         ("SOFR rate", dI_sofr, sofr_live),
@@ -325,42 +338,47 @@ def main():
         ("ETH GitHub stars", dI_eth, eth_live),
     ]
     for label, delta_I, live in plan:
-        h.cross(
-            Crossing(
-                delta_I=delta_I,
-                A=1.0,
-                kappa=KAPPA,
-                C=C_LIVE if live else C_FALLBACK,
-                label=label,
-            )
-        )
+        payload = json.dumps(
+            {
+                "label": label,
+                "delta_I": delta_I,
+                "A": 1.0,
+                "E": delta_I,
+                "credibility": C_LIVE if live else C_FALLBACK,
+                "live": bool(live),
+            },
+            separators=(",", ":"),
+            sort_keys=True,
+        ).encode("utf-8")
+        h.append(payload)
 
     print(divider)
-    print("  LOCAL CHAIN (HelixHash fingerprint chain)")
+    print("  LOCAL CHAIN (HelixHash append-only log)")
     print(divider)
     print()
-    for r in h.records:
-        print(f"  {r.n}. {r.crossing.label:<18} {r.fingerprint[:16]}...")
+    print(f"  helixhash version: {HELIXHASH_VERSION}")
+    for e in h.export():
+        meta = json.loads(__import__("base64").b64decode(e["payload"]))
+        print(f"  {e['index']}. {meta['label']:<18} {e['hash'][:16]}...")
     print()
-    print(f"  Head fingerprint: {h.fingerprint}")
-    print(f"  Entries:          {h.N}")
-    print(f"  Chain valid:      {h.verify()}")
-    print(f"  Protocol truth:   {h.PT:.6f}  (threshold 1/phi = 0.618034)")
-    print(f"  Accumulated G:    {h.G:.6f}")
-    print(f"  Regime:           {h.regime}")
+    print(f"  Head hash:   {h.head}")
+    print(f"  Entries:     {h.length}")
+    print(f"  Chain valid: {h.verify()}")
+    print("  (PT/G/Crossing removed in helixhash 1.0 — scoring is not protocol)")
     print()
 
-    # Tamper check: alter one observation in place, re-verify, then restore.
-    victim = h.records[0].crossing
-    original = victim.delta_I
-    victim.delta_I = original * 2
-    tampered_ok = h.verify()
-    victim.delta_I = original
+    # Tamper check: mutate exported payload bytes while keeping old hashes.
+    from base64 import b64decode, b64encode
+    exported = h.export()
+    raw = b64decode(exported[0]["payload"])
+    exported[0]["payload"] = b64encode(raw + b"|tampered").decode("ascii")
+    tampered = HelixHash.from_export(exported)
+    tampered_ok = tampered.verify()
     restored_ok = h.verify()
 
     print("  Tamper check (run in this process, not a claim):")
-    print(f"    doubled observation 1 delta_I -> verify() = {tampered_ok}")
-    print(f"    restored original value       -> verify() = {restored_ok}")
+    print(f"    mutated entry 0 payload -> verify() = {tampered_ok}")
+    print(f"    original chain           -> verify() = {restored_ok}")
     print()
     print("  This is a toy chain, not the private engine vault.")
     print()
