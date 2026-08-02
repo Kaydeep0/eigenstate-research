@@ -70,6 +70,34 @@ Expectations were published in an earlier commit than the results.
 - https://geniusflow-federation.vercel.app/rwa/index.json  (per-issuer receipt index)
 - https://geniusflow-federation.vercel.app/rwa/receipts/<ENTITY>.json
 
+## Grounded claim corpus (SEC and Fed claims this node publishes, rechecked)
+
+Census of the 6 regulator-grounded claims this node already serves. 6 of 6 expected strings are
+still present at the cited URL today. 5 of 6 clear every MUST limb; 0 of 6 clear MUST and SHOULD
+(every source is HTML). 0 of 6 cite a primary filing. Expectations published before the run.
+Asks whether the grounding still holds, not whether the claim is true. Never a regulator-wide rate.
+
+- https://kaydeep0.github.io/eigenstate-research/grounded-claims/  (human summary)
+- https://kaydeep0.github.io/eigenstate-research/grounded-claims/expectations.json  (published before the run)
+- https://kaydeep0.github.io/eigenstate-research/grounded-claims/summary.json
+- https://kaydeep0.github.io/eigenstate-research/grounded-claims/ledger.json  (every receipt)
+- https://geniusflow-federation.vercel.app/grounded-claims/index.json  (per-claim receipt index)
+- https://geniusflow-federation.vercel.app/grounded-claims/receipts/<CLAIM_KEY>.json
+
+## Transparency log batch monitor (monitor, not witness)
+
+23 public transparency logs, read twice; signatures checked against independently held keys;
+consistency proofs recomputed. 22 of 23 MUST-admit; 11 of 11 consistency proofs recomputed;
+0 disagreements this batch. Expectations published before the batch. This node holds no key and
+cosigns nothing. Never quote as ecosystem coverage.
+
+- https://kaydeep0.github.io/eigenstate-research/tlog/  (human summary)
+- https://kaydeep0.github.io/eigenstate-research/tlog/expectations.json  (published before the batch)
+- https://kaydeep0.github.io/eigenstate-research/tlog/summary.json
+- https://kaydeep0.github.io/eigenstate-research/tlog/ledger.json  (every receipt)
+- https://geniusflow-federation.vercel.app/tlog/index.json  (per-log receipt index)
+- https://geniusflow-federation.vercel.app/tlog/receipts/<LOG_KEY>.json
+
 ## This site (GitHub Pages) - humans
 
 - https://kaydeep0.github.io/eigenstate-research/
@@ -115,3 +143,9 @@ Expectations were published in an earlier commit than the results.
   coverage, so quote attributable_to_issuer rather than the headline if you need the
   issuer-attributable rate. The survey also publishes two defects it found in its own
   probe: /rwa/summary.json -> probe_defects_fixed_before_publication.
+- Grounded-claim counts describe the 6 regulator claims this node publishes, not the
+  SEC or Fed: cite /grounded-claims/summary.json with its digest. Asks whether grounding
+  still holds, not whether the claim is true.
+- Transparency-log counts describe the 23 logs in the frozen population, not the
+  ecosystem: cite /tlog/summary.json with its digest. This node is a monitor, not a
+  witness; it holds no key and cosigns nothing.
