@@ -5,6 +5,15 @@ Critical path: Ethereum Magicians ERC-8004 reply. Everything else waits.
 Full 90-day plan: [`CATEGORY_INFRA_90D.md`](CATEGORY_INFRA_90D.md).
 Paste body: [`ETHEREUM_MAGICIANS_ERC8004.md`](ETHEREUM_MAGICIANS_ERC8004.md).
 
+> **Status 2026-08-02: the Magicians paste is blocked.** The Host attempted it and the account was
+> held for moderation review, so nothing can land in the thread until that review clears. Do not
+> retry from a second account and do not have an agent post it.
+>
+> You will not have to remember this. The engine reminds every cycle: `data/host_actions.json` in
+> `geniusflow-engine` prints in `python3 run.py orient` and again at the end of every
+> `python3 run.py parkash`. When the account is back, paste once, then close the item with
+> `python3 run.py host-actions done magicians_erc8004_post --url <permalink>`.
+
 ---
 
 ## Minute 0–5: Confirm you are logged in
@@ -58,7 +67,7 @@ Paste body: [`ETHEREUM_MAGICIANS_ERC8004.md`](ETHEREUM_MAGICIANS_ERC8004.md).
 | HN / RWA / SLSA paste drafts | **Done** in repo (do not post today) |
 | Cite/redraw boxes on `/erc8004/`, `/slsa/`, `/rwa/` | **Done** in repo (live after Pages deploy) |
 | 90-day scoreboard doc | **Done**: `CATEGORY_INFRA_90D.md` |
-| Actually posting Magicians | **Blocked on Host login** |
+| Actually posting Magicians | **Blocked: account held for moderation review** (Host tried 2026-08-02). Re-checked every parkash. |
 | HN / discuss.python.org posts | **Blocked on Host** + sequencing |
 | EDGAR/Fed corpus + tlog monitor public URLs | **Not landed yet** (sibling still in flight). When they ship, add URLs here and in the 90-day doc. |
 

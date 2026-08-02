@@ -8,6 +8,11 @@ Operating rule: link only the ledger or receipt. Never the homepage pitch, Helix
 
 Ship-today Host checklist: [`POST_TODAY.md`](POST_TODAY.md).
 
+Reminders for the Host rows below are parkash-wired: `data/host_actions.json` in `geniusflow-engine`
+prints in `python3 run.py orient` and at the end of every `python3 run.py parkash`. Close a row with
+`python3 run.py host-actions done <id>`. Week 1 Magicians post is currently blocked on account
+moderation review.
+
 ---
 
 ## Scoreboard (track these)
