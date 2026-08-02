@@ -23,8 +23,36 @@ const proofAccuracyNote =
     ? `${sb.n_true}/${sb.n_assessable} assessable`
     : 'thin assessable n · see track record';
 const sotStamp = (sot.generated_at || '').slice(0, 10);
-const topPhi = ((sot as { top_entities_by_phi_s?: Array<{ entity: string; display?: string; phi_s: number; kappa?: number | null }> }).top_entities_by_phi_s || []).slice(0, 4);
+type TopPhiEntity = {
+  entity: string;
+  display?: string;
+  phi_s: number;
+  kappa?: number | null;
+  display_kind?: string;
+  facet_label?: string;
+  display_role?: string;
+  role_label?: string;
+  kind_note?: string;
+};
+const topPhi = ((sot as { top_entities_by_phi_s?: TopPhiEntity[] }).top_entities_by_phi_s || []) as TopPhiEntity[];
 const maxPhi = topPhi.length ? Math.max(...topPhi.map((e) => e.phi_s)) : 1;
+/** Host layers — engine display_role SoT; do not invent kinds on Pages. */
+const PHI_ROLE_ORDER = [
+  { role: 'actor', title: 'Actors', hint: 'Issuers, exchanges, institutions, regulators' },
+  {
+    role: 'rule_framework',
+    title: 'Rule frameworks',
+    hint: 'Regulation / exemption frameworks (REG_*, MiCA-like) — not market actors',
+  },
+  { role: 'rail', title: 'Rails', hint: 'Chains and settlement / clearing rails' },
+] as const;
+const topPhiByRole = PHI_ROLE_ORDER.map((layer) => ({
+  ...layer,
+  entities: topPhi.filter((e) => (e.display_role || 'other') === layer.role),
+})).filter((layer) => layer.entities.length > 0);
+const topPhiOther = topPhi.filter(
+  (e) => !PHI_ROLE_ORDER.some((layer) => layer.role === (e.display_role || 'other'))
+);
 const helixPrefix =
   (sot as { helix?: { fingerprint_prefix?: string | null } }).helix?.fingerprint_prefix || null;
 const gExternal = sot.field.G_external_cumulative;
@@ -478,25 +506,64 @@ const gExternal = sot.field.G_external_cumulative;
 
                 <div class="pattern-block power-law-block">
                     <p class="power-law-title">TOP ENTITIES BY SETTLEMENT PRESSURE (Φ_S)</p>
+                    <p class="power-law-layer-note">Separated by role — actors, rule frameworks, and rails. Same SoT Φ_S; display grouping only.</p>
                     {
                       topPhi.length > 0 ? (
                         <div
-                          class="entity-chart"
-                          role="img"
-                          aria-label={`Top Φ_S entities: ${topPhi.map((e) => `${e.display || e.entity} ${e.phi_s.toFixed(3)}`).join(', ')}`}
+                          class="entity-chart entity-chart-layered"
+                          aria-label={`Top Φ_S by role: ${topPhi.map((e) => `${e.display || e.entity} ${e.phi_s.toFixed(3)}`).join(', ')}`}
                         >
-                          {topPhi.map((e) => (
-                            <div class="entity-bar-row">
-                              <span class="entity-bar-label" title={e.entity}>{e.display || e.entity}</span>
-                              <span class="entity-bar-track">
-                                <span
-                                  class="entity-bar-fill"
-                                  style={`width:${Math.max(8, Math.round((e.phi_s / maxPhi) * 100))}%;`}
-                                ></span>
-                              </span>
-                              <span class="entity-bar-value">Φ_S {e.phi_s.toFixed(3)}</span>
-                            </div>
+                          {topPhiByRole.map((layer) => (
+                            <section class="entity-layer" data-role={layer.role}>
+                              <header class="entity-layer-head">
+                                <h3 class="entity-layer-title">{layer.title}</h3>
+                                <p class="entity-layer-hint">{layer.hint}</p>
+                              </header>
+                              <div class="entity-layer-bars" role="list">
+                                {layer.entities.map((e) => (
+                                  <div class="entity-bar-row" role="listitem">
+                                    <span class="entity-bar-label" title={e.entity}>
+                                      <span class="entity-bar-name">{e.display || e.entity}</span>
+                                      {e.display_kind === 'rule_framework' || e.kind_note ? (
+                                        <span class="entity-bar-kind">{e.kind_note || 'regulation / exemption framework'}</span>
+                                      ) : null}
+                                    </span>
+                                    <span class="entity-bar-track">
+                                      <span
+                                        class="entity-bar-fill"
+                                        style={`width:${Math.max(8, Math.round((e.phi_s / maxPhi) * 100))}%;`}
+                                      ></span>
+                                    </span>
+                                    <span class="entity-bar-value">Φ_S {e.phi_s.toFixed(3)}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </section>
                           ))}
+                          {topPhiOther.length > 0 ? (
+                            <section class="entity-layer" data-role="other">
+                              <header class="entity-layer-head">
+                                <h3 class="entity-layer-title">Other</h3>
+                                <p class="entity-layer-hint">Unclassified in engine display_role</p>
+                              </header>
+                              <div class="entity-layer-bars" role="list">
+                                {topPhiOther.map((e) => (
+                                  <div class="entity-bar-row" role="listitem">
+                                    <span class="entity-bar-label" title={e.entity}>
+                                      <span class="entity-bar-name">{e.display || e.entity}</span>
+                                    </span>
+                                    <span class="entity-bar-track">
+                                      <span
+                                        class="entity-bar-fill"
+                                        style={`width:${Math.max(8, Math.round((e.phi_s / maxPhi) * 100))}%;`}
+                                      ></span>
+                                    </span>
+                                    <span class="entity-bar-value">Φ_S {e.phi_s.toFixed(3)}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </section>
+                          ) : null}
                         </div>
                       ) : (
                         <p class="pattern-text secondary">Top-Φ_S ranking unavailable in this SoT stamp — re-run refresh-public after parkash.</p>

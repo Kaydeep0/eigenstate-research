@@ -1,10 +1,10 @@
 {
   "schema": "eigenstate.pages_sot.v1",
   "sot_definition": "SoT (source of truth) for Host/Pages is the engine measurement state: workspace/HOST/state.json (κ, PT, parkash stamps), M1 coverage from the coverage ledger (m1_strict ∩ topology / 199), and the host predictions register for scored claims. Website tiles must bake from this stamp — not frozen marketing HTML.",
-  "generated_at": "2026-08-01T23:51:51.714321+00:00",
+  "generated_at": "2026-08-02T01:27:30.212326+00:00",
   "sources": {
     "host_ref": "workspace/HOST/state.json",
-    "host_updated_at": "2026-08-01T20:58:34.494929+00:00",
+    "host_updated_at": "2026-08-02T00:00:16.904265+00:00",
     "parkash_last_parkash_at": "2026-08-01T23:31:20.912616+00:00",
     "coverage_sot_stamped_at": "2026-08-01T23:31:20.912613+00:00",
     "coverage_basis": "primary_m1_wire_14",
@@ -38,25 +38,25 @@
     "total_rows": 64,
     "entities_with_rows": 19,
     "by_entity": {
-      "RING": 8,
-      "ETHEREUM": 1,
+      "RWA_AUDIENCE": 8,
+      "CRYPTO_NATIVE_AUDIENCE": 7,
+      "DEFI_AUDIENCE": 7,
+      "CABLE": 7,
       "CIRCLE": 4,
-      "FED": 4,
+      "RING": 7,
       "CUSTODY_IS_SOLVED": 1,
       "INSTITUTIONAL_CUSTODY_POOL": 1,
-      "STABLECOIN_POOL": 4,
-      "CABLE": 7,
-      "HIGHWAY": 4,
-      "DEFI_AUDIENCE": 7,
-      "CRYPTO_NATIVE_AUDIENCE": 7,
-      "RWA_AUDIENCE": 7,
-      "COINBASE": 3,
+      "COINBASE": 4,
+      "FED": 4,
+      "HOST": 2,
+      "STABLECOIN_POOL": 3,
+      "HIGHWAY": 3,
       "ONCHAIN_IS_TRANSPARENT": 1,
       "MAPLE": 1,
       "STANDARD_OIL": 1,
       "NATIONAL_CITY_BANK": 1,
       "BNY_MELLON": 1,
-      "CURVE": 1
+      "BASE": 1
     }
   },
   "entity_m1_obs_counts": {
@@ -460,51 +460,167 @@
   "top_entities_by_phi_s": [
     {
       "entity": "CIRCLE",
-      "display": "CIRCLE",
+      "display": "Circle",
       "phi_s": 6.5385,
-      "kappa": 0.0022
+      "kappa": 0.0022,
+      "display_kind": "issuer_protocol",
+      "facet_label": "Issuers / Protocols",
+      "display_role": "actor",
+      "role_label": "Actors"
     },
     {
       "entity": "REG_D",
-      "display": "REG_D",
+      "display": "Regulation D Exemption",
       "phi_s": 3.2842,
-      "kappa": 0.0003
+      "kappa": 0.0003,
+      "display_kind": "rule_framework",
+      "facet_label": "Rule frameworks",
+      "display_role": "rule_framework",
+      "role_label": "Rule frameworks",
+      "kind_note": "regulation / exemption framework"
     },
     {
       "entity": "REG_S",
-      "display": "REG_S",
+      "display": "Regulation S Exemption",
       "phi_s": 3.2842,
-      "kappa": 0.0002
+      "kappa": 0.0002,
+      "display_kind": "rule_framework",
+      "facet_label": "Rule frameworks",
+      "display_role": "rule_framework",
+      "role_label": "Rule frameworks",
+      "kind_note": "regulation / exemption framework"
     },
     {
       "entity": "COINBASE",
-      "display": "COINBASE",
+      "display": "Coinbase",
       "phi_s": 3.2745,
-      "kappa": 0.0025
+      "kappa": 0.0025,
+      "display_kind": "issuer_protocol",
+      "facet_label": "Issuers / Protocols",
+      "display_role": "actor",
+      "role_label": "Actors"
     },
     {
       "entity": "ETHEREUM",
-      "display": "ETHEREUM",
+      "display": "Ethereum L1",
       "phi_s": 3.2562,
-      "kappa": 0.0025
+      "kappa": 0.0025,
+      "display_kind": "chain",
+      "facet_label": "Chains",
+      "display_role": "rail",
+      "role_label": "Rails"
     },
     {
       "entity": "UNISWAP",
-      "display": "UNISWAP",
+      "display": "Uniswap DEX",
       "phi_s": 3.2562,
-      "kappa": 0.0002
+      "kappa": 0.0002,
+      "display_kind": "issuer_protocol",
+      "facet_label": "Issuers / Protocols",
+      "display_role": "actor",
+      "role_label": "Actors"
     },
     {
       "entity": "RIPPLE",
       "display": "RIPPLE",
       "phi_s": 3.2362,
-      "kappa": 0.3195
+      "kappa": 0.3195,
+      "display_kind": "issuer_protocol",
+      "facet_label": "Issuers / Protocols",
+      "display_role": "actor",
+      "role_label": "Actors"
     },
     {
       "entity": "SEC",
-      "display": "SEC",
+      "display": "Securities and Exchange Commission",
       "phi_s": 2.8087,
-      "kappa": 0.002
+      "kappa": 0.002,
+      "display_kind": "regulator",
+      "facet_label": "Regulators",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "US_JURISDICTION",
+      "display": "United States Jurisdiction",
+      "phi_s": 2.6371,
+      "kappa": 0.0016,
+      "display_kind": "regulator",
+      "facet_label": "Regulators",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "FED",
+      "display": "Federal Reserve",
+      "phi_s": 2.4541,
+      "kappa": 0.001,
+      "display_kind": "regulator",
+      "facet_label": "Regulators",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "MICA",
+      "display": "Markets in Crypto Assets Regulation",
+      "phi_s": 1.7141,
+      "kappa": 0.0004,
+      "display_kind": "rule_framework",
+      "facet_label": "Rule frameworks",
+      "display_role": "rule_framework",
+      "role_label": "Rule frameworks",
+      "kind_note": "regulation / exemption framework"
+    },
+    {
+      "entity": "OCC",
+      "display": "Office of Comptroller of Currency",
+      "phi_s": 1.6901,
+      "kappa": 0.0002,
+      "display_kind": "regulator",
+      "facet_label": "Regulators",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "HKMA",
+      "display": "Hong Kong Monetary Authority",
+      "phi_s": 1.6821,
+      "kappa": 0.0001,
+      "display_kind": "regulator",
+      "facet_label": "Regulators",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "BLACKROCK",
+      "display": "BlackRock",
+      "phi_s": 1.6685,
+      "kappa": 0.0008,
+      "display_kind": "institution",
+      "facet_label": "Institutions",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "BNY_MELLON",
+      "display": "BNY Mellon",
+      "phi_s": 1.6668,
+      "kappa": 0.0008,
+      "display_kind": "institution",
+      "facet_label": "Institutions",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "DORA",
+      "display": "Digital Operational Resilience Act",
+      "phi_s": 1.6661,
+      "kappa": 0.0002,
+      "display_kind": "rule_framework",
+      "facet_label": "Rule frameworks",
+      "display_role": "rule_framework",
+      "role_label": "Rule frameworks",
+      "kind_note": "regulation / exemption framework"
     }
   ],
   "helix": {
@@ -514,7 +630,7 @@
     "note": "Local helix chain tip at export — on-chain commits remain gated."
   },
   "meta": {
-    "bake_hint": "After parkash: run engine/tools/refresh_public_surfaces.py (or Pages scripts/refresh-public.sh) — exports field-state + dossier mirrors, rebakes federation with GENIUSFLOW_BUILDER_DEPLOY=1, then commit/push Pages. Do not hand-edit proof tiles.",
+    "bake_hint": "After parkash: set GENIUSFLOW_REFRESH_PUBLIC=1 (or run engine/tools/refresh_public_surfaces.py / Pages scripts/refresh-public.sh) — exports field-state + dossier mirrors, optional federation deploy via GENIUSFLOW_BUILDER_DEPLOY=1; Host still git commit/push Pages. Do not hand-edit proof tiles.",
     "reports_obs_badge": "Signal report green badges are vault rows at publish (trimmed), not M1 lifetime coverage. Report templates overlay live Φ_S/κ from federation dossier mirrors when present."
   }
 }

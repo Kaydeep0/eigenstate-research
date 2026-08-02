@@ -1057,7 +1057,19 @@ body {
     color: rgba(62, 111, 239, 0.9);
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.power-law-layer-note {
+    font-family: Inter, sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+    text-align: center;
+    margin: 0 0 1.25rem;
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Power Law bar chart */
@@ -1121,9 +1133,56 @@ body {
     margin-bottom: 1.25rem;
 }
 
+.entity-chart-layered {
+    gap: 1.35rem;
+}
+
+.entity-layer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 0.35rem;
+    border-top: 1px solid rgb(62 111 239 / 12%);
+}
+
+.entity-layer:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+.entity-layer-head {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.entity-layer-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.entity-layer-hint {
+    font-family: Inter, sans-serif;
+    font-size: 0.68rem;
+    line-height: 1.35;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.entity-layer-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .entity-bar-row {
     display: grid;
-    grid-template-columns: 150px 1fr 64px;
+    grid-template-columns: minmax(140px, 180px) 1fr 64px;
     align-items: center;
     gap: 12px;
 }
@@ -1132,9 +1191,24 @@ body {
     font-family: var(--font-mono);
     font-size: var(--text-xs);
     color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.entity-bar-name {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.entity-bar-kind {
+    font-family: Inter, sans-serif;
+    font-size: 0.62rem;
+    line-height: 1.25;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
 }
 
 .entity-bar-track {
@@ -1162,12 +1236,16 @@ body {
 
 @media (max-width: 640px) {
     .entity-bar-row {
-        grid-template-columns: 96px 1fr 52px;
+        grid-template-columns: minmax(88px, 110px) 1fr 52px;
         gap: 8px;
     }
 
     .entity-bar-label {
         font-size: 10px;
+    }
+
+    .entity-bar-kind {
+        font-size: 0.58rem;
     }
 }
 
