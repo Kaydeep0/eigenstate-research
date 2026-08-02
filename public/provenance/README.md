@@ -14,7 +14,7 @@ Files in `opentimestamps/`:
 
 | File | What it is |
 |------|------------|
-| `helix-head-<prefix>.txt` | The commitment: node id, chain head hash, index, length, and the public endpoint that serves the same head. Plain text, readable without tools. |
+| `helix-head-<prefix>.txt` | The commitment: node id, chain head hash, index, length, and the public endpoint that serves the chain. Plain text, readable without tools. Tip may advance after the stamp; verify the pledged `(index,hash)`. |
 | `helix-head-<prefix>.txt.ots` | The OpenTimestamps proof for that exact file. |
 
 ### Verify it yourself
@@ -36,14 +36,15 @@ On-disk mirrors of the same proof (Host upgrade from engine, then copy to Pages)
 - Engine: `~/Desktop/GENIUSFLOW_OS/workspace/geniusflow/data/attestation/opentimestamps/helix-head-917f0e3036931e14.txt.ots`
 - Pages: `~/GENIUSFLOW_OS/workspace/eigenstate-research/public/provenance/opentimestamps/helix-head-917f0e3036931e14.txt.ots`
 
-Then check the head is still the head:
+Then confirm the pledged entry is still in the public chain (tip may be newer than the stamp):
 
 ```bash
-curl -sS https://geniusflow-federation.vercel.app/api/chain | head -c 200
+curl -sS https://geniusflow-federation.vercel.app/api/chain \
+  | python3 -c "import sys,json;d=json.load(sys.stdin);h='917f0e3036931e14e4aa8eeaddc3b6ef5c9946e452d2d70312e94b161fe564ab'; print([e for e in d.get('entries')or[] if e.get('hash')==h or e.get('index')==918]); print('tip',d.get('length'), (d.get('head')or'')[:16])"
 ```
 
-If the endpoint reports a different hash for the same index, the history was rewritten and
-the timestamped commitment is the evidence.
+If the endpoint reports a different hash for index 918, the history was rewritten and the
+timestamped commitment is the evidence. A newer tip head alone is expected growth, not a rewrite.
 
 ### What a fresh stamp does and does not prove
 
