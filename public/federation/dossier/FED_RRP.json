@@ -1,11 +1,11 @@
 {
   "entity": "FED_RRP",
   "node": "34539544",
-  "compiled_at": "2026-08-02T17:05:39.472616+00:00",
-  "digest": "sha256:166296796975adc848af60d800b22394b2daf21cac96ee061956f5b1a67433cc",
+  "compiled_at": "2026-08-03T13:21:37.753937+00:00",
+  "digest": "sha256:5ef3d8fa93d47a9e352835a1f78ba77d415e762a6e26e69231e584731e41e998",
   "own_numbers": {
     "phi_s": 0.04,
-    "kappa": 0.0375,
+    "kappa": 0.0374,
     "mass": null,
     "power": 0.0,
     "extraction": 1554.2857,
@@ -92,6 +92,22 @@
     ],
     "gravity_pairs": []
   },
+  "role_participations": [
+    {
+      "product_id": "FED_RRP",
+      "role": "repo_counterparty",
+      "counterparty": "TREASURY_MARKET",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.federalreserve.gov/"
+    },
+    {
+      "product_id": "STABLECOIN_RESERVES",
+      "role": "repo_counterparty",
+      "counterparty": "STABLECOIN_POOL",
+      "disclosure_level": "ATTESTED-DERIVED",
+      "source_url": null
+    }
+  ],
   "monetary_position": {
     "position": 0.567,
     "well": "fiat"
@@ -99,10 +115,10 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 36,
+    "cycles": 39,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": -0.0001,
       "power": 0.0,
       "extraction": 0.0,
       "boundary_score": 0.0

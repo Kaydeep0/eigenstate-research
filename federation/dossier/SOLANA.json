@@ -1,11 +1,11 @@
 {
   "entity": "SOLANA",
   "node": "34539544",
-  "compiled_at": "2026-08-02T17:05:40.863693+00:00",
-  "digest": "sha256:7044b844c8f653cb95ad3e21086c52754727c9a35581aba73f8115e3df4e968c",
+  "compiled_at": "2026-08-03T13:21:41.402043+00:00",
+  "digest": "sha256:2d56cd963999fb289239465c2539c1609c54f3a16a43d2f29283265d768d40d0",
   "own_numbers": {
-    "phi_s": 0.02,
-    "kappa": 0.0125,
+    "phi_s": 1.6381,
+    "kappa": 0.0006,
     "mass": 0.116449,
     "power": null,
     "extraction": null,
@@ -30,7 +30,7 @@
     "peers_by_power": []
   },
   "relationships": {
-    "in_degree": 1,
+    "in_degree": 2,
     "out_degree": 0,
     "by_vector": {
       "Capital": {
@@ -43,7 +43,7 @@
       },
       "Information": {
         "out": 0.0,
-        "in": 0.5
+        "in": 0.5001
       }
     },
     "top_inbound": [
@@ -51,27 +51,33 @@
         "source": "MAPLE",
         "conn_type": "information_flow",
         "vector": "Information"
+      },
+      {
+        "source": "34539544",
+        "conn_type": "strategic",
+        "vector": "Information"
       }
     ],
     "top_outbound": [],
     "gravity_pairs": []
   },
+  "role_participations": [],
   "monetary_position": {
     "position": 0.5,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +0.020 over 36 cycles",
-    "cycles": 36,
+    "headline": "phi_s +1.638 over 39 cycles",
+    "cycles": 39,
     "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": 0.0,
+      "phi_s": 1.6181,
+      "kappa": -0.0119,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "stale",
+    "freshness": "live",
     "inbound": [],
     "outbound": [
       {
@@ -96,10 +102,10 @@
       }
     ],
     "observation": {
-      "source": null,
-      "last_observed_at": null,
-      "last_delta_i": null,
-      "stale": true
+      "source": "propagated",
+      "last_observed_at": "2026-08-03T12:43:02.832117+00:00",
+      "last_delta_i": 62689765.17965462,
+      "stale": false
     }
   }
 }

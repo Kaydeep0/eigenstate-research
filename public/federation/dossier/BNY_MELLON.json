@@ -1,8 +1,8 @@
 {
   "entity": "BNY_MELLON",
   "node": "34539544",
-  "compiled_at": "2026-08-02T17:05:38.687329+00:00",
-  "digest": "sha256:bcf91cc975e45ec86df43bda7bef54701e50211e1dde06ebf9c9981829903fd0",
+  "compiled_at": "2026-08-03T13:21:35.658018+00:00",
+  "digest": "sha256:8075a2e76d295e105bf5ffe8ff3874c3665801f746e58ee96a6e9952f57de7c5",
   "own_numbers": {
     "phi_s": 1.6668,
     "kappa": 0.0,
@@ -157,16 +157,39 @@
       }
     ]
   },
+  "role_participations": [
+    {
+      "product_id": "USDXX",
+      "role": "custodian",
+      "counterparty": "CIRCLE",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.circle.com/en/transparency"
+    },
+    {
+      "product_id": "BUIDL",
+      "role": "custodian",
+      "counterparty": "BLACKROCK",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": null
+    },
+    {
+      "product_id": "US_TREASURY",
+      "role": "primary_dealer",
+      "counterparty": "US_TREASURY_DEPARTMENT",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.newyorkfed.org/markets/primarydealers"
+    }
+  ],
   "monetary_position": {
     "position": 0.28,
     "well": "boundary"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +2735% over 36 cycles",
-    "cycles": 36,
+    "headline": "phi_s +2735% over 39 cycles",
+    "cycles": 39,
     "delta_last_cycle": {
-      "phi_s": 0.0,
+      "phi_s": -1.6181,
       "kappa": 0.0,
       "power": 0.0,
       "extraction": 0.0,
@@ -180,7 +203,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-02T11:00:59.014757+00:00",
+        "last_observed_at": "2026-08-03T11:00:39.571175+00:00",
         "filings": null,
         "note": "Bank of New York Mellon Corp \u2014 4772 total filings, 31 in last 90d"
       }
