@@ -13,6 +13,7 @@ const requestAccess = `${base}request-access/`;
 const fieldState = `${base}field-state.json`;
 const onchain = `${base}onchain/`;
 const verifyWalk = `${base}verify-walkthrough/`;
+const modeAWalk = `${base}mode-a-walkthrough/`;
 const predictions = `${base}predictions/`;
 const dossierCircle = `${base}federation/dossier/CIRCLE.json`;
 const dossierBlackrock = `${base}federation/dossier/BLACKROCK.json`;
@@ -919,6 +920,7 @@ const glossary = [
 
       <div class="links-row">
         <a href={verifyWalk}>Verify walkthrough</a>
+        <a href={modeAWalk}>Free Mode A walkthrough</a>
         <a href={proofShape} target="_blank" rel="noopener">proof_shape spec</a>
         <a href={fedStatus} target="_blank" rel="noopener">Federation /api/status</a>
       </div>
@@ -1043,6 +1045,10 @@ const glossary = [
         <a class="agent-link" href={verifyWalk}>
           <p class="al-label">Verify walkthrough</p>
           <p class="al-url">status → dossier → package/verify</p>
+        </a>
+        <a class="agent-link" href={modeAWalk}>
+          <p class="al-label">Free Mode A</p>
+          <p class="al-url">cite → package → Darshan honesty</p>
         </a>
         <a class="agent-link" href={llms} target="_blank" rel="noopener">
           <p class="al-label">Machine cold-start</p>

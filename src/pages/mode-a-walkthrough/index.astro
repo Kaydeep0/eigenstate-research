@@ -1,0 +1,679 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const fonts =
+  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
+
+const base = import.meta.env.BASE_URL;
+const fed = 'https://geniusflow-federation.vercel.app';
+const proofShape = `${fed}/docs/ATTESTATION_PROOF_SHAPE.md`;
+const numbersGlossary = `${base}methodology/#glossary`;
+const requestAccess = `${base}request-access/`;
+const verifyWalk = `${base}verify-walkthrough/`;
+const methodology = `${base}methodology/`;
+const demoReport = `${base}reports/aave-v3-20260801/`;
+const dossierMirror = `${base}federation/dossier/AAVE_V3.json`;
+const plainMd = `${base}mode-a-walkthrough.md`;
+
+/** Live-tested 2026-08-01 against federation — admit when posted as-is. */
+const admitBody = `{
+  "claim_id": "d1eb5014-5ea5-44e2-bf2e-957df5a4e111",
+  "claim_text": "Aave v3 developer documentation",
+  "status_at_publish": "ATTESTED-PRIMARY",
+  "grounding": {
+    "source_url": "https://docs.aave.com/developers/aave-v3/overview",
+    "expected": "v3",
+    "location": ""
+  },
+  "verified_at": "2026-08-01T15:28:19.940673+00:00",
+  "expires_at": "2026-10-30T15:28:19+00:00"
+}`;
+
+const refuseBody = `{
+  "claim_id": "walkthrough-invented",
+  "claim_text": "Invented attestation without grounding",
+  "status_at_publish": "ATTESTED"
+}`;
+
+const citeCmd = `CLAIM='${admitBody}'
+
+curl -sS -X POST ${fed}/api/cite \\
+  -H 'Content-Type: application/json' \\
+  -d "{\\"kind\\":\\"claim\\",\\"id\\":\\"d1eb5014-5ea5-44e2-bf2e-957df5a4e111\\",\\"claim\\":$CLAIM}" \\
+  | jq '{ok, cite_class, reason, package_hash}'`;
+---
+
+<Layout
+  title="Free Mode A — Investor Walkthrough · Eigenstate Research"
+  description="Free metalayer path: cite → verify → package → Darshan honesty. Pilot DRAFT, n_scored=0, Task 5.4 HOLD. Not a paid confidence product."
+  fonts={fonts}
+>
+  <Fragment slot="head">
+    <style>
+      .page-hero {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 72px 24px 24px;
+        text-align: center;
+      }
+
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.15em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .page-hero h1 {
+        font-family: var(--font-heading);
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        line-height: 1.15;
+        margin: 0 0 16px;
+      }
+
+      .page-hero .grad {
+        background: linear-gradient(135deg, var(--signal) 0%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .explainer {
+        font-size: var(--text-base);
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin: 0 auto 12px;
+        max-width: 600px;
+      }
+
+      .honesty {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin: 0 auto;
+        max-width: 600px;
+      }
+
+      .walk-section {
+        padding: 8px 24px 80px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .callout-board {
+        margin: 0 0 36px;
+        padding: 20px 20px 16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-sm);
+      }
+
+      .callout-board h2 {
+        font-family: var(--font-heading);
+        font-size: var(--text-base);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0 0 12px;
+        letter-spacing: -0.01em;
+      }
+
+      .callout-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 10px;
+      }
+
+      .callout-list li {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.55;
+        padding: 10px 12px;
+        background: var(--bg2);
+        border-left: 3px solid var(--status-warning);
+      }
+
+      .callout-list li strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      .callout-list .do-not {
+        color: var(--text-muted);
+        display: block;
+        margin-top: 4px;
+      }
+
+      .label-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin: 0 0 28px;
+      }
+
+      .label-card {
+        padding: 12px 14px;
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+      }
+
+      .label-card .lk {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--signal);
+        margin: 0 0 6px;
+      }
+
+      .label-card p {
+        font-size: var(--text-sm);
+        color: var(--text-secondary);
+        line-height: 1.55;
+        margin: 0;
+      }
+
+      .step {
+        margin-bottom: 36px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .step:last-of-type {
+        border-bottom: none;
+      }
+
+      .step-label {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--signal);
+        margin-bottom: 8px;
+      }
+
+      .step h2 {
+        font-family: var(--font-heading);
+        font-size: var(--text-lg);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0 0 10px;
+        letter-spacing: -0.01em;
+      }
+
+      .step h3 {
+        font-family: var(--font-heading);
+        font-size: var(--text-base);
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 18px 0 8px;
+      }
+
+      .step p {
+        font-size: var(--text-base);
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin: 0 0 14px;
+      }
+
+      .step a {
+        color: var(--signal-dim);
+      }
+
+      .expect {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+        line-height: 1.65;
+        margin: 0 0 14px;
+        padding: 12px 14px;
+        background: var(--bg2);
+        border-left: 3px solid var(--border-live);
+      }
+
+      .expect.admit {
+        border-left-color: var(--status-success);
+      }
+
+      .expect.refuse {
+        border-left-color: var(--status-warning);
+      }
+
+      .expect.hold {
+        border-left-color: var(--status-warning);
+      }
+
+      pre.cmd {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        line-height: 1.55;
+        background: #1a1a1a;
+        color: #e8e6e1;
+        padding: 16px 18px;
+        border-radius: var(--radius-sm);
+        overflow-x: auto;
+        margin: 0 0 8px;
+        white-space: pre;
+      }
+
+      .cmd-note {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        margin: 0 0 8px;
+      }
+
+      .claim-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 0 14px;
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+      }
+
+      .claim-table th,
+      .claim-table td {
+        text-align: left;
+        padding: 8px 10px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+      }
+
+      .claim-table th {
+        color: var(--text-muted);
+        font-weight: 500;
+        width: 28%;
+      }
+
+      .claim-table td {
+        color: var(--text-secondary);
+        word-break: break-all;
+      }
+
+      .compare {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 0 14px;
+        font-size: var(--text-sm);
+      }
+
+      .compare th,
+      .compare td {
+        text-align: left;
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+        color: var(--text-secondary);
+        line-height: 1.5;
+      }
+
+      .compare th {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        font-weight: 600;
+      }
+
+      .compare td:first-child {
+        font-family: var(--font-mono);
+        color: var(--text-primary);
+        white-space: nowrap;
+      }
+
+      .not-list {
+        margin: 0 0 14px;
+        padding-left: 1.2em;
+        color: var(--text-secondary);
+        font-size: var(--text-base);
+        line-height: 1.7;
+      }
+
+      .not-list li {
+        margin-bottom: 6px;
+      }
+
+      .links-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+        margin: 8px 0 28px;
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+      }
+
+      .links-row a {
+        color: var(--signal-dim);
+        text-decoration: none;
+      }
+
+      .links-row a:hover {
+        text-decoration: underline;
+      }
+
+      .cta-block {
+        margin-top: 16px;
+        padding: 28px 24px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-sm);
+        text-align: center;
+      }
+
+      .cta-block p {
+        font-size: var(--text-base);
+        color: var(--text-secondary);
+        margin: 0 0 16px;
+        line-height: 1.6;
+      }
+
+      .cta-block .cta-sub {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        margin: 14px 0 0;
+      }
+
+      .cta-block .cta-sub a {
+        color: var(--signal-dim);
+      }
+
+      @media (width <= 640px) {
+        .page-hero {
+          padding-top: 48px;
+        }
+
+        .label-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .compare td:first-child {
+          white-space: normal;
+        }
+
+        pre.cmd {
+          font-size: 11px;
+          padding: 14px;
+        }
+      }
+    </style>
+  </Fragment>
+
+  <Nav cta={{ label: 'Request Pilot', href: requestAccess }} />
+
+  <div class="page-hero" id="main">
+    <div class="eyebrow">Free Mode A · investor path</div>
+    <h1>Cite → package → <span class="grad">Darshan</span></h1>
+    <p class="explainer">
+      Walk the free metalayer path on live federation for <code>AAVE_V3</code>, then read
+      Darshan so calibration <em>n</em> is not sold thin. Labels you can re-hit — not a paid
+      confidence product.
+    </p>
+    <p class="honesty">
+      LIVE demo path (docs) · Pilot SKU DRAFT / not for sale · Task 5.4 HOLD · $0
+    </p>
+  </div>
+
+  <section class="walk-section">
+    <div class="links-row">
+      <a href={verifyWalk}>Verify walkthrough (curl twin)</a>
+      <a href={methodology}>Methodology</a>
+      <a href={numbersGlossary}>Numbers glossary</a>
+      <a href={demoReport}>Aave V3 report</a>
+      <a href={`${fed}/llms.txt`} target="_blank" rel="noopener">llms.txt</a>
+    </div>
+
+    <div class="callout-board" id="honesty">
+      <h2>Honesty board — read before demos</h2>
+      <ul class="callout-list">
+        <li>
+          <strong>n_scored = 0</strong> · coefficient withheld · <code>paid_surface: HOLD</code>
+          <span class="do-not">Do not say: scored confidence, n ≥ 10, paid calibration</span>
+        </li>
+        <li>
+          <strong>Pilot DRAFT / not for sale</strong> · money path is $0 until Host opens 5.4
+          <span class="do-not">Do not say: price list, closed sale, Stripe live, revenue</span>
+        </li>
+        <li>
+          <strong>Task 5.4 HOLD</strong> · paid verified-analysis not opened from this page
+          <span class="do-not">Do not open Stripe or invent product G_external</span>
+        </li>
+        <li>
+          <strong>Ops tier</strong> · <code>best_effort_vercel</code> · not Layer 6 LIVE
+          <span class="do-not">Do not invent Wave-6, Magicians homepage paste, or SLA beyond best-effort</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="label-grid">
+      <div class="label-card">
+        <p class="lk">Mode A</p>
+        <p>Metalayer verify-wire · $0 · <code>best_effort_vercel</code></p>
+      </div>
+      <div class="label-card">
+        <p class="lk">Pilot SKU</p>
+        <p>DRAFT / not for sale until Host opens Task 5.4</p>
+      </div>
+      <div class="label-card">
+        <p class="lk">Layer 6 LIVE</p>
+        <p>Not claimed — metalayer ≠ legal Layer 6</p>
+      </div>
+      <div class="label-card">
+        <p class="lk">Out of scope</p>
+        <p>Wave-6 · Magicians homepage · inventing revenue</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Step 0</div>
+      <h2>Status (ops honesty)</h2>
+      <p>
+        Confirm live base and baked endpoints. If <code>n_dossiers</code> is <code>0</code> after a
+        thin bake, skip <code>/api/dossier</code> and use Step 1b.
+      </p>
+      <pre class="cmd">{`curl -sS ${fed}/api/status \\
+  | jq '{ok, tier, spec_version, n_dossiers: .surfaces.n_dossiers, baked: .surfaces.baked_endpoints}'`}</pre>
+      <p class="expect">
+        Expect <code>ok: true</code>, <code>tier: "best_effort_vercel"</code>, baked
+        <code>package</code> / <code>verify</code> / <code>cite</code> / <code>darshan</code> true.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Step 1</div>
+      <h2>Pull a published claim</h2>
+      <p>
+        Do not invent <code>expected</code> from HTML. Prefer federation dossier when populated;
+        otherwise use report feed or the Pages mirror.
+      </p>
+
+      <h3>1a — Federation dossier (when populated)</h3>
+      <pre class="cmd">{`curl -sS '${fed}/api/dossier?entity=AAVE_V3' \\
+  | jq '{entity, n_claims:(.claims|length), claim0:.claims[0]}'`}</pre>
+
+      <h3>1b — Report feed (works when dossier bake is empty)</h3>
+      <pre class="cmd">{`curl -sS '${fed}/api/report_feed?entity=AAVE_V3' \\
+  | jq '{entity, report_id, report_url, n_claims:(.published_claims|length), claim0:.published_claims[0]}'`}</pre>
+
+      <h3>1c — Pages dossier mirror</h3>
+      <p>
+        Machine: <a href={dossierMirror}>federation/dossier/AAVE_V3.json</a> · Human report:
+        <a href={demoReport}>aave-v3-20260801</a>
+      </p>
+
+      <p class="cmd-note">Frozen admit body (same id as the public verify walkthrough):</p>
+      <table class="claim-table">
+        <tbody>
+          <tr>
+            <th>claim_id</th>
+            <td>d1eb5014-5ea5-44e2-bf2e-957df5a4e111</td>
+          </tr>
+          <tr>
+            <th>status_at_publish</th>
+            <td>ATTESTED-PRIMARY</td>
+          </tr>
+          <tr>
+            <th>source_url</th>
+            <td>https://docs.aave.com/developers/aave-v3/overview</td>
+          </tr>
+          <tr>
+            <th>expected</th>
+            <td>v3</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Step 2</div>
+      <h2>Cite (machine package + hash)</h2>
+      <p>
+        POST the <strong>claim object</strong> — id alone is not enough on the baked cite surface.
+      </p>
+      <pre class="cmd">{citeCmd}</pre>
+      <p class="expect admit">
+        Expect <code>ok: true</code>, <code>cite_class: "citeable"</code>, non-empty
+        <code>package_hash</code>. Catalog: <code>GET /api/cite</code>.
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Step 3</div>
+      <h2>Package — admit vs refuse</h2>
+      <p>
+        Admit a published claim with grounding + expiry. Refuse an invented ATTESTED stamp. That
+        refuse is the product.
+      </p>
+
+      <h3>Admit</h3>
+      <pre class="cmd">{`curl -sS -X POST ${fed}/api/package \\
+  -H 'Content-Type: application/json' \\
+  -d @- <<'EOF' | jq '{disposition, reason, proof_shape}'
+${admitBody}
+EOF`}</pre>
+      <p class="expect admit">
+        Expect <code>disposition: "admitted"</code>, <code>reason: "attested_published_claim"</code>,
+        <code>proof_shape.admitted: true</code>.
+      </p>
+
+      <h3>Refuse</h3>
+      <pre class="cmd">{`curl -sS -X POST ${fed}/api/package \\
+  -H 'Content-Type: application/json' \\
+  -d @- <<'EOF' | jq '{disposition, reason, exhibited_refusal, proof_shape}'
+${refuseBody}
+EOF`}</pre>
+      <p class="expect refuse">
+        Expect <code>disposition: "withheld"</code>, <code>exhibited_refusal: true</code>. HTTP stays
+        200 — refuse lives in the JSON.
+      </p>
+      <p>
+        Full copy-paste twin: <a href={verifyWalk}>verify-walkthrough/</a> · Proof limbs:
+        <a href={proofShape} target="_blank" rel="noopener">ATTESTATION_PROOF_SHAPE.md</a>
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Step 4</div>
+      <h2>Darshan honesty (n_scored)</h2>
+      <p>
+        Read calibration honesty before anyone pitches confidence. Live-checked 2026-08-04:
+        <code>n_scored = 0</code>.
+      </p>
+      <pre class="cmd">{`curl -sS ${fed}/api/darshan \\
+  | jq '{
+      mode,
+      n_scored: .calibration_honesty.n_scored,
+      paid_gate: .calibration_honesty.n_scored_paid_gate,
+      coefficient_withheld: .calibration_honesty.coefficient_withheld,
+      confidence_coefficient: .calibration_honesty.confidence_coefficient,
+      paid_surface: .calibration_honesty.paid_surface,
+      note: .calibration_honesty.note
+    }'`}</pre>
+      <p class="expect hold">
+        Expect <code>mode: "A"</code>, <code>n_scored: 0</code>,
+        <code>confidence_coefficient: null</code>, <code>coefficient_withheld: true</code>,
+        <code>paid_surface: "HOLD"</code>. Gate is <code>n_scored_paid_gate = 10</code>.
+      </p>
+      <p class="cmd-note">Optional lattice peek (custody / divergence — not a Layer-6 desk):</p>
+      <pre class="cmd">{`curl -sS ${fed}/api/darshan \\
+  | jq '{divergence: .sevadar_lattice.divergence, observation_surfaces}'`}</pre>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Compare</div>
+      <h2>Free Mode A vs Pilot SKU</h2>
+      <table class="compare">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Free Mode A</th>
+            <th>Pilot SKU</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Money</td>
+            <td>$0 now</td>
+            <td>DRAFT / not for sale until 5.4</td>
+          </tr>
+          <tr>
+            <td>What you prove</td>
+            <td>Cite → package admit/refuse → Darshan thin-n</td>
+            <td>Same rails + Host-scoped pack when a real buyer appears</td>
+          </tr>
+          <tr>
+            <td>Calibration</td>
+            <td>n_scored=0 · do not sell</td>
+            <td>Blocked until honest n_scored ≥ 10</td>
+          </tr>
+          <tr>
+            <td>Stripe / 5.4</td>
+            <td>HOLD</td>
+            <td>HOLD</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Design-partner door (no Stripe): <a href={requestAccess}>request-access/</a>
+      </p>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Out of scope</div>
+      <h2>Explicitly not included</h2>
+      <ul class="not-list">
+        <li>Opening Task 5.4 / Stripe / inventing revenue</li>
+        <li>Paid calibration confidence while <code>n_scored &lt; 10</code> (live: 0)</li>
+        <li>Layer 6 LIVE, Wave-6 marketing, Magicians homepage paste</li>
+        <li>Settlement v2 / bank API / SLA beyond <code>best_effort_vercel</code></li>
+        <li>Inventing dossier rows, claim IDs, or <code>n_scored ≥ 10</code></li>
+      </ul>
+    </div>
+
+    <div class="cta-block">
+      <p>
+        Ready to walk the wire with a design partner? Free intake — no payment step, Pilot stays
+        DRAFT until Host opens 5.4.
+      </p>
+      <a href={requestAccess} class="btn btn-md btn-gradient">Request Pilot Access</a>
+      <p class="cta-sub">
+        Curl twin: <a href={verifyWalk}>verify-walkthrough/</a>
+        · Agent markdown mirror: <a href={plainMd}>mode-a-walkthrough.md</a>
+      </p>
+    </div>
+  </section>
+
+  <Footer variant="full" />
+</Layout>

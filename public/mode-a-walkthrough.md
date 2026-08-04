@@ -5,6 +5,7 @@
 **decision_id:** `2026-08-04_free_mode_a_investor_walkthrough`  
 **Revision:** `revision_log/2026-08-04_free_mode_a_investor_walkthrough.md`  
 **Companion offer (DRAFT):** [`PILOT_SKU_VERIFIED_ANALYSIS.md`](PILOT_SKU_VERIFIED_ANALYSIS.md)  
+**Human walkthrough (HTML):** https://kaydeep0.github.io/eigenstate-research/mode-a-walkthrough/  
 **Human curl twin:** https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/
 
 ---
@@ -203,7 +204,8 @@ Design-partner door (no Stripe): https://kaydeep0.github.io/eigenstate-research/
 | Federation `/api/dossier` | May be **empty** (`n_dossiers: 0`) after thin bake — use report_feed / Pages mirror / frozen claim |
 | Pilot SKU | **DRAFT / not for sale** |
 | Task **5.4** | **HOLD** |
-| Public human twin | https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/ |
-| Public markdown mirror | https://kaydeep0.github.io/eigenstate-research/mode-a-walkthrough.md |
+| Public human walkthrough | https://kaydeep0.github.io/eigenstate-research/mode-a-walkthrough/ |
+| Public curl twin | https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/ |
+| Public markdown mirror (agents) | https://kaydeep0.github.io/eigenstate-research/mode-a-walkthrough.md |
 
 **Verdict:** **DONE** for docs-only Free Mode A investor walkthrough · **PARTIAL** only if someone requires federation `/api/dossier` populated this hour (parallel bake residual — not opened here).
