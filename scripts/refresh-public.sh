@@ -35,11 +35,23 @@ if [[ -z "${GF}" || ! -f "${GF}/engine/tools/refresh_public_surfaces.py" ]]; the
   exit 1
 fi
 
+# Prefer engine .venv — system python3 often lacks helixhash, which empties
+# chain build_entries and ships federation /api/dossier with DOSSIERS={}.
+PY="${GENIUSFLOW_PYTHON:-}"
+if [[ -z "${PY}" ]]; then
+  if [[ -x "${GF}/.venv/bin/python" ]]; then
+    PY="${GF}/.venv/bin/python"
+  else
+    PY="python3"
+  fi
+fi
+
 echo "Refreshing public surfaces from ${GF}"
 echo "  Pages site: ${EIGENSTATE_SITE_ROOT}"
 echo "  GENIUSFLOW_BUILDER_DEPLOY=${GENIUSFLOW_BUILDER_DEPLOY:-0}"
+echo "  python: ${PY}"
 
-PYTHONPATH="${GF}:${GF}/engine" python3 "${GF}/engine/tools/refresh_public_surfaces.py" \
+PYTHONPATH="${GF}:${GF}/engine" "${PY}" "${GF}/engine/tools/refresh_public_surfaces.py" \
   --site "${EIGENSTATE_SITE_ROOT}"
 
 # Keep repo-root federation/ in sync with public/ (legacy static mirror path).
