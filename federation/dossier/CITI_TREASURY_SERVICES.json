@@ -1,11 +1,11 @@
 {
   "entity": "CITI_TREASURY_SERVICES",
   "node": "34539544",
-  "compiled_at": "2026-08-04T07:12:25.266426+00:00",
-  "digest": "sha256:be64e52ae56aba5c56910a8def5f9cdfaef51f71502d021eee43495e6b7d8620",
+  "compiled_at": "2026-08-04T13:20:29.343165+00:00",
+  "digest": "sha256:2f6c3a3de56ee4ba8015cb2b8524b46c7304425f23e91c7fbd2d02ef3757e2d4",
   "own_numbers": {
-    "phi_s": 0.0225,
-    "kappa": 0.0997,
+    "phi_s": 3.2587,
+    "kappa": 0.0994,
     "mass": null,
     "power": 0.02,
     "extraction": 64255.2381,
@@ -125,9 +125,9 @@
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 55.2,
+        "mass": 60.91,
         "hops": 1,
-        "pull": 1.104
+        "pull": 1.2182
       },
       {
         "entity": "SEC",
@@ -143,17 +143,39 @@
       }
     ]
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "USD_SETTLEMENT",
+      "role": "counterparty",
+      "counterparty": "CITIGROUP",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.citigroup.com/global/businesses/services"
+    },
+    {
+      "product_id": "USD_SETTLEMENT",
+      "role": "counterparty",
+      "counterparty": "TREASURY_MARKET",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.citigroup.com/global/businesses/services"
+    },
+    {
+      "product_id": "USD_SETTLEMENT",
+      "role": "counterparty",
+      "counterparty": "FED",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.citigroup.com/global/businesses/services"
+    }
+  ],
   "monetary_position": {
     "position": 0.575,
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 39,
+    "level": "flag",
+    "headline": "phi_s +14319% over 40 cycles",
+    "cycles": 40,
     "delta_last_cycle": {
-      "phi_s": 0.0,
+      "phi_s": 3.2362,
       "kappa": -0.0003,
       "power": 0.0,
       "extraction": 0.0,

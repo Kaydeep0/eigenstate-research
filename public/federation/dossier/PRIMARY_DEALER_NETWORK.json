@@ -1,11 +1,11 @@
 {
   "entity": "PRIMARY_DEALER_NETWORK",
   "node": "34539544",
-  "compiled_at": "2026-08-04T07:12:26.997530+00:00",
-  "digest": "sha256:156627823bd86e347690e3b18194ad772b35874c655e569a6c22d29ee75e50bf",
+  "compiled_at": "2026-08-04T13:20:33.626512+00:00",
+  "digest": "sha256:ed7fee2d94270597aea890e5f5023ae8fa42c42b0689dbf2bb09afbaf5678c9d",
   "own_numbers": {
     "phi_s": 0.0,
-    "kappa": 0.1371,
+    "kappa": 0.1366,
     "mass": null,
     "power": null,
     "extraction": null,
@@ -88,7 +88,29 @@
     ],
     "gravity_pairs": []
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "US_TREASURY",
+      "role": "primary_dealer",
+      "counterparty": "US_TREASURY_DEPARTMENT",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.newyorkfed.org/markets/primarydealers"
+    },
+    {
+      "product_id": "US_TREASURY",
+      "role": "counterparty",
+      "counterparty": "TREASURY_MARKET",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.newyorkfed.org/markets/primarydealers"
+    },
+    {
+      "product_id": "US_TREASURY",
+      "role": "counterparty",
+      "counterparty": "DTCC",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.newyorkfed.org/markets/primarydealers"
+    }
+  ],
   "monetary_position": {
     "position": 0.527,
     "well": "fiat"
@@ -96,10 +118,10 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 39,
+    "cycles": 40,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0004,
+      "kappa": -0.0005,
       "boundary_score": 0.0
     }
   },

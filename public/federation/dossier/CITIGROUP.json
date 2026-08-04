@@ -1,14 +1,14 @@
 {
   "entity": "CITIGROUP",
   "node": "34539544",
-  "compiled_at": "2026-08-04T07:12:25.253565+00:00",
-  "digest": "sha256:3b40a6ceffee333a1a7282962eeec67b64102b6aa41177d1bcf4dd5c1b3674fb",
+  "compiled_at": "2026-08-04T13:20:29.315578+00:00",
+  "digest": "sha256:fd46d08951edc98f681d9f17bb754c2d9a67c55c899baf31e0488e36d09e8434",
   "own_numbers": {
-    "phi_s": 0.025,
-    "kappa": 0.1495,
+    "phi_s": 3.2612,
+    "kappa": 0.1491,
     "mass": null,
     "power": 0.44,
-    "extraction": 123422.274052,
+    "extraction": 120551.988609,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": 92.0,
@@ -27,8 +27,8 @@
       "of": 60
     },
     "extraction": {
-      "value": 123422.2741,
-      "rank": 10,
+      "value": 120551.9886,
+      "rank": 11,
       "of": 34
     },
     "share_of_whole": {
@@ -156,26 +156,41 @@
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 55.2,
+        "mass": 60.91,
         "hops": 2,
-        "pull": 1269.6
+        "pull": 1400.93
       }
     ]
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "US_TREASURY",
+      "role": "primary_dealer",
+      "counterparty": "US_TREASURY_DEPARTMENT",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.newyorkfed.org/markets/primarydealers"
+    },
+    {
+      "product_id": "US_TREASURY",
+      "role": "counterparty",
+      "counterparty": "TREASURY_MARKET",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.newyorkfed.org/markets/primarydealers"
+    }
+  ],
   "monetary_position": {
     "position": 0.807,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "extraction -70% over 39 cycles",
-    "cycles": 39,
+    "headline": "phi_s +14079% over 40 cycles",
+    "cycles": 40,
     "delta_last_cycle": {
-      "phi_s": -1.6181,
-      "kappa": 0.1458,
+      "phi_s": 3.2362,
+      "kappa": -0.0004,
       "power": 0.0,
-      "extraction": 0.0,
+      "extraction": -2870.2855,
       "gravity_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -187,9 +202,9 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-04T07:01:07.496904+00:00",
+        "last_observed_at": "2026-08-04T11:00:55.892282+00:00",
         "filings": null,
-        "note": "CITIGROUP INC \u2014 90707 total filings, 40 in last 90d"
+        "note": "CITIGROUP INC \u2014 90722 total filings, 40 in last 90d"
       }
     ],
     "outbound": [

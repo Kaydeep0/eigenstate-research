@@ -1,8 +1,8 @@
 {
   "entity": "FIDELITY",
   "node": "34539544",
-  "compiled_at": "2026-08-04T07:12:25.951431+00:00",
-  "digest": "sha256:db376f15fbb7eeff1c1e65e291f4513e9ebffa912fcd70c774949509f3f023d5",
+  "compiled_at": "2026-08-04T13:20:31.113574+00:00",
+  "digest": "sha256:1d0bf63d21891be8ad3275755224f81ecf8ed6fa25fc511f35ed556b036c6d1c",
   "own_numbers": {
     "phi_s": 1.6181,
     "kappa": 0.0,
@@ -54,15 +54,30 @@
     "top_outbound": [],
     "gravity_pairs": []
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "DIGITAL_ASSETS",
+      "role": "custodian",
+      "counterparty": "INSTITUTIONAL_CUSTODY_POOL",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.fidelitydigitalassets.com/"
+    },
+    {
+      "product_id": "FIDD",
+      "role": "issuer",
+      "counterparty": "STABLECOIN_POOL",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.fidelitydigitalassets.com/"
+    }
+  ],
   "monetary_position": {
     "position": 0.85,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +1.618 over 39 cycles",
-    "cycles": 39,
+    "headline": "phi_s +1.618 over 40 cycles",
+    "cycles": 40,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -77,7 +92,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-04T07:01:07.496904+00:00",
+        "last_observed_at": "2026-08-04T11:00:55.892282+00:00",
         "filings": null,
         "note": "FMR LLC \u2014 43775 total filings, 40 in last 90d"
       }

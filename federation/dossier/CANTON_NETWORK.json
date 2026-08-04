@@ -1,8 +1,8 @@
 {
   "entity": "CANTON_NETWORK",
   "node": "34539544",
-  "compiled_at": "2026-08-04T07:12:25.087809+00:00",
-  "digest": "sha256:04a727afc7dfcca76b3759bebfd646c4ba4385096824f58b29f054abb5f55712",
+  "compiled_at": "2026-08-04T13:20:28.965881+00:00",
+  "digest": "sha256:ebbc3b8656643f6aacefa296faa25e8f3007ebb47eadac2c6bf4fbe3d3316691",
   "own_numbers": {
     "phi_s": 1.6181,
     "kappa": 0.0,
@@ -92,15 +92,37 @@
     ],
     "gravity_pairs": []
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "TOKENIZED_TREASURY",
+      "role": "counterparty",
+      "counterparty": "TREASURY_MARKET",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.canton.network/"
+    },
+    {
+      "product_id": "TOKENIZED_TREASURY",
+      "role": "counterparty",
+      "counterparty": "DTCC",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.canton.network/ecosystem"
+    },
+    {
+      "product_id": "TOKENIZED_TREASURY",
+      "role": "counterparty",
+      "counterparty": "BNY_MELLON",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.canton.network/ecosystem"
+    }
+  ],
   "monetary_position": {
     "position": 0.588,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +1.618 over 39 cycles",
-    "cycles": 39,
+    "headline": "phi_s +1.618 over 40 cycles",
+    "cycles": 40,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -134,7 +156,7 @@
     ],
     "observation": {
       "source": null,
-      "last_observed_at": "2026-08-04T06:44:14.637143+00:00",
+      "last_observed_at": "2026-08-04T12:51:21.351407+00:00",
       "last_delta_i": null,
       "stale": false
     }

@@ -1,11 +1,11 @@
 {
   "entity": "GOLDMAN",
   "node": "34539544",
-  "compiled_at": "2026-08-04T07:12:26.129628+00:00",
-  "digest": "sha256:8accb0494e83294c0d98557e860a08b83a70d636a707357107fd55402abda5b5",
+  "compiled_at": "2026-08-04T13:20:31.494794+00:00",
+  "digest": "sha256:6e59dce5e6d4eef6a431be8d6d670a4c8b372bbf06f0c2e731f97763c2c4f5cb",
   "own_numbers": {
     "phi_s": 0.0,
-    "kappa": 0.0249,
+    "kappa": 0.0248,
     "mass": 0.037563,
     "power": null,
     "extraction": null,
@@ -62,15 +62,30 @@
     ],
     "gravity_pairs": []
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "US_TREASURY",
+      "role": "primary_dealer",
+      "counterparty": "US_TREASURY_DEPARTMENT",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.newyorkfed.org/markets/primarydealers"
+    },
+    {
+      "product_id": "US_TREASURY",
+      "role": "counterparty",
+      "counterparty": "TREASURY_MARKET",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.newyorkfed.org/markets/primarydealers"
+    }
+  ],
   "monetary_position": {
     "position": 0.52,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s -100% over 39 cycles",
-    "cycles": 39,
+    "headline": "phi_s -100% over 40 cycles",
+    "cycles": 40,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": -0.0001,

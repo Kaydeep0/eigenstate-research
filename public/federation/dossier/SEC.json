@@ -1,15 +1,15 @@
 {
   "entity": "SEC",
   "node": "34539544",
-  "compiled_at": "2026-08-04T07:12:27.310123+00:00",
-  "digest": "sha256:7b58abbba4388941b29de7cf24207c4392c7e82cc7108319f55bfcec6bdc1cdb",
+  "compiled_at": "2026-08-04T13:20:34.461513+00:00",
+  "digest": "sha256:131d43a7c924450857e9c9066171e9b84a63dfa299c43cdbe209c6b49aa8ab87",
   "own_numbers": {
-    "phi_s": 2.8087,
+    "phi_s": 2.8141,
     "kappa": 0.0,
     "mass": 0.336224,
     "power": null,
     "extraction": null,
-    "memory_mass": 59.53,
+    "memory_mass": 59.8,
     "X_natural": 0.0,
     "gravity_mass": 116.0,
     "mass_type": "regulatory"
@@ -125,9 +125,9 @@
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 55.2,
+        "mass": 60.91,
         "hops": 1,
-        "pull": 6403.2
+        "pull": 7065.56
       },
       {
         "entity": "FED",
@@ -137,20 +137,28 @@
       }
     ]
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "US_TREASURY",
+      "role": "regulator",
+      "counterparty": "TREASURY_MARKET",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.govinfo.gov/content/pkg/FR-2024-01-16/pdf/2023-27860.pdf"
+    }
+  ],
   "monetary_position": {
     "position": 0.824,
     "well": "fiat"
   },
   "drift": {
     "level": "watch",
-    "headline": "memory_mass -38% over 39 cycles",
-    "cycles": 39,
+    "headline": "memory_mass -38% over 40 cycles",
+    "cycles": 40,
     "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": -0.0001,
+      "phi_s": 0.0054,
+      "kappa": 0.0,
       "gravity_mass": 0.0,
-      "memory_mass": 0.0,
+      "memory_mass": 0.27,
       "boundary_score": 0.0
     }
   },
@@ -163,7 +171,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "securities_market_gdp_proxy",
-        "last_observed_at": "2026-08-03T13:13:39.882315+00:00",
+        "last_observed_at": "2026-08-04T13:12:26.068705+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],

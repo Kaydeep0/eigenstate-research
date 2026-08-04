@@ -1,11 +1,11 @@
 {
   "entity": "USDY",
   "node": "34539544",
-  "compiled_at": "2026-08-04T07:12:27.796286+00:00",
-  "digest": "sha256:63ca3b260ec9c4a6e76bc848a7eaba5a9d9d1cf770850e95271ad7973f70ee73",
+  "compiled_at": "2026-08-04T13:20:35.635089+00:00",
+  "digest": "sha256:fd03bd633b345a2f63a8302a2e62acf2be6944fbdd8ad8aee095acb0d11a4c6f",
   "own_numbers": {
     "phi_s": 0.05,
-    "kappa": 0.0498,
+    "kappa": 0.0497,
     "mass": null,
     "power": 0.0,
     "extraction": 2323.8095,
@@ -97,18 +97,33 @@
     ],
     "gravity_pairs": []
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "USDY",
+      "role": "counterparty",
+      "counterparty": "ONDO",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://ondo.finance/usdy"
+    },
+    {
+      "product_id": "USDY",
+      "role": "counterparty",
+      "counterparty": "TREASURY_MARKET",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://ondo.finance/usdy"
+    }
+  ],
   "monetary_position": {
     "position": 0.45,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "extraction +80% over 39 cycles",
-    "cycles": 39,
+    "headline": "extraction +80% over 40 cycles",
+    "cycles": 40,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0002,
+      "kappa": -0.0001,
       "power": 0.0,
       "extraction": 0.0,
       "boundary_score": 0.0
