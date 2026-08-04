@@ -70,6 +70,8 @@ have it.
 The full six-step walkthrough (status, dossier, `/api/package` admit, `/api/package` refuse,
 grounding verify, return-wire ack) is at
 [verify-walkthrough/](https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/).
+Investor Free Mode A path (cite → package → Darshan `n_scored` honesty; Pilot DRAFT; 5.4 HOLD):
+[mode-a-walkthrough.md](https://kaydeep0.github.io/eigenstate-research/mode-a-walkthrough.md).
 
 ### Run the demo in 5 minutes
 
@@ -450,6 +452,7 @@ PYTHONPATH=engine python3 engine/tools/refresh_public_surfaces.py --site /path/t
 | Methodology, full depth | [Human walkthrough](https://kaydeep0.github.io/eigenstate-research/methodology/) · [METHODOLOGY.md](METHODOLOGY.md) for agents |
 | HelixHash primitive | [HELIXHASH.md](HELIXHASH.md) · [Kaydeep0/helixhash](https://github.com/Kaydeep0/helixhash) |
 | Verify walkthrough, copy-paste | [verify-walkthrough/](https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/) (status, dossier, package and verify for `AAVE_V3`) |
+| Free Mode A investor walkthrough | [mode-a-walkthrough.md](https://kaydeep0.github.io/eigenstate-research/mode-a-walkthrough.md) (cite → package → Darshan `n_scored` honesty; Pilot DRAFT) |
 | Signal reports | [reports/](https://kaydeep0.github.io/eigenstate-research/reports/), entity-grouped with expandable timelines, plus [entity hubs](https://kaydeep0.github.io/eigenstate-research/reports/circle/) carrying publish-time Φ_S / κ |
 | Track record and open predictions | [track-record/](https://kaydeep0.github.io/eigenstate-research/track-record/) · [predictions/](https://kaydeep0.github.io/eigenstate-research/predictions/) |
 | On-chain proof index | [onchain/](https://kaydeep0.github.io/eigenstate-research/onchain/) · [`api/onchain.json`](https://kaydeep0.github.io/eigenstate-research/api/onchain.json) |
@@ -489,6 +492,7 @@ of the same path: [verify-walkthrough/](https://kaydeep0.github.io/eigenstate-re
 | Attestation proof shape | <https://geniusflow-federation.vercel.app/docs/ATTESTATION_PROOF_SHAPE.md> |
 | Tool adapter and MCP guide | <https://geniusflow-federation.vercel.app/docs/AGENT_TOOL_ADAPTER.md> |
 | Verify walkthrough (human plus curl) | <https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/> |
+| Free Mode A investor walkthrough | <https://kaydeep0.github.io/eigenstate-research/mode-a-walkthrough.md> |
 | Pages `llms.txt` (pointer) | <https://kaydeep0.github.io/eigenstate-research/llms.txt> |
 | In-repo pointer | [`AGENTS.md`](AGENTS.md) |
 
