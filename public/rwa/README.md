@@ -1,6 +1,6 @@
 # RWA disclosure interface conformance survey
 
-Generated 2026-08-02T05:43:24.872498+00:00 · probe v1.0.2 · digest `e4d5d4e38e707632`
+Generated 2026-08-04T06:40:35.489850+00:00 · probe v1.0.2 · digest `284402e11fbfa905`
 
 The population, every candidate surface, the admit rule for each limb and the five predictions were published before this run at digest `28961d5d66629b9a`, in an earlier commit. Nothing in that file was edited afterwards.
 
