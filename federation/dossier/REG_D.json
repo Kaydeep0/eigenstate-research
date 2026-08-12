@@ -1,10 +1,10 @@
 {
   "entity": "REG_D",
   "node": "34539544",
-  "compiled_at": "2026-08-06T13:22:47.674047+00:00",
-  "digest": "sha256:2f206dfe104c76c9447681d68a1c58f2fc183b5408d715db33d13b306d9ab161",
+  "compiled_at": "2026-08-12T16:42:29.324525+00:00",
+  "digest": "sha256:19e5757267640d99beb4ab8b541fec62dff3b085a8a9f799a1dc7b1d9f0344b5",
   "own_numbers": {
-    "phi_s": 6.5205,
+    "phi_s": 3.2842,
     "kappa": 0.0,
     "mass": 0.087,
     "power": null,
@@ -63,9 +63,9 @@
     "gravity_pairs": [
       {
         "entity": "SEC",
-        "mass": 116.0,
+        "mass": 117.0,
         "hops": 1,
-        "pull": 278.4
+        "pull": 280.8
       },
       {
         "entity": "ESMA",
@@ -87,9 +87,9 @@
       },
       {
         "entity": "US_JURISDICTION",
-        "mass": 60.91,
+        "mass": 60.74,
         "hops": 2,
-        "pull": 36.546
+        "pull": 36.444
       }
     ]
   },
@@ -100,10 +100,10 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +13484% over 42 cycles",
-    "cycles": 42,
+    "headline": "phi_s +6742% over 52 cycles",
+    "cycles": 52,
     "delta_last_cycle": {
-      "phi_s": 3.2363,
+      "phi_s": 0.0,
       "kappa": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
@@ -118,7 +118,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "private_placement_gdp_proxy",
-        "last_observed_at": "2026-08-06T13:13:49.637778+00:00",
+        "last_observed_at": "2026-08-12T16:34:47.476133+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -150,5 +150,71 @@
       "last_delta_i": null,
       "stale": true
     }
-  }
+  },
+  "claims": [
+    {
+      "claim_id": "977d2c90-b73b-4e28-8bca-8dd394434d3e",
+      "claim_text": "SEC Regulation D exempt offerings",
+      "grounding": {
+        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings",
+        "expected": "Regulation D",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "REG_D_20260812",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-d-20260812/",
+      "verified_at": "2026-08-12T15:37:40.815116+00:00",
+      "expires_at": "2026-11-10T15:37:40+00:00",
+      "volatility_class": "filing",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "c040ba5a-5d28-445d-9279-5640f84ababc",
+      "claim_text": "SEC small business capital raising exemptions",
+      "grounding": {
+        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings",
+        "expected": "exempt",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "REG_D_20260812",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-d-20260812/",
+      "verified_at": "2026-08-12T15:37:41.253028+00:00",
+      "expires_at": "2026-11-10T15:37:41+00:00",
+      "volatility_class": "filing",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "ac04552c-7533-499e-a370-ba91c80dedc7",
+      "claim_text": "Rule 506(b) and 506(c) private placements",
+      "grounding": {
+        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings",
+        "expected": "506",
+        "location": ""
+      },
+      "status_at_publish": "HALLUCINATED",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "regulatory_primary",
+      "witness_weight": 0.9,
+      "report_id": "REG_D_20260812",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/reg-d-20260812/",
+      "verified_at": "2026-08-12T15:37:41.027748+00:00",
+      "expires_at": "2026-11-10T15:37:41+00:00",
+      "volatility_class": "filing",
+      "allows_canonical": false
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/REG_D.json"
 }

@@ -1,11 +1,11 @@
 {
   "entity": "NATIONAL_CITY_BANK",
   "node": "34539544",
-  "compiled_at": "2026-08-06T13:22:46.731877+00:00",
-  "digest": "sha256:82ba1fcd2a623511d2112847144800ce6a0b18c748ea793c435fceace3e43873",
+  "compiled_at": "2026-08-12T16:42:28.800185+00:00",
+  "digest": "sha256:d1967f72aaf32a04dacf3378d59a7d1d710d66e5885673ceceeff2ae8143bfa9",
   "own_numbers": {
     "phi_s": 0.04,
-    "kappa": 0.0373,
+    "kappa": 0.0372,
     "mass": null,
     "power": 0.0,
     "extraction": 1554.2857,
@@ -92,15 +92,30 @@
     ],
     "gravity_pairs": []
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "USD_SETTLEMENT",
+      "role": "custodian",
+      "counterparty": "CITIGROUP",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.citigroup.com/global/about-us/history"
+    },
+    {
+      "product_id": "USD_SETTLEMENT",
+      "role": "counterparty",
+      "counterparty": "JEKYLL_ISLAND",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.federalreservehistory.org/essays/aldrich-vreeland-act"
+    }
+  ],
   "monetary_position": {
     "position": 0.56,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "extraction +79% over 42 cycles",
-    "cycles": 42,
+    "headline": "extraction +79% over 52 cycles",
+    "cycles": 52,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,

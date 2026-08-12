@@ -1,15 +1,15 @@
 {
   "entity": "US_JURISDICTION",
   "node": "34539544",
-  "compiled_at": "2026-08-06T13:22:49.533976+00:00",
-  "digest": "sha256:50044a0c2d268560bb5d91af783fd582eacafcacf4a2c8fa56e09b4c305a6df4",
+  "compiled_at": "2026-08-12T16:42:30.425218+00:00",
+  "digest": "sha256:27e167a76f1f3f24f48c91914367127abe895266e1d6d2a7825c165a4e2fdc8d",
   "own_numbers": {
-    "phi_s": 5.9788,
+    "phi_s": 2.7394,
     "kappa": 0.0,
     "mass": 0.510552,
     "power": null,
     "extraction": null,
-    "memory_mass": 60.91,
+    "memory_mass": 60.74,
     "X_natural": 0.0,
     "gravity_mass": null,
     "mass_type": null
@@ -88,47 +88,55 @@
     "gravity_pairs": [
       {
         "entity": "SEC",
-        "mass": 116.0,
+        "mass": 117.0,
         "hops": 1,
-        "pull": 7065.56
+        "pull": 7106.58
       },
       {
         "entity": "FED",
         "mass": 114.0,
         "hops": 1,
-        "pull": 6943.74
+        "pull": 6924.36
       },
       {
         "entity": "FINRA",
         "mass": 104.0,
         "hops": 1,
-        "pull": 6334.64
+        "pull": 6316.96
       },
       {
         "entity": "OCC",
         "mass": 103.0,
         "hops": 1,
-        "pull": 6273.73
+        "pull": 6256.22
       },
       {
         "entity": "CFTC",
         "mass": 102.0,
         "hops": 1,
-        "pull": 6212.82
+        "pull": 6195.48
       }
     ]
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "USD_SETTLEMENT",
+      "role": "regulator",
+      "counterparty": "CITI_TREASURY_SERVICES",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.citigroup.com/global/businesses/services"
+    }
+  ],
   "monetary_position": {
     "position": 0.562,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +479% over 42 cycles",
-    "cycles": 42,
+    "headline": "phi_s +165% over 52 cycles",
+    "cycles": 52,
     "delta_last_cycle": {
-      "phi_s": 3.2363,
+      "phi_s": 0.0,
       "kappa": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
@@ -143,7 +151,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "gdp_billions",
-        "last_observed_at": "2026-08-06T13:13:49.637778+00:00",
+        "last_observed_at": "2026-08-12T16:34:47.476133+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
