@@ -1,12 +1,12 @@
 # Measured ledgers, and every time each one was published
 
-Generated 2026-08-04T06:40:35.628896+00:00 · tool ledger_refresh v1.0.0 · digest `39fde35cbb4c7700`
+Generated 2026-08-14T03:05:13.932693+00:00 · tool ledger_refresh v1.0.0 · digest `ea3d923ebf4ac9e3`
 
 A ledger published once is a snapshot dressed as a standing claim. This page is the
 correction: one row per publication, kept append only, so a reader can see whether a
 number held when the same probe was pointed at the same population a second time.
 
-5 ledgers indexed · 12 runs on record ·
+5 ledgers indexed · 13 runs on record ·
 0 still have a single run and are labelled as snapshots ·
 4 headline counters moved on the latest refresh,
 of which 2 rate comparisons still have overlapping intervals.
@@ -110,12 +110,13 @@ PYTHONPATH=engine python3 engine/tools/rwa_disclosure_run.py run
 
 ### EDGAR and Federal Reserve grounded claim corpus
 
-`/grounded-claims/` · unit of measurement: one claim · 2 run(s) on record
+`/grounded-claims/` · unit of measurement: one claim · 3 run(s) on record
 
 | run | generated at | probe | digest | headline counters |
 | --- | --- | --- | --- | --- |
 | 1 | 2026-08-02T05:20:17.615362+00:00 | 1.0.1 | `20b2faf73e04` | full_admit 0, full_refuse 6, must_admit 5, must_refuse 1 |
 | 2 | 2026-08-02T05:42:58.920879+00:00 | 1.0.1 | `5df1c68a86bd` | full_admit 0, full_refuse 6, must_admit 5, must_refuse 1 |
+| 3 | 2026-08-14T03:05:13.741183+00:00 | 1.0.1 | `0c23eaf6a9e0` | full_admit 0, full_refuse 6, must_admit 5, must_refuse 1 |
 
 Comparing two runs of this ledger: The corpus is frozen in the expectations file and identical across runs, so a count that moves is a regulator page that changed under a citation this node already made.
 
