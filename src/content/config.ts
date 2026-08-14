@@ -59,4 +59,23 @@ const predictions = defineCollection({
   }),
 });
 
-export const collections = { reports, predictions };
+const moneyInMotion = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    entity: z.string(),
+    entity_display: z.string(),
+    date: z.string(),
+    date_iso: z.string(),
+    report_id: z.string(),
+    channel: z.string().default('Money in Motion'),
+    format: z.string().default('mim_linkedin_stanton_visual_v1'),
+    visual: z.string().optional(),
+  }),
+});
+
+export const collections = {
+  reports,
+  predictions,
+  'money-in-motion': moneyInMotion,
+};
