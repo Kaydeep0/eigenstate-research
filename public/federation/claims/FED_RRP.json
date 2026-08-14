@@ -1,0 +1,55 @@
+{
+  "entity": "FED_RRP",
+  "claims": [
+    {
+      "claim_id": "01afed21-31d2-49b4-9173-3f10d02351ed",
+      "claim_text": "NY Fed \u2014 reverse repo operations",
+      "grounding": {
+        "source_url": "https://www.newyorkfed.org/markets/desk-operations/reverse-repo",
+        "expected": "reverse",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "FED_RRP_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fed-rrp-20260702/",
+      "verified_at": "2026-07-02T18:06:35.742495+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "58b2c86b-8f62-487e-a5a4-ca3f5244042e",
+      "claim_text": "Fed RRP \u2014 overnight repo facility",
+      "grounding": {
+        "source_url": "https://www.newyorkfed.org/markets/desk-operations/reverse-repo",
+        "expected": "repo",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "FED_RRP_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fed-rrp-20260702/",
+      "verified_at": "2026-07-02T18:06:35.834540+00:00",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "485cb077-c820-4995-b9a8-c4fd59cc8128",
+      "claim_text": "FRED \u2014 overnight reverse repo rate",
+      "grounding": {
+        "source_url": "https://fred.stlouisfed.org/series/RRPONTSYD",
+        "expected": "repo",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "witness_class": "macro_primary",
+      "witness_weight": 0.88,
+      "report_id": "FED_RRP_20260702",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fed-rrp-20260702/",
+      "verified_at": "2026-07-02T18:06:35.936896+00:00",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/claims/FED_RRP.json",
+  "verify_hint": "POST /api/verify for grounding re-check; POST /api/package with the published claim object for admit/withhold/VOID/ILLUSTRATIVE disposition"
+}
