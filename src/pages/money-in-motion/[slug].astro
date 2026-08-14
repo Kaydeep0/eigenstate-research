@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import { MIM_AUTHOR } from '../../lib/mim';
 
 export async function getStaticPaths() {
   const pieces = await getCollection('money-in-motion');
@@ -45,6 +46,20 @@ const visual = entry.data.visual
         text-transform: uppercase;
         margin-bottom: 14px;
       }
+      .byline {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        margin: 0 0 24px;
+        color: var(--text-secondary);
+      }
+      .byline a {
+        color: var(--signal);
+        text-decoration: none;
+      }
+      .byline a:hover {
+        text-decoration: underline;
+      }
       .back {
         display: inline-block;
         font-family: var(--font-mono);
@@ -84,6 +99,21 @@ const visual = entry.data.visual
       .prose :global(strong) {
         font-weight: 600;
       }
+      .follow-box {
+        margin-top: 40px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+        font-size: 15px;
+        line-height: 1.55;
+        color: var(--text-secondary);
+      }
+      .follow-box a {
+        color: var(--signal);
+        text-decoration: none;
+      }
+      .follow-box a:hover {
+        text-decoration: underline;
+      }
     </style>
   </Fragment>
 
@@ -92,6 +122,16 @@ const visual = entry.data.visual
   <article class="article-wrap">
     <a class="back" href={`${base}money-in-motion/`}>← Money in Motion</a>
     <p class="eyebrow">{entry.data.entity_display} · {entry.data.date}</p>
+    <p class="byline">
+      By{' '}
+      <a href={MIM_AUTHOR.linkedinProfile} target="_blank" rel="noopener noreferrer">
+        {MIM_AUTHOR.name}
+      </a>
+      {' · '}
+      <a href={MIM_AUTHOR.linkedinProfile} target="_blank" rel="noopener noreferrer">
+        LinkedIn
+      </a>
+    </p>
     {
       entry.data.visual && (
         <img
@@ -106,6 +146,18 @@ const visual = entry.data.visual
     <div class="prose">
       <Content />
     </div>
+    <p class="follow-box">
+      Follow{' '}
+      <a href={MIM_AUTHOR.linkedinProfile} target="_blank" rel="noopener noreferrer">
+        {MIM_AUTHOR.shortName} on LinkedIn
+      </a>
+      {' '}
+      and the{' '}
+      <a href={MIM_AUTHOR.linkedinNewsletter} target="_blank" rel="noopener noreferrer">
+        Money in Motion newsletter
+      </a>
+      .
+    </p>
   </article>
 
   <Footer />

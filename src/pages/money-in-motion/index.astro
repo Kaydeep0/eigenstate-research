@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import { MIM_AUTHOR } from '../../lib/mim';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -49,7 +50,26 @@ const pieces = (await getCollection('money-in-motion')).sort((a, b) =>
       .page-sub {
         color: var(--text-secondary);
         max-width: 58ch;
-        margin-bottom: 8px;
+        margin-bottom: 16px;
+      }
+      .author-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        align-items: baseline;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        letter-spacing: 0.06em;
+      }
+      .author-row a {
+        color: var(--signal);
+        text-decoration: none;
+      }
+      .author-row a:hover {
+        text-decoration: underline;
+      }
+      .author-muted {
+        color: var(--text-secondary);
       }
       .list {
         list-style: none;
@@ -98,6 +118,18 @@ const pieces = (await getCollection('money-in-motion')).sort((a, b) =>
       <p class="page-sub">
         Fee-path and cash-flow narratives for a public audience. Separate from measurement
         signal reports. Same locked story craft as the LinkedIn cut.
+      </p>
+      <p class="author-row">
+        <span class="author-muted">By</span>
+        <a href={MIM_AUTHOR.linkedinProfile} target="_blank" rel="noopener noreferrer">
+          {MIM_AUTHOR.name}
+        </a>
+        <a href={MIM_AUTHOR.linkedinProfile} target="_blank" rel="noopener noreferrer">
+          LinkedIn profile ↗
+        </a>
+        <a href={MIM_AUTHOR.linkedinNewsletter} target="_blank" rel="noopener noreferrer">
+          Follow the newsletter ↗
+        </a>
       </p>
     </div>
   </header>
