@@ -15,7 +15,7 @@ const fonts =
 const graph = fieldGraph as {
   generated_at?: string;
   counts?: { nodes: number; edges: number; public_nodes: number };
-  field?: { kappa?: number | null; protocol_truth?: number | null };
+  field?: { kappa?: number | null; kappa_act?: number | null; kappa_graph?: number | null; protocol_truth?: number | null };
   nodes: Array<{
     id: string;
     display: string;
@@ -37,7 +37,8 @@ const graph = fieldGraph as {
 };
 
 const stamp = (graph.generated_at || '').slice(0, 19);
-const kappa = graph.field?.kappa;
+const kappa = graph.field?.kappa_act ?? graph.field?.kappa;
+const kappaGraph = graph.field?.kappa_graph;
 const pt = graph.field?.protocol_truth;
 const base = import.meta.env.BASE_URL;
 
@@ -436,7 +437,8 @@ for (const r of await getCollection('reports')) {
       <div class="field-stats">
         <span><strong>{graph.counts?.nodes ?? graph.nodes.length}</strong> nodes</span>
         <span><strong>{graph.counts?.edges ?? graph.edges.length}</strong> edges</span>
-        <span>κ <strong>{formatNum(kappa, 3)}</strong></span>
+        <span>κ_act <strong>{formatNum(kappa, 3)}</strong></span>
+        <span>κ_graph <strong>{formatNum(kappaGraph, 3)}</strong></span>
         <span>PT <strong>{formatNum(pt, 3)}</strong></span>
         <span>baked {stamp}Z</span>
       </div>

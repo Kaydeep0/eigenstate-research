@@ -11,6 +11,7 @@ const sot = loadSot();
 const m1Headline = sot.coverage.headline;
 const m1Pct = sot.coverage.m1_strict_pct;
 const kappa = sot.field.kappa;
+const kappaGraph = sot.field.kappa_graph;
 const pt = sot.field.protocol_truth ?? sot.field.PT;
 const sb = sot.predictions_scoreboard;
 const proofAccuracy =
@@ -192,9 +193,9 @@ const ercMustMissCi = erc8004.must_miss_rate_ci95
                 <p class="engine-tile-note">{m1Pct}% · SoT stamp {sotStamp}</p>
             </div>
             <div class="proof-tile">
-                <p class="engine-tile-label">Protocol Truth · κ</p>
+                <p class="engine-tile-label">Protocol Truth · κ_act</p>
                 <p class="engine-tile-value orange" data-sot="pt">{formatNum(pt, 3)}</p>
-                <p class="engine-tile-note">κ <span data-sot="kappa">{formatNum(kappa, 3)}</span> · HOST SoT</p>
+                <p class="engine-tile-note">κ_act <span data-sot="kappa">{formatNum(kappa, 3)}</span> · κ_graph <span data-sot="kappa-graph">{formatNum(kappaGraph, 3)}</span></p>
             </div>
             <div class="proof-tile">
                 <p class="engine-tile-label">assessable accuracy</p>
@@ -650,9 +651,9 @@ const ercMustMissCi = erc8004.must_miss_rate_ci95
                         <p class="engine-tile-note">threshold 1/φ = 0.618</p>
                     </div>
                     <div class="engine-tile">
-                        <p class="engine-tile-label">κ coherence</p>
+                        <p class="engine-tile-label">κ_act (capture)</p>
                         <p class="engine-tile-value green" data-sot="kappa">{formatNum(kappa, 3)}</p>
-                        <p class="engine-tile-note">HOST SoT</p>
+                        <p class="engine-tile-note">κ_graph <span data-sot="kappa-graph">{formatNum(kappaGraph, 3)}</span> diagnostic</p>
                     </div>
                     <div class="engine-tile">
                         <p class="engine-tile-label">assessable accuracy</p>
@@ -760,7 +761,8 @@ const ercMustMissCi = erc8004.must_miss_rate_ci95
               });
             };
             const m1 = d.coverage.headline;
-            const kap = d.field?.kappa;
+            const kap = d.field?.kappa_act ?? d.field?.kappa;
+            const kapGraph = d.field?.kappa_graph;
             const ptv = d.field?.protocol_truth ?? d.field?.PT;
             const sb = d.predictions_scoreboard || {};
             const acc =
@@ -772,6 +774,7 @@ const ercMustMissCi = erc8004.must_miss_rate_ci95
             set('[data-sot="m1"]', m1);
             if (ptv != null) set('[data-sot="pt"]', Number(ptv).toFixed(3));
             if (kap != null) set('[data-sot="kappa"]', Number(kap).toFixed(3));
+            if (kapGraph != null) set('[data-sot="kappa-graph"]', Number(kapGraph).toFixed(3));
             set('[data-sot="accuracy"]', acc);
             const proofM1 = document.querySelector('.proof-strip .proof-tile:nth-child(1) .engine-tile-value');
             if (proofM1) proofM1.textContent = m1;

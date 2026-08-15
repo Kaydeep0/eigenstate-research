@@ -27,7 +27,7 @@ export type FieldGraphData = {
   nodes: FieldGraphNode[];
   edges: FieldGraphEdge[];
   counts: { nodes: number; edges: number; public_nodes: number };
-  field?: { kappa?: number | null; protocol_truth?: number | null };
+  field?: { kappa?: number | null; kappa_act?: number | null; kappa_graph?: number | null; protocol_truth?: number | null };
   vectors?: string[];
 };
 
