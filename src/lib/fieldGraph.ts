@@ -31,6 +31,8 @@ export type FieldGraphData = {
   vectors?: string[];
 };
 
+type Pt = { x: number; y: number; side: 'left' | 'right' | 'hub' | 'map' };
+
 const ROLE_CLASS: Record<string, string> = {
   actor: 'role-actor',
   rail: 'role-rail',
@@ -38,14 +40,35 @@ const ROLE_CLASS: Record<string, string> = {
   other: 'role-other',
 };
 
+const VIEW_W = 1200;
+const VIEW_H = 760;
+const VIEW_PAD = 36;
+
+export function shortLabel(raw: string): string {
+  const cut = String(raw || '')
+    .split('[')[0]
+    .split('(')[0]
+    .trim();
+  if (cut.length <= 28) return cut || raw;
+  return `${cut.slice(0, 26)}…`;
+}
+
 export function nodeRadius(phi: number | null | undefined, maxPhi: number): number {
-  if (phi == null || !Number.isFinite(phi) || phi <= 0) return 4.5;
+  if (phi == null || !Number.isFinite(phi) || phi <= 0) return 5;
   const span = Math.log1p(Math.max(maxPhi, 1));
-  return 4.5 + 16 * (Math.log1p(phi) / span);
+  return 5 + 18 * (Math.log1p(phi) / span);
 }
 
 export function nodeClass(role: string): string {
   return ROLE_CLASS[role] || ROLE_CLASS.other;
+}
+
+function bakedPx(n: FieldGraphNode): Pt {
+  return {
+    x: VIEW_PAD + n.x * (VIEW_W - 2 * VIEW_PAD),
+    y: VIEW_PAD + n.y * (VIEW_H - 2 * VIEW_PAD),
+    side: 'map',
+  };
 }
 
 export function initFieldGraph(
@@ -67,11 +90,17 @@ export function initFieldGraph(
 
   const nodeById = new Map(data.nodes.map((n) => [n.id, n]));
   const neighbors = new Map<string, Set<string>>();
+  const inboundOf = new Map<string, Set<string>>();
+  const outboundOf = new Map<string, Set<string>>();
   for (const e of data.edges) {
     if (!neighbors.has(e.source)) neighbors.set(e.source, new Set());
     if (!neighbors.has(e.target)) neighbors.set(e.target, new Set());
     neighbors.get(e.source)!.add(e.target);
     neighbors.get(e.target)!.add(e.source);
+    if (!outboundOf.has(e.source)) outboundOf.set(e.source, new Set());
+    if (!inboundOf.has(e.target)) inboundOf.set(e.target, new Set());
+    outboundOf.get(e.source)!.add(e.target);
+    inboundOf.get(e.target)!.add(e.source);
   }
 
   let view = { x: 0, y: 0, k: 1 };
@@ -107,6 +136,188 @@ export function initFieldGraph(
     return out;
   }
 
+  function column(ids: string[], x: number, side: Pt['side']): Map<string, Pt> {
+    const placed = new Map<string, Pt>();
+    const n = ids.length;
+    if (!n) return placed;
+    const top = 90;
+    const bot = VIEW_H - 90;
+    const span = n === 1 ? 0 : (bot - top) / (n - 1);
+    ids.forEach((id, i) => {
+      const y = n === 1 ? VIEW_H / 2 : top + i * span;
+      placed.set(id, { x, y, side });
+    });
+    return placed;
+  }
+
+  function layoutHop(vis: Set<string>, hubId: string): Map<string, Pt> {
+    const inSet = inboundOf.get(hubId) || new Set();
+    const outSet = outboundOf.get(hubId) || new Set();
+    const both: string[] = [];
+    const left: string[] = [];
+    const right: string[] = [];
+    for (const id of vis) {
+      if (id === hubId) continue;
+      const inn = inSet.has(id);
+      const out = outSet.has(id);
+      if (inn && out) both.push(id);
+      else if (inn) left.push(id);
+      else right.push(id);
+    }
+    const byPhi = (a: string, b: string) =>
+      (nodeById.get(b)?.phi_s || 0) - (nodeById.get(a)?.phi_s || 0);
+    left.sort(byPhi);
+    right.sort(byPhi);
+    both.sort(byPhi);
+    // Split "both" so columns stay balanced.
+    both.forEach((id, i) => (i % 2 === 0 ? left.push(id) : right.push(id)));
+    left.sort(byPhi);
+    right.sort(byPhi);
+    const pos = new Map<string, Pt>();
+    pos.set(hubId, { x: VIEW_W / 2, y: VIEW_H / 2, side: 'hub' });
+    column(left, 210, 'left').forEach((pt, id) => pos.set(id, pt));
+    column(right, VIEW_W - 210, 'right').forEach((pt, id) => pos.set(id, pt));
+    return pos;
+  }
+
+  function unpackMap(vis: Set<string>): Map<string, Pt> {
+    const ids = [...vis];
+    const pos = new Map<string, Pt>();
+    for (const id of ids) {
+      const n = nodeById.get(id);
+      if (n) pos.set(id, bakedPx(n));
+    }
+    const links: Array<[string, string]> = [];
+    for (const e of data.edges) {
+      if (vis.has(e.source) && vis.has(e.target) && e.source !== e.target) {
+        links.push([e.source, e.target]);
+      }
+    }
+    const k = Math.max(28, 520 / Math.sqrt(Math.max(ids.length, 1)));
+    const steps = Math.min(55, 18 + Math.floor(ids.length / 8));
+    for (let step = 0; step < steps; step++) {
+      const temp = 14 * (1 - step / steps);
+      const disp = new Map<string, { x: number; y: number }>();
+      for (const id of ids) disp.set(id, { x: 0, y: 0 });
+      for (let i = 0; i < ids.length; i++) {
+        const a = ids[i];
+        const pa = pos.get(a)!;
+        for (let j = i + 1; j < ids.length; j++) {
+          const b = ids[j];
+          const pb = pos.get(b)!;
+          let dx = pa.x - pb.x;
+          let dy = pa.y - pb.y;
+          let dist = Math.hypot(dx, dy);
+          if (dist < 1) {
+            dx = 0.7;
+            dy = 0.7;
+            dist = 1;
+          }
+          const force = (k * k) / dist;
+          const ux = dx / dist;
+          const uy = dy / dist;
+          const da = disp.get(a)!;
+          const db = disp.get(b)!;
+          da.x += ux * force;
+          da.y += uy * force;
+          db.x -= ux * force;
+          db.y -= uy * force;
+        }
+      }
+      for (const [s, t] of links) {
+        const pa = pos.get(s);
+        const pb = pos.get(t);
+        if (!pa || !pb) continue;
+        const dx = pa.x - pb.x;
+        const dy = pa.y - pb.y;
+        const dist = Math.hypot(dx, dy) || 1;
+        const force = Math.min((dist * dist) / k, k * 6);
+        const ux = dx / dist;
+        const uy = dy / dist;
+        disp.get(s)!.x -= ux * force;
+        disp.get(s)!.y -= uy * force;
+        disp.get(t)!.x += ux * force;
+        disp.get(t)!.y += uy * force;
+      }
+      for (const id of ids) {
+        const d = disp.get(id)!;
+        const mag = Math.hypot(d.x, d.y) || 1;
+        const scale = Math.min(mag, temp) / mag;
+        const p = pos.get(id)!;
+        p.x += d.x * scale;
+        p.y += d.y * scale;
+      }
+    }
+    return pos;
+  }
+
+  function fitTo(pos: Map<string, Pt>) {
+    const pts = [...pos.values()];
+    if (!pts.length) {
+      view = { x: 0, y: 0, k: 1 };
+      applyView();
+      return;
+    }
+    let minX = Infinity;
+    let minY = Infinity;
+    let maxX = -Infinity;
+    let maxY = -Infinity;
+    for (const p of pts) {
+      minX = Math.min(minX, p.x);
+      minY = Math.min(minY, p.y);
+      maxX = Math.max(maxX, p.x);
+      maxY = Math.max(maxY, p.y);
+    }
+    const bw = Math.max(maxX - minX, 80);
+    const bh = Math.max(maxY - minY, 80);
+    const pad = 48;
+    const k = Math.min((VIEW_W - pad * 2) / bw, (VIEW_H - pad * 2) / bh, 3.2) * 0.92;
+    view.k = k;
+    view.x = pad + (VIEW_W - pad * 2 - bw * k) / 2 - minX * k;
+    view.y = pad + (VIEW_H - pad * 2 - bh * k) / 2 - minY * k;
+    applyView();
+  }
+
+  function applyPositions(pos: Map<string, Pt>, vis: Set<string>) {
+    svg.querySelectorAll<SVGGElement>('.g-node').forEach((el) => {
+      const id = el.dataset.id || '';
+      const p = pos.get(id);
+      if (!p || !vis.has(id)) return;
+      el.setAttribute('transform', `translate(${p.x} ${p.y})`);
+      const label = el.querySelector('text');
+      const circle = el.querySelector('circle');
+      const r = circle ? Number(circle.getAttribute('r') || 6) : 6;
+      if (label) {
+        if (p.side === 'left') {
+          label.setAttribute('text-anchor', 'end');
+          label.setAttribute('x', String(-(r + 10)));
+          label.setAttribute('y', '4');
+        } else if (p.side === 'right') {
+          label.setAttribute('text-anchor', 'start');
+          label.setAttribute('x', String(r + 10));
+          label.setAttribute('y', '4');
+        } else if (p.side === 'hub') {
+          label.setAttribute('text-anchor', 'middle');
+          label.setAttribute('x', '0');
+          label.setAttribute('y', String(-(r + 14)));
+        } else {
+          label.setAttribute('text-anchor', 'start');
+          label.setAttribute('x', String(r + 6));
+          label.setAttribute('y', '4');
+        }
+      }
+    });
+    svg.querySelectorAll<SVGLineElement>('.g-edge').forEach((el) => {
+      const s = pos.get(el.dataset.source || '');
+      const t = pos.get(el.dataset.target || '');
+      if (!s || !t) return;
+      el.setAttribute('x1', String(s.x));
+      el.setAttribute('y1', String(s.y));
+      el.setAttribute('x2', String(t.x));
+      el.setAttribute('y2', String(t.y));
+    });
+  }
+
   function renderPanel(id: string | null) {
     if (!panel) return;
     if (!id || !nodeById.has(id)) {
@@ -123,16 +334,17 @@ export function initFieldGraph(
     const kap = n.kappa == null ? 'n/a' : n.kappa.toFixed(4);
     const dossier = `${base}dossier/${n.id}/`;
     const hops = nbrs
-      .slice(0, 12)
+      .slice(0, 14)
       .map(
         (x) =>
-          `<li><button type="button" data-jump="${x.id}">${x.display}</button> <span>Φ_S ${x.phi_s == null ? 'n/a' : x.phi_s.toFixed(3)}</span></li>`
+          `<li><button type="button" data-jump="${x.id}">${shortLabel(x.display)}</button> <span>Φ_S ${x.phi_s == null ? 'n/a' : x.phi_s.toFixed(3)}</span></li>`
       )
       .join('');
     panel.innerHTML = `
       <p class="panel-kicker">${n.display_role} · ${n.display_kind.replace(/_/g, ' ')}</p>
-      <h2>${n.display}</h2>
+      <h2>${shortLabel(n.display)}</h2>
       <p class="panel-code">${n.id}</p>
+      <p class="panel-legend">Inbound left · outbound right</p>
       <dl>
         <div><dt>Φ_S</dt><dd>${phi}</dd></div>
         <div><dt>κ</dt><dd>${kap}</dd></div>
@@ -152,11 +364,23 @@ export function initFieldGraph(
     const vec = selectedVectors();
     const hop = Boolean(focus && hopToggle?.checked);
     const nbr = neighbors.get(focus) || new Set();
+    svg.classList.toggle('is-hop', hop);
+
+    const pos = hop && focus ? layoutHop(vis, focus) : unpackMap(vis);
+    applyPositions(pos, vis);
+    if (hop) {
+      view = { x: 0, y: 0, k: 1 };
+      applyView();
+    } else {
+      fitTo(pos);
+    }
+
     svg.querySelectorAll<SVGElement>('.g-edge').forEach((el) => {
       const s = el.dataset.source || '';
       const t = el.dataset.target || '';
       const v = el.dataset.vector || '';
-      const on = vis.has(s) && vis.has(t) && vec.has(v);
+      const incident = !hop || s === focus || t === focus;
+      const on = vis.has(s) && vis.has(t) && vec.has(v) && incident;
       el.classList.toggle('is-hidden', !on);
       el.classList.toggle('is-focus-edge', Boolean(focus && (s === focus || t === focus)));
     });
@@ -166,10 +390,10 @@ export function initFieldGraph(
       el.classList.toggle('is-hidden', !on);
       el.classList.toggle('is-focus', id === focus);
       el.classList.toggle('is-neighbor', hop && nbr.has(id));
-      el.classList.toggle('is-dim', Boolean(focus) && id !== focus && !nbr.has(id));
+      el.classList.toggle('is-dim', Boolean(focus) && !hop && id !== focus && !nbr.has(id));
       const label = el.querySelector('.g-label');
       if (label) {
-        if (id === focus || (hop && nbr.has(id))) label.classList.add('is-on');
+        if (hop && on) label.classList.add('is-on');
         else label.classList.remove('is-on');
       }
     });
@@ -182,6 +406,7 @@ export function initFieldGraph(
     if (focus) url.searchParams.set('focus', focus);
     else url.searchParams.delete('focus');
     window.history.replaceState({}, '', url);
+    if (focus && hopToggle && !hopToggle.checked) hopToggle.checked = true;
     paint();
   }
 
@@ -191,7 +416,10 @@ export function initFieldGraph(
       setFocus(el.dataset.id || '');
     });
   });
-  svg.addEventListener('click', () => setFocus(''));
+  svg.addEventListener('click', () => {
+    if (hopToggle?.checked) return;
+    setFocus('');
+  });
 
   search?.addEventListener('input', paint);
   hopToggle?.addEventListener('change', paint);
@@ -222,10 +450,12 @@ export function initFieldGraph(
     (ev) => {
       ev.preventDefault();
       const factor = ev.deltaY < 0 ? 1.08 : 0.92;
-      const next = Math.min(6, Math.max(0.35, view.k * factor));
+      const next = Math.min(6, Math.max(0.25, view.k * factor));
       const rect = svg.getBoundingClientRect();
-      const cx = ev.clientX - rect.left;
-      const cy = ev.clientY - rect.top;
+      const sx = VIEW_W / Math.max(rect.width, 1);
+      const sy = VIEW_H / Math.max(rect.height, 1);
+      const cx = (ev.clientX - rect.left) * sx;
+      const cy = (ev.clientY - rect.top) * sy;
       view.x = cx - (cx - view.x) * (next / view.k);
       view.y = cy - (cy - view.y) * (next / view.k);
       view.k = next;

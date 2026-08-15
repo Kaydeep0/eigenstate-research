@@ -4,7 +4,7 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import fieldGraph from '../../../public/field-graph.json';
 import { formatNum } from '../../lib/sot';
-import { nodeRadius, nodeClass } from '../../lib/fieldGraph';
+import { nodeRadius, nodeClass, shortLabel } from '../../lib/fieldGraph';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -210,10 +210,14 @@ const base = import.meta.env.BASE_URL;
 
       .g-label {
         font-family: var(--font-mono);
-        font-size: 10px;
+        font-size: 12px;
         fill: var(--text-primary);
         pointer-events: none;
         display: none;
+        paint-order: stroke fill;
+        stroke: var(--bg);
+        stroke-width: 5px;
+        stroke-linejoin: round;
       }
 
       .g-label-top,
@@ -222,13 +226,29 @@ const base = import.meta.env.BASE_URL;
         display: block;
       }
 
+      .field-svg.is-hop .g-label-top:not(.is-on) {
+        display: none;
+      }
+
       .g-node.is-focus circle {
         stroke: var(--text-primary);
-        stroke-width: 2;
+        stroke-width: 2.5;
+      }
+
+      .field-svg.is-hop .g-edge.is-focus-edge {
+        opacity: 0.7;
+        stroke-width: 1.4;
       }
 
       .g-node.is-dim {
-        opacity: 0.18;
+        opacity: 0.22;
+      }
+
+      .panel-legend {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-muted);
+        margin: 6px 0 0;
       }
 
       .g-node.is-hidden,
@@ -465,7 +485,7 @@ const base = import.meta.env.BASE_URL;
                     x={r + 4}
                     y={3}
                   >
-                    {n.display}
+                    {shortLabel(n.display)}
                   </text>
                 </g>
               );
@@ -480,9 +500,10 @@ const base = import.meta.env.BASE_URL;
         <span>Line color = vector</span>
       </div>
       <p class="field-note">
-        Positions are a spring layout of the topology (seed 42). They are not κ and not a
-        forecast. Isolated cards and dimension nodes stay hidden until you turn them on. Machine
-        JSON: <a href={`${base}field-graph.json`}>field-graph.json</a>.
+        One hop places the focused entity in the center, inbound on the left, outbound on the
+        right. Uncheck One hop for the whole map. Isolated cards and dimension nodes stay hidden
+        until you turn them on. Machine JSON:
+        <a href={`${base}field-graph.json`}>field-graph.json</a>.
       </p>
     </div>
     <aside class="field-side" id="fieldPanel">
