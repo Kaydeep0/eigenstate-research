@@ -129,6 +129,20 @@ const gap = (W - 80 - ORIGIN_WAVES.length * barW) / (ORIGIN_WAVES.length - 1);
         border-radius: 4px;
       }
 
+      .origin-figure {
+        margin: 20px 0 8px;
+      }
+
+      .origin-figure img {
+        width: 100%;
+        max-width: 920px;
+        height: auto;
+        display: block;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        background: #fff;
+      }
+
       .e-bar {
         fill: var(--accent);
       }
@@ -231,8 +245,8 @@ const gap = (W - 80 - ORIGIN_WAVES.length * barW) / (ORIGIN_WAVES.length - 1);
         Concentration is one wave's pile. Compounding is that pile writing the next charter.
       </p>
       <p class="origin-note">
-        Framework illustration of the E-scale ladder (orders of magnitude from the 400-year
-        evidence chain). Live Φ_S, κ, and edges are on
+        Framework illustration of the E-scale ladder, plus the January 2026 N+1 historical
+        charts recovered from that research. Live Φ_S, κ, and edges are on
         <a href={`${base}field/`}>Field</a>. VOC has no live dossier. The engine does not mint a
         Φ_S for 1602.
       </p>
@@ -244,8 +258,8 @@ const gap = (W - 80 - ORIGIN_WAVES.length * barW) / (ORIGIN_WAVES.length - 1);
       <h2>Reset versus compound</h2>
       <p>
         In other words: if every rail started even, the right panel would look like the left.
-        The research simulation showed the opposite. Winners of wave N finance and design wave
-        N+1. Mass stays. Scale jumps.
+        The N+1 backtest showed the opposite. Winners of wave N finance and design wave N+1.
+        Mass stays. Scale jumps.
       </p>
       <canvas
         id="originCompound"
@@ -257,6 +271,50 @@ const gap = (W - 80 - ORIGIN_WAVES.length * barW) / (ORIGIN_WAVES.length - 1);
         Left track: names replace each other at the same size. Right track: names change and the
         seat's E-scale grows. Click a live wave to open Field. E labels are framework orders of
         magnitude, not Φ_S.
+      </p>
+      <figure class="origin-figure">
+        <img
+          src={`${base}origin/wave_persistence.png`}
+          alt="N+1 pattern: capital and infrastructure carryover from Rail to Oil through Mobile to AI, 75 percent to 95 percent as labeled."
+        />
+      </figure>
+      <p class="origin-caption">
+        Carryover as labeled on the figure (Rail to Oil about 75 percent, Mobile to AI about 95
+        percent). January 2026 N+1 historical backtest. Research estimates of capital and
+        infrastructure overlap, not Φ_S.
+      </p>
+    </section>
+
+    <section class="origin-section">
+      <h2>Four hundred years, same product</h2>
+      <p>
+        Dated beat: state charter, then railroad rebate, then Jekyll Island, then TARP, then
+        tokenized Treasuries. Government grants the rail. Private seats capture the flow. Those
+        seats write the next charter.
+      </p>
+      <figure class="origin-figure">
+        <img
+          src={`${base}origin/layerN_complete_timeline.png`}
+          alt="Layer N 400-year pattern of infrastructure capture from mercantile monopolies through TBTF to tokenized dollars."
+        />
+      </figure>
+      <p class="origin-caption">
+        January 2026 N+1 evidence-chain figure (VOC 1602 to GSIB and stablecoin rails). Historical
+        illustration. Live measurement of this wave is on Field.
+      </p>
+      <figure class="origin-figure">
+        <img
+          src={`${base}origin/layerN_rockefeller_case.png`}
+          alt="Rockefeller case: railroad rebates, refining concentration, then the same family line at Jekyll Island and National City Bank."
+        />
+      </figure>
+      <p class="origin-caption">
+        Standard Oil rebate capture, then the Rockefeller bank line into National City /
+        Citibank. Open
+        <a href={fieldAt('STANDARD_OIL')}>STANDARD OIL</a>
+        and
+        <a href={fieldAt('JEKYLL_ISLAND')}>JEKYLL ISLAND</a>
+        on Field.
       </p>
     </section>
 
@@ -294,6 +352,35 @@ const gap = (W - 80 - ORIGIN_WAVES.length * barW) / (ORIGIN_WAVES.length - 1);
       <p class="origin-caption">
         Source: framework E-scale on the 400-year evidence chain. This chart uses the historical
         ladder, not engine Φ_S.
+      </p>
+    </section>
+
+    <section class="origin-section">
+      <h2>Concentration across waves</h2>
+      <p>
+        The S&amp;P 500 Top 10 share is cyclical until 2008, then it breaks higher. Sector
+        leaders inside each wave's own market stay concentrated the whole time (65 to 91
+        percent on the sector figure).
+      </p>
+      <figure class="origin-figure">
+        <img
+          src={`${base}origin/concentration_timeline.png`}
+          alt="150 years of S&P 500 Top 10 market-cap share, railroad era through the 2025 AI-era peak near 40 percent."
+        />
+      </figure>
+      <p class="origin-caption">
+        Sources on the figure: Finaeon, Visual Capitalist, Goldman Sachs. Top 10 share, 1875 to
+        2025. Peak labeled near 40 percent. This is index concentration, not Φ_S.
+      </p>
+      <figure class="origin-figure">
+        <img
+          src={`${base}origin/sector_concentration.png`}
+          alt="Dominant firm sector share by technological wave: Railroads 80 percent, Oil 91 percent, Computing 80 percent, Internet 65 percent, Mobile 75 percent, AI 85 percent."
+        />
+      </figure>
+      <p class="origin-caption">
+        Dominant-firm share inside each wave's primary sector, as labeled. Separate metric from
+        S&amp;P Top 10. January 2026 N+1 historical backtest.
       </p>
     </section>
 
@@ -367,6 +454,38 @@ const gap = (W - 80 - ORIGIN_WAVES.length * barW) / (ORIGIN_WAVES.length - 1);
           ))
         }
       </div>
+    </section>
+
+    <section class="origin-section">
+      <h2>The cycle that stopped resetting</h2>
+      <p>
+        Antitrust and failure used to cut a wave down. After 2008 the same TARP names became
+        GSIBs. In 2020 the liquidity went first to seats already on the rails. Mag 7 returned
+        65.8 percent that year against 16.3 percent for the S&amp;P 500, as labeled on the
+        capture figure.
+      </p>
+      <figure class="origin-figure">
+        <img
+          src={`${base}origin/structural_break_2008.png`}
+          alt="2008 structural break: bank consolidation, Fed balance-sheet expansion, TARP names becoming GSIBs, S&P Top 10 cycle breaking higher."
+        />
+      </figure>
+      <p class="origin-caption">
+        January 2026 N+1 structural-break figure. Open
+        <a href={fieldAt('JPMORGAN')}>JPMORGAN</a>
+        on Field for the live seat.
+      </p>
+      <figure class="origin-figure">
+        <img
+          src={`${base}origin/2020_liquidity_capture.png`}
+          alt="2020 liquidity capture: Magnificent 7 65.8 percent versus S&P 500 16.3 percent versus S&P excluding Mag 7 1.8 percent, with cumulative compounding through 2025."
+        />
+      </figure>
+      <p class="origin-caption">
+        Incumbents already on the rails versus the rest of the index, as labeled. N+1 2020
+        liquidity-reset figure. Live Circle hop:
+        <a href={fieldAt('CIRCLE')}>?focus=CIRCLE</a>.
+      </p>
     </section>
 
     <section class="origin-section origin-close">
