@@ -1,0 +1,398 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import {
+  ORIGIN_WAVES,
+  ORIGIN_SEATS,
+  ORIGIN_LINEAGE,
+  logHeight,
+} from '../../lib/originPattern';
+
+const fonts =
+  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
+
+const base = import.meta.env.BASE_URL;
+const fieldAt = (id: string | null) => (id ? `${base}field/?focus=${id}` : null);
+const W = 640;
+const H = 220;
+const barMax = 140;
+const barW = 48;
+const gap = (W - 80 - ORIGIN_WAVES.length * barW) / (ORIGIN_WAVES.length - 1);
+---
+
+<Layout
+  title="Origin · Circle and the VOC product · Eigenstate Research"
+  description="The 400-year pattern: power concentrates in a wave and compounds into the next rail. Framework illustration; live Φ_S is on the Field graph."
+  fonts={fonts}
+>
+  <Fragment slot="head">
+    <style>
+      .origin-hero {
+        padding: 48px 40px 28px;
+        background: var(--bg2);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .origin-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+      }
+
+      .origin-kicker {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--signal);
+        margin: 0 0 10px;
+      }
+
+      .origin-hero h1 {
+        font-family: var(--font-heading);
+        font-size: clamp(28px, 4vw, 40px);
+        font-weight: 700;
+        margin: 0 0 12px;
+        letter-spacing: 0.02em;
+      }
+
+      .origin-lead {
+        max-width: 72ch;
+        color: var(--text-secondary);
+        font-size: var(--text-base);
+        line-height: 1.55;
+        margin: 0 0 10px;
+      }
+
+      .origin-note {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        margin: 0;
+        max-width: 80ch;
+        line-height: 1.5;
+      }
+
+      .origin-note a,
+      .origin-section a,
+      .origin-close a {
+        color: var(--signal);
+      }
+
+      .origin-body {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 28px 40px 64px;
+      }
+
+      .origin-section {
+        margin: 0 0 48px;
+      }
+
+      .origin-section h2 {
+        font-family: var(--font-heading);
+        font-size: var(--text-lg);
+        margin: 0 0 8px;
+      }
+
+      .origin-section p {
+        color: var(--text-secondary);
+        line-height: 1.55;
+        max-width: 72ch;
+        margin: 0 0 14px;
+      }
+
+      .origin-canvas {
+        width: 100%;
+        height: min(52vh, 420px);
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        cursor: pointer;
+        display: block;
+      }
+
+      .origin-caption {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-muted);
+        margin: 8px 0 0;
+        line-height: 1.45;
+      }
+
+      .origin-svg {
+        width: 100%;
+        max-width: 720px;
+        height: auto;
+        border: 1px solid var(--border);
+        background: var(--bg2);
+        border-radius: 4px;
+      }
+
+      .e-bar {
+        fill: var(--accent);
+      }
+
+      .e-axis {
+        stroke: var(--border-strong);
+        stroke-width: 1;
+      }
+
+      .e-label,
+      .e-year {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        fill: var(--text-muted);
+      }
+
+      .e-value {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        fill: var(--text-primary);
+      }
+
+      .seat-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: var(--text-sm);
+      }
+
+      .seat-table th,
+      .seat-table td {
+        text-align: left;
+        padding: 10px 12px 10px 0;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+      }
+
+      .seat-table th {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      .seat-table a {
+        color: var(--signal);
+      }
+
+      .lineage {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .lineage a,
+      .lineage span {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        padding: 6px 10px;
+        border: 1px solid var(--border);
+        background: var(--bg2);
+        color: var(--signal);
+        text-decoration: none;
+      }
+
+      .lineage span {
+        color: var(--text-muted);
+      }
+
+      .origin-close {
+        border-top: 1px solid var(--border);
+        padding-top: 24px;
+      }
+
+      .origin-close p:last-child {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+      }
+
+      @media (width <= 700px) {
+        .origin-hero,
+        .origin-body {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+      }
+    </style>
+  </Fragment>
+
+  <Nav active="origin" />
+
+  <header class="origin-hero">
+    <div class="origin-inner" id="main">
+      <p class="origin-kicker">400-year pattern</p>
+      <h1>Circle is this wave's name for a VOC-era product</h1>
+      <p class="origin-lead">
+        Hold one object: Power(N+1) = Power(N) × (Capital × Information × Infrastructure).
+        Concentration is one wave's pile. Compounding is that pile writing the next charter.
+      </p>
+      <p class="origin-note">
+        Framework illustration of the E-scale ladder (orders of magnitude from the 400-year
+        evidence chain). Live Φ_S, κ, and edges are on
+        <a href={`${base}field/`}>Field</a>. VOC has no live dossier. The engine does not mint a
+        Φ_S for 1602.
+      </p>
+    </div>
+  </header>
+
+  <div class="origin-body">
+    <section class="origin-section">
+      <h2>Reset versus compound</h2>
+      <p>
+        In other words: if every rail started even, the right panel would look like the left.
+        The research simulation showed the opposite. Winners of wave N finance and design wave
+        N+1. Mass stays. Scale jumps.
+      </p>
+      <canvas
+        id="originCompound"
+        class="origin-canvas"
+        role="img"
+        aria-label="Two-track animation. Left: each wave a new equal node. Right: prior nodes remain and grow on a log E-scale."
+      ></canvas>
+      <p class="origin-caption">
+        Left track: names replace each other at the same size. Right track: names change and the
+        seat's E-scale grows. Click a live wave to open Field. E labels are framework orders of
+        magnitude, not Φ_S.
+      </p>
+    </section>
+
+    <section class="origin-section">
+      <h2>The ladder</h2>
+      <p>
+        Dated beat: VOC charter 1602; Standard Oil rebate capture 1868-1880; Jekyll Island 1910
+        and the Federal Reserve Act 1913; TARP 2008; Circle issuing USDC against Treasuries now.
+        Each step is roughly three orders of magnitude on the framework E-scale.
+      </p>
+      <svg class="origin-svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Framework E-scale bars from VOC 1602 to Circle 2026">
+        <line class="e-axis" x1="40" y1="168" x2={W - 20} y2="168"></line>
+        {
+          ORIGIN_WAVES.map((wave, i) => {
+            const x = 40 + i * (barW + gap);
+            const h = 16 + logHeight(wave.logE) * barMax;
+            const y = 168 - h;
+            return (
+              <g>
+                <rect class="e-bar" x={x} y={y} width={barW} height={h} rx="3"></rect>
+                <text class="e-value" x={x + barW / 2} y={y - 8} text-anchor="middle">
+                  {wave.eLabel}
+                </text>
+                <text class="e-year" x={x + barW / 2} y="184" text-anchor="middle">
+                  {wave.year}
+                </text>
+                <text class="e-label" x={x + barW / 2} y="200" text-anchor="middle">
+                  {wave.name.split(' / ')[0]}
+                </text>
+              </g>
+            );
+          })
+        }
+      </svg>
+      <p class="origin-caption">
+        Source: framework E-scale on the 400-year evidence chain. This chart uses the historical
+        ladder, not engine Φ_S.
+      </p>
+    </section>
+
+    <section class="origin-section">
+      <h2>Two seats, changing names</h2>
+      <p>
+        The pattern keeps an issuer of the claim and a custodian who holds the sovereign paper.
+        In 1602 one company sat in both chairs. In 2026 Circle issues; BlackRock manages the
+        reserve fund; BNY holds the bills.
+      </p>
+      <table class="seat-table">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Wrapper</th>
+            <th>Issuer</th>
+            <th>Custodian / intermediary</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            ORIGIN_SEATS.map((row) => {
+              const issuerHref = fieldAt(row.issuerId);
+              const custLinks = row.custodianIds.map((id) => (
+                <a href={fieldAt(id)}>{id.replace(/_/g, ' ')}</a>
+              ));
+              return (
+                <tr>
+                  <td>{row.year}</td>
+                  <td>{row.wrapper}</td>
+                  <td>
+                    {issuerHref ? <a href={issuerHref}>{row.issuerName}</a> : row.issuerName}
+                  </td>
+                  <td>
+                    {custLinks.length ? (
+                      <>
+                        {row.custodianName}
+                        <br />
+                        {custLinks.map((el, i) => (
+                          <>
+                            {i > 0 ? ' · ' : ''}
+                            {el}
+                          </>
+                        ))}
+                      </>
+                    ) : (
+                      row.custodianName
+                    )}
+                  </td>
+                </tr>
+              );
+            })
+          }
+        </tbody>
+      </table>
+    </section>
+
+    <section class="origin-section">
+      <h2>Lineage already on Field</h2>
+      <p>
+        These codes already sit in the live graph. Overview by Φ_S hides Standard Oil and Jekyll
+        Island because their current settlement pressure is small. They are the start of the
+        chain. Open them on Field.
+      </p>
+      <div class="lineage">
+        {
+          ORIGIN_LINEAGE.map((n) => (
+            <a href={fieldAt(n.id)} title={n.note}>
+              {n.id.replace(/_/g, ' ')}
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="origin-section origin-close">
+      <h2>The key point is compounding</h2>
+      <p>
+        Falsifier: a rail whose infrastructure is built by outsiders, with inherited books
+        decaying, would break the product. Across the four canon cases (VOC, Standard Oil, TBTF
+        banks, Magnificent 7) advantage inherited, incumbents built the next rail, and reversal
+        stayed infeasible. Methodology: <a href={`${base}methodology/`}>how we measure now</a>.
+      </p>
+      <p>
+        The Field graph is this wave. Origin is why those nodes exist. Live map:
+        <a href={`${base}field/`}>/field/</a>
+        · Circle hop:
+        <a href={`${base}field/?focus=CIRCLE`}>?focus=CIRCLE</a>
+      </p>
+    </section>
+  </div>
+
+  <Footer variant="full" />
+</Layout>
+
+<script>
+  import { initOriginCompound } from '../../scripts/origin-compound';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initOriginCompound('originCompound');
+  });
+</script>

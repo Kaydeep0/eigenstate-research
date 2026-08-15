@@ -5,7 +5,7 @@
 // predictions/track-record showed 4 and were missing On-Chain Proof).
 // Articles/Registry/GitHub stay in the footer, not duplicated here.
 interface Props {
-  active?: 'reports' | 'track-record' | 'predictions' | 'onchain' | 'money-in-motion' | 'field' | null;
+  active?: 'reports' | 'track-record' | 'predictions' | 'onchain' | 'money-in-motion' | 'field' | 'origin' | null;
   cta?: { label: string; href: string };
 }
 
@@ -28,6 +28,7 @@ const base = import.meta.env.BASE_URL;
     <div class="nav-links" id="innerNavLinks">
       <a href={base}>Research</a>
       <a href={`${base}field/`} class={active === 'field' ? 'active' : ''}>Field</a>
+      <a href={`${base}origin/`} class={active === 'origin' ? 'active' : ''}>Origin</a>
       <a href={`${base}reports/`} class={active === 'reports' ? 'active' : ''}>Signal Reports</a>
       <a href={`${base}money-in-motion/`} class={active === 'money-in-motion' ? 'active' : ''}>Money in Motion</a>
       <a href={`${base}onchain/`} class={active === 'onchain' ? 'active' : ''}>On-Chain Proof</a>
