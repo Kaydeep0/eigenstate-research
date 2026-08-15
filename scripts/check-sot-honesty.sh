@@ -53,6 +53,28 @@ print(f"OK field-state M1 denom={den} assessable_n={n} accuracy_pct={acc}")
 PY
 fi
 
+if [[ ! -f public/field-graph.json ]]; then
+  echo "FAIL: missing public/field-graph.json" >&2
+  fail=1
+else
+  python3 - <<'PY' || fail=1
+import json, sys
+d=json.load(open("public/field-graph.json"))
+if d.get("schema") != "eigenstate.field_graph.v1":
+    print(f"FAIL: field-graph schema={d.get('schema')}", file=sys.stderr)
+    sys.exit(1)
+nodes=d.get("nodes") or []
+edges=d.get("edges") or []
+if len(nodes) < 50 or len(edges) < 50:
+    print(f"FAIL: field-graph too small nodes={len(nodes)} edges={len(edges)}", file=sys.stderr)
+    sys.exit(1)
+if any("real_name" in n for n in nodes if isinstance(n, dict)):
+    print("FAIL: field-graph leaked real_name", file=sys.stderr)
+    sys.exit(1)
+print(f"OK field-graph nodes={len(nodes)} edges={len(edges)}")
+PY
+fi
+
 if [[ "$fail" -ne 0 ]]; then
   exit 1
 fi

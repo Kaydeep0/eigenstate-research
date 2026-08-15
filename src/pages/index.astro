@@ -147,6 +147,7 @@ const ercMustMissCi = erc8004.must_miss_rate_ci95
             <div class="nav-links" id="navLinks">
                 <a href="#pattern">The Pattern</a>
                 <a href="#intelligence">Intelligence</a>
+                <a href="field/">Field</a>
                 <a href="reports/">Signal Reports</a>
                 <a href="onchain/">On-Chain Proof</a>
                 <a href="track-record/">Track Record</a>
@@ -528,7 +529,11 @@ const ercMustMissCi = erc8004.must_miss_rate_ci95
                                 {layer.entities.map((e) => (
                                   <div class="entity-bar-row" role="listitem">
                                     <span class="entity-bar-label" title={e.entity}>
-                                      <span class="entity-bar-name">{e.display || e.entity}</span>
+                                      <span class="entity-bar-name">
+                                      <a href={`field/?focus=${encodeURIComponent(e.entity)}`} style="color:inherit;text-decoration:none;">
+                                        {e.display || e.entity}
+                                      </a>
+                                    </span>
                                       {e.display_kind === 'rule_framework' || e.kind_note ? (
                                         <span class="entity-bar-kind">{e.kind_note || 'regulation / exemption framework'}</span>
                                       ) : null}
@@ -555,7 +560,11 @@ const ercMustMissCi = erc8004.must_miss_rate_ci95
                                 {topPhiOther.map((e) => (
                                   <div class="entity-bar-row" role="listitem">
                                     <span class="entity-bar-label" title={e.entity}>
-                                      <span class="entity-bar-name">{e.display || e.entity}</span>
+                                      <span class="entity-bar-name">
+                                      <a href={`field/?focus=${encodeURIComponent(e.entity)}`} style="color:inherit;text-decoration:none;">
+                                        {e.display || e.entity}
+                                      </a>
+                                    </span>
                                     </span>
                                     <span class="entity-bar-track">
                                       <span
@@ -576,6 +585,11 @@ const ercMustMissCi = erc8004.must_miss_rate_ci95
                     }
                     <div class="power-law-data">
                         <div class="power-law-row highlight">
+                            <span class="wave-label">Field graph</span>
+                            <span class="wave-stat">All entities and typed connections</span>
+                            <span class="wave-value"><a href="field/" style="color:var(--signal);text-decoration:none;">Open →</a></span>
+                        </div>
+                        <div class="power-law-row highlight">
                             <span class="wave-label">Dossiers</span>
                             <span class="wave-stat">Live Φ_S / κ on federation + Pages mirrors</span>
                             <span class="wave-value">SoT</span>
@@ -590,6 +604,8 @@ const ercMustMissCi = erc8004.must_miss_rate_ci95
                 <div class="pattern-block cta-block">
                     <p class="cta-hook">The field is readable. The signal is measurable.</p>
                     <p class="cta-qualifier">
+                        <a href="field/" style="color:var(--signal);text-decoration:none;font-size:13px;">Field graph →</a>
+                        &nbsp;·&nbsp;
                         <a href="reports/" style="color:var(--signal);text-decoration:none;font-size:13px;">View signal reports →</a>
                         &nbsp;·&nbsp;
                         <a href="https://geniusflow-rwa.vercel.app" style="color:var(--signal);text-decoration:none;font-size:13px;">RWA Registry →</a>

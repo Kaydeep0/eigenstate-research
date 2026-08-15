@@ -1,0 +1,505 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import fieldGraph from '../../../public/field-graph.json';
+import { formatNum } from '../../lib/sot';
+import { nodeRadius, nodeClass } from '../../lib/fieldGraph';
+
+const fonts =
+  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
+
+const graph = fieldGraph as {
+  generated_at?: string;
+  counts?: { nodes: number; edges: number; public_nodes: number };
+  field?: { kappa?: number | null; protocol_truth?: number | null };
+  nodes: Array<{
+    id: string;
+    display: string;
+    phi_s: number | null;
+    kappa: number | null;
+    display_kind: string;
+    display_role: string;
+    demoted: boolean;
+    degree: number;
+    x: number;
+    y: number;
+  }>;
+  edges: Array<{
+    source: string;
+    target: string;
+    conn_type: string;
+    vector: string;
+  }>;
+};
+
+const W = 1200;
+const H = 760;
+const PAD = 36;
+const maxPhi = Math.max(
+  ...graph.nodes.map((n) => (n.phi_s != null && n.phi_s > 0 ? n.phi_s : 0)),
+  1
+);
+const topLabelIds = new Set(
+  [...graph.nodes]
+    .filter((n) => !n.demoted && n.phi_s != null)
+    .sort((a, b) => (b.phi_s || 0) - (a.phi_s || 0))
+    .slice(0, 14)
+    .map((n) => n.id)
+);
+const pos = new Map(graph.nodes.map((n) => [n.id, n] as const));
+const stamp = (graph.generated_at || '').slice(0, 19);
+const kappa = graph.field?.kappa;
+const pt = graph.field?.protocol_truth;
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+  title="Field graph · Eigenstate Research"
+  description="Live topology of measured entities and their connections. Node size is Φ_S from the engine dossier mirror."
+  fonts={fonts}
+>
+  <Fragment slot="head">
+    <style>
+      .field-hero {
+        padding: 48px 40px 20px;
+        background: var(--bg2);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .field-hero-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .field-kicker {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--signal);
+        margin: 0 0 10px;
+      }
+
+      .field-hero h1 {
+        font-family: var(--font-heading);
+        font-size: clamp(28px, 4vw, 40px);
+        font-weight: 700;
+        margin: 0 0 10px;
+        letter-spacing: 0.02em;
+      }
+
+      .field-lead {
+        max-width: 720px;
+        color: var(--text-secondary);
+        font-size: var(--text-base);
+        line-height: 1.55;
+        margin: 0 0 16px;
+      }
+
+      .field-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px 28px;
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-muted);
+      }
+
+      .field-stats strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      .field-shell {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 280px;
+        max-width: 1480px;
+        margin: 0 auto;
+        min-height: 72vh;
+      }
+
+      .field-main {
+        padding: 16px 16px 32px 24px;
+      }
+
+      .field-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 16px;
+        align-items: center;
+        margin-bottom: 12px;
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-secondary);
+      }
+
+      .field-controls input[type='search'] {
+        font: inherit;
+        padding: 8px 10px;
+        min-width: 220px;
+        border: 1px solid var(--border-strong);
+        background: var(--bg2);
+        color: var(--text-primary);
+      }
+
+      .field-controls label {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+      }
+
+      .field-svg {
+        width: 100%;
+        height: min(78vh, 820px);
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        cursor: grab;
+        touch-action: none;
+      }
+
+      .g-edge {
+        fill: none;
+        stroke-width: 0.9;
+        opacity: 0.38;
+      }
+
+      .g-edge[data-vector='Information'] {
+        stroke: var(--signal);
+      }
+
+      .g-edge[data-vector='Capital'] {
+        stroke: var(--accent);
+      }
+
+      .g-edge[data-vector='Infrastructure'] {
+        stroke: var(--text-secondary);
+      }
+
+      .g-edge.is-focus-edge {
+        opacity: 0.95;
+        stroke-width: 1.6;
+      }
+
+      .g-node {
+        cursor: pointer;
+      }
+
+      .g-node circle {
+        stroke: #fff;
+        stroke-width: 1;
+      }
+
+      .role-actor circle {
+        fill: var(--accent);
+      }
+
+      .role-rail circle {
+        fill: var(--signal);
+      }
+
+      .role-rule circle {
+        fill: var(--status-warning);
+      }
+
+      .role-other circle {
+        fill: var(--text-muted);
+      }
+
+      .g-label {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        fill: var(--text-primary);
+        pointer-events: none;
+        display: none;
+      }
+
+      .g-label-top,
+      .g-node.is-focus .g-label,
+      .g-label.is-on {
+        display: block;
+      }
+
+      .g-node.is-focus circle {
+        stroke: var(--text-primary);
+        stroke-width: 2;
+      }
+
+      .g-node.is-dim {
+        opacity: 0.18;
+      }
+
+      .g-node.is-hidden,
+      .g-edge.is-hidden {
+        display: none;
+      }
+
+      .field-svg:not(.is-live) .g-node[data-demoted='true'],
+      .field-svg:not(.is-live) .g-node[data-isolated='true'] {
+        display: none;
+      }
+
+      .field-side {
+        border-left: 1px solid var(--border);
+        padding: 20px 18px 40px;
+        background: var(--bg2);
+      }
+
+      .field-side h2 {
+        font-family: var(--font-heading);
+        font-size: var(--text-lg);
+        margin: 0 0 4px;
+      }
+
+      .panel-kicker,
+      .panel-code,
+      .panel-empty {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+      }
+
+      .panel-empty {
+        margin-top: 12px;
+        line-height: 1.5;
+      }
+
+      .field-side dl {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 12px;
+        margin: 14px 0;
+      }
+
+      .field-side dt {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+      }
+
+      .field-side dd {
+        margin: 2px 0 0;
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        color: var(--text-primary);
+      }
+
+      .field-side a {
+        color: var(--signal);
+        font-size: var(--text-sm);
+      }
+
+      .panel-hops {
+        list-style: none;
+        margin: 8px 0 0;
+        padding: 0;
+      }
+
+      .panel-hops li {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: var(--text-xs);
+        padding: 4px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .panel-hops button {
+        background: none;
+        border: 0;
+        padding: 0;
+        color: var(--signal);
+        cursor: pointer;
+        font: inherit;
+        text-align: left;
+      }
+
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 16px;
+        margin-top: 10px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-muted);
+      }
+
+      .legend i {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-right: 6px;
+      }
+
+      .sw-actor {
+        background: var(--accent);
+      }
+
+      .sw-rail {
+        background: var(--signal);
+      }
+
+      .sw-rule {
+        background: var(--status-warning);
+      }
+
+      .field-note {
+        margin-top: 10px;
+        font-size: var(--text-xs);
+        color: var(--text-muted);
+        max-width: 70ch;
+      }
+
+      @media (width <= 900px) {
+        .field-shell {
+          grid-template-columns: 1fr;
+        }
+
+        .field-hero,
+        .field-main {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .field-side {
+          border-left: 0;
+          border-top: 1px solid var(--border);
+        }
+      }
+    </style>
+  </Fragment>
+
+  <Nav active="field" />
+
+  <header class="field-hero">
+    <div class="field-hero-inner" id="main">
+      <p class="field-kicker">Visual membrane</p>
+      <h1>The field as a graph</h1>
+      <p class="field-lead">
+        Every node is an entity the engine already measures. Every line is a typed connection
+        (Information, Capital, or Infrastructure). Circle size is live Φ_S from the same
+        dossier mirror as the ranked list. Drag to pan. Scroll to zoom. Click a node for its
+        neighbors and dossier.
+      </p>
+      <div class="field-stats">
+        <span><strong>{graph.counts?.nodes ?? graph.nodes.length}</strong> nodes</span>
+        <span><strong>{graph.counts?.edges ?? graph.edges.length}</strong> edges</span>
+        <span>κ <strong>{formatNum(kappa, 3)}</strong></span>
+        <span>PT <strong>{formatNum(pt, 3)}</strong></span>
+        <span>baked {stamp}Z</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="field-shell">
+    <div class="field-main">
+      <div class="field-controls">
+        <input id="fieldSearch" type="search" placeholder="Search entity" autocomplete="off" />
+        <label><input id="fieldHop" type="checkbox" /> One hop</label>
+        <label><input id="fieldDims" type="checkbox" /> Dimensions</label>
+        <label><input id="fieldIsolated" type="checkbox" /> Isolated</label>
+        <label><input type="checkbox" name="fieldVector" value="Information" checked /> Information</label>
+        <label><input type="checkbox" name="fieldVector" value="Capital" checked /> Capital</label>
+        <label>
+          <input type="checkbox" name="fieldVector" value="Infrastructure" checked />
+          Infrastructure
+        </label>
+      </div>
+      <svg
+        id="fieldSvg"
+        class="field-svg"
+        viewBox={`0 0 ${W} ${H}`}
+        role="img"
+        aria-label="Topology graph of Eigenstate entities and connections"
+      >
+        <g id="graphStage">
+          {
+            graph.edges.map((e) => {
+              const a = pos.get(e.source);
+              const b = pos.get(e.target);
+              if (!a || !b) return null;
+              const x1 = PAD + a.x * (W - 2 * PAD);
+              const y1 = PAD + a.y * (H - 2 * PAD);
+              const x2 = PAD + b.x * (W - 2 * PAD);
+              const y2 = PAD + b.y * (H - 2 * PAD);
+              return (
+                <line
+                  class="g-edge"
+                  data-source={e.source}
+                  data-target={e.target}
+                  data-vector={e.vector}
+                  x1={x1}
+                  y1={y1}
+                  x2={x2}
+                  y2={y2}
+                />
+              );
+            })
+          }
+          {
+            graph.nodes.map((n) => {
+              const cx = PAD + n.x * (W - 2 * PAD);
+              const cy = PAD + n.y * (H - 2 * PAD);
+              const r = nodeRadius(n.phi_s, maxPhi);
+              const isolated = n.degree === 0;
+              return (
+                <g
+                  class:list={['g-node', nodeClass(n.display_role)]}
+                  data-id={n.id}
+                  data-demoted={n.demoted ? 'true' : 'false'}
+                  data-isolated={isolated ? 'true' : 'false'}
+                  transform={`translate(${cx} ${cy})`}
+                >
+                  <title>
+                    {n.display} · Φ_S {n.phi_s == null ? 'n/a' : n.phi_s.toFixed(3)} · {n.degree}{' '}
+                    edges
+                  </title>
+                  <circle r={r} />
+                  <text
+                    class:list={['g-label', topLabelIds.has(n.id) ? 'g-label-top' : '']}
+                    x={r + 4}
+                    y={3}
+                  >
+                    {n.display}
+                  </text>
+                </g>
+              );
+            })
+          }
+        </g>
+      </svg>
+      <div class="legend">
+        <span><i class="sw-actor"></i>Actors</span>
+        <span><i class="sw-rail"></i>Rails</span>
+        <span><i class="sw-rule"></i>Rule frameworks</span>
+        <span>Line color = vector</span>
+      </div>
+      <p class="field-note">
+        Positions are a spring layout of the topology (seed 42). They are not κ and not a
+        forecast. Isolated cards and dimension nodes stay hidden until you turn them on. Machine
+        JSON: <a href={`${base}field-graph.json`}>field-graph.json</a>.
+      </p>
+    </div>
+    <aside class="field-side" id="fieldPanel">
+      <p class="panel-empty">Click a node. Circle is the current Φ_S peak.</p>
+    </aside>
+  </div>
+
+  <Footer variant="full" />
+</Layout>
+
+<script>
+  import { initFieldGraph } from '../../lib/fieldGraph';
+  import graph from '../../../public/field-graph.json';
+
+  const svg = document.getElementById('fieldSvg');
+  if (svg instanceof SVGSVGElement) {
+    svg.classList.add('is-live');
+    initFieldGraph(svg, graph as never, import.meta.env.BASE_URL);
+  }
+</script>
