@@ -2,28 +2,18 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
-import {
-  ORIGIN_WAVES,
-  ORIGIN_SEATS,
-  ORIGIN_LINEAGE,
-  logHeight,
-} from '../../lib/originPattern';
+import { ORIGIN_SEATS, ORIGIN_LINEAGE } from '../../lib/originPattern';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
 
 const base = import.meta.env.BASE_URL;
 const fieldAt = (id: string | null) => (id ? `${base}field/?focus=${id}` : null);
-const W = 640;
-const H = 220;
-const barMax = 140;
-const barW = 48;
-const gap = (W - 80 - ORIGIN_WAVES.length * barW) / (ORIGIN_WAVES.length - 1);
 ---
 
 <Layout
   title="Origin · Circle and the VOC product · Eigenstate Research"
-  description="The 400-year pattern: power concentrates in a wave and compounds into the next rail. Framework illustration; live Φ_S is on the Field graph."
+  description="Circle is this wave's VOC product: an issuer of the claim and a custodian of sovereign paper, from the 1602 charter to USDC on T-bills."
   fonts={fonts}
 >
   <Fragment slot="head">
@@ -61,21 +51,12 @@ const gap = (W - 80 - ORIGIN_WAVES.length * barW) / (ORIGIN_WAVES.length - 1);
         color: var(--text-secondary);
         font-size: var(--text-base);
         line-height: 1.55;
-        margin: 0 0 10px;
-      }
-
-      .origin-note {
-        font-family: var(--font-mono);
-        font-size: var(--text-xs);
-        color: var(--text-muted);
         margin: 0;
-        max-width: 80ch;
-        line-height: 1.5;
       }
 
-      .origin-note a,
       .origin-section a,
-      .origin-close a {
+      .origin-close a,
+      .origin-caption a {
         color: var(--signal);
       }
 
@@ -102,35 +83,17 @@ const gap = (W - 80 - ORIGIN_WAVES.length * barW) / (ORIGIN_WAVES.length - 1);
         margin: 0 0 14px;
       }
 
-      .origin-canvas {
-        width: 100%;
-        height: min(52vh, 420px);
-        background: var(--bg2);
-        border: 1px solid var(--border);
-        border-radius: 4px;
-        cursor: pointer;
-        display: block;
-      }
-
       .origin-caption {
         font-family: var(--font-mono);
         font-size: 11px;
         color: var(--text-muted);
         margin: 8px 0 0;
         line-height: 1.45;
-      }
-
-      .origin-svg {
-        width: 100%;
-        max-width: 720px;
-        height: auto;
-        border: 1px solid var(--border);
-        background: var(--bg2);
-        border-radius: 4px;
+        max-width: 80ch;
       }
 
       .origin-figure {
-        margin: 20px 0 8px;
+        margin: 16px 0 8px;
       }
 
       .origin-figure img {
@@ -141,28 +104,6 @@ const gap = (W - 80 - ORIGIN_WAVES.length * barW) / (ORIGIN_WAVES.length - 1);
         border: 1px solid var(--border);
         border-radius: 4px;
         background: #fff;
-      }
-
-      .e-bar {
-        fill: var(--accent);
-      }
-
-      .e-axis {
-        stroke: var(--border-strong);
-        stroke-width: 1;
-      }
-
-      .e-label,
-      .e-year {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        fill: var(--text-muted);
-      }
-
-      .e-value {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        fill: var(--text-primary);
       }
 
       .seat-table {
@@ -196,10 +137,10 @@ const gap = (W - 80 - ORIGIN_WAVES.length * barW) / (ORIGIN_WAVES.length - 1);
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
+        margin-top: 20px;
       }
 
-      .lineage a,
-      .lineage span {
+      .lineage a {
         font-family: var(--font-mono);
         font-size: 11px;
         padding: 6px 10px;
@@ -207,10 +148,6 @@ const gap = (W - 80 - ORIGIN_WAVES.length * barW) / (ORIGIN_WAVES.length - 1);
         background: var(--bg2);
         color: var(--signal);
         text-decoration: none;
-      }
-
-      .lineage span {
-        color: var(--text-muted);
       }
 
       .origin-close {
@@ -244,152 +181,16 @@ const gap = (W - 80 - ORIGIN_WAVES.length * barW) / (ORIGIN_WAVES.length - 1);
         Hold one object: Power(N+1) = Power(N) × (Capital × Information × Infrastructure).
         Concentration is one wave's pile. Compounding is that pile writing the next charter.
       </p>
-      <p class="origin-note">
-        Framework illustration of the E-scale ladder, plus the January 2026 N+1 historical
-        charts recovered from that research. Live Φ_S, κ, and edges are on
-        <a href={`${base}field/`}>Field</a>. VOC has no live dossier. The engine does not mint a
-        Φ_S for 1602.
-      </p>
     </div>
   </header>
 
   <div class="origin-body">
     <section class="origin-section">
-      <h2>Reset versus compound</h2>
-      <p>
-        In other words: if every rail started even, the right panel would look like the left.
-        The N+1 backtest showed the opposite. Winners of wave N finance and design wave N+1.
-        Mass stays. Scale jumps.
-      </p>
-      <canvas
-        id="originCompound"
-        class="origin-canvas"
-        role="img"
-        aria-label="Two-track animation. Left: each wave a new equal node. Right: prior nodes remain and grow on a log E-scale."
-      ></canvas>
-      <p class="origin-caption">
-        Left track: names replace each other at the same size. Right track: names change and the
-        seat's E-scale grows. Click a live wave to open Field. E labels are framework orders of
-        magnitude, not Φ_S.
-      </p>
-      <figure class="origin-figure">
-        <img
-          src={`${base}origin/wave_persistence.png`}
-          alt="N+1 pattern: capital and infrastructure carryover from Rail to Oil through Mobile to AI, 75 percent to 95 percent as labeled."
-        />
-      </figure>
-      <p class="origin-caption">
-        Carryover as labeled on the figure (Rail to Oil about 75 percent, Mobile to AI about 95
-        percent). January 2026 N+1 historical backtest. Research estimates of capital and
-        infrastructure overlap, not Φ_S.
-      </p>
-    </section>
-
-    <section class="origin-section">
-      <h2>Four hundred years, same product</h2>
-      <p>
-        Dated beat: state charter, then railroad rebate, then Jekyll Island, then TARP, then
-        tokenized Treasuries. Government grants the rail. Private seats capture the flow. Those
-        seats write the next charter.
-      </p>
-      <figure class="origin-figure">
-        <img
-          src={`${base}origin/layerN_complete_timeline.png`}
-          alt="Layer N 400-year pattern of infrastructure capture from mercantile monopolies through TBTF to tokenized dollars."
-        />
-      </figure>
-      <p class="origin-caption">
-        January 2026 N+1 evidence-chain figure (VOC 1602 to GSIB and stablecoin rails). Historical
-        illustration. Live measurement of this wave is on Field.
-      </p>
-      <figure class="origin-figure">
-        <img
-          src={`${base}origin/layerN_rockefeller_case.png`}
-          alt="Rockefeller case: railroad rebates, refining concentration, then the same family line at Jekyll Island and National City Bank."
-        />
-      </figure>
-      <p class="origin-caption">
-        Standard Oil rebate capture, then the Rockefeller bank line into National City /
-        Citibank. Open
-        <a href={fieldAt('STANDARD_OIL')}>STANDARD OIL</a>
-        and
-        <a href={fieldAt('JEKYLL_ISLAND')}>JEKYLL ISLAND</a>
-        on Field.
-      </p>
-    </section>
-
-    <section class="origin-section">
-      <h2>The ladder</h2>
-      <p>
-        Dated beat: VOC charter 1602; Standard Oil rebate capture 1868-1880; Jekyll Island 1910
-        and the Federal Reserve Act 1913; TARP 2008; Circle issuing USDC against Treasuries now.
-        Each step is roughly three orders of magnitude on the framework E-scale.
-      </p>
-      <svg class="origin-svg" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Framework E-scale bars from VOC 1602 to Circle 2026">
-        <line class="e-axis" x1="40" y1="168" x2={W - 20} y2="168"></line>
-        {
-          ORIGIN_WAVES.map((wave, i) => {
-            const x = 40 + i * (barW + gap);
-            const h = 16 + logHeight(wave.logE) * barMax;
-            const y = 168 - h;
-            return (
-              <g>
-                <rect class="e-bar" x={x} y={y} width={barW} height={h} rx="3"></rect>
-                <text class="e-value" x={x + barW / 2} y={y - 8} text-anchor="middle">
-                  {wave.eLabel}
-                </text>
-                <text class="e-year" x={x + barW / 2} y="184" text-anchor="middle">
-                  {wave.year}
-                </text>
-                <text class="e-label" x={x + barW / 2} y="200" text-anchor="middle">
-                  {wave.name.split(' / ')[0]}
-                </text>
-              </g>
-            );
-          })
-        }
-      </svg>
-      <p class="origin-caption">
-        Source: framework E-scale on the 400-year evidence chain. This chart uses the historical
-        ladder, not engine Φ_S.
-      </p>
-    </section>
-
-    <section class="origin-section">
-      <h2>Concentration across waves</h2>
-      <p>
-        The S&amp;P 500 Top 10 share is cyclical until 2008, then it breaks higher. Sector
-        leaders inside each wave's own market stay concentrated the whole time (65 to 91
-        percent on the sector figure).
-      </p>
-      <figure class="origin-figure">
-        <img
-          src={`${base}origin/concentration_timeline.png`}
-          alt="150 years of S&P 500 Top 10 market-cap share, railroad era through the 2025 AI-era peak near 40 percent."
-        />
-      </figure>
-      <p class="origin-caption">
-        Sources on the figure: Finaeon, Visual Capitalist, Goldman Sachs. Top 10 share, 1875 to
-        2025. Peak labeled near 40 percent. This is index concentration, not Φ_S.
-      </p>
-      <figure class="origin-figure">
-        <img
-          src={`${base}origin/sector_concentration.png`}
-          alt="Dominant firm sector share by technological wave: Railroads 80 percent, Oil 91 percent, Computing 80 percent, Internet 65 percent, Mobile 75 percent, AI 85 percent."
-        />
-      </figure>
-      <p class="origin-caption">
-        Dominant-firm share inside each wave's primary sector, as labeled. Separate metric from
-        S&amp;P Top 10. January 2026 N+1 historical backtest.
-      </p>
-    </section>
-
-    <section class="origin-section">
       <h2>Two seats, changing names</h2>
       <p>
-        The pattern keeps an issuer of the claim and a custodian who holds the sovereign paper.
-        In 1602 one company sat in both chairs. In 2026 Circle issues; BlackRock manages the
-        reserve fund; BNY holds the bills.
+        In other words: the product keeps an issuer of the claim and a custodian of the sovereign
+        paper. In 1602 one company sat in both chairs. In 2026 Circle issues USDC, BlackRock
+        manages the reserve fund, and BNY holds the bills.
       </p>
       <table class="seat-table">
         <thead>
@@ -439,11 +240,67 @@ const gap = (W - 80 - ORIGIN_WAVES.length * barW) / (ORIGIN_WAVES.length - 1);
     </section>
 
     <section class="origin-section">
-      <h2>Lineage already on Field</h2>
+      <h2>How the pile writes the next charter</h2>
       <p>
-        These codes already sit in the live graph. Overview by Φ_S hides Standard Oil and Jekyll
-        Island because their current settlement pressure is small. They are the start of the
-        chain. Open them on Field.
+        Dated beat, 1868-1913. The government subsidized the railroads. Rockefeller bought the
+        rebate. Refining concentrated. The same family line sat at Jekyll Island and at National
+        City Bank.
+      </p>
+      <figure class="origin-figure">
+        <img
+          src={`${base}origin/layerN_rockefeller_case.png`}
+          alt="Rockefeller case: railroad rebates, refining concentration, then the same family line at Jekyll Island and National City Bank."
+        />
+      </figure>
+      <p class="origin-caption">
+        One mechanism: capture the rail, then design the next one. Open
+        <a href={fieldAt('STANDARD_OIL')}>STANDARD OIL</a>
+        and
+        <a href={fieldAt('JEKYLL_ISLAND')}>JEKYLL ISLAND</a>
+        on Field.
+      </p>
+    </section>
+
+    <section class="origin-section">
+      <h2>Concentration after the reset fails</h2>
+      <p>
+        The S&amp;P 500 Top 10 share rose and fell for a century. Antitrust and failure cut waves
+        down. After 2008 that reset failed. The last leg on the figure is the steepest climb in
+        the series, labeled near 40 percent.
+      </p>
+      <figure class="origin-figure">
+        <img
+          src={`${base}origin/concentration_timeline.png`}
+          alt="150 years of S&P 500 Top 10 market-cap share, railroad era through the 2025 peak labeled near 40 percent."
+        />
+      </figure>
+      <p class="origin-caption">
+        Sources on the figure: Finaeon, Visual Capitalist, Goldman Sachs. Index concentration,
+        1875-2025. 2008 sits inside the last rise.
+      </p>
+    </section>
+
+    <section class="origin-section">
+      <h2>This wave's Treasury rail</h2>
+      <p>
+        Primary dealers see Treasury liquidity first. In 2020 that proximity showed up as Mag 7
+        returning 65.8 percent against 16.3 percent for the S&amp;P 500, as labeled. The 2026
+        wrapper on that same Treasury rail is Circle issuing, BlackRock managing the fund, and
+        BNY holding the bills.
+      </p>
+      <figure class="origin-figure">
+        <img
+          src={`${base}origin/2020_liquidity_capture.png`}
+          alt="2020 liquidity capture: Magnificent 7 65.8 percent versus S&P 500 16.3 percent versus S&P excluding Mag 7 1.8 percent."
+        />
+      </figure>
+      <p class="origin-caption">
+        Proximity to the rail in 2020. The seats on that rail today:
+        <a href={fieldAt('CIRCLE')}>CIRCLE</a>
+        ·
+        <a href={fieldAt('BLACKROCK')}>BLACKROCK</a>
+        ·
+        <a href={fieldAt('BNY_MELLON')}>BNY MELLON</a>.
       </p>
       <div class="lineage">
         {
@@ -456,62 +313,23 @@ const gap = (W - 80 - ORIGIN_WAVES.length * barW) / (ORIGIN_WAVES.length - 1);
       </div>
     </section>
 
-    <section class="origin-section">
-      <h2>The cycle that stopped resetting</h2>
-      <p>
-        Antitrust and failure used to cut a wave down. After 2008 the same TARP names became
-        GSIBs. In 2020 the liquidity went first to seats already on the rails. Mag 7 returned
-        65.8 percent that year against 16.3 percent for the S&amp;P 500, as labeled on the
-        capture figure.
-      </p>
-      <figure class="origin-figure">
-        <img
-          src={`${base}origin/structural_break_2008.png`}
-          alt="2008 structural break: bank consolidation, Fed balance-sheet expansion, TARP names becoming GSIBs, S&P Top 10 cycle breaking higher."
-        />
-      </figure>
-      <p class="origin-caption">
-        January 2026 N+1 structural-break figure. Open
-        <a href={fieldAt('JPMORGAN')}>JPMORGAN</a>
-        on Field for the live seat.
-      </p>
-      <figure class="origin-figure">
-        <img
-          src={`${base}origin/2020_liquidity_capture.png`}
-          alt="2020 liquidity capture: Magnificent 7 65.8 percent versus S&P 500 16.3 percent versus S&P excluding Mag 7 1.8 percent, with cumulative compounding through 2025."
-        />
-      </figure>
-      <p class="origin-caption">
-        Incumbents already on the rails versus the rest of the index, as labeled. N+1 2020
-        liquidity-reset figure. Live Circle hop:
-        <a href={fieldAt('CIRCLE')}>?focus=CIRCLE</a>.
-      </p>
-    </section>
-
     <section class="origin-section origin-close">
       <h2>The key point is compounding</h2>
       <p>
-        Falsifier: a rail whose infrastructure is built by outsiders, with inherited books
-        decaying, would break the product. Across the four canon cases (VOC, Standard Oil, TBTF
-        banks, Magnificent 7) advantage inherited, incumbents built the next rail, and reversal
-        stayed infeasible. Methodology: <a href={`${base}methodology/`}>how we measure now</a>.
+        Falsifier: a rail built by outsiders, with inherited books decaying, would break the
+        product. VOC, Standard Oil, the TARP names, and the 2020 rail seats inherited the last
+        book and designed the next one. Methodology:
+        <a href={`${base}methodology/`}>how we measure now</a>.
       </p>
       <p>
-        The Field graph is this wave. Origin is why those nodes exist. Live map:
+        Field is this wave. Origin is why those nodes exist. Live map:
         <a href={`${base}field/`}>/field/</a>
-        · Circle hop:
+        · Circle:
         <a href={`${base}field/?focus=CIRCLE`}>?focus=CIRCLE</a>
+        · VOC has no live dossier.
       </p>
     </section>
   </div>
 
   <Footer variant="full" />
 </Layout>
-
-<script>
-  import { initOriginCompound } from '../../scripts/origin-compound';
-
-  document.addEventListener('DOMContentLoaded', () => {
-    initOriginCompound('originCompound');
-  });
-</script>
