@@ -43,6 +43,13 @@ const ROLE_CLASS: Record<string, string> = {
 const VIEW_W = 1200;
 const VIEW_H = 760;
 const VIEW_PAD = 36;
+const OVERVIEW_CAP = 36;
+const ROLE_FILL: Record<string, string> = {
+  actor: '#3e6fef',
+  rail: '#2f5a63',
+  rule_framework: '#b45309',
+  other: '#71717a',
+};
 
 export function shortLabel(raw: string): string {
   const cut = String(raw || '')
@@ -69,14 +76,6 @@ export type FieldGraphOpts = {
   latestByEntity?: Record<string, LatestReport>;
 };
 
-function bakedPx(n: FieldGraphNode): Pt {
-  return {
-    x: VIEW_PAD + n.x * (VIEW_W - 2 * VIEW_PAD),
-    y: VIEW_PAD + n.y * (VIEW_H - 2 * VIEW_PAD),
-    side: 'map',
-  };
-}
-
 export function rebuildStage(svg: SVGSVGElement, data: FieldGraphData): void {
   const stage = svg.querySelector('#graphStage');
   if (!stage) return;
@@ -84,13 +83,6 @@ export function rebuildStage(svg: SVGSVGElement, data: FieldGraphData): void {
   const maxPhi = Math.max(
     ...data.nodes.map((n) => (n.phi_s != null && n.phi_s > 0 ? n.phi_s : 0)),
     1
-  );
-  const top = new Set(
-    [...data.nodes]
-      .filter((n) => !n.demoted && n.phi_s != null)
-      .sort((a, b) => (b.phi_s || 0) - (a.phi_s || 0))
-      .slice(0, 14)
-      .map((n) => n.id)
   );
   const ns = 'http://www.w3.org/2000/svg';
   stage.replaceChildren();
@@ -123,8 +115,11 @@ export function rebuildStage(svg: SVGSVGElement, data: FieldGraphData): void {
     title.textContent = `${n.display} · Φ_S ${n.phi_s == null ? 'n/a' : n.phi_s.toFixed(3)} · ${n.degree} edges`;
     const circle = document.createElementNS(ns, 'circle');
     circle.setAttribute('r', String(r));
+    circle.setAttribute('fill', ROLE_FILL[n.display_role] || ROLE_FILL.other);
+    circle.setAttribute('stroke', '#fff');
+    circle.setAttribute('stroke-width', '1');
     const text = document.createElementNS(ns, 'text');
-    text.setAttribute('class', top.has(n.id) ? 'g-label g-label-top' : 'g-label');
+    text.setAttribute('class', 'g-label');
     text.setAttribute('x', String(r + 4));
     text.setAttribute('y', '3');
     text.textContent = shortLabel(n.display);
@@ -149,6 +144,7 @@ export function initFieldGraph(
   const fed = 'https://geniusflow-federation.vercel.app';
   const panel = document.querySelector<HTMLElement>('#fieldPanel');
   if (!stage) return;
+  svg.style.visibility = 'hidden';
 
   const params = new URLSearchParams(window.location.search);
   let focus = (params.get('focus') || '').trim().toUpperCase();
@@ -197,6 +193,17 @@ export function initFieldGraph(
         if (!keep.has(id)) out.delete(id);
       }
       if (nodeById.has(focus)) out.add(focus);
+      return out;
+    }
+    // Overview: Shneiderman. Do not plot every label. Keep the strongest Φ_S.
+    if (!q && out.size > OVERVIEW_CAP) {
+      const ranked = [...out]
+        .map((id) => nodeById.get(id))
+        .filter((n): n is FieldGraphNode => Boolean(n))
+        .sort((a, b) => (b.phi_s || 0) - (a.phi_s || 0))
+        .slice(0, OVERVIEW_CAP)
+        .map((n) => n.id);
+      return new Set(ranked);
     }
     return out;
   }
@@ -245,102 +252,76 @@ export function initFieldGraph(
     return pos;
   }
 
-  function unpackMap(vis: Set<string>): Map<string, Pt> {
-    const ids = [...vis];
+  function layoutRoles(vis: Set<string>): Map<string, Pt> {
+    const groups: Record<string, string[]> = {
+      actor: [],
+      rail: [],
+      rule_framework: [],
+      other: [],
+    };
+    for (const id of vis) {
+      const role = nodeById.get(id)?.display_role || 'other';
+      (groups[role] || groups.other).push(id);
+    }
+    const byPhi = (a: string, b: string) =>
+      (nodeById.get(b)?.phi_s || 0) - (nodeById.get(a)?.phi_s || 0);
+    for (const ids of Object.values(groups)) ids.sort(byPhi);
+    const xs: Record<string, number> = {
+      actor: 250,
+      rail: 600,
+      rule_framework: 950,
+      other: 1040,
+    };
     const pos = new Map<string, Pt>();
-    for (const id of ids) {
-      const n = nodeById.get(id);
-      if (n) pos.set(id, bakedPx(n));
-    }
-    const links: Array<[string, string]> = [];
-    for (const e of data.edges) {
-      if (vis.has(e.source) && vis.has(e.target) && e.source !== e.target) {
-        links.push([e.source, e.target]);
-      }
-    }
-    const k = Math.max(28, 520 / Math.sqrt(Math.max(ids.length, 1)));
-    const steps = Math.min(55, 18 + Math.floor(ids.length / 8));
-    for (let step = 0; step < steps; step++) {
-      const temp = 14 * (1 - step / steps);
-      const disp = new Map<string, { x: number; y: number }>();
-      for (const id of ids) disp.set(id, { x: 0, y: 0 });
-      for (let i = 0; i < ids.length; i++) {
-        const a = ids[i];
-        const pa = pos.get(a)!;
-        for (let j = i + 1; j < ids.length; j++) {
-          const b = ids[j];
-          const pb = pos.get(b)!;
-          let dx = pa.x - pb.x;
-          let dy = pa.y - pb.y;
-          let dist = Math.hypot(dx, dy);
-          if (dist < 1) {
-            dx = 0.7;
-            dy = 0.7;
-            dist = 1;
-          }
-          const force = (k * k) / dist;
-          const ux = dx / dist;
-          const uy = dy / dist;
-          const da = disp.get(a)!;
-          const db = disp.get(b)!;
-          da.x += ux * force;
-          da.y += uy * force;
-          db.x -= ux * force;
-          db.y -= uy * force;
-        }
-      }
-      for (const [s, t] of links) {
-        const pa = pos.get(s);
-        const pb = pos.get(t);
-        if (!pa || !pb) continue;
-        const dx = pa.x - pb.x;
-        const dy = pa.y - pb.y;
-        const dist = Math.hypot(dx, dy) || 1;
-        const force = Math.min((dist * dist) / k, k * 6);
-        const ux = dx / dist;
-        const uy = dy / dist;
-        disp.get(s)!.x -= ux * force;
-        disp.get(s)!.y -= uy * force;
-        disp.get(t)!.x += ux * force;
-        disp.get(t)!.y += uy * force;
-      }
-      for (const id of ids) {
-        const d = disp.get(id)!;
-        const mag = Math.hypot(d.x, d.y) || 1;
-        const scale = Math.min(mag, temp) / mag;
-        const p = pos.get(id)!;
-        p.x += d.x * scale;
-        p.y += d.y * scale;
-      }
+    const top = 88;
+    const bot = VIEW_H - 56;
+    for (const [role, ids] of Object.entries(groups)) {
+      const x0 = xs[role] ?? 600;
+      const n = ids.length;
+      if (!n) continue;
+      const cols = n > 20 ? 2 : 1;
+      const per = Math.ceil(n / cols);
+      ids.forEach((id, i) => {
+        const col = Math.floor(i / per);
+        const row = i % per;
+        const count = Math.min(per, n - col * per);
+        const span = count <= 1 ? 0 : (bot - top) / Math.max(count - 1, 1);
+        const x = x0 + (cols === 2 ? (col === 0 ? -42 : 42) : 0);
+        const y = count <= 1 ? (top + bot) / 2 : top + row * span;
+        pos.set(id, { x, y, side: role === 'other' ? 'left' : 'map' });
+      });
     }
     return pos;
   }
 
-  function fitTo(pos: Map<string, Pt>) {
-    const pts = [...pos.values()];
-    if (!pts.length) {
-      view = { x: 0, y: 0, k: 1 };
-      applyView();
-      return;
+  function syncRoleHeaders(show: boolean, vis: Set<string>) {
+    if (!stage) return;
+    const prev = stage.querySelector('.g-headers');
+    prev?.remove();
+    if (!show) return;
+    const present = new Set(
+      [...vis].map((id) => nodeById.get(id)?.display_role || 'other')
+    );
+    const ns = 'http://www.w3.org/2000/svg';
+    const g = document.createElementNS(ns, 'g');
+    g.setAttribute('class', 'g-headers');
+    const cols: Array<[string, number, string]> = [
+      ['Actors', 250, 'actor'],
+      ['Rails', 600, 'rail'],
+      ['Rule frameworks', 950, 'rule_framework'],
+      ['Other', 1040, 'other'],
+    ];
+    for (const [label, x, role] of cols) {
+      if (!present.has(role)) continue;
+      const t = document.createElementNS(ns, 'text');
+      t.setAttribute('class', 'g-col-head');
+      t.setAttribute('x', String(x));
+      t.setAttribute('y', '36');
+      t.setAttribute('text-anchor', 'middle');
+      t.textContent = label;
+      g.appendChild(t);
     }
-    let minX = Infinity;
-    let minY = Infinity;
-    let maxX = -Infinity;
-    let maxY = -Infinity;
-    for (const p of pts) {
-      minX = Math.min(minX, p.x);
-      minY = Math.min(minY, p.y);
-      maxX = Math.max(maxX, p.x);
-      maxY = Math.max(maxY, p.y);
-    }
-    const bw = Math.max(maxX - minX, 80);
-    const bh = Math.max(maxY - minY, 80);
-    const pad = 48;
-    const k = Math.min((VIEW_W - pad * 2) / bw, (VIEW_H - pad * 2) / bh, 3.2) * 0.92;
-    view.k = k;
-    view.x = pad + (VIEW_W - pad * 2 - bw * k) / 2 - minX * k;
-    view.y = pad + (VIEW_H - pad * 2 - bh * k) / 2 - minY * k;
-    applyView();
+    stage.insertBefore(g, stage.firstChild);
   }
 
   function applyPositions(pos: Map<string, Pt>, vis: Set<string>) {
@@ -366,9 +347,9 @@ export function initFieldGraph(
           label.setAttribute('x', '0');
           label.setAttribute('y', String(-(r + 14)));
         } else {
-          label.setAttribute('text-anchor', 'start');
-          label.setAttribute('x', String(r + 6));
-          label.setAttribute('y', '4');
+          label.setAttribute('text-anchor', 'middle');
+          label.setAttribute('x', '0');
+          label.setAttribute('y', String(r + 16));
         }
       }
     });
@@ -386,8 +367,15 @@ export function initFieldGraph(
   function renderPanel(id: string | null) {
     if (!panel) return;
     if (!id || !nodeById.has(id)) {
-      panel.innerHTML =
-        '<p class="panel-empty">Click a node. Circle is the current Φ_S peak.</p>';
+      panel.innerHTML = `
+        <p class="panel-kicker">Overview</p>
+        <h2>Strongest Φ_S by role</h2>
+        <p class="panel-empty">
+          Size is Φ_S. Color and column are the same role: actors, rails, rule frameworks.
+          Names are the largest eight. Hover any node for the rest. Click a node for its
+          one-hop neighborhood, live dossier, and dated report.
+        </p>
+      `;
       return;
     }
     const n = nodeById.get(id)!;
@@ -443,23 +431,32 @@ export function initFieldGraph(
     const hop = Boolean(focus && hopToggle?.checked);
     const nbr = neighbors.get(focus) || new Set();
     svg.classList.toggle('is-hop', hop);
+    svg.classList.toggle('is-overview', !hop);
 
-    const pos = hop && focus ? layoutHop(vis, focus) : unpackMap(vis);
+    const searching = Boolean((search?.value || '').trim());
+    const rankedPhi = [...vis]
+      .map((id) => nodeById.get(id))
+      .filter((n): n is FieldGraphNode => Boolean(n))
+      .sort((a, b) => (b.phi_s || 0) - (a.phi_s || 0));
+    const labelCount = hop || searching ? rankedPhi.length : 8;
+    const topLabel = new Set(rankedPhi.slice(0, labelCount).map((n) => n.id));
+    if (focus) topLabel.add(focus);
+
+    const pos = hop && focus ? layoutHop(vis, focus) : layoutRoles(vis);
     applyPositions(pos, vis);
-    if (hop) {
-      view = { x: 0, y: 0, k: 1 };
-      applyView();
-    } else {
-      fitTo(pos);
-    }
+    view = { x: 0, y: 0, k: 1 };
+    applyView();
+    syncRoleHeaders(!hop, vis);
 
     svg.querySelectorAll<SVGElement>('.g-edge').forEach((el) => {
       const s = el.dataset.source || '';
       const t = el.dataset.target || '';
       const v = el.dataset.vector || '';
       const incident = !hop || s === focus || t === focus;
+      const strong = topLabel.has(s) && topLabel.has(t);
       const on = vis.has(s) && vis.has(t) && vec.has(v) && incident;
       el.classList.toggle('is-hidden', !on);
+      el.classList.toggle('is-strong', Boolean(!hop && strong));
       el.classList.toggle('is-focus-edge', Boolean(focus && (s === focus || t === focus)));
     });
     svg.querySelectorAll<SVGElement>('.g-node').forEach((el) => {
@@ -468,11 +465,11 @@ export function initFieldGraph(
       el.classList.toggle('is-hidden', !on);
       el.classList.toggle('is-focus', id === focus);
       el.classList.toggle('is-neighbor', hop && nbr.has(id));
-      el.classList.toggle('is-dim', Boolean(focus) && !hop && id !== focus && !nbr.has(id));
+      el.classList.toggle('is-dim', hop && Boolean(focus) && id !== focus && !nbr.has(id));
       const label = el.querySelector('.g-label');
       if (label) {
-        if (hop && on) label.classList.add('is-on');
-        else label.classList.remove('is-on');
+        label.classList.toggle('is-topk', topLabel.has(id));
+        label.classList.toggle('is-on', hop && on);
       }
     });
     renderPanel(focus || null);
@@ -495,7 +492,11 @@ export function initFieldGraph(
     });
   });
   svg.addEventListener('click', () => {
-    if (hopToggle?.checked) return;
+    if (panned) {
+      panned = false;
+      return;
+    }
+    if (hopToggle) hopToggle.checked = false;
     setFocus('');
   });
 
@@ -507,16 +508,21 @@ export function initFieldGraph(
 
   let dragging = false;
   let last = { x: 0, y: 0 };
+  let panned = false;
   svg.addEventListener('pointerdown', (ev) => {
     if ((ev.target as Element).closest('.g-node')) return;
     dragging = true;
+    panned = false;
     last = { x: ev.clientX, y: ev.clientY };
     svg.setPointerCapture(ev.pointerId);
   });
   svg.addEventListener('pointermove', (ev) => {
     if (!dragging) return;
-    view.x += ev.clientX - last.x;
-    view.y += ev.clientY - last.y;
+    const dx = ev.clientX - last.x;
+    const dy = ev.clientY - last.y;
+    if (Math.hypot(dx, dy) > 3) panned = true;
+    view.x += dx;
+    view.y += dy;
     last = { x: ev.clientX, y: ev.clientY };
     applyView();
   });
@@ -544,4 +550,5 @@ export function initFieldGraph(
 
   if (focus && !nodeById.has(focus)) focus = '';
   paint();
+  svg.style.visibility = '';
 }
