@@ -92,6 +92,14 @@ export const ORIGIN_SEATS: OriginSeatRow[] = [
     custodianName: 'BlackRock reserves + BNY custody',
     custodianIds: ['BLACKROCK', 'BNY_MELLON'],
   },
+  {
+    year: '2026',
+    wrapper: 'USDT on Treasuries',
+    issuerName: 'Tether',
+    issuerId: 'TETHER',
+    custodianName: 'Cantor Fitzgerald (Treasury custody rail)',
+    custodianIds: ['CANTOR_FITZGERALD'],
+  },
 ];
 
 export const ORIGIN_LINEAGE = [
@@ -102,9 +110,11 @@ export const ORIGIN_LINEAGE = [
   { id: 'JPMORGAN', note: 'Morgan line, still Ring 3' },
   { id: 'TREASURY_MARKET', note: 'Instrument under every wrapper' },
   { id: 'DTCC', note: 'Clearing memory' },
-  { id: 'CIRCLE', note: 'This wave issuer' },
-  { id: 'BLACKROCK', note: 'Reserve manager' },
-  { id: 'BNY_MELLON', note: 'Custody hub' },
+  { id: 'CIRCLE', note: 'USDC issuer' },
+  { id: 'BLACKROCK', note: 'Circle Reserve Fund' },
+  { id: 'BNY_MELLON', note: 'USDC custody hub' },
+  { id: 'TETHER', note: 'USDT issuer' },
+  { id: 'CANTOR_FITZGERALD', note: 'Tether Treasury rail' },
 ];
 
 export function logHeight(logE: number, minLog = -3, maxLog = 9): number {

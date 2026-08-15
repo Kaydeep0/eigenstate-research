@@ -12,8 +12,8 @@ const fieldAt = (id: string | null) => (id ? `${base}field/?focus=${id}` : null)
 ---
 
 <Layout
-  title="Origin · Circle and the VOC product · Eigenstate Research"
-  description="Circle is this wave's VOC product: an issuer of the claim and a custodian of sovereign paper, from the 1602 charter to USDC on T-bills."
+  title="Origin · Circle, Tether, and the VOC product · Eigenstate Research"
+  description="Circle and Tether are this wave's names for a VOC-era product: an issuer of the claim and a custodian of sovereign paper, from the 1602 charter to USDC and USDT on Treasuries."
   fonts={fonts}
 >
   <Fragment slot="head">
@@ -176,7 +176,7 @@ const fieldAt = (id: string | null) => (id ? `${base}field/?focus=${id}` : null)
   <header class="origin-hero">
     <div class="origin-inner" id="main">
       <p class="origin-kicker">400-year pattern</p>
-      <h1>Circle is this wave's name for a VOC-era product</h1>
+      <h1>Circle and Tether are this wave's names for a VOC-era product</h1>
       <p class="origin-lead">
         Hold one object: Power(N+1) = Power(N) × (Capital × Information × Infrastructure).
         Concentration is one wave's pile. Compounding is that pile writing the next charter.
@@ -189,8 +189,9 @@ const fieldAt = (id: string | null) => (id ? `${base}field/?focus=${id}` : null)
       <h2>Two seats, changing names</h2>
       <p>
         In other words: the product keeps an issuer of the claim and a custodian of the sovereign
-        paper. In 1602 one company sat in both chairs. In 2026 Circle issues USDC, BlackRock
-        manages the reserve fund, and BNY holds the bills.
+        paper. In 1602 one company sat in both chairs. In 2026 two issuers sit in the claim
+        chair. Circle issues USDC; BlackRock manages the reserve fund; BNY holds the bills.
+        Tether issues USDT. Cantor Fitzgerald sits on that Treasury custody rail.
       </p>
       <table class="seat-table">
         <thead>
@@ -285,8 +286,8 @@ const fieldAt = (id: string | null) => (id ? `${base}field/?focus=${id}` : null)
       <p>
         Primary dealers see Treasury liquidity first. In 2020 that proximity showed up as Mag 7
         returning 65.8 percent against 16.3 percent for the S&amp;P 500, as labeled. The 2026
-        wrapper on that same Treasury rail is Circle issuing, BlackRock managing the fund, and
-        BNY holding the bills.
+        wrappers on that same Treasury rail are USDC (Circle, BlackRock, BNY) and USDT (Tether,
+        Cantor Fitzgerald).
       </p>
       <figure class="origin-figure">
         <img
@@ -300,7 +301,11 @@ const fieldAt = (id: string | null) => (id ? `${base}field/?focus=${id}` : null)
         ·
         <a href={fieldAt('BLACKROCK')}>BLACKROCK</a>
         ·
-        <a href={fieldAt('BNY_MELLON')}>BNY MELLON</a>.
+        <a href={fieldAt('BNY_MELLON')}>BNY MELLON</a>
+        ·
+        <a href={fieldAt('TETHER')}>TETHER</a>
+        ·
+        <a href={fieldAt('CANTOR_FITZGERALD')}>CANTOR FITZGERALD</a>.
       </p>
       <div class="lineage">
         {
@@ -326,6 +331,8 @@ const fieldAt = (id: string | null) => (id ? `${base}field/?focus=${id}` : null)
         <a href={`${base}field/`}>/field/</a>
         · Circle:
         <a href={`${base}field/?focus=CIRCLE`}>?focus=CIRCLE</a>
+        · Tether:
+        <a href={`${base}field/?focus=TETHER`}>?focus=TETHER</a>
         · VOC has no live dossier.
       </p>
     </section>
