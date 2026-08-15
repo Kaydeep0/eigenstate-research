@@ -1,9 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import fieldGraph from '../../../public/field-graph.json';
-import { formatNum } from '../../lib/sot';
+import { formatNum, entityCodeFromReportId } from '../../lib/sot';
+import { slugFor } from '../../lib/reports';
 import { nodeRadius, nodeClass, shortLabel } from '../../lib/fieldGraph';
 
 const fonts =
@@ -52,6 +54,17 @@ const stamp = (graph.generated_at || '').slice(0, 19);
 const kappa = graph.field?.kappa;
 const pt = graph.field?.protocol_truth;
 const base = import.meta.env.BASE_URL;
+
+const latestByEntity: Record<string, { slug: string; date: string; id: string }> = {};
+for (const r of await getCollection('reports')) {
+  const code = entityCodeFromReportId(String(r.data.id || ''));
+  if (!code) continue;
+  const date = String(r.data.date_iso || '');
+  const prev = latestByEntity[code];
+  if (!prev || date > prev.date) {
+    latestByEntity[code] = { slug: slugFor(r.id), date, id: String(r.data.id) };
+  }
+}
 ---
 
 <Layout
@@ -90,11 +103,15 @@ const base = import.meta.env.BASE_URL;
       }
 
       .field-lead {
-        max-width: 720px;
+        max-width: 760px;
         color: var(--text-secondary);
         font-size: var(--text-base);
         line-height: 1.55;
         margin: 0 0 16px;
+      }
+
+      .panel-links p {
+        margin: 0 0 6px;
       }
 
       .field-stats {
@@ -401,10 +418,10 @@ const base = import.meta.env.BASE_URL;
       <p class="field-kicker">Visual membrane</p>
       <h1>The field as a graph</h1>
       <p class="field-lead">
-        Every node is an entity the engine already measures. Every line is a typed connection
-        (Information, Capital, or Infrastructure). Circle size is live Φ_S from the same
-        dossier mirror as the ranked list. Drag to pan. Scroll to zoom. Click a node for its
-        neighbors and dossier.
+        One field. The map is the living picture: node size is Φ_S, lines are connections
+        that have been measured. Vercel is the same card for machines. A signal report is a
+        dated beat when the membrane mints a reading, not a rewrite of yesterday. Click a
+        node for the live dossier, the latest report, and the Vercel feed.
       </p>
       <div class="field-stats">
         <span><strong>{graph.counts?.nodes ?? graph.nodes.length}</strong> nodes</span>
@@ -500,9 +517,8 @@ const base = import.meta.env.BASE_URL;
         <span>Line color = vector</span>
       </div>
       <p class="field-note">
-        One hop places the focused entity in the center, inbound on the left, outbound on the
-        right. Uncheck One hop for the whole map. Isolated cards and dimension nodes stay hidden
-        until you turn them on. Machine JSON:
+        Parkash rebakes this graph with field-state. Pages push plus a refresh loads new
+        sizes and new edges. Dated reports stay the beat they were. Machine JSON:
         <a href={`${base}field-graph.json`}>field-graph.json</a>.
       </p>
     </div>
@@ -512,15 +528,38 @@ const base = import.meta.env.BASE_URL;
   </div>
 
   <Footer variant="full" />
+  <script id="field-latest-json" type="application/json" set:html={JSON.stringify(latestByEntity)} />
 </Layout>
 
 <script>
-  import { initFieldGraph } from '../../lib/fieldGraph';
-  import graph from '../../../public/field-graph.json';
+  import { initFieldGraph, rebuildStage } from '../../lib/fieldGraph';
+  import baked from '../../../public/field-graph.json';
 
   const svg = document.getElementById('fieldSvg');
-  if (svg instanceof SVGSVGElement) {
-    svg.classList.add('is-live');
-    initFieldGraph(svg, graph as never, import.meta.env.BASE_URL);
+  const raw = document.getElementById('field-latest-json')?.textContent || '{}';
+  let latest: Record<string, { slug: string; date: string; id: string }> = {};
+  try {
+    latest = JSON.parse(raw) as typeof latest;
+  } catch {
+    latest = {};
   }
+
+  async function boot() {
+    if (!(svg instanceof SVGSVGElement)) return;
+    let data = baked as typeof baked;
+    try {
+      const res = await fetch(`${import.meta.env.BASE_URL}field-graph.json`, { cache: 'no-store' });
+      if (res.ok) {
+        const live = await res.json();
+        if (live && Array.isArray(live.nodes) && Array.isArray(live.edges)) data = live;
+      }
+    } catch {
+      /* keep bake */
+    }
+    svg.classList.add('is-live');
+    rebuildStage(svg, data as never);
+    initFieldGraph(svg, data as never, import.meta.env.BASE_URL, { latestByEntity: latest });
+  }
+
+  boot();
 </script>

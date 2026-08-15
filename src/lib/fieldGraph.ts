@@ -63,6 +63,12 @@ export function nodeClass(role: string): string {
   return ROLE_CLASS[role] || ROLE_CLASS.other;
 }
 
+export type LatestReport = { slug: string; date: string; id: string };
+
+export type FieldGraphOpts = {
+  latestByEntity?: Record<string, LatestReport>;
+};
+
 function bakedPx(n: FieldGraphNode): Pt {
   return {
     x: VIEW_PAD + n.x * (VIEW_W - 2 * VIEW_PAD),
@@ -71,10 +77,67 @@ function bakedPx(n: FieldGraphNode): Pt {
   };
 }
 
+export function rebuildStage(svg: SVGSVGElement, data: FieldGraphData): void {
+  const stage = svg.querySelector('#graphStage');
+  if (!stage) return;
+  const pos = new Map(data.nodes.map((n) => [n.id, n] as const));
+  const maxPhi = Math.max(
+    ...data.nodes.map((n) => (n.phi_s != null && n.phi_s > 0 ? n.phi_s : 0)),
+    1
+  );
+  const top = new Set(
+    [...data.nodes]
+      .filter((n) => !n.demoted && n.phi_s != null)
+      .sort((a, b) => (b.phi_s || 0) - (a.phi_s || 0))
+      .slice(0, 14)
+      .map((n) => n.id)
+  );
+  const ns = 'http://www.w3.org/2000/svg';
+  stage.replaceChildren();
+  for (const e of data.edges) {
+    const a = pos.get(e.source);
+    const b = pos.get(e.target);
+    if (!a || !b) continue;
+    const line = document.createElementNS(ns, 'line');
+    line.setAttribute('class', 'g-edge');
+    line.dataset.source = e.source;
+    line.dataset.target = e.target;
+    line.dataset.vector = e.vector || 'Information';
+    line.setAttribute('x1', String(VIEW_PAD + a.x * (VIEW_W - 2 * VIEW_PAD)));
+    line.setAttribute('y1', String(VIEW_PAD + a.y * (VIEW_H - 2 * VIEW_PAD)));
+    line.setAttribute('x2', String(VIEW_PAD + b.x * (VIEW_W - 2 * VIEW_PAD)));
+    line.setAttribute('y2', String(VIEW_PAD + b.y * (VIEW_H - 2 * VIEW_PAD)));
+    stage.appendChild(line);
+  }
+  for (const n of data.nodes) {
+    const cx = VIEW_PAD + n.x * (VIEW_W - 2 * VIEW_PAD);
+    const cy = VIEW_PAD + n.y * (VIEW_H - 2 * VIEW_PAD);
+    const r = nodeRadius(n.phi_s, maxPhi);
+    const g = document.createElementNS(ns, 'g');
+    g.setAttribute('class', `g-node ${nodeClass(n.display_role)}`);
+    g.dataset.id = n.id;
+    g.dataset.demoted = n.demoted ? 'true' : 'false';
+    g.dataset.isolated = n.degree === 0 ? 'true' : 'false';
+    g.setAttribute('transform', `translate(${cx} ${cy})`);
+    const title = document.createElementNS(ns, 'title');
+    title.textContent = `${n.display} · Φ_S ${n.phi_s == null ? 'n/a' : n.phi_s.toFixed(3)} · ${n.degree} edges`;
+    const circle = document.createElementNS(ns, 'circle');
+    circle.setAttribute('r', String(r));
+    const text = document.createElementNS(ns, 'text');
+    text.setAttribute('class', top.has(n.id) ? 'g-label g-label-top' : 'g-label');
+    text.setAttribute('x', String(r + 4));
+    text.setAttribute('y', '3');
+    text.textContent = shortLabel(n.display);
+    g.append(title, circle, text);
+    stage.appendChild(g);
+  }
+}
+
 export function initFieldGraph(
   svg: SVGSVGElement,
   data: FieldGraphData,
-  base: string
+  base: string,
+  opts: FieldGraphOpts = {}
 ): void {
   const stage = svg.querySelector<SVGGElement>('#graphStage');
   const search = document.querySelector<HTMLInputElement>('#fieldSearch');
@@ -82,6 +145,8 @@ export function initFieldGraph(
   const dimToggle = document.querySelector<HTMLInputElement>('#fieldDims');
   const isolatedToggle = document.querySelector<HTMLInputElement>('#fieldIsolated');
   const vectorBox = document.querySelectorAll<HTMLInputElement>('input[name="fieldVector"]');
+  const latestByEntity = opts.latestByEntity || {};
+  const fed = 'https://geniusflow-federation.vercel.app';
   const panel = document.querySelector<HTMLElement>('#fieldPanel');
   if (!stage) return;
 
@@ -333,6 +398,13 @@ export function initFieldGraph(
     const phi = n.phi_s == null ? 'n/a' : n.phi_s.toFixed(4);
     const kap = n.kappa == null ? 'n/a' : n.kappa.toFixed(4);
     const dossier = `${base}dossier/${n.id}/`;
+    const hub = `${base}reports/${n.id.toLowerCase().replace(/_/g, '-')}/`;
+    const report = latestByEntity[n.id];
+    const feed = `${fed}/api/report_feed?entity=${encodeURIComponent(n.id)}`;
+    const liveDos = `${fed}/api/dossier?entity=${encodeURIComponent(n.id)}`;
+    const reportLink = report
+      ? `<p><a href="${base}reports/${report.slug}/">Latest report · ${report.date}</a></p>`
+      : `<p class="panel-empty">No dated report on this node yet. Live card still updates.</p>`;
     const hops = nbrs
       .slice(0, 14)
       .map(
@@ -351,7 +423,13 @@ export function initFieldGraph(
         <div><dt>Degree</dt><dd>${n.degree}</dd></div>
         <div><dt>M1 obs</dt><dd>${n.m1_obs}</dd></div>
       </dl>
-      <p><a href="${dossier}">Open dossier</a></p>
+      <div class="panel-links">
+        <p><a href="${dossier}">Live dossier</a></p>
+        ${reportLink}
+        <p><a href="${hub}">Report history</a></p>
+        <p><a href="${liveDos}">Vercel dossier</a></p>
+        <p><a href="${feed}">Vercel feed</a></p>
+      </div>
       ${hops ? `<p class="panel-kicker">Neighbors</p><ul class="panel-hops">${hops}</ul>` : ''}
     `;
     panel.querySelectorAll<HTMLButtonElement>('[data-jump]').forEach((btn) => {
