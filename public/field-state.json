@@ -1,22 +1,22 @@
 {
   "schema": "eigenstate.pages_sot.v1",
   "sot_definition": "SoT (source of truth) for Host/Pages is the engine measurement state: workspace/HOST/state.json (κ, PT, parkash stamps), M1 coverage from the coverage ledger (m1_strict ∩ topology / 199), and the host predictions register for scored claims. Website tiles must bake from this stamp — not frozen marketing HTML.",
-  "generated_at": "2026-08-15T22:08:01.958158+00:00",
+  "generated_at": "2026-08-16T01:03:53.569658+00:00",
   "sources": {
     "host_ref": "workspace/HOST/state.json",
-    "host_updated_at": "2026-08-15T20:18:25.290878+00:00",
+    "host_updated_at": "2026-08-15T22:08:15.931839+00:00",
     "parkash_last_parkash_at": "2026-08-15T20:30:33.173618+00:00",
     "coverage_sot_stamped_at": "2026-08-15T20:30:33.173615+00:00",
     "coverage_basis": "primary_m1_wire_14",
     "data_ref": "geniusflow/data"
   },
   "field": {
-    "kappa": 0.332012,
-    "kappa_act": 0.332012,
-    "kappa_graph": 0.6682,
+    "kappa": 0.3195,
+    "kappa_act": 0.3195,
+    "kappa_graph": 0.6687,
     "kappa_note": "kappa and kappa_act are the capture/act blend. kappa_graph is topology diagnostic.",
-    "protocol_truth": 0.031093,
-    "PT": 0.031093,
+    "protocol_truth": 0.04,
+    "PT": 0.04,
     "G_external_cumulative": 152.11999999999998,
     "mode": "sahaj",
     "canonical_act_threshold": 0.618034
@@ -38,25 +38,26 @@
   },
   "vault_at_export": {
     "note": "cycle_vault_records.json is a trimmed working buffer. Per-entity counts here are vault@export rows — not M1 lifetime observations.",
-    "total_rows": 64,
-    "entities_with_rows": 16,
+    "total_rows": 65,
+    "entities_with_rows": 17,
     "by_entity": {
       "RING": 4,
       "CABLE": 8,
-      "HIGHWAY": 5,
+      "HIGHWAY": 4,
       "DEFI_AUDIENCE": 8,
       "CRYPTO_NATIVE_AUDIENCE": 8,
       "RWA_AUDIENCE": 8,
       "COINBASE": 4,
       "CIRCLE": 4,
       "SEC": 4,
-      "STANDARD_OIL": 1,
-      "BLACKROCK": 4,
-      "JPMORGAN": 2,
-      "NATIONAL_CITY_BANK": 1,
-      "INSTITUTIONAL_CUSTODY_POOL": 1,
       "CUSTODY_IS_SOLVED": 1,
-      "ONCHAIN_IS_TRANSPARENT": 1
+      "ONCHAIN_IS_TRANSPARENT": 1,
+      "BLACKROCK": 4,
+      "JPMORGAN": 3,
+      "MAPLE": 1,
+      "STANDARD_OIL": 1,
+      "NATIONAL_CITY_BANK": 1,
+      "RIPPLE": 1
     }
   },
   "entity_m1_obs_counts": {
@@ -929,9 +930,9 @@
     }
   ],
   "helix": {
-    "index": 3702,
+    "index": 3729,
     "fingerprint_prefix": null,
-    "n_entries": 3703,
+    "n_entries": 3730,
     "note": "Local helix chain tip at export — on-chain commits remain gated."
   },
   "meta": {
