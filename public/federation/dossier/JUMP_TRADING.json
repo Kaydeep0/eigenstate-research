@@ -1,7 +1,7 @@
 {
   "entity": "JUMP_TRADING",
   "node": "34539544",
-  "compiled_at": "2026-08-16T04:04:03.259023+00:00",
+  "compiled_at": "2026-08-16T10:15:45.792705+00:00",
   "digest": "sha256:b91e7ae0fee6b1f5e3f23e4ed751a8721295f4a336c72ddcbd27287e310342a8",
   "own_numbers": {
     "phi_s": 0.02,
@@ -110,5 +110,31 @@
     "bindable_n": 0,
     "domains": [],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
+  },
+  "last_observation": {
+    "available": true,
+    "entity": "JUMP_TRADING",
+    "confidence": "CONFIRMED",
+    "m1_strict": true,
+    "not_claim_attested": true,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "source": "brokercheck_finra",
+    "wire": "brokercheck",
+    "ts": "2026-08-15T13:12:48.350094+00:00",
+    "write_reason": "brokercheck_firm_hit",
+    "source_url": null,
+    "vault_row_ref": "sensor:brokercheck:JUMP_TRADING:2026-08-15T13:12:48.350094+00:00",
+    "sensor_id": null,
+    "surge_domain": "progression",
+    "sigma_key": "sigma_progression",
+    "party_id": "sevadar:05_arjan_ganga",
+    "classify_action": "observe",
+    "bindable": true,
+    "bound": false,
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
   }
 }

@@ -1,6 +1,6 @@
 # Grounded claim corpus: the SEC and Fed claims this node publishes, rechecked
 
-Generated 2026-08-14T20:35:22.772189+00:00 · probe v1.0.1 · digest `5e2838ca3605ab36`
+Generated 2026-08-16T11:00:12.946222+00:00 · probe v1.0.1 · digest `d94b8706ffadc18e`
 
 The population, every source URL and expected string, the limbs with their admit conditions and seven predictions were published before this run at digest `dc8f54dfef2d82e8`, in an earlier commit. Nothing in that file was edited afterwards.
 
@@ -61,7 +61,7 @@ Who each refusal belongs to:
 
 The SEC operates a free full text index over registrant filings that any program can query without credentials. The Federal Reserve operates no equivalent over its own statements. Of the 6 claims, 3 had an index to ask and 3 did not, and that refusal belongs to the absence of an index rather than to the claim or to this node.
 
-Where an index existed it answered for 3 of 3 claims. This probe then fetched 4 filing documents and found the recorded string in the body of a filing for 3 claims.
+Where an index existed it answered for 3 of 3 claims. This probe then fetched 3 filing documents and found the recorded string in the body of a filing for 3 claims.
 
 A corroborating filing is a registrant's document. It shows the phrase is used in a primary filing and it does not make the filer authoritative for the claim. Neither regulator in this corpus files on EDGAR as a registrant, so the limb asking whether the corroborating document was authored by the regulator cannot pass for any claim here, and the empty CIK sets that make that true were published in the expectations file rather than filled with a plausible looking number.
 

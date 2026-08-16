@@ -1,8 +1,8 @@
 {
   "entity": "SEC",
   "node": "34539544",
-  "compiled_at": "2026-08-16T04:04:04.719004+00:00",
-  "digest": "sha256:f8f7e244037e376b65d917222a2d42f24b0d87e3c21ae965b04c8f6c0467f9b1",
+  "compiled_at": "2026-08-16T10:15:49.099339+00:00",
+  "digest": "sha256:3afd29fbcc210abaf69f0945ae1194be500d2a6de745aa9743846ee7488303d7",
   "own_numbers": {
     "phi_s": 2.9249,
     "kappa": 0.0002,
@@ -199,7 +199,7 @@
     ],
     "observation": {
       "source": "information_flow",
-      "last_observed_at": "2026-08-16T03:59:58.187848+00:00",
+      "last_observed_at": "2026-08-16T10:05:12.646726+00:00",
       "last_delta_i": 1.0,
       "stale": false
     }
@@ -335,5 +335,31 @@
       }
     ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
+  },
+  "last_observation": {
+    "available": true,
+    "entity": "SEC",
+    "confidence": "CONFIRMED",
+    "m1_strict": true,
+    "not_claim_attested": true,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "source": "sec_edgar",
+    "wire": "sec",
+    "ts": "2026-08-15T20:28:17.426595+00:00",
+    "write_reason": "change_19.5pct",
+    "source_url": null,
+    "vault_row_ref": "vault:65:SEC:sec_edgar:2026-08-15T20:28:17.426595+00:00",
+    "sensor_id": null,
+    "surge_domain": "progression",
+    "sigma_key": "sigma_progression",
+    "party_id": "sevadar:05_arjan_ganga",
+    "classify_action": "observe",
+    "bindable": true,
+    "bound": false,
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
   }
 }

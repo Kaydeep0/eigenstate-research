@@ -1,7 +1,7 @@
 {
   "entity": "BNY_MELLON",
   "node": "34539544",
-  "compiled_at": "2026-08-16T04:04:00.982036+00:00",
+  "compiled_at": "2026-08-16T10:15:40.541578+00:00",
   "digest": "sha256:2d0cdabe0bcc3ddad4294eb51e00480094ef7c86d633b78c914cbbd654e43603",
   "own_numbers": {
     "phi_s": 1.6667,
@@ -203,7 +203,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-16T03:01:02.685960+00:00",
+        "last_observed_at": "2026-08-16T07:00:58.178469+00:00",
         "filings": null,
         "note": "Bank of New York Mellon Corp \u2014 4784 total filings, 40 in last 90d"
       }
@@ -317,5 +317,31 @@
       }
     ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
+  },
+  "last_observation": {
+    "available": true,
+    "entity": "BNY_MELLON",
+    "confidence": "CONFIRMED",
+    "m1_strict": true,
+    "not_claim_attested": true,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "source": "settlement_primary_landing",
+    "wire": "settlement_substrate",
+    "ts": "2026-08-15T20:28:19.517981+00:00",
+    "write_reason": "first_observation",
+    "source_url": null,
+    "vault_row_ref": "vault:89:BNY_MELLON:settlement_primary_landing:2026-08-15T20:28:19.517981+00:00",
+    "sensor_id": null,
+    "surge_domain": "progression",
+    "sigma_key": "sigma_progression",
+    "party_id": "sevadar:05_arjan_ganga",
+    "classify_action": "observe",
+    "bindable": true,
+    "bound": false,
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
   }
 }

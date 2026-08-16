@@ -1,7 +1,7 @@
 {
   "entity": "PAXOS",
   "node": "34539544",
-  "compiled_at": "2026-08-16T04:04:04.102164+00:00",
+  "compiled_at": "2026-08-16T10:15:47.699406+00:00",
   "digest": "sha256:503a5f282d343dbf08480305ca961ab617375d289d2173ac90f9e33c5e1d3bf2",
   "own_numbers": {
     "phi_s": 3.2562,
@@ -83,7 +83,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-16T03:01:02.685960+00:00",
+        "last_observed_at": "2026-08-16T07:00:58.178469+00:00",
         "filings": null,
         "note": "Paxos Labs Inc. \u2014 1 total filings, 0 in last 90d"
       }
@@ -190,5 +190,31 @@
     "bindable_n": 0,
     "domains": [],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
+  },
+  "last_observation": {
+    "available": true,
+    "entity": "PAXOS",
+    "confidence": "CONFIRMED",
+    "m1_strict": true,
+    "not_claim_attested": true,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "source": "sec_edgar",
+    "wire": "sec_entities",
+    "ts": "2026-08-15T20:28:17.514390+00:00",
+    "write_reason": "change_46.9pct",
+    "source_url": null,
+    "vault_row_ref": "vault:85:PAXOS:sec_edgar:2026-08-15T20:28:17.514390+00:00",
+    "sensor_id": null,
+    "surge_domain": "progression",
+    "sigma_key": "sigma_progression",
+    "party_id": "sevadar:05_arjan_ganga",
+    "classify_action": "observe",
+    "bindable": true,
+    "bound": false,
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
   }
 }
