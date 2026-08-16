@@ -1,8 +1,8 @@
 {
   "entity": "CIRCLE",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:07.975116+00:00",
-  "digest": "sha256:5edaec49990f4cf1849e5be899a1a867bcf4ea846181733b04a5111208e95d55",
+  "compiled_at": "2026-08-16T01:02:12.437999+00:00",
+  "digest": "sha256:c260405514479b7596e2ebe03ab9e7abd08245e3ed9ccea9500fa25650970dbe",
   "own_numbers": {
     "phi_s": 13.0096,
     "kappa": 0.0006,
@@ -214,7 +214,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-15T19:00:56.890672+00:00",
+        "last_observed_at": "2026-08-15T23:00:55.426420+00:00",
         "filings": null,
         "note": "Circle Internet Group, Inc. \u2014 394 total filings, 40 in last 90d"
       }
@@ -243,7 +243,7 @@
     ],
     "observation": {
       "source": "information_flow",
-      "last_observed_at": "2026-08-15T22:07:59.797174+00:00",
+      "last_observed_at": "2026-08-16T00:59:55.738064+00:00",
       "last_delta_i": 1.6181,
       "stale": false
     }
@@ -313,5 +313,50 @@
       "allows_canonical": true
     }
   ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/CIRCLE.json"
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/CIRCLE.json",
+  "locate": {
+    "entity": "CIRCLE",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "issuer",
+        "product_id": "USDC",
+        "sigma_key": "sigma_illumination",
+        "party_id": "sevadar:06_hargobind_damodri",
+        "classify_action": "publish",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.circle.com/en/transparency",
+        "cite": {
+          "kind": "map_role",
+          "id": "CIRCLE:USDC:issuer",
+          "cite_class": "citeable",
+          "package_hash": "ddeeb754390814ecd3bceed3d59c9d1a0dc15b190cf6ff1624bd58ee38cd182a",
+          "package": {
+            "kind": "map_role",
+            "id": "CIRCLE:USDC:issuer",
+            "entity": "CIRCLE",
+            "product_id": "USDC",
+            "locate_role": "issuer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.circle.com/en/transparency",
+            "party_id": "sevadar:06_hargobind_damodri",
+            "classify_action": "publish",
+            "sigma_key": "sigma_illumination",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
+  }
 }

@@ -1,8 +1,8 @@
 {
   "entity": "US_TREASURY_DEPARTMENT",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:11.999579+00:00",
-  "digest": "sha256:48eff4e999c9147ae9dcae84731c70748230c2c919ea4e27ff941a8579f6440a",
+  "compiled_at": "2026-08-16T01:02:17.027610+00:00",
+  "digest": "sha256:605dacf6fd140b721efe6dbd29c3d969a20548b24220c6055092a17347f00f8b",
   "own_numbers": {
     "phi_s": 0.0067,
     "kappa": 0.1108,
@@ -162,5 +162,50 @@
       "last_delta_i": null,
       "stale": true
     }
+  },
+  "locate": {
+    "entity": "US_TREASURY_DEPARTMENT",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "issuer",
+        "product_id": "US_TREASURY",
+        "sigma_key": "sigma_illumination",
+        "party_id": "sevadar:06_hargobind_damodri",
+        "classify_action": "publish",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.treasurydirect.gov/",
+        "cite": {
+          "kind": "map_role",
+          "id": "US_TREASURY_DEPARTMENT:US_TREASURY:issuer",
+          "cite_class": "citeable",
+          "package_hash": "2f481fae6c4187f03e46b171b0cbc12eae2dcdab0fcdfc08d5bd0c7ae3119f6f",
+          "package": {
+            "kind": "map_role",
+            "id": "US_TREASURY_DEPARTMENT:US_TREASURY:issuer",
+            "entity": "US_TREASURY_DEPARTMENT",
+            "product_id": "US_TREASURY",
+            "locate_role": "issuer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.treasurydirect.gov/",
+            "party_id": "sevadar:06_hargobind_damodri",
+            "classify_action": "publish",
+            "sigma_key": "sigma_illumination",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   }
 }

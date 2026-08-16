@@ -1,8 +1,8 @@
 {
   "entity": "JPMORGAN",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:09.859251+00:00",
-  "digest": "sha256:f40fb553fd7c1a00f0f85995c3a440aea5eca6732fed6fe2d9be36a23905aa91",
+  "compiled_at": "2026-08-16T01:02:14.552863+00:00",
+  "digest": "sha256:ef3bdb91aad5bc7bf033d4f5fd15cd4ad91101068fbc61604c654e07c124ce84",
   "own_numbers": {
     "phi_s": 3.2598,
     "kappa": 0.0,
@@ -198,7 +198,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-15T19:00:56.890672+00:00",
+        "last_observed_at": "2026-08-15T23:00:55.426420+00:00",
         "filings": null,
         "note": "JPMORGAN CHASE & CO \u2014 164711 total filings, 40 in last 90d"
       }
@@ -227,7 +227,7 @@
     ],
     "observation": {
       "source": "information_flow",
-      "last_observed_at": "2026-08-15T21:59:21.578252+00:00",
+      "last_observed_at": "2026-08-16T00:59:57.882401+00:00",
       "last_delta_i": 0.16299,
       "stale": false
     }
@@ -297,5 +297,50 @@
       "allows_canonical": true
     }
   ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/JPMORGAN.json"
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/JPMORGAN.json",
+  "locate": {
+    "entity": "JPMORGAN",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "primary_dealer",
+        "product_id": "US_TREASURY",
+        "sigma_key": "sigma_transportation",
+        "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+        "classify_action": "settlement_path",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": true,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.newyorkfed.org/markets/primarydealers",
+        "cite": {
+          "kind": "map_role",
+          "id": "JPMORGAN:US_TREASURY:primary_dealer",
+          "cite_class": "citeable",
+          "package_hash": "d506239d1abd6344d8735123d912af45b42f128a3bb067b7cb1e747b025847d5",
+          "package": {
+            "kind": "map_role",
+            "id": "JPMORGAN:US_TREASURY:primary_dealer",
+            "entity": "JPMORGAN",
+            "product_id": "US_TREASURY",
+            "locate_role": "primary_dealer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.newyorkfed.org/markets/primarydealers",
+            "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+            "classify_action": "settlement_path",
+            "sigma_key": "sigma_transportation",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": true,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
+  }
 }

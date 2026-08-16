@@ -1,7 +1,7 @@
 {
   "entity": "CIRCLE_RESERVE_FUND",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:07.995497+00:00",
+  "compiled_at": "2026-08-16T01:02:12.458350+00:00",
   "digest": "sha256:3693e109d0b3fbed8714598843f7dffea6845ee4da32271b7590e2ddc93c67b7",
   "own_numbers": {
     "phi_s": 0.095,
@@ -168,5 +168,86 @@
       "last_delta_i": null,
       "stale": true
     }
+  },
+  "locate": {
+    "entity": "CIRCLE_RESERVE_FUND",
+    "routing": "index_locate_classify",
+    "n": 2,
+    "bindable_n": 2,
+    "domains": [
+      {
+        "locate_role": "manager",
+        "product_id": "USDXX",
+        "sigma_key": "sigma_gravitation",
+        "party_id": "sevadar:01_nanak_sulakhni",
+        "classify_action": "vault_persistence",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.circle.com/en/transparency",
+        "cite": {
+          "kind": "map_role",
+          "id": "CIRCLE_RESERVE_FUND:USDXX:manager",
+          "cite_class": "citeable",
+          "package_hash": "77468e658660acd49c590248c86689bb53c5b1b0084de6888be1b41551dc5c9a",
+          "package": {
+            "kind": "map_role",
+            "id": "CIRCLE_RESERVE_FUND:USDXX:manager",
+            "entity": "CIRCLE_RESERVE_FUND",
+            "product_id": "USDXX",
+            "locate_role": "manager",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.circle.com/en/transparency",
+            "party_id": "sevadar:01_nanak_sulakhni",
+            "classify_action": "vault_persistence",
+            "sigma_key": "sigma_gravitation",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      },
+      {
+        "locate_role": "custodian",
+        "product_id": "USDXX",
+        "sigma_key": "sigma_adhesion",
+        "party_id": "sevadar:02_angad_khivi",
+        "classify_action": "formalize_counterparty",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.circle.com/en/transparency",
+        "cite": {
+          "kind": "map_role",
+          "id": "CIRCLE_RESERVE_FUND:USDXX:custodian",
+          "cite_class": "citeable",
+          "package_hash": "c111deb6f44e25f5d0cccf2dd9d7ab16cef77e56c34b4ec9ba5426af8da3c9e5",
+          "package": {
+            "kind": "map_role",
+            "id": "CIRCLE_RESERVE_FUND:USDXX:custodian",
+            "entity": "CIRCLE_RESERVE_FUND",
+            "product_id": "USDXX",
+            "locate_role": "custodian",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.circle.com/en/transparency",
+            "party_id": "sevadar:02_angad_khivi",
+            "classify_action": "formalize_counterparty",
+            "sigma_key": "sigma_adhesion",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   }
 }

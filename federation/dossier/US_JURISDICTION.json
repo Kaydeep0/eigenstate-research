@@ -1,8 +1,8 @@
 {
   "entity": "US_JURISDICTION",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:11.980402+00:00",
-  "digest": "sha256:fa4157b87d15e4e7b5b08bd17b30669c4b75b3bb88b7e8df20432f9b94aefbdd",
+  "compiled_at": "2026-08-16T01:02:16.997639+00:00",
+  "digest": "sha256:91eb340da7102072940cbe7aa5239f1a71e79c5c167b4e272da1de210a5df272",
   "own_numbers": {
     "phi_s": 2.5971,
     "kappa": 0.0,
@@ -183,5 +183,50 @@
       "last_delta_i": null,
       "stale": true
     }
+  },
+  "locate": {
+    "entity": "US_JURISDICTION",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "regulator",
+        "product_id": "USD_SETTLEMENT",
+        "sigma_key": "sigma_division",
+        "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+        "classify_action": "limiter_protect",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.citigroup.com/global/businesses/services",
+        "cite": {
+          "kind": "map_role",
+          "id": "US_JURISDICTION:USD_SETTLEMENT:regulator",
+          "cite_class": "citeable",
+          "package_hash": "4bdeea8b1c4541d3cccf0f554e5ade13bce0dc354c77108699076ec7cfd798e3",
+          "package": {
+            "kind": "map_role",
+            "id": "US_JURISDICTION:USD_SETTLEMENT:regulator",
+            "entity": "US_JURISDICTION",
+            "product_id": "USD_SETTLEMENT",
+            "locate_role": "regulator",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.citigroup.com/global/businesses/services",
+            "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+            "classify_action": "limiter_protect",
+            "sigma_key": "sigma_division",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   }
 }

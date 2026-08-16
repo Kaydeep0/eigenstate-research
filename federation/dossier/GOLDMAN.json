@@ -1,7 +1,7 @@
 {
   "entity": "GOLDMAN",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:09.404328+00:00",
+  "compiled_at": "2026-08-16T01:02:13.982880+00:00",
   "digest": "sha256:412501154492d020872467d99d1a27ddcb8201e331365ac91ed4a94d939a5b0b",
   "own_numbers": {
     "phi_s": 0.0,
@@ -123,5 +123,50 @@
       "last_delta_i": null,
       "stale": true
     }
+  },
+  "locate": {
+    "entity": "GOLDMAN",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "primary_dealer",
+        "product_id": "US_TREASURY",
+        "sigma_key": "sigma_transportation",
+        "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+        "classify_action": "settlement_path",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": true,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.newyorkfed.org/markets/primarydealers",
+        "cite": {
+          "kind": "map_role",
+          "id": "GOLDMAN:US_TREASURY:primary_dealer",
+          "cite_class": "citeable",
+          "package_hash": "7def7ab66a0034099ab32c03b31d0a1a5d88ecb00ee89da04698d02230eecba3",
+          "package": {
+            "kind": "map_role",
+            "id": "GOLDMAN:US_TREASURY:primary_dealer",
+            "entity": "GOLDMAN",
+            "product_id": "US_TREASURY",
+            "locate_role": "primary_dealer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.newyorkfed.org/markets/primarydealers",
+            "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+            "classify_action": "settlement_path",
+            "sigma_key": "sigma_transportation",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": true,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   }
 }

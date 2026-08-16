@@ -1,7 +1,7 @@
 {
   "entity": "FED_RRP",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:09.071785+00:00",
+  "compiled_at": "2026-08-16T01:02:13.617300+00:00",
   "digest": "sha256:d05f7931c9f70fae3fa00d4ed306f2275814282ad4c8d79276f24a894bf2c7c0",
   "own_numbers": {
     "phi_s": 0.04,
@@ -155,5 +155,50 @@
       "last_delta_i": null,
       "stale": true
     }
+  },
+  "locate": {
+    "entity": "FED_RRP",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "repo_counterparty",
+        "product_id": "FED_RRP",
+        "sigma_key": "sigma_transportation",
+        "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+        "classify_action": "settlement_path",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": true,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.federalreserve.gov/",
+        "cite": {
+          "kind": "map_role",
+          "id": "FED_RRP:FED_RRP:repo_counterparty",
+          "cite_class": "citeable",
+          "package_hash": "cf3cdc54a950f5d6464d4135db8dce57ad93b930a66d60619736710a9c97c689",
+          "package": {
+            "kind": "map_role",
+            "id": "FED_RRP:FED_RRP:repo_counterparty",
+            "entity": "FED_RRP",
+            "product_id": "FED_RRP",
+            "locate_role": "repo_counterparty",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.federalreserve.gov/",
+            "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+            "classify_action": "settlement_path",
+            "sigma_key": "sigma_transportation",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": true,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   }
 }

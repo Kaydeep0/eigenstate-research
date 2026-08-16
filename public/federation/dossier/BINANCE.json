@@ -1,7 +1,7 @@
 {
   "entity": "BINANCE",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:07.587157+00:00",
+  "compiled_at": "2026-08-16T01:02:12.032098+00:00",
   "digest": "sha256:81ad14dc8a4cecd6cf2d137dd26843b8b320272f2563e57aa3b35c388f1be1e7",
   "own_numbers": {
     "phi_s": 0.02,
@@ -110,5 +110,50 @@
       "last_delta_i": null,
       "stale": true
     }
+  },
+  "locate": {
+    "entity": "BINANCE",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "distributor",
+        "product_id": "USDC",
+        "sigma_key": "sigma_division",
+        "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+        "classify_action": "distribute",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525178989/",
+        "cite": {
+          "kind": "map_role",
+          "id": "BINANCE:USDC:distributor",
+          "cite_class": "citeable",
+          "package_hash": "bd1666ac909fb60202451066bd8b5e0fe057ed66ca57997bcc15169240334ae7",
+          "package": {
+            "kind": "map_role",
+            "id": "BINANCE:USDC:distributor",
+            "entity": "BINANCE",
+            "product_id": "USDC",
+            "locate_role": "distributor",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525178989/",
+            "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+            "classify_action": "distribute",
+            "sigma_key": "sigma_division",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   }
 }

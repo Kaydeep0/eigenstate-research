@@ -1,7 +1,7 @@
 {
   "entity": "FIDELITY",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:09.135212+00:00",
+  "compiled_at": "2026-08-16T01:02:13.678131+00:00",
   "digest": "sha256:d095557ed6a1074adbdc3d207764d7ebe888ef5f583404bf8d38b37d525e8e78",
   "own_numbers": {
     "phi_s": 1.6181,
@@ -92,7 +92,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-15T19:00:56.890672+00:00",
+        "last_observed_at": "2026-08-15T23:00:55.426420+00:00",
         "filings": null,
         "note": "FMR LLC \u2014 44090 total filings, 40 in last 90d"
       }
@@ -191,5 +191,86 @@
       "allows_canonical": true
     }
   ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/FIDELITY.json"
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/FIDELITY.json",
+  "locate": {
+    "entity": "FIDELITY",
+    "routing": "index_locate_classify",
+    "n": 2,
+    "bindable_n": 2,
+    "domains": [
+      {
+        "locate_role": "custodian",
+        "product_id": "DIGITAL_ASSETS",
+        "sigma_key": "sigma_adhesion",
+        "party_id": "sevadar:02_angad_khivi",
+        "classify_action": "formalize_counterparty",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.fidelitydigitalassets.com/",
+        "cite": {
+          "kind": "map_role",
+          "id": "FIDELITY:DIGITAL_ASSETS:custodian",
+          "cite_class": "citeable",
+          "package_hash": "17cae2e0a87d902ed14fdd8a3ae1300e742d4224551c033f8bebfca423e97dfa",
+          "package": {
+            "kind": "map_role",
+            "id": "FIDELITY:DIGITAL_ASSETS:custodian",
+            "entity": "FIDELITY",
+            "product_id": "DIGITAL_ASSETS",
+            "locate_role": "custodian",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.fidelitydigitalassets.com/",
+            "party_id": "sevadar:02_angad_khivi",
+            "classify_action": "formalize_counterparty",
+            "sigma_key": "sigma_adhesion",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      },
+      {
+        "locate_role": "issuer",
+        "product_id": "FIDD",
+        "sigma_key": "sigma_illumination",
+        "party_id": "sevadar:06_hargobind_damodri",
+        "classify_action": "publish",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.fidelitydigitalassets.com/",
+        "cite": {
+          "kind": "map_role",
+          "id": "FIDELITY:FIDD:issuer",
+          "cite_class": "citeable",
+          "package_hash": "b835e94a3392aca3c11e69b39591d1fa06843ca266b1ca61a128014b1d1c7728",
+          "package": {
+            "kind": "map_role",
+            "id": "FIDELITY:FIDD:issuer",
+            "entity": "FIDELITY",
+            "product_id": "FIDD",
+            "locate_role": "issuer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.fidelitydigitalassets.com/",
+            "party_id": "sevadar:06_hargobind_damodri",
+            "classify_action": "publish",
+            "sigma_key": "sigma_illumination",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
+  }
 }

@@ -1,8 +1,8 @@
 {
   "entity": "BLACKROCK",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:07.682555+00:00",
-  "digest": "sha256:a2864be11673529e833bab774fe6653e4c210acacbc97c85ff64924cbe3e91f4",
+  "compiled_at": "2026-08-16T01:02:12.142555+00:00",
+  "digest": "sha256:f3b4d55b5afa01be1dd29160f6dcc92cb5004342558bf06c74f38208afa42df2",
   "own_numbers": {
     "phi_s": 4.9047,
     "kappa": 0.0003,
@@ -212,7 +212,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-15T19:00:56.890672+00:00",
+        "last_observed_at": "2026-08-15T23:00:55.426420+00:00",
         "filings": null,
         "note": "BlackRock Finance, Inc. \u2014 48826 total filings, 0 in last 90d"
       }
@@ -241,7 +241,7 @@
     ],
     "observation": {
       "source": "information_flow",
-      "last_observed_at": "2026-08-15T22:08:01.726442+00:00",
+      "last_observed_at": "2026-08-16T00:59:57.229930+00:00",
       "last_delta_i": 0.245235,
       "stale": false
     }
@@ -311,5 +311,50 @@
       "allows_canonical": true
     }
   ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/BLACKROCK.json"
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/BLACKROCK.json",
+  "locate": {
+    "entity": "BLACKROCK",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "manager",
+        "product_id": "USDXX",
+        "sigma_key": "sigma_gravitation",
+        "party_id": "sevadar:01_nanak_sulakhni",
+        "classify_action": "vault_persistence",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": null,
+        "cite": {
+          "kind": "map_role",
+          "id": "BLACKROCK:USDXX:manager",
+          "cite_class": "citeable",
+          "package_hash": "cae9091e760ab53ea7f8d7c49de4e4e399d9a1dbf05020dc9e6636c379f57a4a",
+          "package": {
+            "kind": "map_role",
+            "id": "BLACKROCK:USDXX:manager",
+            "entity": "BLACKROCK",
+            "product_id": "USDXX",
+            "locate_role": "manager",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": null,
+            "party_id": "sevadar:01_nanak_sulakhni",
+            "classify_action": "vault_persistence",
+            "sigma_key": "sigma_gravitation",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
+  }
 }

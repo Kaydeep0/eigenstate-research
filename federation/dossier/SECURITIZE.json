@@ -1,8 +1,8 @@
 {
   "entity": "SECURITIZE",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:11.215705+00:00",
-  "digest": "sha256:b8998372a9acba0893d680044cfd34bf0374cebb6dc8eb2786af4ade76061066",
+  "compiled_at": "2026-08-16T01:02:16.152123+00:00",
+  "digest": "sha256:94d68ed1da3a30f3f81906b528d63028fce1b489f4a7ceaa4fc4b4137d3b9eb5",
   "own_numbers": {
     "phi_s": 0.02,
     "kappa": 0.0985,
@@ -166,7 +166,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-15T19:00:56.890672+00:00",
+        "last_observed_at": "2026-08-15T23:00:55.426420+00:00",
         "filings": null,
         "note": "Securitize Corp. \u2014 56 total filings, 38 in last 90d"
       }
@@ -195,9 +195,54 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-08-15T22:04:29.153371+00:00",
+      "last_observed_at": "2026-08-16T00:56:21.099936+00:00",
       "last_delta_i": Infinity,
       "stale": false
     }
+  },
+  "locate": {
+    "entity": "SECURITIZE",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "transfer_agent",
+        "product_id": "BUIDL",
+        "sigma_key": "sigma_transportation",
+        "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+        "classify_action": "settlement_path",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": true,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": null,
+        "cite": {
+          "kind": "map_role",
+          "id": "SECURITIZE:BUIDL:transfer_agent",
+          "cite_class": "citeable",
+          "package_hash": "05d32e684fa3a65fc9a2d9bce1dfb4a22c3706f8f138196f28886f0e522f2194",
+          "package": {
+            "kind": "map_role",
+            "id": "SECURITIZE:BUIDL:transfer_agent",
+            "entity": "SECURITIZE",
+            "product_id": "BUIDL",
+            "locate_role": "transfer_agent",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": null,
+            "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+            "classify_action": "settlement_path",
+            "sigma_key": "sigma_transportation",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": true,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   }
 }

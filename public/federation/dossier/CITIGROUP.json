@@ -1,7 +1,7 @@
 {
   "entity": "CITIGROUP",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:08.033576+00:00",
+  "compiled_at": "2026-08-16T01:02:12.498580+00:00",
   "digest": "sha256:64dc8b35a1506fb3c07ab3ba11ff9ee74fd5e8bd7fd036d80bc9a1dc60932b78",
   "own_numbers": {
     "phi_s": 0.025,
@@ -202,7 +202,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-15T19:00:56.890672+00:00",
+        "last_observed_at": "2026-08-15T23:00:55.426420+00:00",
         "filings": null,
         "note": "CITIGROUP INC \u2014 91137 total filings, 40 in last 90d"
       }
@@ -235,5 +235,50 @@
       "last_delta_i": null,
       "stale": true
     }
+  },
+  "locate": {
+    "entity": "CITIGROUP",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "primary_dealer",
+        "product_id": "US_TREASURY",
+        "sigma_key": "sigma_transportation",
+        "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+        "classify_action": "settlement_path",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": true,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.newyorkfed.org/markets/primarydealers",
+        "cite": {
+          "kind": "map_role",
+          "id": "CITIGROUP:US_TREASURY:primary_dealer",
+          "cite_class": "citeable",
+          "package_hash": "0fec38a165adfc3257277f5f3e02670d02236bf84d5a4438e4a7fd56bb7a5a4a",
+          "package": {
+            "kind": "map_role",
+            "id": "CITIGROUP:US_TREASURY:primary_dealer",
+            "entity": "CITIGROUP",
+            "product_id": "US_TREASURY",
+            "locate_role": "primary_dealer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.newyorkfed.org/markets/primarydealers",
+            "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+            "classify_action": "settlement_path",
+            "sigma_key": "sigma_transportation",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": true,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   }
 }

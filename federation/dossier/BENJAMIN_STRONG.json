@@ -1,8 +1,8 @@
 {
   "entity": "BENJAMIN_STRONG",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:07.568327+00:00",
-  "digest": "sha256:cf2506d1c19797150d75b0863f96739728d985fca62627e08e48f2094c0b11d7",
+  "compiled_at": "2026-08-16T01:02:12.009292+00:00",
+  "digest": "sha256:d12d9d659dfaf6680cf969c790bf84ac3432ce0fabe4d31decb71d89d3d9fec4",
   "own_numbers": {
     "phi_s": 0.0,
     "kappa": 0.0246,
@@ -112,5 +112,50 @@
       "last_delta_i": null,
       "stale": false
     }
+  },
+  "locate": {
+    "entity": "BENJAMIN_STRONG",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "regulator",
+        "product_id": "USD_SETTLEMENT",
+        "sigma_key": "sigma_division",
+        "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+        "classify_action": "limiter_protect",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.federalreservehistory.org/people/benjamin_strong_jr",
+        "cite": {
+          "kind": "map_role",
+          "id": "BENJAMIN_STRONG:USD_SETTLEMENT:regulator",
+          "cite_class": "citeable",
+          "package_hash": "6bb35778e9a77c6287b2d65f954314c98f68a004588bf7903eeae5754bc25a5a",
+          "package": {
+            "kind": "map_role",
+            "id": "BENJAMIN_STRONG:USD_SETTLEMENT:regulator",
+            "entity": "BENJAMIN_STRONG",
+            "product_id": "USD_SETTLEMENT",
+            "locate_role": "regulator",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.federalreservehistory.org/people/benjamin_strong_jr",
+            "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+            "classify_action": "limiter_protect",
+            "sigma_key": "sigma_division",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   }
 }

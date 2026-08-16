@@ -1,7 +1,7 @@
 {
   "entity": "CANTOR_FITZGERALD",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:07.790020+00:00",
+  "compiled_at": "2026-08-16T01:02:12.246260+00:00",
   "digest": "sha256:895ce3050ba82bc67206f7e15a03f3d71fb4c4dc99d3aaa32a9cf11cac2884a3",
   "own_numbers": {
     "phi_s": 0.0525,
@@ -170,5 +170,50 @@
       "last_delta_i": null,
       "stale": true
     }
+  },
+  "locate": {
+    "entity": "CANTOR_FITZGERALD",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "primary_dealer",
+        "product_id": "US_TREASURY",
+        "sigma_key": "sigma_transportation",
+        "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+        "classify_action": "settlement_path",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": true,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.newyorkfed.org/markets/primarydealers",
+        "cite": {
+          "kind": "map_role",
+          "id": "CANTOR_FITZGERALD:US_TREASURY:primary_dealer",
+          "cite_class": "citeable",
+          "package_hash": "0929863a8abc104001e89dacc770d66cb5f0c8a090a2016b7b9865c20c21ac97",
+          "package": {
+            "kind": "map_role",
+            "id": "CANTOR_FITZGERALD:US_TREASURY:primary_dealer",
+            "entity": "CANTOR_FITZGERALD",
+            "product_id": "US_TREASURY",
+            "locate_role": "primary_dealer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.newyorkfed.org/markets/primarydealers",
+            "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+            "classify_action": "settlement_path",
+            "sigma_key": "sigma_transportation",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": true,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   }
 }

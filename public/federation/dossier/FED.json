@@ -1,8 +1,8 @@
 {
   "entity": "FED",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:09.033984+00:00",
-  "digest": "sha256:3ffd3f52050021cf102c7c5e1a8f4047c4e650587f8a77d5bc4cc45e16a87ab2",
+  "compiled_at": "2026-08-16T01:02:13.576487+00:00",
+  "digest": "sha256:c0e82402a4c0177cd0652300653496081edd3d424b137d9a0de3f7c537619683",
   "own_numbers": {
     "phi_s": 2.4495,
     "kappa": 0.0,
@@ -321,5 +321,50 @@
       "allows_canonical": true
     }
   ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/FED.json"
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/FED.json",
+  "locate": {
+    "entity": "FED",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "regulator",
+        "product_id": "US_TREASURY",
+        "sigma_key": "sigma_division",
+        "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+        "classify_action": "limiter_protect",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.federalreserve.gov/aboutthefed.htm",
+        "cite": {
+          "kind": "map_role",
+          "id": "FED:US_TREASURY:regulator",
+          "cite_class": "citeable",
+          "package_hash": "3c0d8fdf8bd0729b637fe7c0d40a5d08775f1f4794d9f794b5f5a8a97dd0e25d",
+          "package": {
+            "kind": "map_role",
+            "id": "FED:US_TREASURY:regulator",
+            "entity": "FED",
+            "product_id": "US_TREASURY",
+            "locate_role": "regulator",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.federalreserve.gov/aboutthefed.htm",
+            "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+            "classify_action": "limiter_protect",
+            "sigma_key": "sigma_division",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
+  }
 }

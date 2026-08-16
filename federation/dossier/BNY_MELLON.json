@@ -1,7 +1,7 @@
 {
   "entity": "BNY_MELLON",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:07.728181+00:00",
+  "compiled_at": "2026-08-16T01:02:12.185677+00:00",
   "digest": "sha256:2d0cdabe0bcc3ddad4294eb51e00480094ef7c86d633b78c914cbbd654e43603",
   "own_numbers": {
     "phi_s": 1.6667,
@@ -203,7 +203,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-15T19:00:56.890672+00:00",
+        "last_observed_at": "2026-08-15T23:00:55.426420+00:00",
         "filings": null,
         "note": "Bank of New York Mellon Corp \u2014 4784 total filings, 40 in last 90d"
       }
@@ -236,5 +236,86 @@
       "last_delta_i": 0.1,
       "stale": false
     }
+  },
+  "locate": {
+    "entity": "BNY_MELLON",
+    "routing": "index_locate_classify",
+    "n": 2,
+    "bindable_n": 2,
+    "domains": [
+      {
+        "locate_role": "custodian",
+        "product_id": "USDXX",
+        "sigma_key": "sigma_adhesion",
+        "party_id": "sevadar:02_angad_khivi",
+        "classify_action": "formalize_counterparty",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.circle.com/en/transparency",
+        "cite": {
+          "kind": "map_role",
+          "id": "BNY_MELLON:USDXX:custodian",
+          "cite_class": "citeable",
+          "package_hash": "ac64a107e7f48232a7b97c685060b644a466b730b9901ecadce1ed0fd2f1fe95",
+          "package": {
+            "kind": "map_role",
+            "id": "BNY_MELLON:USDXX:custodian",
+            "entity": "BNY_MELLON",
+            "product_id": "USDXX",
+            "locate_role": "custodian",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.circle.com/en/transparency",
+            "party_id": "sevadar:02_angad_khivi",
+            "classify_action": "formalize_counterparty",
+            "sigma_key": "sigma_adhesion",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      },
+      {
+        "locate_role": "primary_dealer",
+        "product_id": "US_TREASURY",
+        "sigma_key": "sigma_transportation",
+        "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+        "classify_action": "settlement_path",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": true,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.newyorkfed.org/markets/primarydealers",
+        "cite": {
+          "kind": "map_role",
+          "id": "BNY_MELLON:US_TREASURY:primary_dealer",
+          "cite_class": "citeable",
+          "package_hash": "f01a8f6b812bc7e47b22e4f3bc5ce50c479b1926d09251acc0985c7bef1c6abf",
+          "package": {
+            "kind": "map_role",
+            "id": "BNY_MELLON:US_TREASURY:primary_dealer",
+            "entity": "BNY_MELLON",
+            "product_id": "US_TREASURY",
+            "locate_role": "primary_dealer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.newyorkfed.org/markets/primarydealers",
+            "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+            "classify_action": "settlement_path",
+            "sigma_key": "sigma_transportation",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": true,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   }
 }

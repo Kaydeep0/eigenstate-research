@@ -1,7 +1,7 @@
 {
   "entity": "ONDO",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:10.448179+00:00",
+  "compiled_at": "2026-08-16T01:02:15.254662+00:00",
   "digest": "sha256:69dd080e0ef212a7ea5843e8a3d24a613dee2ab6193373ca9c917296dd4045e3",
   "own_numbers": {
     "phi_s": 4.8787,
@@ -190,7 +190,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-15T19:00:56.890672+00:00",
+        "last_observed_at": "2026-08-15T23:00:55.426420+00:00",
         "filings": null,
         "note": "Ondo I LP \u2014 4 total filings, 0 in last 90d"
       }
@@ -310,5 +310,50 @@
       "allows_canonical": false
     }
   ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/ONDO.json"
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/ONDO.json",
+  "locate": {
+    "entity": "ONDO",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "issuer",
+        "product_id": "OUSG",
+        "sigma_key": "sigma_illumination",
+        "party_id": "sevadar:06_hargobind_damodri",
+        "classify_action": "publish",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://ondo.finance/ousg",
+        "cite": {
+          "kind": "map_role",
+          "id": "ONDO:OUSG:issuer",
+          "cite_class": "citeable",
+          "package_hash": "f12dcc524dd3a075136b0594f0efd851b7fb789621a9879f23fbed5577841397",
+          "package": {
+            "kind": "map_role",
+            "id": "ONDO:OUSG:issuer",
+            "entity": "ONDO",
+            "product_id": "OUSG",
+            "locate_role": "issuer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://ondo.finance/ousg",
+            "party_id": "sevadar:06_hargobind_damodri",
+            "classify_action": "publish",
+            "sigma_key": "sigma_illumination",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
+  }
 }

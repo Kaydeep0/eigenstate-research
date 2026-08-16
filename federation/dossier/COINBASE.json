@@ -1,8 +1,8 @@
 {
   "entity": "COINBASE",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:08.177904+00:00",
-  "digest": "sha256:5919f9e5c533038ee25de40d24472d7d8ed77bdcd6576f1563cd9f196270b2d1",
+  "compiled_at": "2026-08-16T01:02:12.649509+00:00",
+  "digest": "sha256:f99b206d391ef15179dcedb9edc8fd0141c04a28a36ab7f7f5aa09ceb49918aa",
   "own_numbers": {
     "phi_s": 4.8926,
     "kappa": 0.0001,
@@ -207,7 +207,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-15T19:00:56.890672+00:00",
+        "last_observed_at": "2026-08-15T23:00:55.426420+00:00",
         "filings": null,
         "note": "Coinbase Global, Inc. \u2014 1178 total filings, 35 in last 90d"
       }
@@ -236,8 +236,8 @@
     ],
     "observation": {
       "source": "information_flow",
-      "last_observed_at": "2026-08-15T22:07:58.585095+00:00",
-      "last_delta_i": 3.2362,
+      "last_observed_at": "2026-08-16T00:59:54.585448+00:00",
+      "last_delta_i": 3.0,
       "stale": false
     }
   },
@@ -348,5 +348,50 @@
       "allows_canonical": false
     }
   ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/COINBASE.json"
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/COINBASE.json",
+  "locate": {
+    "entity": "COINBASE",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 0,
+    "domains": [
+      {
+        "locate_role": "validator",
+        "product_id": "BASE_L2",
+        "sigma_key": "sigma_cohesion",
+        "party_id": "sevadar:09_tegh_bahadur_gujri",
+        "classify_action": "deploy",
+        "bindable": false,
+        "host_gated": true,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://docs.base.org/",
+        "cite": {
+          "kind": "map_role",
+          "id": "COINBASE:BASE_L2:validator",
+          "cite_class": "citeable",
+          "package_hash": "dfa56b5647b50c63256ea26d0f1371e259260ee075c12339df1c9b5b32762283",
+          "package": {
+            "kind": "map_role",
+            "id": "COINBASE:BASE_L2:validator",
+            "entity": "COINBASE",
+            "product_id": "BASE_L2",
+            "locate_role": "validator",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://docs.base.org/",
+            "party_id": "sevadar:09_tegh_bahadur_gujri",
+            "classify_action": "deploy",
+            "sigma_key": "sigma_cohesion",
+            "bindable": false,
+            "host_gated": true,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
+  }
 }

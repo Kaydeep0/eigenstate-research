@@ -1,8 +1,8 @@
 {
   "entity": "SEC",
   "node": "34539544",
-  "compiled_at": "2026-08-15T22:08:11.196604+00:00",
-  "digest": "sha256:95f7b81d133d79731fe00eb8c4cd8011ff43fb4e86ff231e1e9fbb7c4b43f83c",
+  "compiled_at": "2026-08-16T01:02:16.130741+00:00",
+  "digest": "sha256:0f6ebf893d2b0f65cfd35ec3850e5250c6c69153f68c0d01a6cf475886fd0fa7",
   "own_numbers": {
     "phi_s": 2.9249,
     "kappa": 0.0002,
@@ -199,7 +199,7 @@
     ],
     "observation": {
       "source": "information_flow",
-      "last_observed_at": "2026-08-15T22:08:00.202278+00:00",
+      "last_observed_at": "2026-08-16T00:59:56.109221+00:00",
       "last_delta_i": 1.0,
       "stale": false
     }
@@ -290,5 +290,50 @@
       "allows_canonical": false
     }
   ],
-  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/SEC.json"
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/SEC.json",
+  "locate": {
+    "entity": "SEC",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "regulator",
+        "product_id": "US_TREASURY",
+        "sigma_key": "sigma_division",
+        "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+        "classify_action": "limiter_protect",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.govinfo.gov/content/pkg/FR-2024-01-16/pdf/2023-27860.pdf",
+        "cite": {
+          "kind": "map_role",
+          "id": "SEC:US_TREASURY:regulator",
+          "cite_class": "citeable",
+          "package_hash": "c4325a455cbcd8e9541c1a18c3bab8600a9f53c0d728a02da36ed4c62a3f7ce8",
+          "package": {
+            "kind": "map_role",
+            "id": "SEC:US_TREASURY:regulator",
+            "entity": "SEC",
+            "product_id": "US_TREASURY",
+            "locate_role": "regulator",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.govinfo.gov/content/pkg/FR-2024-01-16/pdf/2023-27860.pdf",
+            "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+            "classify_action": "limiter_protect",
+            "sigma_key": "sigma_division",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
+  }
 }
