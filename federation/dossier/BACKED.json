@@ -1,8 +1,8 @@
 {
   "entity": "BACKED",
   "node": "34539544",
-  "compiled_at": "2026-08-19T01:11:15.424612+00:00",
-  "digest": "sha256:43351ab5163eda2a47338bd481ad36c9f4326bf62e30aa29ab1cca70a94cf80d",
+  "compiled_at": "2026-08-19T04:04:24.859221+00:00",
+  "digest": "sha256:92d6d7224135076f07915c7e815a131edf6e2fbd7d69a97e77346650744ce99e",
   "own_numbers": {
     "phi_s": 1.6381,
     "kappa": 0.0009,
@@ -109,11 +109,77 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-08-19T01:10:21.422248+00:00",
-      "last_delta_i": 6.771867184565913e+95,
+      "last_observed_at": "2026-08-19T03:58:32.646843+00:00",
+      "last_delta_i": 4.778507142051886e+98,
       "stale": false
     }
   },
+  "claims": [
+    {
+      "claim_id": "7737002b-20c8-4b53-b5cc-2107aa0ae159",
+      "claim_text": "Backed Finance \u2014 issuer homepage",
+      "grounding": {
+        "source_url": "https://backed.fi/",
+        "expected": "Backed",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "BACKED_20260819",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/backed-20260819/",
+      "verified_at": "2026-08-19T04:02:42.276177+00:00",
+      "expires_at": "2026-11-17T04:02:42+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "68aec10b-17b4-4a6a-a95a-84d3a2402c2c",
+      "claim_text": "DeFiLlama \u2014 Backed protocol page",
+      "grounding": {
+        "source_url": "https://defillama.com/protocol/backedfi",
+        "expected": "Backed",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-DERIVED",
+      "source_type": "derived",
+      "source_type_at_verification": "derived",
+      "source_role_reclassified": false,
+      "witness_class": "onchain_secondary",
+      "witness_weight": 0.62,
+      "report_id": "BACKED_20260819",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/backed-20260819/",
+      "verified_at": "2026-08-19T04:02:42.494022+00:00",
+      "expires_at": "2026-11-17T04:02:42+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "f8dd190a-0056-436f-a814-00943ca6c966",
+      "claim_text": "RWA.xyz \u2014 tokenized asset index",
+      "grounding": {
+        "source_url": "https://rwa.xyz/",
+        "expected": "tokenized",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-DERIVED",
+      "source_type": "derived",
+      "source_type_at_verification": "derived",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "BACKED_20260819",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/backed-20260819/",
+      "verified_at": "2026-08-19T04:02:42.943859+00:00",
+      "expires_at": "2026-11-17T04:02:42+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/BACKED.json",
   "locate": {
     "entity": "BACKED",
     "routing": "index_locate_classify",
@@ -147,21 +213,5 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
-  },
-  "measurement_join": {
-    "available": false,
-    "entity": "BACKED",
-    "as_child": null,
-    "as_parent": [],
-    "n_as_parent": 0,
-    "delta_i": 0,
-    "not_a_ledger_claim": true,
-    "cite_class": "citeable",
-    "join_rule": "issuer_instrument_v1",
-    "settlement_v2": "HOLD",
-    "not_g_external": true,
-    "auto_dual_ack": false,
-    "sot": "data/measurement_links.json",
-    "reason": "No measurement_links row names this entity as child or parent."
   }
 }

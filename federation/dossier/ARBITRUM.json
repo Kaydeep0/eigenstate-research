@@ -1,7 +1,7 @@
 {
   "entity": "ARBITRUM",
   "node": "34539544",
-  "compiled_at": "2026-08-19T01:11:15.165947+00:00",
+  "compiled_at": "2026-08-19T04:04:24.644667+00:00",
   "digest": "sha256:5904b374a5b2cc9342bd882d52f5c47453e5348274dd7cc627c041f8eb9953c0",
   "own_numbers": {
     "phi_s": 1.6381,
@@ -182,6 +182,72 @@
       "stale": true
     }
   },
+  "claims": [
+    {
+      "claim_id": "0185dd14-422a-4928-a3ad-d8f105f9d463",
+      "claim_text": "Arbitrum \u2014 gentle introduction",
+      "grounding": {
+        "source_url": "https://docs.arbitrum.io/welcome/arbitrum-gentle-introduction",
+        "expected": "Arbitrum",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "ARBITRUM_20260819",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/arbitrum-20260819/",
+      "verified_at": "2026-08-19T04:02:40.572588+00:00",
+      "expires_at": "2026-11-17T04:02:40+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "a607affd-6d39-4bc1-a256-4dfaa8e5197d",
+      "claim_text": "DeFiLlama \u2014 Arbitrum chain page",
+      "grounding": {
+        "source_url": "https://defillama.com/chain/arbitrum",
+        "expected": "Arbitrum",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-DERIVED",
+      "source_type": "derived",
+      "source_type_at_verification": "derived",
+      "source_role_reclassified": false,
+      "witness_class": "onchain_secondary",
+      "witness_weight": 0.62,
+      "report_id": "ARBITRUM_20260819",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/arbitrum-20260819/",
+      "verified_at": "2026-08-19T04:02:40.746946+00:00",
+      "expires_at": "2026-11-17T04:02:40+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "d88c6a4b-129a-4af8-98a0-e0d5949873d7",
+      "claim_text": "Ethereum.org \u2014 Layer 2 overview",
+      "grounding": {
+        "source_url": "https://ethereum.org/en/layer-2/",
+        "expected": "Layer 2",
+        "location": ""
+      },
+      "status_at_publish": "HALLUCINATED",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "ARBITRUM_20260819",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/arbitrum-20260819/",
+      "verified_at": "2026-08-19T04:02:41.031184+00:00",
+      "expires_at": "2026-11-17T04:02:41+00:00",
+      "volatility_class": "default",
+      "allows_canonical": false
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/ARBITRUM.json",
   "locate": {
     "entity": "ARBITRUM",
     "routing": "index_locate_classify",
@@ -215,21 +281,5 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
-  },
-  "measurement_join": {
-    "available": false,
-    "entity": "ARBITRUM",
-    "as_child": null,
-    "as_parent": [],
-    "n_as_parent": 0,
-    "delta_i": 0,
-    "not_a_ledger_claim": true,
-    "cite_class": "citeable",
-    "join_rule": "issuer_instrument_v1",
-    "settlement_v2": "HOLD",
-    "not_g_external": true,
-    "auto_dual_ack": false,
-    "sot": "data/measurement_links.json",
-    "reason": "No measurement_links row names this entity as child or parent."
   }
 }
