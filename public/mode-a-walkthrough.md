@@ -16,6 +16,8 @@
 
 One sentence: walk the **free** path on live federation, then read **Darshan** so calibration *n* is not sold thin.
 
+**Broom vs vacuum:** Hand-sweep diligence (one URL, one meeting) breaks when agents flood the net. Mode A is the **vacuum on the wire today** — **cite → package → Darshan** (fingerprints and dispose). We instrument **entity-claim verification**, not every byte in the digital information field.
+
 | Label | Meaning here |
 |-------|----------------|
 | **Mode A** | Metalayer verify-wire; `$0`; `best_effort_vercel` |
