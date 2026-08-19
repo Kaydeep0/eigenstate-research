@@ -1,7 +1,7 @@
 {
   "schema": "eigenstate.pages_sot.v1",
   "sot_definition": "SoT (source of truth) for Host/Pages is the engine measurement state: workspace/HOST/state.json (κ, PT, parkash stamps), M1 coverage from the coverage ledger (m1_strict ∩ topology / 199), and the host predictions register for scored claims. Website tiles must bake from this stamp — not frozen marketing HTML.",
-  "generated_at": "2026-08-18T22:08:39.220861+00:00",
+  "generated_at": "2026-08-19T01:09:44.577313+00:00",
   "sources": {
     "host_ref": "workspace/HOST/state.json",
     "host_updated_at": "2026-08-18T21:59:14.854442+00:00",
@@ -39,26 +39,25 @@
   "vault_at_export": {
     "note": "cycle_vault_records.json is a trimmed working buffer. Per-entity counts here are vault@export rows — not M1 lifetime observations.",
     "total_rows": 65,
-    "entities_with_rows": 18,
+    "entities_with_rows": 17,
     "by_entity": {
+      "RING": 8,
       "CABLE": 8,
       "HIGHWAY": 8,
       "DEFI_AUDIENCE": 8,
       "CRYPTO_NATIVE_AUDIENCE": 8,
       "RWA_AUDIENCE": 8,
-      "RING": 7,
       "SEC": 4,
-      "STANDARD_OIL": 1,
-      "MAPLE": 1,
       "FED": 4,
-      "ONCHAIN_IS_TRANSPARENT": 1,
-      "CANTOR_FITZGERALD": 1,
-      "NATIONAL_CITY_BANK": 1,
       "US_TREASURY_DEPARTMENT": 1,
-      "HOST": 1,
+      "CANTOR_FITZGERALD": 1,
       "CUSTODY_IS_SOLVED": 1,
       "INSTITUTIONAL_CUSTODY_POOL": 1,
-      "JFSA": 1
+      "STANDARD_OIL": 1,
+      "BASE": 1,
+      "ONCHAIN_IS_TRANSPARENT": 1,
+      "MAPLE": 1,
+      "TRAVEL_RULE": 1
     }
   },
   "entity_m1_obs_counts": {
@@ -720,15 +719,15 @@
   ],
   "predictions_scoreboard": {
     "n_total": 154,
-    "n_open": 151,
-    "n_resolved": 3,
+    "n_open": 150,
+    "n_resolved": 4,
     "n_void": 1,
-    "n_assessable": 1,
-    "n_true": 0,
+    "n_assessable": 2,
+    "n_true": 1,
     "n_false": 1,
     "accuracy_pct": null,
-    "note": "Host prediction register: 1 assessable (TRUE/FALSE, non-VOID) of 3 resolved; 151 open. Accuracy % shown only when assessable n ≥ 5.",
-    "updated_at": "2026-08-01T00:45:28+00:00",
+    "note": "Host prediction register: 2 assessable (TRUE/FALSE, non-VOID) of 4 resolved; 150 open. Accuracy % shown only when assessable n ≥ 5.",
+    "updated_at": "2026-08-18T23:03:11+00:00",
     "resolved": [
       {
         "prediction_id": "FED_EXTRACTION_001",
@@ -762,6 +761,17 @@
         "title": "Meta Family advertising revenue per December Family DAP (r_t = AdRev_FY / DAP_Dec) is a stable t...",
         "claim": "Meta Family advertising revenue per December Family DAP (r_t = AdRev_FY / DAP_Dec) is a stable transport coefficient: |r_t/r_{t-1}-1| < 0.15 for both 2023→2024 and 2024→2025. Cross-platform: Alphabet official comparable r within 2× of Meta r_2025. Prospective: |r_2026/r_2025-1| < 0.10 when Meta FY2026 discloses.",
         "why": "Candidate T_A→$ on Meta DAP is rising ~15%/yr — monetization/clearing path, not fixed transport coefficient"
+      },
+      {
+        "prediction_id": "DEFILLAMA_TOTAL_TVL_005",
+        "status": "RESOLVED",
+        "outcome": "TRUE",
+        "deadline": "2026-08-17",
+        "calibration_weight": "capital",
+        "resolved_at": "2026-08-18T23:03:11+00:00",
+        "title": "On https://api.llama.fi/v2/historicalChainTvl, taking the latest observation whose date (unix se...",
+        "claim": "On https://api.llama.fi/v2/historicalChainTvl, taking the latest observation whose date (unix seconds, UTC day) is less than or equal to end of calendar date 2026-08-17, the tvl field (USD) will be strictly greater than 60_000_000_000.",
+        "why": null
       }
     ]
   },
@@ -931,9 +941,9 @@
     }
   ],
   "helix": {
-    "index": 3764,
+    "index": 3770,
     "fingerprint_prefix": null,
-    "n_entries": 3765,
+    "n_entries": 3771,
     "note": "Local helix chain tip at export — on-chain commits remain gated."
   },
   "meta": {
