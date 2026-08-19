@@ -1,7 +1,7 @@
 {
   "entity": "GOLDMAN_SACHS",
   "node": "34539544",
-  "compiled_at": "2026-08-19T19:00:47.302393+00:00",
+  "compiled_at": "2026-08-19T22:06:36.262869+00:00",
   "digest": "sha256:e2f5acdaed0579f02ad04873bd1ec7bb969841ec6647946c6f77b63311e1bf21",
   "own_numbers": {
     "phi_s": null,
@@ -38,15 +38,15 @@
     }
   },
   "network_plugs": {
-    "freshness": "live_at_request",
+    "freshness": "live",
     "inbound": [
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live_at_request",
-        "last_observed_at": "2026-08-19T15:04:59.365586+00:00",
+        "status": "live",
+        "last_observed_at": "2026-08-19T19:01:17.670582+00:00",
         "filings": null,
-        "note": "CIK 0000886982"
+        "note": "GOLDMAN SACHS GROUP INC \u2014 91138 total filings, 40 in last 90d"
       }
     ],
     "outbound": [
@@ -99,5 +99,21 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "No CONFIRMED m1_strict coverage_ledger row for this entity."
+  },
+  "measurement_join": {
+    "available": false,
+    "entity": "GOLDMAN_SACHS",
+    "as_child": null,
+    "as_parent": [],
+    "n_as_parent": 0,
+    "delta_i": 0,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "join_rule": "issuer_instrument_v1",
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "sot": "data/measurement_links.json",
+    "reason": "No measurement_links row names this entity as child or parent."
   }
 }

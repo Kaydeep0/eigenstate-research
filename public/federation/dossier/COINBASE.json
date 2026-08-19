@@ -1,8 +1,8 @@
 {
   "entity": "COINBASE",
   "node": "34539544",
-  "compiled_at": "2026-08-19T19:00:46.008068+00:00",
-  "digest": "sha256:8d0afc34ef7fd3411746ea5b157ebfe3cbf06f40c804b6c4eb2bb468dcaac355",
+  "compiled_at": "2026-08-19T22:06:33.154702+00:00",
+  "digest": "sha256:5407279097ff419c9e54724d6b38f6950da0ef005a3933fdc79480da22180f14",
   "own_numbers": {
     "phi_s": 4.8926,
     "kappa": 0.0001,
@@ -206,10 +206,10 @@
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live_at_request",
-        "last_observed_at": "2026-08-19T15:04:59.365586+00:00",
+        "status": "live",
+        "last_observed_at": "2026-08-19T19:01:17.670582+00:00",
         "filings": null,
-        "note": "CIK 0001679788"
+        "note": "Coinbase Global, Inc. \u2014 1180 total filings, 35 in last 90d"
       }
     ],
     "outbound": [
@@ -236,8 +236,8 @@
     ],
     "observation": {
       "source": "defi_llama_tvl",
-      "last_observed_at": "2026-08-19T18:55:44.142233+00:00",
-      "last_delta_i": 0.052391427670396666,
+      "last_observed_at": "2026-08-19T21:59:30.071658+00:00",
+      "last_delta_i": 0.05801730718114385,
       "stale": false
     }
   },
@@ -419,5 +419,21 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
+  },
+  "measurement_join": {
+    "available": false,
+    "entity": "COINBASE",
+    "as_child": null,
+    "as_parent": [],
+    "n_as_parent": 0,
+    "delta_i": 0,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "join_rule": "issuer_instrument_v1",
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "sot": "data/measurement_links.json",
+    "reason": "No measurement_links row names this entity as child or parent."
   }
 }

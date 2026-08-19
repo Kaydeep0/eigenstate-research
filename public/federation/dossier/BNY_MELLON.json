@@ -1,8 +1,8 @@
 {
   "entity": "BNY_MELLON",
   "node": "34539544",
-  "compiled_at": "2026-08-19T19:00:45.552961+00:00",
-  "digest": "sha256:c0b9c5b20fe8b62ad95a5b9c94e3a41968205a66b325e0310daf74b3f7116906",
+  "compiled_at": "2026-08-19T22:06:32.045122+00:00",
+  "digest": "sha256:45cdc5f26fb398b81b61f9e5f604c9fc921d70fe6ac22c652cdf13142a46badd",
   "own_numbers": {
     "phi_s": 1.6667,
     "kappa": 0.0,
@@ -197,15 +197,15 @@
     }
   },
   "network_plugs": {
-    "freshness": "live_at_request",
+    "freshness": "live",
     "inbound": [
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live_at_request",
-        "last_observed_at": "2026-08-19T15:04:59.365586+00:00",
+        "status": "live",
+        "last_observed_at": "2026-08-19T19:01:17.670582+00:00",
         "filings": null,
-        "note": "CIK 0001390777 \u2014 live on feed + parkash sensor"
+        "note": "Bank of New York Mellon Corp \u2014 4785 total filings, 40 in last 90d"
       }
     ],
     "outbound": [
@@ -409,5 +409,21 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
+  },
+  "measurement_join": {
+    "available": false,
+    "entity": "BNY_MELLON",
+    "as_child": null,
+    "as_parent": [],
+    "n_as_parent": 0,
+    "delta_i": 0,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "join_rule": "issuer_instrument_v1",
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "sot": "data/measurement_links.json",
+    "reason": "No measurement_links row names this entity as child or parent."
   }
 }

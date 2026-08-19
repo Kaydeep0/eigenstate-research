@@ -1,7 +1,7 @@
 {
   "entity": "FED_RRP",
   "node": "34539544",
-  "compiled_at": "2026-08-19T19:00:46.924650+00:00",
+  "compiled_at": "2026-08-19T22:06:35.374093+00:00",
   "digest": "sha256:d05f7931c9f70fae3fa00d4ed306f2275814282ad4c8d79276f24a894bf2c7c0",
   "own_numbers": {
     "phi_s": 0.04,
@@ -219,5 +219,27 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "No CONFIRMED m1_strict coverage_ledger row for this entity."
+  },
+  "measurement_join": {
+    "available": true,
+    "entity": "FED_RRP",
+    "as_child": {
+      "child": "FED_RRP",
+      "parent": "FED",
+      "relation": "facility_of",
+      "join_rule": "issuer_instrument_v1",
+      "evidence": "topology_membership_manifest.parent_entity"
+    },
+    "as_parent": [],
+    "n_as_parent": 0,
+    "delta_i": 0,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "join_rule": "issuer_instrument_v1",
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "sot": "data/measurement_links.json",
+    "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
   }
 }
