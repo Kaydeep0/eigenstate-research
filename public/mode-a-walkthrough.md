@@ -28,11 +28,11 @@ One sentence: walk the **free** path on live federation, then read **Darshan** s
 
 ## Honesty board (read before demos)
 
-Live-checked **2026-08-04** against `https://geniusflow-federation.vercel.app`:
+Live-checked **2026-08-19** against `https://geniusflow-federation.vercel.app` (re-hit before demos):
 
 | Claim | Live fact | Do not say |
 |-------|-----------|------------|
-| Calibration *n* | `/api/darshan` → `calibration_honesty.n_scored = **0**` · coefficient **withheld** · `paid_surface: HOLD` | "scored confidence," "n ≥ 10," paid calibration |
+| Calibration *n* | `/api/darshan` → `calibration_honesty.n_scored = **1**` · **1 ≪ 10** · coefficient **withheld** · `paid_surface: HOLD` · first scored: `DEFILLAMA_TOTAL_TVL_005` TRUE (2026-08-18) | "scored confidence," "n ≥ 10," paid calibration |
 | Paid gate | `n_scored_paid_gate = 10` (Task 3.5.8 / C10) | Selling confidence before honest *n* |
 | Ops tier | `/api/status` → `tier: best_effort_vercel` | 99.99% SLA / paid uptime |
 | Money | `$0` · product `G_external` = 0 until **5.4** | Revenue, Stripe live, invoice |
@@ -160,7 +160,7 @@ curl -sS https://geniusflow-federation.vercel.app/api/darshan \
     }'
 ```
 
-Expect **`mode: "A"`**, **`n_scored: 0`**, **`confidence_coefficient: null`**, **`coefficient_withheld: true`**, **`paid_surface: "HOLD"`**.
+Expect **`mode: "A"`**, **`n_scored: 1`** (or higher after later resolves), **`confidence_coefficient: null`**, **`coefficient_withheld: true`**, **`paid_surface: "HOLD"`**.
 
 Optional lattice peek (custody / divergence face — not a Layer-6 desk):
 
@@ -177,7 +177,7 @@ curl -sS https://geniusflow-federation.vercel.app/api/darshan \
 |--|-------------------------------------|---------------|
 | Money | `$0` now | **DRAFT / not for sale** until Host opens **5.4** |
 | What you prove | Cite → package admit/refuse → Darshan thin-*n* | Same rails + Host-scoped pack when a real buyer appears |
-| Calibration | `n_scored=0` · do **not** sell | Still blocked until honest `n_scored ≥ 10` |
+| Calibration | `n_scored=1` · thin · do **not** sell | Still blocked until honest `n_scored ≥ 10` |
 | Stripe / 5.4 | **HOLD** | **HOLD** |
 
 Offer one-pager (Host hold): [`PILOT_SKU_VERIFIED_ANALYSIS.md`](PILOT_SKU_VERIFIED_ANALYSIS.md)  
@@ -188,7 +188,7 @@ Design-partner door (no Stripe): https://kaydeep0.github.io/eigenstate-research/
 ## Explicitly not included
 
 - Opening Task **5.4** / Stripe / inventing revenue  
-- Paid calibration confidence while `n_scored < 10` (live: **0**)  
+- Paid calibration confidence while `n_scored < 10` (live: **1** ≪ 10)  
 - Layer **6 LIVE**, Wave-6 marketing, Magicians homepage paste  
 - Settlement v2 / bank API / SLA beyond `best_effort_vercel`  
 - Inventing dossier rows, claim IDs, or `n_scored ≥ 10`
@@ -200,7 +200,7 @@ Design-partner door (no Stripe): https://kaydeep0.github.io/eigenstate-research/
 | Item | State |
 |------|--------|
 | Walkthrough doc | **SHIPPED** (this file) |
-| Live path verified | cite admit · package admit/refuse · Darshan `n_scored=0` (**2026-08-04**) |
+| Live path verified | cite admit · package admit/refuse · Darshan thin-n honesty (**2026-08-19**: `n_scored=1`, gate 10) |
 | Federation `/api/dossier` | May be **empty** (`n_dossiers: 0`) after thin bake — use report_feed / Pages mirror / frozen claim |
 | Pilot SKU | **DRAFT / not for sale** |
 | Task **5.4** | **HOLD** |

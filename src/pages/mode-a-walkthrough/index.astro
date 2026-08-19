@@ -47,7 +47,7 @@ curl -sS -X POST ${fed}/api/cite \\
 
 <Layout
   title="Free Mode A — Investor Walkthrough · Eigenstate Research"
-  description="Free metalayer path: cite → verify → package → Darshan honesty. Pilot DRAFT, n_scored=0, Task 5.4 HOLD. Not a paid confidence product."
+  description="Free metalayer path: cite → verify → package → Darshan honesty. Pilot DRAFT, n_scored=1 (thin, gate 10), Task 5.4 HOLD. Not a paid confidence product."
   fonts={fonts}
 >
   <Fragment slot="head">
@@ -439,8 +439,8 @@ curl -sS -X POST ${fed}/api/cite \\
       <h2>Honesty board — read before demos</h2>
       <ul class="callout-list">
         <li>
-          <strong>n_scored = 0</strong> · coefficient withheld · <code>paid_surface: HOLD</code>
-          <span class="do-not">Do not say: scored confidence, n ≥ 10, paid calibration</span>
+          <strong>n_scored = 1</strong> (live wire 2026-08-19) · <strong>1 ≪ 10</strong> · coefficient withheld · <code>paid_surface: HOLD</code>
+          <span class="do-not">Do not say: scored confidence, n ≥ 10, paid calibration. Re-hit <code>/api/darshan</code> — wire wins over this page.</span>
         </li>
         <li>
           <strong>Pilot DRAFT / not for sale</strong> · money path is $0 until Host opens 5.4
@@ -588,8 +588,9 @@ EOF`}</pre>
       <div class="step-label">Step 4</div>
       <h2>Darshan honesty (n_scored)</h2>
       <p>
-        Read calibration honesty before anyone pitches confidence. Live-checked 2026-08-04:
-        <code>n_scored = 0</code>.
+        Read calibration honesty before anyone pitches confidence. Re-hit live Darshan before every demo.
+        Wire as of <strong>2026-08-19</strong>: <code>n_scored = 1</code> after sealed
+        <code>DEFILLAMA_TOTAL_TVL_005</code> TRUE — still thin vs gate 10.
       </p>
       <pre class="cmd">{`curl -sS ${fed}/api/darshan \\
   | jq '{
@@ -602,7 +603,7 @@ EOF`}</pre>
       note: .calibration_honesty.note
     }'`}</pre>
       <p class="expect hold">
-        Expect <code>mode: "A"</code>, <code>n_scored: 0</code>,
+        Expect <code>mode: "A"</code>, <code>n_scored: 1</code> (or higher after later resolves),
         <code>confidence_coefficient: null</code>, <code>coefficient_withheld: true</code>,
         <code>paid_surface: "HOLD"</code>. Gate is <code>n_scored_paid_gate = 10</code>.
       </p>
@@ -635,7 +636,7 @@ EOF`}</pre>
           </tr>
           <tr>
             <td>Calibration</td>
-            <td>n_scored=0 · do not sell</td>
+            <td>n_scored=1 · thin · do not sell</td>
             <td>Blocked until honest n_scored ≥ 10</td>
           </tr>
           <tr>
@@ -655,7 +656,7 @@ EOF`}</pre>
       <h2>Explicitly not included</h2>
       <ul class="not-list">
         <li>Opening Task 5.4 / Stripe / inventing revenue</li>
-        <li>Paid calibration confidence while <code>n_scored &lt; 10</code> (live: 0)</li>
+        <li>Paid calibration confidence while <code>n_scored &lt; 10</code> (live: 1 ≪ 10)</li>
         <li>Layer 6 LIVE, Wave-6 marketing, Magicians homepage paste</li>
         <li>Settlement v2 / bank API / SLA beyond <code>best_effort_vercel</code></li>
         <li>Inventing dossier rows, claim IDs, or <code>n_scored ≥ 10</code></li>
