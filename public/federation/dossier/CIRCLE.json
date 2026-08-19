@@ -1,8 +1,8 @@
 {
   "entity": "CIRCLE",
   "node": "34539544",
-  "compiled_at": "2026-08-19T22:06:32.634638+00:00",
-  "digest": "sha256:8c9488c4e15350075fe8893b438e3d7e386f86aa8dcf9599cd6ba64a004bd3f1",
+  "compiled_at": "2026-08-19T22:10:54.857318+00:00",
+  "digest": "sha256:36b185a3fde26d60776a632312f032b688ab779b297e27ea6b1c3bcc3a29445e",
   "own_numbers": {
     "phi_s": 13.0096,
     "kappa": 0.0006,
@@ -243,8 +243,8 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-08-19T21:59:41.384223+00:00",
-      "last_delta_i": 1.3495259788139296e+90,
+      "last_observed_at": "2026-08-19T22:06:50.548947+00:00",
+      "last_delta_i": 3.792048837323213e+90,
       "stale": false
     }
   },
@@ -384,50 +384,5 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
-  },
-  "measurement_join": {
-    "available": true,
-    "entity": "CIRCLE",
-    "as_child": null,
-    "as_parent": [
-      {
-        "child": "CIRCLE_RESERVE_FUND",
-        "parent": "CIRCLE",
-        "relation": "fund_of",
-        "join_rule": "issuer_instrument_v1",
-        "evidence": "topology_membership_manifest.parent_entity; NETWORK_TOPOLOGY_PROXIMITY_RINGS CIRCLE\u2192CIRCLE_RESERVE_FUND"
-      },
-      {
-        "child": "CIRCLE_USYC",
-        "parent": "CIRCLE",
-        "relation": "issuer_product",
-        "join_rule": "issuer_instrument_v1",
-        "evidence": "Circle USYC tokenized yield product; M1 child of CIRCLE issuer"
-      },
-      {
-        "child": "USDC",
-        "parent": "CIRCLE",
-        "relation": "stablecoin_of",
-        "join_rule": "issuer_instrument_v1",
-        "evidence": "Circle issues USDC; onchain/DefiLlama/SRR USDC heat should refresh CIRCLE observation trail"
-      },
-      {
-        "child": "USYC",
-        "parent": "CIRCLE",
-        "relation": "issuer_product",
-        "join_rule": "issuer_instrument_v1",
-        "evidence": "DefiLlama/SRR symbol USYC is Circle USYC; same issuer join as CIRCLE_USYC\u2192CIRCLE"
-      }
-    ],
-    "n_as_parent": 4,
-    "delta_i": 0,
-    "not_a_ledger_claim": true,
-    "cite_class": "citeable",
-    "join_rule": "issuer_instrument_v1",
-    "settlement_v2": "HOLD",
-    "not_g_external": true,
-    "auto_dual_ack": false,
-    "sot": "data/measurement_links.json",
-    "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
   }
 }
