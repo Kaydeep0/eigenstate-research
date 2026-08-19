@@ -1,7 +1,7 @@
 {
   "entity": "CITI_TREASURY_SERVICES",
   "node": "34539544",
-  "compiled_at": "2026-08-19T13:01:41.871025+00:00",
+  "compiled_at": "2026-08-19T13:10:54.432713+00:00",
   "digest": "sha256:cfdbfaec9d639a4668b55abb6c7bbfe7c611c758e0fdccb5b7ff311b991e8223",
   "own_numbers": {
     "phi_s": 0.0225,
@@ -240,5 +240,27 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "No CONFIRMED m1_strict coverage_ledger row for this entity."
+  },
+  "measurement_join": {
+    "available": true,
+    "entity": "CITI_TREASURY_SERVICES",
+    "as_child": {
+      "child": "CITI_TREASURY_SERVICES",
+      "parent": "CITIGROUP",
+      "relation": "division_of",
+      "join_rule": "issuer_instrument_v1",
+      "evidence": "topology_membership_manifest.parent_entity"
+    },
+    "as_parent": [],
+    "n_as_parent": 0,
+    "delta_i": 0,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "join_rule": "issuer_instrument_v1",
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "sot": "data/measurement_links.json",
+    "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
   }
 }
