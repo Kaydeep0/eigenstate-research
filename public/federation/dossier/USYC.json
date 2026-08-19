@@ -1,0 +1,27 @@
+{
+  "entity": "USYC",
+  "kind": "measurement_join_only",
+  "measurement_join": {
+    "available": true,
+    "entity": "USYC",
+    "as_child": {
+      "child": "USYC",
+      "parent": "CIRCLE",
+      "relation": "issuer_product",
+      "join_rule": "issuer_instrument_v1",
+      "evidence": "DefiLlama/SRR symbol USYC is Circle USYC; same issuer join as CIRCLE_USYC\u2192CIRCLE"
+    },
+    "as_parent": [],
+    "n_as_parent": 0,
+    "delta_i": 0,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "join_rule": "issuer_instrument_v1",
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "sot": "data/measurement_links.json",
+    "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
+  },
+  "note": "Thin metalayer card \u2014 not a full federation build-target dossier. measurement_join SoT only (delta_i=0)."
+}
