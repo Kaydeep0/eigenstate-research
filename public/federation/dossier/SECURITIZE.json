@@ -1,8 +1,8 @@
 {
   "entity": "SECURITIZE",
   "node": "34539544",
-  "compiled_at": "2026-08-19T13:11:02.212860+00:00",
-  "digest": "sha256:a339d56bc9b7a8b9b5ec3d21d7ec5d6624823775b4ac7565f7cd32d665d10e3d",
+  "compiled_at": "2026-08-19T16:02:23.907539+00:00",
+  "digest": "sha256:c28e553d390fe58acf2d8c3f26045bf1f9b67079a9c7b5b5f0f7525dc53e4981",
   "own_numbers": {
     "phi_s": 0.02,
     "kappa": 0.0985,
@@ -165,10 +165,10 @@
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live",
-        "last_observed_at": "2026-08-19T11:00:44.415585+00:00",
+        "status": "live_at_request",
+        "last_observed_at": "2026-08-19T15:04:59.365586+00:00",
         "filings": null,
-        "note": "Securitize Corp. \u2014 56 total filings, 35 in last 90d"
+        "note": "CIK 0002094496"
       }
     ],
     "outbound": [
@@ -195,7 +195,7 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-08-19T12:57:09.132280+00:00",
+      "last_observed_at": "2026-08-19T15:52:15.833311+00:00",
       "last_delta_i": Infinity,
       "stale": false
     }
@@ -270,21 +270,5 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
-  },
-  "measurement_join": {
-    "available": false,
-    "entity": "SECURITIZE",
-    "as_child": null,
-    "as_parent": [],
-    "n_as_parent": 0,
-    "delta_i": 0,
-    "not_a_ledger_claim": true,
-    "cite_class": "citeable",
-    "join_rule": "issuer_instrument_v1",
-    "settlement_v2": "HOLD",
-    "not_g_external": true,
-    "auto_dual_ack": false,
-    "sot": "data/measurement_links.json",
-    "reason": "No measurement_links row names this entity as child or parent."
   }
 }
