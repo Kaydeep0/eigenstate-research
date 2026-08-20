@@ -1,8 +1,8 @@
 {
   "entity": "FED",
   "node": "34539544",
-  "compiled_at": "2026-08-20T13:10:56.391897+00:00",
-  "digest": "sha256:061587aa9536b7425921ffe514ec0aa50a6478e84b279bd2035c3d42fd147aae",
+  "compiled_at": "2026-08-20T16:01:24.715878+00:00",
+  "digest": "sha256:bdb3703f21fd0b483c409092dc6017a21a9fff47edb8bedade770bd303b976bf",
   "own_numbers": {
     "phi_s": 2.4495,
     "kappa": 0.0,
@@ -251,8 +251,8 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-08-20T13:08:01.843387+00:00",
-      "last_delta_i": 2.855931340337714,
+      "last_observed_at": "2026-08-20T15:56:38.643750+00:00",
+      "last_delta_i": 8.17197996018344,
       "stale": false
     }
   },
@@ -392,29 +392,5 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
-  },
-  "measurement_join": {
-    "available": true,
-    "entity": "FED",
-    "as_child": null,
-    "as_parent": [
-      {
-        "child": "FED_RRP",
-        "parent": "FED",
-        "relation": "facility_of",
-        "join_rule": "issuer_instrument_v1",
-        "evidence": "topology_membership_manifest.parent_entity"
-      }
-    ],
-    "n_as_parent": 1,
-    "delta_i": 0,
-    "not_a_ledger_claim": true,
-    "cite_class": "citeable",
-    "join_rule": "issuer_instrument_v1",
-    "settlement_v2": "HOLD",
-    "not_g_external": true,
-    "auto_dual_ack": false,
-    "sot": "data/measurement_links.json",
-    "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
   }
 }

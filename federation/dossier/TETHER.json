@@ -1,8 +1,8 @@
 {
   "entity": "TETHER",
   "node": "34539544",
-  "compiled_at": "2026-08-20T13:11:02.943611+00:00",
-  "digest": "sha256:39c6ee9b535a3671b2456d03ee7b8b04f3b6cd756e2a8f23e9a9d7b986a14477",
+  "compiled_at": "2026-08-20T16:01:27.760024+00:00",
+  "digest": "sha256:896ce03c717c3fe074349d70080f4a465b1555341e906d849160ec6042fb6cdd",
   "own_numbers": {
     "phi_s": 6.5561,
     "kappa": 0.0086,
@@ -182,7 +182,7 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-08-20T13:08:01.843387+00:00",
+      "last_observed_at": "2026-08-20T15:56:38.643750+00:00",
       "last_delta_i": Infinity,
       "stale": false
     }
@@ -323,43 +323,5 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
-  },
-  "measurement_join": {
-    "available": true,
-    "entity": "TETHER",
-    "as_child": null,
-    "as_parent": [
-      {
-        "child": "TETHER_GOLD",
-        "parent": "TETHER",
-        "relation": "issuer_product",
-        "join_rule": "issuer_instrument_v1",
-        "evidence": "Tether Gold (XAUt) product under Tether issuer on M1"
-      },
-      {
-        "child": "USDT",
-        "parent": "TETHER",
-        "relation": "stablecoin_of",
-        "join_rule": "issuer_instrument_v1",
-        "evidence": "Tether issues USDT; mirror of USDC\u2192CIRCLE for measurement join"
-      },
-      {
-        "child": "USDT0",
-        "parent": "TETHER",
-        "relation": "stablecoin_of",
-        "join_rule": "issuer_instrument_v1",
-        "evidence": "USDT0 is Tether USDT on M1 topology; same issuer join as USDT\u2192TETHER"
-      }
-    ],
-    "n_as_parent": 3,
-    "delta_i": 0,
-    "not_a_ledger_claim": true,
-    "cite_class": "citeable",
-    "join_rule": "issuer_instrument_v1",
-    "settlement_v2": "HOLD",
-    "not_g_external": true,
-    "auto_dual_ack": false,
-    "sot": "data/measurement_links.json",
-    "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
   }
 }
