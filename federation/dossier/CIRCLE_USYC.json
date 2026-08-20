@@ -1,7 +1,7 @@
 {
   "entity": "CIRCLE_USYC",
   "node": "34539544",
-  "compiled_at": "2026-08-20T19:03:04.287236+00:00",
+  "compiled_at": "2026-08-20T22:06:31.260873+00:00",
   "digest": "sha256:715ba5e68d7950b7b37456b13a3b65ec2583e0821068e909df2b6c5af59945a9",
   "own_numbers": {
     "phi_s": 1.6181,
@@ -121,5 +121,27 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
+  },
+  "measurement_join": {
+    "available": true,
+    "entity": "CIRCLE_USYC",
+    "as_child": {
+      "child": "CIRCLE_USYC",
+      "parent": "CIRCLE",
+      "relation": "issuer_product",
+      "join_rule": "issuer_instrument_v1",
+      "evidence": "Circle USYC tokenized yield product; M1 child of CIRCLE issuer"
+    },
+    "as_parent": [],
+    "n_as_parent": 0,
+    "delta_i": 0,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "join_rule": "issuer_instrument_v1",
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "sot": "data/measurement_links.json",
+    "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
   }
 }
