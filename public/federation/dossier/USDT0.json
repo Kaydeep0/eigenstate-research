@@ -1,7 +1,7 @@
 {
   "entity": "USDT0",
   "node": "34539544",
-  "compiled_at": "2026-08-21T13:02:30.481046+00:00",
+  "compiled_at": "2026-08-21T13:11:05.165613+00:00",
   "digest": "sha256:ff4badadb1966c28ad03b7fa6a69c61b6d3aeea4f87e44b2f25db12c13d92610",
   "own_numbers": {
     "phi_s": 1.6181,
@@ -121,5 +121,27 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
+  },
+  "measurement_join": {
+    "available": true,
+    "entity": "USDT0",
+    "as_child": {
+      "child": "USDT0",
+      "parent": "TETHER",
+      "relation": "stablecoin_of",
+      "join_rule": "issuer_instrument_v1",
+      "evidence": "USDT0 is Tether USDT on M1 topology; same issuer join as USDT\u2192TETHER"
+    },
+    "as_parent": [],
+    "n_as_parent": 0,
+    "delta_i": 0,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "join_rule": "issuer_instrument_v1",
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "sot": "data/measurement_links.json",
+    "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
   }
 }

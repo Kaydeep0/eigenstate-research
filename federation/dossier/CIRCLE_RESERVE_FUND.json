@@ -1,7 +1,7 @@
 {
   "entity": "CIRCLE_RESERVE_FUND",
   "node": "34539544",
-  "compiled_at": "2026-08-21T13:02:26.328438+00:00",
+  "compiled_at": "2026-08-21T13:10:55.407791+00:00",
   "digest": "sha256:340cf6ae151982434ae54247cee2e28b77f9b93e7a18984a447ce4d799c47be2",
   "own_numbers": {
     "phi_s": 0.095,
@@ -268,5 +268,27 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "No CONFIRMED m1_strict coverage_ledger row for this entity."
+  },
+  "measurement_join": {
+    "available": true,
+    "entity": "CIRCLE_RESERVE_FUND",
+    "as_child": {
+      "child": "CIRCLE_RESERVE_FUND",
+      "parent": "CIRCLE",
+      "relation": "fund_of",
+      "join_rule": "issuer_instrument_v1",
+      "evidence": "topology_membership_manifest.parent_entity; NETWORK_TOPOLOGY_PROXIMITY_RINGS CIRCLE\u2192CIRCLE_RESERVE_FUND"
+    },
+    "as_parent": [],
+    "n_as_parent": 0,
+    "delta_i": 0,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "join_rule": "issuer_instrument_v1",
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "sot": "data/measurement_links.json",
+    "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
   }
 }
