@@ -1,8 +1,8 @@
 {
   "entity": "CIRCLE",
   "node": "34539544",
-  "compiled_at": "2026-08-21T04:09:26.417824+00:00",
-  "digest": "sha256:3a9e6c710a8f43413db1c1036e858ca38015bea6bfb6be370caa2cf2373e05c9",
+  "compiled_at": "2026-08-21T13:01:23.594381+00:00",
+  "digest": "sha256:6e36a31a3088aa72ae85803412df5bfbe3a925d362c8d3e8ceea411628218a5e",
   "own_numbers": {
     "phi_s": 13.0096,
     "kappa": 0.0006,
@@ -214,7 +214,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-21T03:01:39.497121+00:00",
+        "last_observed_at": "2026-08-21T11:00:58.695671+00:00",
         "filings": null,
         "note": "Circle Internet Group, Inc. \u2014 395 total filings, 40 in last 90d"
       }
@@ -242,9 +242,9 @@
       }
     ],
     "observation": {
-      "source": "propagated",
-      "last_observed_at": "2026-08-21T04:08:39.407854+00:00",
-      "last_delta_i": 3.800208138906108,
+      "source": "information_flow",
+      "last_observed_at": "2026-08-21T12:59:33.156438+00:00",
+      "last_delta_i": 1.0,
       "stale": false
     }
   },
@@ -384,50 +384,5 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
-  },
-  "measurement_join": {
-    "available": true,
-    "entity": "CIRCLE",
-    "as_child": null,
-    "as_parent": [
-      {
-        "child": "CIRCLE_RESERVE_FUND",
-        "parent": "CIRCLE",
-        "relation": "fund_of",
-        "join_rule": "issuer_instrument_v1",
-        "evidence": "topology_membership_manifest.parent_entity; NETWORK_TOPOLOGY_PROXIMITY_RINGS CIRCLE\u2192CIRCLE_RESERVE_FUND"
-      },
-      {
-        "child": "CIRCLE_USYC",
-        "parent": "CIRCLE",
-        "relation": "issuer_product",
-        "join_rule": "issuer_instrument_v1",
-        "evidence": "Circle USYC tokenized yield product; M1 child of CIRCLE issuer"
-      },
-      {
-        "child": "USDC",
-        "parent": "CIRCLE",
-        "relation": "stablecoin_of",
-        "join_rule": "issuer_instrument_v1",
-        "evidence": "Circle issues USDC; onchain/DefiLlama/SRR USDC heat should refresh CIRCLE observation trail"
-      },
-      {
-        "child": "USYC",
-        "parent": "CIRCLE",
-        "relation": "issuer_product",
-        "join_rule": "issuer_instrument_v1",
-        "evidence": "DefiLlama/SRR symbol USYC is Circle USYC; same issuer join as CIRCLE_USYC\u2192CIRCLE"
-      }
-    ],
-    "n_as_parent": 4,
-    "delta_i": 0,
-    "not_a_ledger_claim": true,
-    "cite_class": "citeable",
-    "join_rule": "issuer_instrument_v1",
-    "settlement_v2": "HOLD",
-    "not_g_external": true,
-    "auto_dual_ack": false,
-    "sot": "data/measurement_links.json",
-    "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
   }
 }
