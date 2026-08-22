@@ -1,7 +1,7 @@
 {
   "entity": "SPARKLEND",
   "node": "34539544",
-  "compiled_at": "2026-08-22T13:04:30.400126+00:00",
+  "compiled_at": "2026-08-22T13:11:03.930428+00:00",
   "digest": "sha256:fda8011ee55c5fb68fdffa3f12ed228bc47994d33b310414af4aed9d62785a26",
   "own_numbers": {
     "phi_s": 1.6181,
@@ -121,5 +121,27 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
+  },
+  "measurement_join": {
+    "available": true,
+    "entity": "SPARKLEND",
+    "as_child": {
+      "child": "SPARKLEND",
+      "parent": "SKY",
+      "relation": "issuer_product",
+      "join_rule": "issuer_instrument_v1",
+      "evidence": "SparkLend is Sky/Maker ecosystem lending; product family under SKY dens"
+    },
+    "as_parent": [],
+    "n_as_parent": 0,
+    "delta_i": 0,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "join_rule": "issuer_instrument_v1",
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "sot": "data/measurement_links.json",
+    "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
   }
 }
