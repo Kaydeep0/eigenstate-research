@@ -1,7 +1,7 @@
 {
   "entity": "MORPHO",
   "node": "34539544",
-  "compiled_at": "2026-08-22T13:11:01.103994+00:00",
+  "compiled_at": "2026-08-22T16:03:51.303853+00:00",
   "digest": "sha256:bdfaf16c3b1f8505a11e34ce0b19bc750be411fe413838841802b89fa6ce8d17",
   "own_numbers": {
     "phi_s": 1.6381,
@@ -237,29 +237,5 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
-  },
-  "measurement_join": {
-    "available": true,
-    "entity": "MORPHO",
-    "as_child": null,
-    "as_parent": [
-      {
-        "child": "MORPHO_V1",
-        "parent": "MORPHO",
-        "relation": "issuer_product",
-        "join_rule": "issuer_instrument_v1",
-        "evidence": "Morpho v1 product surface under MORPHO protocol dens on M1"
-      }
-    ],
-    "n_as_parent": 1,
-    "delta_i": 0,
-    "not_a_ledger_claim": true,
-    "cite_class": "citeable",
-    "join_rule": "issuer_instrument_v1",
-    "settlement_v2": "HOLD",
-    "not_g_external": true,
-    "auto_dual_ack": false,
-    "sot": "data/measurement_links.json",
-    "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
   }
 }
