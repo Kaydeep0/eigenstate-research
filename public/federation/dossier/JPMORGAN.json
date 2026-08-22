@@ -1,7 +1,7 @@
 {
   "entity": "JPMORGAN",
   "node": "34539544",
-  "compiled_at": "2026-08-22T01:09:22.031801+00:00",
+  "compiled_at": "2026-08-22T04:01:38.069332+00:00",
   "digest": "sha256:cfb11fd6b6b0533c63235506a63142170fdc5a7f81598577fa5e25c3c1f1f138",
   "own_numbers": {
     "phi_s": 3.2598,
@@ -197,10 +197,10 @@
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live",
-        "last_observed_at": "2026-08-21T23:01:11.744928+00:00",
+        "status": "live_at_request",
+        "last_observed_at": "2026-08-22T03:04:59.903736+00:00",
         "filings": null,
-        "note": "JPMORGAN CHASE & CO \u2014 165132 total filings, 40 in last 90d"
+        "note": "CIK 0000019617 \u2014 live on feed + parkash sensor"
       }
     ],
     "outbound": [
@@ -368,21 +368,5 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
-  },
-  "measurement_join": {
-    "available": false,
-    "entity": "JPMORGAN",
-    "as_child": null,
-    "as_parent": [],
-    "n_as_parent": 0,
-    "delta_i": 0,
-    "not_a_ledger_claim": true,
-    "cite_class": "citeable",
-    "join_rule": "issuer_instrument_v1",
-    "settlement_v2": "HOLD",
-    "not_g_external": true,
-    "auto_dual_ack": false,
-    "sot": "data/measurement_links.json",
-    "reason": "No measurement_links row names this entity as child or parent."
   }
 }

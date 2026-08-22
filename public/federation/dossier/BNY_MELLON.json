@@ -1,7 +1,7 @@
 {
   "entity": "BNY_MELLON",
   "node": "34539544",
-  "compiled_at": "2026-08-22T01:09:15.758797+00:00",
+  "compiled_at": "2026-08-22T04:01:35.775996+00:00",
   "digest": "sha256:7589a9ee8acef131bcc686c4edd198dfb3e7151a56d88ed6a7ecfbde689cc772",
   "own_numbers": {
     "phi_s": 1.6667,
@@ -197,15 +197,15 @@
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "live_at_request",
     "inbound": [
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live",
-        "last_observed_at": "2026-08-21T23:01:11.744928+00:00",
+        "status": "live_at_request",
+        "last_observed_at": "2026-08-22T03:04:59.903736+00:00",
         "filings": null,
-        "note": "Bank of New York Mellon Corp \u2014 4787 total filings, 40 in last 90d"
+        "note": "CIK 0001390777 \u2014 live on feed + parkash sensor"
       }
     ],
     "outbound": [
@@ -409,21 +409,5 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
-  },
-  "measurement_join": {
-    "available": false,
-    "entity": "BNY_MELLON",
-    "as_child": null,
-    "as_parent": [],
-    "n_as_parent": 0,
-    "delta_i": 0,
-    "not_a_ledger_claim": true,
-    "cite_class": "citeable",
-    "join_rule": "issuer_instrument_v1",
-    "settlement_v2": "HOLD",
-    "not_g_external": true,
-    "auto_dual_ack": false,
-    "sot": "data/measurement_links.json",
-    "reason": "No measurement_links row names this entity as child or parent."
   }
 }

@@ -1,7 +1,7 @@
 {
   "entity": "PAXOS_GOLD",
   "node": "34539544",
-  "compiled_at": "2026-08-22T01:09:24.388056+00:00",
+  "compiled_at": "2026-08-22T04:01:38.973836+00:00",
   "digest": "sha256:8cc6fb79a69f425c1b16a7627b8f80676a40e4eafef7a6c89819b1f3498d47be",
   "own_numbers": {
     "phi_s": 1.6181,
@@ -88,6 +88,72 @@
     ],
     "observation": null
   },
+  "claims": [
+    {
+      "claim_id": "160acdf8-31a3-4a5e-9838-8b55dfa6d8bb",
+      "claim_text": "Paxos Gold product page \u2014 PAXG tokenized gold",
+      "grounding": {
+        "source_url": "https://paxos.com/pax-gold",
+        "expected": "PAXG",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "PAXOS_GOLD_20260822",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/paxos-gold-20260822/",
+      "verified_at": "2026-08-22T04:00:16.219971+00:00",
+      "expires_at": "2026-11-20T04:00:16+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "4208c548-f49a-4bf8-ae19-c820b02d8dd5",
+      "claim_text": "Paxos Gold \u2014 physical gold backing",
+      "grounding": {
+        "source_url": "https://paxos.com/pax-gold",
+        "expected": "gold",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "PAXOS_GOLD_20260822",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/paxos-gold-20260822/",
+      "verified_at": "2026-08-22T04:00:16.541232+00:00",
+      "expires_at": "2026-11-20T04:00:16+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "aba95b8c-697f-4def-85a5-07f3aa402153",
+      "claim_text": "RWA.xyz \u2014 PAXG asset listing",
+      "grounding": {
+        "source_url": "https://rwa.xyz/assets/paxg",
+        "expected": "Paxos",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-DERIVED",
+      "source_type": "derived",
+      "source_type_at_verification": "derived",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "PAXOS_GOLD_20260822",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/paxos-gold-20260822/",
+      "verified_at": "2026-08-22T04:00:16.808650+00:00",
+      "expires_at": "2026-11-20T04:00:16+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/PAXOS_GOLD.json",
   "locate": {
     "entity": "PAXOS_GOLD",
     "routing": "index_locate_classify",
@@ -121,21 +187,5 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
-  },
-  "measurement_join": {
-    "available": false,
-    "entity": "PAXOS_GOLD",
-    "as_child": null,
-    "as_parent": [],
-    "n_as_parent": 0,
-    "delta_i": 0,
-    "not_a_ledger_claim": true,
-    "cite_class": "citeable",
-    "join_rule": "issuer_instrument_v1",
-    "settlement_v2": "HOLD",
-    "not_g_external": true,
-    "auto_dual_ack": false,
-    "sot": "data/measurement_links.json",
-    "reason": "No measurement_links row names this entity as child or parent."
   }
 }

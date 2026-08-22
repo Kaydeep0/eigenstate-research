@@ -1,7 +1,7 @@
 {
   "entity": "SKY",
   "node": "34539544",
-  "compiled_at": "2026-08-22T01:09:26.263595+00:00",
+  "compiled_at": "2026-08-22T04:01:39.664192+00:00",
   "digest": "sha256:a0a81757db3217c5acc18b7e5dc6e9429d333a646cde05c3f47c2af13f31786c",
   "own_numbers": {
     "phi_s": null,
@@ -101,36 +101,5 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
-  },
-  "measurement_join": {
-    "available": true,
-    "entity": "SKY",
-    "as_child": null,
-    "as_parent": [
-      {
-        "child": "SPARKLEND",
-        "parent": "SKY",
-        "relation": "issuer_product",
-        "join_rule": "issuer_instrument_v1",
-        "evidence": "SparkLend is Sky/Maker ecosystem lending; product family under SKY dens"
-      },
-      {
-        "child": "SPARK_SAVINGS",
-        "parent": "SKY",
-        "relation": "issuer_product",
-        "join_rule": "issuer_instrument_v1",
-        "evidence": "Spark Savings is Sky ecosystem savings surface under SKY dens"
-      }
-    ],
-    "n_as_parent": 2,
-    "delta_i": 0,
-    "not_a_ledger_claim": true,
-    "cite_class": "citeable",
-    "join_rule": "issuer_instrument_v1",
-    "settlement_v2": "HOLD",
-    "not_g_external": true,
-    "auto_dual_ack": false,
-    "sot": "data/measurement_links.json",
-    "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
   }
 }

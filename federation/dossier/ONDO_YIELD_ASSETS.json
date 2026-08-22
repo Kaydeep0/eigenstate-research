@@ -1,7 +1,7 @@
 {
   "entity": "ONDO_YIELD_ASSETS",
   "node": "34539544",
-  "compiled_at": "2026-08-22T01:09:23.868074+00:00",
+  "compiled_at": "2026-08-22T04:01:38.756389+00:00",
   "digest": "sha256:e7156f4c7d6a46570c4b3a2f8422245fb5832d85bc927b61c50c73988cf4ffd7",
   "own_numbers": {
     "phi_s": 1.6181,
@@ -88,6 +88,72 @@
     ],
     "observation": null
   },
+  "claims": [
+    {
+      "claim_id": "cfd5b575-3564-4c99-8039-765645dd8e0e",
+      "claim_text": "RWA.xyz \u2014 OUSG tokenized Treasury listing",
+      "grounding": {
+        "source_url": "https://rwa.xyz/assets/ousg",
+        "expected": "OUSG",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-DERIVED",
+      "source_type": "derived",
+      "source_type_at_verification": "derived",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "ONDO_YIELD_ASSETS_20260822",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ondo-yield-assets-20260822/",
+      "verified_at": "2026-08-22T04:00:13.856387+00:00",
+      "expires_at": "2026-11-20T04:00:13+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "673bf81a-0d60-47f4-b4ed-a5c254221275",
+      "claim_text": "RWA.xyz \u2014 USDY yield asset listing",
+      "grounding": {
+        "source_url": "https://rwa.xyz/assets/usdy",
+        "expected": "yield",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-DERIVED",
+      "source_type": "derived",
+      "source_type_at_verification": "derived",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "ONDO_YIELD_ASSETS_20260822",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ondo-yield-assets-20260822/",
+      "verified_at": "2026-08-22T04:00:14.136751+00:00",
+      "expires_at": "2026-11-20T04:00:14+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "1a41c21b-f0ce-4f4c-bdc4-1ecd2707d9a8",
+      "claim_text": "Ondo documentation \u2014 OUSG and USDY yield products",
+      "grounding": {
+        "source_url": "https://docs.ondo.finance/",
+        "expected": "USDY",
+        "location": ""
+      },
+      "status_at_publish": "HALLUCINATED",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "ONDO_YIELD_ASSETS_20260822",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ondo-yield-assets-20260822/",
+      "verified_at": "2026-08-22T04:00:13.491112+00:00",
+      "expires_at": "2026-11-20T04:00:13+00:00",
+      "volatility_class": "default",
+      "allows_canonical": false
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/ONDO_YIELD_ASSETS.json",
   "locate": {
     "entity": "ONDO_YIELD_ASSETS",
     "routing": "index_locate_classify",
@@ -121,27 +187,5 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
-  },
-  "measurement_join": {
-    "available": true,
-    "entity": "ONDO_YIELD_ASSETS",
-    "as_child": {
-      "child": "ONDO_YIELD_ASSETS",
-      "parent": "ONDO",
-      "relation": "issuer_product",
-      "join_rule": "issuer_instrument_v1",
-      "evidence": "Ondo yield-assets surface on M1; product family under ONDO issuer"
-    },
-    "as_parent": [],
-    "n_as_parent": 0,
-    "delta_i": 0,
-    "not_a_ledger_claim": true,
-    "cite_class": "citeable",
-    "join_rule": "issuer_instrument_v1",
-    "settlement_v2": "HOLD",
-    "not_g_external": true,
-    "auto_dual_ack": false,
-    "sot": "data/measurement_links.json",
-    "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
   }
 }
