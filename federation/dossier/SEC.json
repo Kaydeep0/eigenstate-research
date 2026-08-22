@@ -1,8 +1,8 @@
 {
   "entity": "SEC",
   "node": "34539544",
-  "compiled_at": "2026-08-22T16:03:52.373170+00:00",
-  "digest": "sha256:fa97e49e7c6eb8bcffd3d86b39165a7d7380f8d901d9140620363eaa2eb1f4d0",
+  "compiled_at": "2026-08-22T18:22:21.646677+00:00",
+  "digest": "sha256:a794abb3ab4151aacbffbee7aa6858effa7a751edcc20ef19125aa65beba21e8",
   "own_numbers": {
     "phi_s": 2.9249,
     "kappa": 0.0002,
@@ -199,7 +199,7 @@
     ],
     "observation": {
       "source": "information_flow",
-      "last_observed_at": "2026-08-22T16:02:43.728745+00:00",
+      "last_observed_at": "2026-08-22T18:18:50.667780+00:00",
       "last_delta_i": 1.0,
       "stale": false
     }
@@ -361,5 +361,21 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
+  },
+  "measurement_join": {
+    "available": false,
+    "entity": "SEC",
+    "as_child": null,
+    "as_parent": [],
+    "n_as_parent": 0,
+    "delta_i": 0,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "join_rule": "issuer_instrument_v1",
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "sot": "data/measurement_links.json",
+    "reason": "No measurement_links row names this entity as child or parent."
   }
 }

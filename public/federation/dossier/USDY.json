@@ -1,7 +1,7 @@
 {
   "entity": "USDY",
   "node": "34539544",
-  "compiled_at": "2026-08-22T16:03:53.168048+00:00",
+  "compiled_at": "2026-08-22T18:22:22.673874+00:00",
   "digest": "sha256:2c353a11f791d01cd63d5bc417c66e3c4a4e271ba36d7f36f28eb49394edce10",
   "own_numbers": {
     "phi_s": 0.05,
@@ -187,5 +187,27 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "No CONFIRMED m1_strict coverage_ledger row for this entity."
+  },
+  "measurement_join": {
+    "available": true,
+    "entity": "USDY",
+    "as_child": {
+      "child": "USDY",
+      "parent": "ONDO",
+      "relation": "issuer_product",
+      "join_rule": "issuer_instrument_v1",
+      "evidence": "topology_membership_manifest.parent_entity; NETWORK_TOPOLOGY_TOKENIZED_TREASURY ONDO\u2192USDY"
+    },
+    "as_parent": [],
+    "n_as_parent": 0,
+    "delta_i": 0,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "join_rule": "issuer_instrument_v1",
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "sot": "data/measurement_links.json",
+    "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
   }
 }

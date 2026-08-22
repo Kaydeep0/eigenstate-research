@@ -1,7 +1,7 @@
 {
   "entity": "SPARK_SAVINGS",
   "node": "34539544",
-  "compiled_at": "2026-08-22T16:03:52.560806+00:00",
+  "compiled_at": "2026-08-22T18:22:21.882920+00:00",
   "digest": "sha256:5f03cf973384bb2bb0bf4dddea4603650410106c778661bdff629e69b57da3d1",
   "own_numbers": {
     "phi_s": null,
@@ -86,5 +86,27 @@
     "not_g_external": true,
     "auto_dual_ack": false,
     "reason": "No CONFIRMED m1_strict coverage_ledger row for this entity."
+  },
+  "measurement_join": {
+    "available": true,
+    "entity": "SPARK_SAVINGS",
+    "as_child": {
+      "child": "SPARK_SAVINGS",
+      "parent": "SKY",
+      "relation": "issuer_product",
+      "join_rule": "issuer_instrument_v1",
+      "evidence": "Spark Savings is Sky ecosystem savings surface under SKY dens"
+    },
+    "as_parent": [],
+    "n_as_parent": 0,
+    "delta_i": 0,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "join_rule": "issuer_instrument_v1",
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "sot": "data/measurement_links.json",
+    "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
   }
 }
