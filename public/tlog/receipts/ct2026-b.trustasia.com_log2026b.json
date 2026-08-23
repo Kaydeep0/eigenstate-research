@@ -26,8 +26,8 @@
     },
     "checkpoint_carries_tree_size_and_root_hash": {
       "outcome": "ok",
-      "tree_size": 2380761114,
-      "root_hash": "89e8e3817779400db7428000cceb3033d5724eaee4557a61c951d64f467ea587"
+      "tree_size": 2579537040,
+      "root_hash": "0241dfe1513f4e32cf1d4595cb82b95781e2254d5ec45b90be0cfaa0ec325a57"
     },
     "checkpoint_carries_a_signature": {
       "outcome": "ok",
@@ -49,29 +49,29 @@
     },
     "prior_batch_checkpoint_on_record": {
       "outcome": "ok",
-      "prior_read_at": "2026-08-02T05:34:50.403121+00:00",
-      "prior_tree_size": 2380730537
+      "prior_read_at": "2026-08-02T05:43:55.060262+00:00",
+      "prior_tree_size": 2380771487
     },
     "second_read_answered": {
       "outcome": "ok",
-      "tree_size": 2380771487
+      "tree_size": 2579552865
     },
     "tree_did_not_shrink_between_reads": {
       "outcome": "ok",
-      "first_size": 2380761114,
-      "second_size": 2380771487,
-      "entries_added": 10373
+      "first_size": 2579537040,
+      "second_size": 2579552865,
+      "entries_added": 15825
     },
     "consistency_proof_served": {
       "outcome": "ok",
-      "nodes": 25
+      "nodes": 19
     },
     "consistency_proof_recomputes_to_the_second_root": {
       "outcome": "ok",
       "reason": "both_roots_recomputed",
-      "first_size": 2380761114,
-      "second_size": 2380771487,
-      "proof_nodes": 25
+      "first_size": 2579537040,
+      "second_size": 2579552865,
+      "proof_nodes": 19
     }
   },
   "evidence": {
@@ -80,14 +80,14 @@
       "status": 200,
       "error": null,
       "bytes": 241,
-      "read_at": "2026-08-02T05:42:54.343524+00:00",
-      "body_sha256": "d9e16f8c2f12860a2a3cbc7e0f76eec512ccd331dd158f1aaf207fb277755f0a",
+      "read_at": "2026-08-23T11:00:17.606694+00:00",
+      "body_sha256": "2344192b788b1ffc80dbce5271e39103bd7f9bb9e62d613ce383755e1b469c5f",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 2380761114,
-      "timestamp": 1785649153982,
+      "tree_size": 2579537040,
+      "timestamp": 1787482563461,
       "signature_lines": 1,
-      "root_hash_hex": "89e8e3817779400db7428000cceb3033d5724eaee4557a61c951d64f467ea587",
+      "root_hash_hex": "0241dfe1513f4e32cf1d4595cb82b95781e2254d5ec45b90be0cfaa0ec325a57",
       "raw_body": null
     },
     "signature_check": {
@@ -98,61 +98,55 @@
     "prior_batch": {
       "log_key": "ct2026-b.trustasia.com/log2026b",
       "read": "second_read",
-      "read_at": "2026-08-02T05:34:50.403121+00:00",
-      "tree_size": 2380730537,
-      "root_hash": "701fe0d5ddbe7576e8b3d65eb03db132e526e324eb40deea9e8545e86009065e",
-      "body_sha256": "ec7d1695a5cd035f222ed6f1baa5b733b3e56603659856cb426c660231839203"
+      "read_at": "2026-08-02T05:43:55.060262+00:00",
+      "tree_size": 2380771487,
+      "root_hash": "ce2089f37dfbbaf2b5a85762664c2e91e227f20882c41a517925f59dadc6dd0d",
+      "body_sha256": "5011a22bad0595f21114cc352b25084e65b42665b06432fd465e523d69e682ab"
     },
     "second_read": {
       "url": "https://ct2026-b.trustasia.com/log2026b/ct/v1/get-sth",
       "status": 200,
       "error": null,
-      "bytes": 245,
-      "read_at": "2026-08-02T05:43:55.060262+00:00",
-      "body_sha256": "5011a22bad0595f21114cc352b25084e65b42665b06432fd465e523d69e682ab",
+      "bytes": 241,
+      "read_at": "2026-08-23T11:01:25.630573+00:00",
+      "body_sha256": "b24ff753774a5297194bf776f00a61ce3f4f0b427f52ac1c1619ae6867e61927",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 2380771487,
-      "timestamp": 1785649309172,
+      "tree_size": 2579552865,
+      "timestamp": 1787482700850,
       "signature_lines": 1,
-      "root_hash_hex": "ce2089f37dfbbaf2b5a85762664c2e91e227f20882c41a517925f59dadc6dd0d"
+      "root_hash_hex": "520a25aaa7790bb9ec1c7d4c0d22b37d92a0120eaab060b9de65606ef312ee1a"
     },
     "consistency_request": {
       "served": true,
-      "url": "https://ct2026-b.trustasia.com/log2026b/ct/v1/get-sth-consistency?first=2380761114&second=2380771487",
+      "url": "https://ct2026-b.trustasia.com/log2026b/ct/v1/get-sth-consistency?first=2579537040&second=2579552865",
       "proof": [
-        "6e8706c755e5cbc62183a50926204b177663ff5ac080eb98bc23fe07984bc222",
-        "b7b437b7c27dedfd79d342346da08dcd0eaed9d06725d427a72063ac5a3bf9a9",
-        "34b99b6af174c28b5b56bd21d47f571495b0998c4f4c4826fde33b2cd9522308",
-        "e24b0cf8c6de684256d6abaebb3d6f5fed8ed4019ba30d19c9345b1f09c2192b",
-        "5a64b6371a89c473887ff84d4ffdca9f457652d9f94aaa9fed0cf057a7dbfebc",
-        "8290ee4e4893a4981b239828f5ba30d4c5275c87c262a6e7c8a38b6b0a1ab8e0",
-        "d0b646b10f52fc05abd3064d25a7ebef4af315ea0a5d7930db2de6ddb061ef78",
-        "0f09c5e26ef1fa59574022ea5679e79e36849e320f1a0ef4cec2fc22e97ec900",
-        "3eb1d8d32edce6fe6ad09bcf8ad946b54bd132705c08d820b651e5cc5b1f30e8",
-        "cd045b2a10fc9021276eb2d6872d8a07cce41d5bbaa6ad37f59fe41d0f925517",
-        "ca352ab127873076a70eefb28d47f8209b025e0886911096036f7eb431f8bc89",
-        "f063f62dabef9df0443f984fc63a68bbc7946bb2a47a19e61e2bda3e259f46d0",
-        "e03f6862f555424236b9b1e4e8bcd9579c38d27315d8d91d5b7a09751cff02a9",
-        "dddba0e231090a72ab7635cf2dff00f662c68c038938a044b06c2ffd44848089",
-        "0b2f5521eae132e76ad20eb1831c325d42a0903a052641baf766f07edf62621e",
-        "0576dd7cfa555d86143bdd546de28358c001f5bd5261c3cbdeccd48ab5fcba20",
-        "6f51e14d68957ee3816cc93b172a5e8441ece1b8ad8b0f071bfa1c004ae5a9f9",
-        "d28d3bf9504d0ba1782b3d374b8a50524dec9fc59ab78da761d23e14d6b7a206",
-        "7d7f17b6cc399bed71824d1c414b99d88e39684f85d0a7d05bdd241daf63a32d",
-        "57908dd9746e3a744c0d6bb5a0e36eb6c34c3745aafb37d57b9f68096cb0875a",
-        "bcd80e5f5c040cfddf5372f5526be242b016c6b711f0c7bba7999a012749d470",
-        "708be07a758ff8d0dc25bc7a0bf40076bfb2c9a61d4268f92ae6117ed200fc05",
-        "a4ac21a85f0752995328ac58e336b1da8ed7f039fec4852c4f2d4defc7757834",
-        "e0b237cc5932b76225356268108f36403475ddf612d8851211115d4fe12bda32",
+        "54f56e0c8783e01ef40f3f7473d2371c331d4f4f2bea1b2564ef7868d758b5a7",
+        "cca4bc61883547b1b3d0c2d0f7c5ccbae2becd6b69c3112f834963ff83c9c0d7",
+        "006ccc709b534954b0279d941e06fd6e42ea26e93bc5b242455fbd94b99dfb0a",
+        "bd542f714d1a498e562c34c67813a290a5ae83e1bc51484ce2ea1ca7093a8ab6",
+        "4fc6b7f6e551d4b9ae9ae9afa19c323e8efa7b4309106ada17336502d0717da8",
+        "e9f23f23c4375994642a04b0670ab13e9004d17dc4f429caf1e5a0bbef84fa4c",
+        "319c4650daf02dce6a2052a2df8784ad5e2a5adaca38cabef44ae440aea88b2e",
+        "653536c70cf13a2adb5618efd39b622d966a1793fb34097391ec2b175eddbea9",
+        "94393b36532f82d364ca58a2522ad2cb73dc65242d2f1227934920f7e0dbacb9",
+        "d790006e19eca8c3b0fdce82c7ab8dc6511e79a83f889e74bb274f53ee44c971",
+        "067449a44e3a003b83da2c74b41810a101002f8151f4aec6156d7071e7cd298e",
+        "31a3aac8a5f9cd8b515fc8f8481f0019b8f6eb87f11ba777a3cff570d8ead64d",
+        "602908c921f3d3b8f1edc1363ce5f2a1e3937447124d84b0e815714e0f122525",
+        "800c92d1ef376bc23b0871a6e85f4108516ad50084a622d2a45a7963f93b6486",
+        "a323082c578f514b1d007d41bc1feef7619e062cb569e234ac942c8a9ccc88bc",
+        "de6e9feec93a4f3bb7c2d445a3c758f10739b23ab9b30b407e1bb20e35ddbab4",
+        "da129745f1a02899d327fe0f733efebacdbcb0daecc488f1c1836914db30e26e",
+        "e523d0a72766b6b9734eb62bd84fecc4ba2f8cd4611ee345e9e9cfb018874082",
         "d53ba058948c397b56682c1e77286b5e705f1e6791d039f7b50847ae50413b99"
       ],
-      "nodes": 25
+      "nodes": 19
     }
   },
   "tree_advanced_between_reads": true,
-  "entries_added_between_reads": 10373,
-  "checked_at": "2026-08-02T05:43:57.759081+00:00",
+  "entries_added_between_reads": 15825,
+  "checked_at": "2026-08-23T11:01:32.377133+00:00",
   "must_admit": true,
   "full_admit": true,
   "refuse_limb": null,
@@ -162,6 +156,6 @@
   "should_limbs_failed": [],
   "receipt_filename": "ct2026-b.trustasia.com_log2026b.json",
   "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
-  "ledger_digest": "1e9ae859e742abe6cfb6dabb7e5d337cba88d3f3cc0715ceb8a5a9bdc3821603",
+  "ledger_digest": "f312afab7d28f297e00644ad28331e3fd59dbd3158e6fa1ac367bcafd95551e5",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
 }

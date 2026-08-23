@@ -2,9 +2,9 @@
   "probe": "transparency_log_batch_monitor",
   "probe_version": "1.0.0",
   "probe_version_at_expectations": "1.0.0",
-  "generated_at": "2026-08-02T05:43:57.760810+00:00",
-  "batch_started_at": "2026-08-02T05:42:42.625628+00:00",
-  "engine_commit": "502e25a69bd88c0f8b9d70584015a08e2ba306fc",
+  "generated_at": "2026-08-23T11:01:32.381829+00:00",
+  "batch_started_at": "2026-08-23T11:00:00.532515+00:00",
+  "engine_commit": "9c8b59a0ae8c0de272bffbe2afa41034c22568b8",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290",
   "expectations_generated_at": "2026-08-02T05:32:13.733964+00:00",
   "expectations_url": "https://geniusflow-federation.vercel.app/tlog/expectations.json",
@@ -182,6 +182,13 @@
     "This is not coverage of the transparency log ecosystem. The population is a frozen list drawn from public log lists, and no rate here should be read as a rate over all logs.",
     "No log was contacted beyond plain GETs of endpoints that are already public, with an identifying user agent."
   ],
+  "not_claimed_after_the_freeze": [
+    {
+      "added": "2026-08-02",
+      "why": "raised while researching this ecosystem's terms of art, after the expectations for this ledger were already committed",
+      "note": "Two components this node publishes elsewhere carry names that are terms of art here, and neither is what the name suggests to a reader arriving from this community. `witnessfield` is not an implementation of the C2SP tlog-witness protocol and issues no cosignature. `helixhash` is a hash chain, which is tamper evident only to a verifier willing to replay the whole chain, and it is not an RFC 6962 Merkle tree: it offers no inclusion proof, no consistency proof and no efficient evidence against equivocation. Both names predate this ledger. They are disambiguated here rather than defended, because a page that spends its length separating a monitor from a witness should not leave its own naming to be guessed."
+    }
+  ],
   "prior_art": [
     {
       "work": "RFC 6962, Certificate Transparency",
@@ -228,10 +235,10 @@
     "signatures_verified": 22,
     "signature_schemes_unsupported": 1,
     "keys_obtained_independently": 22,
-    "trees_advanced_between_reads": 11,
-    "entries_added_between_reads": 51218,
-    "consistency_proofs_served": 11,
-    "consistency_proofs_recomputed": 11,
+    "trees_advanced_between_reads": 12,
+    "entries_added_between_reads": 87187,
+    "consistency_proofs_served": 12,
+    "consistency_proofs_recomputed": 12,
     "trees_that_shrank": 0,
     "checkpoints_with_witness_cosignatures": 0,
     "logs_with_a_prior_batch_on_record": 23,
@@ -332,16 +339,16 @@
         "not_reached": 0
       },
       "consistency_proof_served": {
-        "ok": 11,
+        "ok": 12,
         "fail": 0,
-        "not_applicable": 12,
+        "not_applicable": 11,
         "absent": 0,
         "not_reached": 0
       },
       "consistency_proof_recomputes_to_the_second_root": {
-        "ok": 11,
+        "ok": 12,
         "fail": 0,
-        "not_applicable": 12,
+        "not_applicable": 11,
         "absent": 0,
         "not_reached": 0
       },
@@ -390,8 +397,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 5737504186,
-          "root_hash": "c579e2fe53a4e59831ae1d18928dedc07171befbf7dda949dd8fe6f4e5528e0d"
+          "tree_size": 6043389039,
+          "root_hash": "2d9586832e38e2af50099b48666fc32253ba371e3b1611e70d109c220cb43cb1"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -413,17 +420,17 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:32.861622+00:00",
+          "prior_read_at": "2026-08-02T05:43:40.556039+00:00",
           "prior_tree_size": 5737504186
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 5737504186
+          "tree_size": 6043389039
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 5737504186,
-          "second_size": 5737504186,
+          "first_size": 6043389039,
+          "second_size": 6043389039,
           "entries_added": 0
         },
         "consistency_proof_served": {
@@ -442,14 +449,14 @@
           "status": 200,
           "error": null,
           "bytes": 245,
-          "read_at": "2026-08-02T05:42:42.963823+00:00",
-          "body_sha256": "d0f0581b340da2934aa6b51914d8c6dbfc1aafd99e62b7da383f13ed6035b0d8",
+          "read_at": "2026-08-23T11:00:00.953433+00:00",
+          "body_sha256": "f74686bb3b21f34497554820b5293dddf3c148560f8a8524f0c7042e859c1042",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 5737504186,
-          "timestamp": 1785647949136,
+          "tree_size": 6043389039,
+          "timestamp": 1787481936393,
           "signature_lines": 1,
-          "root_hash_hex": "c579e2fe53a4e59831ae1d18928dedc07171befbf7dda949dd8fe6f4e5528e0d",
+          "root_hash_hex": "2d9586832e38e2af50099b48666fc32253ba371e3b1611e70d109c220cb43cb1",
           "raw_body": null
         },
         "signature_check": {
@@ -460,7 +467,7 @@
         "prior_batch": {
           "log_key": "ct.cloudflare.com/logs/nimbus2026",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:32.861622+00:00",
+          "read_at": "2026-08-02T05:43:40.556039+00:00",
           "tree_size": 5737504186,
           "root_hash": "c579e2fe53a4e59831ae1d18928dedc07171befbf7dda949dd8fe6f4e5528e0d",
           "body_sha256": "d0f0581b340da2934aa6b51914d8c6dbfc1aafd99e62b7da383f13ed6035b0d8"
@@ -470,19 +477,19 @@
           "status": 200,
           "error": null,
           "bytes": 245,
-          "read_at": "2026-08-02T05:43:40.556039+00:00",
-          "body_sha256": "d0f0581b340da2934aa6b51914d8c6dbfc1aafd99e62b7da383f13ed6035b0d8",
+          "read_at": "2026-08-23T11:01:04.060168+00:00",
+          "body_sha256": "f74686bb3b21f34497554820b5293dddf3c148560f8a8524f0c7042e859c1042",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 5737504186,
-          "timestamp": 1785647949136,
+          "tree_size": 6043389039,
+          "timestamp": 1787481936393,
           "signature_lines": 1,
-          "root_hash_hex": "c579e2fe53a4e59831ae1d18928dedc07171befbf7dda949dd8fe6f4e5528e0d"
+          "root_hash_hex": "2d9586832e38e2af50099b48666fc32253ba371e3b1611e70d109c220cb43cb1"
         }
       },
       "tree_advanced_between_reads": false,
       "entries_added_between_reads": 0,
-      "checked_at": "2026-08-02T05:43:57.758938+00:00",
+      "checked_at": "2026-08-23T11:01:32.376427+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -519,8 +526,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 186722674,
-          "root_hash": "77186fd4a84ee5d0eeaec7976911df69c13dae1136725aca1981c216c317ae68"
+          "tree_size": 264718424,
+          "root_hash": "e6571ad5adc95491e605e57c4ca28d0f93ebdaad2e42cfe9ede1e81a6355c285"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -542,17 +549,17 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:33.174711+00:00",
+          "prior_read_at": "2026-08-02T05:43:40.863805+00:00",
           "prior_tree_size": 186722674
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 186722674
+          "tree_size": 264718424
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 186722674,
-          "second_size": 186722674,
+          "first_size": 264718424,
+          "second_size": 264718424,
           "entries_added": 0
         },
         "consistency_proof_served": {
@@ -571,14 +578,14 @@
           "status": 200,
           "error": null,
           "bytes": 240,
-          "read_at": "2026-08-02T05:42:43.328071+00:00",
-          "body_sha256": "22f075f52a34ea81e0307b7e1079d4ad31665ba872dfe3740d527bcc19885cce",
+          "read_at": "2026-08-23T11:00:01.508005+00:00",
+          "body_sha256": "b0dcee8f4c24ba500979808fe7811296d8545cade8f75dfb7f22b0ebe9b521d1",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 186722674,
-          "timestamp": 1785647809272,
+          "tree_size": 264718424,
+          "timestamp": 1787479596998,
           "signature_lines": 1,
-          "root_hash_hex": "77186fd4a84ee5d0eeaec7976911df69c13dae1136725aca1981c216c317ae68",
+          "root_hash_hex": "e6571ad5adc95491e605e57c4ca28d0f93ebdaad2e42cfe9ede1e81a6355c285",
           "raw_body": null
         },
         "signature_check": {
@@ -589,7 +596,7 @@
         "prior_batch": {
           "log_key": "ct.cloudflare.com/logs/nimbus2027",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:33.174711+00:00",
+          "read_at": "2026-08-02T05:43:40.863805+00:00",
           "tree_size": 186722674,
           "root_hash": "77186fd4a84ee5d0eeaec7976911df69c13dae1136725aca1981c216c317ae68",
           "body_sha256": "22f075f52a34ea81e0307b7e1079d4ad31665ba872dfe3740d527bcc19885cce"
@@ -599,19 +606,19 @@
           "status": 200,
           "error": null,
           "bytes": 240,
-          "read_at": "2026-08-02T05:43:40.863805+00:00",
-          "body_sha256": "22f075f52a34ea81e0307b7e1079d4ad31665ba872dfe3740d527bcc19885cce",
+          "read_at": "2026-08-23T11:01:04.592613+00:00",
+          "body_sha256": "b0dcee8f4c24ba500979808fe7811296d8545cade8f75dfb7f22b0ebe9b521d1",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 186722674,
-          "timestamp": 1785647809272,
+          "tree_size": 264718424,
+          "timestamp": 1787479596998,
           "signature_lines": 1,
-          "root_hash_hex": "77186fd4a84ee5d0eeaec7976911df69c13dae1136725aca1981c216c317ae68"
+          "root_hash_hex": "e6571ad5adc95491e605e57c4ca28d0f93ebdaad2e42cfe9ede1e81a6355c285"
         }
       },
       "tree_advanced_between_reads": false,
       "entries_added_between_reads": 0,
-      "checked_at": "2026-08-02T05:43:57.758960+00:00",
+      "checked_at": "2026-08-23T11:01:32.376496+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -648,8 +655,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 1468299031,
-          "root_hash": "0d2d9d15fcacc503d7f5d605b27a12069fbb46d6609a18552542b57219f32a15"
+          "tree_size": 1707354409,
+          "root_hash": "1a2fb000a315f47e9efec4573d49c17e610142ac9102853e886fe4f5a0846851"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -671,29 +678,29 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:33.624945+00:00",
-          "prior_tree_size": 1468250716
+          "prior_read_at": "2026-08-02T05:43:41.311611+00:00",
+          "prior_tree_size": 1468304618
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 1468304618
+          "tree_size": 1707361862
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 1468299031,
-          "second_size": 1468304618,
-          "entries_added": 5587
+          "first_size": 1707354409,
+          "second_size": 1707361862,
+          "entries_added": 7453
         },
         "consistency_proof_served": {
           "outcome": "ok",
-          "nodes": 24
+          "nodes": 23
         },
         "consistency_proof_recomputes_to_the_second_root": {
           "outcome": "ok",
           "reason": "both_roots_recomputed",
-          "first_size": 1468299031,
-          "second_size": 1468304618,
-          "proof_nodes": 24
+          "first_size": 1707354409,
+          "second_size": 1707361862,
+          "proof_nodes": 23
         }
       },
       "evidence": {
@@ -702,14 +709,14 @@
           "status": 200,
           "error": null,
           "bytes": 241,
-          "read_at": "2026-08-02T05:42:43.868158+00:00",
-          "body_sha256": "9a2f08c4c4064b762eb2f3049a5adc28e7cfa41f514c2077e97292bcc060b914",
+          "read_at": "2026-08-23T11:00:02.327311+00:00",
+          "body_sha256": "9f2d333dfc48553a6cb0e4a7b1be204c147926f86f3e453525a46cdc7339a06a",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 1468299031,
-          "timestamp": 1785649363494,
+          "tree_size": 1707354409,
+          "timestamp": 1787482801833,
           "signature_lines": 1,
-          "root_hash_hex": "0d2d9d15fcacc503d7f5d605b27a12069fbb46d6609a18552542b57219f32a15",
+          "root_hash_hex": "1a2fb000a315f47e9efec4573d49c17e610142ac9102853e886fe4f5a0846851",
           "raw_body": null
         },
         "signature_check": {
@@ -720,60 +727,59 @@
         "prior_batch": {
           "log_key": "sphinx.ct.digicert.com/2026h2",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:33.624945+00:00",
-          "tree_size": 1468250716,
-          "root_hash": "362886c29099dece4eb11e172262b202c989f51c82b36b8f7abfdfec85292752",
-          "body_sha256": "6d55b5b4cf810c7990fde311745aed282ce11f4b302c6b87d6ecc666f8fe0d7a"
+          "read_at": "2026-08-02T05:43:41.311611+00:00",
+          "tree_size": 1468304618,
+          "root_hash": "4b4f9ac07b3a29ad8dbabeb441f3222c3fcf734e3b1aec420791f0bdfefeab03",
+          "body_sha256": "77769e4e30fb4cf3676bc8c4d4e3918bf30bcd968d00c2950877508cd1be47a4"
         },
         "second_read": {
           "url": "https://sphinx.ct.digicert.com/2026h2/ct/v1/get-sth",
           "status": 200,
           "error": null,
           "bytes": 241,
-          "read_at": "2026-08-02T05:43:41.311611+00:00",
-          "body_sha256": "77769e4e30fb4cf3676bc8c4d4e3918bf30bcd968d00c2950877508cd1be47a4",
+          "read_at": "2026-08-23T11:01:05.235032+00:00",
+          "body_sha256": "1addaf8375067b9816bea44b89b0be620e3f8a78dc54a2a12d5f8c0fe97dfbb1",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 1468304618,
-          "timestamp": 1785649421021,
+          "tree_size": 1707361862,
+          "timestamp": 1787482864679,
           "signature_lines": 1,
-          "root_hash_hex": "4b4f9ac07b3a29ad8dbabeb441f3222c3fcf734e3b1aec420791f0bdfefeab03"
+          "root_hash_hex": "a547165d694f0ee1f5c21f76e0a62999af1bfd525507afbe277d40000d842694"
         },
         "consistency_request": {
           "served": true,
-          "url": "https://sphinx.ct.digicert.com/2026h2/ct/v1/get-sth-consistency?first=1468299031&second=1468304618",
+          "url": "https://sphinx.ct.digicert.com/2026h2/ct/v1/get-sth-consistency?first=1707354409&second=1707361862",
           "proof": [
-            "481e90d9856b49dbb78f143c09be362c82a0d644c01642d64dd8cd75fa72e85a",
-            "a442cc774eaef4c36ccbf11948f4d569dde8ab0b12a1cd8915b435a621548c4e",
-            "dc8cea54611d009c93d8eeecbee279ac19955c50d458859877138f4fa6adfeee",
-            "0b76f4479dd59e681d7b388741d572a49e63a9df503f4db04a4330aebe91ef53",
-            "4ac5e7083d700fa1cafed7708ca0c25532c1a63b42b421d4be427e6e89e5af1c",
-            "bf1352ed115db68ccd6a05c01d4e1ad027c1460bc8d908b2f569faac5a28c721",
-            "01844df62ed24ecf86dbd8f7ae4b6d62e1610b4bb507f2bd58b0612d0a387373",
-            "72f914cf8659d51bf60d89a3aa10f08a58c4a6a797aed089598b7419fec5fba1",
-            "74977faf2737c0a032ebcf28a43c80ea3dd50698d0bba7df2e91a4012bb6a626",
-            "a75d3647ccba98a1d08a8f2195a9a7697bf96581e500287681c5eef0b2135ab4",
-            "fcd370555446f53ce402dba8e225f374be4ef19871063cf501ab5866897d7178",
-            "7525b238973b651db5e1d086e8fbd8f8124707d108331992c2666706a0841d9c",
-            "98d0fb04391115f2f493c5e87c0fa9d09c49974a292fd04a6b13f17f242a820d",
-            "30797de0099bac6cb8102519e7f697b19007b98d2e0d0cdec5f96a63a9b2a2fe",
-            "4d322fcee8d16e58fc9bbbd260e51fa3ba161b116214bccec507ee28430a389b",
-            "17b0b41a311bdc5f5538e64c1226cae004d73bd7f91bac0cf878773017cc7380",
-            "73c52cd319adf991ddc72196ba94eeef1ff8f1a9e72ff485aca164dd7aca1eb1",
-            "9f1c0e39e005d995342ac2874a63d4b42e92d13cfbe8d2262de35c54cfc12a57",
-            "d0b7966ff624f3e612bfd98ddf739f2cb57e1ca85079871c99a508d4fbcd7207",
-            "d3bc3ee3ecb8cb5a7b0cea58b0f5f69c821f9367a701e0cfd6e71ea468dd4403",
-            "88a7f84faa49a0768f1f85a408b8dda2cdb57e253360d16f9325bbfd7a9c350b",
-            "19fefd810d9cb3bbadb98f9c332dbc1f818229cad866b2d17488878f944b62ab",
-            "b24969c85fc8b75e1187668ba1cf1c95c0731c78419f73079b0eb8442a5daefc",
+            "ddb29509464d57dd1a441a3576f1f777d2b68d727185d4a036d8917c76dbb7f2",
+            "2087590220cbf8e1b1ae995ff2f779767bba52430bc4981c855edb7fe4df6edd",
+            "accf326dd2f28fef92b4bb44d56c37f88a18a706f7d7d484cfe17bd97992cba2",
+            "6138c803f86fa9d863f37d7627a944a29a145abbd8448cfd02463c18d56ee036",
+            "ba6c7e3e34ad5cfab09ddbe2a5ca307b51ecc08e94de8c24f8b7e4a3dc70c468",
+            "6957dde272c6b4eaf3d75adc9569bba7698476fe88d424e8452a70eaeef311f5",
+            "9aaa91c830b3425ddbae49d49bc34c302cfc6ed28206d977973e29f1a3e1255a",
+            "94d998301c353dfa355c260b8090ff8e3b9b1e3d1c2176978201156082d92703",
+            "fd4a3625039ef3b9d7411b5157b59d8bd4abd180085b2cf0095fcf7a147c2f52",
+            "44939ef2789ad6c5723b93765a101b95725223c35ff9bc3e9e2c0a9cfd9f4ba1",
+            "2e0c65ae2e6cadb4d3a57d01b7075da6eb7662a64060314212e7947485893478",
+            "f13e74891e691b8c84ccaa8b4ed6d39876562c53f51e7bc2e695add5005bf8a3",
+            "0d3cfc45dd8bc5c19103f9782c4abe01a8f375b719b86a573f90ec1b64e7f0eb",
+            "c1e7bde981879fe558550f7e11bced548435ad14c04f5eba5e15c9087d07edc8",
+            "f90ae0e1ac82c1cd33d1466ed6a5084f0a8a5463a1a160b86f22803ed6dbae46",
+            "677001425ab9afb57824b097b8242802d3517a39e816e10ebec3132be088b08a",
+            "92c0b23d97d5b1a2ce1009df616d33ba28415757d99001af433e46a5d6ee6e4e",
+            "80e7b0bb64f42593f5e3475ab55c49a89ff06d84ce0b0bb95f47526016bb0fa8",
+            "a61f8d3834d66dcb969587f8ee82cce7a8047a57d49c482afcc2e154a834fd82",
+            "44bb8b74729729f644a07570005cdbf219f6abbf8ffe24e29ef5eb331a0d9350",
+            "b79d4749534edfd88d1cdef5e1f5623136fd915b8a788ed25a0fcb3fd6d3db8f",
+            "747b4bdfc7895d497beb10059f568cf3801eefeab1fdfe2125052d3006ca170e",
             "3e9fbba19b37e730905498d5592894bb1b64cfa173be7e4021a3430b85268897"
           ],
-          "nodes": 24
+          "nodes": 23
         }
       },
       "tree_advanced_between_reads": true,
-      "entries_added_between_reads": 5587,
-      "checked_at": "2026-08-02T05:43:57.758968+00:00",
+      "entries_added_between_reads": 7453,
+      "checked_at": "2026-08-23T11:01:32.376533+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -810,8 +816,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 38181371,
-          "root_hash": "b5f50515ea654fc4e39f92ca5169ed94899d74f97ef92facdfcc1eab416bf929"
+          "tree_size": 68623284,
+          "root_hash": "55287c70cc8570f8dbb71f4ee026fb9ef94bd064d74dabfb08f28208f2fddaaf"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -833,18 +839,18 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:34.560061+00:00",
-          "prior_tree_size": 38181154
+          "prior_read_at": "2026-08-02T05:43:42.205043+00:00",
+          "prior_tree_size": 38181393
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 38181393
+          "tree_size": 68624532
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 38181371,
-          "second_size": 38181393,
-          "entries_added": 22
+          "first_size": 68623284,
+          "second_size": 68624532,
+          "entries_added": 1248
         },
         "consistency_proof_served": {
           "outcome": "ok",
@@ -853,8 +859,8 @@
         "consistency_proof_recomputes_to_the_second_root": {
           "outcome": "ok",
           "reason": "both_roots_recomputed",
-          "first_size": 38181371,
-          "second_size": 38181393,
+          "first_size": 68623284,
+          "second_size": 68624532,
           "proof_nodes": 18
         }
       },
@@ -864,14 +870,14 @@
           "status": 200,
           "error": null,
           "bytes": 239,
-          "read_at": "2026-08-02T05:42:44.379543+00:00",
-          "body_sha256": "8266300da4bec393ef90611037cc7eee0a62880c34a351aeb12a4523841be632",
+          "read_at": "2026-08-23T11:00:02.997878+00:00",
+          "body_sha256": "1681a6f5369cd1ac6b2e04bded516249f59d15e33c7885838e6f6bcec811cf8c",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 38181371,
-          "timestamp": 1785649363257,
+          "tree_size": 68623284,
+          "timestamp": 1787482802451,
           "signature_lines": 1,
-          "root_hash_hex": "b5f50515ea654fc4e39f92ca5169ed94899d74f97ef92facdfcc1eab416bf929",
+          "root_hash_hex": "55287c70cc8570f8dbb71f4ee026fb9ef94bd064d74dabfb08f28208f2fddaaf",
           "raw_body": null
         },
         "signature_check": {
@@ -882,54 +888,54 @@
         "prior_batch": {
           "log_key": "sphinx.ct.digicert.com/2027h1",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:34.560061+00:00",
-          "tree_size": 38181154,
-          "root_hash": "806fed9fa0d5d1b30c6ead4f6054d0d3727f196cc6accf6b8d63134d3bfacb62",
-          "body_sha256": "da549fa09b14777fc39d0ceb4c5fd7a07157e35106991d279e7f8b6439671c7b"
+          "read_at": "2026-08-02T05:43:42.205043+00:00",
+          "tree_size": 38181393,
+          "root_hash": "72e8c22ce333fb7ae3e4b48fd1cce43f888690ec7eff17550c11cbc49d3c7246",
+          "body_sha256": "c986f81a7f4f4e62d7d06ea59d97f71aca6473ddbef1e7209642d3630cf50567"
         },
         "second_read": {
           "url": "https://sphinx.ct.digicert.com/2027h1/ct/v1/get-sth",
           "status": 200,
           "error": null,
           "bytes": 239,
-          "read_at": "2026-08-02T05:43:42.205043+00:00",
-          "body_sha256": "c986f81a7f4f4e62d7d06ea59d97f71aca6473ddbef1e7209642d3630cf50567",
+          "read_at": "2026-08-23T11:01:06.432531+00:00",
+          "body_sha256": "14554669f1c3bbcb93e068a7d39673bcc23eb00722e8699d8ad32c6e375e0a17",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 38181393,
-          "timestamp": 1785649421274,
+          "tree_size": 68624532,
+          "timestamp": 1787482865978,
           "signature_lines": 1,
-          "root_hash_hex": "72e8c22ce333fb7ae3e4b48fd1cce43f888690ec7eff17550c11cbc49d3c7246"
+          "root_hash_hex": "73915affea7e9753bd5b11f57749a54dde293a97ae8561294d78b304f98d7949"
         },
         "consistency_request": {
           "served": true,
-          "url": "https://sphinx.ct.digicert.com/2027h1/ct/v1/get-sth-consistency?first=38181371&second=38181393",
+          "url": "https://sphinx.ct.digicert.com/2027h1/ct/v1/get-sth-consistency?first=68623284&second=68624532",
           "proof": [
-            "2346431a29b2fa1f9861145a28bce0bbf06e0e0ac9f2be00d0699af5d43abb7e",
-            "95e65c45941bafe979f91df4d7fe181fdf557aaf925411ce4c6a735ad5a7686e",
-            "99f84cf1f03fd9750c7653c7cf08b06876f1e90fb855435ca52826bec7d2679d",
-            "d6cd2736f97d7102ea380b27162f92e5fc590b7ce547da5a1557749d27c3840c",
-            "e89e80b614b3f2779238a0b3e02f27ca2ed88150ec84d6fe6dee9ed7c7e28248",
-            "189951dcb53d4c8da967fd7961427833ebd38695216f3ad36f91d2013d473e19",
-            "1376ac90044110212af1d06786d8e2c9d20517e8c48301d7011ffeac6a30e7ca",
-            "f855c43f801e4a65165b1759ee9ef90b249122467e05f016d1489d2a57a1280d",
-            "abea2b9faa115e013693c544df4f5fcdf023b8a8510838a82776f0ef371e012a",
-            "6100a38336bcb48238a77a9ffd290befc6644c33ca2c7fbef28e4478f363524b",
-            "87689c326e1301bd95d2ee9c9c7d16d6a2c806fc76e47db958b00198ce821c00",
-            "35f516d8588b340b0ef4340676e30df1c8945d9f20d488acf2ee70b3911d4924",
-            "20fdd2ab6f327988b1142e4ecadb3174a0f8379dd2022afda82ac55bd54ef251",
-            "f83a1f2d34859043ebbaf5b0ca5ae43e33468e644d2654f993a98e6d1238176d",
-            "47e34fe53ad13f305c55ede8c73649ff04c099e76bdbeba95f75e0b44b31cf1c",
-            "d6966dddbc1928b97e6d2a251d8cf8aafecb4ebaa6210acb06a0a4879dc145cd",
-            "91ba1893c565550b5634c255fe478040a01ea8d067a8db2e3c61ca2dd441e1ea",
-            "2fdf0806c666a73313acaccc8c566573aed67d661636fbd05550f07bf7725d52"
+            "3d27855ef6c4ece2097f53f0fce6199cc7320bce29f7aadb14a8d0593fdf1412",
+            "686c11ba432cf78d71328a802f75985e4512f0d65d6e67f3e2d5a5456f5e8f18",
+            "034336cdd2374cd6b9af560b79e910daf42e6072a1366cd84670d4654c8a5104",
+            "d75d80f20bddb6aab055af13e43aed72919579f1ca68537bae5318d2c5eca945",
+            "8eff8089e1114e61ec84574ef71155e9cb400ba96a5ccecb7af89a4dcab698d0",
+            "2a886175de953f02bbed9fd7b874bc2c751da4b29b353c89121eb7cb8200a508",
+            "ab50557fbc80f757885b4ebc8352eca682e91624344191c350d1055495374107",
+            "5dd3af36bed1479eb5fc5395539257b2120edde4979c9beb558a4635c7ab7bee",
+            "bb6d611b0dfc0a9f1adec281310a2144faedb4d4b136479ab5412c595f586322",
+            "0c21fc70ce87466285455c5ce3589ad3e5dfba2cda15bcdefccb8a164eda725c",
+            "29ef565ed5e8c5478010129168c8cd02cdb35816a6f0864de1ab866dfaf61e28",
+            "a9e4cc9d05cfb7083448826060f1ebb7c81c157e09f6320a800b2c9e10113690",
+            "0410f1ba35ce80d6be1e6e569cbcf9c615eca76bc3dcf8cdfdcb8da252bc22bb",
+            "97e2bf1c6ef2d12818f49fbc4e8b2b0b2dcdb88064ac067fc15daa1caf48d964",
+            "3210f23d72ddb13d3d1b770cfea13d31d1135f88458f286ee6a891aae146405c",
+            "bf7af2c3a2826c73b58806b454c141dfffc38fe4f16676a7eccb445f2315ed45",
+            "10dcac8ca4128288bc34dbc82c2ec9fad8cd7f11cc9e620b796e0fb5af5fd232",
+            "6a464ea2959b548d4b92e2e8d0d5da9cdd07bb5e8ce6e365b50daad692390a8d"
           ],
           "nodes": 18
         }
       },
       "tree_advanced_between_reads": true,
-      "entries_added_between_reads": 22,
-      "checked_at": "2026-08-02T05:43:57.758980+00:00",
+      "entries_added_between_reads": 1248,
+      "checked_at": "2026-08-23T11:01:32.376569+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -966,8 +972,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 24787,
-          "root_hash": "0b379827a26a6b820a7cf9e3134e68de724c5df1b9d5f11b19d45abd59fb5d23"
+          "tree_size": 27035,
+          "root_hash": "44f974103596cf509d65648f47e48db1a42d5c0d6aa898672d2354299f9303ed"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -989,17 +995,17 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:35.460804+00:00",
+          "prior_read_at": "2026-08-02T05:43:43.093944+00:00",
           "prior_tree_size": 24787
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 24787
+          "tree_size": 27035
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 24787,
-          "second_size": 24787,
+          "first_size": 27035,
+          "second_size": 27035,
           "entries_added": 0
         },
         "consistency_proof_served": {
@@ -1018,14 +1024,14 @@
           "status": 200,
           "error": null,
           "bytes": 236,
-          "read_at": "2026-08-02T05:42:44.903166+00:00",
-          "body_sha256": "9d8bb4da62797162740df3bc26b9cd6fa3d97b66edc4e284ba0698095a862fdc",
+          "read_at": "2026-08-23T11:00:03.719034+00:00",
+          "body_sha256": "e6916c5202f4c4caa5b47c40434cec5b90b28152253d6de376c40ec6f7858c59",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 24787,
-          "timestamp": 1785647475444,
+          "tree_size": 27035,
+          "timestamp": 1787481515851,
           "signature_lines": 1,
-          "root_hash_hex": "0b379827a26a6b820a7cf9e3134e68de724c5df1b9d5f11b19d45abd59fb5d23",
+          "root_hash_hex": "44f974103596cf509d65648f47e48db1a42d5c0d6aa898672d2354299f9303ed",
           "raw_body": null
         },
         "signature_check": {
@@ -1036,7 +1042,7 @@
         "prior_batch": {
           "log_key": "sphinx.ct.digicert.com/2027h2",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:35.460804+00:00",
+          "read_at": "2026-08-02T05:43:43.093944+00:00",
           "tree_size": 24787,
           "root_hash": "0b379827a26a6b820a7cf9e3134e68de724c5df1b9d5f11b19d45abd59fb5d23",
           "body_sha256": "9d8bb4da62797162740df3bc26b9cd6fa3d97b66edc4e284ba0698095a862fdc"
@@ -1046,19 +1052,19 @@
           "status": 200,
           "error": null,
           "bytes": 236,
-          "read_at": "2026-08-02T05:43:43.093944+00:00",
-          "body_sha256": "9d8bb4da62797162740df3bc26b9cd6fa3d97b66edc4e284ba0698095a862fdc",
+          "read_at": "2026-08-23T11:01:07.692038+00:00",
+          "body_sha256": "d398ecd0c57a55ee1a22d6c993e8d701fa03cd0cbe5b40f0fdd6e3e1462e05ac",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 24787,
-          "timestamp": 1785647475444,
+          "tree_size": 27035,
+          "timestamp": 1787481515851,
           "signature_lines": 1,
-          "root_hash_hex": "0b379827a26a6b820a7cf9e3134e68de724c5df1b9d5f11b19d45abd59fb5d23"
+          "root_hash_hex": "44f974103596cf509d65648f47e48db1a42d5c0d6aa898672d2354299f9303ed"
         }
       },
       "tree_advanced_between_reads": false,
       "entries_added_between_reads": 0,
-      "checked_at": "2026-08-02T05:43:57.758987+00:00",
+      "checked_at": "2026-08-23T11:01:32.376601+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -1087,7 +1093,7 @@
         "checkpoint_endpoint_answers_without_credentials": {
           "outcome": "ok",
           "status": 200,
-          "bytes": 245
+          "bytes": 241
         },
         "checkpoint_parses_in_its_declared_format": {
           "outcome": "ok",
@@ -1095,8 +1101,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 1515546766,
-          "root_hash": "a5466eed31cafe9abd29d604cb9b1ddf5b83cb409c6f1eaf0f9f03380fb4e3cd"
+          "tree_size": 1739285805,
+          "root_hash": "e85a2ba9041d1225ab0aa391e25e15a252c70cb2ac718fd604422ce630d0693d"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -1118,29 +1124,29 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:35.825721+00:00",
-          "prior_tree_size": 1515497879
+          "prior_read_at": "2026-08-02T05:43:43.455276+00:00",
+          "prior_tree_size": 1515552310
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 1515552310
+          "tree_size": 1739293277
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 1515546766,
-          "second_size": 1515552310,
-          "entries_added": 5544
+          "first_size": 1739285805,
+          "second_size": 1739293277,
+          "entries_added": 7472
         },
         "consistency_proof_served": {
           "outcome": "ok",
-          "nodes": 23
+          "nodes": 27
         },
         "consistency_proof_recomputes_to_the_second_root": {
           "outcome": "ok",
           "reason": "both_roots_recomputed",
-          "first_size": 1515546766,
-          "second_size": 1515552310,
-          "proof_nodes": 23
+          "first_size": 1739285805,
+          "second_size": 1739293277,
+          "proof_nodes": 27
         }
       },
       "evidence": {
@@ -1148,15 +1154,15 @@
           "url": "https://wyvern.ct.digicert.com/2026h2/ct/v1/get-sth",
           "status": 200,
           "error": null,
-          "bytes": 245,
-          "read_at": "2026-08-02T05:42:45.334993+00:00",
-          "body_sha256": "91b65401ec1fc6006e0471dc7372e2276539268c849f6a373a1d51f62f985262",
+          "bytes": 241,
+          "read_at": "2026-08-23T11:00:04.407587+00:00",
+          "body_sha256": "80cb473d4199077178a02027aac468a0c85de8b0de0a1a81965333c49a48c775",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 1515546766,
-          "timestamp": 1785649365052,
+          "tree_size": 1739285805,
+          "timestamp": 1787482803974,
           "signature_lines": 1,
-          "root_hash_hex": "a5466eed31cafe9abd29d604cb9b1ddf5b83cb409c6f1eaf0f9f03380fb4e3cd",
+          "root_hash_hex": "e85a2ba9041d1225ab0aa391e25e15a252c70cb2ac718fd604422ce630d0693d",
           "raw_body": null
         },
         "signature_check": {
@@ -1167,59 +1173,63 @@
         "prior_batch": {
           "log_key": "wyvern.ct.digicert.com/2026h2",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:35.825721+00:00",
-          "tree_size": 1515497879,
-          "root_hash": "f1eabc12dfb5b6fe96ba2436fed7fc2fb9c7b6fa1ecc6840749daa18ec6b0f82",
-          "body_sha256": "e2c2a4f8de9636cf2b9b82079d35122047fb62e24779e21b0f8ed533a54ffad2"
+          "read_at": "2026-08-02T05:43:43.455276+00:00",
+          "tree_size": 1515552310,
+          "root_hash": "eb461299dd5b0f4784617d87469d0ac4d95ea9fcdad2ba20a8a6aa574f75090d",
+          "body_sha256": "9317f49f079763e3842ce9b4ffbb7a837834bb88aa4a3c8dc932ff57e5d5c497"
         },
         "second_read": {
           "url": "https://wyvern.ct.digicert.com/2026h2/ct/v1/get-sth",
           "status": 200,
           "error": null,
           "bytes": 241,
-          "read_at": "2026-08-02T05:43:43.455276+00:00",
-          "body_sha256": "9317f49f079763e3842ce9b4ffbb7a837834bb88aa4a3c8dc932ff57e5d5c497",
+          "read_at": "2026-08-23T11:01:08.271342+00:00",
+          "body_sha256": "a2c13734612c66af967eaaef7f4b1c9d5e09d6f5f217171ab23761440c51d9b9",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 1515552310,
-          "timestamp": 1785649423098,
+          "tree_size": 1739293277,
+          "timestamp": 1787482867865,
           "signature_lines": 1,
-          "root_hash_hex": "eb461299dd5b0f4784617d87469d0ac4d95ea9fcdad2ba20a8a6aa574f75090d"
+          "root_hash_hex": "fd74e17420a581baa26b9c5321c4525b5b37827d9c18fb140744e6f09c5e7817"
         },
         "consistency_request": {
           "served": true,
-          "url": "https://wyvern.ct.digicert.com/2026h2/ct/v1/get-sth-consistency?first=1515546766&second=1515552310",
+          "url": "https://wyvern.ct.digicert.com/2026h2/ct/v1/get-sth-consistency?first=1739285805&second=1739293277",
           "proof": [
-            "8fda4ac089020dec75732d59c7e8fd71b36a34e43c03ca954b3f29d6d4cbb962",
-            "64e40493f37b7ca79a8e02465d0c0251c68193def1c09e9d9ae51209de34f4ac",
-            "cbade64eda2d8084d52a9729a95d46b6a960545796bb29445f9510095acf749c",
-            "9f6588f7ace317a5dc62dc9174c9593edbab545cebff389c3c1f9f5bd85b36ca",
-            "0a5df8fe45a429e5308ff2335743e88eb1bb278c01b2a0713be49c835444be33",
-            "4f1ab9106c1c37a41b51d20c70584192dce9104cf4d40c6ee6dd7479bba03314",
-            "e6bffeeda381be5d9afd5b2374a2bfb8423c4158e04bc71d4137042b052bda01",
-            "b674cf77f5c53a13be9e390eaa0211db17620e6b2ba94afd236a9e0c1a75f832",
-            "48037f12318ed8a03f5695f27dc610e26a76817480c810917c9fb51e70a63f87",
-            "e30fd22f47e32b3f602c0317802630fb31421c5aef668643d144edce3a705892",
-            "6af378510c8932c5d20cf40b00a2ff7106a85118097808f2526e4ebda3e1b3fd",
-            "33a595996ff7ee27a626b5a52dfa15c9a0c98a6f4f5ff52f793a464604e5ddbf",
-            "1edf7f873a0a3ae75b7ebb31be220d5722a928769c8611b0558177d9fa394a4e",
-            "4d2b09d3f646b6bdc522d27db81a6c137d8ff9af48ef9c7766896494489e730e",
-            "6af5c5155cd054d0b17399c76fa5c7d4e9882ecfa6c94a2b9a4e385fb40c05c8",
-            "6e11b03f6370a250cc635a1a881c66e29a1c4f04bac1ae68a5fe92ffcc428b57",
-            "3bb511336b396842471389d063951db7ee59d4f7b9bf1d331fa26d7fd2d3a832",
-            "ced1c3e1651fb09d76db07c32c66caa4f2dc7894b5e352ecc39e3bf5b74326a8",
-            "e8d7b1046de7e159d5cde42f740f0c17ada77b6f2974f56a4f97187ee7b9d42c",
-            "f9fc3dea1942627166e8967c31b528b444ebf14bfdb3238e047ffd0d97c2a9a7",
-            "0de4e132b3c59b0005c0d4708311ea5520016d14eb2fbb82cb6fdd68ea7bf784",
-            "4c96714d292d58d986d50c2a0804d2d532d63eac6bd912ea441361d169fb65b4",
+            "f19849f7912e583ae697fa5c39ecf1aa91116d6dd6f617e2be27b39ab401ba89",
+            "7913855d7293791787a9d41a4306860c303a03bf3f2dd0a08ae50f9073c6b9a3",
+            "57006e06f2a18704d11366a3f4ded16d4f24aba318a060ce2d508c6671abfcba",
+            "2b5d4504c16a50d0c20d004567e30d96a9c52d6b9d7e0c787410c97e80ad114b",
+            "4896030a59c778e381e3b19d29bca0ddb944798ff8459e1bcff2d5e18571e549",
+            "7e8279998e6b2a707bdcbca5e6296624f63675bc2c9aa808e0573fa1ce526df0",
+            "1bd46ec466b73b5cc94d11288a1e488422a984a963a978cab979fb31e925a89c",
+            "b0e6fc53521d5b1f6d8c229a5494f5c93f981ac9b93bd8489b8489e0944166eb",
+            "d400546a8c563083c7a92f479f5cf4f318e21c2c33a5c8265ebb6955233a3c0f",
+            "e0dd02cfb455ae5bdd6f3da1c6426372b2e99afb9df63dee85add8b965c07687",
+            "9b8989c700e8fc46be30de76ac0cfb2d02b37ee627f03becc6f9c34696c552e8",
+            "0d2e771e10e74b5ef92b69ae19796935d4472e6dde2c9d1916bd9fc267319f30",
+            "2726b639b4fefec926c982f5ae2b9c29b893d79b647eff0d3c54bf95a2d20b0d",
+            "f17cb5ee394e579a2539b715df69c3a0c3ee3df7441350288980616d5b79e62d",
+            "aff0030903333347c48ddbe587657d1a4478a4c866b0f97278eb55b86fb650dd",
+            "c36ef5da479295591f261c87ec4104af40b4739d8c1797b4de04150cc5d3f267",
+            "40772c7ed8ba296425550fe02c70af6fcaa47f3c360848c094bc79ae02e3e2b5",
+            "3bb6114d8889431df72faea39fcc36728d151ffe708a978e1a28985408ea12ad",
+            "f872adfdcb8732b02d781a0e87553cc6e84c9c572445d299d2c67f14fc171edb",
+            "03b36b085453376c727f0f458d23bb9573d6317752161d46eb0da4b53418a4ac",
+            "c85154d7ea405f0e5bc75e915cfa20c419560072db678e456284e737482077d2",
+            "5f7f0b93e7f72d3c4c141f36fa66f666d87e5faa676a075e92df23c4e2c2c4e8",
+            "dd89a7f4726bc47d3eb254a767df4b7d1c0ab7687d0c9e0417766ec7310cebc4",
+            "68adfa19c75002b4f242ea95bdd42c0346aeaaac45667eb61d533eb90bd42b7e",
+            "4232444e2d5b59b674fd7aee318c347575f0fae721d8762388c2b54e75ff3aa7",
+            "718a4d6bab0fe677e67838c8be7157a05cd16ec4657c8ef3f6a85ec19b0ce92e",
             "54b6293546d4463e72a04dc984a14273de7982a3c1f91d0e91a0553d59c225f4"
           ],
-          "nodes": 23
+          "nodes": 27
         }
       },
       "tree_advanced_between_reads": true,
-      "entries_added_between_reads": 5544,
-      "checked_at": "2026-08-02T05:43:57.758992+00:00",
+      "entries_added_between_reads": 7472,
+      "checked_at": "2026-08-23T11:01:32.376634+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -1248,7 +1258,7 @@
         "checkpoint_endpoint_answers_without_credentials": {
           "outcome": "ok",
           "status": 200,
-          "bytes": 243
+          "bytes": 239
         },
         "checkpoint_parses_in_its_declared_format": {
           "outcome": "ok",
@@ -1256,8 +1266,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 48180696,
-          "root_hash": "d9f71ae439ea69d6e901302c6c3c494ee72bfc84075af49a98138dc3b8b9a89b"
+          "tree_size": 83221324,
+          "root_hash": "954f0f3400d02a577c4ff87bd6abad6bc8430ad279b96872c3e792f1dd42a93d"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -1279,29 +1289,29 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:36.584803+00:00",
-          "prior_tree_size": 48179416
+          "prior_read_at": "2026-08-02T05:43:44.193687+00:00",
+          "prior_tree_size": 48180852
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 48180852
+          "tree_size": 83222763
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 48180696,
-          "second_size": 48180852,
-          "entries_added": 156
+          "first_size": 83221324,
+          "second_size": 83222763,
+          "entries_added": 1439
         },
         "consistency_proof_served": {
           "outcome": "ok",
-          "nodes": 19
+          "nodes": 22
         },
         "consistency_proof_recomputes_to_the_second_root": {
           "outcome": "ok",
           "reason": "both_roots_recomputed",
-          "first_size": 48180696,
-          "second_size": 48180852,
-          "proof_nodes": 19
+          "first_size": 83221324,
+          "second_size": 83222763,
+          "proof_nodes": 22
         }
       },
       "evidence": {
@@ -1309,15 +1319,15 @@
           "url": "https://wyvern.ct.digicert.com/2027h1/ct/v1/get-sth",
           "status": 200,
           "error": null,
-          "bytes": 243,
-          "read_at": "2026-08-02T05:42:45.780469+00:00",
-          "body_sha256": "321218e1ba8e005974252e49aa153d4f0e80f9678c828c226141eefce9378198",
+          "bytes": 239,
+          "read_at": "2026-08-23T11:00:05.037035+00:00",
+          "body_sha256": "66fbbac0c8ef5f3963ca6dc5cf645a5babab8226cce531a3d960ddb903c428dc",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 48180696,
-          "timestamp": 1785649365381,
+          "tree_size": 83221324,
+          "timestamp": 1787482804512,
           "signature_lines": 1,
-          "root_hash_hex": "d9f71ae439ea69d6e901302c6c3c494ee72bfc84075af49a98138dc3b8b9a89b",
+          "root_hash_hex": "954f0f3400d02a577c4ff87bd6abad6bc8430ad279b96872c3e792f1dd42a93d",
           "raw_body": null
         },
         "signature_check": {
@@ -1328,55 +1338,58 @@
         "prior_batch": {
           "log_key": "wyvern.ct.digicert.com/2027h1",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:36.584803+00:00",
-          "tree_size": 48179416,
-          "root_hash": "377bd4fc3582368a8a22c9974437615109982f3e19d230b5cffcf723363bdaec",
-          "body_sha256": "a3b60d3e470823f2a58a2e808837ec0e6d4cd3507928925c4b515ca866f70f77"
+          "read_at": "2026-08-02T05:43:44.193687+00:00",
+          "tree_size": 48180852,
+          "root_hash": "05559d492a082709104ab2c0b5f7b2a8374e65c404d1713704c5454df00978b4",
+          "body_sha256": "31be4c40ee4e31f8ed3c54036637afeb279c99d766a5cb84c74e0c19336d6a7b"
         },
         "second_read": {
           "url": "https://wyvern.ct.digicert.com/2027h1/ct/v1/get-sth",
           "status": 200,
           "error": null,
           "bytes": 239,
-          "read_at": "2026-08-02T05:43:44.193687+00:00",
-          "body_sha256": "31be4c40ee4e31f8ed3c54036637afeb279c99d766a5cb84c74e0c19336d6a7b",
+          "read_at": "2026-08-23T11:01:09.332581+00:00",
+          "body_sha256": "1ac79f2488327e0ac651e657f922e01270cdb8049db3dda3b4ee840aa1ca7c97",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 48180852,
-          "timestamp": 1785649423157,
+          "tree_size": 83222763,
+          "timestamp": 1787482868866,
           "signature_lines": 1,
-          "root_hash_hex": "05559d492a082709104ab2c0b5f7b2a8374e65c404d1713704c5454df00978b4"
+          "root_hash_hex": "d6a3b17fc6df91a443e030186b1adbef82dabf23276d69e18c6a5486dee5f02e"
         },
         "consistency_request": {
           "served": true,
-          "url": "https://wyvern.ct.digicert.com/2027h1/ct/v1/get-sth-consistency?first=48180696&second=48180852",
+          "url": "https://wyvern.ct.digicert.com/2027h1/ct/v1/get-sth-consistency?first=83221324&second=83222763",
           "proof": [
-            "1ce7e906fd782ab7f61edcba5d137e74da12e910848fb8b1089961c599e79757",
-            "61591bdd8047cd3443082f5ed22239956cd24b1124bb23b94d7705bfc1342847",
-            "66836f89adaec2800dbdb9aa5d4c5ed22cab5386c1efe57c02e7dc818508672c",
-            "8847cd2cb13a84f22fe5bd053351b95896bbe0c959518a764703a298c6f8c425",
-            "c703cd1c8fc8f2c8bbb76724aee2e90d7a229ef365668fa8a2cd52502cf14f80",
-            "e5e8c3d5bb508d9f67aa32f3fcade971009d86d093b9386c7fba7db338592d6e",
-            "88998a4f89ea0f7a7810747b82bada7fe03a51cc807105ccf0ac14ee92151be1",
-            "38b390de7fd77953646199bab4a3276ae9f26403b85d3361334b5c2bd7f8556c",
-            "9dfa90bf32444043af4f3f3a7a9a07c259324496c18103fef2311e56f050f5a9",
-            "437106f9e80e0ea2757e30ff944b8a8702b171705257e317fe96626e8a2e8ccf",
-            "54f58b5fd49f2bc1d713b8d96f4cf298b14d6c4dcee4a1b0ba02d8f0a76c26b3",
-            "90c840ea1d08db8b006dcfc2ecb38923971debecc3ad5bd531228c4327722258",
-            "50aa5eaaedb19ac372d8385eaf57fec2b947743008af0dd6029fc202605f3f11",
-            "21e4ce3a6b9ff92826584bf34f13ef8034b2d0f0c56c8630c23f00d5954a2314",
-            "83b0120f8a03215e2849aa667ddfd6dca251968fd8f525d3322e48caa33e2add",
-            "ea2c1f0ac34d7a165d1fd1f9a52f3734fc616831a48cd14efefd33d40e5f2aaa",
-            "378b75bf4b1d63105a81ef970688b5f306cac7c80f34812f71db893e15bd4e42",
-            "3121c12d8f15a89a2ca18699e7d2e3f54f8951f35ba4b5c7e0ac291f0ee28a02",
-            "9d55adebc8f60d65c551d24bd53fae9c532fcf4c3a741ef08691c21a4f7c06ff"
+            "34c857b7a5d379ed2ac9ef2b06fa21213df885e5a36153560ed6fb96187a72dd",
+            "8a85bf59bcc704122be86d10dd43265fddff26afa63ae6ea363b4d3214a86bb3",
+            "b5baae8431442f0a8be30495290f28d76246e12ec2348d0d8738e04cf6e16a62",
+            "5352b9d0ac82f7615a2628593e279c4bf9a11aa0aa0a058a2aeb9fec67f92ac0",
+            "951ac30db0b03a1d9e2d99b871774b0350d0f2922d514d2b343aa016feb2f80e",
+            "91189ff3550d5b097a6d822d9c4f15491aa7db39603e8b38d224c5071a30b5da",
+            "bac8d65106d07ea4896a3412b0774609efd81cbe4e138c5eb13adfaa59e26e13",
+            "fac5a2c76f4c953fd2d53a7f57fbde6ea2a1158ecc8e954a643a6f1595e5348d",
+            "59893d35988d93db2ae74bea887e7194f67cdb6bfd0707f7f70ad9147cc8ba44",
+            "7e0bb9fcb38d35b7dd5fa5d1a1b262f9d519d766f76d9a890e18d6956605aabc",
+            "de31bd6204dd59854d0f17bf085ddd71bc539aaf5c14cc7de5de11017c0904c8",
+            "a68b898e27f9dad346d3b4d6192593a2a21b1047906da5643a079a771d48cd4c",
+            "161db3ed35af472c244c294c2233a2715c875f87baff33ae283fc6933ed009d7",
+            "81ef00c791c03e5ccb29e3e461b4f09e9158975be546191c8dded24a487ef3a7",
+            "87e70d2a0d8613622085db8e2deb908d87f6656f153626dc4f86edb7742575f6",
+            "827f2b3f0f3a7d7e98dfabc28317ac00e384ee17e3af515d6bacb9a98ba16a44",
+            "169bf16f7a3ef968e477038c91333b8c65ec713760e58a785c4641a04018e86b",
+            "c9d3457279c69e1c73a02a188166c2404844fc95c540c49f684fa56537d17030",
+            "954b27e5424c882dcf67c76b02f9dcb7f678de65235a3efdbd5b49c55885e7d7",
+            "86b18e120b04c0dc1f0ab457fe9fff7b5be1a11571f3faeae7762684669ba5f0",
+            "fb5049f0ae2be3c97c78c8ad18b411f4f9e93a6a627886323760655c7f024965",
+            "c0f002c419d8ebc99580440b8a33a01302e94eca49fecb169dbd0b2de844a3f3"
           ],
-          "nodes": 19
+          "nodes": 22
         }
       },
       "tree_advanced_between_reads": true,
-      "entries_added_between_reads": 156,
-      "checked_at": "2026-08-02T05:43:57.758998+00:00",
+      "entries_added_between_reads": 1439,
+      "checked_at": "2026-08-23T11:01:32.376666+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -1413,8 +1426,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 24791,
-          "root_hash": "0771af2e0bde535f9b5748b92359694905a79068938e1d00cf7a84e76652fadb"
+          "tree_size": 27103,
+          "root_hash": "b53857359ed7410ce0f743d7491f1c26bcca6c2cbdb5e3f54201544969c93aad"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -1436,17 +1449,17 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:37.310784+00:00",
+          "prior_read_at": "2026-08-02T05:43:44.921066+00:00",
           "prior_tree_size": 24791
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 24791
+          "tree_size": 27103
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 24791,
-          "second_size": 24791,
+          "first_size": 27103,
+          "second_size": 27103,
           "entries_added": 0
         },
         "consistency_proof_served": {
@@ -1465,14 +1478,14 @@
           "status": 200,
           "error": null,
           "bytes": 236,
-          "read_at": "2026-08-02T05:42:46.192710+00:00",
-          "body_sha256": "6b7354e8720b903e1117653efeb320c2d606f7565a2559d989e644bdef7c81a0",
+          "read_at": "2026-08-23T11:00:05.684849+00:00",
+          "body_sha256": "3824f81b6c236ffc10036a9b090cba9a378528ff35f9885720d8b321bbfdc5be",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 24791,
-          "timestamp": 1785647475468,
+          "tree_size": 27103,
+          "timestamp": 1787481534193,
           "signature_lines": 1,
-          "root_hash_hex": "0771af2e0bde535f9b5748b92359694905a79068938e1d00cf7a84e76652fadb",
+          "root_hash_hex": "b53857359ed7410ce0f743d7491f1c26bcca6c2cbdb5e3f54201544969c93aad",
           "raw_body": null
         },
         "signature_check": {
@@ -1483,7 +1496,7 @@
         "prior_batch": {
           "log_key": "wyvern.ct.digicert.com/2027h2",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:37.310784+00:00",
+          "read_at": "2026-08-02T05:43:44.921066+00:00",
           "tree_size": 24791,
           "root_hash": "0771af2e0bde535f9b5748b92359694905a79068938e1d00cf7a84e76652fadb",
           "body_sha256": "6b7354e8720b903e1117653efeb320c2d606f7565a2559d989e644bdef7c81a0"
@@ -1493,19 +1506,19 @@
           "status": 200,
           "error": null,
           "bytes": 236,
-          "read_at": "2026-08-02T05:43:44.921066+00:00",
-          "body_sha256": "6b7354e8720b903e1117653efeb320c2d606f7565a2559d989e644bdef7c81a0",
+          "read_at": "2026-08-23T11:01:10.398648+00:00",
+          "body_sha256": "01805bfa6c1feecbc04c15a089afabde841cde6af493352fbbb8a6a94ee0fd8c",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 24791,
-          "timestamp": 1785647475468,
+          "tree_size": 27103,
+          "timestamp": 1787481534193,
           "signature_lines": 1,
-          "root_hash_hex": "0771af2e0bde535f9b5748b92359694905a79068938e1d00cf7a84e76652fadb"
+          "root_hash_hex": "b53857359ed7410ce0f743d7491f1c26bcca6c2cbdb5e3f54201544969c93aad"
         }
       },
       "tree_advanced_between_reads": false,
       "entries_added_between_reads": 0,
-      "checked_at": "2026-08-02T05:43:57.759003+00:00",
+      "checked_at": "2026-08-23T11:01:32.376696+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -1542,8 +1555,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 1922271995,
-          "root_hash": "4b45af0dfa81a46aa52b5d2ec3eb20278b1fec9a6031bb2890fcbee08cde47a8"
+          "tree_size": 2261413924,
+          "root_hash": "5b7cc074cdcaa6da47f24e0b55ad3a6191d3e7a86decb4e10dd520a6de2683be"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -1565,29 +1578,29 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:38.631195+00:00",
-          "prior_tree_size": 1922213339
+          "prior_read_at": "2026-08-02T05:43:46.181677+00:00",
+          "prior_tree_size": 1922279015
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 1922279015
+          "tree_size": 2261425771
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 1922271995,
-          "second_size": 1922279015,
-          "entries_added": 7020
+          "first_size": 2261413924,
+          "second_size": 2261425771,
+          "entries_added": 11847
         },
         "consistency_proof_served": {
           "outcome": "ok",
-          "nodes": 24
+          "nodes": 22
         },
         "consistency_proof_recomputes_to_the_second_root": {
           "outcome": "ok",
           "reason": "both_roots_recomputed",
-          "first_size": 1922271995,
-          "second_size": 1922279015,
-          "proof_nodes": 24
+          "first_size": 2261413924,
+          "second_size": 2261425771,
+          "proof_nodes": 22
         }
       },
       "evidence": {
@@ -1596,14 +1609,14 @@
           "status": 200,
           "error": null,
           "bytes": 241,
-          "read_at": "2026-08-02T05:42:46.901265+00:00",
-          "body_sha256": "a3609914f6a6016981d81db0ab5b4b16ebf406209a470b3d6c083c96a45d1d60",
+          "read_at": "2026-08-23T11:00:07.467012+00:00",
+          "body_sha256": "284d262a6e5e5e49f2f2832ef7e6a53f88849737d99522c78b29f713bc851741",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 1922271995,
-          "timestamp": 1785649306467,
+          "tree_size": 2261413924,
+          "timestamp": 1787482746697,
           "signature_lines": 1,
-          "root_hash_hex": "4b45af0dfa81a46aa52b5d2ec3eb20278b1fec9a6031bb2890fcbee08cde47a8",
+          "root_hash_hex": "5b7cc074cdcaa6da47f24e0b55ad3a6191d3e7a86decb4e10dd520a6de2683be",
           "raw_body": null
         },
         "signature_check": {
@@ -1614,60 +1627,58 @@
         "prior_batch": {
           "log_key": "ct.googleapis.com/logs/eu1/xenon2026h2",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:38.631195+00:00",
-          "tree_size": 1922213339,
-          "root_hash": "c87bbd9f83746bc65b83e577aacbe98232b34c1b2597bf9f5c54a3e0ce9636b8",
-          "body_sha256": "e242ed56e00e9ba3516d450d10740840ff601de17b9158716659f3eb1a3b753d"
+          "read_at": "2026-08-02T05:43:46.181677+00:00",
+          "tree_size": 1922279015,
+          "root_hash": "9124d5bf7fbd9d487451680742fb524adf1e9eae5ecd2ac9c4503b01c0b23c58",
+          "body_sha256": "954baf2b0518d3b5c9dfb8b1a6b4fca85172c8152306da598c3fe6fde60bb5e1"
         },
         "second_read": {
           "url": "https://ct.googleapis.com/logs/eu1/xenon2026h2/ct/v1/get-sth",
           "status": 200,
           "error": null,
           "bytes": 245,
-          "read_at": "2026-08-02T05:43:46.181677+00:00",
-          "body_sha256": "954baf2b0518d3b5c9dfb8b1a6b4fca85172c8152306da598c3fe6fde60bb5e1",
+          "read_at": "2026-08-23T11:01:11.251007+00:00",
+          "body_sha256": "f13f7f551f112fb3e9a18fe4f190ee469c5494205cbc29fb4fc45fd1889f651f",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 1922279015,
-          "timestamp": 1785649365793,
+          "tree_size": 2261425771,
+          "timestamp": 1787482810700,
           "signature_lines": 1,
-          "root_hash_hex": "9124d5bf7fbd9d487451680742fb524adf1e9eae5ecd2ac9c4503b01c0b23c58"
+          "root_hash_hex": "1ffbe03832a25533e5e6b9ea5fffd5a77cad8ee678ff00ea5a5b53fb1da7f958"
         },
         "consistency_request": {
           "served": true,
-          "url": "https://ct.googleapis.com/logs/eu1/xenon2026h2/ct/v1/get-sth-consistency?first=1922271995&second=1922279015",
+          "url": "https://ct.googleapis.com/logs/eu1/xenon2026h2/ct/v1/get-sth-consistency?first=2261413924&second=2261425771",
           "proof": [
-            "ac11bef5753758bcc9b7007446b22e6fb42eac15bb9d87b7b605bc9a84568ffe",
-            "958082824b3acff957b26ce8abe1398781412c6a9e908087df2089cf627ba647",
-            "3a2abc8599811cd2008df6ea205c320ae42f787beaf43fd995ed1830eeb0eaed",
-            "382a2870aab2c80cb59b4902e4877dcd01f57b391454396335ffb7647a8a0eaf",
-            "16d97ae4c7aad39457ab65bdf3a564bb559133db61f94a565c32fc1afcdbcafb",
-            "667a68451ec5af9099a06c6e6c4e3d4a6a55a88dc03f0fcb7b185d805e763112",
-            "180d8f91c754656c395245f3e6c65b904ef4a9c96e7c601960013d6455ca5413",
-            "9990d54fd5a57114f69a9284c08e0ca0ae91165c62d6235c2f8fcd3db7840f6f",
-            "ee9605b6c5b69e4b702db62310ba73ae89d80bb34fa40a453faba28bdaa18b1e",
-            "303befcbf06515eb5122ecd90dca26bc25b019e28f27352a2af506398ae7ded1",
-            "8e9dc9bb1a5c6202bc2e6549cdcc80c1615b95943dcdbb76935d260fe15b42af",
-            "6acc4c108adb4098e84b1a21ff843ab8e98f81d5c0d7b6be3eaf760faab6417c",
-            "4b9ab3cb5075d3d2d15af99910e71f3d5b775e3ba655d11e717b1f8a344dc6c3",
-            "6a2b6b0391d33314804a970dd2c6975939334780ed564921bbbdac62a5b3f5ee",
-            "43b33941f166633410a060ca5bf8a69a4cd72c546f19d0b3dd97bd38cc8a4248",
-            "bdd2764a62d86db096ed8f263be6d1ae746e9da3dc047f71487b882f30782d24",
-            "3e6ee733c49176c8aab58b70014eb6e9ed0d98218f27d961b4906e3e4d74fe37",
-            "87aa6c6d15d21e909559f88b06a5b0df8e872e8281c3d1ca0d209fe2f00240d3",
-            "6cc43609e46b3c29f11a1b792e58d10c0b64ecb57d35f9c44eb6b6d4ce2c1909",
-            "25bd9d3418d108dbf6052d66163d4eb78af50a4c5a04e4311c6f5cf7d1ce2a00",
-            "3ad045d90ee2a3d3c46edba8848010c3be6e9996f7526f49b6e3bd889351094c",
-            "93b7d19b89eaf86a999e37670bfc93dd3cc2d28f3974b131bf3f4645680e0c38",
-            "522d360d1728fe7112c591f9b6c5d1bd4b9abca1c0a23b1d8f7a61d959105196",
-            "3fd2f0b4a327b9bd6dac1546ba6a55ed92286c62dc345ea2d559fbaf3871c0a0"
+            "a311c43c113956e474ec81acf3b3b05f6efae47ef585dbd982f6ea88f7cb0b0b",
+            "6637fc31dae1af03389c53875961628705ae37928632c63e0cbcde536da6a975",
+            "6b212705ad6a80214078c7f800b47e80db1ae67204908e889773788ec2c3fcf2",
+            "b310af888ed80552a89b9a9ff5437e1f4213a1718defb575ee2a2f6f9c9827ee",
+            "fffdd5b439611f9d3c9c1d29fb15c57a7a62d2d88aa11fa890ab656430fa7db7",
+            "4ec926ec70868389350185a6bb5d071adfa7aafd08fba4bfde1572446e37a5ef",
+            "2d23674279bd0efa927f6909a3a5e2fd876060c6f8247acf0455c3251306c0b6",
+            "b39eb272c4fbfecff6b69580b8c26b6e711d8f6c8602385400b8c5a0de2fb052",
+            "d499378eefc59bbf41bae0e83e7638d334e07192ad402e98aeec66d1416fd59f",
+            "a64e0a12ebf2040bc579acd1faca6cf3a57ba8aeae8ba472311a99d7c08d111a",
+            "74c644f40127b2abe831bd711ca51faec5d7040f5a2aca8bd6e144e7e36dd22f",
+            "1899d66ea9977eedde9be85291e96cb3bcfadd72baef9c620fd4ac30b0e9292a",
+            "4c6ef2c7cc3f20cab150e3c30fa5786243a0d62b5d45436fc9d46813d7e95d31",
+            "d1743df5491107ac60afcf6958b3debaea12a04389b995d71376f7bbda2b75df",
+            "84db59b5768f7c07749a1efb46c6215161ce7708559b859eb46377e9e7813e46",
+            "d776ea03e5c883b1f4660d48edb73e37b87621de8efb546e3f7703f5e00dd213",
+            "d498ba5c48dd930000dd9af3339939801dc1a71ded9dbbd7458f74a3466f89c2",
+            "e5deff7dc144755858d4b0fcde1ca4d79bb35dddeba26a9e895013f5f04eacf2",
+            "ff9a13f1980eef695e03c7024d6ca8e48f473e5647ec545377c39b2de4dd24bb",
+            "bd3214fdfae6104b706abec126b2f83ac3293b34b085f194fa5fa41c97e10a46",
+            "94da3635ca22156bc2a0f13b07f198c6fd5b629e78c0fed70e6c3313ce892930",
+            "75147cd2559884b96a00ce734c768580f37aff9b0fe6ad3f1289ec199dc1cf07"
           ],
-          "nodes": 24
+          "nodes": 22
         }
       },
       "tree_advanced_between_reads": true,
-      "entries_added_between_reads": 7020,
-      "checked_at": "2026-08-02T05:43:57.759008+00:00",
+      "entries_added_between_reads": 11847,
+      "checked_at": "2026-08-23T11:01:32.376729+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -1696,7 +1707,7 @@
         "checkpoint_endpoint_answers_without_credentials": {
           "outcome": "ok",
           "status": 200,
-          "bytes": 239
+          "bytes": 240
         },
         "checkpoint_parses_in_its_declared_format": {
           "outcome": "ok",
@@ -1704,8 +1715,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 97749657,
-          "root_hash": "e6501cf63cfa0ac7dff8d0fde1732a298f2fab957654fa3fabbdae1d5e54a883"
+          "tree_size": 146182491,
+          "root_hash": "6e145c176eedd60201ca1f35c14fd151af9023586cb3ce42d71f2e79d29867b7"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -1727,18 +1738,18 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:41.133617+00:00",
-          "prior_tree_size": 97741932
+          "prior_read_at": "2026-08-02T05:43:48.667428+00:00",
+          "prior_tree_size": 97750595
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 97750595
+          "tree_size": 146184412
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 97749657,
-          "second_size": 97750595,
-          "entries_added": 938
+          "first_size": 146182491,
+          "second_size": 146184412,
+          "entries_added": 1921
         },
         "consistency_proof_served": {
           "outcome": "ok",
@@ -1747,8 +1758,8 @@
         "consistency_proof_recomputes_to_the_second_root": {
           "outcome": "ok",
           "reason": "both_roots_recomputed",
-          "first_size": 97749657,
-          "second_size": 97750595,
+          "first_size": 146182491,
+          "second_size": 146184412,
           "proof_nodes": 21
         }
       },
@@ -1757,15 +1768,15 @@
           "url": "https://ct.googleapis.com/logs/eu1/xenon2027h1/ct/v1/get-sth",
           "status": 200,
           "error": null,
-          "bytes": 239,
-          "read_at": "2026-08-02T05:42:48.327692+00:00",
-          "body_sha256": "0e89f26777f3c0d072aa5bb4f24ab2f1b5f3511f30e9988099c4b0cad874ca93",
+          "bytes": 240,
+          "read_at": "2026-08-23T11:00:08.400538+00:00",
+          "body_sha256": "0a6e3d714655c64d8b7d4add72981f3b7063f015bf503d287930bca77aaa06bd",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 97749657,
-          "timestamp": 1785649307826,
+          "tree_size": 146182491,
+          "timestamp": 1787482747821,
           "signature_lines": 1,
-          "root_hash_hex": "e6501cf63cfa0ac7dff8d0fde1732a298f2fab957654fa3fabbdae1d5e54a883",
+          "root_hash_hex": "6e145c176eedd60201ca1f35c14fd151af9023586cb3ce42d71f2e79d29867b7",
           "raw_body": null
         },
         "signature_check": {
@@ -1776,57 +1787,57 @@
         "prior_batch": {
           "log_key": "ct.googleapis.com/logs/eu1/xenon2027h1",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:41.133617+00:00",
-          "tree_size": 97741932,
-          "root_hash": "26c7d42794bcef960a8520676c8a5176ad0e0ce90d25e25324a96d21709b1010",
-          "body_sha256": "530b3101b9a0456df035790c1945c37eb77358940bfdd25c06047feecefef035"
+          "read_at": "2026-08-02T05:43:48.667428+00:00",
+          "tree_size": 97750595,
+          "root_hash": "90a41487825cda944195d140c6e52d5b99abb07508becd5c18c3334125a3a2de",
+          "body_sha256": "7a98ce1524ef198864d6803bdad91c3983fa77ef3da5bf7838401c84d47b6498"
         },
         "second_read": {
           "url": "https://ct.googleapis.com/logs/eu1/xenon2027h1/ct/v1/get-sth",
           "status": 200,
           "error": null,
-          "bytes": 239,
-          "read_at": "2026-08-02T05:43:48.667428+00:00",
-          "body_sha256": "7a98ce1524ef198864d6803bdad91c3983fa77ef3da5bf7838401c84d47b6498",
+          "bytes": 240,
+          "read_at": "2026-08-23T11:01:13.995282+00:00",
+          "body_sha256": "eca8438bf410ce2a56814989810a088ced63f8b90115ad2d6fe3742501a0e3fc",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 97750595,
-          "timestamp": 1785649368251,
+          "tree_size": 146184412,
+          "timestamp": 1787482813439,
           "signature_lines": 1,
-          "root_hash_hex": "90a41487825cda944195d140c6e52d5b99abb07508becd5c18c3334125a3a2de"
+          "root_hash_hex": "19e9b9641c270eb096616928e1676ea4699650739e98b839556d15038128f2ac"
         },
         "consistency_request": {
           "served": true,
-          "url": "https://ct.googleapis.com/logs/eu1/xenon2027h1/ct/v1/get-sth-consistency?first=97749657&second=97750595",
+          "url": "https://ct.googleapis.com/logs/eu1/xenon2027h1/ct/v1/get-sth-consistency?first=146182491&second=146184412",
           "proof": [
-            "fc28669a350fdefedd8efd1f9e07dcf7a8ae1ea623507ff626ff937cd4e2cfd8",
-            "7c1a4e8b170da731f3c74a28a4c9f45b3bfb9b8a7c14f6a0b7cd7d8975b35ffb",
-            "eeec96b14d2484a6f0148a30be263f64e7798f731e4128e01c71489c1ebbdc44",
-            "c2d03e8485aa16f3217c770e28482c9f2159c512106fc7794eef91e4e8a04991",
-            "162043a983d91f960b5710593fe0a7ed80ae68eecfbc57f1eb738be2501a53e9",
-            "4a6a18ab4a590e91262c5ea3099f3a1ed692dc5372565fbe30c2ab12a282de49",
-            "45ea8768ea5b56d1051f60c341111b3a70c320c6fbfd4a49bb486c0a2e8772d6",
-            "c58dabcf53f4ffa8f4295cf3ab155b399a4668001a99c1f97742a21456d4d9f4",
-            "39f926a397b3dcce9f2f99940eb53be4c3e3906ed891581789c719aed6222035",
-            "45d328ad62e5a5d3f5d22b9a45491dfee7d9126bf13a4bdf81c69d49f197e7de",
-            "7bb1fb210a7dfc88665266bed5d253477c68b4ff04595fadca595d0781799096",
-            "124151eecad3675fc4810219c37348a4d1787e081ec15e42ec3b455d2ddd0bfa",
-            "64325452ac07d3f46a049226acbe9780277e206f351aedbe4004a288ced44a2f",
-            "58c2da3ba11bfafb003ab42cad95e6ea24b1da7b7340d6a1b4f10622e7444230",
-            "a2f199aa9b0a617851d297a1adf3ea762932b204abf217f09f953c09edfc3adb",
-            "c1979a282ce7e092fa1e1dbd81c2e7d01747eb1a408578810f556dc8f3ec9d47",
-            "09372c44829a5ffb6ffa38f972e6807f943945c1690ac567976d2943bed8e08f",
-            "0cf22ba77c1ed3737999f5e9c3db4bfe713e008183c8c4ba73be747923326d16",
-            "ce68ed88974f408edd4a20246bf3b1fd2d55bf083b8eb9a3641a6a1e0dcfd9d9",
-            "3d3e88841f261f7658a2671b4c7b2b532ce9d7c4b72fb0f806238f0a83b30e81",
-            "ef3319aa6b473666ec17cb78790ca7ed7951f19b0422f1703d8b1fc5b32b4589"
+            "4e3e596baa87b2169d81d1f84906681a95b86b5371f1b38b500e0041d814e50c",
+            "642c92c64f9d6119a02349e782c8800761f985d6590a6136e70f2e614b885319",
+            "4f4b94a968ab41f49d529ace26f92584b07a9fa996f911ae8b3e0b145fe53655",
+            "8d52caa41274981720404da906b52c9e6871c73c6315e4382e71e60d03961590",
+            "9f06841c84ac02cd0c7fd8f9f86af0c52ff44fc2ef04e80a0856cb60709d5712",
+            "293ef487e2751da83660e0c890dacb758daa637c92b182f7d25e1420bba664d6",
+            "a69d59e1f3bc6a1d7cfa1e44ecaedab85579655be2daee976df828be4a89e051",
+            "f35ff511cc2687184e70046c5efe7f3e8d5031e3a61140199fd9576da6c3a4cb",
+            "eebe2ef9199ee49b9747e09394cda010c73e9385e56bb19b95cdaa16b2b21ce4",
+            "5290f2d0e877995dff2181bb78a6d7672200c7832fe6b7e6e3fe56138572326b",
+            "0b79763f84fc87e98ef77a362029bf164016f5fb8896b1c97192696cec440013",
+            "3f7bf13c67aeed511f810df1d5dcab29b5c047f777233532d77c233e6d110e25",
+            "cd97814e616d6c66cd195063bff77d0331fdee93a903426e1a5b131853b8c052",
+            "2fd8a284bf9b9a9b900e42c4f76998d1c3bf502711fcaed58b1a705301fb5d4c",
+            "17202f520d1ece17067772e7f97c720794acdad35a1afe78fdafeb21c357d9c6",
+            "3c0299446000f62a237233daceef624e785f67619b95bc7aa6d7ff1eb6987535",
+            "b03495496602f43941174a3e37048a4fcbafdf260c9a85de50bccc45824b01a4",
+            "8f2d17ca76df808e9343796bb28eb8137df2fee81e1248115f19a4e240590298",
+            "1221636a5ef6b1a71ae76ca171b470c203b37214b9bacb46bcef3998e95650d8",
+            "f226b569026f8b5e102bde7a0ecd4883cd925662ca829ac8a770b20ee8337593",
+            "603deedae033421a704fbcaf271882ef86c383aa33534f2af26b9ea8fd6fe96f"
           ],
           "nodes": 21
         }
       },
       "tree_advanced_between_reads": true,
-      "entries_added_between_reads": 938,
-      "checked_at": "2026-08-02T05:43:57.759013+00:00",
+      "entries_added_between_reads": 1921,
+      "checked_at": "2026-08-23T11:01:32.376759+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -1863,8 +1874,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 2281773943,
-          "root_hash": "e231480aa6f6e8b91bc68e17f4bd4509c319b3a4604f2b0f2f094ffc0717c3ab"
+          "tree_size": 2666540944,
+          "root_hash": "1f1e48bec67d922b3ab602e735abb1b728c0eeae571711077bb7cab9d41553fb"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -1886,29 +1897,29 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:42.209273+00:00",
-          "prior_tree_size": 2281702148
+          "prior_read_at": "2026-08-02T05:43:49.743261+00:00",
+          "prior_tree_size": 2281782781
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 2281782781
+          "tree_size": 2666554175
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 2281773943,
-          "second_size": 2281782781,
-          "entries_added": 8838
+          "first_size": 2666540944,
+          "second_size": 2666554175,
+          "entries_added": 13231
         },
         "consistency_proof_served": {
           "outcome": "ok",
-          "nodes": 18
+          "nodes": 21
         },
         "consistency_proof_recomputes_to_the_second_root": {
           "outcome": "ok",
           "reason": "both_roots_recomputed",
-          "first_size": 2281773943,
-          "second_size": 2281782781,
-          "proof_nodes": 18
+          "first_size": 2666540944,
+          "second_size": 2666554175,
+          "proof_nodes": 21
         }
       },
       "evidence": {
@@ -1917,14 +1928,14 @@
           "status": 200,
           "error": null,
           "bytes": 241,
-          "read_at": "2026-08-02T05:42:48.866666+00:00",
-          "body_sha256": "0d0a1a5203dc42e6cd2d80c0f9514ece2cf2e1597f861b03f21bf7952534392f",
+          "read_at": "2026-08-23T11:00:09.232726+00:00",
+          "body_sha256": "c1f9bca6eafd0d76616632f7066cd59b04536f60ee04951a2a0b99bff25a31c8",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 2281773943,
-          "timestamp": 1785649308521,
+          "tree_size": 2666540944,
+          "timestamp": 1787482748710,
           "signature_lines": 1,
-          "root_hash_hex": "e231480aa6f6e8b91bc68e17f4bd4509c319b3a4604f2b0f2f094ffc0717c3ab",
+          "root_hash_hex": "1f1e48bec67d922b3ab602e735abb1b728c0eeae571711077bb7cab9d41553fb",
           "raw_body": null
         },
         "signature_check": {
@@ -1935,54 +1946,57 @@
         "prior_batch": {
           "log_key": "ct.googleapis.com/logs/us1/argon2026h2",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:42.209273+00:00",
-          "tree_size": 2281702148,
-          "root_hash": "0777c30fa191f56a55eb446f7a59060183c2a08df29ffb5bc026643f9a2d37b5",
-          "body_sha256": "932a3d3981a963507758bca8f5753c125c0843d725b06fa2ee93edb788911b53"
+          "read_at": "2026-08-02T05:43:49.743261+00:00",
+          "tree_size": 2281782781,
+          "root_hash": "4ebb32e9aab2d8de5af95f386bc97a48ebd6e4ae34d9cbceb426ed9c576fa167",
+          "body_sha256": "de7acd8c01bb8fd38efc839cacd7924e9a97512b253adc07aadaa399947ceb7c"
         },
         "second_read": {
           "url": "https://ct.googleapis.com/logs/us1/argon2026h2/ct/v1/get-sth",
           "status": 200,
           "error": null,
-          "bytes": 245,
-          "read_at": "2026-08-02T05:43:49.743261+00:00",
-          "body_sha256": "de7acd8c01bb8fd38efc839cacd7924e9a97512b253adc07aadaa399947ceb7c",
+          "bytes": 241,
+          "read_at": "2026-08-23T11:01:15.670775+00:00",
+          "body_sha256": "3ccbe6316a5479090c12ad1b9ff3db05ae66129c92b0f7d41266d4997d979058",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 2281782781,
-          "timestamp": 1785649369310,
+          "tree_size": 2666554175,
+          "timestamp": 1787482815192,
           "signature_lines": 1,
-          "root_hash_hex": "4ebb32e9aab2d8de5af95f386bc97a48ebd6e4ae34d9cbceb426ed9c576fa167"
+          "root_hash_hex": "7cc8d7698bbc11081ce62744687c73e293a40a81e715175b112c0eff873ddc56"
         },
         "consistency_request": {
           "served": true,
-          "url": "https://ct.googleapis.com/logs/us1/argon2026h2/ct/v1/get-sth-consistency?first=2281773943&second=2281782781",
+          "url": "https://ct.googleapis.com/logs/us1/argon2026h2/ct/v1/get-sth-consistency?first=2666540944&second=2666554175",
           "proof": [
-            "5d4a0151e9d85f22afbfc5e332b2fa9ed294d1759be9044a0b8849c52aad0cd4",
-            "becbab75e3a6f76bde15b1048f6af6077a90c26398495a4676cd0eeaab6364e0",
-            "c0a0b7fbc35fb4cec41541e9abee8d2694ac4d015176a09227fc1b26dcd1efe1",
-            "f5a4fbe609af2fdb595e405d75ed0dc4a9e913530f297ccf080b4e8e0e87bc6d",
-            "55b39d8e049977ca7f2b4c7a00d1df633e43f5dcec08395db57aefb94faafa80",
-            "5e9216c8a88d1266691c8d8fa025cc3ae199bf035b53dc1a3a4a05debc90c2a1",
-            "f2a4f82384aec447422e6c79d1c565870f1857dbcc89d8568d1eb94e0815c668",
-            "079be685136c8a061b4fe4fa65527718fc5a435588ee030c2f3d2254efd46603",
-            "3968e4373c4de844fe65e09c88298b902e4dbdebbf175c90eba06ca79aadb010",
-            "0dcd7904987fa58bd84edab6dbf3eb3e8832851b91451a2e8dde6699b8879945",
-            "31735c1b042ee1646e6768c0b57d7b4f09fcd19b367e35d7b4d8cfd9bc99debf",
-            "05e029dd94ac9e8e5a5389a71760d3512751eb7b28c01653aed6a63507887d38",
-            "96a566429ca99241c5ca7b8e5a4b65503208b16a79699369dea1193d67d9360d",
-            "9f8fb182ed668b93132f927dfb8cf32e32f9046208477c2d65b79530b53682c2",
-            "c51e3a2adee8984ac14e3ffbc3c4e3253db29218829e8fd6d13ad4c0ec08e176",
-            "1f3daa8bfe13229c6d62a1ea24149cdedd1ad0f5e188d38968133e72d880c0d6",
-            "952126d04b689bcc1310340f8481b79431f27e3f97f2180b1e6f2a255abf1b09",
+            "ff846dcef5dad2d2bd43686a816bd1749c4d1df937bb28dff677cfd32cd3c57c",
+            "d9a1cf363b16354be957ad37c1f7e5194cf35d37632cf476e95237dacc23027b",
+            "02c85514b67962ccfaf19a4776fe4d841c7a9bbd094e1dc3b66012087042dd5d",
+            "c51480245083d3a38ae9951bad05162e20f8a68764edaeb6d6633bc61d27a259",
+            "6bcaa27e828b03357fdfc8f91f401d3c7ee67d54483640cd422da53f8cf43107",
+            "d421c5f5ac7987866d81cc4c2200194bd569c8bcf6b74e5a18765840f688d09b",
+            "1fe5a928bb8a50c942f97d352162a1df80764eb04d87966694cf72a787b1d6ae",
+            "7417d467b729bb75333ec078c8bb7f8bad98833a532771b5fe27de528fba10bb",
+            "dd8048968e76a9645e3e0cc29bec81a790c54eec6e2f93ce10d91548dc3e7307",
+            "8fc823af761981d1b34cac71bf97e8744fe7c663e8fdace6d374cfaf803bce29",
+            "760c74f30df961160c8d4b8a157680a3f4633365b4dcce06ab91f1232d97d2d2",
+            "9988fe92ddf2dc5cc2f44b19b113c854f75a7bf4adf12207b32777b5ba871ddc",
+            "4ff1d702b47d3ca77e5b05930fb57348e9d0ef7aa1343a950881e38318413c1a",
+            "f4c1a9ef439e814ea23f778adbcec0c779a7a24d698757cfd65c43ba26b566fc",
+            "af8d9892efbbcc3714196f9042ee4c6c268f3dcc0dd5c53e6031da54b08cfa01",
+            "7e856707d4ef91953e3408668373769a97a922c9b53cfa93616bcf38ab1f816c",
+            "68b681ecaa83319dd1afe506aaabd5d1f30388bea39af09d461455602e5e83d8",
+            "8c51b6902d6e412d180d851e2cb455017fe0d6f1cd01c2efbf2504b3c6f1821c",
+            "6253f5527bc64e6c7d0c218239fae3f042b6482156dfcc010455b492ca5fa1a3",
+            "1f5d97cd8bf85e6c64f8a867e6f16e73adabb0ddbe916a00b8210f2d274e33f3",
             "71445eeeb91dd398e3ed093609ba6961c27cd36ed86b3ae90c5c60f7d4f153a4"
           ],
-          "nodes": 18
+          "nodes": 21
         }
       },
       "tree_advanced_between_reads": true,
-      "entries_added_between_reads": 8838,
-      "checked_at": "2026-08-02T05:43:57.759019+00:00",
+      "entries_added_between_reads": 13231,
+      "checked_at": "2026-08-23T11:01:32.376791+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -2019,8 +2033,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 164761368,
-          "root_hash": "1076fcdcbdb374c95125ebaa7b5d272a81a9f3fe2ed92dc099b8e36e1758e728"
+          "tree_size": 231703878,
+          "root_hash": "a12bde5113e020e80fbc2f04c01cd4837f740f55f88bcf665eb8bea4ab4f38fc"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -2042,29 +2056,29 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:43.275958+00:00",
-          "prior_tree_size": 164744704
+          "prior_read_at": "2026-08-02T05:43:50.699808+00:00",
+          "prior_tree_size": 164763310
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 164763310
+          "tree_size": 231706222
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 164761368,
-          "second_size": 164763310,
-          "entries_added": 1942
+          "first_size": 231703878,
+          "second_size": 231706222,
+          "entries_added": 2344
         },
         "consistency_proof_served": {
           "outcome": "ok",
-          "nodes": 17
+          "nodes": 22
         },
         "consistency_proof_recomputes_to_the_second_root": {
           "outcome": "ok",
           "reason": "both_roots_recomputed",
-          "first_size": 164761368,
-          "second_size": 164763310,
-          "proof_nodes": 17
+          "first_size": 231703878,
+          "second_size": 231706222,
+          "proof_nodes": 22
         }
       },
       "evidence": {
@@ -2073,14 +2087,14 @@
           "status": 200,
           "error": null,
           "bytes": 240,
-          "read_at": "2026-08-02T05:42:49.498744+00:00",
-          "body_sha256": "ad160612e805bab3f447d299934fda7ad321a9fd740975a5c10b49c1a19951cd",
+          "read_at": "2026-08-23T11:00:10.224433+00:00",
+          "body_sha256": "321916760d604d9bfbe2fadf3ef4ec44edc72ebbf382aaac61da37f07aebd9f3",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 164761368,
-          "timestamp": 1785649309075,
+          "tree_size": 231703878,
+          "timestamp": 1787482749520,
           "signature_lines": 1,
-          "root_hash_hex": "1076fcdcbdb374c95125ebaa7b5d272a81a9f3fe2ed92dc099b8e36e1758e728",
+          "root_hash_hex": "a12bde5113e020e80fbc2f04c01cd4837f740f55f88bcf665eb8bea4ab4f38fc",
           "raw_body": null
         },
         "signature_check": {
@@ -2091,53 +2105,58 @@
         "prior_batch": {
           "log_key": "ct.googleapis.com/logs/us1/argon2027h1",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:43.275958+00:00",
-          "tree_size": 164744704,
-          "root_hash": "c7d673be520c52f2ccedd497ad2d6bb38ef2e724cccaa2a27b6ff868adc62f4c",
-          "body_sha256": "659a58a40ab7f185e4c2d9cd5e9de5f6a4106aa07f23bc513c7fc7b0309342e2"
+          "read_at": "2026-08-02T05:43:50.699808+00:00",
+          "tree_size": 164763310,
+          "root_hash": "154b7b4a674973a3b115dcb460aad1bf026685c281c822df5a3967b2a70f74a0",
+          "body_sha256": "02c3a3a5a79c5c325e6fcfdf3c4faecaf592042c1af94bbbda5ecc69f7bd0621"
         },
         "second_read": {
           "url": "https://ct.googleapis.com/logs/us1/argon2027h1/ct/v1/get-sth",
           "status": 200,
           "error": null,
           "bytes": 240,
-          "read_at": "2026-08-02T05:43:50.699808+00:00",
-          "body_sha256": "02c3a3a5a79c5c325e6fcfdf3c4faecaf592042c1af94bbbda5ecc69f7bd0621",
+          "read_at": "2026-08-23T11:01:17.438786+00:00",
+          "body_sha256": "fc3a1670176339fe7f4b6043f15b68e7841151cb88b01a04b3121e8ca0d3ac03",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 164763310,
-          "timestamp": 1785649370322,
+          "tree_size": 231706222,
+          "timestamp": 1787482816450,
           "signature_lines": 1,
-          "root_hash_hex": "154b7b4a674973a3b115dcb460aad1bf026685c281c822df5a3967b2a70f74a0"
+          "root_hash_hex": "037b4498ed1f1af773f512bafff7b669f236ca09e4074431b1c95ba53ee9cef7"
         },
         "consistency_request": {
           "served": true,
-          "url": "https://ct.googleapis.com/logs/us1/argon2027h1/ct/v1/get-sth-consistency?first=164761368&second=164763310",
+          "url": "https://ct.googleapis.com/logs/us1/argon2027h1/ct/v1/get-sth-consistency?first=231703878&second=231706222",
           "proof": [
-            "567617c0bba8d6560ed53cc8d6787854e28a1c964d99c42746e090801dbe3152",
-            "2c8c8f843a97ce2678e397246bd348480c9bb05a56b248abe7fd8962ab20031e",
-            "2cd2b82e27a48404c2ea2ff4749be04b2f0802cb394d38168c235b30cbbb26a8",
-            "b461cb5d20602b772fef123abc0524cbc003cedebb479aa444b90d31b45e1300",
-            "5cd426a8dfd98f66e83aab7344f1d19fcae10d16cbb406135d6b5bbb7b7e1a7f",
-            "7888b7d68581a89e5c18cd6ce0fd65b25465c1fc32e71e7d97ae6b908893b357",
-            "6a8f7d6cca38d1a8e8a38db457c9ec35cba71cdd7e46259cd87ca6a0396231d5",
-            "a95d326e8442a9c9d99389a1978cbd2a596932d6899810738d168c5bfbafa0c6",
-            "e1042f46aa0a4f61f6849136d3891e484adc86605d232435d9226ad44b31b96e",
-            "c8c8a32fe5f6a741f0bfea3515db8dc4eae317b2a3f1e347cb13024477189e67",
-            "2ca9358e1791882d8ab0cfde4c4ad3233e6f4d071688655d96812c10cbbd9266",
-            "cfd10a902c9756a23074fc48628fdf06f1740cd5e9606b25bda0d2a4451e639a",
-            "4e1fcc7117cd97cfe9ffc7b36227def6ad6390e91fc39d1fea7c96b28b0863f4",
-            "10bab040f67f035502f3337e94dbe9e1e6e758d6d316e12388a0362f98fb98d9",
-            "d9a3ec57eaf010346dc8380fb059bd6b57edc39321911d0e5d4ab04ba3341dcc",
-            "861cfca0402d4abe10677ff9524c527842e1e47a0ba23b01538b6186ccae506d",
+            "1d08e4e692c50a3735a77cd5ffe3122467ecb8da8a7dee1a5941e57bbcc7712c",
+            "03459527e127b95044e1e20cfdfc4e9b27003fd2cd56965c6f0f434a3aa5b716",
+            "ace02d033d70530f19db8057d522b1bf7439ce4ae995f93c88d118b47b714467",
+            "5431c0363deb065214dca6caf12a33437995b88ce2c0f7c9b3b3662fb23286c3",
+            "30b329f7f70df4e4727f9e50d7b22b05c180a388b8ebe65639a5fc25dafe3a70",
+            "43dcc3cb2057581a534ad4c4ef59eb3e473ac8d49d1f3edbae54f409c72c4375",
+            "ee98b1a44c4e34d6140e1a6f7c4f4086a9b46e017dbf998c4f12a47dd2fb7348",
+            "64eea755cf899b324c2a53437979be6e0ba961fa67c82f8da712f632bf95f1ca",
+            "98d092ddf347c20519e2b1d587d9e2718daba2d66d6e82a9c356cf56aba0f3cd",
+            "9ae158bbbf5a137eb59d72a77f45c3942bdd2524ec7c0b9bded62d055f10413a",
+            "7adc30d86a7065f9f93e0a82393a85f39b5d47b9640c9a516a4432587d634d3f",
+            "62525f002445f22039df3703869edc5300ea31775e5d22323e9c9d4e1130f2ae",
+            "f9c53e41b2e81ac93d5f98dc8ae749cd2e0c0a4114cce04b26268e936eb2e431",
+            "7c4fb011990dab15f31b1255917ea95759fb972e88a29a25cd6c94f93bcb8486",
+            "3428c1a3ceaf619e9ca155edd34e01b860b0d77132cf27da2ccb7ee625b5625c",
+            "4db19ffc587385008483ac6777800d09886f4d29c2696181882b91b5a5768282",
+            "26e01f1bb2c153ef27a4212400c7fa528f549173f4a0ae40f5c27cdcf951bbde",
+            "9b450f34379b0c8c806119babcd61d8110790d022c7031236a3b6318375b472c",
+            "80386328bd9f369c42049815631f46927b0d855fc47962499879a82adc811e76",
+            "6a3ac4e707955b4a620fe9b59ef16618a43218afbc834b2b0f7cd38065a1b854",
+            "aefd1f11b11a0ec9c410c3eed27e0b1d5341802764dd6ffaa4571d33b8a4eef7",
             "bd9bb55a188b2b369b4f11ae880d77a90cec229f8ac749f3accdf052fd956db5"
           ],
-          "nodes": 17
+          "nodes": 22
         }
       },
       "tree_advanced_between_reads": true,
-      "entries_added_between_reads": 1942,
-      "checked_at": "2026-08-02T05:43:57.759023+00:00",
+      "entries_added_between_reads": 2344,
+      "checked_at": "2026-08-23T11:01:32.376823+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -2174,8 +2193,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 58590854,
-          "root_hash": "c8b3fff227d09355c3d26b07866b192cd6d110c73a21da7bb45d936b0d704b36"
+          "tree_size": 60566173,
+          "root_hash": "1c19137644486f963d03b68fede5458292aafaaf679572b7e36736a56d13638d"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -2197,17 +2216,17 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:44.216728+00:00",
-          "prior_tree_size": 58590582
+          "prior_read_at": "2026-08-02T05:43:51.639879+00:00",
+          "prior_tree_size": 58590854
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 58590854
+          "tree_size": 60566173
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 58590854,
-          "second_size": 58590854,
+          "first_size": 60566173,
+          "second_size": 60566173,
           "entries_added": 0
         },
         "consistency_proof_served": {
@@ -2226,16 +2245,16 @@
           "status": 200,
           "error": null,
           "bytes": 188,
-          "read_at": "2026-08-02T05:42:50.086248+00:00",
-          "body_sha256": "f439ef4f4defcbae4e8b0480ed185886eda367a280b1361fa67eebc644314efd",
+          "read_at": "2026-08-23T11:00:11.093904+00:00",
+          "body_sha256": "59034c8ba20885ebb4a573976b86140f10a6bc4351aea6b43b82769a697d621b",
           "parsed": true,
           "format": "c2sp_signed_note",
           "origin": "go.sum database tree",
-          "tree_size": 58590854,
+          "tree_size": 60566173,
           "signature_lines": 1,
           "extension_lines": [],
-          "root_hash_hex": "c8b3fff227d09355c3d26b07866b192cd6d110c73a21da7bb45d936b0d704b36",
-          "raw_body": "go.sum database tree\n58590854\nyLP/8ifQk1XD0msHhmsZLNbREMc6Idp7tF2Taw1wSzY=\n\n— sum.golang.org Az3grlBb0TFOcY8iD8eRK/yWWjPOROIkdVEmmxkCAcFbBKLcMOHmIDF6bghC1b2s7CUrohamI5P2PQNNar8yetSgfQU=\n"
+          "root_hash_hex": "1c19137644486f963d03b68fede5458292aafaaf679572b7e36736a56d13638d",
+          "raw_body": "go.sum database tree\n60566173\nHBkTdkRIb5Y9A7aP7eVFgpKq+q9nlXK342c2pW0TY40=\n\n— sum.golang.org Az3groKQg5hTx7UbTQmxmrYWjyWP8Wv5/Ws40V5BFGYPEB/cYSSGs/+Srl+s3pjo4JwyHD/y7R2BQxliyx9l5+ashgA=\n"
         },
         "signature_check": {
           "supported": true,
@@ -2246,30 +2265,30 @@
         "prior_batch": {
           "log_key": "sum.golang.org",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:44.216728+00:00",
-          "tree_size": 58590582,
-          "root_hash": "39790584467d52479e1b9ff841f506fde0c32d2923aaa57e918df477a2990584",
-          "body_sha256": "0c2f75b79f0f87408a42bd9b8af0fff02816f788af9a458487c5ed2e3fc05f02"
+          "read_at": "2026-08-02T05:43:51.639879+00:00",
+          "tree_size": 58590854,
+          "root_hash": "c8b3fff227d09355c3d26b07866b192cd6d110c73a21da7bb45d936b0d704b36",
+          "body_sha256": "f439ef4f4defcbae4e8b0480ed185886eda367a280b1361fa67eebc644314efd"
         },
         "second_read": {
           "url": "https://sum.golang.org/latest",
           "status": 200,
           "error": null,
           "bytes": 188,
-          "read_at": "2026-08-02T05:43:51.639879+00:00",
-          "body_sha256": "f439ef4f4defcbae4e8b0480ed185886eda367a280b1361fa67eebc644314efd",
+          "read_at": "2026-08-23T11:01:18.729062+00:00",
+          "body_sha256": "59034c8ba20885ebb4a573976b86140f10a6bc4351aea6b43b82769a697d621b",
           "parsed": true,
           "format": "c2sp_signed_note",
           "origin": "go.sum database tree",
-          "tree_size": 58590854,
+          "tree_size": 60566173,
           "signature_lines": 1,
           "extension_lines": [],
-          "root_hash_hex": "c8b3fff227d09355c3d26b07866b192cd6d110c73a21da7bb45d936b0d704b36"
+          "root_hash_hex": "1c19137644486f963d03b68fede5458292aafaaf679572b7e36736a56d13638d"
         }
       },
       "tree_advanced_between_reads": false,
       "entries_added_between_reads": 0,
-      "checked_at": "2026-08-02T05:43:57.759029+00:00",
+      "checked_at": "2026-08-23T11:01:32.376854+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -2298,7 +2317,7 @@
         "checkpoint_endpoint_answers_without_credentials": {
           "outcome": "ok",
           "status": 200,
-          "bytes": 245
+          "bytes": 241
         },
         "checkpoint_parses_in_its_declared_format": {
           "outcome": "ok",
@@ -2306,8 +2325,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 1483103970,
-          "root_hash": "bac39285b30c38a258b42653cacf2df2deb8b24ad5e44f39ba2bdd428cde6983"
+          "tree_size": 1707831755,
+          "root_hash": "397b2521b572b5c48c9d51691f2587ebeb00f384f3713628491ab6e11eb67f19"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -2329,27 +2348,29 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:44.519238+00:00",
-          "prior_tree_size": 1483055905
+          "prior_read_at": "2026-08-02T05:43:51.940773+00:00",
+          "prior_tree_size": 1483103970
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 1483103970
+          "tree_size": 1707846640
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 1483103970,
-          "second_size": 1483103970,
-          "entries_added": 0
+          "first_size": 1707831755,
+          "second_size": 1707846640,
+          "entries_added": 14885
         },
         "consistency_proof_served": {
-          "outcome": "not_applicable",
-          "reason": "tree_did_not_advance_between_the_two_reads",
-          "note": "There is nothing to prove between a size and itself. The two reads returned the same root, which is what a consistent log looks like over a quiet window."
+          "outcome": "ok",
+          "nodes": 26
         },
         "consistency_proof_recomputes_to_the_second_root": {
-          "outcome": "not_applicable",
-          "reason": "no_proof_needed_between_equal_sizes"
+          "outcome": "ok",
+          "reason": "both_roots_recomputed",
+          "first_size": 1707831755,
+          "second_size": 1707846640,
+          "proof_nodes": 26
         }
       },
       "evidence": {
@@ -2357,15 +2378,15 @@
           "url": "https://elephant2026h2.ct.sectigo.com/ct/v1/get-sth",
           "status": 200,
           "error": null,
-          "bytes": 245,
-          "read_at": "2026-08-02T05:42:50.412527+00:00",
-          "body_sha256": "5b0e8d88a3286ce83382a58ffb0991293634d6f11f15628313ceb5a3f1b89bca",
+          "bytes": 241,
+          "read_at": "2026-08-23T11:00:11.609842+00:00",
+          "body_sha256": "e4a6d768e91f2c8b13f3fec2ee52aef22cd8766643592f5b1bb6026257f9d22e",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 1483103970,
-          "timestamp": 1785649362266,
+          "tree_size": 1707831755,
+          "timestamp": 1787482745626,
           "signature_lines": 1,
-          "root_hash_hex": "bac39285b30c38a258b42653cacf2df2deb8b24ad5e44f39ba2bdd428cde6983",
+          "root_hash_hex": "397b2521b572b5c48c9d51691f2587ebeb00f384f3713628491ab6e11eb67f19",
           "raw_body": null
         },
         "signature_check": {
@@ -2376,29 +2397,62 @@
         "prior_batch": {
           "log_key": "elephant2026h2.ct.sectigo.com",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:44.519238+00:00",
-          "tree_size": 1483055905,
-          "root_hash": "ae33943148f45723b5f2891fa28ef82556f84052868fe52c177adbc162b4ace1",
-          "body_sha256": "8442f79fed5ee5625168ee96631f5f174aa40c36781db33118ee7d52b65fa7c2"
+          "read_at": "2026-08-02T05:43:51.940773+00:00",
+          "tree_size": 1483103970,
+          "root_hash": "bac39285b30c38a258b42653cacf2df2deb8b24ad5e44f39ba2bdd428cde6983",
+          "body_sha256": "5b0e8d88a3286ce83382a58ffb0991293634d6f11f15628313ceb5a3f1b89bca"
         },
         "second_read": {
           "url": "https://elephant2026h2.ct.sectigo.com/ct/v1/get-sth",
           "status": 200,
           "error": null,
-          "bytes": 245,
-          "read_at": "2026-08-02T05:43:51.940773+00:00",
-          "body_sha256": "5b0e8d88a3286ce83382a58ffb0991293634d6f11f15628313ceb5a3f1b89bca",
+          "bytes": 241,
+          "read_at": "2026-08-23T11:01:19.152389+00:00",
+          "body_sha256": "ce1a5a828cfe66cde3a60e4a7cad5fdb28894f3047fc5d9351d64f4ecab05ce5",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 1483103970,
-          "timestamp": 1785649362266,
+          "tree_size": 1707846640,
+          "timestamp": 1787482873296,
           "signature_lines": 1,
-          "root_hash_hex": "bac39285b30c38a258b42653cacf2df2deb8b24ad5e44f39ba2bdd428cde6983"
+          "root_hash_hex": "23d2373d63cda37b696a25281821cbafd11905d5c81bb60e78745d9497af4de3"
+        },
+        "consistency_request": {
+          "served": true,
+          "url": "https://elephant2026h2.ct.sectigo.com/ct/v1/get-sth-consistency?first=1707831755&second=1707846640",
+          "proof": [
+            "219e868f11bc34cf10040a08a9e347ff3d474ad60b398fec33c189dc05a7ed8f",
+            "aa088ef9fad7d831d95fd4f1f3060cb22d57b7c94c324b18f8ba666a41027234",
+            "a81145d55548b9d19d46f75e9ad65f00a48f704f11cef1f92860817aa529f0e5",
+            "38f24831e7c402809b6d0bf056f33af91860c7872678e13b037a516509010a5e",
+            "f1d97a969ef3e09c27ff34832c216b1c85dad764bfc031ebc03042cd1197ce0c",
+            "f586f667c2a322774853c6a66e8d17401e1d9ff314804b8156ca27d24735f494",
+            "b0d23b378cc75934871f767d28a0106d7df4a6eff07514418a84df4be78a69a9",
+            "611211c86fee86c94c57482e68f3c7bbbf11f3b047765a670777105edb8837fc",
+            "220ef8bf064665965601ef9697348567f269b8705ef359d3c323c9331eec49d0",
+            "4f01342ef7015b1590347b589aabdf52688c04b0d9d36b90a992ad9eb23085ff",
+            "ac5fdf8d7e84a04d3fc9b03aba95e69a4fc11555d1a82b4461898dcab42f137f",
+            "18d3f9a61d47d6eb692e5c6228e0afd4598ee0421b6614a4f911c4721fef6ac9",
+            "7e7b99248bde23b5ca58509b85337e9f8abff3a4d46932258d3a122ca8a35bb7",
+            "44c0d1348f56e803492d6adb6b8d962d9674dd6b1e8ae2997954901d142f0011",
+            "ff80e8404b9b849a2b1a71a9a41a435066a85a4311beb9ea9cf731122041e761",
+            "b89b0c931bb3c7917ecc06eb6cd93a36e3af776d5a813e7eccb00c9170443c9f",
+            "d29f9c38feedd915fdbb50528b0f5456f9a664f21073c1adf1fdfc934dc61f84",
+            "c0028f79667e201ee030c3eea5622ca12d50f4ece7ab2e8258cb6f1a7a99035f",
+            "f6220afee027fa5003eb371a12897a29f0e32fb630d857f54ab1d246c30588f8",
+            "b8ea67a22f2a9e7a3773a5e861188486da08c493226eea000a5b30e016cff923",
+            "e1190d036ac51625cf98a97614da32b9734eeb55e59290ca7f25b568eb4d4a3f",
+            "7ad8d56fe13fbaff2b6e48c19bac74d48a423ebb2e403fa9e08d16c4acbb9978",
+            "1770c33546e7bc5ba9a80c1cd5cf9e0a5fce50876f44033f06cd768386853b8e",
+            "b701a6004148f02bdec2bd5f5f0cab0f931fe245c4773749be1c909b250f306b",
+            "e1d3724476bf0e3bb4afb0595e958b30f49e6b9973715f84458d73a474ff7ce9",
+            "e6c023aecbdd0b3cbaab8f250368023344ce6a5ab9964d6ace07760eef05cbef"
+          ],
+          "nodes": 26
         }
       },
-      "tree_advanced_between_reads": false,
-      "entries_added_between_reads": 0,
-      "checked_at": "2026-08-02T05:43:57.759034+00:00",
+      "tree_advanced_between_reads": true,
+      "entries_added_between_reads": 14885,
+      "checked_at": "2026-08-23T11:01:32.376887+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -2435,8 +2489,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 117560696,
-          "root_hash": "8d66eb5bf5a71883e8df669c0dca3c9bdd13a3f69fdfb2673b6a7ed8c7c629bb"
+          "tree_size": 166498964,
+          "root_hash": "41e8d97f97fff0d8a4f338f99a37ffcbd7ee6a5e5000a15772a2e21af942e3c4"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -2458,17 +2512,17 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:44.817654+00:00",
-          "prior_tree_size": 117555104
+          "prior_read_at": "2026-08-02T05:43:52.258102+00:00",
+          "prior_tree_size": 117560696
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 117560696
+          "tree_size": 166498964
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 117560696,
-          "second_size": 117560696,
+          "first_size": 166498964,
+          "second_size": 166498964,
           "entries_added": 0
         },
         "consistency_proof_served": {
@@ -2487,14 +2541,14 @@
           "status": 200,
           "error": null,
           "bytes": 240,
-          "read_at": "2026-08-02T05:42:50.804722+00:00",
-          "body_sha256": "d0110ccf5df62c7e83da285f95f5fbfb67ede43cd42d4343616dedaef5e80f61",
+          "read_at": "2026-08-23T11:00:12.282867+00:00",
+          "body_sha256": "db9e1ef9b154234501cbe8ecc182073e3e1a02725a03b2988fa9affcdc130d14",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 117560696,
-          "timestamp": 1785649292663,
+          "tree_size": 166498964,
+          "timestamp": 1787482732079,
           "signature_lines": 1,
-          "root_hash_hex": "8d66eb5bf5a71883e8df669c0dca3c9bdd13a3f69fdfb2673b6a7ed8c7c629bb",
+          "root_hash_hex": "41e8d97f97fff0d8a4f338f99a37ffcbd7ee6a5e5000a15772a2e21af942e3c4",
           "raw_body": null
         },
         "signature_check": {
@@ -2505,29 +2559,29 @@
         "prior_batch": {
           "log_key": "elephant2027h1.ct.sectigo.com",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:44.817654+00:00",
-          "tree_size": 117555104,
-          "root_hash": "0ebb89967d2b1234f0aea74729ec4ba14721f89c86ba8645d74e4cb908d206fa",
-          "body_sha256": "9ccd5db8a7c362e32167fb89d12ac470e3333c8510582aded060d9d01efd92de"
+          "read_at": "2026-08-02T05:43:52.258102+00:00",
+          "tree_size": 117560696,
+          "root_hash": "8d66eb5bf5a71883e8df669c0dca3c9bdd13a3f69fdfb2673b6a7ed8c7c629bb",
+          "body_sha256": "d0110ccf5df62c7e83da285f95f5fbfb67ede43cd42d4343616dedaef5e80f61"
         },
         "second_read": {
           "url": "https://elephant2027h1.ct.sectigo.com/ct/v1/get-sth",
           "status": 200,
           "error": null,
           "bytes": 240,
-          "read_at": "2026-08-02T05:43:52.258102+00:00",
-          "body_sha256": "d0110ccf5df62c7e83da285f95f5fbfb67ede43cd42d4343616dedaef5e80f61",
+          "read_at": "2026-08-23T11:01:21.635140+00:00",
+          "body_sha256": "db9e1ef9b154234501cbe8ecc182073e3e1a02725a03b2988fa9affcdc130d14",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 117560696,
-          "timestamp": 1785649292663,
+          "tree_size": 166498964,
+          "timestamp": 1787482732079,
           "signature_lines": 1,
-          "root_hash_hex": "8d66eb5bf5a71883e8df669c0dca3c9bdd13a3f69fdfb2673b6a7ed8c7c629bb"
+          "root_hash_hex": "41e8d97f97fff0d8a4f338f99a37ffcbd7ee6a5e5000a15772a2e21af942e3c4"
         }
       },
       "tree_advanced_between_reads": false,
       "entries_added_between_reads": 0,
-      "checked_at": "2026-08-02T05:43:57.759039+00:00",
+      "checked_at": "2026-08-23T11:01:32.376917+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -2556,7 +2610,7 @@
         "checkpoint_endpoint_answers_without_credentials": {
           "outcome": "ok",
           "status": 200,
-          "bytes": 240
+          "bytes": 236
         },
         "checkpoint_parses_in_its_declared_format": {
           "outcome": "ok",
@@ -2564,8 +2618,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 27129,
-          "root_hash": "837f82b3366077a095212174442933ed349b4144a10e429ebd42cf0265c58940"
+          "tree_size": 28463,
+          "root_hash": "92881005c23aed172bc6608701fc1539541818c85d8ae2e8f9f9a8846a82d50f"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -2587,17 +2641,17 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:45.117670+00:00",
+          "prior_read_at": "2026-08-02T05:43:52.560284+00:00",
           "prior_tree_size": 27129
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 27129
+          "tree_size": 28463
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 27129,
-          "second_size": 27129,
+          "first_size": 28463,
+          "second_size": 28463,
           "entries_added": 0
         },
         "consistency_proof_served": {
@@ -2615,15 +2669,15 @@
           "url": "https://elephant2027h2.ct.sectigo.com/ct/v1/get-sth",
           "status": 200,
           "error": null,
-          "bytes": 240,
-          "read_at": "2026-08-02T05:42:51.204704+00:00",
-          "body_sha256": "6a7791912404e5831770f5963e31a37a0741ebcc3f7c7c1b47b233953a579fef",
+          "bytes": 236,
+          "read_at": "2026-08-23T11:00:12.949909+00:00",
+          "body_sha256": "28bdf8ca37f0b767fa462de6461e7f2051d7c6b260e98e63ff407a236c8f0319",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 27129,
-          "timestamp": 1785648718820,
+          "tree_size": 28463,
+          "timestamp": 1787481544066,
           "signature_lines": 1,
-          "root_hash_hex": "837f82b3366077a095212174442933ed349b4144a10e429ebd42cf0265c58940",
+          "root_hash_hex": "92881005c23aed172bc6608701fc1539541818c85d8ae2e8f9f9a8846a82d50f",
           "raw_body": null
         },
         "signature_check": {
@@ -2634,29 +2688,29 @@
         "prior_batch": {
           "log_key": "elephant2027h2.ct.sectigo.com",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:45.117670+00:00",
+          "read_at": "2026-08-02T05:43:52.560284+00:00",
           "tree_size": 27129,
           "root_hash": "837f82b3366077a095212174442933ed349b4144a10e429ebd42cf0265c58940",
-          "body_sha256": "6a7791912404e5831770f5963e31a37a0741ebcc3f7c7c1b47b233953a579fef"
+          "body_sha256": "b66a2bf5697aec120acc7ec8758ee20e42037e8c604ed966f1e418723166c834"
         },
         "second_read": {
           "url": "https://elephant2027h2.ct.sectigo.com/ct/v1/get-sth",
           "status": 200,
           "error": null,
           "bytes": 236,
-          "read_at": "2026-08-02T05:43:52.560284+00:00",
-          "body_sha256": "b66a2bf5697aec120acc7ec8758ee20e42037e8c604ed966f1e418723166c834",
+          "read_at": "2026-08-23T11:01:22.006731+00:00",
+          "body_sha256": "28bdf8ca37f0b767fa462de6461e7f2051d7c6b260e98e63ff407a236c8f0319",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 27129,
-          "timestamp": 1785648718820,
+          "tree_size": 28463,
+          "timestamp": 1787481544066,
           "signature_lines": 1,
-          "root_hash_hex": "837f82b3366077a095212174442933ed349b4144a10e429ebd42cf0265c58940"
+          "root_hash_hex": "92881005c23aed172bc6608701fc1539541818c85d8ae2e8f9f9a8846a82d50f"
         }
       },
       "tree_advanced_between_reads": false,
       "entries_added_between_reads": 0,
-      "checked_at": "2026-08-02T05:43:57.759044+00:00",
+      "checked_at": "2026-08-23T11:01:32.376947+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -2685,7 +2739,7 @@
         "checkpoint_endpoint_answers_without_credentials": {
           "outcome": "ok",
           "status": 200,
-          "bytes": 245
+          "bytes": 241
         },
         "checkpoint_parses_in_its_declared_format": {
           "outcome": "ok",
@@ -2693,8 +2747,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 1793127438,
-          "root_hash": "b0680d162a08b640f0fbcd14ed94cb8a84f122e98161595331373273a9ea1c36"
+          "tree_size": 2056061026,
+          "root_hash": "cdec29e9e5919d12cf6a4711301340b99426d873084e54abbbeecea82a686815"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -2716,17 +2770,17 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:45.423546+00:00",
-          "prior_tree_size": 1793061034
+          "prior_read_at": "2026-08-02T05:43:52.860254+00:00",
+          "prior_tree_size": 1793127438
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 1793127438
+          "tree_size": 2056061026
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 1793127438,
-          "second_size": 1793127438,
+          "first_size": 2056061026,
+          "second_size": 2056061026,
           "entries_added": 0
         },
         "consistency_proof_served": {
@@ -2744,15 +2798,15 @@
           "url": "https://tiger2026h2.ct.sectigo.com/ct/v1/get-sth",
           "status": 200,
           "error": null,
-          "bytes": 245,
-          "read_at": "2026-08-02T05:42:51.590681+00:00",
-          "body_sha256": "adea93b0b63e0ca0bcd7219f745fddb6107cc83d5f99942fd47dbb3b7cb687d1",
+          "bytes": 241,
+          "read_at": "2026-08-23T11:00:13.604320+00:00",
+          "body_sha256": "fa89ff0f870d7d313c312bf2ada2472612d8ee9b6fa0eb9ec937da4792758e1b",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 1793127438,
-          "timestamp": 1785649305123,
+          "tree_size": 2056061026,
+          "timestamp": 1787482744235,
           "signature_lines": 1,
-          "root_hash_hex": "b0680d162a08b640f0fbcd14ed94cb8a84f122e98161595331373273a9ea1c36",
+          "root_hash_hex": "cdec29e9e5919d12cf6a4711301340b99426d873084e54abbbeecea82a686815",
           "raw_body": null
         },
         "signature_check": {
@@ -2763,29 +2817,29 @@
         "prior_batch": {
           "log_key": "tiger2026h2.ct.sectigo.com",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:45.423546+00:00",
-          "tree_size": 1793061034,
-          "root_hash": "cb18f0fe4b121d297b067d1e0088115fc1cfc3faa738f3eee1cd3cd6ad5aa7f6",
-          "body_sha256": "0e504f40d2e8d01e26c533d3272bd71a88db1389ce329401c2f11611b320a522"
+          "read_at": "2026-08-02T05:43:52.860254+00:00",
+          "tree_size": 1793127438,
+          "root_hash": "b0680d162a08b640f0fbcd14ed94cb8a84f122e98161595331373273a9ea1c36",
+          "body_sha256": "adea93b0b63e0ca0bcd7219f745fddb6107cc83d5f99942fd47dbb3b7cb687d1"
         },
         "second_read": {
           "url": "https://tiger2026h2.ct.sectigo.com/ct/v1/get-sth",
           "status": 200,
           "error": null,
-          "bytes": 245,
-          "read_at": "2026-08-02T05:43:52.860254+00:00",
-          "body_sha256": "adea93b0b63e0ca0bcd7219f745fddb6107cc83d5f99942fd47dbb3b7cb687d1",
+          "bytes": 241,
+          "read_at": "2026-08-23T11:01:22.501903+00:00",
+          "body_sha256": "fa89ff0f870d7d313c312bf2ada2472612d8ee9b6fa0eb9ec937da4792758e1b",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 1793127438,
-          "timestamp": 1785649305123,
+          "tree_size": 2056061026,
+          "timestamp": 1787482744235,
           "signature_lines": 1,
-          "root_hash_hex": "b0680d162a08b640f0fbcd14ed94cb8a84f122e98161595331373273a9ea1c36"
+          "root_hash_hex": "cdec29e9e5919d12cf6a4711301340b99426d873084e54abbbeecea82a686815"
         }
       },
       "tree_advanced_between_reads": false,
       "entries_added_between_reads": 0,
-      "checked_at": "2026-08-02T05:43:57.759049+00:00",
+      "checked_at": "2026-08-23T11:01:32.376976+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -2822,8 +2876,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 129512654,
-          "root_hash": "973a0c188bacfaa48a30912ed2f3e5cb182d074f3d500c12d42d907b28bd83ec"
+          "tree_size": 180329992,
+          "root_hash": "27973fc140335abac071058ef08882f6b4f67dca264a9fc06a0457c3b93f7ef2"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -2845,17 +2899,17 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:45.725567+00:00",
-          "prior_tree_size": 129505432
+          "prior_read_at": "2026-08-02T05:43:53.169239+00:00",
+          "prior_tree_size": 129512654
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 129512654
+          "tree_size": 180329992
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 129512654,
-          "second_size": 129512654,
+          "first_size": 180329992,
+          "second_size": 180329992,
           "entries_added": 0
         },
         "consistency_proof_served": {
@@ -2874,14 +2928,14 @@
           "status": 200,
           "error": null,
           "bytes": 240,
-          "read_at": "2026-08-02T05:42:51.963435+00:00",
-          "body_sha256": "6af008379c15e1208a20d8c5deb09792604cc2f94dc0bc2e968f6e23c23e5dbb",
+          "read_at": "2026-08-23T11:00:14.268269+00:00",
+          "body_sha256": "4342a633d3070feaaacf784544762270a5029694863c5b83da3ac760f80c0510",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 129512654,
-          "timestamp": 1785649312171,
+          "tree_size": 180329992,
+          "timestamp": 1787482743042,
           "signature_lines": 1,
-          "root_hash_hex": "973a0c188bacfaa48a30912ed2f3e5cb182d074f3d500c12d42d907b28bd83ec",
+          "root_hash_hex": "27973fc140335abac071058ef08882f6b4f67dca264a9fc06a0457c3b93f7ef2",
           "raw_body": null
         },
         "signature_check": {
@@ -2892,29 +2946,29 @@
         "prior_batch": {
           "log_key": "tiger2027h1.ct.sectigo.com",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:45.725567+00:00",
-          "tree_size": 129505432,
-          "root_hash": "6895ff352d3cda58a6be4fc930560aac81f1e21fb8d68d88499b0f7a68dab3d0",
-          "body_sha256": "119fc1bb1d38e0ff06b7ff52a301310da510ed8b76c7e5cde6a5886a506aaaf3"
+          "read_at": "2026-08-02T05:43:53.169239+00:00",
+          "tree_size": 129512654,
+          "root_hash": "973a0c188bacfaa48a30912ed2f3e5cb182d074f3d500c12d42d907b28bd83ec",
+          "body_sha256": "6af008379c15e1208a20d8c5deb09792604cc2f94dc0bc2e968f6e23c23e5dbb"
         },
         "second_read": {
           "url": "https://tiger2027h1.ct.sectigo.com/ct/v1/get-sth",
           "status": 200,
           "error": null,
           "bytes": 240,
-          "read_at": "2026-08-02T05:43:53.169239+00:00",
-          "body_sha256": "6af008379c15e1208a20d8c5deb09792604cc2f94dc0bc2e968f6e23c23e5dbb",
+          "read_at": "2026-08-23T11:01:22.965289+00:00",
+          "body_sha256": "4342a633d3070feaaacf784544762270a5029694863c5b83da3ac760f80c0510",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 129512654,
-          "timestamp": 1785649312171,
+          "tree_size": 180329992,
+          "timestamp": 1787482743042,
           "signature_lines": 1,
-          "root_hash_hex": "973a0c188bacfaa48a30912ed2f3e5cb182d074f3d500c12d42d907b28bd83ec"
+          "root_hash_hex": "27973fc140335abac071058ef08882f6b4f67dca264a9fc06a0457c3b93f7ef2"
         }
       },
       "tree_advanced_between_reads": false,
       "entries_added_between_reads": 0,
-      "checked_at": "2026-08-02T05:43:57.759059+00:00",
+      "checked_at": "2026-08-23T11:01:32.377007+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -2943,7 +2997,7 @@
         "checkpoint_endpoint_answers_without_credentials": {
           "outcome": "ok",
           "status": 200,
-          "bytes": 240
+          "bytes": 236
         },
         "checkpoint_parses_in_its_declared_format": {
           "outcome": "ok",
@@ -2951,8 +3005,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 26531,
-          "root_hash": "76e608ad0713aea606d0247e644da2617f0fbf6de8644831fa40b331e68562bf"
+          "tree_size": 27829,
+          "root_hash": "0a4f11a2ac9cafdd87119357752f9a83f91baa4d5019803d33ce27bd1d29b809"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -2974,17 +3028,17 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:46.422355+00:00",
+          "prior_read_at": "2026-08-02T05:43:53.470402+00:00",
           "prior_tree_size": 26531
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 26531
+          "tree_size": 27829
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 26531,
-          "second_size": 26531,
+          "first_size": 27829,
+          "second_size": 27829,
           "entries_added": 0
         },
         "consistency_proof_served": {
@@ -3002,15 +3056,15 @@
           "url": "https://tiger2027h2.ct.sectigo.com/ct/v1/get-sth",
           "status": 200,
           "error": null,
-          "bytes": 240,
-          "read_at": "2026-08-02T05:42:52.357970+00:00",
-          "body_sha256": "00ad4d6e47ffa486d6a85ecdec40bb2b93235167c8ea85e844e86e9ed018f5f5",
+          "bytes": 236,
+          "read_at": "2026-08-23T11:00:14.917973+00:00",
+          "body_sha256": "20c95386400130ee1e55ececf60d9140a629279037fa7f1f462f08f78e507528",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 26531,
-          "timestamp": 1785646879840,
+          "tree_size": 27829,
+          "timestamp": 1787482362780,
           "signature_lines": 1,
-          "root_hash_hex": "76e608ad0713aea606d0247e644da2617f0fbf6de8644831fa40b331e68562bf",
+          "root_hash_hex": "0a4f11a2ac9cafdd87119357752f9a83f91baa4d5019803d33ce27bd1d29b809",
           "raw_body": null
         },
         "signature_check": {
@@ -3021,29 +3075,29 @@
         "prior_batch": {
           "log_key": "tiger2027h2.ct.sectigo.com",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:46.422355+00:00",
+          "read_at": "2026-08-02T05:43:53.470402+00:00",
           "tree_size": 26531,
           "root_hash": "76e608ad0713aea606d0247e644da2617f0fbf6de8644831fa40b331e68562bf",
-          "body_sha256": "00ad4d6e47ffa486d6a85ecdec40bb2b93235167c8ea85e844e86e9ed018f5f5"
+          "body_sha256": "53133f1308995a68a9bab187564ece6223016fc393e5c9d9bb04f1786fbb21a5"
         },
         "second_read": {
           "url": "https://tiger2027h2.ct.sectigo.com/ct/v1/get-sth",
           "status": 200,
           "error": null,
           "bytes": 236,
-          "read_at": "2026-08-02T05:43:53.470402+00:00",
-          "body_sha256": "53133f1308995a68a9bab187564ece6223016fc393e5c9d9bb04f1786fbb21a5",
+          "read_at": "2026-08-23T11:01:23.376443+00:00",
+          "body_sha256": "766cefe15009c25328adaa3a8558970655711da5253a0ef7c77d33fafe08b9a7",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 26531,
-          "timestamp": 1785646879840,
+          "tree_size": 27829,
+          "timestamp": 1787482362780,
           "signature_lines": 1,
-          "root_hash_hex": "76e608ad0713aea606d0247e644da2617f0fbf6de8644831fa40b331e68562bf"
+          "root_hash_hex": "0a4f11a2ac9cafdd87119357752f9a83f91baa4d5019803d33ce27bd1d29b809"
         }
       },
       "tree_advanced_between_reads": false,
       "entries_added_between_reads": 0,
-      "checked_at": "2026-08-02T05:43:57.759064+00:00",
+      "checked_at": "2026-08-23T11:01:32.377039+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -3083,8 +3137,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 2197425668,
-          "root_hash": "f2cc38246c78344613d3f6386ccff8fff0cad3a0eee15fc05030fac1f616b38b"
+          "tree_size": 2448634057,
+          "root_hash": "4cd6d910f2021111bf0c14c33db1303d5a4d2888cba98a28d47f7888312761ff"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -3108,29 +3162,29 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:46.892579+00:00",
-          "prior_tree_size": 2197332918
+          "prior_read_at": "2026-08-02T05:43:53.870140+00:00",
+          "prior_tree_size": 2197436369
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 2197436369
+          "tree_size": 2448640852
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 2197425668,
-          "second_size": 2197436369,
-          "entries_added": 10701
+          "first_size": 2448634057,
+          "second_size": 2448640852,
+          "entries_added": 6795
         },
         "consistency_proof_served": {
           "outcome": "ok",
-          "nodes": 21
+          "nodes": 25
         },
         "consistency_proof_recomputes_to_the_second_root": {
           "outcome": "ok",
           "reason": "both_roots_recomputed",
-          "first_size": 2197425668,
-          "second_size": 2197436369,
-          "proof_nodes": 21
+          "first_size": 2448634057,
+          "second_size": 2448640852,
+          "proof_nodes": 25
         }
       },
       "evidence": {
@@ -3139,18 +3193,18 @@
           "status": 200,
           "error": null,
           "bytes": 1151,
-          "read_at": "2026-08-02T05:42:53.113643+00:00",
-          "body_sha256": "af382f471dca959c7c60daf19ee0f76b775b56f5899efda07e1a55199a9ffe4f",
+          "read_at": "2026-08-23T11:00:15.689510+00:00",
+          "body_sha256": "bfc33128f895c6368c3738083003adecde16cbc871e4767359c4231f81d48681",
           "parsed": true,
           "format": "c2sp_signed_note",
           "origin": "rekor.sigstore.dev - 1193050959916656506",
-          "tree_size": 2197425668,
+          "tree_size": 2448634057,
           "signature_lines": 1,
           "extension_lines": [],
-          "declared_tree_size": 2197425668,
-          "declared_root_hash": "f2cc38246c78344613d3f6386ccff8fff0cad3a0eee15fc05030fac1f616b38b",
-          "root_hash_hex": "f2cc38246c78344613d3f6386ccff8fff0cad3a0eee15fc05030fac1f616b38b",
-          "raw_body": "{\"inactiveShards\":[{\"rootHash\":\"4d006aa46efcb607dd51d900b1213754c50cc9251c3405c6c2561d9d6a2f3239\",\"signedTreeHead\":\"rekor.sigstore.dev - 3904496407287907110\\n4163431\\nTQBqpG78tgfdUdkAsSE3VMUMySUcNAXGwlYdnWovMjk=\\n\\n— rekor.sigstore.dev wNI9ajBFAiEAs29xThbJxmKXGqRa5vqdnDYUvxbm+y96VSNkrBLAEiICIHWbVLl1TXdlBhFSl8PSYk5waTgejrQjb9OYkT9q+3fy\\n\",\"treeID\":\"3904496407287907110\",\"treeSize\":4163431},{\"rootHash\":\"2b9c578071e120aa84c9858783daa671565e4165f3a7dfa199aad81940299d8e\",\"signedTreeHead\":\"rekor.sigstore.dev - 2605736670972794746\\n117740831\\nK5xXgHHhIKqEyYWHg9qmcVZeQWXzp9+hmarYGUApnY4=\\n\\n— rekor.sigstore.dev wNI9ajBFAiAnP2OPExBRFUrqkuKKj49uO6mZ/ucGlBUIMv0y4H2VdAIhAN6Zb6ydZfT03OEnyW2BKdLgi0BwgtTy26a6lKYduLol\\n\",\"treeID\":\"2605736670972794746\",\"treeSize\":117740831}],\"rootHash\":\"f2cc38246c78344613d3f6386ccff8fff0cad3a0eee15fc05030fac1f616b38b\",\"signedTreeHead\":\"rekor.sigstore.dev - 1193050959916656506\\n2197425668\\n8sw4JGx4NEYT0/Y4bM/4//DK06Du4V/AUDD6wfYWs4s=\\n\\n— rekor.sigstore.dev wNI9ajBFAiEAxNDfGWqCckLrL5pFIxzeMSH83hlWIh/+wGDhguYvCcECIBy846tM8SgcK/kGkTPzNnOvxXDwOB3UVKTZcQMeWetJ\\n\",\"treeID\":\"1193050959916656506\",\"treeSize\":2197425668}\n"
+          "declared_tree_size": 2448634057,
+          "declared_root_hash": "4cd6d910f2021111bf0c14c33db1303d5a4d2888cba98a28d47f7888312761ff",
+          "root_hash_hex": "4cd6d910f2021111bf0c14c33db1303d5a4d2888cba98a28d47f7888312761ff",
+          "raw_body": "{\"inactiveShards\":[{\"rootHash\":\"4d006aa46efcb607dd51d900b1213754c50cc9251c3405c6c2561d9d6a2f3239\",\"signedTreeHead\":\"rekor.sigstore.dev - 3904496407287907110\\n4163431\\nTQBqpG78tgfdUdkAsSE3VMUMySUcNAXGwlYdnWovMjk=\\n\\n— rekor.sigstore.dev wNI9ajBFAiB2AGnDY2u+4zXMl5mLBFRw4PlxmQEIhPXvivNVUZmNrwIhAOK9QLI+fEHeE16zb2zRMXhn+DaLfRhGmKrs42WDJo7U\\n\",\"treeID\":\"3904496407287907110\",\"treeSize\":4163431},{\"rootHash\":\"2b9c578071e120aa84c9858783daa671565e4165f3a7dfa199aad81940299d8e\",\"signedTreeHead\":\"rekor.sigstore.dev - 2605736670972794746\\n117740831\\nK5xXgHHhIKqEyYWHg9qmcVZeQWXzp9+hmarYGUApnY4=\\n\\n— rekor.sigstore.dev wNI9ajBFAiAUX2ld8++Tuyhc1jCUEACGDfwLyWzRCxKZc69f35x5+AIhAPdLHux8OkA1Rb0orG73vqlEnsY4UY6NFbBfB0WuP+NC\\n\",\"treeID\":\"2605736670972794746\",\"treeSize\":117740831}],\"rootHash\":\"4cd6d910f2021111bf0c14c33db1303d5a4d2888cba98a28d47f7888312761ff\",\"signedTreeHead\":\"rekor.sigstore.dev - 1193050959916656506\\n2448634057\\nTNbZEPICERG/DBTDPbEwPVpNKIjLqYoo1H94iDEnYf8=\\n\\n— rekor.sigstore.dev wNI9ajBEAiBDOIqdw+AD60DOqAf30TQlfvHuwPDlqCEp0p9yxdtYygIgEeVsea+zv52EbT7qHa4QaCt6uJ6cFROHZqDO5rW+rGE=\\n\",\"treeID\":\"1193050959916656506\",\"treeSize\":2448634057}\n"
         },
         "signature_check": {
           "supported": false,
@@ -3160,60 +3214,64 @@
         "prior_batch": {
           "log_key": "rekor.sigstore.dev",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:46.892579+00:00",
-          "tree_size": 2197332918,
-          "root_hash": "e4cd8bcf642ce8bfb71fb2e08247b5c2ea5624d35dd418df2ccc8e3644c513f7",
-          "body_sha256": "37420ded0060bf00bc39d74d2d3053c81e913df29e0e60898b04e442e958d5a8"
+          "read_at": "2026-08-02T05:43:53.870140+00:00",
+          "tree_size": 2197436369,
+          "root_hash": "591c4d013175a4f39e79b200fcf1f16f36f3dd1f256330206283589ea4c68b50",
+          "body_sha256": "78170ef6398f24972981661c16674460d26f68cac054ead6acdb8f38619ae0db"
         },
         "second_read": {
           "url": "https://rekor.sigstore.dev/api/v1/log",
           "status": 200,
           "error": null,
           "bytes": 1151,
-          "read_at": "2026-08-02T05:43:53.870140+00:00",
-          "body_sha256": "78170ef6398f24972981661c16674460d26f68cac054ead6acdb8f38619ae0db",
+          "read_at": "2026-08-23T11:01:23.975909+00:00",
+          "body_sha256": "dbd6ae262bb2137fb8713566dc48caa1f01eebbae97e05db2d990658cfee9811",
           "parsed": true,
           "format": "c2sp_signed_note",
           "origin": "rekor.sigstore.dev - 1193050959916656506",
-          "tree_size": 2197436369,
+          "tree_size": 2448640852,
           "signature_lines": 1,
           "extension_lines": [],
-          "declared_tree_size": 2197436369,
-          "declared_root_hash": "591c4d013175a4f39e79b200fcf1f16f36f3dd1f256330206283589ea4c68b50",
-          "root_hash_hex": "591c4d013175a4f39e79b200fcf1f16f36f3dd1f256330206283589ea4c68b50"
+          "declared_tree_size": 2448640852,
+          "declared_root_hash": "920ff166d94817be3398977155742693f94413b57210fe5a92928c38a467619b",
+          "root_hash_hex": "920ff166d94817be3398977155742693f94413b57210fe5a92928c38a467619b"
         },
         "consistency_request": {
           "served": true,
-          "url": "https://rekor.sigstore.dev/api/v1/log/proof?firstSize=2197425668&lastSize=2197436369",
+          "url": "https://rekor.sigstore.dev/api/v1/log/proof?firstSize=2448634057&lastSize=2448640852",
           "proof": [
-            "a8c033c66130d090894969898eeaeb824fdefa74491c7959587bea5194bf16e5",
-            "30d90ee9969ed569521a3be7f4a7b85967317d95f1b09a22c95b053700a1091d",
-            "9fd62326b4b82865fc44d1f67d115ab67d26398a7a91f8c86e1a1a03e1bd6dd1",
-            "a4d5fcf8f0a6630c28dba7447bc4ecdff672ff0a10cbf1edcd5bc129945625df",
-            "b0f54f98993660c188f894c24b207ecc51dfd57b153a0bc16a5e612678141c84",
-            "6555ba36e7e1dc69639c344382c0eb583adf322abd0c6c91040f7f8d7049fbee",
-            "74a7f51c9e1c23e30a2920893049e6ef62f402fdf0685350a0a4b8af9bcaa40c",
-            "71ce10505035f67f067afe49e233fc791dd0de1043aacbf90113cadd3958a1ed",
-            "570b3bb8b9f3a753749abc5e975e901604d2afa4101aa5f71163ad2f079b8fa6",
-            "68c8d544b2eac12a665fd24d46768fd45bbc9734d9580f6a74542e8503255b32",
-            "62170149c2b521ab74d7c7af2fdf2defe7264d750bb65c2345d5bb7fc7eefcf2",
-            "5540e145670ab767257ae1e046a9bf8fd316c51d857ca39da579c5f60c59bc65",
-            "b014ff7e37d26f0553407652ab78fae773ce160e68b1648ad31054d5c40bddd6",
-            "1650457eb5445578ed7a7776bf9509afc9f1c5bbb838ef8a5a46a233ce725469",
-            "b7c9589ea639f9ca512bde2f9214403c6b719120b3d4166110db4661bcb9880b",
-            "03704d5fa3d59fd84cb2e20a95297aea4bb7c6214a5913ec86078432eb99cee7",
-            "168d2829367f0c73ac1a95e25d95570675ad73ebe040934400402e59b5beef17",
-            "b32061edf0c63021d3cc8f19707a22b1e2211c132ed7325d56e1ef65c439b790",
-            "afaab348b7f755b9ef7f42f8b39cb0e5016a0241bd3889a4627b56446a1a1da6",
-            "3767317bcbdeaa2de21bf1067f5cc06a0b784aab162b0832c4d09e8120dceb4b",
+            "b10813968ff8f1ad123839102efb5f76921b0bc856565aa9b4dbe3c35f2d9819",
+            "8a89216035d3492ebde5634295ee1183ac19ba41488b0bbe7f27f459d2aa924c",
+            "0320235d6c7df6b786b0e3c1b0c818dbafa0d73838f446f1ac1bbab5a0dfbc19",
+            "5c0b4b9090d5a03292f680de14297c1b80061a8c2dff95e0c21d10813f86f52e",
+            "4cc16dc979d267ced5163747cda9d8d3617a7f1997007506e5ab875c0ed1141a",
+            "1fd9617172f27c14abe7ef1661a9c0846e2236100b8d46896777bd245dc76ae5",
+            "16d5c3e9d3ea44b8429384ab522bb457e1ec8e30ff4b2368f5588a7ef9b5c625",
+            "a47d09873982cff48adf40e339d10b8712b7894f850fbf6e152dd1a00ae0a8b7",
+            "5e593d8727b9b0fc7fc3e9a345faa6af4852711f80a9cf747062d62b5c4b051c",
+            "bdf300e44412526f9f6f5953b6637fcd628c59c051259849d217430b11f5b6aa",
+            "7632fa9a722421bcf5d9d316d7913bc3d6fc0847946308dd8293953cbcd6942b",
+            "a00ae415f2d0e4e616dde5846e62f70d827721fe0cb80ba2854bd9775ad15868",
+            "39cdf02f53054cd69d65bb88df14041590c0f43d4ac6fb445a64f17c5bbfb95b",
+            "4daddd7488be9f97d92e29fc17f9cd2dfeb6a4de71de3f527c867c722e458cd7",
+            "02d3f177b1b8d71b35d6a1424e21e00d0a846257aa21d4fd4427fa8cac0224d8",
+            "31fbab31d89d61ec59e145b4cb5042b3f7b32fd9ff4fd6e7f6f6e0cc51228646",
+            "9557d4fdda28bcc9cb8561d791a62c1387141bfc9e293a6ec679cc97b14596c0",
+            "ae7e54764403abcb999e011679cbd9dfe3127fb4c8c644c2ebeacfa466ba089c",
+            "901a3e99bcf7f0b492200f1ecf7460884f85ebdf46f6363ffaaea8d1d39b0f00",
+            "25afed33203f646597c247fbf4049c53a6b3849d8ddef33c9823c3f44658bd1e",
+            "34f8b74ba5e597002d86439e5158ef52dd17824e96ae62d460cae82de0cfc262",
+            "6c902d5a08aaf30a8337ca6685b65d049703549ad80f44a79431e1aeebb5336c",
+            "c6e801aaa39af78bf4153c9711e294b80f6489708e6f7592c861b2e769f625d0",
+            "4a775b30a56d7137a7024c22d8905f1b30fe9a17b1a75a896d1218f80d494485",
             "c47fc30ac78b1ebf5e2a8613f2ab0e4592bbcd5744198587b95b6c56b0fde706"
           ],
-          "nodes": 21
+          "nodes": 25
         }
       },
       "tree_advanced_between_reads": true,
-      "entries_added_between_reads": 10701,
-      "checked_at": "2026-08-02T05:43:57.759071+00:00",
+      "entries_added_between_reads": 6795,
+      "checked_at": "2026-08-23T11:01:32.377072+00:00",
       "must_admit": false,
       "full_admit": false,
       "refuse_limb": "public_key_obtained_independently_of_the_log",
@@ -3247,7 +3305,7 @@
         "checkpoint_endpoint_answers_without_credentials": {
           "outcome": "ok",
           "status": 200,
-          "bytes": 241
+          "bytes": 245
         },
         "checkpoint_parses_in_its_declared_format": {
           "outcome": "ok",
@@ -3255,8 +3313,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 2359466486,
-          "root_hash": "0fe47e7d3b8cdedfc07b23c7272eebb1d3378f0ce725d717e1e180fd2f6c0702"
+          "tree_size": 2558125394,
+          "root_hash": "ad9e40f1bd77db82f11f5f7cf1c5709f3edc8a4276a7d11d8ab67cacc12ff32b"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -3278,17 +3336,17 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:47.707365+00:00",
-          "prior_tree_size": 2359442892
+          "prior_read_at": "2026-08-02T05:43:54.639680+00:00",
+          "prior_tree_size": 2359466486
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 2359466486
+          "tree_size": 2558125394
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 2359466486,
-          "second_size": 2359466486,
+          "first_size": 2558125394,
+          "second_size": 2558125394,
           "entries_added": 0
         },
         "consistency_proof_served": {
@@ -3306,15 +3364,15 @@
           "url": "https://ct2026-a.trustasia.com/log2026a/ct/v1/get-sth",
           "status": 200,
           "error": null,
-          "bytes": 241,
-          "read_at": "2026-08-02T05:42:53.606296+00:00",
-          "body_sha256": "537d9c72f7de515df2e2290448d90028793828c1e6ea5312ffd2f6c0986f848c",
+          "bytes": 245,
+          "read_at": "2026-08-23T11:00:16.631871+00:00",
+          "body_sha256": "c74cecf91eeb83ea9a94f37f4bdbc97c7475aecbc90ae00688a7e143d1885a13",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 2359466486,
-          "timestamp": 1785649227224,
+          "tree_size": 2558125394,
+          "timestamp": 1787482711859,
           "signature_lines": 1,
-          "root_hash_hex": "0fe47e7d3b8cdedfc07b23c7272eebb1d3378f0ce725d717e1e180fd2f6c0702",
+          "root_hash_hex": "ad9e40f1bd77db82f11f5f7cf1c5709f3edc8a4276a7d11d8ab67cacc12ff32b",
           "raw_body": null
         },
         "signature_check": {
@@ -3325,29 +3383,29 @@
         "prior_batch": {
           "log_key": "ct2026-a.trustasia.com/log2026a",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:47.707365+00:00",
-          "tree_size": 2359442892,
-          "root_hash": "ca41ccdebe55150bd2b7a230c365cc0691610ce155d644a8e5723c30792b5833",
-          "body_sha256": "d210a91a26c9f43a53b8674615570c6a4a7f61305d45292346e2b0cc87d5ecfa"
+          "read_at": "2026-08-02T05:43:54.639680+00:00",
+          "tree_size": 2359466486,
+          "root_hash": "0fe47e7d3b8cdedfc07b23c7272eebb1d3378f0ce725d717e1e180fd2f6c0702",
+          "body_sha256": "537d9c72f7de515df2e2290448d90028793828c1e6ea5312ffd2f6c0986f848c"
         },
         "second_read": {
           "url": "https://ct2026-a.trustasia.com/log2026a/ct/v1/get-sth",
           "status": 200,
           "error": null,
-          "bytes": 241,
-          "read_at": "2026-08-02T05:43:54.639680+00:00",
-          "body_sha256": "537d9c72f7de515df2e2290448d90028793828c1e6ea5312ffd2f6c0986f848c",
+          "bytes": 245,
+          "read_at": "2026-08-23T11:01:25.136243+00:00",
+          "body_sha256": "c74cecf91eeb83ea9a94f37f4bdbc97c7475aecbc90ae00688a7e143d1885a13",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 2359466486,
-          "timestamp": 1785649227224,
+          "tree_size": 2558125394,
+          "timestamp": 1787482711859,
           "signature_lines": 1,
-          "root_hash_hex": "0fe47e7d3b8cdedfc07b23c7272eebb1d3378f0ce725d717e1e180fd2f6c0702"
+          "root_hash_hex": "ad9e40f1bd77db82f11f5f7cf1c5709f3edc8a4276a7d11d8ab67cacc12ff32b"
         }
       },
       "tree_advanced_between_reads": false,
       "entries_added_between_reads": 0,
-      "checked_at": "2026-08-02T05:43:57.759076+00:00",
+      "checked_at": "2026-08-23T11:01:32.377104+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -3384,8 +3442,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 2380761114,
-          "root_hash": "89e8e3817779400db7428000cceb3033d5724eaee4557a61c951d64f467ea587"
+          "tree_size": 2579537040,
+          "root_hash": "0241dfe1513f4e32cf1d4595cb82b95781e2254d5ec45b90be0cfaa0ec325a57"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -3407,29 +3465,29 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:50.403121+00:00",
-          "prior_tree_size": 2380730537
+          "prior_read_at": "2026-08-02T05:43:55.060262+00:00",
+          "prior_tree_size": 2380771487
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 2380771487
+          "tree_size": 2579552865
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 2380761114,
-          "second_size": 2380771487,
-          "entries_added": 10373
+          "first_size": 2579537040,
+          "second_size": 2579552865,
+          "entries_added": 15825
         },
         "consistency_proof_served": {
           "outcome": "ok",
-          "nodes": 25
+          "nodes": 19
         },
         "consistency_proof_recomputes_to_the_second_root": {
           "outcome": "ok",
           "reason": "both_roots_recomputed",
-          "first_size": 2380761114,
-          "second_size": 2380771487,
-          "proof_nodes": 25
+          "first_size": 2579537040,
+          "second_size": 2579552865,
+          "proof_nodes": 19
         }
       },
       "evidence": {
@@ -3438,14 +3496,14 @@
           "status": 200,
           "error": null,
           "bytes": 241,
-          "read_at": "2026-08-02T05:42:54.343524+00:00",
-          "body_sha256": "d9e16f8c2f12860a2a3cbc7e0f76eec512ccd331dd158f1aaf207fb277755f0a",
+          "read_at": "2026-08-23T11:00:17.606694+00:00",
+          "body_sha256": "2344192b788b1ffc80dbce5271e39103bd7f9bb9e62d613ce383755e1b469c5f",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 2380761114,
-          "timestamp": 1785649153982,
+          "tree_size": 2579537040,
+          "timestamp": 1787482563461,
           "signature_lines": 1,
-          "root_hash_hex": "89e8e3817779400db7428000cceb3033d5724eaee4557a61c951d64f467ea587",
+          "root_hash_hex": "0241dfe1513f4e32cf1d4595cb82b95781e2254d5ec45b90be0cfaa0ec325a57",
           "raw_body": null
         },
         "signature_check": {
@@ -3456,61 +3514,55 @@
         "prior_batch": {
           "log_key": "ct2026-b.trustasia.com/log2026b",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:50.403121+00:00",
-          "tree_size": 2380730537,
-          "root_hash": "701fe0d5ddbe7576e8b3d65eb03db132e526e324eb40deea9e8545e86009065e",
-          "body_sha256": "ec7d1695a5cd035f222ed6f1baa5b733b3e56603659856cb426c660231839203"
+          "read_at": "2026-08-02T05:43:55.060262+00:00",
+          "tree_size": 2380771487,
+          "root_hash": "ce2089f37dfbbaf2b5a85762664c2e91e227f20882c41a517925f59dadc6dd0d",
+          "body_sha256": "5011a22bad0595f21114cc352b25084e65b42665b06432fd465e523d69e682ab"
         },
         "second_read": {
           "url": "https://ct2026-b.trustasia.com/log2026b/ct/v1/get-sth",
           "status": 200,
           "error": null,
-          "bytes": 245,
-          "read_at": "2026-08-02T05:43:55.060262+00:00",
-          "body_sha256": "5011a22bad0595f21114cc352b25084e65b42665b06432fd465e523d69e682ab",
+          "bytes": 241,
+          "read_at": "2026-08-23T11:01:25.630573+00:00",
+          "body_sha256": "b24ff753774a5297194bf776f00a61ce3f4f0b427f52ac1c1619ae6867e61927",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 2380771487,
-          "timestamp": 1785649309172,
+          "tree_size": 2579552865,
+          "timestamp": 1787482700850,
           "signature_lines": 1,
-          "root_hash_hex": "ce2089f37dfbbaf2b5a85762664c2e91e227f20882c41a517925f59dadc6dd0d"
+          "root_hash_hex": "520a25aaa7790bb9ec1c7d4c0d22b37d92a0120eaab060b9de65606ef312ee1a"
         },
         "consistency_request": {
           "served": true,
-          "url": "https://ct2026-b.trustasia.com/log2026b/ct/v1/get-sth-consistency?first=2380761114&second=2380771487",
+          "url": "https://ct2026-b.trustasia.com/log2026b/ct/v1/get-sth-consistency?first=2579537040&second=2579552865",
           "proof": [
-            "6e8706c755e5cbc62183a50926204b177663ff5ac080eb98bc23fe07984bc222",
-            "b7b437b7c27dedfd79d342346da08dcd0eaed9d06725d427a72063ac5a3bf9a9",
-            "34b99b6af174c28b5b56bd21d47f571495b0998c4f4c4826fde33b2cd9522308",
-            "e24b0cf8c6de684256d6abaebb3d6f5fed8ed4019ba30d19c9345b1f09c2192b",
-            "5a64b6371a89c473887ff84d4ffdca9f457652d9f94aaa9fed0cf057a7dbfebc",
-            "8290ee4e4893a4981b239828f5ba30d4c5275c87c262a6e7c8a38b6b0a1ab8e0",
-            "d0b646b10f52fc05abd3064d25a7ebef4af315ea0a5d7930db2de6ddb061ef78",
-            "0f09c5e26ef1fa59574022ea5679e79e36849e320f1a0ef4cec2fc22e97ec900",
-            "3eb1d8d32edce6fe6ad09bcf8ad946b54bd132705c08d820b651e5cc5b1f30e8",
-            "cd045b2a10fc9021276eb2d6872d8a07cce41d5bbaa6ad37f59fe41d0f925517",
-            "ca352ab127873076a70eefb28d47f8209b025e0886911096036f7eb431f8bc89",
-            "f063f62dabef9df0443f984fc63a68bbc7946bb2a47a19e61e2bda3e259f46d0",
-            "e03f6862f555424236b9b1e4e8bcd9579c38d27315d8d91d5b7a09751cff02a9",
-            "dddba0e231090a72ab7635cf2dff00f662c68c038938a044b06c2ffd44848089",
-            "0b2f5521eae132e76ad20eb1831c325d42a0903a052641baf766f07edf62621e",
-            "0576dd7cfa555d86143bdd546de28358c001f5bd5261c3cbdeccd48ab5fcba20",
-            "6f51e14d68957ee3816cc93b172a5e8441ece1b8ad8b0f071bfa1c004ae5a9f9",
-            "d28d3bf9504d0ba1782b3d374b8a50524dec9fc59ab78da761d23e14d6b7a206",
-            "7d7f17b6cc399bed71824d1c414b99d88e39684f85d0a7d05bdd241daf63a32d",
-            "57908dd9746e3a744c0d6bb5a0e36eb6c34c3745aafb37d57b9f68096cb0875a",
-            "bcd80e5f5c040cfddf5372f5526be242b016c6b711f0c7bba7999a012749d470",
-            "708be07a758ff8d0dc25bc7a0bf40076bfb2c9a61d4268f92ae6117ed200fc05",
-            "a4ac21a85f0752995328ac58e336b1da8ed7f039fec4852c4f2d4defc7757834",
-            "e0b237cc5932b76225356268108f36403475ddf612d8851211115d4fe12bda32",
+            "54f56e0c8783e01ef40f3f7473d2371c331d4f4f2bea1b2564ef7868d758b5a7",
+            "cca4bc61883547b1b3d0c2d0f7c5ccbae2becd6b69c3112f834963ff83c9c0d7",
+            "006ccc709b534954b0279d941e06fd6e42ea26e93bc5b242455fbd94b99dfb0a",
+            "bd542f714d1a498e562c34c67813a290a5ae83e1bc51484ce2ea1ca7093a8ab6",
+            "4fc6b7f6e551d4b9ae9ae9afa19c323e8efa7b4309106ada17336502d0717da8",
+            "e9f23f23c4375994642a04b0670ab13e9004d17dc4f429caf1e5a0bbef84fa4c",
+            "319c4650daf02dce6a2052a2df8784ad5e2a5adaca38cabef44ae440aea88b2e",
+            "653536c70cf13a2adb5618efd39b622d966a1793fb34097391ec2b175eddbea9",
+            "94393b36532f82d364ca58a2522ad2cb73dc65242d2f1227934920f7e0dbacb9",
+            "d790006e19eca8c3b0fdce82c7ab8dc6511e79a83f889e74bb274f53ee44c971",
+            "067449a44e3a003b83da2c74b41810a101002f8151f4aec6156d7071e7cd298e",
+            "31a3aac8a5f9cd8b515fc8f8481f0019b8f6eb87f11ba777a3cff570d8ead64d",
+            "602908c921f3d3b8f1edc1363ce5f2a1e3937447124d84b0e815714e0f122525",
+            "800c92d1ef376bc23b0871a6e85f4108516ad50084a622d2a45a7963f93b6486",
+            "a323082c578f514b1d007d41bc1feef7619e062cb569e234ac942c8a9ccc88bc",
+            "de6e9feec93a4f3bb7c2d445a3c758f10739b23ab9b30b407e1bb20e35ddbab4",
+            "da129745f1a02899d327fe0f733efebacdbcb0daecc488f1c1836914db30e26e",
+            "e523d0a72766b6b9734eb62bd84fecc4ba2f8cd4611ee345e9e9cfb018874082",
             "d53ba058948c397b56682c1e77286b5e705f1e6791d039f7b50847ae50413b99"
           ],
-          "nodes": 25
+          "nodes": 19
         }
       },
       "tree_advanced_between_reads": true,
-      "entries_added_between_reads": 10373,
-      "checked_at": "2026-08-02T05:43:57.759081+00:00",
+      "entries_added_between_reads": 15825,
+      "checked_at": "2026-08-23T11:01:32.377133+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -3539,7 +3591,7 @@
         "checkpoint_endpoint_answers_without_credentials": {
           "outcome": "ok",
           "status": 200,
-          "bytes": 239
+          "bytes": 243
         },
         "checkpoint_parses_in_its_declared_format": {
           "outcome": "ok",
@@ -3547,8 +3599,8 @@
         },
         "checkpoint_carries_tree_size_and_root_hash": {
           "outcome": "ok",
-          "tree_size": 46928816,
-          "root_hash": "18602a11b905f210f47af017d4582d0eb2d22177eed0770283c546cd9653847e"
+          "tree_size": 79259575,
+          "root_hash": "9162814536752e092ed185a0e3d693a8dcfa419be733df5f536cae5272d8707d"
         },
         "checkpoint_carries_a_signature": {
           "outcome": "ok",
@@ -3570,29 +3622,29 @@
         },
         "prior_batch_checkpoint_on_record": {
           "outcome": "ok",
-          "prior_read_at": "2026-08-02T05:34:50.805706+00:00",
-          "prior_tree_size": 46928430
+          "prior_read_at": "2026-08-02T05:43:56.616797+00:00",
+          "prior_tree_size": 46928913
         },
         "second_read_answered": {
           "outcome": "ok",
-          "tree_size": 46928913
+          "tree_size": 79262302
         },
         "tree_did_not_shrink_between_reads": {
           "outcome": "ok",
-          "first_size": 46928816,
-          "second_size": 46928913,
-          "entries_added": 97
+          "first_size": 79259575,
+          "second_size": 79262302,
+          "entries_added": 2727
         },
         "consistency_proof_served": {
           "outcome": "ok",
-          "nodes": 14
+          "nodes": 22
         },
         "consistency_proof_recomputes_to_the_second_root": {
           "outcome": "ok",
           "reason": "both_roots_recomputed",
-          "first_size": 46928816,
-          "second_size": 46928913,
-          "proof_nodes": 14
+          "first_size": 79259575,
+          "second_size": 79262302,
+          "proof_nodes": 22
         }
       },
       "evidence": {
@@ -3600,15 +3652,15 @@
           "url": "https://hetu2027.trustasia.com/hetu2027/ct/v1/get-sth",
           "status": 200,
           "error": null,
-          "bytes": 239,
-          "read_at": "2026-08-02T05:42:55.061083+00:00",
-          "body_sha256": "10fc87e89a582a3cc24fb3786b47bd1434e44aaf1f0f160d85641a7bf8e00175",
+          "bytes": 243,
+          "read_at": "2026-08-23T11:00:18.290513+00:00",
+          "body_sha256": "d96651dc5ca3ccacf8e891e1392c956a188288db3d5c5dd903f8b1db2d15785a",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 46928816,
-          "timestamp": 1785649157247,
+          "tree_size": 79259575,
+          "timestamp": 1787482726910,
           "signature_lines": 1,
-          "root_hash_hex": "18602a11b905f210f47af017d4582d0eb2d22177eed0770283c546cd9653847e",
+          "root_hash_hex": "9162814536752e092ed185a0e3d693a8dcfa419be733df5f536cae5272d8707d",
           "raw_body": null
         },
         "signature_check": {
@@ -3619,50 +3671,58 @@
         "prior_batch": {
           "log_key": "hetu2027.trustasia.com/hetu2027",
           "read": "second_read",
-          "read_at": "2026-08-02T05:34:50.805706+00:00",
-          "tree_size": 46928430,
-          "root_hash": "58d6f58d22f1f4cb94fce810def086e3cf675eef6791cb4cc2288f989a5966fa",
-          "body_sha256": "71c93c15483874582de37bb8958d77f81f49f3c8b2b51fb37d07c77958e1dca8"
+          "read_at": "2026-08-02T05:43:56.616797+00:00",
+          "tree_size": 46928913,
+          "root_hash": "105830992f56bc3efdd5eb63d193d9bd1e57b085219316cd68cbefd4668acea7",
+          "body_sha256": "1318540a906cc12c0bb047c43c245cf8acc2ea5124b61be21c33fa465ab56d43"
         },
         "second_read": {
           "url": "https://hetu2027.trustasia.com/hetu2027/ct/v1/get-sth",
           "status": 200,
           "error": null,
-          "bytes": 243,
-          "read_at": "2026-08-02T05:43:56.616797+00:00",
-          "body_sha256": "1318540a906cc12c0bb047c43c245cf8acc2ea5124b61be21c33fa465ab56d43",
+          "bytes": 239,
+          "read_at": "2026-08-23T11:01:30.903160+00:00",
+          "body_sha256": "7fa9aa5e8ab2f0b758b7f8da225c4c821aef6d6326d8080bd7cf3a43f5dd89a3",
           "parsed": true,
           "format": "ct_v1_sth",
-          "tree_size": 46928913,
-          "timestamp": 1785649277876,
+          "tree_size": 79262302,
+          "timestamp": 1787482852444,
           "signature_lines": 1,
-          "root_hash_hex": "105830992f56bc3efdd5eb63d193d9bd1e57b085219316cd68cbefd4668acea7"
+          "root_hash_hex": "7228ee90ec3391f68dd7a87def288282f7be7732c9d98ed3acafc36849e91c1c"
         },
         "consistency_request": {
           "served": true,
-          "url": "https://hetu2027.trustasia.com/hetu2027/ct/v1/get-sth-consistency?first=46928816&second=46928913",
+          "url": "https://hetu2027.trustasia.com/hetu2027/ct/v1/get-sth-consistency?first=79259575&second=79262302",
           "proof": [
-            "3874cbea24ebffa06483797b69f1cdf4c15272950b989c1dd9db3128bf4833c1",
-            "a45792741109aa4614711574e93660150954c903bc459ac0805f5f8280963a9b",
-            "f9e6922253265efac10226f6ed541053960dded9afa30ca0a9f5afc25f76ba5b",
-            "377712aa71ee921c672ae2048900663446aa58f75b3e39dda707887cbb1b992f",
-            "53709e89c84ba5e3eeeeb987e62256f85214002a177b49dc3492b707ba996aa3",
-            "1b7ffb8a4f7a2c4e66dbc4b2253b53fcd6f61492b82e4a544724aa20e69801e5",
-            "0d864ed2880dd6400a6fc0083470d1b00c2819aa14569d1f2c924124c2ced5ad",
-            "c2ed81d474ccd4f7eee831014bc9b3e3644c89c0a9ab73acc5942ec3c0c3420c",
-            "54588ef3fb2212dd1a224435a0900cb66a9a87b276b9d302799173f8393f7ecc",
-            "10fb4894001af4a47f5037f18e323e9e84626e0cdaf3263c6c13a0357f548960",
-            "26be13ec48508de70b832100cab97eedef4c69cad9c6f6633d7c9300e45b0e2c",
-            "21a26c83200eb49dcf509ce4c4cd33cc1834d8ec931888e3fab3f46d0144ecfc",
-            "baac03506148bf05b53d6eefe7f6a2a357e0e9ddb2e91e9753fb7cdeb79e6721",
-            "3b3e57c8df5ebaf5d776af2ce4004a19b37ee03eb106d88d159ed8153cd7eda4"
+            "2b76cbd41b7bd5f8321d04c8c599269bf79c301d020da1c90902639fb42c391e",
+            "2314bb7d0b52841949a55d51442ac2b815f2693113c10ebc21e89bd304b7c188",
+            "06639a69f3a7894ea8001df70ac10a3dd89501788f8eaa3e970538d35f502213",
+            "3132ad9a4ede9f1114789fb9ae831f8ff109dec178395640e005a60ae698e265",
+            "f98aa8c04cd12482767904680083e80ff1311aa8fa55ef27c01ef4488167377a",
+            "ee3615573050cab06a1a01054c4d5ccfee4b377e4933b86a09d9cf0879ab3086",
+            "11ec16f181f23a348cda21e4d828a30e56108b96e27c42800104e1c76deb047c",
+            "025f05249561368b871951564d090548e0be7cdf8eab8e9fca0836545131a41d",
+            "a6f346ecb9b1fedd227223911c5a9cc2ca2ff10e69cdadfe9d3c20afaf2bdf85",
+            "6c90e8c915f044caeb76ff50c6b216379aed026fdaad47948632e2cf76078478",
+            "9fe804d085c9ee5f2fb7c0152b2863043f29432ef2d0ff7e04e75c090e44dd66",
+            "1a25d5a71e930ea33641df05834937e35de79eb564bd3565397c580cad6650b0",
+            "07373b39e86047f96af0cb68371e25af802f71d0a21d56c38778022f844cc3f6",
+            "6f6c68c3777131f519df3a789973d7dd5921d2ed4a5e7a00cc19a34901c9e11b",
+            "15550121f7ffae3a48b9fc7a97c15d836e1e38ae06a31d9e66e8e71d44864492",
+            "b61b63c2ce7a9a86f8d0877041ec5f2b26c044fe7feac689d2f74691c3c9dff6",
+            "a59939a75b0018827881204514f2cd960fa9ad7a080ca1eb48f8b3c5ff7a6692",
+            "344350f421c0c25c6c8bec86df91c3a5a5a94fb8f08cac5a4ba4f72c24439451",
+            "cc25f1a60f094ccb836ca8721633ba284bce60805898338db703b49c385bb053",
+            "4686faf0930cf89e8d2bea06658c8d538b0a7ee86b918762e76e030722b05669",
+            "f902c73df3ba5c12c88ee09fe0b2eaf7973cf5a42e02d7c524395620026cee2b",
+            "eb53448003c24604c2b573c5f0c34c0ee841c93d978c6d9a6fc26918a855cf0f"
           ],
-          "nodes": 14
+          "nodes": 22
         }
       },
       "tree_advanced_between_reads": true,
-      "entries_added_between_reads": 97,
-      "checked_at": "2026-08-02T05:43:57.759086+00:00",
+      "entries_added_between_reads": 2727,
+      "checked_at": "2026-08-23T11:01:32.377160+00:00",
       "must_admit": true,
       "full_admit": true,
       "refuse_limb": null,
@@ -3702,7 +3762,7 @@
       "prediction": "Every consistency proof this monitor requests recomputes to the second root the log published.",
       "blind": true,
       "basis": null,
-      "observed": "11 of 11 served proofs recomputed to the second root",
+      "observed": "12 of 12 served proofs recomputed to the second root",
       "met": true
     },
     {
@@ -3749,14 +3809,5 @@
       ]
     }
   ],
-  "rescored_at": "2026-08-02T06:09:16.157168+00:00",
-  "rescore_note": "The scored predictions and the rendered artifacts were re-derived from this stored batch without refetching anything, to attach a note to a prediction that missed. The rescore refuses to write if any verdict changes. Re-running the batch instead would have destroyed the cold start this batch reports, because the first run already appended its checkpoints to the record the next run compares against.",
-  "not_claimed_after_the_freeze": [
-    {
-      "added": "2026-08-02",
-      "why": "raised while researching this ecosystem's terms of art, after the expectations for this ledger were already committed",
-      "note": "Two components this node publishes elsewhere carry names that are terms of art here, and neither is what the name suggests to a reader arriving from this community. `witnessfield` is not an implementation of the C2SP tlog-witness protocol and issues no cosignature. `helixhash` is a hash chain, which is tamper evident only to a verifier willing to replay the whole chain, and it is not an RFC 6962 Merkle tree: it offers no inclusion proof, no consistency proof and no efficient evidence against equivocation. Both names predate this ledger. They are disambiguated here rather than defended, because a page that spends its length separating a monitor from a witness should not leave its own naming to be guessed."
-    }
-  ],
-  "digest": "1e9ae859e742abe6cfb6dabb7e5d337cba88d3f3cc0715ceb8a5a9bdc3821603"
+  "digest": "f312afab7d28f297e00644ad28331e3fd59dbd3158e6fa1ac367bcafd95551e5"
 }

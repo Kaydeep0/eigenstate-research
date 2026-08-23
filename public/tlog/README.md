@@ -1,6 +1,6 @@
 # Transparency log batch monitor
 
-Generated 2026-08-02T05:43:57.760810+00:00 · probe v1.0.0 · digest `1e9ae859e742abe6`
+Generated 2026-08-23T11:01:32.381829+00:00 · probe v1.0.0 · digest `f312afab7d28f297`
 
 The population, every verification key and where it came from, the limbs with their admit conditions and seven predictions were published before this batch at digest `78cb2f5444df2da2`, in an earlier commit.
 
@@ -14,8 +14,8 @@ This node does the second thing. It cosigns nothing, it is on no witness list, a
 
 - **23 of 23** logs served a checkpoint with no credentials.
 - **22 of 23** checkpoint signatures verified against a key this monitor obtained from somewhere other than the log.
-- **11 of 23** trees advanced between the two reads, adding 51218 entries in a 45 second window.
-- **11 of 11** served consistency proofs recomputed to the root the log published.
+- **12 of 23** trees advanced between the two reads, adding 87187 entries in a 45 second window.
+- **12 of 12** served consistency proofs recomputed to the root the log published.
 - **0 of 23** trees shrank or served two roots at one size.
 - **0 of 23** checkpoints carried a signature beyond the log's own.
 - Disagreements recorded this batch: **0**.
@@ -50,8 +50,8 @@ Chains are evaluated independently. A failure inside one chain stops that chain 
 - `signature_verifies_against_the_published_key` (MUST, verify chain): ok 22, fail 1, not applicable 0, not reached 0
 - `second_read_answered` (MUST, rederive chain): ok 23, fail 0, not applicable 0, not reached 0
 - `tree_did_not_shrink_between_reads` (MUST, rederive chain): ok 23, fail 0, not applicable 0, not reached 0
-- `consistency_proof_served` (MUST, rederive chain): ok 11, fail 0, not applicable 12, not reached 0
-- `consistency_proof_recomputes_to_the_second_root` (MUST, rederive chain): ok 11, fail 0, not applicable 12, not reached 0
+- `consistency_proof_served` (MUST, rederive chain): ok 12, fail 0, not applicable 11, not reached 0
+- `consistency_proof_recomputes_to_the_second_root` (MUST, rederive chain): ok 12, fail 0, not applicable 11, not reached 0
 - `checkpoint_carries_witness_cosignatures` (OBSERVED, observe chain): ok 0, fail 23, not applicable 0, not reached 0
 - `prior_batch_checkpoint_on_record` (OBSERVED, observe chain): ok 23, fail 0, not applicable 0, not reached 0
 
@@ -68,7 +68,7 @@ Chains are evaluated independently. A failure inside one chain stops that chain 
 - met (blind): Every log in the population serves a checkpoint over plain HTTPS with no credentials of any kind. Observed: 23 of 23 logs served a checkpoint with no credentials.
 - met (blind): Every Certificate Transparency checkpoint signature verifies against the key published in the log list, using the verifier implemented in this repository. Observed: 21 of 21 Certificate Transparency signatures verified.
 - met (blind): No tree in the population shrinks between the two reads in this batch. Observed: 0 of 23 trees shrank or served two roots at one size.
-- met (blind): Every consistency proof this monitor requests recomputes to the second root the log published. Observed: 11 of 11 served proofs recomputed to the second root.
+- met (blind): Every consistency proof this monitor requests recomputes to the second root the log published. Observed: 12 of 12 served proofs recomputed to the second root.
 - met (blind): Fewer than half the checkpoints in the population carry a witness cosignature beyond the log's own signature. Observed: 0 of 23 checkpoints carried a witness cosignature.
 - missed (not blind): This monitor holds no prior batch for any log, because this is the first batch, so the cross run comparison refuses for every log in the population. Observed: 23 of 23 logs had a prior batch on record.
   - Written after the batch of 2026-08-02T05:43:57.760810+00:00, which observed 23 of 23 logs had a prior batch on record: This prediction was written for the first batch and it was right for the first batch. On every batch after that it is wrong by construction, because the cold start it described is over: this monitor now holds a prior checkpoint for all 23 logs and the cross run comparison no longer refuses for a lack of history. The line is left in the frozen prediction set and left scored as missed rather than retired, because retiring a prediction the moment it stops flattering the run is the habit this ledger exists to avoid. Read it as a dated statement that has since been overtaken.

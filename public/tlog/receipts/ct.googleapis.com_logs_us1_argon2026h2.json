@@ -26,8 +26,8 @@
     },
     "checkpoint_carries_tree_size_and_root_hash": {
       "outcome": "ok",
-      "tree_size": 2281773943,
-      "root_hash": "e231480aa6f6e8b91bc68e17f4bd4509c319b3a4604f2b0f2f094ffc0717c3ab"
+      "tree_size": 2666540944,
+      "root_hash": "1f1e48bec67d922b3ab602e735abb1b728c0eeae571711077bb7cab9d41553fb"
     },
     "checkpoint_carries_a_signature": {
       "outcome": "ok",
@@ -49,29 +49,29 @@
     },
     "prior_batch_checkpoint_on_record": {
       "outcome": "ok",
-      "prior_read_at": "2026-08-02T05:34:42.209273+00:00",
-      "prior_tree_size": 2281702148
+      "prior_read_at": "2026-08-02T05:43:49.743261+00:00",
+      "prior_tree_size": 2281782781
     },
     "second_read_answered": {
       "outcome": "ok",
-      "tree_size": 2281782781
+      "tree_size": 2666554175
     },
     "tree_did_not_shrink_between_reads": {
       "outcome": "ok",
-      "first_size": 2281773943,
-      "second_size": 2281782781,
-      "entries_added": 8838
+      "first_size": 2666540944,
+      "second_size": 2666554175,
+      "entries_added": 13231
     },
     "consistency_proof_served": {
       "outcome": "ok",
-      "nodes": 18
+      "nodes": 21
     },
     "consistency_proof_recomputes_to_the_second_root": {
       "outcome": "ok",
       "reason": "both_roots_recomputed",
-      "first_size": 2281773943,
-      "second_size": 2281782781,
-      "proof_nodes": 18
+      "first_size": 2666540944,
+      "second_size": 2666554175,
+      "proof_nodes": 21
     }
   },
   "evidence": {
@@ -80,14 +80,14 @@
       "status": 200,
       "error": null,
       "bytes": 241,
-      "read_at": "2026-08-02T05:42:48.866666+00:00",
-      "body_sha256": "0d0a1a5203dc42e6cd2d80c0f9514ece2cf2e1597f861b03f21bf7952534392f",
+      "read_at": "2026-08-23T11:00:09.232726+00:00",
+      "body_sha256": "c1f9bca6eafd0d76616632f7066cd59b04536f60ee04951a2a0b99bff25a31c8",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 2281773943,
-      "timestamp": 1785649308521,
+      "tree_size": 2666540944,
+      "timestamp": 1787482748710,
       "signature_lines": 1,
-      "root_hash_hex": "e231480aa6f6e8b91bc68e17f4bd4509c319b3a4604f2b0f2f094ffc0717c3ab",
+      "root_hash_hex": "1f1e48bec67d922b3ab602e735abb1b728c0eeae571711077bb7cab9d41553fb",
       "raw_body": null
     },
     "signature_check": {
@@ -98,54 +98,57 @@
     "prior_batch": {
       "log_key": "ct.googleapis.com/logs/us1/argon2026h2",
       "read": "second_read",
-      "read_at": "2026-08-02T05:34:42.209273+00:00",
-      "tree_size": 2281702148,
-      "root_hash": "0777c30fa191f56a55eb446f7a59060183c2a08df29ffb5bc026643f9a2d37b5",
-      "body_sha256": "932a3d3981a963507758bca8f5753c125c0843d725b06fa2ee93edb788911b53"
+      "read_at": "2026-08-02T05:43:49.743261+00:00",
+      "tree_size": 2281782781,
+      "root_hash": "4ebb32e9aab2d8de5af95f386bc97a48ebd6e4ae34d9cbceb426ed9c576fa167",
+      "body_sha256": "de7acd8c01bb8fd38efc839cacd7924e9a97512b253adc07aadaa399947ceb7c"
     },
     "second_read": {
       "url": "https://ct.googleapis.com/logs/us1/argon2026h2/ct/v1/get-sth",
       "status": 200,
       "error": null,
-      "bytes": 245,
-      "read_at": "2026-08-02T05:43:49.743261+00:00",
-      "body_sha256": "de7acd8c01bb8fd38efc839cacd7924e9a97512b253adc07aadaa399947ceb7c",
+      "bytes": 241,
+      "read_at": "2026-08-23T11:01:15.670775+00:00",
+      "body_sha256": "3ccbe6316a5479090c12ad1b9ff3db05ae66129c92b0f7d41266d4997d979058",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 2281782781,
-      "timestamp": 1785649369310,
+      "tree_size": 2666554175,
+      "timestamp": 1787482815192,
       "signature_lines": 1,
-      "root_hash_hex": "4ebb32e9aab2d8de5af95f386bc97a48ebd6e4ae34d9cbceb426ed9c576fa167"
+      "root_hash_hex": "7cc8d7698bbc11081ce62744687c73e293a40a81e715175b112c0eff873ddc56"
     },
     "consistency_request": {
       "served": true,
-      "url": "https://ct.googleapis.com/logs/us1/argon2026h2/ct/v1/get-sth-consistency?first=2281773943&second=2281782781",
+      "url": "https://ct.googleapis.com/logs/us1/argon2026h2/ct/v1/get-sth-consistency?first=2666540944&second=2666554175",
       "proof": [
-        "5d4a0151e9d85f22afbfc5e332b2fa9ed294d1759be9044a0b8849c52aad0cd4",
-        "becbab75e3a6f76bde15b1048f6af6077a90c26398495a4676cd0eeaab6364e0",
-        "c0a0b7fbc35fb4cec41541e9abee8d2694ac4d015176a09227fc1b26dcd1efe1",
-        "f5a4fbe609af2fdb595e405d75ed0dc4a9e913530f297ccf080b4e8e0e87bc6d",
-        "55b39d8e049977ca7f2b4c7a00d1df633e43f5dcec08395db57aefb94faafa80",
-        "5e9216c8a88d1266691c8d8fa025cc3ae199bf035b53dc1a3a4a05debc90c2a1",
-        "f2a4f82384aec447422e6c79d1c565870f1857dbcc89d8568d1eb94e0815c668",
-        "079be685136c8a061b4fe4fa65527718fc5a435588ee030c2f3d2254efd46603",
-        "3968e4373c4de844fe65e09c88298b902e4dbdebbf175c90eba06ca79aadb010",
-        "0dcd7904987fa58bd84edab6dbf3eb3e8832851b91451a2e8dde6699b8879945",
-        "31735c1b042ee1646e6768c0b57d7b4f09fcd19b367e35d7b4d8cfd9bc99debf",
-        "05e029dd94ac9e8e5a5389a71760d3512751eb7b28c01653aed6a63507887d38",
-        "96a566429ca99241c5ca7b8e5a4b65503208b16a79699369dea1193d67d9360d",
-        "9f8fb182ed668b93132f927dfb8cf32e32f9046208477c2d65b79530b53682c2",
-        "c51e3a2adee8984ac14e3ffbc3c4e3253db29218829e8fd6d13ad4c0ec08e176",
-        "1f3daa8bfe13229c6d62a1ea24149cdedd1ad0f5e188d38968133e72d880c0d6",
-        "952126d04b689bcc1310340f8481b79431f27e3f97f2180b1e6f2a255abf1b09",
+        "ff846dcef5dad2d2bd43686a816bd1749c4d1df937bb28dff677cfd32cd3c57c",
+        "d9a1cf363b16354be957ad37c1f7e5194cf35d37632cf476e95237dacc23027b",
+        "02c85514b67962ccfaf19a4776fe4d841c7a9bbd094e1dc3b66012087042dd5d",
+        "c51480245083d3a38ae9951bad05162e20f8a68764edaeb6d6633bc61d27a259",
+        "6bcaa27e828b03357fdfc8f91f401d3c7ee67d54483640cd422da53f8cf43107",
+        "d421c5f5ac7987866d81cc4c2200194bd569c8bcf6b74e5a18765840f688d09b",
+        "1fe5a928bb8a50c942f97d352162a1df80764eb04d87966694cf72a787b1d6ae",
+        "7417d467b729bb75333ec078c8bb7f8bad98833a532771b5fe27de528fba10bb",
+        "dd8048968e76a9645e3e0cc29bec81a790c54eec6e2f93ce10d91548dc3e7307",
+        "8fc823af761981d1b34cac71bf97e8744fe7c663e8fdace6d374cfaf803bce29",
+        "760c74f30df961160c8d4b8a157680a3f4633365b4dcce06ab91f1232d97d2d2",
+        "9988fe92ddf2dc5cc2f44b19b113c854f75a7bf4adf12207b32777b5ba871ddc",
+        "4ff1d702b47d3ca77e5b05930fb57348e9d0ef7aa1343a950881e38318413c1a",
+        "f4c1a9ef439e814ea23f778adbcec0c779a7a24d698757cfd65c43ba26b566fc",
+        "af8d9892efbbcc3714196f9042ee4c6c268f3dcc0dd5c53e6031da54b08cfa01",
+        "7e856707d4ef91953e3408668373769a97a922c9b53cfa93616bcf38ab1f816c",
+        "68b681ecaa83319dd1afe506aaabd5d1f30388bea39af09d461455602e5e83d8",
+        "8c51b6902d6e412d180d851e2cb455017fe0d6f1cd01c2efbf2504b3c6f1821c",
+        "6253f5527bc64e6c7d0c218239fae3f042b6482156dfcc010455b492ca5fa1a3",
+        "1f5d97cd8bf85e6c64f8a867e6f16e73adabb0ddbe916a00b8210f2d274e33f3",
         "71445eeeb91dd398e3ed093609ba6961c27cd36ed86b3ae90c5c60f7d4f153a4"
       ],
-      "nodes": 18
+      "nodes": 21
     }
   },
   "tree_advanced_between_reads": true,
-  "entries_added_between_reads": 8838,
-  "checked_at": "2026-08-02T05:43:57.759019+00:00",
+  "entries_added_between_reads": 13231,
+  "checked_at": "2026-08-23T11:01:32.376791+00:00",
   "must_admit": true,
   "full_admit": true,
   "refuse_limb": null,
@@ -155,6 +158,6 @@
   "should_limbs_failed": [],
   "receipt_filename": "ct.googleapis.com_logs_us1_argon2026h2.json",
   "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
-  "ledger_digest": "1e9ae859e742abe6cfb6dabb7e5d337cba88d3f3cc0715ceb8a5a9bdc3821603",
+  "ledger_digest": "f312afab7d28f297e00644ad28331e3fd59dbd3158e6fa1ac367bcafd95551e5",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
 }

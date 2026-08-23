@@ -18,7 +18,7 @@
     "checkpoint_endpoint_answers_without_credentials": {
       "outcome": "ok",
       "status": 200,
-      "bytes": 239
+      "bytes": 243
     },
     "checkpoint_parses_in_its_declared_format": {
       "outcome": "ok",
@@ -26,8 +26,8 @@
     },
     "checkpoint_carries_tree_size_and_root_hash": {
       "outcome": "ok",
-      "tree_size": 46928816,
-      "root_hash": "18602a11b905f210f47af017d4582d0eb2d22177eed0770283c546cd9653847e"
+      "tree_size": 79259575,
+      "root_hash": "9162814536752e092ed185a0e3d693a8dcfa419be733df5f536cae5272d8707d"
     },
     "checkpoint_carries_a_signature": {
       "outcome": "ok",
@@ -49,29 +49,29 @@
     },
     "prior_batch_checkpoint_on_record": {
       "outcome": "ok",
-      "prior_read_at": "2026-08-02T05:34:50.805706+00:00",
-      "prior_tree_size": 46928430
+      "prior_read_at": "2026-08-02T05:43:56.616797+00:00",
+      "prior_tree_size": 46928913
     },
     "second_read_answered": {
       "outcome": "ok",
-      "tree_size": 46928913
+      "tree_size": 79262302
     },
     "tree_did_not_shrink_between_reads": {
       "outcome": "ok",
-      "first_size": 46928816,
-      "second_size": 46928913,
-      "entries_added": 97
+      "first_size": 79259575,
+      "second_size": 79262302,
+      "entries_added": 2727
     },
     "consistency_proof_served": {
       "outcome": "ok",
-      "nodes": 14
+      "nodes": 22
     },
     "consistency_proof_recomputes_to_the_second_root": {
       "outcome": "ok",
       "reason": "both_roots_recomputed",
-      "first_size": 46928816,
-      "second_size": 46928913,
-      "proof_nodes": 14
+      "first_size": 79259575,
+      "second_size": 79262302,
+      "proof_nodes": 22
     }
   },
   "evidence": {
@@ -79,15 +79,15 @@
       "url": "https://hetu2027.trustasia.com/hetu2027/ct/v1/get-sth",
       "status": 200,
       "error": null,
-      "bytes": 239,
-      "read_at": "2026-08-02T05:42:55.061083+00:00",
-      "body_sha256": "10fc87e89a582a3cc24fb3786b47bd1434e44aaf1f0f160d85641a7bf8e00175",
+      "bytes": 243,
+      "read_at": "2026-08-23T11:00:18.290513+00:00",
+      "body_sha256": "d96651dc5ca3ccacf8e891e1392c956a188288db3d5c5dd903f8b1db2d15785a",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 46928816,
-      "timestamp": 1785649157247,
+      "tree_size": 79259575,
+      "timestamp": 1787482726910,
       "signature_lines": 1,
-      "root_hash_hex": "18602a11b905f210f47af017d4582d0eb2d22177eed0770283c546cd9653847e",
+      "root_hash_hex": "9162814536752e092ed185a0e3d693a8dcfa419be733df5f536cae5272d8707d",
       "raw_body": null
     },
     "signature_check": {
@@ -98,50 +98,58 @@
     "prior_batch": {
       "log_key": "hetu2027.trustasia.com/hetu2027",
       "read": "second_read",
-      "read_at": "2026-08-02T05:34:50.805706+00:00",
-      "tree_size": 46928430,
-      "root_hash": "58d6f58d22f1f4cb94fce810def086e3cf675eef6791cb4cc2288f989a5966fa",
-      "body_sha256": "71c93c15483874582de37bb8958d77f81f49f3c8b2b51fb37d07c77958e1dca8"
+      "read_at": "2026-08-02T05:43:56.616797+00:00",
+      "tree_size": 46928913,
+      "root_hash": "105830992f56bc3efdd5eb63d193d9bd1e57b085219316cd68cbefd4668acea7",
+      "body_sha256": "1318540a906cc12c0bb047c43c245cf8acc2ea5124b61be21c33fa465ab56d43"
     },
     "second_read": {
       "url": "https://hetu2027.trustasia.com/hetu2027/ct/v1/get-sth",
       "status": 200,
       "error": null,
-      "bytes": 243,
-      "read_at": "2026-08-02T05:43:56.616797+00:00",
-      "body_sha256": "1318540a906cc12c0bb047c43c245cf8acc2ea5124b61be21c33fa465ab56d43",
+      "bytes": 239,
+      "read_at": "2026-08-23T11:01:30.903160+00:00",
+      "body_sha256": "7fa9aa5e8ab2f0b758b7f8da225c4c821aef6d6326d8080bd7cf3a43f5dd89a3",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 46928913,
-      "timestamp": 1785649277876,
+      "tree_size": 79262302,
+      "timestamp": 1787482852444,
       "signature_lines": 1,
-      "root_hash_hex": "105830992f56bc3efdd5eb63d193d9bd1e57b085219316cd68cbefd4668acea7"
+      "root_hash_hex": "7228ee90ec3391f68dd7a87def288282f7be7732c9d98ed3acafc36849e91c1c"
     },
     "consistency_request": {
       "served": true,
-      "url": "https://hetu2027.trustasia.com/hetu2027/ct/v1/get-sth-consistency?first=46928816&second=46928913",
+      "url": "https://hetu2027.trustasia.com/hetu2027/ct/v1/get-sth-consistency?first=79259575&second=79262302",
       "proof": [
-        "3874cbea24ebffa06483797b69f1cdf4c15272950b989c1dd9db3128bf4833c1",
-        "a45792741109aa4614711574e93660150954c903bc459ac0805f5f8280963a9b",
-        "f9e6922253265efac10226f6ed541053960dded9afa30ca0a9f5afc25f76ba5b",
-        "377712aa71ee921c672ae2048900663446aa58f75b3e39dda707887cbb1b992f",
-        "53709e89c84ba5e3eeeeb987e62256f85214002a177b49dc3492b707ba996aa3",
-        "1b7ffb8a4f7a2c4e66dbc4b2253b53fcd6f61492b82e4a544724aa20e69801e5",
-        "0d864ed2880dd6400a6fc0083470d1b00c2819aa14569d1f2c924124c2ced5ad",
-        "c2ed81d474ccd4f7eee831014bc9b3e3644c89c0a9ab73acc5942ec3c0c3420c",
-        "54588ef3fb2212dd1a224435a0900cb66a9a87b276b9d302799173f8393f7ecc",
-        "10fb4894001af4a47f5037f18e323e9e84626e0cdaf3263c6c13a0357f548960",
-        "26be13ec48508de70b832100cab97eedef4c69cad9c6f6633d7c9300e45b0e2c",
-        "21a26c83200eb49dcf509ce4c4cd33cc1834d8ec931888e3fab3f46d0144ecfc",
-        "baac03506148bf05b53d6eefe7f6a2a357e0e9ddb2e91e9753fb7cdeb79e6721",
-        "3b3e57c8df5ebaf5d776af2ce4004a19b37ee03eb106d88d159ed8153cd7eda4"
+        "2b76cbd41b7bd5f8321d04c8c599269bf79c301d020da1c90902639fb42c391e",
+        "2314bb7d0b52841949a55d51442ac2b815f2693113c10ebc21e89bd304b7c188",
+        "06639a69f3a7894ea8001df70ac10a3dd89501788f8eaa3e970538d35f502213",
+        "3132ad9a4ede9f1114789fb9ae831f8ff109dec178395640e005a60ae698e265",
+        "f98aa8c04cd12482767904680083e80ff1311aa8fa55ef27c01ef4488167377a",
+        "ee3615573050cab06a1a01054c4d5ccfee4b377e4933b86a09d9cf0879ab3086",
+        "11ec16f181f23a348cda21e4d828a30e56108b96e27c42800104e1c76deb047c",
+        "025f05249561368b871951564d090548e0be7cdf8eab8e9fca0836545131a41d",
+        "a6f346ecb9b1fedd227223911c5a9cc2ca2ff10e69cdadfe9d3c20afaf2bdf85",
+        "6c90e8c915f044caeb76ff50c6b216379aed026fdaad47948632e2cf76078478",
+        "9fe804d085c9ee5f2fb7c0152b2863043f29432ef2d0ff7e04e75c090e44dd66",
+        "1a25d5a71e930ea33641df05834937e35de79eb564bd3565397c580cad6650b0",
+        "07373b39e86047f96af0cb68371e25af802f71d0a21d56c38778022f844cc3f6",
+        "6f6c68c3777131f519df3a789973d7dd5921d2ed4a5e7a00cc19a34901c9e11b",
+        "15550121f7ffae3a48b9fc7a97c15d836e1e38ae06a31d9e66e8e71d44864492",
+        "b61b63c2ce7a9a86f8d0877041ec5f2b26c044fe7feac689d2f74691c3c9dff6",
+        "a59939a75b0018827881204514f2cd960fa9ad7a080ca1eb48f8b3c5ff7a6692",
+        "344350f421c0c25c6c8bec86df91c3a5a5a94fb8f08cac5a4ba4f72c24439451",
+        "cc25f1a60f094ccb836ca8721633ba284bce60805898338db703b49c385bb053",
+        "4686faf0930cf89e8d2bea06658c8d538b0a7ee86b918762e76e030722b05669",
+        "f902c73df3ba5c12c88ee09fe0b2eaf7973cf5a42e02d7c524395620026cee2b",
+        "eb53448003c24604c2b573c5f0c34c0ee841c93d978c6d9a6fc26918a855cf0f"
       ],
-      "nodes": 14
+      "nodes": 22
     }
   },
   "tree_advanced_between_reads": true,
-  "entries_added_between_reads": 97,
-  "checked_at": "2026-08-02T05:43:57.759086+00:00",
+  "entries_added_between_reads": 2727,
+  "checked_at": "2026-08-23T11:01:32.377160+00:00",
   "must_admit": true,
   "full_admit": true,
   "refuse_limb": null,
@@ -151,6 +159,6 @@
   "should_limbs_failed": [],
   "receipt_filename": "hetu2027.trustasia.com_hetu2027.json",
   "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
-  "ledger_digest": "1e9ae859e742abe6cfb6dabb7e5d337cba88d3f3cc0715ceb8a5a9bdc3821603",
+  "ledger_digest": "f312afab7d28f297e00644ad28331e3fd59dbd3158e6fa1ac367bcafd95551e5",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
 }

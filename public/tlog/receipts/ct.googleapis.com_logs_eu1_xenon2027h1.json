@@ -18,7 +18,7 @@
     "checkpoint_endpoint_answers_without_credentials": {
       "outcome": "ok",
       "status": 200,
-      "bytes": 239
+      "bytes": 240
     },
     "checkpoint_parses_in_its_declared_format": {
       "outcome": "ok",
@@ -26,8 +26,8 @@
     },
     "checkpoint_carries_tree_size_and_root_hash": {
       "outcome": "ok",
-      "tree_size": 97749657,
-      "root_hash": "e6501cf63cfa0ac7dff8d0fde1732a298f2fab957654fa3fabbdae1d5e54a883"
+      "tree_size": 146182491,
+      "root_hash": "6e145c176eedd60201ca1f35c14fd151af9023586cb3ce42d71f2e79d29867b7"
     },
     "checkpoint_carries_a_signature": {
       "outcome": "ok",
@@ -49,18 +49,18 @@
     },
     "prior_batch_checkpoint_on_record": {
       "outcome": "ok",
-      "prior_read_at": "2026-08-02T05:34:41.133617+00:00",
-      "prior_tree_size": 97741932
+      "prior_read_at": "2026-08-02T05:43:48.667428+00:00",
+      "prior_tree_size": 97750595
     },
     "second_read_answered": {
       "outcome": "ok",
-      "tree_size": 97750595
+      "tree_size": 146184412
     },
     "tree_did_not_shrink_between_reads": {
       "outcome": "ok",
-      "first_size": 97749657,
-      "second_size": 97750595,
-      "entries_added": 938
+      "first_size": 146182491,
+      "second_size": 146184412,
+      "entries_added": 1921
     },
     "consistency_proof_served": {
       "outcome": "ok",
@@ -69,8 +69,8 @@
     "consistency_proof_recomputes_to_the_second_root": {
       "outcome": "ok",
       "reason": "both_roots_recomputed",
-      "first_size": 97749657,
-      "second_size": 97750595,
+      "first_size": 146182491,
+      "second_size": 146184412,
       "proof_nodes": 21
     }
   },
@@ -79,15 +79,15 @@
       "url": "https://ct.googleapis.com/logs/eu1/xenon2027h1/ct/v1/get-sth",
       "status": 200,
       "error": null,
-      "bytes": 239,
-      "read_at": "2026-08-02T05:42:48.327692+00:00",
-      "body_sha256": "0e89f26777f3c0d072aa5bb4f24ab2f1b5f3511f30e9988099c4b0cad874ca93",
+      "bytes": 240,
+      "read_at": "2026-08-23T11:00:08.400538+00:00",
+      "body_sha256": "0a6e3d714655c64d8b7d4add72981f3b7063f015bf503d287930bca77aaa06bd",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 97749657,
-      "timestamp": 1785649307826,
+      "tree_size": 146182491,
+      "timestamp": 1787482747821,
       "signature_lines": 1,
-      "root_hash_hex": "e6501cf63cfa0ac7dff8d0fde1732a298f2fab957654fa3fabbdae1d5e54a883",
+      "root_hash_hex": "6e145c176eedd60201ca1f35c14fd151af9023586cb3ce42d71f2e79d29867b7",
       "raw_body": null
     },
     "signature_check": {
@@ -98,57 +98,57 @@
     "prior_batch": {
       "log_key": "ct.googleapis.com/logs/eu1/xenon2027h1",
       "read": "second_read",
-      "read_at": "2026-08-02T05:34:41.133617+00:00",
-      "tree_size": 97741932,
-      "root_hash": "26c7d42794bcef960a8520676c8a5176ad0e0ce90d25e25324a96d21709b1010",
-      "body_sha256": "530b3101b9a0456df035790c1945c37eb77358940bfdd25c06047feecefef035"
+      "read_at": "2026-08-02T05:43:48.667428+00:00",
+      "tree_size": 97750595,
+      "root_hash": "90a41487825cda944195d140c6e52d5b99abb07508becd5c18c3334125a3a2de",
+      "body_sha256": "7a98ce1524ef198864d6803bdad91c3983fa77ef3da5bf7838401c84d47b6498"
     },
     "second_read": {
       "url": "https://ct.googleapis.com/logs/eu1/xenon2027h1/ct/v1/get-sth",
       "status": 200,
       "error": null,
-      "bytes": 239,
-      "read_at": "2026-08-02T05:43:48.667428+00:00",
-      "body_sha256": "7a98ce1524ef198864d6803bdad91c3983fa77ef3da5bf7838401c84d47b6498",
+      "bytes": 240,
+      "read_at": "2026-08-23T11:01:13.995282+00:00",
+      "body_sha256": "eca8438bf410ce2a56814989810a088ced63f8b90115ad2d6fe3742501a0e3fc",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 97750595,
-      "timestamp": 1785649368251,
+      "tree_size": 146184412,
+      "timestamp": 1787482813439,
       "signature_lines": 1,
-      "root_hash_hex": "90a41487825cda944195d140c6e52d5b99abb07508becd5c18c3334125a3a2de"
+      "root_hash_hex": "19e9b9641c270eb096616928e1676ea4699650739e98b839556d15038128f2ac"
     },
     "consistency_request": {
       "served": true,
-      "url": "https://ct.googleapis.com/logs/eu1/xenon2027h1/ct/v1/get-sth-consistency?first=97749657&second=97750595",
+      "url": "https://ct.googleapis.com/logs/eu1/xenon2027h1/ct/v1/get-sth-consistency?first=146182491&second=146184412",
       "proof": [
-        "fc28669a350fdefedd8efd1f9e07dcf7a8ae1ea623507ff626ff937cd4e2cfd8",
-        "7c1a4e8b170da731f3c74a28a4c9f45b3bfb9b8a7c14f6a0b7cd7d8975b35ffb",
-        "eeec96b14d2484a6f0148a30be263f64e7798f731e4128e01c71489c1ebbdc44",
-        "c2d03e8485aa16f3217c770e28482c9f2159c512106fc7794eef91e4e8a04991",
-        "162043a983d91f960b5710593fe0a7ed80ae68eecfbc57f1eb738be2501a53e9",
-        "4a6a18ab4a590e91262c5ea3099f3a1ed692dc5372565fbe30c2ab12a282de49",
-        "45ea8768ea5b56d1051f60c341111b3a70c320c6fbfd4a49bb486c0a2e8772d6",
-        "c58dabcf53f4ffa8f4295cf3ab155b399a4668001a99c1f97742a21456d4d9f4",
-        "39f926a397b3dcce9f2f99940eb53be4c3e3906ed891581789c719aed6222035",
-        "45d328ad62e5a5d3f5d22b9a45491dfee7d9126bf13a4bdf81c69d49f197e7de",
-        "7bb1fb210a7dfc88665266bed5d253477c68b4ff04595fadca595d0781799096",
-        "124151eecad3675fc4810219c37348a4d1787e081ec15e42ec3b455d2ddd0bfa",
-        "64325452ac07d3f46a049226acbe9780277e206f351aedbe4004a288ced44a2f",
-        "58c2da3ba11bfafb003ab42cad95e6ea24b1da7b7340d6a1b4f10622e7444230",
-        "a2f199aa9b0a617851d297a1adf3ea762932b204abf217f09f953c09edfc3adb",
-        "c1979a282ce7e092fa1e1dbd81c2e7d01747eb1a408578810f556dc8f3ec9d47",
-        "09372c44829a5ffb6ffa38f972e6807f943945c1690ac567976d2943bed8e08f",
-        "0cf22ba77c1ed3737999f5e9c3db4bfe713e008183c8c4ba73be747923326d16",
-        "ce68ed88974f408edd4a20246bf3b1fd2d55bf083b8eb9a3641a6a1e0dcfd9d9",
-        "3d3e88841f261f7658a2671b4c7b2b532ce9d7c4b72fb0f806238f0a83b30e81",
-        "ef3319aa6b473666ec17cb78790ca7ed7951f19b0422f1703d8b1fc5b32b4589"
+        "4e3e596baa87b2169d81d1f84906681a95b86b5371f1b38b500e0041d814e50c",
+        "642c92c64f9d6119a02349e782c8800761f985d6590a6136e70f2e614b885319",
+        "4f4b94a968ab41f49d529ace26f92584b07a9fa996f911ae8b3e0b145fe53655",
+        "8d52caa41274981720404da906b52c9e6871c73c6315e4382e71e60d03961590",
+        "9f06841c84ac02cd0c7fd8f9f86af0c52ff44fc2ef04e80a0856cb60709d5712",
+        "293ef487e2751da83660e0c890dacb758daa637c92b182f7d25e1420bba664d6",
+        "a69d59e1f3bc6a1d7cfa1e44ecaedab85579655be2daee976df828be4a89e051",
+        "f35ff511cc2687184e70046c5efe7f3e8d5031e3a61140199fd9576da6c3a4cb",
+        "eebe2ef9199ee49b9747e09394cda010c73e9385e56bb19b95cdaa16b2b21ce4",
+        "5290f2d0e877995dff2181bb78a6d7672200c7832fe6b7e6e3fe56138572326b",
+        "0b79763f84fc87e98ef77a362029bf164016f5fb8896b1c97192696cec440013",
+        "3f7bf13c67aeed511f810df1d5dcab29b5c047f777233532d77c233e6d110e25",
+        "cd97814e616d6c66cd195063bff77d0331fdee93a903426e1a5b131853b8c052",
+        "2fd8a284bf9b9a9b900e42c4f76998d1c3bf502711fcaed58b1a705301fb5d4c",
+        "17202f520d1ece17067772e7f97c720794acdad35a1afe78fdafeb21c357d9c6",
+        "3c0299446000f62a237233daceef624e785f67619b95bc7aa6d7ff1eb6987535",
+        "b03495496602f43941174a3e37048a4fcbafdf260c9a85de50bccc45824b01a4",
+        "8f2d17ca76df808e9343796bb28eb8137df2fee81e1248115f19a4e240590298",
+        "1221636a5ef6b1a71ae76ca171b470c203b37214b9bacb46bcef3998e95650d8",
+        "f226b569026f8b5e102bde7a0ecd4883cd925662ca829ac8a770b20ee8337593",
+        "603deedae033421a704fbcaf271882ef86c383aa33534f2af26b9ea8fd6fe96f"
       ],
       "nodes": 21
     }
   },
   "tree_advanced_between_reads": true,
-  "entries_added_between_reads": 938,
-  "checked_at": "2026-08-02T05:43:57.759013+00:00",
+  "entries_added_between_reads": 1921,
+  "checked_at": "2026-08-23T11:01:32.376759+00:00",
   "must_admit": true,
   "full_admit": true,
   "refuse_limb": null,
@@ -158,6 +158,6 @@
   "should_limbs_failed": [],
   "receipt_filename": "ct.googleapis.com_logs_eu1_xenon2027h1.json",
   "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
-  "ledger_digest": "1e9ae859e742abe6cfb6dabb7e5d337cba88d3f3cc0715ceb8a5a9bdc3821603",
+  "ledger_digest": "f312afab7d28f297e00644ad28331e3fd59dbd3158e6fa1ac367bcafd95551e5",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
 }
