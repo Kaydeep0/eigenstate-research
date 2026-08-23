@@ -2,8 +2,8 @@
 title: "Circle and Coinbase Just Took Renegotiation Off the Table Through 2029. Here Is What That Locks."
 entity: "COINBASE"
 entity_display: "Coinbase"
-date: "August 14, 2026"
-date_iso: "2026-08-14"
+date: "August 23, 2026"
+date_iso: "2026-08-23"
 report_id: "COINBASE_20260812"
 channel: "Money in Motion"
 format: "mim_linkedin_stanton_visual_v1"
@@ -12,7 +12,7 @@ visual: "money-in-motion/coinbase-20260812-mim.png"
 
 # Circle and Coinbase Just Took Renegotiation Off the Table Through 2029. Here Is What That Locks.
 
-*Money in Motion · Eigenstate Research · August 14, 2026*
+*Money in Motion · Eigenstate Research · August 23, 2026*
 
 Circle and Coinbase just took renegotiation off the table. Their USDC commercial agreement auto-renewed on the same terms through 2029. Markets had been pricing a rewrite after Coinbase joined Open USD. Alesia Haas used the July 30 call to kill that ambiguity. The product looks unchanged. The open question is what got locked, and what that lock means while the float, the earnings mix, and the rulebook around them can still move.
 
