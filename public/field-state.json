@@ -1,10 +1,10 @@
 {
   "schema": "eigenstate.pages_sot.v1",
   "sot_definition": "SoT (source of truth) for Host/Pages is the engine measurement state: workspace/HOST/state.json (κ, PT, parkash stamps), M1 coverage from the coverage ledger (m1_strict ∩ topology / 199), and the host predictions register for scored claims. Website tiles must bake from this stamp — not frozen marketing HTML.",
-  "generated_at": "2026-08-23T04:08:56.939061+00:00",
+  "generated_at": "2026-08-23T13:08:02.156513+00:00",
   "sources": {
     "host_ref": "workspace/HOST/state.json",
-    "host_updated_at": "2026-08-23T03:17:44.141536+00:00",
+    "host_updated_at": "2026-08-23T11:05:27.476112+00:00",
     "parkash_last_parkash_at": "2026-08-15T20:30:33.173618+00:00",
     "coverage_sot_stamped_at": "2026-08-15T20:30:33.173615+00:00",
     "coverage_basis": "primary_m1_wire_14",
@@ -38,30 +38,30 @@
   },
   "vault_at_export": {
     "note": "cycle_vault_records.json is a trimmed working buffer. Per-entity counts here are vault@export rows — not M1 lifetime observations.",
-    "total_rows": 64,
+    "total_rows": 65,
     "entities_with_rows": 21,
     "by_entity": {
-      "RWA_AUDIENCE": 8,
       "CABLE": 8,
+      "HIGHWAY": 5,
+      "DEFI_AUDIENCE": 8,
+      "CRYPTO_NATIVE_AUDIENCE": 8,
+      "RWA_AUDIENCE": 8,
       "CIRCLE": 4,
       "SEC": 4,
-      "CRYPTO_NATIVE_AUDIENCE": 8,
-      "FED": 4,
-      "US_TREASURY_DEPARTMENT": 1,
-      "CANTOR_FITZGERALD": 1,
-      "BNY_MELLON": 1,
-      "RING": 4,
-      "HIGHWAY": 5,
-      "DEFI_AUDIENCE": 7,
-      "NATIONAL_CITY_BANK": 1,
-      "ONCHAIN_IS_TRANSPARENT": 1,
-      "BENJAMIN_STRONG": 1,
       "STANDARD_OIL": 1,
       "BASE": 1,
-      "STANI_KULECHOV": 1,
+      "FED": 4,
+      "RING": 3,
       "INSTITUTIONAL_CUSTODY_POOL": 1,
       "MAPLE": 1,
-      "SPARKLEND": 1
+      "OPENZEPPELIN_CONTRACTS": 1,
+      "CUSTODY_IS_SOLVED": 1,
+      "US_JURISDICTION": 1,
+      "STANI_KULECHOV": 1,
+      "REPUTATION": 2,
+      "US_TREASURY_DEPARTMENT": 1,
+      "CANTOR_FITZGERALD": 1,
+      "TETHER_GOLD": 1
     }
   },
   "entity_m1_obs_counts": {
@@ -945,9 +945,9 @@
     }
   ],
   "helix": {
-    "index": 3892,
+    "index": 3906,
     "fingerprint_prefix": null,
-    "n_entries": 3893,
+    "n_entries": 3907,
     "note": "Local helix chain tip at export — on-chain commits remain gated."
   },
   "meta": {
