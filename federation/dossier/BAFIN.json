@@ -1,8 +1,8 @@
 {
   "entity": "BAFIN",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:31.038828+00:00",
-  "digest": "sha256:9b780eed6f66622fb2c0bfe2714d0e447beb89dc2e909235ed16715726dfb3d4",
+  "compiled_at": "2026-08-23T18:36:37.919047+00:00",
+  "digest": "sha256:e7b5eb9ae102b405d8eefcd8dc9e498220744a9775a8f81582185311edf0e416",
   "own_numbers": {
     "phi_s": 1.6341,
     "kappa": 0.0,
@@ -87,7 +87,15 @@
       }
     ]
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "GERMAN_FINANCIAL_SUPERVISION",
+      "role": "regulator",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.bafin.de/EN/Homepage/homepage_node.html"
+    }
+  ],
   "monetary_position": {
     "position": 0.5,
     "well": "fiat"
@@ -214,9 +222,46 @@
   "locate": {
     "entity": "BAFIN",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "regulator",
+        "product_id": "GERMAN_FINANCIAL_SUPERVISION",
+        "sigma_key": "sigma_division",
+        "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+        "classify_action": "limiter_protect",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.bafin.de/EN/Homepage/homepage_node.html",
+        "cite": {
+          "kind": "map_role",
+          "id": "BAFIN:GERMAN_FINANCIAL_SUPERVISION:regulator",
+          "cite_class": "citeable",
+          "package_hash": "65d8154520a8b4681e81b81cacd06f1ea99ece6a6fcca8b2eaf134dfb5f3d203",
+          "package": {
+            "kind": "map_role",
+            "id": "BAFIN:GERMAN_FINANCIAL_SUPERVISION:regulator",
+            "entity": "BAFIN",
+            "product_id": "GERMAN_FINANCIAL_SUPERVISION",
+            "locate_role": "regulator",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.bafin.de/EN/Homepage/homepage_node.html",
+            "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+            "classify_action": "limiter_protect",
+            "sigma_key": "sigma_division",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

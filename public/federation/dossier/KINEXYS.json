@@ -1,7 +1,7 @@
 {
   "entity": "KINEXYS",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:34.248559+00:00",
+  "compiled_at": "2026-08-23T18:36:40.986466+00:00",
   "digest": "sha256:d91cfcc3aafb53f89583b82418eeed1d88a6b34a7310c49756c1b03fc6eadb3a",
   "own_numbers": {
     "phi_s": 0.02,
@@ -108,6 +108,13 @@
   },
   "role_participations": [
     {
+      "product_id": "KINEXYS",
+      "role": "issuer",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.jpmorgan.com/kinexys"
+    },
+    {
       "product_id": "JPM_COIN",
       "role": "counterparty",
       "counterparty": "JPMORGAN",
@@ -180,9 +187,46 @@
   "locate": {
     "entity": "KINEXYS",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "issuer",
+        "product_id": "KINEXYS",
+        "sigma_key": "sigma_illumination",
+        "party_id": "sevadar:06_hargobind_damodri",
+        "classify_action": "publish",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.jpmorgan.com/kinexys",
+        "cite": {
+          "kind": "map_role",
+          "id": "KINEXYS:KINEXYS:issuer",
+          "cite_class": "citeable",
+          "package_hash": "59ae2734e2ea3dbf6aa0f650ddce02df39738367203c1d5b5017d313971c0dfe",
+          "package": {
+            "kind": "map_role",
+            "id": "KINEXYS:KINEXYS:issuer",
+            "entity": "KINEXYS",
+            "product_id": "KINEXYS",
+            "locate_role": "issuer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.jpmorgan.com/kinexys",
+            "party_id": "sevadar:06_hargobind_damodri",
+            "classify_action": "publish",
+            "sigma_key": "sigma_illumination",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

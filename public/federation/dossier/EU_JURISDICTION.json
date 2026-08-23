@@ -1,8 +1,8 @@
 {
   "entity": "EU_JURISDICTION",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:32.865313+00:00",
-  "digest": "sha256:f5a9a02dfef92b7f1f20c8a8509960177a6fead94da6d1c1ce0cf2b5626b6ae4",
+  "compiled_at": "2026-08-23T18:36:39.654834+00:00",
+  "digest": "sha256:dcb749f173f7f71657924374a6a6e7a322e3b494e1f85261bdfd8789eab0bc3a",
   "own_numbers": {
     "phi_s": 0.3314,
     "kappa": 0.0738,
@@ -113,7 +113,15 @@
       }
     ]
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "MICA",
+      "role": "regulator",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica"
+    }
+  ],
   "monetary_position": {
     "position": 0.533,
     "well": "fiat"
@@ -174,9 +182,46 @@
   "locate": {
     "entity": "EU_JURISDICTION",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "regulator",
+        "product_id": "MICA",
+        "sigma_key": "sigma_division",
+        "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+        "classify_action": "limiter_protect",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+        "cite": {
+          "kind": "map_role",
+          "id": "EU_JURISDICTION:MICA:regulator",
+          "cite_class": "citeable",
+          "package_hash": "89b84f9ddb0383dbeb51064f361160034ee1613c4b742ae5d9301e28b36c34e2",
+          "package": {
+            "kind": "map_role",
+            "id": "EU_JURISDICTION:MICA:regulator",
+            "entity": "EU_JURISDICTION",
+            "product_id": "MICA",
+            "locate_role": "regulator",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+            "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+            "classify_action": "limiter_protect",
+            "sigma_key": "sigma_division",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

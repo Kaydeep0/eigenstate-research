@@ -1,7 +1,7 @@
 {
   "entity": "AAVE_GOVERNANCE",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:30.800898+00:00",
+  "compiled_at": "2026-08-23T18:36:37.678081+00:00",
   "digest": "sha256:a5da3ef95082bb216492d9bf4aa35e69943acff2d8f167c32a2dfdda3b8ffb00",
   "own_numbers": {
     "phi_s": 1.6181,
@@ -87,7 +87,15 @@
     ],
     "gravity_pairs": []
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "AAVE_PROTOCOL",
+      "role": "manager",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://governance.aave.com/"
+    }
+  ],
   "monetary_position": {
     "position": 0.5,
     "well": "fiat"
@@ -203,9 +211,46 @@
   "locate": {
     "entity": "AAVE_GOVERNANCE",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "manager",
+        "product_id": "AAVE_PROTOCOL",
+        "sigma_key": "sigma_gravitation",
+        "party_id": "sevadar:01_nanak_sulakhni",
+        "classify_action": "vault_persistence",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://governance.aave.com/",
+        "cite": {
+          "kind": "map_role",
+          "id": "AAVE_GOVERNANCE:AAVE_PROTOCOL:manager",
+          "cite_class": "citeable",
+          "package_hash": "909647bb0a1c3f78154f5e2a0437b1e7d8607b89461f68dba411d966d1b24d7e",
+          "package": {
+            "kind": "map_role",
+            "id": "AAVE_GOVERNANCE:AAVE_PROTOCOL:manager",
+            "entity": "AAVE_GOVERNANCE",
+            "product_id": "AAVE_PROTOCOL",
+            "locate_role": "manager",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://governance.aave.com/",
+            "party_id": "sevadar:01_nanak_sulakhni",
+            "classify_action": "vault_persistence",
+            "sigma_key": "sigma_gravitation",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

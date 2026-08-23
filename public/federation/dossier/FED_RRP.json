@@ -1,6 +1,225 @@
 {
   "entity": "FED_RRP",
-  "kind": "measurement_join_only",
+  "node": "34539544",
+  "compiled_at": "2026-08-23T18:36:39.897357+00:00",
+  "digest": "sha256:7f439e2e7b2796859fbd69f6b83bc7d289d192f8d5356724067547e0211dec3d",
+  "own_numbers": {
+    "phi_s": 0.04,
+    "kappa": 0.0369,
+    "mass": null,
+    "power": 0.0,
+    "extraction": 1554.2857,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": null,
+    "power": {
+      "value": 0.0,
+      "rank": 19,
+      "of": 34
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 1554.2857,
+      "rank": 27,
+      "of": 34
+    },
+    "share_of_whole": {
+      "mass": null,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "FARCASTER",
+        "power": 0.0
+      },
+      {
+        "entity": "FED",
+        "power": 0.0
+      },
+      {
+        "entity": "FED_RRP",
+        "power": 0.0
+      },
+      {
+        "entity": "JAMIE_DIMON",
+        "power": 0.0
+      },
+      {
+        "entity": "KINEXYS",
+        "power": 0.0
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 2,
+    "out_degree": 1,
+    "by_vector": {
+      "Capital": {
+        "out": 0.5,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.5
+      },
+      "Information": {
+        "out": 0.0,
+        "in": 0.5
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "FED",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "TREASURY_MARKET",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "STABLECOIN_POOL",
+        "conn_type": "capital",
+        "vector": "Capital"
+      }
+    ],
+    "gravity_pairs": []
+  },
+  "role_participations": [
+    {
+      "product_id": "FED_RRP",
+      "role": "repo_counterparty",
+      "counterparty": "TREASURY_MARKET",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.federalreserve.gov/"
+    },
+    {
+      "product_id": "STABLECOIN_RESERVES",
+      "role": "repo_counterparty",
+      "counterparty": "STABLECOIN_POOL",
+      "disclosure_level": "ATTESTED-DERIVED",
+      "source_url": null
+    }
+  ],
+  "monetary_position": {
+    "position": 0.567,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "steady",
+    "headline": null,
+    "cycles": 74,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "power": 0.0,
+      "extraction": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "stale",
+    "inbound": [],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": null,
+      "last_observed_at": null,
+      "last_delta_i": null,
+      "stale": true
+    }
+  },
+  "locate": {
+    "entity": "FED_RRP",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "repo_counterparty",
+        "product_id": "FED_RRP",
+        "sigma_key": "sigma_transportation",
+        "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+        "classify_action": "settlement_path",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": true,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.federalreserve.gov/",
+        "cite": {
+          "kind": "map_role",
+          "id": "FED_RRP:FED_RRP:repo_counterparty",
+          "cite_class": "citeable",
+          "package_hash": "cf3cdc54a950f5d6464d4135db8dce57ad93b930a66d60619736710a9c97c689",
+          "package": {
+            "kind": "map_role",
+            "id": "FED_RRP:FED_RRP:repo_counterparty",
+            "entity": "FED_RRP",
+            "product_id": "FED_RRP",
+            "locate_role": "repo_counterparty",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.federalreserve.gov/",
+            "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+            "classify_action": "settlement_path",
+            "sigma_key": "sigma_transportation",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": true,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
+  },
+  "last_observation": {
+    "available": false,
+    "entity": "FED_RRP",
+    "confidence": "CONFIRMED",
+    "m1_strict": true,
+    "not_claim_attested": true,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "surge_domain": "progression",
+    "sigma_key": "sigma_progression",
+    "party_id": "sevadar:05_arjan_ganga",
+    "classify_action": "observe",
+    "bindable": true,
+    "bound": false,
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "reason": "No CONFIRMED m1_strict coverage_ledger row for this entity."
+  },
   "measurement_join": {
     "available": true,
     "entity": "FED_RRP",
@@ -22,6 +241,5 @@
     "auto_dual_ack": false,
     "sot": "data/measurement_links.json",
     "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
-  },
-  "note": "Thin metalayer card \u2014 not a full federation build-target dossier. measurement_join SoT only (delta_i=0)."
+  }
 }

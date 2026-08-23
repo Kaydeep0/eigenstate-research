@@ -1,8 +1,8 @@
 {
   "entity": "ETHEREUM",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:32.839039+00:00",
-  "digest": "sha256:b3afc2415c158a134719d602c43950af2a6fa9defb18e4d1bd9349d89d92aa52",
+  "compiled_at": "2026-08-23T18:36:39.628988+00:00",
+  "digest": "sha256:ee11be8ddc7d066e4445352014845cc47e13a859d53509cfa792bfc52a8f9ab1",
   "own_numbers": {
     "phi_s": 3.2562,
     "kappa": 0.0001,
@@ -122,6 +122,13 @@
     "gravity_pairs": []
   },
   "role_participations": [
+    {
+      "product_id": "ETH_L1",
+      "role": "transfer_agent",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://ethereum.org/en/developers/docs/intro-to-ethereum/"
+    },
     {
       "product_id": "TOKENIZED_TREASURY",
       "role": "counterparty",
@@ -268,9 +275,46 @@
   "locate": {
     "entity": "ETHEREUM",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "transfer_agent",
+        "product_id": "ETH_L1",
+        "sigma_key": "sigma_transportation",
+        "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+        "classify_action": "settlement_path",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": true,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://ethereum.org/en/developers/docs/intro-to-ethereum/",
+        "cite": {
+          "kind": "map_role",
+          "id": "ETHEREUM:ETH_L1:transfer_agent",
+          "cite_class": "citeable",
+          "package_hash": "07ab27e74afba50378901cd2b32eff26f454b4e9adb7662857301121f15b517b",
+          "package": {
+            "kind": "map_role",
+            "id": "ETHEREUM:ETH_L1:transfer_agent",
+            "entity": "ETHEREUM",
+            "product_id": "ETH_L1",
+            "locate_role": "transfer_agent",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://ethereum.org/en/developers/docs/intro-to-ethereum/",
+            "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+            "classify_action": "settlement_path",
+            "sigma_key": "sigma_transportation",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": true,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

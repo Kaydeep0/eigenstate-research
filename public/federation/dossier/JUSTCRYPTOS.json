@@ -1,7 +1,7 @@
 {
   "entity": "JUSTCRYPTOS",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:34.176853+00:00",
+  "compiled_at": "2026-08-23T18:36:40.916010+00:00",
   "digest": "sha256:541ab996a19509d71d16230a54e5a8da9bdb00c434ffd3031e876300c51334ff",
   "own_numbers": {
     "phi_s": 1.6181,
@@ -50,7 +50,15 @@
     "top_outbound": [],
     "gravity_pairs": []
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "JUSTCRYPTOS",
+      "role": "issuer",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://defillama.com/protocol/justcryptos"
+    }
+  ],
   "monetary_position": null,
   "drift": {
     "level": "steady",
@@ -157,9 +165,46 @@
   "locate": {
     "entity": "JUSTCRYPTOS",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "issuer",
+        "product_id": "JUSTCRYPTOS",
+        "sigma_key": "sigma_illumination",
+        "party_id": "sevadar:06_hargobind_damodri",
+        "classify_action": "publish",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://defillama.com/protocol/justcryptos",
+        "cite": {
+          "kind": "map_role",
+          "id": "JUSTCRYPTOS:JUSTCRYPTOS:issuer",
+          "cite_class": "citeable",
+          "package_hash": "b74a7583858a4a28cd3babec9220caf6f0aa51761d0088d99f452963a898901b",
+          "package": {
+            "kind": "map_role",
+            "id": "JUSTCRYPTOS:JUSTCRYPTOS:issuer",
+            "entity": "JUSTCRYPTOS",
+            "product_id": "JUSTCRYPTOS",
+            "locate_role": "issuer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://defillama.com/protocol/justcryptos",
+            "party_id": "sevadar:06_hargobind_damodri",
+            "classify_action": "publish",
+            "sigma_key": "sigma_illumination",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

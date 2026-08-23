@@ -1,7 +1,7 @@
 {
   "entity": "FINRA",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:33.199981+00:00",
+  "compiled_at": "2026-08-23T18:36:39.991824+00:00",
   "digest": "sha256:08d5b5ff800a14cac335ae82cf03028c76355a116d90d39ba224e597965e49ad",
   "own_numbers": {
     "phi_s": 0.064,
@@ -107,7 +107,15 @@
       }
     ]
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "US_BROKER_DEALER",
+      "role": "regulator",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.finra.org/about"
+    }
+  ],
   "monetary_position": {
     "position": 0.81,
     "well": "fiat"
@@ -169,9 +177,46 @@
   "locate": {
     "entity": "FINRA",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "regulator",
+        "product_id": "US_BROKER_DEALER",
+        "sigma_key": "sigma_division",
+        "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+        "classify_action": "limiter_protect",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.finra.org/about",
+        "cite": {
+          "kind": "map_role",
+          "id": "FINRA:US_BROKER_DEALER:regulator",
+          "cite_class": "citeable",
+          "package_hash": "6d9c5da89e6f00c4007fa9781b84b0e810185d712a27f4cfb7d53df817a144bc",
+          "package": {
+            "kind": "map_role",
+            "id": "FINRA:US_BROKER_DEALER:regulator",
+            "entity": "FINRA",
+            "product_id": "US_BROKER_DEALER",
+            "locate_role": "regulator",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.finra.org/about",
+            "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+            "classify_action": "limiter_protect",
+            "sigma_key": "sigma_division",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

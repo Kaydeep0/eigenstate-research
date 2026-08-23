@@ -1,7 +1,7 @@
 {
   "entity": "DTCC",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:32.694075+00:00",
+  "compiled_at": "2026-08-23T18:36:39.483496+00:00",
   "digest": "sha256:8f537cc083ca1cf2df51b8732169b317e9887e65b30a23697c9947fd9eaad73e",
   "own_numbers": {
     "phi_s": 1.6181,
@@ -93,6 +93,13 @@
     "gravity_pairs": []
   },
   "role_participations": [
+    {
+      "product_id": "FICC",
+      "role": "transfer_agent",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.dtcc.com/about/businesses-and-subsidiaries/ficc"
+    },
     {
       "product_id": "US_TREASURY",
       "role": "counterparty",
@@ -240,9 +247,46 @@
   "locate": {
     "entity": "DTCC",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "transfer_agent",
+        "product_id": "FICC",
+        "sigma_key": "sigma_transportation",
+        "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+        "classify_action": "settlement_path",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": true,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.dtcc.com/about/businesses-and-subsidiaries/ficc",
+        "cite": {
+          "kind": "map_role",
+          "id": "DTCC:FICC:transfer_agent",
+          "cite_class": "citeable",
+          "package_hash": "22dbae36054f3ef67acd68fdf1e7b9125b704ca0717043822ec83347fa241413",
+          "package": {
+            "kind": "map_role",
+            "id": "DTCC:FICC:transfer_agent",
+            "entity": "DTCC",
+            "product_id": "FICC",
+            "locate_role": "transfer_agent",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.dtcc.com/about/businesses-and-subsidiaries/ficc",
+            "party_id": "sevadar:08_har_krishan_kishan_kaur_mother",
+            "classify_action": "settlement_path",
+            "sigma_key": "sigma_transportation",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": true,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

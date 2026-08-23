@@ -1,7 +1,7 @@
 {
   "entity": "COMPOUND_GOVERNANCE",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:32.206081+00:00",
+  "compiled_at": "2026-08-23T18:36:39.026314+00:00",
   "digest": "sha256:4839b2773003a731bd455d6ba57a7e4bf09cff6ee8fa121e90c0f4044f5914f2",
   "own_numbers": {
     "phi_s": 1.6181,
@@ -66,7 +66,15 @@
     "top_outbound": [],
     "gravity_pairs": []
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "COMPOUND_PROTOCOL",
+      "role": "manager",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://compound.finance/governance"
+    }
+  ],
   "monetary_position": {
     "position": 0.5,
     "well": "fiat"
@@ -182,9 +190,46 @@
   "locate": {
     "entity": "COMPOUND_GOVERNANCE",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "manager",
+        "product_id": "COMPOUND_PROTOCOL",
+        "sigma_key": "sigma_gravitation",
+        "party_id": "sevadar:01_nanak_sulakhni",
+        "classify_action": "vault_persistence",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://compound.finance/governance",
+        "cite": {
+          "kind": "map_role",
+          "id": "COMPOUND_GOVERNANCE:COMPOUND_PROTOCOL:manager",
+          "cite_class": "citeable",
+          "package_hash": "71473e55500d6c31bb5b8a66f7857076b25d596e296acf7df90eb6ca482f3622",
+          "package": {
+            "kind": "map_role",
+            "id": "COMPOUND_GOVERNANCE:COMPOUND_PROTOCOL:manager",
+            "entity": "COMPOUND_GOVERNANCE",
+            "product_id": "COMPOUND_PROTOCOL",
+            "locate_role": "manager",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://compound.finance/governance",
+            "party_id": "sevadar:01_nanak_sulakhni",
+            "classify_action": "vault_persistence",
+            "sigma_key": "sigma_gravitation",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

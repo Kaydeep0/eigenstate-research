@@ -1,8 +1,8 @@
 {
   "entity": "COINBASE",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:32.016121+00:00",
-  "digest": "sha256:1527c9ff5893675f0b11e847119b1c9930d614bf5b759da94199c5464b625bae",
+  "compiled_at": "2026-08-23T18:36:38.832048+00:00",
+  "digest": "sha256:9e6ed74b5e5c7b2d07ed9245ebd8c72962b4fe7c95c5983032b126a3cb3294cb",
   "own_numbers": {
     "phi_s": 6.5107,
     "kappa": 0.0002,
@@ -163,6 +163,13 @@
     ]
   },
   "role_participations": [
+    {
+      "product_id": "COINBASE_PRIME",
+      "role": "custodian",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.coinbase.com/prime"
+    },
     {
       "product_id": "BASE_L2",
       "role": "validator",
@@ -352,9 +359,45 @@
   "locate": {
     "entity": "COINBASE",
     "routing": "index_locate_classify",
-    "n": 1,
-    "bindable_n": 0,
+    "n": 2,
+    "bindable_n": 1,
     "domains": [
+      {
+        "locate_role": "custodian",
+        "product_id": "COINBASE_PRIME",
+        "sigma_key": "sigma_adhesion",
+        "party_id": "sevadar:02_angad_khivi",
+        "classify_action": "formalize_counterparty",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.coinbase.com/prime",
+        "cite": {
+          "kind": "map_role",
+          "id": "COINBASE:COINBASE_PRIME:custodian",
+          "cite_class": "citeable",
+          "package_hash": "ce9f608289d11d11b4ae830e0da444ec6b261cb8a4f4575c21adce7f70fb43f8",
+          "package": {
+            "kind": "map_role",
+            "id": "COINBASE:COINBASE_PRIME:custodian",
+            "entity": "COINBASE",
+            "product_id": "COINBASE_PRIME",
+            "locate_role": "custodian",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.coinbase.com/prime",
+            "party_id": "sevadar:02_angad_khivi",
+            "classify_action": "formalize_counterparty",
+            "sigma_key": "sigma_adhesion",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      },
       {
         "locate_role": "validator",
         "product_id": "BASE_L2",

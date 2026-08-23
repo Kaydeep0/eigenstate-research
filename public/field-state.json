@@ -1,7 +1,7 @@
 {
   "schema": "eigenstate.pages_sot.v1",
   "sot_definition": "SoT (source of truth) for Host/Pages is the engine measurement state: workspace/HOST/state.json (κ, PT, parkash stamps), M1 coverage from the coverage ledger (m1_strict ∩ topology / 199), and the host predictions register for scored claims. Website tiles must bake from this stamp — not frozen marketing HTML.",
-  "generated_at": "2026-08-23T17:59:23.285980+00:00",
+  "generated_at": "2026-08-23T18:36:31.322882+00:00",
   "sources": {
     "host_ref": "workspace/HOST/state.json",
     "host_updated_at": "2026-08-23T17:12:55.514197+00:00",
@@ -38,31 +38,31 @@
   },
   "vault_at_export": {
     "note": "cycle_vault_records.json is a trimmed working buffer. Per-entity counts here are vault@export rows — not M1 lifetime observations.",
-    "total_rows": 65,
+    "total_rows": 70,
     "entities_with_rows": 22,
     "by_entity": {
-      "FED": 7,
-      "RING": 7,
+      "CABLE": 7,
+      "HIGHWAY": 4,
+      "DEFI_AUDIENCE": 7,
       "CRYPTO_NATIVE_AUDIENCE": 7,
+      "RWA_AUDIENCE": 7,
+      "FED": 6,
+      "RING": 6,
       "CUSTODY_IS_SOLVED": 1,
       "INSTITUTIONAL_CUSTODY_POOL": 1,
       "ONCHAIN_IS_TRANSPARENT": 1,
-      "SEC": 4,
+      "SEC": 3,
       "CITI_TREASURY_SERVICES": 3,
       "STABLECOIN_POOL": 3,
-      "CABLE": 6,
-      "HIGHWAY": 4,
-      "DEFI_AUDIENCE": 6,
-      "RWA_AUDIENCE": 6,
       "STANDARD_OIL": 1,
       "US_TREASURY_DEPARTMENT": 1,
-      "STANI_KULECHOV": 1,
+      "BNY_MELLON": 1,
+      "AAVE_V3": 2,
       "NATIONAL_CITY_BANK": 1,
       "MAPLE": 1,
-      "BASE": 1,
-      "US_JURISDICTION": 1,
-      "CANTOR_FITZGERALD": 1,
-      "HOST": 1
+      "STANI_KULECHOV": 1,
+      "FEDERATION": 3,
+      "IBKR": 3
     }
   },
   "entity_m1_obs_counts": {
@@ -797,11 +797,175 @@
       }
     ]
   },
-  "top_entities_by_phi_s": [],
+  "top_entities_by_phi_s": [
+    {
+      "entity": "CIRCLE",
+      "display": "Circle",
+      "phi_s": 9.7733,
+      "kappa": 0.0007,
+      "display_kind": "issuer_protocol",
+      "facet_label": "Issuers / Protocols",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "TETHER",
+      "display": "Tether",
+      "phi_s": 6.5561,
+      "kappa": 0.0086,
+      "display_kind": "issuer_protocol",
+      "facet_label": "Issuers / Protocols",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "COINBASE",
+      "display": "Coinbase",
+      "phi_s": 6.5107,
+      "kappa": 0.0002,
+      "display_kind": "issuer_protocol",
+      "facet_label": "Issuers / Protocols",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "UNISWAP",
+      "display": "Uniswap DEX",
+      "phi_s": 6.4925,
+      "kappa": 0.0086,
+      "display_kind": "issuer_protocol",
+      "facet_label": "Issuers / Protocols",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "BLACKROCK",
+      "display": "BlackRock",
+      "phi_s": 4.9047,
+      "kappa": 0.0,
+      "display_kind": "institution",
+      "facet_label": "Institutions",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "ONDO",
+      "display": "Ondo Finance",
+      "phi_s": 4.8787,
+      "kappa": 0.0,
+      "display_kind": "issuer_protocol",
+      "facet_label": "Issuers / Protocols",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "PAXOS",
+      "display": "PAXOS",
+      "phi_s": 4.8744,
+      "kappa": 0.0,
+      "display_kind": "other",
+      "facet_label": "Other",
+      "display_role": "other",
+      "role_label": "Other"
+    },
+    {
+      "entity": "REG_D",
+      "display": "Regulation D Exemption",
+      "phi_s": 3.2842,
+      "kappa": 0.0,
+      "display_kind": "rule_framework",
+      "facet_label": "Rule frameworks",
+      "display_role": "rule_framework",
+      "role_label": "Rule frameworks",
+      "kind_note": "regulation / exemption framework"
+    },
+    {
+      "entity": "REG_S",
+      "display": "Regulation S Exemption",
+      "phi_s": 3.2842,
+      "kappa": 0.0,
+      "display_kind": "rule_framework",
+      "facet_label": "Rule frameworks",
+      "display_role": "rule_framework",
+      "role_label": "Rule frameworks",
+      "kind_note": "regulation / exemption framework"
+    },
+    {
+      "entity": "JPMORGAN",
+      "display": "JPMorgan Chase",
+      "phi_s": 3.2598,
+      "kappa": 0.0,
+      "display_kind": "institution",
+      "facet_label": "Institutions",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "ETHEREUM",
+      "display": "Ethereum L1",
+      "phi_s": 3.2562,
+      "kappa": 0.0001,
+      "display_kind": "chain",
+      "facet_label": "Chains",
+      "display_role": "rail",
+      "role_label": "Rails"
+    },
+    {
+      "entity": "MORPHO",
+      "display": "Morpho Lending",
+      "phi_s": 3.2562,
+      "kappa": 0.0031,
+      "display_kind": "other",
+      "facet_label": "Other",
+      "display_role": "other",
+      "role_label": "Other"
+    },
+    {
+      "entity": "RIPPLE",
+      "display": "RIPPLE",
+      "phi_s": 3.2362,
+      "kappa": 0.3388,
+      "display_kind": "issuer_protocol",
+      "facet_label": "Issuers / Protocols",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "SEC",
+      "display": "Securities and Exchange Commission",
+      "phi_s": 2.9249,
+      "kappa": 0.0005,
+      "display_kind": "regulator",
+      "facet_label": "Regulators",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "US_JURISDICTION",
+      "display": "United States Jurisdiction",
+      "phi_s": 2.5971,
+      "kappa": 0.0001,
+      "display_kind": "regulator",
+      "facet_label": "Regulators",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "MICA",
+      "display": "Markets in Crypto Assets Regulation",
+      "phi_s": 1.7141,
+      "kappa": 0.0,
+      "display_kind": "rule_framework",
+      "facet_label": "Rule frameworks",
+      "display_role": "rule_framework",
+      "role_label": "Rule frameworks",
+      "kind_note": "regulation / exemption framework"
+    }
+  ],
   "helix": {
-    "index": 4298,
+    "index": 4307,
     "fingerprint_prefix": null,
-    "n_entries": 4299,
+    "n_entries": 4308,
     "note": "Local helix chain tip at export — on-chain commits remain gated."
   },
   "meta": {

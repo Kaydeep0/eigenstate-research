@@ -1,8 +1,8 @@
 {
   "entity": "BACKED",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:31.015329+00:00",
-  "digest": "sha256:2e46d5807b560891653d2e1a440ed392aeca466ef4171904874c8f3939d1f1c5",
+  "compiled_at": "2026-08-23T18:36:37.893403+00:00",
+  "digest": "sha256:3f45b004052397d185bf78b53c38325231ef657e5c4984a923c1d2a5afd1f14c",
   "own_numbers": {
     "phi_s": 1.6381,
     "kappa": 0.0009,
@@ -67,7 +67,15 @@
     ],
     "gravity_pairs": []
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "BACKED_TOKENIZED",
+      "role": "issuer",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://backed.fi/"
+    }
+  ],
   "monetary_position": {
     "position": 0.433,
     "well": "fiat"
@@ -109,8 +117,8 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-08-23T16:37:44.480275+00:00",
-      "last_delta_i": 5.335323266908058e+186,
+      "last_observed_at": "2026-08-23T18:34:08.930882+00:00",
+      "last_delta_i": 8.456256156542239e+187,
       "stale": false
     }
   },
@@ -183,9 +191,46 @@
   "locate": {
     "entity": "BACKED",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "issuer",
+        "product_id": "BACKED_TOKENIZED",
+        "sigma_key": "sigma_illumination",
+        "party_id": "sevadar:06_hargobind_damodri",
+        "classify_action": "publish",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://backed.fi/",
+        "cite": {
+          "kind": "map_role",
+          "id": "BACKED:BACKED_TOKENIZED:issuer",
+          "cite_class": "citeable",
+          "package_hash": "4b7655e55f5033c4aaed098db3b7faa44e11f107953f6a5b349fb490c6d0934b",
+          "package": {
+            "kind": "map_role",
+            "id": "BACKED:BACKED_TOKENIZED:issuer",
+            "entity": "BACKED",
+            "product_id": "BACKED_TOKENIZED",
+            "locate_role": "issuer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://backed.fi/",
+            "party_id": "sevadar:06_hargobind_damodri",
+            "classify_action": "publish",
+            "sigma_key": "sigma_illumination",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

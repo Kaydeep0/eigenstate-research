@@ -1,8 +1,8 @@
 {
   "entity": "JFSA",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:34.103485+00:00",
-  "digest": "sha256:5f7428595c78b906d19c88aed083b1f03c519f4ee47fda5ac84541a08c4d508c",
+  "compiled_at": "2026-08-23T18:36:40.842163+00:00",
+  "digest": "sha256:3dd7f4390c001b983cce460b3aba194e9dd115d4bd419ebf775fd81751624d52",
   "own_numbers": {
     "phi_s": 1.6421,
     "kappa": 0.0,
@@ -87,7 +87,15 @@
       }
     ]
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "JAPAN_FSA",
+      "role": "regulator",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.fsa.go.jp/en/"
+    }
+  ],
   "monetary_position": {
     "position": 0.5,
     "well": "fiat"
@@ -214,9 +222,46 @@
   "locate": {
     "entity": "JFSA",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "regulator",
+        "product_id": "JAPAN_FSA",
+        "sigma_key": "sigma_division",
+        "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+        "classify_action": "limiter_protect",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.fsa.go.jp/en/",
+        "cite": {
+          "kind": "map_role",
+          "id": "JFSA:JAPAN_FSA:regulator",
+          "cite_class": "citeable",
+          "package_hash": "a2d2057a101026a27155c1b5fc98b6c4ed0f8c3cefe0d9d91e08aaa8a2dbb610",
+          "package": {
+            "kind": "map_role",
+            "id": "JFSA:JAPAN_FSA:regulator",
+            "entity": "JFSA",
+            "product_id": "JAPAN_FSA",
+            "locate_role": "regulator",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.fsa.go.jp/en/",
+            "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+            "classify_action": "limiter_protect",
+            "sigma_key": "sigma_division",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

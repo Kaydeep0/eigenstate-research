@@ -1,7 +1,7 @@
 {
   "entity": "FARCASTER",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:32.936885+00:00",
+  "compiled_at": "2026-08-23T18:36:39.725890+00:00",
   "digest": "sha256:0a279a02cd0d15e0149dff9b05fe2f7bbe97b215076f481951640811434281c0",
   "own_numbers": {
     "phi_s": 1.6381,
@@ -131,7 +131,15 @@
     ],
     "gravity_pairs": []
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "FARCASTER_PROTOCOL",
+      "role": "distributor",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.farcaster.xyz/"
+    }
+  ],
   "monetary_position": {
     "position": 0.5,
     "well": "fiat"
@@ -249,9 +257,46 @@
   "locate": {
     "entity": "FARCASTER",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "distributor",
+        "product_id": "FARCASTER_PROTOCOL",
+        "sigma_key": "sigma_division",
+        "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+        "classify_action": "distribute",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.farcaster.xyz/",
+        "cite": {
+          "kind": "map_role",
+          "id": "FARCASTER:FARCASTER_PROTOCOL:distributor",
+          "cite_class": "citeable",
+          "package_hash": "d07bd49b0dbcf43460d5ce7da3cb7688448b7eb0771d1590ae5a86977052eed3",
+          "package": {
+            "kind": "map_role",
+            "id": "FARCASTER:FARCASTER_PROTOCOL:distributor",
+            "entity": "FARCASTER",
+            "product_id": "FARCASTER_PROTOCOL",
+            "locate_role": "distributor",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.farcaster.xyz/",
+            "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+            "classify_action": "distribute",
+            "sigma_key": "sigma_division",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

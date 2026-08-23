@@ -1,6 +1,387 @@
 {
   "entity": "ONDO",
-  "kind": "measurement_join_only",
+  "node": "34539544",
+  "compiled_at": "2026-08-23T18:36:41.596088+00:00",
+  "digest": "sha256:a09cb324b2224ed13cd2480a579c1ee15f1133f9e56b4b304b37040d4ce8190b",
+  "own_numbers": {
+    "phi_s": 4.8787,
+    "kappa": 0.0,
+    "mass": 0.172049,
+    "power": 0.0,
+    "extraction": 1366.8571,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.172049,
+      "rank": 15,
+      "of": 199
+    },
+    "power": {
+      "value": 0.0,
+      "rank": 25,
+      "of": 34
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 1366.8571,
+      "rank": 30,
+      "of": 34
+    },
+    "share_of_whole": {
+      "mass": 0.01313,
+      "power": 0.0
+    },
+    "peers_by_power": [
+      {
+        "entity": "MAPLE",
+        "power": 0.0
+      },
+      {
+        "entity": "NATIONAL_CITY_BANK",
+        "power": 0.0
+      },
+      {
+        "entity": "ONDO",
+        "power": 0.0
+      },
+      {
+        "entity": "OUSG",
+        "power": 0.0
+      },
+      {
+        "entity": "ROBERT_LESHNER",
+        "power": 0.0
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 8,
+    "out_degree": 6,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.5
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 3.0,
+        "in": 3.01
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "SECURITIZE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "COINBASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "FIREBLOCKS",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "BITGO",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "NATHAN_ALLMAN",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "SEC",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "BLACKROCK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "COINBASE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "OUSG",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "gravity_pairs": []
+  },
+  "role_participations": [
+    {
+      "product_id": "OUSG",
+      "role": "issuer",
+      "counterparty": "TREASURY_MARKET",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://ondo.finance/ousg"
+    },
+    {
+      "product_id": "USDY",
+      "role": "issuer",
+      "counterparty": "TREASURY_MARKET",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://ondo.finance/usdy"
+    },
+    {
+      "product_id": "BUIDL",
+      "role": "counterparty",
+      "counterparty": "BLACKROCK",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://ondo.finance/ousg"
+    },
+    {
+      "product_id": "OUSG",
+      "role": "counterparty",
+      "counterparty": "SECURITIZE",
+      "disclosure_level": "INFERRED_FROM_FILING",
+      "source_url": null
+    }
+  ],
+  "monetary_position": {
+    "position": 0.484,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "flag",
+    "headline": "phi_s +19732% over 74 cycles",
+    "cycles": 74,
+    "delta_last_cycle": {
+      "phi_s": 0.0,
+      "kappa": 0.0,
+      "power": 0.0,
+      "extraction": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "defillama",
+        "kind": "protocols",
+        "status": "live",
+        "note": "fetched from public API at request time"
+      },
+      {
+        "network": "sec_edgar",
+        "kind": "regulatory_primary",
+        "status": "live",
+        "last_observed_at": "2026-08-23T15:01:36.074239+00:00",
+        "filings": null,
+        "note": "Ondo I LP \u2014 4 total filings, 0 in last 90d"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "measurement_link_join",
+      "last_observed_at": "2026-08-23T16:26:56.487805+00:00",
+      "last_delta_i": 1.0,
+      "stale": false
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "251db33a-402e-44c6-af82-ffb066bceda9",
+      "claim_text": "Ondo Finance \u2014 tokenized Treasuries and yield products",
+      "grounding": {
+        "source_url": "https://ondo.finance/",
+        "expected": "Ondo Finance",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "ONDO_20260815",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ondo-20260815/",
+      "verified_at": "2026-08-15T07:54:50.864030+00:00",
+      "expires_at": "2026-11-13T07:54:50+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "0c85af21-8184-4938-b298-a90525dec579",
+      "claim_text": "DeFiLlama tracks Ondo Finance protocol activity",
+      "grounding": {
+        "source_url": "https://defillama.com/protocol/ondo-finance",
+        "expected": "Ondo",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-DERIVED",
+      "source_type": "derived",
+      "source_type_at_verification": "derived",
+      "source_role_reclassified": false,
+      "witness_class": "onchain_secondary",
+      "witness_weight": 0.62,
+      "report_id": "ONDO_20260815",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ondo-20260815/",
+      "verified_at": "2026-08-15T07:54:51.610976+00:00",
+      "expires_at": "2026-11-13T07:54:51+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "c204ec9f-2754-4bbd-9ec4-c5af39fe137a",
+      "claim_text": "OUSG \u2014 tokenized Treasuries on RWA.xyz",
+      "grounding": {
+        "source_url": "https://rwa.xyz/assets/ousg",
+        "expected": "OUSG",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-DERIVED",
+      "source_type": "derived",
+      "source_type_at_verification": "derived",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "ONDO_20260815",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ondo-20260815/",
+      "verified_at": "2026-08-15T07:54:52.095207+00:00",
+      "expires_at": "2026-11-13T07:54:52+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "790b6933-1cc2-468d-b173-1f56e6a8cd3a",
+      "claim_text": "USDY \u2014 US Dollar Yield product documentation",
+      "grounding": {
+        "source_url": "https://docs.ondo.finance/general-access-products/usdy",
+        "expected": "USDY",
+        "location": ""
+      },
+      "status_at_publish": "HALLUCINATED",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "ONDO_20260815",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ondo-20260815/",
+      "verified_at": "2026-08-15T07:54:51.357122+00:00",
+      "expires_at": "2026-11-13T07:54:51+00:00",
+      "volatility_class": "default",
+      "allows_canonical": false
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/ONDO.json",
+  "locate": {
+    "entity": "ONDO",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "issuer",
+        "product_id": "OUSG",
+        "sigma_key": "sigma_illumination",
+        "party_id": "sevadar:06_hargobind_damodri",
+        "classify_action": "publish",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://ondo.finance/ousg",
+        "cite": {
+          "kind": "map_role",
+          "id": "ONDO:OUSG:issuer",
+          "cite_class": "citeable",
+          "package_hash": "f12dcc524dd3a075136b0594f0efd851b7fb789621a9879f23fbed5577841397",
+          "package": {
+            "kind": "map_role",
+            "id": "ONDO:OUSG:issuer",
+            "entity": "ONDO",
+            "product_id": "OUSG",
+            "locate_role": "issuer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://ondo.finance/ousg",
+            "party_id": "sevadar:06_hargobind_damodri",
+            "classify_action": "publish",
+            "sigma_key": "sigma_illumination",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
+  },
+  "last_observation": {
+    "available": true,
+    "entity": "ONDO",
+    "confidence": "CONFIRMED",
+    "m1_strict": true,
+    "not_claim_attested": true,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "source": "defillama",
+    "wire": "defillama",
+    "ts": "2026-08-23T16:27:38.178499+00:00",
+    "write_reason": "change_infpct",
+    "source_url": null,
+    "vault_row_ref": "vault:124:ONDO:defillama:2026-08-23T16:27:38.178499+00:00",
+    "sensor_id": null,
+    "surge_domain": "progression",
+    "sigma_key": "sigma_progression",
+    "party_id": "sevadar:05_arjan_ganga",
+    "classify_action": "observe",
+    "bindable": true,
+    "bound": false,
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
+  },
   "measurement_join": {
     "available": true,
     "entity": "ONDO",
@@ -38,6 +419,5 @@
     "auto_dual_ack": false,
     "sot": "data/measurement_links.json",
     "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
-  },
-  "note": "Thin metalayer card \u2014 not a full federation build-target dossier. measurement_join SoT only (delta_i=0)."
+  }
 }

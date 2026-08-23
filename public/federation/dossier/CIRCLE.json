@@ -1,6 +1,390 @@
 {
   "entity": "CIRCLE",
-  "kind": "measurement_join_only",
+  "node": "34539544",
+  "compiled_at": "2026-08-23T18:36:38.591768+00:00",
+  "digest": "sha256:fa50c510c40a03814b58c75db78cb60c0e394d5fb34028fd1a0a34372a574aac",
+  "own_numbers": {
+    "phi_s": 9.7733,
+    "kappa": 0.0007,
+    "mass": 0.241412,
+    "power": 0.04,
+    "extraction": 490928.380187,
+    "memory_mass": null,
+    "X_natural": null,
+    "gravity_mass": null,
+    "mass_type": null
+  },
+  "vs_whole": {
+    "mass": {
+      "value": 0.241412,
+      "rank": 8,
+      "of": 199
+    },
+    "power": {
+      "value": 0.04,
+      "rank": 8,
+      "of": 34
+    },
+    "gravity": null,
+    "extraction": {
+      "value": 490928.3802,
+      "rank": 8,
+      "of": 34
+    },
+    "share_of_whole": {
+      "mass": 0.01843,
+      "power": 0.01266
+    },
+    "peers_by_power": [
+      {
+        "entity": "TOKENIZED_TREASURY",
+        "power": 0.13
+      },
+      {
+        "entity": "BASE",
+        "power": 0.06
+      },
+      {
+        "entity": "CIRCLE",
+        "power": 0.04
+      },
+      {
+        "entity": "CITI_TREASURY_SERVICES",
+        "power": 0.02
+      },
+      {
+        "entity": "STABLECOIN_POOL",
+        "power": 0.01
+      }
+    ]
+  },
+  "relationships": {
+    "in_degree": 7,
+    "out_degree": 7,
+    "by_vector": {
+      "Capital": {
+        "out": 0.5,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 1.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 2.0,
+        "in": 3.0165
+      }
+    },
+    "top_inbound": [
+      {
+        "source": "BLACKROCK",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "JEREMY_ALLAIRE",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "STABLECOIN_POOL",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "CUMBERLAND",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "source": "RWA_SOLVES_YIELD",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      }
+    ],
+    "top_outbound": [
+      {
+        "target": "US_JURISDICTION",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "CIRCLE_RESERVE_FUND",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "BNY_MELLON",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
+      },
+      {
+        "target": "JPMORGAN",
+        "conn_type": "information_flow",
+        "vector": "Information"
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "conn_type": "custody",
+        "vector": "Infrastructure"
+      }
+    ],
+    "gravity_pairs": [
+      {
+        "entity": "JPMORGAN",
+        "mass": 97.0,
+        "hops": 1,
+        "pull": 3.88
+      },
+      {
+        "entity": "CITIGROUP",
+        "mass": 92.0,
+        "hops": 1,
+        "pull": 3.68
+      },
+      {
+        "entity": "BLACKROCK",
+        "mass": 84.0,
+        "hops": 1,
+        "pull": 3.36
+      },
+      {
+        "entity": "US_JURISDICTION",
+        "mass": 53.03,
+        "hops": 1,
+        "pull": 2.1212
+      },
+      {
+        "entity": "SEC",
+        "mass": 117.0,
+        "hops": 2,
+        "pull": 1.17
+      }
+    ]
+  },
+  "role_participations": [
+    {
+      "product_id": "USDC",
+      "role": "issuer",
+      "counterparty": "CIRCLE_RESERVE_FUND",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.circle.com/en/transparency"
+    },
+    {
+      "product_id": "USDC",
+      "role": "counterparty",
+      "counterparty": "BNY_MELLON",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.circle.com/en/transparency"
+    },
+    {
+      "product_id": "US_TREASURY",
+      "role": "counterparty",
+      "counterparty": "TREASURY_MARKET",
+      "disclosure_level": "INFERRED_FROM_FILING",
+      "source_url": null
+    }
+  ],
+  "monetary_position": {
+    "position": 0.524,
+    "well": "fiat"
+  },
+  "drift": {
+    "level": "flag",
+    "headline": "phi_s +13882% over 74 cycles",
+    "cycles": 74,
+    "delta_last_cycle": {
+      "phi_s": -3.2363,
+      "kappa": 0.0001,
+      "power": 0.0,
+      "extraction": 0.0,
+      "boundary_score": 0.0
+    }
+  },
+  "network_plugs": {
+    "freshness": "live",
+    "inbound": [
+      {
+        "network": "defillama",
+        "kind": "stablecoins",
+        "status": "live",
+        "note": "fetched from public API at request time"
+      },
+      {
+        "network": "sec_edgar",
+        "kind": "regulatory_primary",
+        "status": "live",
+        "last_observed_at": "2026-08-23T15:01:36.074239+00:00",
+        "filings": null,
+        "note": "Circle Internet Group, Inc. \u2014 397 total filings, 40 in last 90d"
+      }
+    ],
+    "outbound": [
+      {
+        "network": "helixhash",
+        "status": "live"
+      },
+      {
+        "network": "rfc3161",
+        "status": "live"
+      },
+      {
+        "network": "github_pages",
+        "status": "live"
+      },
+      {
+        "network": "vercel",
+        "status": "live"
+      },
+      {
+        "network": "eas_base",
+        "status": "gated"
+      }
+    ],
+    "observation": {
+      "source": "propagated",
+      "last_observed_at": "2026-08-23T18:34:08.930882+00:00",
+      "last_delta_i": 2384077.299496417,
+      "stale": false
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "a22ec8fa-6d0d-4474-a7f7-c503c6798017",
+      "claim_text": "Circle issues USDC, regulated dollar stablecoin",
+      "grounding": {
+        "source_url": "https://www.circle.com/usdc",
+        "expected": "USDC",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CIRCLE_20260812",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/circle-20260812/",
+      "verified_at": "2026-08-12T15:48:08.600396+00:00",
+      "expires_at": "2026-11-10T15:48:08+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "e661c819-129f-485c-8de4-5eb759970523",
+      "claim_text": "Circle publishes monthly USDC reserve attestations",
+      "grounding": {
+        "source_url": "https://www.circle.com/en/transparency",
+        "expected": "attestation",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CIRCLE_20260812",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/circle-20260812/",
+      "verified_at": "2026-08-12T15:48:09.051457+00:00",
+      "expires_at": "2026-11-10T15:48:09+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true
+    },
+    {
+      "claim_id": "057e1877-21d1-4572-a06c-6c8301fa5a6b",
+      "claim_text": "Cross-Chain Transfer Protocol (CCTP) for native USDC",
+      "grounding": {
+        "source_url": "https://www.circle.com/en/cross-chain-transfer-protocol",
+        "expected": "CCTP",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CIRCLE_20260812",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/circle-20260812/",
+      "verified_at": "2026-08-12T15:48:09.368014+00:00",
+      "expires_at": "2026-11-10T15:48:09+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/CIRCLE.json",
+  "locate": {
+    "entity": "CIRCLE",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "issuer",
+        "product_id": "USDC",
+        "sigma_key": "sigma_illumination",
+        "party_id": "sevadar:06_hargobind_damodri",
+        "classify_action": "publish",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.circle.com/en/transparency",
+        "cite": {
+          "kind": "map_role",
+          "id": "CIRCLE:USDC:issuer",
+          "cite_class": "citeable",
+          "package_hash": "ddeeb754390814ecd3bceed3d59c9d1a0dc15b190cf6ff1624bd58ee38cd182a",
+          "package": {
+            "kind": "map_role",
+            "id": "CIRCLE:USDC:issuer",
+            "entity": "CIRCLE",
+            "product_id": "USDC",
+            "locate_role": "issuer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.circle.com/en/transparency",
+            "party_id": "sevadar:06_hargobind_damodri",
+            "classify_action": "publish",
+            "sigma_key": "sigma_illumination",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
+  },
+  "last_observation": {
+    "available": true,
+    "entity": "CIRCLE",
+    "confidence": "CONFIRMED",
+    "m1_strict": true,
+    "not_claim_attested": true,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "source": "sec_edgar",
+    "wire": "sec_entities",
+    "ts": "2026-08-23T16:27:38.239881+00:00",
+    "write_reason": "change_30.5pct",
+    "source_url": null,
+    "vault_row_ref": "vault:132:CIRCLE:sec_edgar:2026-08-23T16:27:38.239881+00:00",
+    "sensor_id": null,
+    "surge_domain": "progression",
+    "sigma_key": "sigma_progression",
+    "party_id": "sevadar:05_arjan_ganga",
+    "classify_action": "observe",
+    "bindable": true,
+    "bound": false,
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
+  },
   "measurement_join": {
     "available": true,
     "entity": "CIRCLE",
@@ -45,6 +429,5 @@
     "auto_dual_ack": false,
     "sot": "data/measurement_links.json",
     "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
-  },
-  "note": "Thin metalayer card \u2014 not a full federation build-target dossier. measurement_join SoT only (delta_i=0)."
+  }
 }

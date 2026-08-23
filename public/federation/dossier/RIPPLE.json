@@ -1,7 +1,7 @@
 {
   "entity": "RIPPLE",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:35.421715+00:00",
+  "compiled_at": "2026-08-23T18:36:42.158935+00:00",
   "digest": "sha256:67aed587c0d3b6d60f5214aab33df1a300d1a64d0fa15c471a3c30775263dfd3",
   "own_numbers": {
     "phi_s": 3.2362,
@@ -46,7 +46,15 @@
     "top_outbound": [],
     "gravity_pairs": []
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "RIPPLE_PAYMENTS",
+      "role": "issuer",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://ripple.com/"
+    }
+  ],
   "monetary_position": null,
   "drift": {
     "level": "flag",
@@ -162,9 +170,46 @@
   "locate": {
     "entity": "RIPPLE",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "issuer",
+        "product_id": "RIPPLE_PAYMENTS",
+        "sigma_key": "sigma_illumination",
+        "party_id": "sevadar:06_hargobind_damodri",
+        "classify_action": "publish",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://ripple.com/",
+        "cite": {
+          "kind": "map_role",
+          "id": "RIPPLE:RIPPLE_PAYMENTS:issuer",
+          "cite_class": "citeable",
+          "package_hash": "63162930f6a3666a44747cdcffd1df6231985da9b52e1250ac66ddc9760cee59",
+          "package": {
+            "kind": "map_role",
+            "id": "RIPPLE:RIPPLE_PAYMENTS:issuer",
+            "entity": "RIPPLE",
+            "product_id": "RIPPLE_PAYMENTS",
+            "locate_role": "issuer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://ripple.com/",
+            "party_id": "sevadar:06_hargobind_damodri",
+            "classify_action": "publish",
+            "sigma_key": "sigma_illumination",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

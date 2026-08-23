@@ -1,8 +1,8 @@
 {
   "entity": "UNISWAP",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:36.659661+00:00",
-  "digest": "sha256:990b34e1d9d5701f197f84a80732fa7e38c2ba2a98f93fc41ab26062150306e3",
+  "compiled_at": "2026-08-23T18:36:43.382478+00:00",
+  "digest": "sha256:561ac6b748cd5b40d88d8dfc0aaae30795e8a2457a49cad5e6108dc760f1b02e",
   "own_numbers": {
     "phi_s": 6.4925,
     "kappa": 0.0086,
@@ -87,7 +87,15 @@
     ],
     "gravity_pairs": []
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "UNISWAP_V3",
+      "role": "distributor",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://docs.uniswap.org/concepts/protocol-overview"
+    }
+  ],
   "monetary_position": {
     "position": 0.5,
     "well": "fiat"
@@ -210,9 +218,46 @@
   "locate": {
     "entity": "UNISWAP",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "distributor",
+        "product_id": "UNISWAP_V3",
+        "sigma_key": "sigma_division",
+        "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+        "classify_action": "distribute",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://docs.uniswap.org/concepts/protocol-overview",
+        "cite": {
+          "kind": "map_role",
+          "id": "UNISWAP:UNISWAP_V3:distributor",
+          "cite_class": "citeable",
+          "package_hash": "dec0a613a6975998c0da1b33260f88199d57251f4599b12ce9f9e2e0f1028936",
+          "package": {
+            "kind": "map_role",
+            "id": "UNISWAP:UNISWAP_V3:distributor",
+            "entity": "UNISWAP",
+            "product_id": "UNISWAP_V3",
+            "locate_role": "distributor",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://docs.uniswap.org/concepts/protocol-overview",
+            "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+            "classify_action": "distribute",
+            "sigma_key": "sigma_division",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

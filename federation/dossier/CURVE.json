@@ -1,8 +1,8 @@
 {
   "entity": "CURVE",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:32.277489+00:00",
-  "digest": "sha256:7a4d4d7c7acd35428f13bba3121e22c5a58f48dbb2848c756f4c4e0e43d558c5",
+  "compiled_at": "2026-08-23T18:36:39.097456+00:00",
+  "digest": "sha256:9810f7e7345a2d9f24ba138b4505c0fc28975ca8f05112b0d6824ef3568a8d34",
   "own_numbers": {
     "phi_s": 1.6381,
     "kappa": 0.0012,
@@ -74,6 +74,13 @@
   },
   "role_participations": [
     {
+      "product_id": "CURVE_DEX",
+      "role": "distributor",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://curve.fi/"
+    },
+    {
       "product_id": "TOKENIZED_TREASURY",
       "role": "counterparty",
       "counterparty": "ARBITRUM",
@@ -136,8 +143,8 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-08-23T16:37:44.480275+00:00",
-      "last_delta_i": 3.1397163119249886e+134,
+      "last_observed_at": "2026-08-23T18:34:08.930882+00:00",
+      "last_delta_i": 4.976314285806761e+135,
       "stale": false
     }
   },
@@ -210,9 +217,46 @@
   "locate": {
     "entity": "CURVE",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "distributor",
+        "product_id": "CURVE_DEX",
+        "sigma_key": "sigma_division",
+        "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+        "classify_action": "distribute",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://curve.fi/",
+        "cite": {
+          "kind": "map_role",
+          "id": "CURVE:CURVE_DEX:distributor",
+          "cite_class": "citeable",
+          "package_hash": "356412657c5e05676353d319241eb800c3d5a43a0ec58c6f28c8dde6124fbc51",
+          "package": {
+            "kind": "map_role",
+            "id": "CURVE:CURVE_DEX:distributor",
+            "entity": "CURVE",
+            "product_id": "CURVE_DEX",
+            "locate_role": "distributor",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://curve.fi/",
+            "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+            "classify_action": "distribute",
+            "sigma_key": "sigma_division",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

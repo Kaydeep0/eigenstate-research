@@ -1,8 +1,8 @@
 {
   "entity": "REG_S",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:35.350518+00:00",
-  "digest": "sha256:3fc03375350164a542f52e930794fa1fbb027d839e186da252686ffe163a4fb0",
+  "compiled_at": "2026-08-23T18:36:42.084920+00:00",
+  "digest": "sha256:2ac3b4c3e1c3b422ed762e9fa3bc2950b3cfb5c4dc4b16a1b603b5722230eec0",
   "own_numbers": {
     "phi_s": 3.2842,
     "kappa": 0.0,
@@ -92,7 +92,15 @@
       }
     ]
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "OFFSHORE_OFFERING",
+      "role": "regulator",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings"
+    }
+  ],
   "monetary_position": {
     "position": 0.6,
     "well": "fiat"
@@ -209,9 +217,46 @@
   "locate": {
     "entity": "REG_S",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "regulator",
+        "product_id": "OFFSHORE_OFFERING",
+        "sigma_key": "sigma_division",
+        "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+        "classify_action": "limiter_protect",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings",
+        "cite": {
+          "kind": "map_role",
+          "id": "REG_S:OFFSHORE_OFFERING:regulator",
+          "cite_class": "citeable",
+          "package_hash": "42add196d774eb56ce996a22d7f5ed1c381a854c5940aadc918b0d690f35bf08",
+          "package": {
+            "kind": "map_role",
+            "id": "REG_S:OFFSHORE_OFFERING:regulator",
+            "entity": "REG_S",
+            "product_id": "OFFSHORE_OFFERING",
+            "locate_role": "regulator",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.sec.gov/education/smallbusiness/exemptofferings",
+            "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+            "classify_action": "limiter_protect",
+            "sigma_key": "sigma_division",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

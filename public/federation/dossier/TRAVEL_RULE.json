@@ -1,7 +1,7 @@
 {
   "entity": "TRAVEL_RULE",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:36.566642+00:00",
+  "compiled_at": "2026-08-23T18:36:43.283866+00:00",
   "digest": "sha256:c76eb80dd706e97994a9017be20ba392fded8fdbfe0db984c53cae09bf9a9154",
   "own_numbers": {
     "phi_s": 1.6421,
@@ -87,7 +87,15 @@
       }
     ]
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "FATF_TRAVEL_RULE",
+      "role": "regulator",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.fincen.gov/resources/statutes-regulations/guidance/funds-travel-regulations-questions-answers"
+    }
+  ],
   "monetary_position": {
     "position": 0.5,
     "well": "fiat"
@@ -204,9 +212,46 @@
   "locate": {
     "entity": "TRAVEL_RULE",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "regulator",
+        "product_id": "FATF_TRAVEL_RULE",
+        "sigma_key": "sigma_division",
+        "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+        "classify_action": "limiter_protect",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.fincen.gov/resources/statutes-regulations/guidance/funds-travel-regulations-questions-answers",
+        "cite": {
+          "kind": "map_role",
+          "id": "TRAVEL_RULE:FATF_TRAVEL_RULE:regulator",
+          "cite_class": "citeable",
+          "package_hash": "fa9c1b25bb5426cbe50d1c75409fab2b7bf4b5b0571b978a62994c6050db8454",
+          "package": {
+            "kind": "map_role",
+            "id": "TRAVEL_RULE:FATF_TRAVEL_RULE:regulator",
+            "entity": "TRAVEL_RULE",
+            "product_id": "FATF_TRAVEL_RULE",
+            "locate_role": "regulator",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.fincen.gov/resources/statutes-regulations/guidance/funds-travel-regulations-questions-answers",
+            "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+            "classify_action": "limiter_protect",
+            "sigma_key": "sigma_division",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

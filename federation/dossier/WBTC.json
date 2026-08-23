@@ -1,7 +1,7 @@
 {
   "entity": "WBTC",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:36.905923+00:00",
+  "compiled_at": "2026-08-23T18:36:43.600955+00:00",
   "digest": "sha256:a807f83c8f93b868fc45ed0b686b405c3516a795331ce98907e673b39fcb5d5a",
   "own_numbers": {
     "phi_s": 1.6181,
@@ -50,7 +50,15 @@
     "top_outbound": [],
     "gravity_pairs": []
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "WBTC",
+      "role": "issuer",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://wbtc.network/"
+    }
+  ],
   "monetary_position": null,
   "drift": {
     "level": "steady",
@@ -157,9 +165,46 @@
   "locate": {
     "entity": "WBTC",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "issuer",
+        "product_id": "WBTC",
+        "sigma_key": "sigma_illumination",
+        "party_id": "sevadar:06_hargobind_damodri",
+        "classify_action": "publish",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://wbtc.network/",
+        "cite": {
+          "kind": "map_role",
+          "id": "WBTC:WBTC:issuer",
+          "cite_class": "citeable",
+          "package_hash": "e3afca04f01e3ffd9b2cb2568d260c8284645f801e3efc94a5f851cf18c63504",
+          "package": {
+            "kind": "map_role",
+            "id": "WBTC:WBTC:issuer",
+            "entity": "WBTC",
+            "product_id": "WBTC",
+            "locate_role": "issuer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://wbtc.network/",
+            "party_id": "sevadar:06_hargobind_damodri",
+            "classify_action": "publish",
+            "sigma_key": "sigma_illumination",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

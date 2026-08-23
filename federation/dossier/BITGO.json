@@ -1,7 +1,7 @@
 {
   "entity": "BITGO",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:31.359980+00:00",
+  "compiled_at": "2026-08-23T18:36:38.207764+00:00",
   "digest": "sha256:c5dc907e6825b1e5cbedd5fc641993823b162d9086cf2daa91d11f03d9f7979f",
   "own_numbers": {
     "phi_s": 0.02,
@@ -56,7 +56,15 @@
     ],
     "gravity_pairs": []
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "DIGITAL_ASSETS",
+      "role": "custodian",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.bitgo.com/"
+    }
+  ],
   "monetary_position": {
     "position": 0.2,
     "well": "boundary"
@@ -106,9 +114,46 @@
   "locate": {
     "entity": "BITGO",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "custodian",
+        "product_id": "DIGITAL_ASSETS",
+        "sigma_key": "sigma_adhesion",
+        "party_id": "sevadar:02_angad_khivi",
+        "classify_action": "formalize_counterparty",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.bitgo.com/",
+        "cite": {
+          "kind": "map_role",
+          "id": "BITGO:DIGITAL_ASSETS:custodian",
+          "cite_class": "citeable",
+          "package_hash": "13d9577c16a51276212403e3a2eefbe3e1ac077eab8325092b43e5d40e06550f",
+          "package": {
+            "kind": "map_role",
+            "id": "BITGO:DIGITAL_ASSETS:custodian",
+            "entity": "BITGO",
+            "product_id": "DIGITAL_ASSETS",
+            "locate_role": "custodian",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.bitgo.com/",
+            "party_id": "sevadar:02_angad_khivi",
+            "classify_action": "formalize_counterparty",
+            "sigma_key": "sigma_adhesion",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

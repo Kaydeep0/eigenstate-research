@@ -1,7 +1,7 @@
 {
   "entity": "OCC",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:34.781184+00:00",
+  "compiled_at": "2026-08-23T18:36:41.500418+00:00",
   "digest": "sha256:ee1567692012f9547cdb8d22edb451718df55805fa84972e9901b9b7ea9b05ca",
   "own_numbers": {
     "phi_s": 1.6901,
@@ -102,7 +102,15 @@
       }
     ]
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "US_BANKING",
+      "role": "regulator",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.occ.gov/about/who-we-are/index-who-we-are.html"
+    }
+  ],
   "monetary_position": {
     "position": 0.8,
     "well": "fiat"
@@ -230,9 +238,46 @@
   "locate": {
     "entity": "OCC",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "regulator",
+        "product_id": "US_BANKING",
+        "sigma_key": "sigma_division",
+        "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+        "classify_action": "limiter_protect",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.occ.gov/about/who-we-are/index-who-we-are.html",
+        "cite": {
+          "kind": "map_role",
+          "id": "OCC:US_BANKING:regulator",
+          "cite_class": "citeable",
+          "package_hash": "cc97a29921c13e6820fcdd0a0dbbb64848e87811b0237c895601761e0b02f497",
+          "package": {
+            "kind": "map_role",
+            "id": "OCC:US_BANKING:regulator",
+            "entity": "OCC",
+            "product_id": "US_BANKING",
+            "locate_role": "regulator",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.occ.gov/about/who-we-are/index-who-we-are.html",
+            "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+            "classify_action": "limiter_protect",
+            "sigma_key": "sigma_division",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

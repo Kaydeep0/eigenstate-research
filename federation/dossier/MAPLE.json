@@ -1,8 +1,8 @@
 {
   "entity": "MAPLE",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:34.343316+00:00",
-  "digest": "sha256:525547ca2a11f4000e85b08ab9a084942aef51fe8584176efd1848de5d69d0ab",
+  "compiled_at": "2026-08-23T18:36:41.084348+00:00",
+  "digest": "sha256:15244afd293a07afc386dd95d6226c2653fb0216d5c6e2b38fd63adb0aa34d2b",
   "own_numbers": {
     "phi_s": 1.6931,
     "kappa": 0.0009,
@@ -96,6 +96,13 @@
     "gravity_pairs": []
   },
   "role_participations": [
+    {
+      "product_id": "MAPLE_POOLS",
+      "role": "issuer",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://docs.maple.finance/"
+    },
     {
       "product_id": "TOKENIZED_TREASURY",
       "role": "counterparty",
@@ -228,9 +235,46 @@
   "locate": {
     "entity": "MAPLE",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "issuer",
+        "product_id": "MAPLE_POOLS",
+        "sigma_key": "sigma_illumination",
+        "party_id": "sevadar:06_hargobind_damodri",
+        "classify_action": "publish",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://docs.maple.finance/",
+        "cite": {
+          "kind": "map_role",
+          "id": "MAPLE:MAPLE_POOLS:issuer",
+          "cite_class": "citeable",
+          "package_hash": "81e54d8438cd46dfe9b6630b3aba3b2ee37ba7a250b24ba537d71e344f5a3176",
+          "package": {
+            "kind": "map_role",
+            "id": "MAPLE:MAPLE_POOLS:issuer",
+            "entity": "MAPLE",
+            "product_id": "MAPLE_POOLS",
+            "locate_role": "issuer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://docs.maple.finance/",
+            "party_id": "sevadar:06_hargobind_damodri",
+            "classify_action": "publish",
+            "sigma_key": "sigma_illumination",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

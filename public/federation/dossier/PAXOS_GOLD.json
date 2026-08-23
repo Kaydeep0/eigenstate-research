@@ -1,7 +1,7 @@
 {
   "entity": "PAXOS_GOLD",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:35.137355+00:00",
+  "compiled_at": "2026-08-23T18:36:41.864862+00:00",
   "digest": "sha256:768b278522939f45a18e6b877da9dc3a8139cb76998db924b76258c0b8e48c21",
   "own_numbers": {
     "phi_s": 1.6181,
@@ -50,7 +50,15 @@
     "top_outbound": [],
     "gravity_pairs": []
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "PAXG",
+      "role": "issuer",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://paxos.com/pax-gold"
+    }
+  ],
   "monetary_position": null,
   "drift": {
     "level": "steady",
@@ -157,9 +165,46 @@
   "locate": {
     "entity": "PAXOS_GOLD",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "issuer",
+        "product_id": "PAXG",
+        "sigma_key": "sigma_illumination",
+        "party_id": "sevadar:06_hargobind_damodri",
+        "classify_action": "publish",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://paxos.com/pax-gold",
+        "cite": {
+          "kind": "map_role",
+          "id": "PAXOS_GOLD:PAXG:issuer",
+          "cite_class": "citeable",
+          "package_hash": "286c8e7d22406cef8d750ef9edea87a4adb278a1ec42256f72847f171e402c8a",
+          "package": {
+            "kind": "map_role",
+            "id": "PAXOS_GOLD:PAXG:issuer",
+            "entity": "PAXOS_GOLD",
+            "product_id": "PAXG",
+            "locate_role": "issuer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://paxos.com/pax-gold",
+            "party_id": "sevadar:06_hargobind_damodri",
+            "classify_action": "publish",
+            "sigma_key": "sigma_illumination",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {

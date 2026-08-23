@@ -1,8 +1,8 @@
 {
   "entity": "CFTC",
   "node": "34539544",
-  "compiled_at": "2026-08-23T16:39:31.647382+00:00",
-  "digest": "sha256:32cbe6b89ac60b075c1635c401eba29da5c36d39e266ed49b0eb30d88dcbfa03",
+  "compiled_at": "2026-08-23T18:36:38.494474+00:00",
+  "digest": "sha256:25b19ee14a51708e1cda677c4058063e261cfe687bd6c4e657494159428603fd",
   "own_numbers": {
     "phi_s": 1.6501,
     "kappa": 0.0,
@@ -97,7 +97,15 @@
       }
     ]
   },
-  "role_participations": [],
+  "role_participations": [
+    {
+      "product_id": "US_DERIVATIVES",
+      "role": "regulator",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.cftc.gov/About/index.htm"
+    }
+  ],
   "monetary_position": {
     "position": 0.9,
     "well": "fiat"
@@ -225,9 +233,46 @@
   "locate": {
     "entity": "CFTC",
     "routing": "index_locate_classify",
-    "n": 0,
-    "bindable_n": 0,
-    "domains": [],
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "regulator",
+        "product_id": "US_DERIVATIVES",
+        "sigma_key": "sigma_division",
+        "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+        "classify_action": "limiter_protect",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://www.cftc.gov/About/index.htm",
+        "cite": {
+          "kind": "map_role",
+          "id": "CFTC:US_DERIVATIVES:regulator",
+          "cite_class": "citeable",
+          "package_hash": "5902274cae1229684e1f4408c9c5abec179229620fa09d54f4c9ed1ca87f8e48",
+          "package": {
+            "kind": "map_role",
+            "id": "CFTC:US_DERIVATIVES:regulator",
+            "entity": "CFTC",
+            "product_id": "US_DERIVATIVES",
+            "locate_role": "regulator",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://www.cftc.gov/About/index.htm",
+            "party_id": "sevadar:03_amar_das_bibi_bhani_daughter",
+            "classify_action": "limiter_protect",
+            "sigma_key": "sigma_division",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
     "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {
