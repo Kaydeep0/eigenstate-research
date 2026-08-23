@@ -26,8 +26,8 @@
     },
     "checkpoint_carries_tree_size_and_root_hash": {
       "outcome": "ok",
-      "tree_size": 83221324,
-      "root_hash": "954f0f3400d02a577c4ff87bd6abad6bc8430ad279b96872c3e792f1dd42a93d"
+      "tree_size": 83634105,
+      "root_hash": "0070e73fae0e6d6f93c56c7753eb7a809ae22aa9653a056aeb9bec5b20e7c3b9"
     },
     "checkpoint_carries_a_signature": {
       "outcome": "ok",
@@ -49,29 +49,29 @@
     },
     "prior_batch_checkpoint_on_record": {
       "outcome": "ok",
-      "prior_read_at": "2026-08-02T05:43:44.193687+00:00",
-      "prior_tree_size": 48180852
+      "prior_read_at": "2026-08-23T11:01:09.332581+00:00",
+      "prior_tree_size": 83222763
     },
     "second_read_answered": {
       "outcome": "ok",
-      "tree_size": 83222763
+      "tree_size": 83635206
     },
     "tree_did_not_shrink_between_reads": {
       "outcome": "ok",
-      "first_size": 83221324,
-      "second_size": 83222763,
-      "entries_added": 1439
+      "first_size": 83634105,
+      "second_size": 83635206,
+      "entries_added": 1101
     },
     "consistency_proof_served": {
       "outcome": "ok",
-      "nodes": 22
+      "nodes": 21
     },
     "consistency_proof_recomputes_to_the_second_root": {
       "outcome": "ok",
       "reason": "both_roots_recomputed",
-      "first_size": 83221324,
-      "second_size": 83222763,
-      "proof_nodes": 22
+      "first_size": 83634105,
+      "second_size": 83635206,
+      "proof_nodes": 21
     }
   },
   "evidence": {
@@ -80,14 +80,14 @@
       "status": 200,
       "error": null,
       "bytes": 239,
-      "read_at": "2026-08-23T11:00:05.037035+00:00",
-      "body_sha256": "66fbbac0c8ef5f3963ca6dc5cf645a5babab8226cce531a3d960ddb903c428dc",
+      "read_at": "2026-08-23T16:34:01.482954+00:00",
+      "body_sha256": "8ea4560c490b2df60764f7a5e25b69e6b679e40169080fb7b38b6e3a0e27c9c7",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 83221324,
-      "timestamp": 1787482804512,
+      "tree_size": 83634105,
+      "timestamp": 1787502841160,
       "signature_lines": 1,
-      "root_hash_hex": "954f0f3400d02a577c4ff87bd6abad6bc8430ad279b96872c3e792f1dd42a93d",
+      "root_hash_hex": "0070e73fae0e6d6f93c56c7753eb7a809ae22aa9653a056aeb9bec5b20e7c3b9",
       "raw_body": null
     },
     "signature_check": {
@@ -98,58 +98,57 @@
     "prior_batch": {
       "log_key": "wyvern.ct.digicert.com/2027h1",
       "read": "second_read",
-      "read_at": "2026-08-02T05:43:44.193687+00:00",
-      "tree_size": 48180852,
-      "root_hash": "05559d492a082709104ab2c0b5f7b2a8374e65c404d1713704c5454df00978b4",
-      "body_sha256": "31be4c40ee4e31f8ed3c54036637afeb279c99d766a5cb84c74e0c19336d6a7b"
+      "read_at": "2026-08-23T11:01:09.332581+00:00",
+      "tree_size": 83222763,
+      "root_hash": "d6a3b17fc6df91a443e030186b1adbef82dabf23276d69e18c6a5486dee5f02e",
+      "body_sha256": "1ac79f2488327e0ac651e657f922e01270cdb8049db3dda3b4ee840aa1ca7c97"
     },
     "second_read": {
       "url": "https://wyvern.ct.digicert.com/2027h1/ct/v1/get-sth",
       "status": 200,
       "error": null,
       "bytes": 239,
-      "read_at": "2026-08-23T11:01:09.332581+00:00",
-      "body_sha256": "1ac79f2488327e0ac651e657f922e01270cdb8049db3dda3b4ee840aa1ca7c97",
+      "read_at": "2026-08-23T16:35:04.672814+00:00",
+      "body_sha256": "dcb58cf7c73cf4e1c215aa57681e38f8329bb3bf540b3f6ba4065023f995f81c",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 83222763,
-      "timestamp": 1787482868866,
+      "tree_size": 83635206,
+      "timestamp": 1787502904388,
       "signature_lines": 1,
-      "root_hash_hex": "d6a3b17fc6df91a443e030186b1adbef82dabf23276d69e18c6a5486dee5f02e"
+      "root_hash_hex": "d7131c53aeb9e83c2f0783f8a5b39e47f3e7d80edbdec716896acea4ecb04ee1"
     },
     "consistency_request": {
       "served": true,
-      "url": "https://wyvern.ct.digicert.com/2027h1/ct/v1/get-sth-consistency?first=83221324&second=83222763",
+      "url": "https://wyvern.ct.digicert.com/2027h1/ct/v1/get-sth-consistency?first=83634105&second=83635206",
       "proof": [
-        "34c857b7a5d379ed2ac9ef2b06fa21213df885e5a36153560ed6fb96187a72dd",
-        "8a85bf59bcc704122be86d10dd43265fddff26afa63ae6ea363b4d3214a86bb3",
-        "b5baae8431442f0a8be30495290f28d76246e12ec2348d0d8738e04cf6e16a62",
-        "5352b9d0ac82f7615a2628593e279c4bf9a11aa0aa0a058a2aeb9fec67f92ac0",
-        "951ac30db0b03a1d9e2d99b871774b0350d0f2922d514d2b343aa016feb2f80e",
-        "91189ff3550d5b097a6d822d9c4f15491aa7db39603e8b38d224c5071a30b5da",
-        "bac8d65106d07ea4896a3412b0774609efd81cbe4e138c5eb13adfaa59e26e13",
-        "fac5a2c76f4c953fd2d53a7f57fbde6ea2a1158ecc8e954a643a6f1595e5348d",
-        "59893d35988d93db2ae74bea887e7194f67cdb6bfd0707f7f70ad9147cc8ba44",
-        "7e0bb9fcb38d35b7dd5fa5d1a1b262f9d519d766f76d9a890e18d6956605aabc",
-        "de31bd6204dd59854d0f17bf085ddd71bc539aaf5c14cc7de5de11017c0904c8",
-        "a68b898e27f9dad346d3b4d6192593a2a21b1047906da5643a079a771d48cd4c",
-        "161db3ed35af472c244c294c2233a2715c875f87baff33ae283fc6933ed009d7",
-        "81ef00c791c03e5ccb29e3e461b4f09e9158975be546191c8dded24a487ef3a7",
-        "87e70d2a0d8613622085db8e2deb908d87f6656f153626dc4f86edb7742575f6",
-        "827f2b3f0f3a7d7e98dfabc28317ac00e384ee17e3af515d6bacb9a98ba16a44",
-        "169bf16f7a3ef968e477038c91333b8c65ec713760e58a785c4641a04018e86b",
+        "79907d67cb66358e7c79c06db0f7266c22cdcfbacc4d9031a247c47987c39d9e",
+        "9dafceb2d902bf7500caea9641fa32aafea29f34746d6ce0e938a846f541aa9a",
+        "f623eefc82f4e8b3ade896ac6f52884ffe185710bf93eeffc45da2894a5a9cce",
+        "d5ba9ab32500aa05bdc95984b8e384d7d1cdb9a05f7be8e9e9a5b49d0f97097c",
+        "d0defb1c867ca42b3a5f02c5ebdf6379a9c6644af06b6bd309887600d474ad92",
+        "cd11768219b16274b377bf8769c5fc9f4969f8b3199e3211b40eb783ee0d1e80",
+        "bbbb57067bf9543985f2709bd1398707d0df57af04b96c499f82736c7084296a",
+        "be6e103ddf16000635fa7ee0b2fd28586427529597ed939b973bded4ad56ed7f",
+        "f03c8b3097bb99bbea48ae16866160285f043d9f82d62aa341ea134add4fbf90",
+        "0e9abb969cb7e20b027326e9c4bdbbb8cc183b31739d807e4822a97234286fd8",
+        "27958e1819bf0bc833272a6e029c8a6b6f427538be8efb5faa5cb2714baa9eaf",
+        "5fea75b0c20544c2f62885ae7027dcd10d5ed642f112b0c8cdc41c3c38119adb",
+        "83a51a5c6bf7176ae026eb042eeb0bfac76945b54f33f4f206a2abd33d7489d2",
+        "df76495836ae138d4105cd6e066f4217a6ab4e7029ffc36362a522fdcb7c7ea0",
+        "387d3a44b6752c0e3f3b99523d118db34c9d3cd7b4e431fba1c63040e0ce6a8f",
+        "3b7c7270211c3ed7defd96925272c6116378f415d45532502357e6eb08a954d1",
         "c9d3457279c69e1c73a02a188166c2404844fc95c540c49f684fa56537d17030",
         "954b27e5424c882dcf67c76b02f9dcb7f678de65235a3efdbd5b49c55885e7d7",
         "86b18e120b04c0dc1f0ab457fe9fff7b5be1a11571f3faeae7762684669ba5f0",
         "fb5049f0ae2be3c97c78c8ad18b411f4f9e93a6a627886323760655c7f024965",
         "c0f002c419d8ebc99580440b8a33a01302e94eca49fecb169dbd0b2de844a3f3"
       ],
-      "nodes": 22
+      "nodes": 21
     }
   },
   "tree_advanced_between_reads": true,
-  "entries_added_between_reads": 1439,
-  "checked_at": "2026-08-23T11:01:32.376666+00:00",
+  "entries_added_between_reads": 1101,
+  "checked_at": "2026-08-23T16:35:21.729742+00:00",
   "must_admit": true,
   "full_admit": true,
   "refuse_limb": null,
@@ -159,6 +158,6 @@
   "should_limbs_failed": [],
   "receipt_filename": "wyvern.ct.digicert.com_2027h1.json",
   "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
-  "ledger_digest": "f312afab7d28f297e00644ad28331e3fd59dbd3158e6fa1ac367bcafd95551e5",
+  "ledger_digest": "1776c0a62e412ea2ea82a0c09cfb2f06d14e5ff8fb1393bdf1dd2dff4f7a84b9",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
 }

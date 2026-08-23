@@ -1,12 +1,12 @@
 # Measured ledgers, and every time each one was published
 
-Generated 2026-08-23T11:01:32.764941+00:00 · tool ledger_refresh v1.0.0 · digest `212252c1495611ae`
+Generated 2026-08-23T16:35:21.932442+00:00 · tool ledger_refresh v1.0.0 · digest `94c684a029085d10`
 
 A ledger published once is a snapshot dressed as a standing claim. This page is the
 correction: one row per publication, kept append only, so a reader can see whether a
 number held when the same probe was pointed at the same population a second time.
 
-5 ledgers indexed · 16 runs on record ·
+5 ledgers indexed · 17 runs on record ·
 0 still have a single run and are labelled as snapshots ·
 4 headline counters moved on the latest refresh,
 of which 2 rate comparisons still have overlapping intervals.
@@ -136,7 +136,7 @@ PYTHONPATH=engine python3 engine/tools/grounded_claim_run.py run
 
 ### Transparency log batch monitor
 
-`/tlog/` · unit of measurement: one log · 4 run(s) on record
+`/tlog/` · unit of measurement: one log · 5 run(s) on record
 
 | run | generated at | probe | digest | headline counters |
 | --- | --- | --- | --- | --- |
@@ -144,6 +144,7 @@ PYTHONPATH=engine python3 engine/tools/grounded_claim_run.py run
 | 2 | 2026-08-02T05:43:57.760810+00:00 | 1.0.0 | `2fac8d589132` | full_admit 22, must_admit 22, must_refuse 1 |
 | 3 | 2026-08-02T05:43:57.760810+00:00 | 1.0.0 | `1e9ae859e742` | full_admit 22, must_admit 22, must_refuse 1 |
 | 4 | 2026-08-23T11:01:32.381829+00:00 | 1.0.0 | `f312afab7d28` | full_admit 22, must_admit 22, must_refuse 1 |
+| 5 | 2026-08-23T16:35:21.734897+00:00 | 1.0.0 | `1776c0a62e41` | full_admit 22, must_admit 22, must_refuse 1 |
 
 Comparing two runs of this ledger: The same 23 logs every batch, so counts are directly comparable. What is not comparable is the cold start: the first batch held no prior checkpoint for any log and every batch after it does, which changes what some limbs can even reach.
 

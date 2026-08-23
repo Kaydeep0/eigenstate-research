@@ -26,8 +26,8 @@
     },
     "checkpoint_carries_tree_size_and_root_hash": {
       "outcome": "ok",
-      "tree_size": 1707831755,
-      "root_hash": "397b2521b572b5c48c9d51691f2587ebeb00f384f3713628491ab6e11eb67f19"
+      "tree_size": 1710903127,
+      "root_hash": "f49346e165426f323d1b9584d5df6a74083b24ae434587e2e51bd1628a37574f"
     },
     "checkpoint_carries_a_signature": {
       "outcome": "ok",
@@ -49,29 +49,29 @@
     },
     "prior_batch_checkpoint_on_record": {
       "outcome": "ok",
-      "prior_read_at": "2026-08-02T05:43:51.940773+00:00",
-      "prior_tree_size": 1483103970
+      "prior_read_at": "2026-08-23T11:01:19.152389+00:00",
+      "prior_tree_size": 1707846640
     },
     "second_read_answered": {
       "outcome": "ok",
-      "tree_size": 1707846640
+      "tree_size": 1710924122
     },
     "tree_did_not_shrink_between_reads": {
       "outcome": "ok",
-      "first_size": 1707831755,
-      "second_size": 1707846640,
-      "entries_added": 14885
+      "first_size": 1710903127,
+      "second_size": 1710924122,
+      "entries_added": 20995
     },
     "consistency_proof_served": {
       "outcome": "ok",
-      "nodes": 26
+      "nodes": 27
     },
     "consistency_proof_recomputes_to_the_second_root": {
       "outcome": "ok",
       "reason": "both_roots_recomputed",
-      "first_size": 1707831755,
-      "second_size": 1707846640,
-      "proof_nodes": 26
+      "first_size": 1710903127,
+      "second_size": 1710924122,
+      "proof_nodes": 27
     }
   },
   "evidence": {
@@ -80,14 +80,14 @@
       "status": 200,
       "error": null,
       "bytes": 241,
-      "read_at": "2026-08-23T11:00:11.609842+00:00",
-      "body_sha256": "e4a6d768e91f2c8b13f3fec2ee52aef22cd8766643592f5b1bb6026257f9d22e",
+      "read_at": "2026-08-23T16:34:07.201493+00:00",
+      "body_sha256": "08cf2f770525f71600d1899b7c446f0cf616765a8ba1510c4f32ae7196661624",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 1707831755,
-      "timestamp": 1787482745626,
+      "tree_size": 1710903127,
+      "timestamp": 1787502720635,
       "signature_lines": 1,
-      "root_hash_hex": "397b2521b572b5c48c9d51691f2587ebeb00f384f3713628491ab6e11eb67f19",
+      "root_hash_hex": "f49346e165426f323d1b9584d5df6a74083b24ae434587e2e51bd1628a37574f",
       "raw_body": null
     },
     "signature_check": {
@@ -98,49 +98,50 @@
     "prior_batch": {
       "log_key": "elephant2026h2.ct.sectigo.com",
       "read": "second_read",
-      "read_at": "2026-08-02T05:43:51.940773+00:00",
-      "tree_size": 1483103970,
-      "root_hash": "bac39285b30c38a258b42653cacf2df2deb8b24ad5e44f39ba2bdd428cde6983",
-      "body_sha256": "5b0e8d88a3286ce83382a58ffb0991293634d6f11f15628313ceb5a3f1b89bca"
+      "read_at": "2026-08-23T11:01:19.152389+00:00",
+      "tree_size": 1707846640,
+      "root_hash": "23d2373d63cda37b696a25281821cbafd11905d5c81bb60e78745d9497af4de3",
+      "body_sha256": "ce1a5a828cfe66cde3a60e4a7cad5fdb28894f3047fc5d9351d64f4ecab05ce5"
     },
     "second_read": {
       "url": "https://elephant2026h2.ct.sectigo.com/ct/v1/get-sth",
       "status": 200,
       "error": null,
       "bytes": 241,
-      "read_at": "2026-08-23T11:01:19.152389+00:00",
-      "body_sha256": "ce1a5a828cfe66cde3a60e4a7cad5fdb28894f3047fc5d9351d64f4ecab05ce5",
+      "read_at": "2026-08-23T16:35:12.265251+00:00",
+      "body_sha256": "821073fdb5a4cf751160e20d491efe34585faa0d9074d03c6e518109b7fa649c",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 1707846640,
-      "timestamp": 1787482873296,
+      "tree_size": 1710924122,
+      "timestamp": 1787502841506,
       "signature_lines": 1,
-      "root_hash_hex": "23d2373d63cda37b696a25281821cbafd11905d5c81bb60e78745d9497af4de3"
+      "root_hash_hex": "4e4bb8cba9576adda42a6bb445aaf01d31e230c1b40b2d57875b33b0a27e7829"
     },
     "consistency_request": {
       "served": true,
-      "url": "https://elephant2026h2.ct.sectigo.com/ct/v1/get-sth-consistency?first=1707831755&second=1707846640",
+      "url": "https://elephant2026h2.ct.sectigo.com/ct/v1/get-sth-consistency?first=1710903127&second=1710924122",
       "proof": [
-        "219e868f11bc34cf10040a08a9e347ff3d474ad60b398fec33c189dc05a7ed8f",
-        "aa088ef9fad7d831d95fd4f1f3060cb22d57b7c94c324b18f8ba666a41027234",
-        "a81145d55548b9d19d46f75e9ad65f00a48f704f11cef1f92860817aa529f0e5",
-        "38f24831e7c402809b6d0bf056f33af91860c7872678e13b037a516509010a5e",
-        "f1d97a969ef3e09c27ff34832c216b1c85dad764bfc031ebc03042cd1197ce0c",
-        "f586f667c2a322774853c6a66e8d17401e1d9ff314804b8156ca27d24735f494",
-        "b0d23b378cc75934871f767d28a0106d7df4a6eff07514418a84df4be78a69a9",
-        "611211c86fee86c94c57482e68f3c7bbbf11f3b047765a670777105edb8837fc",
-        "220ef8bf064665965601ef9697348567f269b8705ef359d3c323c9331eec49d0",
-        "4f01342ef7015b1590347b589aabdf52688c04b0d9d36b90a992ad9eb23085ff",
-        "ac5fdf8d7e84a04d3fc9b03aba95e69a4fc11555d1a82b4461898dcab42f137f",
-        "18d3f9a61d47d6eb692e5c6228e0afd4598ee0421b6614a4f911c4721fef6ac9",
-        "7e7b99248bde23b5ca58509b85337e9f8abff3a4d46932258d3a122ca8a35bb7",
-        "44c0d1348f56e803492d6adb6b8d962d9674dd6b1e8ae2997954901d142f0011",
-        "ff80e8404b9b849a2b1a71a9a41a435066a85a4311beb9ea9cf731122041e761",
-        "b89b0c931bb3c7917ecc06eb6cd93a36e3af776d5a813e7eccb00c9170443c9f",
-        "d29f9c38feedd915fdbb50528b0f5456f9a664f21073c1adf1fdfc934dc61f84",
-        "c0028f79667e201ee030c3eea5622ca12d50f4ece7ab2e8258cb6f1a7a99035f",
-        "f6220afee027fa5003eb371a12897a29f0e32fb630d857f54ab1d246c30588f8",
-        "b8ea67a22f2a9e7a3773a5e861188486da08c493226eea000a5b30e016cff923",
+        "5f4ad418a34e438912b6503ede14064ea8059312fb9886ddf2ca98bda90eb54f",
+        "fd8731439e6a66b681b8469408830ad9293d0ac4113eeddf17f2df647adf4ced",
+        "f7c523ef05ed218fd267408aa770ef7da9f83111f0ba0132f284133ad8a68bb9",
+        "480f26c731aa95d17f88c0572d0512ccde2b209391bada856fcfb17b3bc9d4e1",
+        "b84bef637f134ab49e4b74ac06a2ddab389392fb6a7a8d85adb0c0c8e7f2470d",
+        "8c3e30331025ec8662ffa687f294429c0802e632d0cdb4463cf2aaece9e5582b",
+        "73a07b7891e276c4a397302f26ac4e36aef69b25b9ce75921f9495fe4c3e2fde",
+        "e714b39d82468cb40a19e889cf6dd3379c169f3fc9cf795c26180662f5e0cfbf",
+        "454ce9ec4212241fadbc8ad038d46e9b8f222fb8c293dc8300a12c6ef540e812",
+        "ab68a81ed1f9771ca613ce40b61a0cc387306c54fbaaa82ab8b0fc8894b51e70",
+        "284e7b328a59de056a2326844206828cd55b3231f58a71eccc8fa4da04fb45ff",
+        "9030e22b1963c8d346c6f0dc0740e9e15c6458b49ce325cc2ced6853a0ec9d63",
+        "c2720ce786e64a04ae1a09ba41e3b78eec464f280a76a5917fc34bab63279257",
+        "54193b369ca90204ece09aa199fab1bf33b51d65da7b11f6a706927be198be95",
+        "c53a79b2ef9995a4f526359394f58050faa2663eb0fd10fe3f4253378aba59e5",
+        "e811e84a0856c063be191669508be969b18b17a1fcc8ad4a60605dd8dd9054a0",
+        "0c9dc7b58ca9acacf7fd27c754a920aef0eb5a1cd35f6b62f0af6be2bb16fb5b",
+        "0e58f7007287807f2a1dcac493c71bd88533184952eae247ca0a3ca03eaafe50",
+        "30a1664b1e2dcf13d820ab8f077d1d5b8ccd1cfe5d2f6d5a4d8b4d1fcf359031",
+        "085d76a58e561c495f2b5ad092d1a21915b518037e3cf93be3e51ab029b4160a",
+        "b5e5de6449b7d36e099459731103a50cccaaaee580ed5328e73b82bea69719af",
         "e1190d036ac51625cf98a97614da32b9734eeb55e59290ca7f25b568eb4d4a3f",
         "7ad8d56fe13fbaff2b6e48c19bac74d48a423ebb2e403fa9e08d16c4acbb9978",
         "1770c33546e7bc5ba9a80c1cd5cf9e0a5fce50876f44033f06cd768386853b8e",
@@ -148,12 +149,12 @@
         "e1d3724476bf0e3bb4afb0595e958b30f49e6b9973715f84458d73a474ff7ce9",
         "e6c023aecbdd0b3cbaab8f250368023344ce6a5ab9964d6ace07760eef05cbef"
       ],
-      "nodes": 26
+      "nodes": 27
     }
   },
   "tree_advanced_between_reads": true,
-  "entries_added_between_reads": 14885,
-  "checked_at": "2026-08-23T11:01:32.376887+00:00",
+  "entries_added_between_reads": 20995,
+  "checked_at": "2026-08-23T16:35:21.729880+00:00",
   "must_admit": true,
   "full_admit": true,
   "refuse_limb": null,
@@ -163,6 +164,6 @@
   "should_limbs_failed": [],
   "receipt_filename": "elephant2026h2.ct.sectigo.com.json",
   "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
-  "ledger_digest": "f312afab7d28f297e00644ad28331e3fd59dbd3158e6fa1ac367bcafd95551e5",
+  "ledger_digest": "1776c0a62e412ea2ea82a0c09cfb2f06d14e5ff8fb1393bdf1dd2dff4f7a84b9",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
 }

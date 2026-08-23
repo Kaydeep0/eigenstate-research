@@ -18,7 +18,7 @@
     "checkpoint_endpoint_answers_without_credentials": {
       "outcome": "ok",
       "status": 200,
-      "bytes": 241
+      "bytes": 245
     },
     "checkpoint_parses_in_its_declared_format": {
       "outcome": "ok",
@@ -26,8 +26,8 @@
     },
     "checkpoint_carries_tree_size_and_root_hash": {
       "outcome": "ok",
-      "tree_size": 2056061026,
-      "root_hash": "cdec29e9e5919d12cf6a4711301340b99426d873084e54abbbeecea82a686815"
+      "tree_size": 2059409667,
+      "root_hash": "45ef49c2f04c9a827e1eefd3e1ad77382fcb1618768f52c0b5107ef29b6c965c"
     },
     "checkpoint_carries_a_signature": {
       "outcome": "ok",
@@ -49,27 +49,29 @@
     },
     "prior_batch_checkpoint_on_record": {
       "outcome": "ok",
-      "prior_read_at": "2026-08-02T05:43:52.860254+00:00",
-      "prior_tree_size": 1793127438
+      "prior_read_at": "2026-08-23T11:01:22.501903+00:00",
+      "prior_tree_size": 2056061026
     },
     "second_read_answered": {
       "outcome": "ok",
-      "tree_size": 2056061026
+      "tree_size": 2059434222
     },
     "tree_did_not_shrink_between_reads": {
       "outcome": "ok",
-      "first_size": 2056061026,
-      "second_size": 2056061026,
-      "entries_added": 0
+      "first_size": 2059409667,
+      "second_size": 2059434222,
+      "entries_added": 24555
     },
     "consistency_proof_served": {
-      "outcome": "not_applicable",
-      "reason": "tree_did_not_advance_between_the_two_reads",
-      "note": "There is nothing to prove between a size and itself. The two reads returned the same root, which is what a consistent log looks like over a quiet window."
+      "outcome": "ok",
+      "nodes": 23
     },
     "consistency_proof_recomputes_to_the_second_root": {
-      "outcome": "not_applicable",
-      "reason": "no_proof_needed_between_equal_sizes"
+      "outcome": "ok",
+      "reason": "both_roots_recomputed",
+      "first_size": 2059409667,
+      "second_size": 2059434222,
+      "proof_nodes": 23
     }
   },
   "evidence": {
@@ -77,15 +79,15 @@
       "url": "https://tiger2026h2.ct.sectigo.com/ct/v1/get-sth",
       "status": 200,
       "error": null,
-      "bytes": 241,
-      "read_at": "2026-08-23T11:00:13.604320+00:00",
-      "body_sha256": "fa89ff0f870d7d313c312bf2ada2472612d8ee9b6fa0eb9ec937da4792758e1b",
+      "bytes": 245,
+      "read_at": "2026-08-23T16:34:08.819887+00:00",
+      "body_sha256": "36adad7c0031015d7973f599108d33094f95d6ba93e75e66bb70628c105866a2",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 2056061026,
-      "timestamp": 1787482744235,
+      "tree_size": 2059409667,
+      "timestamp": 1787502710309,
       "signature_lines": 1,
-      "root_hash_hex": "cdec29e9e5919d12cf6a4711301340b99426d873084e54abbbeecea82a686815",
+      "root_hash_hex": "45ef49c2f04c9a827e1eefd3e1ad77382fcb1618768f52c0b5107ef29b6c965c",
       "raw_body": null
     },
     "signature_check": {
@@ -96,29 +98,59 @@
     "prior_batch": {
       "log_key": "tiger2026h2.ct.sectigo.com",
       "read": "second_read",
-      "read_at": "2026-08-02T05:43:52.860254+00:00",
-      "tree_size": 1793127438,
-      "root_hash": "b0680d162a08b640f0fbcd14ed94cb8a84f122e98161595331373273a9ea1c36",
-      "body_sha256": "adea93b0b63e0ca0bcd7219f745fddb6107cc83d5f99942fd47dbb3b7cb687d1"
+      "read_at": "2026-08-23T11:01:22.501903+00:00",
+      "tree_size": 2056061026,
+      "root_hash": "cdec29e9e5919d12cf6a4711301340b99426d873084e54abbbeecea82a686815",
+      "body_sha256": "fa89ff0f870d7d313c312bf2ada2472612d8ee9b6fa0eb9ec937da4792758e1b"
     },
     "second_read": {
       "url": "https://tiger2026h2.ct.sectigo.com/ct/v1/get-sth",
       "status": 200,
       "error": null,
       "bytes": 241,
-      "read_at": "2026-08-23T11:01:22.501903+00:00",
-      "body_sha256": "fa89ff0f870d7d313c312bf2ada2472612d8ee9b6fa0eb9ec937da4792758e1b",
+      "read_at": "2026-08-23T16:35:14.032806+00:00",
+      "body_sha256": "d606e2a5e75ed458c10d9d17f6b107b4040ec3a7032255819c9b3bdb77dd8163",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 2056061026,
-      "timestamp": 1787482744235,
+      "tree_size": 2059434222,
+      "timestamp": 1787502834331,
       "signature_lines": 1,
-      "root_hash_hex": "cdec29e9e5919d12cf6a4711301340b99426d873084e54abbbeecea82a686815"
+      "root_hash_hex": "83a5fe9490a4a35b3927609505f4ec20df3019a4f4f1d2f031df8895c28d94f9"
+    },
+    "consistency_request": {
+      "served": true,
+      "url": "https://tiger2026h2.ct.sectigo.com/ct/v1/get-sth-consistency?first=2059409667&second=2059434222",
+      "proof": [
+        "a8713cd1d30cd0d8ff4961cd77c8ed46e0cd9896d85e61836f4c512915c7a981",
+        "7642deff714a3622787f4f498e0fc65a80a4ba0ba5f8166df342d3ed7e627f00",
+        "551aea46440fd4ea35f5834b4880adc4fdd51d4a60a0d7e918ceaf792606d8e3",
+        "dc7b049a96c3e4dc5419d8c85addef84f02c05c2b6548ba09cff56b2fa35669f",
+        "60362acd8f72abbc82c374cf8898675a74e0edf305fe227c83246fd3a76ef009",
+        "b96991e35d45515471922b916e4e338a01d0e38c76de8031d5f8778328c727ea",
+        "0e95d0586f2b0a58c2b87e0f74a8ed1db1b71b37f536e93ec966dcb4119ff14e",
+        "98add9ef7aba10e686b6da13ad5e566cb7c24cac8671e61635258dc9af044eb4",
+        "ba20ad8c60cd56323e0c10d6376250d3ea1eaa70fb63661249f50a6c39bc0a3b",
+        "b6b3092134ebf406a72151e9523f67ce01d056b1b4ef5ec790d8d9501407824c",
+        "e1bda54434be42b5465ae1f9a074796b3605b38d1210121da2be27229d294ccb",
+        "c1df947d6c521de4a83db32b0c8cc2581f83b81725a970be2cf9e8660a9ab6bb",
+        "1554837038e8174c1164a8575e02451631a66cd026aa3799b638a3518d4c76fe",
+        "d78b39d54eb638f304f114f2c4b269a57987c88f0417f1341b8a2ae474948377",
+        "427e8bb8810c0ff2a575577edb70af2ed5b778bc2a6c16bf321195f5559f384f",
+        "7a62ae2ee85e31b75fc36c5003dd04bf4090dcab5f58ea4e3a055e3191d3e224",
+        "69e31f9e5a0835217a47872c9ef32b7af0ce9b5f3ca2fdbbc29b51642a0432db",
+        "e7343503da3d656bf10e5b612ae095e58cd162f4d7c6fac94e4b25b18c9b39fd",
+        "94c220ea482bf7c52970d57b22c8493147b77c7de1d0c9028de72933f51ad803",
+        "940f94042a99e26c81710aafb5045c82689d3dd5c45af9028ef4cd7bd140c8bd",
+        "335f9ab37912e265d6c323a930b40b6034cce0fc3560658e73890582c8fb8efd",
+        "2ba40deec91f12766aa8d3a67044b7d51d4d766f2cb2c11e597f3f4d8f14b319",
+        "f3844be2a3831b5afc48c4d678b072820f692560f98154bc63c64f37fe85e845"
+      ],
+      "nodes": 23
     }
   },
-  "tree_advanced_between_reads": false,
-  "entries_added_between_reads": 0,
-  "checked_at": "2026-08-23T11:01:32.376976+00:00",
+  "tree_advanced_between_reads": true,
+  "entries_added_between_reads": 24555,
+  "checked_at": "2026-08-23T16:35:21.729937+00:00",
   "must_admit": true,
   "full_admit": true,
   "refuse_limb": null,
@@ -128,6 +160,6 @@
   "should_limbs_failed": [],
   "receipt_filename": "tiger2026h2.ct.sectigo.com.json",
   "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
-  "ledger_digest": "f312afab7d28f297e00644ad28331e3fd59dbd3158e6fa1ac367bcafd95551e5",
+  "ledger_digest": "1776c0a62e412ea2ea82a0c09cfb2f06d14e5ff8fb1393bdf1dd2dff4f7a84b9",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
 }

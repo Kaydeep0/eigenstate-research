@@ -26,8 +26,8 @@
     },
     "checkpoint_carries_tree_size_and_root_hash": {
       "outcome": "ok",
-      "tree_size": 68623284,
-      "root_hash": "55287c70cc8570f8dbb71f4ee026fb9ef94bd064d74dabfb08f28208f2fddaaf"
+      "tree_size": 68982059,
+      "root_hash": "c70b77bed348fc708da1c9b122bc2efad9144ea4e9a10e083bf85864fc32d725"
     },
     "checkpoint_carries_a_signature": {
       "outcome": "ok",
@@ -49,29 +49,29 @@
     },
     "prior_batch_checkpoint_on_record": {
       "outcome": "ok",
-      "prior_read_at": "2026-08-02T05:43:42.205043+00:00",
-      "prior_tree_size": 38181393
+      "prior_read_at": "2026-08-23T11:01:06.432531+00:00",
+      "prior_tree_size": 68624532
     },
     "second_read_answered": {
       "outcome": "ok",
-      "tree_size": 68624532
+      "tree_size": 68982990
     },
     "tree_did_not_shrink_between_reads": {
       "outcome": "ok",
-      "first_size": 68623284,
-      "second_size": 68624532,
-      "entries_added": 1248
+      "first_size": 68982059,
+      "second_size": 68982990,
+      "entries_added": 931
     },
     "consistency_proof_served": {
       "outcome": "ok",
-      "nodes": 18
+      "nodes": 19
     },
     "consistency_proof_recomputes_to_the_second_root": {
       "outcome": "ok",
       "reason": "both_roots_recomputed",
-      "first_size": 68623284,
-      "second_size": 68624532,
-      "proof_nodes": 18
+      "first_size": 68982059,
+      "second_size": 68982990,
+      "proof_nodes": 19
     }
   },
   "evidence": {
@@ -80,14 +80,14 @@
       "status": 200,
       "error": null,
       "bytes": 239,
-      "read_at": "2026-08-23T11:00:02.997878+00:00",
-      "body_sha256": "1681a6f5369cd1ac6b2e04bded516249f59d15e33c7885838e6f6bcec811cf8c",
+      "read_at": "2026-08-23T16:33:59.984684+00:00",
+      "body_sha256": "0f03012cda9bfeed5fdca1d9798865948b6bf21fe67a854f241300ec6d563ce7",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 68623284,
-      "timestamp": 1787482802451,
+      "tree_size": 68982059,
+      "timestamp": 1787502839668,
       "signature_lines": 1,
-      "root_hash_hex": "55287c70cc8570f8dbb71f4ee026fb9ef94bd064d74dabfb08f28208f2fddaaf",
+      "root_hash_hex": "c70b77bed348fc708da1c9b122bc2efad9144ea4e9a10e083bf85864fc32d725",
       "raw_body": null
     },
     "signature_check": {
@@ -98,54 +98,55 @@
     "prior_batch": {
       "log_key": "sphinx.ct.digicert.com/2027h1",
       "read": "second_read",
-      "read_at": "2026-08-02T05:43:42.205043+00:00",
-      "tree_size": 38181393,
-      "root_hash": "72e8c22ce333fb7ae3e4b48fd1cce43f888690ec7eff17550c11cbc49d3c7246",
-      "body_sha256": "c986f81a7f4f4e62d7d06ea59d97f71aca6473ddbef1e7209642d3630cf50567"
+      "read_at": "2026-08-23T11:01:06.432531+00:00",
+      "tree_size": 68624532,
+      "root_hash": "73915affea7e9753bd5b11f57749a54dde293a97ae8561294d78b304f98d7949",
+      "body_sha256": "14554669f1c3bbcb93e068a7d39673bcc23eb00722e8699d8ad32c6e375e0a17"
     },
     "second_read": {
       "url": "https://sphinx.ct.digicert.com/2027h1/ct/v1/get-sth",
       "status": 200,
       "error": null,
       "bytes": 239,
-      "read_at": "2026-08-23T11:01:06.432531+00:00",
-      "body_sha256": "14554669f1c3bbcb93e068a7d39673bcc23eb00722e8699d8ad32c6e375e0a17",
+      "read_at": "2026-08-23T16:35:02.359107+00:00",
+      "body_sha256": "78f89650422ae3367eea54a1f7d956b26600b8d0bf8ab2f486277d57c3dd41a5",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 68624532,
-      "timestamp": 1787482865978,
+      "tree_size": 68982990,
+      "timestamp": 1787502902040,
       "signature_lines": 1,
-      "root_hash_hex": "73915affea7e9753bd5b11f57749a54dde293a97ae8561294d78b304f98d7949"
+      "root_hash_hex": "1279ea27476df7c30aa89ac32bc4d92e74c3aa639ee75573fb69f98125d4130c"
     },
     "consistency_request": {
       "served": true,
-      "url": "https://sphinx.ct.digicert.com/2027h1/ct/v1/get-sth-consistency?first=68623284&second=68624532",
+      "url": "https://sphinx.ct.digicert.com/2027h1/ct/v1/get-sth-consistency?first=68982059&second=68982990",
       "proof": [
-        "3d27855ef6c4ece2097f53f0fce6199cc7320bce29f7aadb14a8d0593fdf1412",
-        "686c11ba432cf78d71328a802f75985e4512f0d65d6e67f3e2d5a5456f5e8f18",
-        "034336cdd2374cd6b9af560b79e910daf42e6072a1366cd84670d4654c8a5104",
-        "d75d80f20bddb6aab055af13e43aed72919579f1ca68537bae5318d2c5eca945",
-        "8eff8089e1114e61ec84574ef71155e9cb400ba96a5ccecb7af89a4dcab698d0",
-        "2a886175de953f02bbed9fd7b874bc2c751da4b29b353c89121eb7cb8200a508",
-        "ab50557fbc80f757885b4ebc8352eca682e91624344191c350d1055495374107",
-        "5dd3af36bed1479eb5fc5395539257b2120edde4979c9beb558a4635c7ab7bee",
-        "bb6d611b0dfc0a9f1adec281310a2144faedb4d4b136479ab5412c595f586322",
-        "0c21fc70ce87466285455c5ce3589ad3e5dfba2cda15bcdefccb8a164eda725c",
-        "29ef565ed5e8c5478010129168c8cd02cdb35816a6f0864de1ab866dfaf61e28",
-        "a9e4cc9d05cfb7083448826060f1ebb7c81c157e09f6320a800b2c9e10113690",
-        "0410f1ba35ce80d6be1e6e569cbcf9c615eca76bc3dcf8cdfdcb8da252bc22bb",
-        "97e2bf1c6ef2d12818f49fbc4e8b2b0b2dcdb88064ac067fc15daa1caf48d964",
-        "3210f23d72ddb13d3d1b770cfea13d31d1135f88458f286ee6a891aae146405c",
-        "bf7af2c3a2826c73b58806b454c141dfffc38fe4f16676a7eccb445f2315ed45",
+        "e261524733a93f05b2f8299ee61c5f9435d1ea08f9a322ddb05c65132296f0e6",
+        "763996279bc9d5d4b3837fee62748af88627146ea3ba4255e2e421bc50a948c8",
+        "4c43c5b6a67f4503d1c79eca9262e2c22e0b078834947a9c23b8434f45e65588",
+        "edd0b731153a1486339e2d1562e81afbe674aa0c4c1a9a2f890eeabf44bbbaa2",
+        "fe6a5e1461ad7aae9a7be8d3071c26ab658da8e3ef5644455849e325ea7472b1",
+        "f4c0516e3a2c3f76271ae5e4beb29e60c1079bcb8a89f9cde47830d4b70162e2",
+        "5a2609e91f360103aac1d42e6089ada725f63ee6c0a59c158f726bca6dc164d6",
+        "a04224accc91a55b425d659d44991a9e758b7e6619b2cea81dc8a75daf27e9a7",
+        "16ec9009c1327acc4bd3552bed289f683e6fe7093ccebbe78c674925ed3cac53",
+        "8fd5915e2560862b945d7080d0509afb5a910a1047874df817640e1fc2a0105d",
+        "09aaf49e6e17b87205fa8276e4414574391332c9cf7a5ded8caf3837666fbab9",
+        "51bff04744e3e9ef7466b0c814f29e5ac9034cd900559002cd1e88b5f3078623",
+        "030c9d7e387a4e47ef04ca8386c027ae83f54004ebab4594576f7521f8df13b4",
+        "4d0a61ee90668e6974531d5d451fac17a3ce4d79213f6645f9ad78cfd3c64336",
+        "e8a9a95b7c0849a55414b42d250ac84ac59827ba5652909159281a7ba1bcd5ff",
+        "3a4c013f4e8b3a889bfff2a7f020fcbb132db48963ef2caab5a941ed38aeaf5d",
+        "74723dfe12fa46e0f9a075f9420addb0a7dd57f0dea66ccbd8c42e4c3ea4704c",
         "10dcac8ca4128288bc34dbc82c2ec9fad8cd7f11cc9e620b796e0fb5af5fd232",
         "6a464ea2959b548d4b92e2e8d0d5da9cdd07bb5e8ce6e365b50daad692390a8d"
       ],
-      "nodes": 18
+      "nodes": 19
     }
   },
   "tree_advanced_between_reads": true,
-  "entries_added_between_reads": 1248,
-  "checked_at": "2026-08-23T11:01:32.376569+00:00",
+  "entries_added_between_reads": 931,
+  "checked_at": "2026-08-23T16:35:21.729681+00:00",
   "must_admit": true,
   "full_admit": true,
   "refuse_limb": null,
@@ -155,6 +156,6 @@
   "should_limbs_failed": [],
   "receipt_filename": "sphinx.ct.digicert.com_2027h1.json",
   "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
-  "ledger_digest": "f312afab7d28f297e00644ad28331e3fd59dbd3158e6fa1ac367bcafd95551e5",
+  "ledger_digest": "1776c0a62e412ea2ea82a0c09cfb2f06d14e5ff8fb1393bdf1dd2dff4f7a84b9",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
 }

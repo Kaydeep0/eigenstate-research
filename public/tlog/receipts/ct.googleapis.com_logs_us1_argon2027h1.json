@@ -26,8 +26,8 @@
     },
     "checkpoint_carries_tree_size_and_root_hash": {
       "outcome": "ok",
-      "tree_size": 231703878,
-      "root_hash": "a12bde5113e020e80fbc2f04c01cd4837f740f55f88bcf665eb8bea4ab4f38fc"
+      "tree_size": 232377227,
+      "root_hash": "9253b7f02b3d3562f0c5e85e23b90b35660bcf54a9f3932dd2d36f6f02f3be80"
     },
     "checkpoint_carries_a_signature": {
       "outcome": "ok",
@@ -49,29 +49,29 @@
     },
     "prior_batch_checkpoint_on_record": {
       "outcome": "ok",
-      "prior_read_at": "2026-08-02T05:43:50.699808+00:00",
-      "prior_tree_size": 164763310
+      "prior_read_at": "2026-08-23T11:01:17.438786+00:00",
+      "prior_tree_size": 231706222
     },
     "second_read_answered": {
       "outcome": "ok",
-      "tree_size": 231706222
+      "tree_size": 232379274
     },
     "tree_did_not_shrink_between_reads": {
       "outcome": "ok",
-      "first_size": 231703878,
-      "second_size": 231706222,
-      "entries_added": 2344
+      "first_size": 232377227,
+      "second_size": 232379274,
+      "entries_added": 2047
     },
     "consistency_proof_served": {
       "outcome": "ok",
-      "nodes": 22
+      "nodes": 24
     },
     "consistency_proof_recomputes_to_the_second_root": {
       "outcome": "ok",
       "reason": "both_roots_recomputed",
-      "first_size": 231703878,
-      "second_size": 231706222,
-      "proof_nodes": 22
+      "first_size": 232377227,
+      "second_size": 232379274,
+      "proof_nodes": 24
     }
   },
   "evidence": {
@@ -80,14 +80,14 @@
       "status": 200,
       "error": null,
       "bytes": 240,
-      "read_at": "2026-08-23T11:00:10.224433+00:00",
-      "body_sha256": "321916760d604d9bfbe2fadf3ef4ec44edc72ebbf382aaac61da37f07aebd9f3",
+      "read_at": "2026-08-23T16:34:06.224457+00:00",
+      "body_sha256": "5f0ecc7a82ec12020c42aa44c3b070b71eb23a3492f9e193048e253ee94cba91",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 231703878,
-      "timestamp": 1787482749520,
+      "tree_size": 232377227,
+      "timestamp": 1787502785442,
       "signature_lines": 1,
-      "root_hash_hex": "a12bde5113e020e80fbc2f04c01cd4837f740f55f88bcf665eb8bea4ab4f38fc",
+      "root_hash_hex": "9253b7f02b3d3562f0c5e85e23b90b35660bcf54a9f3932dd2d36f6f02f3be80",
       "raw_body": null
     },
     "signature_check": {
@@ -98,58 +98,60 @@
     "prior_batch": {
       "log_key": "ct.googleapis.com/logs/us1/argon2027h1",
       "read": "second_read",
-      "read_at": "2026-08-02T05:43:50.699808+00:00",
-      "tree_size": 164763310,
-      "root_hash": "154b7b4a674973a3b115dcb460aad1bf026685c281c822df5a3967b2a70f74a0",
-      "body_sha256": "02c3a3a5a79c5c325e6fcfdf3c4faecaf592042c1af94bbbda5ecc69f7bd0621"
+      "read_at": "2026-08-23T11:01:17.438786+00:00",
+      "tree_size": 231706222,
+      "root_hash": "037b4498ed1f1af773f512bafff7b669f236ca09e4074431b1c95ba53ee9cef7",
+      "body_sha256": "fc3a1670176339fe7f4b6043f15b68e7841151cb88b01a04b3121e8ca0d3ac03"
     },
     "second_read": {
       "url": "https://ct.googleapis.com/logs/us1/argon2027h1/ct/v1/get-sth",
       "status": 200,
       "error": null,
-      "bytes": 240,
-      "read_at": "2026-08-23T11:01:17.438786+00:00",
-      "body_sha256": "fc3a1670176339fe7f4b6043f15b68e7841151cb88b01a04b3121e8ca0d3ac03",
+      "bytes": 244,
+      "read_at": "2026-08-23T16:35:10.914582+00:00",
+      "body_sha256": "6136ac365ce50e204e5a57704731525d7b8bfa555314e72c72e42b8f992cfc37",
       "parsed": true,
       "format": "ct_v1_sth",
-      "tree_size": 231706222,
-      "timestamp": 1787482816450,
+      "tree_size": 232379274,
+      "timestamp": 1787502850422,
       "signature_lines": 1,
-      "root_hash_hex": "037b4498ed1f1af773f512bafff7b669f236ca09e4074431b1c95ba53ee9cef7"
+      "root_hash_hex": "8eccb79fcf1b808c354a684a435e8136a78c3b685b9915e774bab23d5ccaccd4"
     },
     "consistency_request": {
       "served": true,
-      "url": "https://ct.googleapis.com/logs/us1/argon2027h1/ct/v1/get-sth-consistency?first=231703878&second=231706222",
+      "url": "https://ct.googleapis.com/logs/us1/argon2027h1/ct/v1/get-sth-consistency?first=232377227&second=232379274",
       "proof": [
-        "1d08e4e692c50a3735a77cd5ffe3122467ecb8da8a7dee1a5941e57bbcc7712c",
-        "03459527e127b95044e1e20cfdfc4e9b27003fd2cd56965c6f0f434a3aa5b716",
-        "ace02d033d70530f19db8057d522b1bf7439ce4ae995f93c88d118b47b714467",
-        "5431c0363deb065214dca6caf12a33437995b88ce2c0f7c9b3b3662fb23286c3",
-        "30b329f7f70df4e4727f9e50d7b22b05c180a388b8ebe65639a5fc25dafe3a70",
-        "43dcc3cb2057581a534ad4c4ef59eb3e473ac8d49d1f3edbae54f409c72c4375",
-        "ee98b1a44c4e34d6140e1a6f7c4f4086a9b46e017dbf998c4f12a47dd2fb7348",
-        "64eea755cf899b324c2a53437979be6e0ba961fa67c82f8da712f632bf95f1ca",
-        "98d092ddf347c20519e2b1d587d9e2718daba2d66d6e82a9c356cf56aba0f3cd",
-        "9ae158bbbf5a137eb59d72a77f45c3942bdd2524ec7c0b9bded62d055f10413a",
-        "7adc30d86a7065f9f93e0a82393a85f39b5d47b9640c9a516a4432587d634d3f",
-        "62525f002445f22039df3703869edc5300ea31775e5d22323e9c9d4e1130f2ae",
-        "f9c53e41b2e81ac93d5f98dc8ae749cd2e0c0a4114cce04b26268e936eb2e431",
-        "7c4fb011990dab15f31b1255917ea95759fb972e88a29a25cd6c94f93bcb8486",
-        "3428c1a3ceaf619e9ca155edd34e01b860b0d77132cf27da2ccb7ee625b5625c",
-        "4db19ffc587385008483ac6777800d09886f4d29c2696181882b91b5a5768282",
-        "26e01f1bb2c153ef27a4212400c7fa528f549173f4a0ae40f5c27cdcf951bbde",
+        "fe028ecea07b09c720e568e6766e00001fb3e66edd4dbb1b00db9141c248e002",
+        "a652172ea39e6b3268b8644a20bafcb1689aaf2d7744837a837c7a24fa605855",
+        "511f036bda8a9ce883caf7ff87d98b12e83f45e34e637dbb88926b13297dcc39",
+        "2f7aea04d7dabf6b9602c0aecac150f4e06597c6e705c3911e27b8d82b955c2a",
+        "fccde314557c496c3456a51013443a4d9fe275b5024f3b0d9d2112f01617dc6c",
+        "fd78cbd272fb5066f45247d32d2a1baf5754aba57e92ae274218fdf6ab99670c",
+        "9190a8adbbe68d900df059b5488bc12c2b8cfb9436f1cdb858f1bb93bfada86b",
+        "f8b2543859b42ec1090d3fee24b424998bd2f9cef822ba515e6570ec38d34a9d",
+        "a490aa957069f705f51098160052ad008a8f194435a29e71a3296abff35e14fe",
+        "4a15319ec08f9769129121b4e323168c7707fd0ead787a0ee078ca03af9a7e88",
+        "a0c51112399a0608066a98eb69e66d4c65acae47233059960f4a5e29384ebc00",
+        "d629f8ecc0c43c34c0fbea035aa5b58b585808e10f0f943b290934625ffe12f2",
+        "86a7b7e8c27a6a5ce4470a274e791d6f7caf84e8191ee19b90441e38f2d7c743",
+        "ae93c67af0d73d3418634f335bef90651922129cc0b89db3b89ba6be7a517587",
+        "b544f0cf187a1bfd3db5134888286b60278777680a188aa0633dbe9c95405e6b",
+        "0bc8b69748494718e0da2878660df5b66487a47f0f1a7512e3497f60b915134b",
+        "72e95a04fb837c5273e34748fe8d3486bcf38eca8243576bfbe51f0941de973e",
+        "42a25d87677499cab43d98a6d0659618b6c6b6620a29dd964eba9dbe4ed55ada",
+        "87211381662df69e7998cb277d85878ccabfd078411f991866ef68d146c401d3",
         "9b450f34379b0c8c806119babcd61d8110790d022c7031236a3b6318375b472c",
         "80386328bd9f369c42049815631f46927b0d855fc47962499879a82adc811e76",
         "6a3ac4e707955b4a620fe9b59ef16618a43218afbc834b2b0f7cd38065a1b854",
         "aefd1f11b11a0ec9c410c3eed27e0b1d5341802764dd6ffaa4571d33b8a4eef7",
         "bd9bb55a188b2b369b4f11ae880d77a90cec229f8ac749f3accdf052fd956db5"
       ],
-      "nodes": 22
+      "nodes": 24
     }
   },
   "tree_advanced_between_reads": true,
-  "entries_added_between_reads": 2344,
-  "checked_at": "2026-08-23T11:01:32.376823+00:00",
+  "entries_added_between_reads": 2047,
+  "checked_at": "2026-08-23T16:35:21.729831+00:00",
   "must_admit": true,
   "full_admit": true,
   "refuse_limb": null,
@@ -159,6 +161,6 @@
   "should_limbs_failed": [],
   "receipt_filename": "ct.googleapis.com_logs_us1_argon2027h1.json",
   "ledger": "https://geniusflow-federation.vercel.app/tlog/ledger.json",
-  "ledger_digest": "f312afab7d28f297e00644ad28331e3fd59dbd3158e6fa1ac367bcafd95551e5",
+  "ledger_digest": "1776c0a62e412ea2ea82a0c09cfb2f06d14e5ff8fb1393bdf1dd2dff4f7a84b9",
   "expectations_digest": "78cb2f5444df2da26462e17070ab9e421ae85b30a8ec1ed672ea21cddeb34290"
 }

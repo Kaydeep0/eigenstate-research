@@ -1,6 +1,6 @@
 # Transparency log batch monitor
 
-Generated 2026-08-23T11:01:32.381829+00:00 · probe v1.0.0 · digest `f312afab7d28f297`
+Generated 2026-08-23T16:35:21.734897+00:00 · probe v1.0.0 · digest `1776c0a62e412ea2`
 
 The population, every verification key and where it came from, the limbs with their admit conditions and seven predictions were published before this batch at digest `78cb2f5444df2da2`, in an earlier commit.
 
@@ -14,7 +14,7 @@ This node does the second thing. It cosigns nothing, it is on no witness list, a
 
 - **23 of 23** logs served a checkpoint with no credentials.
 - **22 of 23** checkpoint signatures verified against a key this monitor obtained from somewhere other than the log.
-- **12 of 23** trees advanced between the two reads, adding 87187 entries in a 45 second window.
+- **12 of 23** trees advanced between the two reads, adding 113421 entries in a 45 second window.
 - **12 of 12** served consistency proofs recomputed to the root the log published.
 - **0 of 23** trees shrank or served two roots at one size.
 - **0 of 23** checkpoints carried a signature beyond the log's own.
