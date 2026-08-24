@@ -1,0 +1,86 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import circle from '../../data/circle-state.json';
+
+const fonts =
+  'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap';
+const base = import.meta.env.BASE_URL;
+const obs = circle.observed || {};
+const cur = circle.current_state || {};
+const field = circle.field || {};
+const know = (circle.knowledge_state && circle.knowledge_state.aliases) || {};
+const clock = circle.observation_clock || {};
+const prov = circle.provenance || {};
+function slot(env) {
+  if (!env) return 'UNKNOWN';
+  const st = env.status || 'UNKNOWN';
+  return env.refuse_code ? `${st} (${env.refuse_code})` : st;
+}
+---
+<Layout title="CIRCLE state · Eigenstate Research" description="Read-only maintained entity state. UNKNOWN stays UNKNOWN." fonts={fonts}>
+  <Nav active="state" />
+  <main class="wrap">
+    <p class="kicker">Maintained entity state</p>
+    <h1>CIRCLE</h1>
+    <p class="lede">GeniusFlow is not merely returning an answer. It is maintaining the epistemic condition of an entity. UNKNOWN stays UNKNOWN.</p>
+    <p class="navline">
+      <a href={`${base}state/`}>State</a>
+      <a href={`${base}changes/`}>Changes</a>
+      <a href={`${base}experiment/`}>Experiment</a>
+      <a href={`${base}methodology/`}>Methodology</a>
+    </p>
+    <h2>Observed</h2>
+    <pre>{`Claims                     ${obs.claims}
+Evidence-backed            ${obs.evidence_backed}
+Last observation           ${obs.last_observation}
+Observer                   ${obs.observer}`}</pre>
+    <h2>Current state</h2>
+    <pre>{`USDC circulating            ${slot(cur.usdc_circulating)}
+USYC circulating            ${slot(cur.usyc_circulating)}
+Regulatory state            ${slot(cur.regulatory_state)}`}</pre>
+    <h2>Field</h2>
+    <pre>{`Position                    ${slot(field.position)}
+Direction                   ${slot(field.direction)}
+Age                         ${slot(field.age)}
+Neighborhood                ${field.neighborhood} relationships`}</pre>
+    <h2>Knowledge state</h2>
+    <pre>{`Supported                    ${know.supported}
+Unknown                      ${know.unknown}
+Withheld                     ${know.withheld}
+Broken pipe                  ${know.broken_pipe}
+Not wired                    ${know.not_wired}`}</pre>
+    <h2>Observation clock</h2>
+    <pre>{`First prospective observation
+${clock.first_prospective_observation}
+
+Latest observation
+${clock.latest_prospective_observation}
+
+Comparable transitions       ${clock.identity_comparable_transitions}
+Real-world changes observed  ${clock.world_observed_count}
+
+STATUS
+${clock.status}`}</pre>
+    <p class="note">{clock.note}</p>
+    <h2>Provenance</h2>
+    <pre>{`public_card_snapshot_id      ${prov.public_card_snapshot_id}
+prospective_snapshot_id      ${prov.prospective_snapshot_id}
+observer                     ${prov.observer}
+identity contract            ${prov.identity_contract}
+observed_at                  ${prov.observed_at}
+computed_at                  ${prov.computed_at}
+T0 labeled                   no`}</pre>
+  </main>
+  <Footer />
+</Layout>
+<style>
+  .wrap { max-width: 820px; margin: 0 auto; padding: 48px 24px 80px; }
+  .kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--signal); }
+  h1 { font-family: var(--font-heading); font-size: 42px; margin: 8px 0 12px; }
+  h2 { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--signal); margin: 28px 0 8px; }
+  .lede, .note { color: var(--text-secondary); max-width: 62ch; line-height: 1.55; }
+  .navline a { margin-right: 14px; color: var(--signal-dim); }
+  pre { background: var(--bg2); border: 1px solid var(--border); padding: 16px; overflow: auto; font-family: var(--font-mono); font-size: 13px; }
+</style>

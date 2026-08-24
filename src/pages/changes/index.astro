@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import circle from '../../data/circle-state.json';
+
+const fonts =
+  'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap';
+const base = import.meta.env.BASE_URL;
+const frontier = circle.change_frontier || {};
+const hops = circle.relationships || [];
+---
+<Layout title="Change frontier · Eigenstate Research" description="No manufactured before/after. Waiting for a comparable prospective observation." fonts={fonts}>
+  <Nav active="state" />
+  <main class="wrap">
+    <p class="kicker">Change frontier</p>
+    <h1>CIRCLE</h1>
+    <p class="navline">
+      <a href={`${base}state/`}>State</a>
+      <a href={`${base}changes/`}>Changes</a>
+      <a href={`${base}experiment/`}>Experiment</a>
+    </p>
+    <pre>{`Comparable prior state:    ${frontier.comparable_prior_state}
+WORLD_OBSERVED:            ${frontier.world_observed}
+Neighborhood change:       ${frontier.neighborhood_change}
+Status:                    ${frontier.status}
+Refuse:                    ${frontier.refuse_code}
+T0 labeled:                no`}</pre>
+    <p class="note">{frontier.why}</p>
+    <h2>Relationship field</h2>
+    <pre>{hops.map((h) => `${(h.direction || '').padEnd(10)} ${(h.name || '').padEnd(28)} ${(h.resolve_status || 'UNKNOWN').padEnd(12)} ${h.stub_class || ''}`).join('\n')}</pre>
+    <p class="note">Hops keep their live resolve_status. REFUSED and STUB are not upgraded to RESOLVED for display.</p>
+  </main>
+  <Footer />
+</Layout>
+<style>
+  .wrap { max-width: 820px; margin: 0 auto; padding: 48px 24px 80px; }
+  .kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--signal); }
+  h1 { font-family: var(--font-heading); font-size: 42px; margin: 8px 0 18px; }
+  h2 { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--signal); margin: 28px 0 8px; }
+  .note { color: var(--text-secondary); max-width: 62ch; line-height: 1.55; }
+  .navline a { margin-right: 14px; color: var(--signal-dim); }
+  pre { background: var(--bg2); border: 1px solid var(--border); padding: 16px; overflow: auto; font-family: var(--font-mono); font-size: 13px; }
+</style>

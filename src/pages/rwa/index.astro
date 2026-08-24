@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import survey from '../../data/rwa_disclosure.json';
+import registryRows from '../../data/rwa-registry-rows.json';
 import { ledgerDeltaLine } from '../../lib/ledgerContext';
 
 const fonts =
@@ -92,6 +93,23 @@ const subjects = [...s.per_issuer].sort((a, b) => {
   if (a.must_admit !== b.must_admit) return a.must_admit ? 1 : -1;
   return a.entity.localeCompare(b.entity);
 });
+const registry = registryRows as {
+  schema?: string;
+  projection?: boolean;
+  rows?: {
+    entity?: string;
+    identity?: string;
+    claims_supported?: number;
+    claims_n?: number;
+    current_state?: string;
+    relationships?: string[];
+    material_gaps?: { broken_pipe?: number; unknown?: number; withheld?: number };
+    last_observation?: string;
+    verify?: string;
+    dossier?: string;
+    reliance_receipts?: unknown[];
+  }[];
+};
 ---
 
 <Layout
@@ -117,6 +135,62 @@ const subjects = [...s.per_issuer].sort((a, b) => {
     </div>
     {delta && <p class="rank-delta">{delta}</p>}
   </div>
+
+  <section class="rank-wrap" id="registry-view">
+    <h2 class="rank-runline">Maintained entity registry (view)</h2>
+    <p class="lede" style="max-width:720px;margin:0 auto 20px;font-size:15px;">
+      This table is a projection of the same maintained entity card Federation publishes.
+      It is not a second registry database. Reliance receipts stay empty until independent
+      parties actually use the object. Settlement readiness is not a field.
+    </p>
+    <div class="rank-table-wrap">
+      <table class="rank-table">
+        <thead>
+          <tr>
+            <th>Entity</th>
+            <th>Identity</th>
+            <th>Claims</th>
+            <th>Current state</th>
+            <th>Relationships</th>
+            <th>Material gaps</th>
+            <th>Last observation</th>
+            <th>Verify</th>
+            <th>Reliance</th>
+          </tr>
+        </thead>
+        <tbody>
+          {(registry.rows || []).length === 0 ? (
+            <tr>
+              <td colSpan="9">No maintained-entity rows in this local bake yet.</td>
+            </tr>
+          ) : (
+            (registry.rows || []).map((row) => (
+              <tr>
+                <td>
+                  <a href={`${fed}${row.dossier || '/api/dossier?entity=' + row.entity}`}>{row.entity}</a>
+                </td>
+                <td>{row.identity}</td>
+                <td>
+                  {row.claims_supported ?? 'UNKNOWN'} supported / {row.claims_n ?? 'UNKNOWN'}
+                </td>
+                <td>{row.current_state}</td>
+                <td>{(row.relationships || []).join(', ') || 'UNKNOWN'}</td>
+                <td>
+                  broken_pipe={row.material_gaps?.broken_pipe ?? 'UNKNOWN'} · unknown=
+                  {row.material_gaps?.unknown ?? 'UNKNOWN'}
+                </td>
+                <td>{row.last_observation || 'UNKNOWN'}</td>
+                <td>
+                  <a href={`${fed}${row.verify || '/api/verify'}`}>verify</a>
+                </td>
+                <td>{(row.reliance_receipts || []).length === 0 ? 'empty' : String((row.reliance_receipts || []).length)}</td>
+              </tr>
+            ))
+          )}
+        </tbody>
+      </table>
+    </div>
+  </section>
 
   <section class="rank-wrap">
     <div class="rank-runline">

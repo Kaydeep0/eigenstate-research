@@ -1,0 +1,38 @@
+{
+  "schema": "geniusflow.rwa_registry_view.v1",
+  "projection": true,
+  "rows": [
+    {
+      "projection_version": "geniusflow.public_entity_projection.v1",
+      "source_schema": "geniusflow.entity_state_snapshot.v1",
+      "source_snapshot_id": "sha256:cbdf4188aad3fa50e63c25dae77c906dc5f816c7208ac2ac376b44ac65c719e5",
+      "compiled_at": "2026-08-24T20:48:21.318262+00:00",
+      "freshness": {
+        "source_observed_at": "2026-08-25T03:36:54.297515+00:00",
+        "projection_compiled_at": "2026-08-24T20:48:21.318262+00:00",
+        "age_seconds": -24512,
+        "status": "UNKNOWN"
+      },
+      "entity": "CIRCLE",
+      "identity": "resolved",
+      "claims_supported": 3,
+      "claims_n": 3,
+      "current_state": "partial",
+      "relationships": [
+        "custody",
+        "information_flow"
+      ],
+      "material_gaps": {
+        "broken_pipe": 1,
+        "unknown": 3,
+        "withheld": 2
+      },
+      "last_observation": "2026-08-25T03:36:54.297515+00:00",
+      "verify": "/api/verify",
+      "dossier": "/api/dossier?entity=CIRCLE",
+      "reliance_receipts": [],
+      "settlement_readiness": null,
+      "note": "Registry row is a view over public_entity_projection.v1. Reliance receipts stay empty until independent parties use it. Settlement readiness is not a field."
+    }
+  ]
+}

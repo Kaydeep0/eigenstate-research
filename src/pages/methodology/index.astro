@@ -27,6 +27,7 @@ const basescanExample =
 const plainMd = `${base}METHODOLOGY.md`;
 
 const nav = [
+  { href: '#model', label: 'Evidence / State / Change' },
   { href: '#loop', label: 'Measure / Publish / Act' },
   { href: '#glossary', label: 'Glossary' },
   { href: '#equation', label: 'Equation' },
@@ -35,7 +36,7 @@ const nav = [
   { href: '#verify', label: 'Verify' },
   { href: '#topology', label: 'Topology' },
   { href: '#gaps', label: 'Gaps' },
-  { href: '#agents', label: 'Agents' },
+  { href: '#agents', label: 'Machines' },
 ];
 
 const glossary = [
@@ -611,6 +612,37 @@ const glossary = [
   </nav>
 
   <div class="meth-body">
+    <section class="meth-section" id="model">
+      <div class="section-label">What is behind the doors</div>
+      <h2>Evidence → Maintained state → Change</h2>
+      <p class="plain">
+        GeniusFlow maintains evidence-backed state about outside-world entities that another machine can inspect, re-check, and consume. The public claim today is that doorway plus an experiment, not a trophy.
+      </p>
+      <div class="verb-grid">
+        <div class="verb-card">
+          <p class="verb">Evidence</p>
+          <p>Claim, grounding, verify, observation, time, package, cite.</p>
+          <p class="not">Pitchable now</p>
+        </div>
+        <div class="verb-card">
+          <p class="verb">State</p>
+          <p>What is supported, unknown, withheld, or unwired about an entity — including CIRCLE.</p>
+          <p class="not">UNKNOWN stays UNKNOWN</p>
+        </div>
+        <div class="verb-card">
+          <p class="verb">Change</p>
+          <p>A comparable later observation. Not manufactured history. Waiting.</p>
+          <p class="not">Attention unproven</p>
+        </div>
+      </div>
+      <p class="plain">
+        See the live CIRCLE card:
+        <a href={`${base}state/`}>/state</a> ·
+        <a href={`${base}changes/`}>/changes</a> ·
+        <a href={`${base}experiment/`}>/experiment</a>
+      </p>
+    </section>
+
     <section class="meth-section" id="loop">
       <div class="section-label">The loop</div>
       <h2>Measure · Publish · Act</h2>
@@ -1027,41 +1059,47 @@ const glossary = [
     </section>
 
     <section class="meth-section" id="agents">
-      <div class="section-label">Machine entry</div>
-      <h2>For agents</h2>
-      <p class="plain">
-        Prefer federation + Pages over inventing live counts or on-chain status. The GeniusFlow engine
-        repo is private.
-      </p>
-
+      <div class="section-label">For machines</div>
+      <h2>Do not trust a GeniusFlow claim because GeniusFlow said it. Inspect the evidence.</h2>
+      <div class="verb-grid">
+        <div class="verb-card">
+          <p class="verb">1 Discover</p>
+          <p><a href={llms} target="_blank" rel="noopener">llms.txt</a></p>
+        </div>
+        <div class="verb-card">
+          <p class="verb">2 Inspect</p>
+          <p><a href={`${fed}/api/dossier?entity=CIRCLE`} target="_blank" rel="noopener">dossier?entity=CIRCLE</a></p>
+        </div>
+        <div class="verb-card">
+          <p class="verb">3 Verify</p>
+          <p>claim → evidence → observation</p>
+        </div>
+      </div>
+      <p class="plain">Need tools? MCP · OpenAPI · A2A. Experimental rails (settlement_gate, dual_ack, return_wire, ERC-8004) sit below the verify-wire.</p>
       <div class="agent-grid">
-        <a class="agent-link" href={pages}>
-          <p class="al-label">Human site</p>
-          <p class="al-url">{pages}/</p>
-        </a>
-        <a class="agent-link" href={plainMd}>
-          <p class="al-label">Plain markdown (agents)</p>
-          <p class="al-url">METHODOLOGY.md</p>
+        <a class="agent-link" href={`${base}state/`}>
+          <p class="al-label">Entity state</p>
+          <p class="al-url">/state · CIRCLE</p>
         </a>
         <a class="agent-link" href={verifyWalk}>
           <p class="al-label">Verify walkthrough</p>
-          <p class="al-url">status → dossier → package/verify</p>
-        </a>
-        <a class="agent-link" href={modeAWalk}>
-          <p class="al-label">Free Mode A</p>
-          <p class="al-url">cite → package → Darshan honesty</p>
+          <p class="al-url">dossier → evidence → verify</p>
         </a>
         <a class="agent-link" href={llms} target="_blank" rel="noopener">
           <p class="al-label">Machine cold-start</p>
           <p class="al-url">federation llms.txt</p>
         </a>
-        <a class="agent-link" href={fedStatus} target="_blank" rel="noopener">
-          <p class="al-label">Status / SLA</p>
-          <p class="al-url">/api/status</p>
+        <a class="agent-link" href={`${fed}/openapi.json`} target="_blank" rel="noopener">
+          <p class="al-label">OpenAPI</p>
+          <p class="al-url">/openapi.json</p>
         </a>
-        <a class="agent-link" href={proofShape} target="_blank" rel="noopener">
-          <p class="al-label">Proof shape</p>
-          <p class="al-url">ATTESTATION_PROOF_SHAPE.md</p>
+        <a class="agent-link" href={`${fed}/api/mcp`} target="_blank" rel="noopener">
+          <p class="al-label">MCP</p>
+          <p class="al-url">/api/mcp</p>
+        </a>
+        <a class="agent-link" href={`${fed}/api/a2a`} target="_blank" rel="noopener">
+          <p class="al-label">A2A</p>
+          <p class="al-url">/api/a2a</p>
         </a>
       </div>
     </section>

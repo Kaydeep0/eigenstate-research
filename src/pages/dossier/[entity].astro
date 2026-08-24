@@ -41,6 +41,18 @@ const rel = (card?.relationships || {}) as {
 };
 const inbound = (rel.top_inbound || rel.inbound || []).filter(Boolean);
 const outbound = (rel.top_outbound || rel.outbound || []).filter(Boolean);
+const pep = (card?.public_entity_projection || null) as Record<string, unknown> | null;
+const pepField = (pep?.field || {}) as Record<string, { status?: string; reason?: string }>;
+const pepState = (pep?.state || {}) as Record<string, unknown>;
+const pepEpi = (pep?.epistemic_summary || {}) as Record<string, unknown>;
+const pepClock = (pep?.observation_clock || {}) as Record<string, unknown>;
+const pepChange = (pep?.change_frontier || {}) as Record<string, unknown>;
+const pepRel = Array.isArray(pep?.relationship_state) ? (pep.relationship_state as Record<string, unknown>[]) : [];
+const pepGaps = ((pep?.knowledge_gaps as Record<string, unknown> | undefined)?.summary || {}) as Record<string, unknown>;
+function envSlot(env: { status?: string; reason?: string } | undefined): string {
+  if (!env) return 'UNKNOWN';
+  return env.reason ? `${env.status || 'UNKNOWN'} (${env.reason})` : String(env.status || 'UNKNOWN');
+}
 const base = import.meta.env.BASE_URL;
 const fieldHref = `${base}field/?focus=${encodeURIComponent(code)}`;
 const machineJson = `${base}federation/dossier/${code}.json`;
@@ -56,7 +68,7 @@ const fonts =
 
 <Layout
   title={`${display} dossier · Eigenstate Research`}
-  description={`Human-readable field dossier for ${display}. Live Φ_S / κ from the engine SoT mirror.`}
+  description={`Human-readable maintained entity state for ${display}. UNKNOWN stays UNKNOWN.`}
   fonts={fonts}
 >
   <Fragment slot="head">
@@ -204,7 +216,7 @@ const fonts =
     <a class="back" href={reportIndex}>← Signal reports</a>
     <h1>{display}</h1>
     <p class="meta">
-      Live SoT dossier mirror
+      {pep ? 'Maintained entity projection' : 'Live SoT dossier mirror'}
       {compiled ? ` · compiled ${compiled.slice(0, 19)}Z` : ''}
       {digest ? ` · digest ${digest}…` : ''}
     </p>
@@ -212,6 +224,50 @@ const fonts =
     {
       card ? (
         <>
+          {
+            pep ? (
+              <>
+                <h2 class="metric-label">What GeniusFlow supports</h2>
+                <p class="claims">{String((pepEpi.claims as { evidence_backed?: number; n?: number } | undefined)?.evidence_backed ?? claims.length)} evidence-backed claims ({claims.length} on card)</p>
+                <h2 class="metric-label">Current state</h2>
+                <pre class="claims">{`Direction     ${envSlot(pepField.direction)}
+Position      ${envSlot(pepField.position)}
+Age           ${envSlot(pepField.age)}
+Change        ${envSlot(pepField.change)}`}</pre>
+                <h2 class="metric-label">Last observed</h2>
+                <p class="claims">{String(pepState.observed_at || 'UNKNOWN')}</p>
+                <h2 class="metric-label">What is unknown</h2>
+                <p class="claims">
+                  unknown={String(pepEpi.unknown ?? 'UNKNOWN')} · broken_pipe={String(pepEpi.broken_pipe ?? 'UNKNOWN')} ·
+                  withheld={String(pepEpi.withheld ?? 'UNKNOWN')} · gap n={String(pepGaps.n ?? 'UNKNOWN')}
+                </p>
+                <h2 class="metric-label">Observation clock</h2>
+                <p class="claims">
+                  {String(pepClock.status || 'UNKNOWN')} · comparable transitions {String(pepClock.identity_comparable_transitions ?? 0)}
+                </p>
+                <h2 class="metric-label">Current change status</h2>
+                <p class="claims">{String(pepChange.why || pepChange.status || 'No identity-comparable world transition yet.')}</p>
+                {
+                  pepRel.length > 0 ? (
+                    <section>
+                      <h2 class="metric-label">Relationships</h2>
+                      <ul>
+                        {pepRel.map((hop) => (
+                          <li>
+                            {String(hop.target || '')}
+                            <div class="rel-meta">
+                              {String(hop.type || '')} · resolution={String(hop.resolution || 'UNKNOWN')} ·
+                              support={String(hop.support || 'UNKNOWN')}
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  ) : null
+                }
+              </>
+            ) : null
+          }
           <div class="metrics">
             <div>
               <div class="metric-label">Settlement pressure</div>
@@ -227,9 +283,8 @@ const fonts =
             </div>
           </div>
           <p class="note">
-            These numbers are the live engine dossier mirror baked into Pages at deploy.
-            They are not a vault dump and not a guarantee that every observation is on-chain.
-            See the numbers glossary for Φ_S vs κ vs vault@publish vs M1 ledger.
+            Φ_S / κ below are a derived Field-read, not the definition of current state.
+            UNKNOWN stays UNKNOWN. See the numbers glossary.
           </p>
           <div class="links">
             <a href={fieldHref}>Open on field graph</a>
