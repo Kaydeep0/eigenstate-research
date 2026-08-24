@@ -1,14 +1,14 @@
 {
   "entity": "TOKENIZED_TREASURY",
   "node": "34539544",
-  "compiled_at": "2026-08-01T15:28:35.705811+00:00",
-  "digest": "sha256:8470e64f70ed904ae62650dd0607985dd139ae2227dcdec0278bc5d6fb09e057",
+  "compiled_at": "2026-08-24T19:04:57.954953+00:00",
+  "digest": "sha256:c7e284cdf5a55e317b2345077786d2b368179c27d0f61c20fbfeb4e7babc2b97",
   "own_numbers": {
     "phi_s": 1.6521,
-    "kappa": 0.002,
-    "mass": 0.172191,
+    "kappa": 0.0,
+    "mass": 0.172202,
     "power": 0.13,
-    "extraction": 1163254.810496,
+    "extraction": 1085704.489796,
     "memory_mass": null,
     "X_natural": null,
     "gravity_mass": null,
@@ -16,24 +16,24 @@
   },
   "vs_whole": {
     "mass": {
-      "value": 0.172191,
+      "value": 0.172202,
       "rank": 14,
       "of": 199
     },
     "power": {
       "value": 0.13,
       "rank": 6,
-      "of": 33
+      "of": 34
     },
     "gravity": null,
     "extraction": {
-      "value": 1163254.8105,
-      "rank": 4,
-      "of": 33
+      "value": 1085704.4898,
+      "rank": 5,
+      "of": 34
     },
     "share_of_whole": {
-      "mass": 0.01316,
-      "power": 0.04392
+      "mass": 0.01315,
+      "power": 0.04114
     },
     "peers_by_power": [
       {
@@ -50,7 +50,7 @@
       },
       {
         "entity": "BASE",
-        "power": 0.05
+        "power": 0.06
       },
       {
         "entity": "CIRCLE",
@@ -132,9 +132,9 @@
     "gravity_pairs": [
       {
         "entity": "SEC",
-        "mass": 116.0,
+        "mass": 117.0,
         "hops": 1,
-        "pull": 15.08
+        "pull": 15.21
       },
       {
         "entity": "BLACKROCK",
@@ -162,14 +162,51 @@
       }
     ]
   },
+  "role_participations": [
+    {
+      "product_id": "TOKENIZED_TREASURY",
+      "role": "issuer",
+      "counterparty": null,
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://app.rwa.xyz/assets/treasuries"
+    },
+    {
+      "product_id": "TOKENIZED_TREASURY",
+      "role": "counterparty",
+      "counterparty": "TREASURY_MARKET",
+      "disclosure_level": "ATTESTED-DERIVED",
+      "source_url": "https://app.rwa.xyz/assets/treasuries"
+    },
+    {
+      "product_id": "TOKENIZED_TREASURY",
+      "role": "counterparty",
+      "counterparty": "DTCC",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.dtcc.com/"
+    },
+    {
+      "product_id": "TOKENIZED_TREASURY",
+      "role": "counterparty",
+      "counterparty": "CANTON_NETWORK",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://www.canton.network/"
+    },
+    {
+      "product_id": "OUSG",
+      "role": "counterparty",
+      "counterparty": "ONDO",
+      "disclosure_level": "ATTESTED-PRIMARY",
+      "source_url": "https://ondo.finance/ousg"
+    }
+  ],
   "monetary_position": {
     "position": 0.526,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +5145% over 23 cycles",
-    "cycles": 23,
+    "headline": "phi_s +5145% over 75 cycles",
+    "cycles": 75,
     "delta_last_cycle": {
       "phi_s": 0.0,
       "kappa": 0.0,
@@ -187,7 +224,7 @@
         "status": "live",
         "series_id": "DGS10",
         "label": "treasury_10y_pct",
-        "last_observed_at": "2026-08-01T15:09:52.916415+00:00",
+        "last_observed_at": "2026-08-24T14:00:42.152297+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -215,9 +252,162 @@
     ],
     "observation": {
       "source": null,
-      "last_observed_at": "2026-08-01T14:43:50.024971+00:00",
+      "last_observed_at": "2026-08-02T05:50:31.425104+00:00",
       "last_delta_i": null,
-      "stale": false
+      "stale": true
     }
+  },
+  "claims": [
+    {
+      "claim_id": "7bc44e01-b967-4c9b-ac80-b8df314b3056",
+      "claim_text": "BlackRock BUIDL \u2014 tokenized Treasury fund on RWA.xyz",
+      "grounding": {
+        "source_url": "https://rwa.xyz/assets/buidl",
+        "expected": "BUIDL",
+        "location": ""
+      },
+      "status_at_publish": "UNVERIFIED-PENDING",
+      "source_type": "derived",
+      "source_type_at_verification": "derived",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "TOKENIZED_TREASURY_20260818",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tokenized-treasury-20260818/",
+      "verified_at": "2026-08-18T19:00:08.055453+00:00",
+      "expires_at": "2026-11-16T19:00:08+00:00",
+      "volatility_class": "default",
+      "allows_canonical": false
+    },
+    {
+      "claim_id": "260641ef-5c1c-4e20-89f3-c89c9e655dfb",
+      "claim_text": "Ondo OUSG \u2014 institutional tokenized Treasuries",
+      "grounding": {
+        "source_url": "https://rwa.xyz/assets/ousg",
+        "expected": "OUSG",
+        "location": ""
+      },
+      "status_at_publish": "UNVERIFIED-PENDING",
+      "source_type": "derived",
+      "source_type_at_verification": "derived",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "TOKENIZED_TREASURY_20260818",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tokenized-treasury-20260818/",
+      "verified_at": "2026-08-18T19:00:08.056103+00:00",
+      "expires_at": "2026-11-16T19:00:08+00:00",
+      "volatility_class": "default",
+      "allows_canonical": false
+    },
+    {
+      "claim_id": "8228fda5-3f1b-46e7-a37e-c16e8e215b87",
+      "claim_text": "RWA market index \u2014 tokenized real-world assets",
+      "grounding": {
+        "source_url": "https://rwa.xyz/",
+        "expected": "RWA",
+        "location": ""
+      },
+      "status_at_publish": "UNVERIFIED-PENDING",
+      "source_type": "derived",
+      "source_type_at_verification": "derived",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "TOKENIZED_TREASURY_20260818",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tokenized-treasury-20260818/",
+      "verified_at": "2026-08-18T19:00:08.056738+00:00",
+      "expires_at": "2026-11-16T19:00:08+00:00",
+      "volatility_class": "default",
+      "allows_canonical": false
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/TOKENIZED_TREASURY.json",
+  "locate": {
+    "entity": "TOKENIZED_TREASURY",
+    "routing": "index_locate_classify",
+    "n": 1,
+    "bindable_n": 1,
+    "domains": [
+      {
+        "locate_role": "issuer",
+        "product_id": "TOKENIZED_TREASURY",
+        "sigma_key": "sigma_illumination",
+        "party_id": "sevadar:06_hargobind_damodri",
+        "classify_action": "publish",
+        "bindable": true,
+        "host_gated": false,
+        "settlement_paper": false,
+        "disclosure_level": "ATTESTED-PRIMARY",
+        "source_url": "https://app.rwa.xyz/assets/treasuries",
+        "cite": {
+          "kind": "map_role",
+          "id": "TOKENIZED_TREASURY:TOKENIZED_TREASURY:issuer",
+          "cite_class": "citeable",
+          "package_hash": "8e89f2015837d5b5eba7e71dbcdf02d737dd0b3e5fe12132eb8e9e6705a52a14",
+          "package": {
+            "kind": "map_role",
+            "id": "TOKENIZED_TREASURY:TOKENIZED_TREASURY:issuer",
+            "entity": "TOKENIZED_TREASURY",
+            "product_id": "TOKENIZED_TREASURY",
+            "locate_role": "issuer",
+            "disclosure_level": "ATTESTED-PRIMARY",
+            "source_url": "https://app.rwa.xyz/assets/treasuries",
+            "party_id": "sevadar:06_hargobind_damodri",
+            "classify_action": "publish",
+            "sigma_key": "sigma_illumination",
+            "bindable": true,
+            "host_gated": false,
+            "settlement_paper": false,
+            "routing": "index_locate_classify",
+            "settlement_v2": "HOLD",
+            "not_a_ledger_claim": true
+          }
+        }
+      }
+    ],
+    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
+  },
+  "last_observation": {
+    "available": true,
+    "entity": "TOKENIZED_TREASURY",
+    "confidence": "CONFIRMED",
+    "m1_strict": true,
+    "not_claim_attested": true,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "source": "defillama",
+    "wire": "defillama",
+    "ts": "2026-08-24T14:01:55.518172+00:00",
+    "write_reason": "first_observation",
+    "source_url": null,
+    "vault_row_ref": "vault:72:TOKENIZED_TREASURY:defillama:2026-08-24T14:01:55.518172+00:00",
+    "sensor_id": null,
+    "surge_domain": "progression",
+    "sigma_key": "sigma_progression",
+    "party_id": "sevadar:05_arjan_ganga",
+    "classify_action": "observe",
+    "bindable": true,
+    "bound": false,
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
+  },
+  "measurement_join": {
+    "available": false,
+    "entity": "TOKENIZED_TREASURY",
+    "as_child": null,
+    "as_parent": [],
+    "n_as_parent": 0,
+    "delta_i": 0,
+    "not_a_ledger_claim": true,
+    "cite_class": "citeable",
+    "join_rule": "issuer_instrument_v1",
+    "settlement_v2": "HOLD",
+    "not_g_external": true,
+    "auto_dual_ack": false,
+    "sot": "data/measurement_links.json",
+    "reason": "No measurement_links row names this entity as child or parent."
   }
 }
