@@ -1,8 +1,8 @@
 {
   "entity": "TETHER",
   "node": "34539544",
-  "compiled_at": "2026-08-25T13:06:50.475525+00:00",
-  "digest": "sha256:9e88d2d7276003d977a858f83cb49e76025070b287c4a7d353eb41030fee2c5e",
+  "compiled_at": "2026-08-25T13:08:04.217076+00:00",
+  "digest": "sha256:40c6f856ffed7ecee77c0b4aa5d8beaaa270d78321c9ceb7414edcf5c2acd2c6",
   "own_numbers": {
     "phi_s": 6.5561,
     "kappa": 0.0034,
@@ -182,7 +182,7 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-08-25T12:59:59.829792+00:00",
+      "last_observed_at": "2026-08-25T13:07:18.925436+00:00",
       "last_delta_i": Infinity,
       "stale": false
     }
@@ -361,5 +361,560 @@
     "auto_dual_ack": false,
     "sot": "data/measurement_links.json",
     "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
+  },
+  "field_state": {
+    "schema_version": "geniusflow.entity_state_snapshot.v0",
+    "entity_id": "TETHER",
+    "observed_at": "2026-08-25T03:36:24.024037+00:00",
+    "compiled_at": "2026-08-25T13:08:04.217076+00:00",
+    "organism_version": "unhashed_specimen",
+    "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
+    "state": {
+      "claims": [
+        {
+          "claim_id": "52ed4bbc-f2f4-4224-a336-eef66dc08fec",
+          "claim_text": "Tether \u2014 global leader in stablecoin issuance",
+          "grounding": {
+            "source_url": "https://tether.to/en/about-us",
+            "expected": "stablecoin",
+            "location": ""
+          },
+          "status_at_publish": "ATTESTED-PRIMARY",
+          "source_type": "primary",
+          "source_type_at_verification": "primary",
+          "source_role_reclassified": false,
+          "witness_class": "unknown_secondary",
+          "witness_weight": 0.08,
+          "report_id": "TETHER_20260812",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tether-20260812/",
+          "verified_at": "2026-08-12T15:37:50.003614+00:00",
+          "expires_at": "2026-11-10T15:37:50+00:00",
+          "volatility_class": "default",
+          "allows_canonical": true
+        },
+        {
+          "claim_id": "d0a1e26b-015e-4758-b0d3-f8a0f62a9e62",
+          "claim_text": "USDT transparency \u2014 reserves and issuance",
+          "grounding": {
+            "source_url": "https://tether.to/en/transparency",
+            "expected": "USDT",
+            "location": ""
+          },
+          "status_at_publish": "ATTESTED-PRIMARY",
+          "source_type": "primary",
+          "source_type_at_verification": "primary",
+          "source_role_reclassified": false,
+          "witness_class": "unknown_secondary",
+          "witness_weight": 0.08,
+          "report_id": "TETHER_20260812",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tether-20260812/",
+          "verified_at": "2026-08-12T15:37:50.409057+00:00",
+          "expires_at": "2026-11-10T15:37:50+00:00",
+          "volatility_class": "default",
+          "allows_canonical": true
+        },
+        {
+          "claim_id": "cd554492-4707-42af-a155-c68e5997934f",
+          "claim_text": "How Tether works \u2014 pegged digital dollar",
+          "grounding": {
+            "source_url": "https://tether.to/en/how-it-works",
+            "expected": "USD",
+            "location": ""
+          },
+          "status_at_publish": "HALLUCINATED",
+          "source_type": "primary",
+          "source_type_at_verification": "primary",
+          "source_role_reclassified": false,
+          "witness_class": "unknown_secondary",
+          "witness_weight": 0.08,
+          "report_id": "TETHER_20260812",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tether-20260812/",
+          "verified_at": "2026-08-12T15:37:50.806832+00:00",
+          "expires_at": "2026-11-10T15:37:50+00:00",
+          "volatility_class": "default",
+          "allows_canonical": false
+        }
+      ],
+      "measurements": {
+        "usdc_circulating": {
+          "value": null,
+          "unit": "usd",
+          "family": "usdc_circulating",
+          "not_families": [
+            "protocol_tvl",
+            "engine_CIRCLE_tvl_fold"
+          ],
+          "status": "UNKNOWN",
+          "source": "defillama_stablecoins",
+          "observation_id": "none",
+          "comparability": false,
+          "defaults_used": "none",
+          "refuse_code": "pipe_fixed_not_yet_persisted",
+          "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        }
+      },
+      "support": {
+        "value": null,
+        "unit": "unknown",
+        "family": "published_claim_support",
+        "not_families": [],
+        "status": "OBSERVED",
+        "source": "claim_ledger",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "note": "Ring 1 claims[] remain the honest expected source"
+      }
+    },
+    "position": {
+      "value": {
+        "power_components": {
+          "capital": 0.0,
+          "infrastructure": 3.0,
+          "information": 4.0,
+          "thread_product": 0.0,
+          "balance": 0.856
+        },
+        "monetary_position": {
+          "position": 0.5,
+          "well": "fiat"
+        }
+      },
+      "unit": "unknown",
+      "family": "structural_position",
+      "not_families": [
+        "neighborhood"
+      ],
+      "status": "DERIVED",
+      "source": "own_numbers.power_components|monetary_position",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none"
+    },
+    "direction": {
+      "value": null,
+      "unit": "unknown",
+      "family": "field_direction",
+      "not_families": [
+        "price_trend",
+        "investment_advice"
+      ],
+      "status": "UNKNOWN",
+      "source": "EntityFieldState.field_direction",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none",
+      "refuse_code": "direction_not_on_public_card",
+      "note": "giving/taking is composed only when EntityFieldState is already present"
+    },
+    "neighborhood": {
+      "value": [
+        {
+          "name": "STABLECOIN_POOL",
+          "direction": "inbound",
+          "conn_type": "information_flow",
+          "vector": "Information",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        },
+        {
+          "name": "STABLECOIN_DOMINANCE",
+          "direction": "inbound",
+          "conn_type": "information_flow",
+          "vector": "Information",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        },
+        {
+          "name": "CAYMAN_BVI",
+          "direction": "inbound",
+          "conn_type": "information_flow",
+          "vector": "Information",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        },
+        {
+          "name": "CANTOR_FITZGERALD",
+          "direction": "inbound",
+          "conn_type": "custody",
+          "vector": "Infrastructure",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        },
+        {
+          "name": "34539544",
+          "direction": "inbound",
+          "conn_type": "strategic",
+          "vector": "Information",
+          "resolve_status": "STUB",
+          "stub_class": "UNPUBLISHED_ENTITY"
+        },
+        {
+          "name": "CANTOR_FITZGERALD",
+          "direction": "outbound",
+          "conn_type": "custody",
+          "vector": "Infrastructure",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        },
+        {
+          "name": "TREASURY_MARKET",
+          "direction": "outbound",
+          "conn_type": "custody",
+          "vector": "Infrastructure",
+          "resolve_status": "STUB",
+          "stub_class": "MARKET_NOT_FIRM"
+        }
+      ],
+      "unit": "unknown",
+      "family": "typed_topology_hops",
+      "not_families": [
+        "structural_position"
+      ],
+      "status": "DERIVED",
+      "source": "dossier.relationships",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none",
+      "note": "edges are not added or removed in this compose"
+    },
+    "age": {
+      "value": {
+        "compiled_at": "2026-08-25T13:08:04.217076+00:00",
+        "last_observation": "2026-08-25T03:36:24.024037+00:00",
+        "drift_cycles": 77
+      },
+      "unit": "unknown",
+      "family": "observation_age",
+      "not_families": [],
+      "status": "DERIVED",
+      "source": "compiled_at|last_observation|drift.cycles",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none"
+    },
+    "change": {
+      "value": null,
+      "unit": "unknown",
+      "family": "typed_transition",
+      "not_families": [],
+      "status": "UNKNOWN",
+      "source": "none",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none",
+      "refuse_code": "no_prior_comparable_snapshot",
+      "note": "empty change is honest before Phase 4 history",
+      "transition_kind": "INCOMPARABLE"
+    },
+    "claims": [
+      {
+        "claim_id": "52ed4bbc-f2f4-4224-a336-eef66dc08fec",
+        "claim_text": "Tether \u2014 global leader in stablecoin issuance",
+        "grounding": {
+          "source_url": "https://tether.to/en/about-us",
+          "expected": "stablecoin",
+          "location": ""
+        },
+        "status_at_publish": "ATTESTED-PRIMARY",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "TETHER_20260812",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tether-20260812/",
+        "verified_at": "2026-08-12T15:37:50.003614+00:00",
+        "expires_at": "2026-11-10T15:37:50+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true
+      },
+      {
+        "claim_id": "d0a1e26b-015e-4758-b0d3-f8a0f62a9e62",
+        "claim_text": "USDT transparency \u2014 reserves and issuance",
+        "grounding": {
+          "source_url": "https://tether.to/en/transparency",
+          "expected": "USDT",
+          "location": ""
+        },
+        "status_at_publish": "ATTESTED-PRIMARY",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "TETHER_20260812",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tether-20260812/",
+        "verified_at": "2026-08-12T15:37:50.409057+00:00",
+        "expires_at": "2026-11-10T15:37:50+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true
+      },
+      {
+        "claim_id": "cd554492-4707-42af-a155-c68e5997934f",
+        "claim_text": "How Tether works \u2014 pegged digital dollar",
+        "grounding": {
+          "source_url": "https://tether.to/en/how-it-works",
+          "expected": "USD",
+          "location": ""
+        },
+        "status_at_publish": "HALLUCINATED",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "TETHER_20260812",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/tether-20260812/",
+        "verified_at": "2026-08-12T15:37:50.806832+00:00",
+        "expires_at": "2026-11-10T15:37:50+00:00",
+        "volatility_class": "default",
+        "allows_canonical": false
+      }
+    ],
+    "measurements": {
+      "usdc_circulating": {
+        "value": null,
+        "unit": "usd",
+        "family": "usdc_circulating",
+        "not_families": [
+          "protocol_tvl",
+          "engine_CIRCLE_tvl_fold"
+        ],
+        "status": "UNKNOWN",
+        "source": "defillama_stablecoins",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "refuse_code": "pipe_fixed_not_yet_persisted",
+        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+      },
+      "sec_filing_occupancy": {
+        "value": null,
+        "unit": "unknown",
+        "family": "sec_filing_occupancy",
+        "not_families": [],
+        "status": "WITHHELD",
+        "source": "last_observation_public_slice",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "refuse_code": "magnitudes_withheld_by_design"
+      },
+      "reserve_mix": {
+        "value": null,
+        "unit": "unknown",
+        "family": "reserve_mix",
+        "not_families": [],
+        "status": "WITHHELD",
+        "source": "none",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "refuse_code": "NOT_SUPPORTED",
+        "note": "issuer HTML is not a structured reserve object"
+      }
+    },
+    "relationships": [
+      {
+        "name": "STABLECOIN_POOL",
+        "direction": "inbound",
+        "conn_type": "information_flow",
+        "vector": "Information",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      },
+      {
+        "name": "STABLECOIN_DOMINANCE",
+        "direction": "inbound",
+        "conn_type": "information_flow",
+        "vector": "Information",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      },
+      {
+        "name": "CAYMAN_BVI",
+        "direction": "inbound",
+        "conn_type": "information_flow",
+        "vector": "Information",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      },
+      {
+        "name": "CANTOR_FITZGERALD",
+        "direction": "inbound",
+        "conn_type": "custody",
+        "vector": "Infrastructure",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      },
+      {
+        "name": "34539544",
+        "direction": "inbound",
+        "conn_type": "strategic",
+        "vector": "Information",
+        "resolve_status": "STUB",
+        "stub_class": "UNPUBLISHED_ENTITY"
+      },
+      {
+        "name": "CANTOR_FITZGERALD",
+        "direction": "outbound",
+        "conn_type": "custody",
+        "vector": "Infrastructure",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      },
+      {
+        "name": "TREASURY_MARKET",
+        "direction": "outbound",
+        "conn_type": "custody",
+        "vector": "Infrastructure",
+        "resolve_status": "STUB",
+        "stub_class": "MARKET_NOT_FIRM"
+      }
+    ],
+    "metric_outputs": {
+      "phi_s": {
+        "value": 6.5561,
+        "unit": "dimensionless_index",
+        "family": "capital_flow_pressure",
+        "not_families": [
+          "measured_settlement_pain",
+          "shannon_bits",
+          "world_causal_lead"
+        ],
+        "status": "DERIVED",
+        "source": "own_numbers.phi_s",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "algorithm_id": "phi_s.cf_pressure.v1",
+        "note": "comparable only under the same kappa store, key, and default"
+      },
+      "kappa": {
+        "value": 0.0034,
+        "unit": "dimensionless_index",
+        "family": "entity_physics_kappa",
+        "not_families": [
+          "host_kappa_blend",
+          "gamma_labeled_as_kappa"
+        ],
+        "status": "DERIVED",
+        "source": "own_numbers.kappa",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "algorithm_id": "kappa.entity_physics.v1"
+      },
+      "last_delta_i": {
+        "value": null,
+        "unit": "unknown",
+        "family": "bootstrap_signal_return_scalar",
+        "not_families": [
+          "shannon_delta_i",
+          "receipt",
+          "eff",
+          "path",
+          "prov",
+          "pred",
+          "E"
+        ],
+        "status": "WITHHELD",
+        "source": "entity_states.last_delta_i",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
+        "refuse_code": "unqualified_bootstrap_scalar"
+      }
+    },
+    "support": {
+      "schema_id": "geniusflow.state_identity.v0",
+      "note": "provenance metadata from existing status system; no new confidence equation"
+    },
+    "identity_by_path": {
+      "own_numbers.phi_s": {
+        "schema_id": "geniusflow.state_identity.v0",
+        "entity_id": "TETHER",
+        "value_path": "own_numbers.phi_s",
+        "display_glyph": "\u03a6_S",
+        "magnitude": 6.5561,
+        "kind": "derived",
+        "family": "capital_flow_pressure",
+        "not_families": [
+          "measured_settlement_pain",
+          "shannon_bits",
+          "world_causal_lead"
+        ],
+        "generator": {
+          "module": null,
+          "function": null,
+          "algorithm_id": "phi_s.cf_pressure.v1",
+          "algorithm_version": "frozen_v1"
+        },
+        "withheld": false,
+        "withhold_reason": null,
+        "comparable_under": [
+          "phi_s.cf_pressure.v1"
+        ],
+        "epistemic_status": "UNKNOWN"
+      },
+      "own_numbers.kappa": {
+        "schema_id": "geniusflow.state_identity.v0",
+        "entity_id": "TETHER",
+        "value_path": "own_numbers.kappa",
+        "display_glyph": "\u03ba",
+        "magnitude": 0.0034,
+        "kind": "derived",
+        "family": "entity_physics_kappa",
+        "not_families": [
+          "host_kappa_blend",
+          "gamma_labeled_as_kappa"
+        ],
+        "generator": {
+          "module": null,
+          "function": null,
+          "algorithm_id": "kappa.entity_physics.v1",
+          "algorithm_version": "frozen_v1"
+        },
+        "withheld": false,
+        "withhold_reason": null,
+        "comparable_under": [
+          "kappa.entity_physics.v1"
+        ],
+        "epistemic_status": "UNKNOWN"
+      },
+      "network_plugs.observation.last_delta_i": {
+        "schema_id": "geniusflow.state_identity.v0",
+        "entity_id": "TETHER",
+        "value_path": "network_plugs.observation.last_delta_i",
+        "display_glyph": "last_delta_i",
+        "magnitude": null,
+        "kind": "withheld",
+        "family": "bootstrap_signal_return_scalar",
+        "not_families": [
+          "shannon_delta_i",
+          "receipt",
+          "eff",
+          "path",
+          "prov",
+          "pred",
+          "E"
+        ],
+        "generator": {
+          "module": null,
+          "function": null,
+          "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
+          "algorithm_version": "frozen_v1"
+        },
+        "withheld": true,
+        "withhold_reason": "unqualified_bootstrap_scalar",
+        "comparable_under": [
+          "last_delta_i.signal_return_bootstrap.v1"
+        ],
+        "epistemic_status": "WITHHELD"
+      }
+    },
+    "snapshot_id": "sha256:2653405974727efcc0f01c8b5b5b1f59879af2a584060a59fad79bdb8910a734"
   }
 }

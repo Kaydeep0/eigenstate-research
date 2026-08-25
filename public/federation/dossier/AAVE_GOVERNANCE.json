@@ -1,7 +1,7 @@
 {
   "entity": "AAVE_GOVERNANCE",
   "node": "34539544",
-  "compiled_at": "2026-08-25T13:06:47.266276+00:00",
+  "compiled_at": "2026-08-25T13:08:00.445616+00:00",
   "digest": "sha256:8c89f309ff28a2eb9c06181d1a8acd1ef7f9eb56888790837eb82cc071d31783",
   "own_numbers": {
     "phi_s": 1.6181,
@@ -294,5 +294,553 @@
     "auto_dual_ack": false,
     "sot": "data/measurement_links.json",
     "reason": "No measurement_links row names this entity as child or parent."
+  },
+  "field_state": {
+    "schema_version": "geniusflow.entity_state_snapshot.v0",
+    "entity_id": "AAVE_GOVERNANCE",
+    "observed_at": "2026-08-25T03:36:34.803403+00:00",
+    "compiled_at": "2026-08-25T13:08:00.445616+00:00",
+    "organism_version": "unhashed_specimen",
+    "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
+    "state": {
+      "claims": [
+        {
+          "claim_id": "207faeed-ab51-48c5-a750-360786125895",
+          "claim_text": "Aave governance forum",
+          "grounding": {
+            "source_url": "https://governance.aave.com/",
+            "expected": "governance",
+            "location": ""
+          },
+          "status_at_publish": "ATTESTED-PRIMARY",
+          "source_type": "primary",
+          "source_type_at_verification": "primary",
+          "source_role_reclassified": false,
+          "witness_class": "unknown_secondary",
+          "witness_weight": 0.08,
+          "report_id": "AAVE_GOVERNANCE_20260820",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/aave-governance-20260820/",
+          "verified_at": "2026-08-20T13:00:16.169704+00:00",
+          "expires_at": "2026-11-18T13:00:16+00:00",
+          "volatility_class": "default",
+          "allows_canonical": true
+        },
+        {
+          "claim_id": "a44b5315-b7b2-494c-9e9a-c35dad8e6ef2",
+          "claim_text": "Aave \u2014 lending protocol homepage",
+          "grounding": {
+            "source_url": "https://aave.com/",
+            "expected": "Aave",
+            "location": ""
+          },
+          "status_at_publish": "ATTESTED-PRIMARY",
+          "source_type": "primary",
+          "source_type_at_verification": "primary",
+          "source_role_reclassified": false,
+          "witness_class": "unknown_secondary",
+          "witness_weight": 0.08,
+          "report_id": "AAVE_GOVERNANCE_20260820",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/aave-governance-20260820/",
+          "verified_at": "2026-08-20T13:00:16.358378+00:00",
+          "expires_at": "2026-11-18T13:00:16+00:00",
+          "volatility_class": "default",
+          "allows_canonical": true
+        },
+        {
+          "claim_id": "f85a5e80-70da-4a5f-b06c-435c1415ec29",
+          "claim_text": "DeFiLlama \u2014 Aave v3 protocol page",
+          "grounding": {
+            "source_url": "https://defillama.com/protocol/aave-v3",
+            "expected": "Aave",
+            "location": ""
+          },
+          "status_at_publish": "ATTESTED-DERIVED",
+          "source_type": "derived",
+          "source_type_at_verification": "derived",
+          "source_role_reclassified": false,
+          "witness_class": "onchain_secondary",
+          "witness_weight": 0.62,
+          "report_id": "AAVE_GOVERNANCE_20260820",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/aave-governance-20260820/",
+          "verified_at": "2026-08-20T13:00:16.650198+00:00",
+          "expires_at": "2026-11-18T13:00:16+00:00",
+          "volatility_class": "default",
+          "allows_canonical": true
+        }
+      ],
+      "measurements": {
+        "usdc_circulating": {
+          "value": null,
+          "unit": "usd",
+          "family": "usdc_circulating",
+          "not_families": [
+            "protocol_tvl",
+            "engine_CIRCLE_tvl_fold"
+          ],
+          "status": "UNKNOWN",
+          "source": "defillama_stablecoins",
+          "observation_id": "none",
+          "comparability": false,
+          "defaults_used": "none",
+          "refuse_code": "pipe_fixed_not_yet_persisted",
+          "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        }
+      },
+      "support": {
+        "value": null,
+        "unit": "unknown",
+        "family": "published_claim_support",
+        "not_families": [],
+        "status": "OBSERVED",
+        "source": "claim_ledger",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "note": "Ring 1 claims[] remain the honest expected source"
+      }
+    },
+    "position": {
+      "value": {
+        "monetary_position": {
+          "position": 0.5,
+          "well": "fiat"
+        }
+      },
+      "unit": "unknown",
+      "family": "structural_position",
+      "not_families": [
+        "neighborhood"
+      ],
+      "status": "DERIVED",
+      "source": "own_numbers.power_components|monetary_position",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none"
+    },
+    "direction": {
+      "value": null,
+      "unit": "unknown",
+      "family": "field_direction",
+      "not_families": [
+        "price_trend",
+        "investment_advice"
+      ],
+      "status": "UNKNOWN",
+      "source": "EntityFieldState.field_direction",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none",
+      "refuse_code": "direction_not_on_public_card",
+      "note": "giving/taking is composed only when EntityFieldState is already present"
+    },
+    "neighborhood": {
+      "value": [
+        {
+          "name": "STANI_KULECHOV",
+          "direction": "inbound",
+          "conn_type": "governance",
+          "vector": "Infrastructure",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        },
+        {
+          "name": "STANI_KULECHOV",
+          "direction": "inbound",
+          "conn_type": "governance",
+          "vector": "Infrastructure",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        },
+        {
+          "name": "DEFI_IS_DEAD",
+          "direction": "inbound",
+          "conn_type": "governance",
+          "vector": "Infrastructure",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        },
+        {
+          "name": "RWA_SOLVES_YIELD",
+          "direction": "inbound",
+          "conn_type": "governance",
+          "vector": "Infrastructure",
+          "resolve_status": "STUB",
+          "stub_class": "NARRATIVE_NODE"
+        },
+        {
+          "name": "GAP_CUSTODY_RISK",
+          "direction": "inbound",
+          "conn_type": "governance",
+          "vector": "Infrastructure",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        },
+        {
+          "name": "FARCASTER",
+          "direction": "outbound",
+          "conn_type": "governance",
+          "vector": "Infrastructure",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        },
+        {
+          "name": "LENS_PROTOCOL",
+          "direction": "outbound",
+          "conn_type": "governance",
+          "vector": "Infrastructure",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        }
+      ],
+      "unit": "unknown",
+      "family": "typed_topology_hops",
+      "not_families": [
+        "structural_position"
+      ],
+      "status": "DERIVED",
+      "source": "dossier.relationships",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none",
+      "note": "edges are not added or removed in this compose"
+    },
+    "age": {
+      "value": {
+        "compiled_at": "2026-08-25T13:08:00.445616+00:00",
+        "last_observation": "2026-08-25T03:36:34.803403+00:00",
+        "drift_cycles": 77
+      },
+      "unit": "unknown",
+      "family": "observation_age",
+      "not_families": [],
+      "status": "DERIVED",
+      "source": "compiled_at|last_observation|drift.cycles",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none"
+    },
+    "change": {
+      "value": null,
+      "unit": "unknown",
+      "family": "typed_transition",
+      "not_families": [],
+      "status": "UNKNOWN",
+      "source": "none",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none",
+      "refuse_code": "no_prior_comparable_snapshot",
+      "note": "empty change is honest before Phase 4 history",
+      "transition_kind": "INCOMPARABLE"
+    },
+    "claims": [
+      {
+        "claim_id": "207faeed-ab51-48c5-a750-360786125895",
+        "claim_text": "Aave governance forum",
+        "grounding": {
+          "source_url": "https://governance.aave.com/",
+          "expected": "governance",
+          "location": ""
+        },
+        "status_at_publish": "ATTESTED-PRIMARY",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "AAVE_GOVERNANCE_20260820",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/aave-governance-20260820/",
+        "verified_at": "2026-08-20T13:00:16.169704+00:00",
+        "expires_at": "2026-11-18T13:00:16+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true
+      },
+      {
+        "claim_id": "a44b5315-b7b2-494c-9e9a-c35dad8e6ef2",
+        "claim_text": "Aave \u2014 lending protocol homepage",
+        "grounding": {
+          "source_url": "https://aave.com/",
+          "expected": "Aave",
+          "location": ""
+        },
+        "status_at_publish": "ATTESTED-PRIMARY",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "AAVE_GOVERNANCE_20260820",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/aave-governance-20260820/",
+        "verified_at": "2026-08-20T13:00:16.358378+00:00",
+        "expires_at": "2026-11-18T13:00:16+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true
+      },
+      {
+        "claim_id": "f85a5e80-70da-4a5f-b06c-435c1415ec29",
+        "claim_text": "DeFiLlama \u2014 Aave v3 protocol page",
+        "grounding": {
+          "source_url": "https://defillama.com/protocol/aave-v3",
+          "expected": "Aave",
+          "location": ""
+        },
+        "status_at_publish": "ATTESTED-DERIVED",
+        "source_type": "derived",
+        "source_type_at_verification": "derived",
+        "source_role_reclassified": false,
+        "witness_class": "onchain_secondary",
+        "witness_weight": 0.62,
+        "report_id": "AAVE_GOVERNANCE_20260820",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/aave-governance-20260820/",
+        "verified_at": "2026-08-20T13:00:16.650198+00:00",
+        "expires_at": "2026-11-18T13:00:16+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true
+      }
+    ],
+    "measurements": {
+      "usdc_circulating": {
+        "value": null,
+        "unit": "usd",
+        "family": "usdc_circulating",
+        "not_families": [
+          "protocol_tvl",
+          "engine_CIRCLE_tvl_fold"
+        ],
+        "status": "UNKNOWN",
+        "source": "defillama_stablecoins",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "refuse_code": "pipe_fixed_not_yet_persisted",
+        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+      },
+      "sec_filing_occupancy": {
+        "value": null,
+        "unit": "unknown",
+        "family": "sec_filing_occupancy",
+        "not_families": [],
+        "status": "WITHHELD",
+        "source": "last_observation_public_slice",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "refuse_code": "magnitudes_withheld_by_design"
+      },
+      "reserve_mix": {
+        "value": null,
+        "unit": "unknown",
+        "family": "reserve_mix",
+        "not_families": [],
+        "status": "WITHHELD",
+        "source": "none",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "refuse_code": "NOT_SUPPORTED",
+        "note": "issuer HTML is not a structured reserve object"
+      }
+    },
+    "relationships": [
+      {
+        "name": "STANI_KULECHOV",
+        "direction": "inbound",
+        "conn_type": "governance",
+        "vector": "Infrastructure",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      },
+      {
+        "name": "STANI_KULECHOV",
+        "direction": "inbound",
+        "conn_type": "governance",
+        "vector": "Infrastructure",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      },
+      {
+        "name": "DEFI_IS_DEAD",
+        "direction": "inbound",
+        "conn_type": "governance",
+        "vector": "Infrastructure",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      },
+      {
+        "name": "RWA_SOLVES_YIELD",
+        "direction": "inbound",
+        "conn_type": "governance",
+        "vector": "Infrastructure",
+        "resolve_status": "STUB",
+        "stub_class": "NARRATIVE_NODE"
+      },
+      {
+        "name": "GAP_CUSTODY_RISK",
+        "direction": "inbound",
+        "conn_type": "governance",
+        "vector": "Infrastructure",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      },
+      {
+        "name": "FARCASTER",
+        "direction": "outbound",
+        "conn_type": "governance",
+        "vector": "Infrastructure",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      },
+      {
+        "name": "LENS_PROTOCOL",
+        "direction": "outbound",
+        "conn_type": "governance",
+        "vector": "Infrastructure",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      }
+    ],
+    "metric_outputs": {
+      "phi_s": {
+        "value": 1.6181,
+        "unit": "dimensionless_index",
+        "family": "capital_flow_pressure",
+        "not_families": [
+          "measured_settlement_pain",
+          "shannon_bits",
+          "world_causal_lead"
+        ],
+        "status": "DERIVED",
+        "source": "own_numbers.phi_s",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "algorithm_id": "phi_s.cf_pressure.v1",
+        "note": "comparable only under the same kappa store, key, and default"
+      },
+      "kappa": {
+        "value": 0.0009,
+        "unit": "dimensionless_index",
+        "family": "entity_physics_kappa",
+        "not_families": [
+          "host_kappa_blend",
+          "gamma_labeled_as_kappa"
+        ],
+        "status": "DERIVED",
+        "source": "own_numbers.kappa",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "algorithm_id": "kappa.entity_physics.v1"
+      },
+      "last_delta_i": {
+        "value": null,
+        "unit": "unknown",
+        "family": "bootstrap_signal_return_scalar",
+        "not_families": [
+          "shannon_delta_i",
+          "receipt",
+          "eff",
+          "path",
+          "prov",
+          "pred",
+          "E"
+        ],
+        "status": "WITHHELD",
+        "source": "entity_states.last_delta_i",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
+        "refuse_code": "unqualified_bootstrap_scalar"
+      }
+    },
+    "support": {
+      "schema_id": "geniusflow.state_identity.v0",
+      "note": "provenance metadata from existing status system; no new confidence equation"
+    },
+    "identity_by_path": {
+      "own_numbers.phi_s": {
+        "schema_id": "geniusflow.state_identity.v0",
+        "entity_id": "AAVE_GOVERNANCE",
+        "value_path": "own_numbers.phi_s",
+        "display_glyph": "\u03a6_S",
+        "magnitude": 1.6181,
+        "kind": "derived",
+        "family": "capital_flow_pressure",
+        "not_families": [
+          "measured_settlement_pain",
+          "shannon_bits",
+          "world_causal_lead"
+        ],
+        "generator": {
+          "module": null,
+          "function": null,
+          "algorithm_id": "phi_s.cf_pressure.v1",
+          "algorithm_version": "frozen_v1"
+        },
+        "withheld": false,
+        "withhold_reason": null,
+        "comparable_under": [
+          "phi_s.cf_pressure.v1"
+        ],
+        "epistemic_status": "UNKNOWN"
+      },
+      "own_numbers.kappa": {
+        "schema_id": "geniusflow.state_identity.v0",
+        "entity_id": "AAVE_GOVERNANCE",
+        "value_path": "own_numbers.kappa",
+        "display_glyph": "\u03ba",
+        "magnitude": 0.0009,
+        "kind": "derived",
+        "family": "entity_physics_kappa",
+        "not_families": [
+          "host_kappa_blend",
+          "gamma_labeled_as_kappa"
+        ],
+        "generator": {
+          "module": null,
+          "function": null,
+          "algorithm_id": "kappa.entity_physics.v1",
+          "algorithm_version": "frozen_v1"
+        },
+        "withheld": false,
+        "withhold_reason": null,
+        "comparable_under": [
+          "kappa.entity_physics.v1"
+        ],
+        "epistemic_status": "UNKNOWN"
+      },
+      "network_plugs.observation.last_delta_i": {
+        "schema_id": "geniusflow.state_identity.v0",
+        "entity_id": "AAVE_GOVERNANCE",
+        "value_path": "network_plugs.observation.last_delta_i",
+        "display_glyph": "last_delta_i",
+        "magnitude": null,
+        "kind": "withheld",
+        "family": "bootstrap_signal_return_scalar",
+        "not_families": [
+          "shannon_delta_i",
+          "receipt",
+          "eff",
+          "path",
+          "prov",
+          "pred",
+          "E"
+        ],
+        "generator": {
+          "module": null,
+          "function": null,
+          "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
+          "algorithm_version": "frozen_v1"
+        },
+        "withheld": true,
+        "withhold_reason": "unqualified_bootstrap_scalar",
+        "comparable_under": [
+          "last_delta_i.signal_return_bootstrap.v1"
+        ],
+        "epistemic_status": "WITHHELD"
+      }
+    },
+    "snapshot_id": "sha256:31f3bf7c0e6b7ac835dc4b8cd79342f2342471040ddec271762b812a578c60c3"
   }
 }

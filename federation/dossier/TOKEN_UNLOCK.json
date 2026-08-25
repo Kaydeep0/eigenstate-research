@@ -1,7 +1,7 @@
 {
   "entity": "TOKEN_UNLOCK",
   "node": "34539544",
-  "compiled_at": "2026-08-25T13:06:44.974349+00:00",
+  "compiled_at": "2026-08-25T13:07:57.877276+00:00",
   "digest": "sha256:f6dc703b033e36cfec83795a4b7c041c5aaa45379a8bafc730a4a7fcc5c4b054",
   "own_numbers": {
     "phi_s": 0.0,
@@ -145,5 +145,329 @@
     "auto_dual_ack": false,
     "sot": "data/measurement_links.json",
     "reason": "No measurement_links row names this entity as child or parent."
+  },
+  "field_state": {
+    "schema_version": "geniusflow.entity_state_snapshot.v0",
+    "entity_id": "TOKEN_UNLOCK",
+    "observed_at": null,
+    "compiled_at": "2026-08-25T13:07:57.877276+00:00",
+    "organism_version": "unhashed_specimen",
+    "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
+    "state": {
+      "claims": [],
+      "measurements": {
+        "usdc_circulating": {
+          "value": null,
+          "unit": "usd",
+          "family": "usdc_circulating",
+          "not_families": [
+            "protocol_tvl",
+            "engine_CIRCLE_tvl_fold"
+          ],
+          "status": "UNKNOWN",
+          "source": "defillama_stablecoins",
+          "observation_id": "none",
+          "comparability": false,
+          "defaults_used": "none",
+          "refuse_code": "pipe_fixed_not_yet_persisted",
+          "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        }
+      },
+      "support": {
+        "value": null,
+        "unit": "unknown",
+        "family": "published_claim_support",
+        "not_families": [],
+        "status": "UNKNOWN",
+        "source": "claim_ledger",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "note": "Ring 1 claims[] remain the honest expected source"
+      }
+    },
+    "position": {
+      "value": {
+        "monetary_position": {
+          "position": 0.5,
+          "well": "fiat"
+        }
+      },
+      "unit": "unknown",
+      "family": "structural_position",
+      "not_families": [
+        "neighborhood"
+      ],
+      "status": "DERIVED",
+      "source": "own_numbers.power_components|monetary_position",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none"
+    },
+    "direction": {
+      "value": null,
+      "unit": "unknown",
+      "family": "field_direction",
+      "not_families": [
+        "price_trend",
+        "investment_advice"
+      ],
+      "status": "UNKNOWN",
+      "source": "EntityFieldState.field_direction",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none",
+      "refuse_code": "direction_not_on_public_card",
+      "note": "giving/taking is composed only when EntityFieldState is already present"
+    },
+    "neighborhood": {
+      "value": [
+        {
+          "name": "GOVERNANCE_VOTE",
+          "direction": "inbound",
+          "conn_type": "governance",
+          "vector": "Infrastructure",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        }
+      ],
+      "unit": "unknown",
+      "family": "typed_topology_hops",
+      "not_families": [
+        "structural_position"
+      ],
+      "status": "DERIVED",
+      "source": "dossier.relationships",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none",
+      "note": "edges are not added or removed in this compose"
+    },
+    "age": {
+      "value": {
+        "compiled_at": "2026-08-25T13:07:57.877276+00:00",
+        "last_observation": null,
+        "drift_cycles": 77
+      },
+      "unit": "unknown",
+      "family": "observation_age",
+      "not_families": [],
+      "status": "DERIVED",
+      "source": "compiled_at|last_observation|drift.cycles",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none"
+    },
+    "change": {
+      "value": null,
+      "unit": "unknown",
+      "family": "typed_transition",
+      "not_families": [],
+      "status": "UNKNOWN",
+      "source": "none",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none",
+      "refuse_code": "no_prior_comparable_snapshot",
+      "note": "empty change is honest before Phase 4 history",
+      "transition_kind": "INCOMPARABLE"
+    },
+    "claims": [],
+    "measurements": {
+      "usdc_circulating": {
+        "value": null,
+        "unit": "usd",
+        "family": "usdc_circulating",
+        "not_families": [
+          "protocol_tvl",
+          "engine_CIRCLE_tvl_fold"
+        ],
+        "status": "UNKNOWN",
+        "source": "defillama_stablecoins",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "refuse_code": "pipe_fixed_not_yet_persisted",
+        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+      },
+      "sec_filing_occupancy": {
+        "value": null,
+        "unit": "unknown",
+        "family": "sec_filing_occupancy",
+        "not_families": [],
+        "status": "WITHHELD",
+        "source": "last_observation_public_slice",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "refuse_code": "magnitudes_withheld_by_design"
+      },
+      "reserve_mix": {
+        "value": null,
+        "unit": "unknown",
+        "family": "reserve_mix",
+        "not_families": [],
+        "status": "WITHHELD",
+        "source": "none",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "refuse_code": "NOT_SUPPORTED",
+        "note": "issuer HTML is not a structured reserve object"
+      }
+    },
+    "relationships": [
+      {
+        "name": "GOVERNANCE_VOTE",
+        "direction": "inbound",
+        "conn_type": "governance",
+        "vector": "Infrastructure",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      }
+    ],
+    "metric_outputs": {
+      "phi_s": {
+        "value": 0.0,
+        "unit": "dimensionless_index",
+        "family": "capital_flow_pressure",
+        "not_families": [
+          "measured_settlement_pain",
+          "shannon_bits",
+          "world_causal_lead"
+        ],
+        "status": "DERIVED",
+        "source": "own_numbers.phi_s",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "algorithm_id": "phi_s.cf_pressure.v1",
+        "note": "comparable only under the same kappa store, key, and default"
+      },
+      "kappa": {
+        "value": 0.0123,
+        "unit": "dimensionless_index",
+        "family": "entity_physics_kappa",
+        "not_families": [
+          "host_kappa_blend",
+          "gamma_labeled_as_kappa"
+        ],
+        "status": "DERIVED",
+        "source": "own_numbers.kappa",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "algorithm_id": "kappa.entity_physics.v1"
+      },
+      "last_delta_i": {
+        "value": null,
+        "unit": "unknown",
+        "family": "bootstrap_signal_return_scalar",
+        "not_families": [
+          "shannon_delta_i",
+          "receipt",
+          "eff",
+          "path",
+          "prov",
+          "pred",
+          "E"
+        ],
+        "status": "WITHHELD",
+        "source": "entity_states.last_delta_i",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
+        "refuse_code": "unqualified_bootstrap_scalar"
+      }
+    },
+    "support": {
+      "schema_id": "geniusflow.state_identity.v0",
+      "note": "provenance metadata from existing status system; no new confidence equation"
+    },
+    "identity_by_path": {
+      "own_numbers.phi_s": {
+        "schema_id": "geniusflow.state_identity.v0",
+        "entity_id": "TOKEN_UNLOCK",
+        "value_path": "own_numbers.phi_s",
+        "display_glyph": "\u03a6_S",
+        "magnitude": 0.0,
+        "kind": "derived",
+        "family": "capital_flow_pressure",
+        "not_families": [
+          "measured_settlement_pain",
+          "shannon_bits",
+          "world_causal_lead"
+        ],
+        "generator": {
+          "module": null,
+          "function": null,
+          "algorithm_id": "phi_s.cf_pressure.v1",
+          "algorithm_version": "frozen_v1"
+        },
+        "withheld": false,
+        "withhold_reason": null,
+        "comparable_under": [
+          "phi_s.cf_pressure.v1"
+        ],
+        "epistemic_status": "UNKNOWN"
+      },
+      "own_numbers.kappa": {
+        "schema_id": "geniusflow.state_identity.v0",
+        "entity_id": "TOKEN_UNLOCK",
+        "value_path": "own_numbers.kappa",
+        "display_glyph": "\u03ba",
+        "magnitude": 0.0123,
+        "kind": "derived",
+        "family": "entity_physics_kappa",
+        "not_families": [
+          "host_kappa_blend",
+          "gamma_labeled_as_kappa"
+        ],
+        "generator": {
+          "module": null,
+          "function": null,
+          "algorithm_id": "kappa.entity_physics.v1",
+          "algorithm_version": "frozen_v1"
+        },
+        "withheld": false,
+        "withhold_reason": null,
+        "comparable_under": [
+          "kappa.entity_physics.v1"
+        ],
+        "epistemic_status": "UNKNOWN"
+      },
+      "network_plugs.observation.last_delta_i": {
+        "schema_id": "geniusflow.state_identity.v0",
+        "entity_id": "TOKEN_UNLOCK",
+        "value_path": "network_plugs.observation.last_delta_i",
+        "display_glyph": "last_delta_i",
+        "magnitude": null,
+        "kind": "withheld",
+        "family": "bootstrap_signal_return_scalar",
+        "not_families": [
+          "shannon_delta_i",
+          "receipt",
+          "eff",
+          "path",
+          "prov",
+          "pred",
+          "E"
+        ],
+        "generator": {
+          "module": null,
+          "function": null,
+          "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
+          "algorithm_version": "frozen_v1"
+        },
+        "withheld": true,
+        "withhold_reason": "unqualified_bootstrap_scalar",
+        "comparable_under": [
+          "last_delta_i.signal_return_bootstrap.v1"
+        ],
+        "epistemic_status": "WITHHELD"
+      }
+    },
+    "snapshot_id": "sha256:f13461ad799501a04da32e52be838c5bdb889c9cf884adee73c6af88f30b2155"
   }
 }

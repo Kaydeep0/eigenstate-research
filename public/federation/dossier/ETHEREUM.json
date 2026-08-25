@@ -1,8 +1,8 @@
 {
   "entity": "ETHEREUM",
   "node": "34539544",
-  "compiled_at": "2026-08-25T13:06:48.564444+00:00",
-  "digest": "sha256:1512faff918a6c2b5eaa5edb4763a0ab0af4b9edce7dee06d6adf58a56f2e609",
+  "compiled_at": "2026-08-25T13:08:01.871170+00:00",
+  "digest": "sha256:0edaa3a439d72c5e31c12e405cc11e3d9997e908eb0a1c2aeebe08c3e9b14dbe",
   "own_numbers": {
     "phi_s": 3.2562,
     "kappa": 0.0,
@@ -358,5 +358,576 @@
     "auto_dual_ack": false,
     "sot": "data/measurement_links.json",
     "reason": "No measurement_links row names this entity as child or parent."
+  },
+  "field_state": {
+    "schema_version": "geniusflow.entity_state_snapshot.v0",
+    "entity_id": "ETHEREUM",
+    "observed_at": "2026-08-25T03:36:54.280281+00:00",
+    "compiled_at": "2026-08-25T13:08:01.871170+00:00",
+    "organism_version": "unhashed_specimen",
+    "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
+    "state": {
+      "claims": [
+        {
+          "claim_id": "49c37cd3-bf3a-42e1-9274-d4d990a683c5",
+          "claim_text": "Ethereum \u2014 programmable blockchain platform",
+          "grounding": {
+            "source_url": "https://ethereum.org/en/what-is-ethereum/",
+            "expected": "Ethereum",
+            "location": ""
+          },
+          "status_at_publish": "ATTESTED-PRIMARY",
+          "source_type": "primary",
+          "source_type_at_verification": "primary",
+          "source_role_reclassified": false,
+          "witness_class": "unknown_secondary",
+          "witness_weight": 0.08,
+          "report_id": "ETHEREUM_20260815",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ethereum-20260815/",
+          "verified_at": "2026-08-15T07:54:53.827790+00:00",
+          "expires_at": "2026-11-13T07:54:53+00:00",
+          "volatility_class": "default",
+          "allows_canonical": true
+        },
+        {
+          "claim_id": "4c7a9bf2-210d-49f5-b307-9100ae6d9e76",
+          "claim_text": "Ethereum developer documentation \u2014 network fundamentals",
+          "grounding": {
+            "source_url": "https://ethereum.org/en/developers/docs/intro-to-ethereum/",
+            "expected": "Ethereum",
+            "location": ""
+          },
+          "status_at_publish": "ATTESTED-PRIMARY",
+          "source_type": "primary",
+          "source_type_at_verification": "primary",
+          "source_role_reclassified": false,
+          "witness_class": "unknown_secondary",
+          "witness_weight": 0.08,
+          "report_id": "ETHEREUM_20260815",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ethereum-20260815/",
+          "verified_at": "2026-08-15T07:54:54.334340+00:00",
+          "expires_at": "2026-11-13T07:54:54+00:00",
+          "volatility_class": "default",
+          "allows_canonical": true
+        },
+        {
+          "claim_id": "c848d57a-7dee-403a-8616-6342c5694751",
+          "claim_text": "DeFiLlama Ethereum chain TVL",
+          "grounding": {
+            "source_url": "https://defillama.com/chain/Ethereum",
+            "expected": "Ethereum",
+            "location": ""
+          },
+          "status_at_publish": "ATTESTED-DERIVED",
+          "source_type": "derived",
+          "source_type_at_verification": "derived",
+          "source_role_reclassified": false,
+          "witness_class": "onchain_secondary",
+          "witness_weight": 0.62,
+          "report_id": "ETHEREUM_20260815",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ethereum-20260815/",
+          "verified_at": "2026-08-15T07:54:54.774400+00:00",
+          "expires_at": "2026-11-13T07:54:54+00:00",
+          "volatility_class": "default",
+          "allows_canonical": true
+        }
+      ],
+      "measurements": {
+        "usdc_circulating": {
+          "value": null,
+          "unit": "usd",
+          "family": "usdc_circulating",
+          "not_families": [
+            "protocol_tvl",
+            "engine_CIRCLE_tvl_fold"
+          ],
+          "status": "UNKNOWN",
+          "source": "defillama_stablecoins",
+          "observation_id": "none",
+          "comparability": false,
+          "defaults_used": "none",
+          "refuse_code": "pipe_fixed_not_yet_persisted",
+          "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        }
+      },
+      "support": {
+        "value": null,
+        "unit": "unknown",
+        "family": "published_claim_support",
+        "not_families": [],
+        "status": "OBSERVED",
+        "source": "claim_ledger",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "note": "Ring 1 claims[] remain the honest expected source"
+      }
+    },
+    "position": {
+      "value": {
+        "power_components": {
+          "capital": 0.0,
+          "infrastructure": 5.0,
+          "information": 15.0,
+          "thread_product": 0.0,
+          "balance": 0.591
+        },
+        "monetary_position": {
+          "position": 0.5,
+          "well": "fiat"
+        }
+      },
+      "unit": "unknown",
+      "family": "structural_position",
+      "not_families": [
+        "neighborhood"
+      ],
+      "status": "DERIVED",
+      "source": "own_numbers.power_components|monetary_position",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none"
+    },
+    "direction": {
+      "value": null,
+      "unit": "unknown",
+      "family": "field_direction",
+      "not_families": [
+        "price_trend",
+        "investment_advice"
+      ],
+      "status": "UNKNOWN",
+      "source": "EntityFieldState.field_direction",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none",
+      "refuse_code": "direction_not_on_public_card",
+      "note": "giving/taking is composed only when EntityFieldState is already present"
+    },
+    "neighborhood": {
+      "value": [
+        {
+          "name": "OPENZEPPELIN_CONTRACTS",
+          "direction": "inbound",
+          "conn_type": "information_flow",
+          "vector": "Information",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        },
+        {
+          "name": "CHAINLINK_ORACLES",
+          "direction": "inbound",
+          "conn_type": "information_flow",
+          "vector": "Information",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        },
+        {
+          "name": "EAS",
+          "direction": "inbound",
+          "conn_type": "information_flow",
+          "vector": "Information",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        },
+        {
+          "name": "TRAIL_OF_BITS",
+          "direction": "inbound",
+          "conn_type": "infrastructure",
+          "vector": "Infrastructure",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        },
+        {
+          "name": "SHERLOCK",
+          "direction": "inbound",
+          "conn_type": "information_flow",
+          "vector": "Information",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        },
+        {
+          "name": "BASE",
+          "direction": "outbound",
+          "conn_type": "infrastructure",
+          "vector": "Infrastructure",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        },
+        {
+          "name": "ARBITRUM",
+          "direction": "outbound",
+          "conn_type": "information_flow",
+          "vector": "Information",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        },
+        {
+          "name": "POLYGON",
+          "direction": "outbound",
+          "conn_type": "information_flow",
+          "vector": "Information",
+          "resolve_status": "REFUSED",
+          "stub_class": "UNKNOWN_ENTITY"
+        }
+      ],
+      "unit": "unknown",
+      "family": "typed_topology_hops",
+      "not_families": [
+        "structural_position"
+      ],
+      "status": "DERIVED",
+      "source": "dossier.relationships",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none",
+      "note": "edges are not added or removed in this compose"
+    },
+    "age": {
+      "value": {
+        "compiled_at": "2026-08-25T13:08:01.871170+00:00",
+        "last_observation": "2026-08-25T03:36:54.280281+00:00",
+        "drift_cycles": 77
+      },
+      "unit": "unknown",
+      "family": "observation_age",
+      "not_families": [],
+      "status": "DERIVED",
+      "source": "compiled_at|last_observation|drift.cycles",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none"
+    },
+    "change": {
+      "value": null,
+      "unit": "unknown",
+      "family": "typed_transition",
+      "not_families": [],
+      "status": "UNKNOWN",
+      "source": "none",
+      "observation_id": "none",
+      "comparability": false,
+      "defaults_used": "none",
+      "refuse_code": "no_prior_comparable_snapshot",
+      "note": "empty change is honest before Phase 4 history",
+      "transition_kind": "INCOMPARABLE"
+    },
+    "claims": [
+      {
+        "claim_id": "49c37cd3-bf3a-42e1-9274-d4d990a683c5",
+        "claim_text": "Ethereum \u2014 programmable blockchain platform",
+        "grounding": {
+          "source_url": "https://ethereum.org/en/what-is-ethereum/",
+          "expected": "Ethereum",
+          "location": ""
+        },
+        "status_at_publish": "ATTESTED-PRIMARY",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "ETHEREUM_20260815",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ethereum-20260815/",
+        "verified_at": "2026-08-15T07:54:53.827790+00:00",
+        "expires_at": "2026-11-13T07:54:53+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true
+      },
+      {
+        "claim_id": "4c7a9bf2-210d-49f5-b307-9100ae6d9e76",
+        "claim_text": "Ethereum developer documentation \u2014 network fundamentals",
+        "grounding": {
+          "source_url": "https://ethereum.org/en/developers/docs/intro-to-ethereum/",
+          "expected": "Ethereum",
+          "location": ""
+        },
+        "status_at_publish": "ATTESTED-PRIMARY",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "ETHEREUM_20260815",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ethereum-20260815/",
+        "verified_at": "2026-08-15T07:54:54.334340+00:00",
+        "expires_at": "2026-11-13T07:54:54+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true
+      },
+      {
+        "claim_id": "c848d57a-7dee-403a-8616-6342c5694751",
+        "claim_text": "DeFiLlama Ethereum chain TVL",
+        "grounding": {
+          "source_url": "https://defillama.com/chain/Ethereum",
+          "expected": "Ethereum",
+          "location": ""
+        },
+        "status_at_publish": "ATTESTED-DERIVED",
+        "source_type": "derived",
+        "source_type_at_verification": "derived",
+        "source_role_reclassified": false,
+        "witness_class": "onchain_secondary",
+        "witness_weight": 0.62,
+        "report_id": "ETHEREUM_20260815",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ethereum-20260815/",
+        "verified_at": "2026-08-15T07:54:54.774400+00:00",
+        "expires_at": "2026-11-13T07:54:54+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true
+      }
+    ],
+    "measurements": {
+      "usdc_circulating": {
+        "value": null,
+        "unit": "usd",
+        "family": "usdc_circulating",
+        "not_families": [
+          "protocol_tvl",
+          "engine_CIRCLE_tvl_fold"
+        ],
+        "status": "UNKNOWN",
+        "source": "defillama_stablecoins",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "refuse_code": "pipe_fixed_not_yet_persisted",
+        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+      },
+      "sec_filing_occupancy": {
+        "value": null,
+        "unit": "unknown",
+        "family": "sec_filing_occupancy",
+        "not_families": [],
+        "status": "WITHHELD",
+        "source": "last_observation_public_slice",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "refuse_code": "magnitudes_withheld_by_design"
+      },
+      "reserve_mix": {
+        "value": null,
+        "unit": "unknown",
+        "family": "reserve_mix",
+        "not_families": [],
+        "status": "WITHHELD",
+        "source": "none",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "refuse_code": "NOT_SUPPORTED",
+        "note": "issuer HTML is not a structured reserve object"
+      }
+    },
+    "relationships": [
+      {
+        "name": "OPENZEPPELIN_CONTRACTS",
+        "direction": "inbound",
+        "conn_type": "information_flow",
+        "vector": "Information",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      },
+      {
+        "name": "CHAINLINK_ORACLES",
+        "direction": "inbound",
+        "conn_type": "information_flow",
+        "vector": "Information",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      },
+      {
+        "name": "EAS",
+        "direction": "inbound",
+        "conn_type": "information_flow",
+        "vector": "Information",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      },
+      {
+        "name": "TRAIL_OF_BITS",
+        "direction": "inbound",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      },
+      {
+        "name": "SHERLOCK",
+        "direction": "inbound",
+        "conn_type": "information_flow",
+        "vector": "Information",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      },
+      {
+        "name": "BASE",
+        "direction": "outbound",
+        "conn_type": "infrastructure",
+        "vector": "Infrastructure",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      },
+      {
+        "name": "ARBITRUM",
+        "direction": "outbound",
+        "conn_type": "information_flow",
+        "vector": "Information",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      },
+      {
+        "name": "POLYGON",
+        "direction": "outbound",
+        "conn_type": "information_flow",
+        "vector": "Information",
+        "resolve_status": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY"
+      }
+    ],
+    "metric_outputs": {
+      "phi_s": {
+        "value": 3.2562,
+        "unit": "dimensionless_index",
+        "family": "capital_flow_pressure",
+        "not_families": [
+          "measured_settlement_pain",
+          "shannon_bits",
+          "world_causal_lead"
+        ],
+        "status": "DERIVED",
+        "source": "own_numbers.phi_s",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "algorithm_id": "phi_s.cf_pressure.v1",
+        "note": "comparable only under the same kappa store, key, and default"
+      },
+      "kappa": {
+        "value": 0.0,
+        "unit": "dimensionless_index",
+        "family": "entity_physics_kappa",
+        "not_families": [
+          "host_kappa_blend",
+          "gamma_labeled_as_kappa"
+        ],
+        "status": "DERIVED",
+        "source": "own_numbers.kappa",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "algorithm_id": "kappa.entity_physics.v1"
+      },
+      "last_delta_i": {
+        "value": null,
+        "unit": "unknown",
+        "family": "bootstrap_signal_return_scalar",
+        "not_families": [
+          "shannon_delta_i",
+          "receipt",
+          "eff",
+          "path",
+          "prov",
+          "pred",
+          "E"
+        ],
+        "status": "WITHHELD",
+        "source": "entity_states.last_delta_i",
+        "observation_id": "none",
+        "comparability": false,
+        "defaults_used": "none",
+        "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
+        "refuse_code": "unqualified_bootstrap_scalar"
+      }
+    },
+    "support": {
+      "schema_id": "geniusflow.state_identity.v0",
+      "note": "provenance metadata from existing status system; no new confidence equation"
+    },
+    "identity_by_path": {
+      "own_numbers.phi_s": {
+        "schema_id": "geniusflow.state_identity.v0",
+        "entity_id": "ETHEREUM",
+        "value_path": "own_numbers.phi_s",
+        "display_glyph": "\u03a6_S",
+        "magnitude": 3.2562,
+        "kind": "derived",
+        "family": "capital_flow_pressure",
+        "not_families": [
+          "measured_settlement_pain",
+          "shannon_bits",
+          "world_causal_lead"
+        ],
+        "generator": {
+          "module": null,
+          "function": null,
+          "algorithm_id": "phi_s.cf_pressure.v1",
+          "algorithm_version": "frozen_v1"
+        },
+        "withheld": false,
+        "withhold_reason": null,
+        "comparable_under": [
+          "phi_s.cf_pressure.v1"
+        ],
+        "epistemic_status": "UNKNOWN"
+      },
+      "own_numbers.kappa": {
+        "schema_id": "geniusflow.state_identity.v0",
+        "entity_id": "ETHEREUM",
+        "value_path": "own_numbers.kappa",
+        "display_glyph": "\u03ba",
+        "magnitude": 0.0,
+        "kind": "derived",
+        "family": "entity_physics_kappa",
+        "not_families": [
+          "host_kappa_blend",
+          "gamma_labeled_as_kappa"
+        ],
+        "generator": {
+          "module": null,
+          "function": null,
+          "algorithm_id": "kappa.entity_physics.v1",
+          "algorithm_version": "frozen_v1"
+        },
+        "withheld": false,
+        "withhold_reason": null,
+        "comparable_under": [
+          "kappa.entity_physics.v1"
+        ],
+        "epistemic_status": "UNKNOWN"
+      },
+      "network_plugs.observation.last_delta_i": {
+        "schema_id": "geniusflow.state_identity.v0",
+        "entity_id": "ETHEREUM",
+        "value_path": "network_plugs.observation.last_delta_i",
+        "display_glyph": "last_delta_i",
+        "magnitude": null,
+        "kind": "withheld",
+        "family": "bootstrap_signal_return_scalar",
+        "not_families": [
+          "shannon_delta_i",
+          "receipt",
+          "eff",
+          "path",
+          "prov",
+          "pred",
+          "E"
+        ],
+        "generator": {
+          "module": null,
+          "function": null,
+          "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
+          "algorithm_version": "frozen_v1"
+        },
+        "withheld": true,
+        "withhold_reason": "unqualified_bootstrap_scalar",
+        "comparable_under": [
+          "last_delta_i.signal_return_bootstrap.v1"
+        ],
+        "epistemic_status": "WITHHELD"
+      }
+    },
+    "snapshot_id": "sha256:b9a050880b60d2013308943dcebd421bbd594a74cf07fa678faa516ba14b4595"
   }
 }
