@@ -1,0 +1,270 @@
+{
+  "entity": "CITIGROUP",
+  "claims": [
+    {
+      "claim_id": "68c9e40d-5cc4-421b-8f66-9dd08983624b",
+      "claim_text": "Citigroup \u2014 global financial services",
+      "grounding": {
+        "source_url": "https://www.citigroup.com/",
+        "expected": "financial services",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CITIGROUP_20260825",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/citigroup-20260825/",
+      "verified_at": "2026-08-25T02:15:04.456964+00:00",
+      "expires_at": "2026-11-23T02:15:04+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true,
+      "package": {
+        "claim_id": "68c9e40d-5cc4-421b-8f66-9dd08983624b",
+        "verification_status": "ATTESTED-PRIMARY",
+        "allows_canonical": true,
+        "claim_text": "Citigroup \u2014 global financial services",
+        "evaluated_at": "2026-08-25T02:20:09.651030+00:00",
+        "disposition": "admitted",
+        "exhibited_refusal": false,
+        "reason": "attested_published_claim",
+        "proof": {
+          "version": "1.0.0",
+          "admitted": true,
+          "limbs": {
+            "registry_ref": {
+              "ok": true,
+              "required": false,
+              "status": "not_applicable",
+              "ref": null
+            },
+            "refuse_or_admit": {
+              "ok": true,
+              "disposition": "admitted",
+              "exhibited_refusal": false,
+              "reason": "attested_published_claim"
+            },
+            "provenance_spine": {
+              "ok": true,
+              "required_layers": [
+                "helix",
+                "wfp",
+                "act_account",
+                "federation",
+                "cite_verify_rail"
+              ],
+              "claim_pointers": {
+                "source_url": "https://www.citigroup.com/",
+                "expected": "financial services",
+                "custody_sha256": null,
+                "terminal_origin_fingerprint": null,
+                "helix_hash": null,
+                "verified_at": "2026-08-25T02:15:04.456964+00:00"
+              },
+              "invented": false,
+              "note": "Pointers only \u2014 public package/verify does not assert cycle spine ok or invent attestations."
+            }
+          },
+          "failed_limbs": [],
+          "refuse_limb": null,
+          "spec": "docs/ATTESTATION_PROOF_SHAPE.md"
+        },
+        "proof_shape": {
+          "version": "1.0.0",
+          "limbs": [
+            "registry_ref",
+            "refuse_or_admit",
+            "provenance_spine"
+          ],
+          "admitted": true,
+          "failed_limbs": [],
+          "refuse_limb": null
+        }
+      }
+    },
+    {
+      "claim_id": "4de5e037-f441-4073-b8ae-4c6f5992536a",
+      "claim_text": "Citigroup global presence and institutional role",
+      "grounding": {
+        "source_url": "https://www.citigroup.com/global/about-us",
+        "expected": "Citigroup",
+        "location": ""
+      },
+      "status_at_publish": "HALLUCINATED",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CITIGROUP_20260825",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/citigroup-20260825/",
+      "verified_at": "2026-08-25T02:15:05.663953+00:00",
+      "expires_at": "2026-11-23T02:15:05+00:00",
+      "volatility_class": "default",
+      "allows_canonical": false,
+      "package": {
+        "claim_id": "4de5e037-f441-4073-b8ae-4c6f5992536a",
+        "verification_status": "HALLUCINATED",
+        "allows_canonical": false,
+        "claim_text": "Citigroup global presence and institutional role",
+        "evaluated_at": "2026-08-25T02:20:09.651030+00:00",
+        "disposition": "withheld",
+        "exhibited_refusal": true,
+        "reason": "failed_or_contradicted_verification",
+        "proof": {
+          "version": "1.0.0",
+          "admitted": false,
+          "limbs": {
+            "registry_ref": {
+              "ok": true,
+              "required": false,
+              "status": "not_applicable",
+              "ref": null
+            },
+            "refuse_or_admit": {
+              "ok": false,
+              "disposition": "withheld",
+              "exhibited_refusal": true,
+              "reason": "failed_or_contradicted_verification",
+              "failed": "failed_or_contradicted_verification"
+            },
+            "provenance_spine": {
+              "ok": true,
+              "required_layers": [
+                "helix",
+                "wfp",
+                "act_account",
+                "federation",
+                "cite_verify_rail"
+              ],
+              "claim_pointers": {
+                "source_url": "https://www.citigroup.com/global/about-us",
+                "expected": "Citigroup",
+                "custody_sha256": null,
+                "terminal_origin_fingerprint": null,
+                "helix_hash": null,
+                "verified_at": "2026-08-25T02:15:05.663953+00:00"
+              },
+              "invented": false,
+              "note": "Pointers only \u2014 public package/verify does not assert cycle spine ok or invent attestations."
+            }
+          },
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit",
+          "spec": "docs/ATTESTATION_PROOF_SHAPE.md"
+        },
+        "proof_shape": {
+          "version": "1.0.0",
+          "limbs": [
+            "registry_ref",
+            "refuse_or_admit",
+            "provenance_spine"
+          ],
+          "admitted": false,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit"
+        }
+      }
+    },
+    {
+      "claim_id": "815d3f1a-c83b-4bf5-9939-e6149ad8035e",
+      "claim_text": "Services for institutional clients \u2014 custody and markets",
+      "grounding": {
+        "source_url": "https://www.citigroup.com/global/businesses/services",
+        "expected": "Institutional Clients",
+        "location": ""
+      },
+      "status_at_publish": "HALLUCINATED",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CITIGROUP_20260825",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/citigroup-20260825/",
+      "verified_at": "2026-08-25T02:15:06.428439+00:00",
+      "expires_at": "2026-11-23T02:15:06+00:00",
+      "volatility_class": "default",
+      "allows_canonical": false,
+      "package": {
+        "claim_id": "815d3f1a-c83b-4bf5-9939-e6149ad8035e",
+        "verification_status": "HALLUCINATED",
+        "allows_canonical": false,
+        "claim_text": "Services for institutional clients \u2014 custody and markets",
+        "evaluated_at": "2026-08-25T02:20:09.651030+00:00",
+        "disposition": "withheld",
+        "exhibited_refusal": true,
+        "reason": "failed_or_contradicted_verification",
+        "proof": {
+          "version": "1.0.0",
+          "admitted": false,
+          "limbs": {
+            "registry_ref": {
+              "ok": true,
+              "required": false,
+              "status": "not_applicable",
+              "ref": null
+            },
+            "refuse_or_admit": {
+              "ok": false,
+              "disposition": "withheld",
+              "exhibited_refusal": true,
+              "reason": "failed_or_contradicted_verification",
+              "failed": "failed_or_contradicted_verification"
+            },
+            "provenance_spine": {
+              "ok": true,
+              "required_layers": [
+                "helix",
+                "wfp",
+                "act_account",
+                "federation",
+                "cite_verify_rail"
+              ],
+              "claim_pointers": {
+                "source_url": "https://www.citigroup.com/global/businesses/services",
+                "expected": "Institutional Clients",
+                "custody_sha256": null,
+                "terminal_origin_fingerprint": null,
+                "helix_hash": null,
+                "verified_at": "2026-08-25T02:15:06.428439+00:00"
+              },
+              "invented": false,
+              "note": "Pointers only \u2014 public package/verify does not assert cycle spine ok or invent attestations."
+            }
+          },
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit",
+          "spec": "docs/ATTESTATION_PROOF_SHAPE.md"
+        },
+        "proof_shape": {
+          "version": "1.0.0",
+          "limbs": [
+            "registry_ref",
+            "refuse_or_admit",
+            "provenance_spine"
+          ],
+          "admitted": false,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit"
+        }
+      }
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/CITIGROUP.json",
+  "generated_at": "2026-08-25T02:20:09.651030+00:00",
+  "source_ledger_sha256": "af16a6664281d3bbb793ea6ddef060e2541ae8214126ed93dc1714220d4d0d9e",
+  "current_through": "2026-11-23T02:15:04+00:00",
+  "currentness": "time_bounded_snapshot_recheck_after_current_through",
+  "verify_hint": "POST /api/verify for grounding re-check; POST /api/package with the published claim object for admit/withhold/VOID/ILLUSTRATIVE disposition"
+}
