@@ -1,7 +1,7 @@
 {
   "entity": "CBOE",
   "node": "34539544",
-  "compiled_at": "2026-08-25T13:11:29.953314+00:00",
+  "compiled_at": "2026-08-26T04:05:29.568032+00:00",
   "digest": "sha256:3c0877adb923fca40192a9cbbcd12669837e76b4b21ed7b11e1d94edb120e682",
   "own_numbers": {
     "phi_s": null,
@@ -100,12 +100,18 @@
     "reason": "No measurement_links row names this entity as child or parent."
   },
   "field_state": {
-    "schema_version": "geniusflow.entity_state_snapshot.v0",
+    "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "CBOE",
     "observed_at": null,
-    "compiled_at": "2026-08-25T13:11:29.953314+00:00",
+    "compiled_at": "2026-08-26T04:05:29.568032+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
+    "identity_contract": "geniusflow.observer_identity.v1",
+    "identity_contract_effective_from": "2026-08-25T15:00:00Z",
+    "observer_node_id": "34539544",
+    "producer_node_id": "34539544",
+    "observation_origin": "field_state.compose",
+    "observer_identity_status": "OBSERVED",
     "state": {
       "claims": [],
       "measurements": {
@@ -184,7 +190,7 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-08-25T13:11:29.953314+00:00",
+        "compiled_at": "2026-08-26T04:05:29.568032+00:00",
         "last_observation": null,
         "drift_cycles": null
       },
@@ -315,6 +321,32 @@
       "schema_id": "geniusflow.state_identity.v0",
       "note": "provenance metadata from existing status system; no new confidence equation"
     },
+    "projections": {
+      "readability": {
+        "schema": "geniusflow.readability_projection.v0",
+        "embedded_in_field_state": false,
+        "editorial": false,
+        "phi_s_label": {
+          "generator": "engine.dispatch.content_adapter._phi_s_label",
+          "status": "UNKNOWN",
+          "value": null
+        },
+        "kappa_living_zone": {
+          "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
+          "status": "PRIOR",
+          "value": null,
+          "note": "governance band reference; not an entity measurement"
+        }
+      },
+      "knowledge_gap_map": {
+        "schema": "geniusflow.knowledge_gap_map.v0",
+        "embedded_in_field_state": false
+      },
+      "information_economics": {
+        "embedded_in_field_state": false,
+        "note": "references only; not a blob"
+      }
+    },
     "identity_by_path": {
       "own_numbers.phi_s": {
         "schema_id": "geniusflow.state_identity.v0",
@@ -330,8 +362,8 @@
           "world_causal_lead"
         ],
         "generator": {
-          "module": null,
-          "function": null,
+          "module": "engine.bridge.field_state",
+          "function": "compose_field_state_from_card",
           "algorithm_id": "phi_s.cf_pressure.v1",
           "algorithm_version": "frozen_v1"
         },
@@ -355,8 +387,8 @@
           "gamma_labeled_as_kappa"
         ],
         "generator": {
-          "module": null,
-          "function": null,
+          "module": "engine.bridge.field_state",
+          "function": "compose_field_state_from_card",
           "algorithm_id": "kappa.entity_physics.v1",
           "algorithm_version": "frozen_v1"
         },
@@ -385,8 +417,8 @@
           "E"
         ],
         "generator": {
-          "module": null,
-          "function": null,
+          "module": "engine.bridge.field_state",
+          "function": "compose_field_state_from_card",
           "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
           "algorithm_version": "frozen_v1"
         },
@@ -398,6 +430,271 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:e03ea4d6964ebd6a72e565936b2dfff4403cad5fa6b3e6619564c196c790bdb9"
+    "snapshot_id": "sha256:fc6fca2485f61c577c6be49126b2ab62619972ee7b6e1bf78a25442e1f9bbe6d"
+  },
+  "epistemic_summary": {
+    "schema": "geniusflow.epistemic_summary.v0",
+    "projection": true,
+    "embedded_in_field_state": false,
+    "feeds_qpo": false,
+    "claims": {
+      "n": 0,
+      "evidence_backed": 0,
+      "attested": 0
+    },
+    "slots_by_class": {
+      "KNOWN_CURRENT": 1,
+      "KNOWN_STALE": 0,
+      "KNOWN_MISSING": 4,
+      "KNOWN_INCOMPARABLE": 1,
+      "BROKEN_PIPE": 1,
+      "NOT_WIRED": 1,
+      "NOT_SUPPORTED": 1,
+      "WITHHELD": 2,
+      "RELATIONSHIP_GAP": 0,
+      "UNKNOWN": 0
+    },
+    "aliases": {
+      "supported": 1,
+      "unsupported": 1,
+      "unknown": 4,
+      "withheld": 2,
+      "broken_pipe": 1,
+      "not_wired": 1,
+      "stale": 0,
+      "incomparable": 1,
+      "relationship_gap": 0
+    },
+    "note": "aliases map existing gap-map classes for machines. They are not a new taxonomy. Gap map is not embedded in Field State."
+  },
+  "projection_version": "geniusflow.public_entity_projection.v1",
+  "source_schema": "geniusflow.entity_state_snapshot.v1",
+  "source_snapshot_id": "sha256:fc6fca2485f61c577c6be49126b2ab62619972ee7b6e1bf78a25442e1f9bbe6d",
+  "projection_compiled_at": "2026-08-26T04:05:29.573840+00:00",
+  "freshness": {
+    "source_observed_at": null,
+    "projection_compiled_at": "2026-08-26T04:05:29.573840+00:00",
+    "age_seconds": null,
+    "status": "UNKNOWN"
+  },
+  "public_entity_projection": {
+    "projection_version": "geniusflow.public_entity_projection.v1",
+    "source_schema": "geniusflow.entity_state_snapshot.v1",
+    "source_snapshot_id": "sha256:fc6fca2485f61c577c6be49126b2ab62619972ee7b6e1bf78a25442e1f9bbe6d",
+    "compiled_at": "2026-08-26T04:05:29.573840+00:00",
+    "freshness": {
+      "source_observed_at": null,
+      "projection_compiled_at": "2026-08-26T04:05:29.573840+00:00",
+      "age_seconds": null,
+      "status": "UNKNOWN"
+    },
+    "projection": true,
+    "entity": "CBOE",
+    "node": "34539544",
+    "claims": [],
+    "state": {
+      "observed_at": null,
+      "snapshot_role": "PROSPECTIVE_SNAPSHOT",
+      "identity_contract": "geniusflow.observer_identity.v1",
+      "t0_labeled": false
+    },
+    "field": {
+      "position": {
+        "status": "UNKNOWN",
+        "value": null,
+        "reason": null,
+        "family": "structural_position",
+        "source": "own_numbers.power_components|monetary_position",
+        "note": null
+      },
+      "direction": {
+        "status": "UNKNOWN",
+        "value": null,
+        "reason": "direction_not_on_public_card",
+        "family": "field_direction",
+        "source": "EntityFieldState.field_direction",
+        "note": "giving/taking is composed only when EntityFieldState is already present"
+      },
+      "age": {
+        "status": "DERIVED",
+        "value": {
+          "compiled_at": "2026-08-26T04:05:29.568032+00:00",
+          "last_observation": null,
+          "drift_cycles": null
+        },
+        "reason": null,
+        "family": "observation_age",
+        "source": "compiled_at|last_observation|drift.cycles",
+        "note": null
+      },
+      "change": {
+        "status": "INCOMPARABLE",
+        "value": null,
+        "reason": "no_prior_comparable_snapshot",
+        "family": "typed_transition",
+        "source": "none",
+        "note": "empty change is honest before Phase 4 history",
+        "transition_kind": "INCOMPARABLE"
+      },
+      "neighborhood": {
+        "status": "UNKNOWN",
+        "n": 0,
+        "family": "typed_topology_hops"
+      }
+    },
+    "epistemic_summary": {
+      "schema": "geniusflow.epistemic_summary.v0",
+      "projection": true,
+      "embedded_in_field_state": false,
+      "feeds_qpo": false,
+      "supported": 1,
+      "unknown": 4,
+      "withheld": 2,
+      "broken_pipe": 1,
+      "not_wired": 1,
+      "claims": {
+        "n": 0,
+        "evidence_backed": 0,
+        "attested": 0
+      },
+      "aliases": {
+        "supported": 1,
+        "unsupported": 1,
+        "unknown": 4,
+        "withheld": 2,
+        "broken_pipe": 1,
+        "not_wired": 1,
+        "stale": 0,
+        "incomparable": 1,
+        "relationship_gap": 0
+      },
+      "slots_by_class": {
+        "KNOWN_CURRENT": 1,
+        "KNOWN_STALE": 0,
+        "KNOWN_MISSING": 4,
+        "KNOWN_INCOMPARABLE": 1,
+        "BROKEN_PIPE": 1,
+        "NOT_WIRED": 1,
+        "NOT_SUPPORTED": 1,
+        "WITHHELD": 2,
+        "RELATIONSHIP_GAP": 0,
+        "UNKNOWN": 0
+      },
+      "note": "aliases map existing gap-map classes for machines. They are not a new taxonomy. Gap map is not embedded in Field State."
+    },
+    "relationships": {},
+    "relationship_state": [],
+    "knowledge_gaps": {
+      "href": "/api/dossier?entity=CBOE&view=gaps",
+      "summary": {
+        "n": 11,
+        "by_class": {
+          "KNOWN_CURRENT": 1,
+          "KNOWN_STALE": 0,
+          "KNOWN_MISSING": 4,
+          "KNOWN_INCOMPARABLE": 1,
+          "BROKEN_PIPE": 1,
+          "NOT_WIRED": 1,
+          "NOT_SUPPORTED": 1,
+          "WITHHELD": 2,
+          "RELATIONSHIP_GAP": 0,
+          "UNKNOWN": 0
+        },
+        "by_dimension": {
+          "CLAIM": 1,
+          "CURRENT_MEASUREMENT": 5,
+          "TEMPORAL": 2,
+          "RELATIONSHIP": 0,
+          "CAPITAL": 2,
+          "INFRASTRUCTURE": 0,
+          "PROVENANCE": 1,
+          "IDENTITY": 0
+        }
+      },
+      "embedded_in_field_state": false
+    },
+    "consequence_tier": {
+      "status": "NOT_APPLICABLE",
+      "reason": "no_legal_typed_transition",
+      "feeds_qpo": false
+    },
+    "observation_clock": {
+      "entity": "CBOE",
+      "first_prospective_observation": null,
+      "latest_prospective_observation": null,
+      "n_prospective_snapshots": 1,
+      "identity_comparable_transitions": 0,
+      "world_observed_count": 0,
+      "world_observed_status": "UNAVAILABLE",
+      "world_observed_reason": "world_observed_producer_not_emitted",
+      "status": "OBSERVING",
+      "phase8_role_on_store": "PROSPECTIVE_SNAPSHOT",
+      "never_labeled_t0": true,
+      "note": "GeniusFlow cannot reconstruct a prospective observation after the fact. The clock begins when an observation is made. A stored prospective snapshot is not a labeled experiment origin."
+    },
+    "change_frontier": {
+      "entity": "CBOE",
+      "schema": "geniusflow.public_change_frontier.v0",
+      "comparable_prior_state": "NONE",
+      "world_observed": "UNAVAILABLE",
+      "neighborhood_change": "UNAVAILABLE",
+      "status": "UNAVAILABLE",
+      "refuse_code": "no_prior_comparable_snapshot",
+      "transition_kind": "INCOMPARABLE",
+      "why": "GeniusFlow does not manufacture historical observations to create a before/after comparison. Waiting for a comparable prospective observation.",
+      "t0_labeled": false
+    },
+    "provenance": {
+      "identity_contract": "geniusflow.observer_identity.v1",
+      "generators": [
+        {
+          "id": "engine.dispatch.content_adapter._phi_s_label",
+          "status": "UNKNOWN",
+          "field": "phi_s_label"
+        }
+      ],
+      "readability": {
+        "href": null,
+        "status": "LINK",
+        "projection": {
+          "schema": "geniusflow.readability_projection.v0",
+          "embedded_in_field_state": false,
+          "editorial": false,
+          "phi_s_label": {
+            "generator": "engine.dispatch.content_adapter._phi_s_label",
+            "status": "UNKNOWN",
+            "value": null
+          },
+          "kappa_living_zone": {
+            "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
+            "status": "PRIOR",
+            "value": null,
+            "note": "governance band reference; not an entity measurement"
+          }
+        }
+      },
+      "information_economics": {
+        "embedded_in_field_state": false,
+        "status": "LINK"
+      },
+      "receipts_available": false,
+      "never_labeled_t0": true
+    },
+    "measurements": {
+      "usdc_circulating": {
+        "status": "UNKNOWN",
+        "value": null,
+        "reason": "pipe_fixed_not_yet_persisted",
+        "family": "usdc_circulating",
+        "source": "defillama_stablecoins",
+        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+      },
+      "usyc_circulating": {
+        "status": "NOT_WIRED",
+        "value": null,
+        "reason": "not_wired",
+        "note": "No circulating USYC envelope is wired on the public card."
+      }
+    }
   }
 }

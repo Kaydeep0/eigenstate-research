@@ -1,7 +1,7 @@
 {
   "entity": "STABLECOIN_POOL",
   "node": "34539544",
-  "compiled_at": "2026-08-25T13:11:51.659253+00:00",
+  "compiled_at": "2026-08-26T04:05:37.789332+00:00",
   "digest": "sha256:2324104a4f70db96814eab7e3a6a31fcdc74af006955fcb0e1ce8063d1cf9b7e",
   "own_numbers": {
     "phi_s": 0.0267,
@@ -356,12 +356,18 @@
     "reason": "No measurement_links row names this entity as child or parent."
   },
   "field_state": {
-    "schema_version": "geniusflow.entity_state_snapshot.v0",
+    "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "STABLECOIN_POOL",
     "observed_at": null,
-    "compiled_at": "2026-08-25T13:11:51.659253+00:00",
+    "compiled_at": "2026-08-26T04:05:37.789332+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
+    "identity_contract": "geniusflow.observer_identity.v1",
+    "identity_contract_effective_from": "2026-08-25T15:00:00Z",
+    "observer_node_id": "34539544",
+    "producer_node_id": "34539544",
+    "observation_origin": "field_state.compose",
+    "observer_identity_status": "OBSERVED",
     "state": {
       "claims": [
         {
@@ -615,7 +621,7 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-08-25T13:11:51.659253+00:00",
+        "compiled_at": "2026-08-26T04:05:37.789332+00:00",
         "last_observation": null,
         "drift_cycles": 77
       },
@@ -909,6 +915,32 @@
       "schema_id": "geniusflow.state_identity.v0",
       "note": "provenance metadata from existing status system; no new confidence equation"
     },
+    "projections": {
+      "readability": {
+        "schema": "geniusflow.readability_projection.v0",
+        "embedded_in_field_state": false,
+        "editorial": false,
+        "phi_s_label": {
+          "generator": "engine.dispatch.content_adapter._phi_s_label",
+          "status": "DERIVED",
+          "value": "near equilibrium"
+        },
+        "kappa_living_zone": {
+          "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
+          "status": "PRIOR",
+          "value": null,
+          "note": "governance band reference; not an entity measurement"
+        }
+      },
+      "knowledge_gap_map": {
+        "schema": "geniusflow.knowledge_gap_map.v0",
+        "embedded_in_field_state": false
+      },
+      "information_economics": {
+        "embedded_in_field_state": false,
+        "note": "references only; not a blob"
+      }
+    },
     "identity_by_path": {
       "own_numbers.phi_s": {
         "schema_id": "geniusflow.state_identity.v0",
@@ -924,8 +956,8 @@
           "world_causal_lead"
         ],
         "generator": {
-          "module": null,
-          "function": null,
+          "module": "engine.bridge.field_state",
+          "function": "compose_field_state_from_card",
           "algorithm_id": "phi_s.cf_pressure.v1",
           "algorithm_version": "frozen_v1"
         },
@@ -934,7 +966,7 @@
         "comparable_under": [
           "phi_s.cf_pressure.v1"
         ],
-        "epistemic_status": "UNKNOWN"
+        "epistemic_status": "DERIVED"
       },
       "own_numbers.kappa": {
         "schema_id": "geniusflow.state_identity.v0",
@@ -949,8 +981,8 @@
           "gamma_labeled_as_kappa"
         ],
         "generator": {
-          "module": null,
-          "function": null,
+          "module": "engine.bridge.field_state",
+          "function": "compose_field_state_from_card",
           "algorithm_id": "kappa.entity_physics.v1",
           "algorithm_version": "frozen_v1"
         },
@@ -959,7 +991,7 @@
         "comparable_under": [
           "kappa.entity_physics.v1"
         ],
-        "epistemic_status": "UNKNOWN"
+        "epistemic_status": "DERIVED"
       },
       "network_plugs.observation.last_delta_i": {
         "schema_id": "geniusflow.state_identity.v0",
@@ -979,8 +1011,8 @@
           "E"
         ],
         "generator": {
-          "module": null,
-          "function": null,
+          "module": "engine.bridge.field_state",
+          "function": "compose_field_state_from_card",
           "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
           "algorithm_version": "frozen_v1"
         },
@@ -992,6 +1024,590 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:11d64d129e1a52e582636ecf6f062867f5f5c298e44414b5c846a640c7c43bad"
+    "snapshot_id": "sha256:c834e4db88c216540abff1a0a7af87c0b968eac258bd60c2af33f798798134dc"
+  },
+  "epistemic_summary": {
+    "schema": "geniusflow.epistemic_summary.v0",
+    "projection": true,
+    "embedded_in_field_state": false,
+    "feeds_qpo": false,
+    "claims": {
+      "n": 3,
+      "evidence_backed": 3,
+      "attested": 3
+    },
+    "slots_by_class": {
+      "KNOWN_CURRENT": 4,
+      "KNOWN_STALE": 0,
+      "KNOWN_MISSING": 1,
+      "KNOWN_INCOMPARABLE": 1,
+      "BROKEN_PIPE": 1,
+      "NOT_WIRED": 1,
+      "NOT_SUPPORTED": 1,
+      "WITHHELD": 2,
+      "RELATIONSHIP_GAP": 7,
+      "UNKNOWN": 0
+    },
+    "aliases": {
+      "supported": 4,
+      "unsupported": 1,
+      "unknown": 1,
+      "withheld": 2,
+      "broken_pipe": 1,
+      "not_wired": 1,
+      "stale": 0,
+      "incomparable": 1,
+      "relationship_gap": 7
+    },
+    "note": "aliases map existing gap-map classes for machines. They are not a new taxonomy. Gap map is not embedded in Field State."
+  },
+  "projection_version": "geniusflow.public_entity_projection.v1",
+  "source_schema": "geniusflow.entity_state_snapshot.v1",
+  "source_snapshot_id": "sha256:c834e4db88c216540abff1a0a7af87c0b968eac258bd60c2af33f798798134dc",
+  "projection_compiled_at": "2026-08-26T04:05:37.795610+00:00",
+  "freshness": {
+    "source_observed_at": null,
+    "projection_compiled_at": "2026-08-26T04:05:37.795610+00:00",
+    "age_seconds": null,
+    "status": "UNKNOWN"
+  },
+  "public_entity_projection": {
+    "projection_version": "geniusflow.public_entity_projection.v1",
+    "source_schema": "geniusflow.entity_state_snapshot.v1",
+    "source_snapshot_id": "sha256:c834e4db88c216540abff1a0a7af87c0b968eac258bd60c2af33f798798134dc",
+    "compiled_at": "2026-08-26T04:05:37.795610+00:00",
+    "freshness": {
+      "source_observed_at": null,
+      "projection_compiled_at": "2026-08-26T04:05:37.795610+00:00",
+      "age_seconds": null,
+      "status": "UNKNOWN"
+    },
+    "projection": true,
+    "entity": "STABLECOIN_POOL",
+    "node": "34539544",
+    "claims": [
+      {
+        "claim_id": "2812203c-7478-4eaa-9766-adbd4d1d6177",
+        "claim_text": "Circle USDC \u2014 regulated dollar stablecoin",
+        "grounding": {
+          "source_url": "https://www.circle.com/usdc",
+          "expected": "USDC",
+          "location": "",
+          "observation_id": "obs_4a98f6b0fd1b4851",
+          "observed_at": "2026-08-25T01:03:22.158815+00:00"
+        },
+        "status_at_publish": "ATTESTED-PRIMARY",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "STABLECOIN_POOL_20260825",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/stablecoin-pool-20260825/",
+        "verified_at": "2026-08-25T01:01:20.085852+00:00",
+        "expires_at": "2026-11-23T01:01:20+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true,
+        "observation_id": "obs_4a98f6b0fd1b4851",
+        "observed_at": "2026-08-25T01:03:22.158815+00:00",
+        "grounding_id": "3b9914303f07d5e7d64466feed29d3d287aa040f5fd4c3618211c6607dbfa810",
+        "published_at": "2026-08-25T01:03:22.161503+00:00",
+        "temporal_binding": {
+          "claim_id": "2812203c-7478-4eaa-9766-adbd4d1d6177",
+          "grounding_id": "3b9914303f07d5e7d64466feed29d3d287aa040f5fd4c3618211c6607dbfa810",
+          "observation_id": "obs_4a98f6b0fd1b4851",
+          "observed_at": "2026-08-25T01:03:22.158815+00:00",
+          "published_at": "2026-08-25T01:03:22.161503+00:00",
+          "report_id": "STABLECOIN_POOL_20260825"
+        }
+      },
+      {
+        "claim_id": "173dedb5-d921-4d46-b018-c0b853ddee7d",
+        "claim_text": "DeFiLlama \u2014 stablecoin market dashboard",
+        "grounding": {
+          "source_url": "https://defillama.com/stablecoins",
+          "expected": "stablecoin",
+          "location": "",
+          "observation_id": "obs_1f16c26bd26d4f2e",
+          "observed_at": "2026-08-25T01:03:21.433288+00:00"
+        },
+        "status_at_publish": "ATTESTED-DERIVED",
+        "source_type": "derived",
+        "source_type_at_verification": "derived",
+        "source_role_reclassified": false,
+        "witness_class": "onchain_secondary",
+        "witness_weight": 0.62,
+        "report_id": "STABLECOIN_POOL_20260825",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/stablecoin-pool-20260825/",
+        "verified_at": "2026-08-25T01:01:19.811650+00:00",
+        "expires_at": "2026-11-23T01:01:19+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true,
+        "observation_id": "obs_1f16c26bd26d4f2e",
+        "observed_at": "2026-08-25T01:03:21.433288+00:00",
+        "grounding_id": "d8c60e0851030f91ed7790190ab28ed27f6fcae786a26b60de9c5bd18c7d775c",
+        "published_at": "2026-08-25T01:03:21.435949+00:00",
+        "temporal_binding": {
+          "claim_id": "173dedb5-d921-4d46-b018-c0b853ddee7d",
+          "grounding_id": "d8c60e0851030f91ed7790190ab28ed27f6fcae786a26b60de9c5bd18c7d775c",
+          "observation_id": "obs_1f16c26bd26d4f2e",
+          "observed_at": "2026-08-25T01:03:21.433288+00:00",
+          "published_at": "2026-08-25T01:03:21.435949+00:00",
+          "report_id": "STABLECOIN_POOL_20260825"
+        }
+      },
+      {
+        "claim_id": "cbb72a9e-9da6-4d4c-bad5-a23495a50804",
+        "claim_text": "Stablecoin market \u2014 USDC and USDT dominance",
+        "grounding": {
+          "source_url": "https://defillama.com/stablecoins",
+          "expected": "USDC",
+          "location": "",
+          "observation_id": "obs_d3f4441cafec49a6",
+          "observed_at": "2026-08-25T01:03:21.750081+00:00"
+        },
+        "status_at_publish": "ATTESTED-DERIVED",
+        "source_type": "derived",
+        "source_type_at_verification": "derived",
+        "source_role_reclassified": false,
+        "witness_class": "onchain_secondary",
+        "witness_weight": 0.62,
+        "report_id": "STABLECOIN_POOL_20260825",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/stablecoin-pool-20260825/",
+        "verified_at": "2026-08-25T01:01:19.941717+00:00",
+        "expires_at": "2026-11-23T01:01:19+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true,
+        "observation_id": "obs_d3f4441cafec49a6",
+        "observed_at": "2026-08-25T01:03:21.750081+00:00",
+        "grounding_id": "74b15c806be19e9b47199f40c2335a6b2bcacb4cd2f6ed7c88c2aa6eaeeaa0ea",
+        "published_at": "2026-08-25T01:03:21.752928+00:00",
+        "temporal_binding": {
+          "claim_id": "cbb72a9e-9da6-4d4c-bad5-a23495a50804",
+          "grounding_id": "74b15c806be19e9b47199f40c2335a6b2bcacb4cd2f6ed7c88c2aa6eaeeaa0ea",
+          "observation_id": "obs_d3f4441cafec49a6",
+          "observed_at": "2026-08-25T01:03:21.750081+00:00",
+          "published_at": "2026-08-25T01:03:21.752928+00:00",
+          "report_id": "STABLECOIN_POOL_20260825"
+        }
+      }
+    ],
+    "state": {
+      "observed_at": null,
+      "snapshot_role": "PROSPECTIVE_SNAPSHOT",
+      "identity_contract": "geniusflow.observer_identity.v1",
+      "t0_labeled": false
+    },
+    "field": {
+      "position": {
+        "status": "DERIVED",
+        "value": {
+          "power_components": {
+            "capital": 1,
+            "infrastructure": 1,
+            "information": 7,
+            "thread_product": 0.006481,
+            "balance": 0.836
+          },
+          "monetary_position": {
+            "position": 0.261,
+            "well": "boundary"
+          }
+        },
+        "reason": null,
+        "family": "structural_position",
+        "source": "own_numbers.power_components|monetary_position",
+        "note": null
+      },
+      "direction": {
+        "status": "UNKNOWN",
+        "value": null,
+        "reason": "direction_not_on_public_card",
+        "family": "field_direction",
+        "source": "EntityFieldState.field_direction",
+        "note": "giving/taking is composed only when EntityFieldState is already present"
+      },
+      "age": {
+        "status": "DERIVED",
+        "value": {
+          "compiled_at": "2026-08-26T04:05:37.789332+00:00",
+          "last_observation": null,
+          "drift_cycles": 77
+        },
+        "reason": null,
+        "family": "observation_age",
+        "source": "compiled_at|last_observation|drift.cycles",
+        "note": null
+      },
+      "change": {
+        "status": "INCOMPARABLE",
+        "value": null,
+        "reason": "no_prior_comparable_snapshot",
+        "family": "typed_transition",
+        "source": "none",
+        "note": "empty change is honest before Phase 4 history",
+        "transition_kind": "INCOMPARABLE"
+      },
+      "neighborhood": {
+        "status": "DERIVED",
+        "n": 7,
+        "family": "typed_topology_hops"
+      }
+    },
+    "epistemic_summary": {
+      "schema": "geniusflow.epistemic_summary.v0",
+      "projection": true,
+      "embedded_in_field_state": false,
+      "feeds_qpo": false,
+      "supported": 4,
+      "unknown": 1,
+      "withheld": 2,
+      "broken_pipe": 1,
+      "not_wired": 1,
+      "claims": {
+        "n": 3,
+        "evidence_backed": 3,
+        "attested": 3
+      },
+      "aliases": {
+        "supported": 4,
+        "unsupported": 1,
+        "unknown": 1,
+        "withheld": 2,
+        "broken_pipe": 1,
+        "not_wired": 1,
+        "stale": 0,
+        "incomparable": 1,
+        "relationship_gap": 7
+      },
+      "slots_by_class": {
+        "KNOWN_CURRENT": 4,
+        "KNOWN_STALE": 0,
+        "KNOWN_MISSING": 1,
+        "KNOWN_INCOMPARABLE": 1,
+        "BROKEN_PIPE": 1,
+        "NOT_WIRED": 1,
+        "NOT_SUPPORTED": 1,
+        "WITHHELD": 2,
+        "RELATIONSHIP_GAP": 7,
+        "UNKNOWN": 0
+      },
+      "note": "aliases map existing gap-map classes for machines. They are not a new taxonomy. Gap map is not embedded in Field State."
+    },
+    "relationships": {
+      "in_degree": 2,
+      "out_degree": 7,
+      "by_vector": {
+        "Capital": {
+          "out": 0.0,
+          "in": 0.5
+        },
+        "Infrastructure": {
+          "out": 0.5,
+          "in": 0.0
+        },
+        "Information": {
+          "out": 3.0,
+          "in": 0.5
+        }
+      },
+      "top_inbound": [
+        {
+          "source": "FIAT_ONRAMP",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "source": "FED_RRP",
+          "conn_type": "capital",
+          "vector": "Capital"
+        }
+      ],
+      "top_outbound": [
+        {
+          "target": "DEFI_TVL_POOL",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "target": "TOKENIZED_TREASURY",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "target": "FIAT_OFFRAMP",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "target": "DEX_SETTLEMENT",
+          "conn_type": "infrastructure",
+          "vector": "Infrastructure"
+        },
+        {
+          "target": "CIRCLE",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        }
+      ],
+      "gravity_pairs": [
+        {
+          "entity": "OCC",
+          "mass": 103.0,
+          "hops": 1,
+          "pull": 1.03
+        },
+        {
+          "entity": "SEC",
+          "mass": 117.0,
+          "hops": 2,
+          "pull": 0.2925
+        },
+        {
+          "entity": "FED",
+          "mass": 114.0,
+          "hops": 2,
+          "pull": 0.285
+        },
+        {
+          "entity": "JPMORGAN",
+          "mass": 97.0,
+          "hops": 2,
+          "pull": 0.2425
+        },
+        {
+          "entity": "CITIGROUP",
+          "mass": 92.0,
+          "hops": 2,
+          "pull": 0.23
+        }
+      ]
+    },
+    "relationship_state": [
+      {
+        "target": "FIAT_ONRAMP",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "inbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "FED_RRP",
+        "type": "capital",
+        "vector": "Capital",
+        "direction": "inbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "DEFI_TVL_POOL",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "outbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "TOKENIZED_TREASURY",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "outbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "FIAT_OFFRAMP",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "outbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "DEX_SETTLEMENT",
+        "type": "infrastructure",
+        "vector": "Infrastructure",
+        "direction": "outbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "CIRCLE",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "outbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      }
+    ],
+    "knowledge_gaps": {
+      "href": "/api/dossier?entity=STABLECOIN_POOL&view=gaps",
+      "summary": {
+        "n": 18,
+        "by_class": {
+          "KNOWN_CURRENT": 4,
+          "KNOWN_STALE": 0,
+          "KNOWN_MISSING": 1,
+          "KNOWN_INCOMPARABLE": 1,
+          "BROKEN_PIPE": 1,
+          "NOT_WIRED": 1,
+          "NOT_SUPPORTED": 1,
+          "WITHHELD": 2,
+          "RELATIONSHIP_GAP": 7,
+          "UNKNOWN": 0
+        },
+        "by_dimension": {
+          "CLAIM": 1,
+          "CURRENT_MEASUREMENT": 5,
+          "TEMPORAL": 2,
+          "RELATIONSHIP": 7,
+          "CAPITAL": 2,
+          "INFRASTRUCTURE": 0,
+          "PROVENANCE": 1,
+          "IDENTITY": 0
+        }
+      },
+      "embedded_in_field_state": false
+    },
+    "consequence_tier": {
+      "status": "NOT_APPLICABLE",
+      "reason": "no_legal_typed_transition",
+      "feeds_qpo": false
+    },
+    "observation_clock": {
+      "entity": "STABLECOIN_POOL",
+      "first_prospective_observation": null,
+      "latest_prospective_observation": null,
+      "n_prospective_snapshots": 1,
+      "identity_comparable_transitions": 0,
+      "world_observed_count": 0,
+      "world_observed_status": "UNAVAILABLE",
+      "world_observed_reason": "world_observed_producer_not_emitted",
+      "status": "OBSERVING",
+      "phase8_role_on_store": "PROSPECTIVE_SNAPSHOT",
+      "never_labeled_t0": true,
+      "note": "GeniusFlow cannot reconstruct a prospective observation after the fact. The clock begins when an observation is made. A stored prospective snapshot is not a labeled experiment origin."
+    },
+    "change_frontier": {
+      "entity": "STABLECOIN_POOL",
+      "schema": "geniusflow.public_change_frontier.v0",
+      "comparable_prior_state": "NONE",
+      "world_observed": "UNAVAILABLE",
+      "neighborhood_change": "UNAVAILABLE",
+      "status": "UNAVAILABLE",
+      "refuse_code": "no_prior_comparable_snapshot",
+      "transition_kind": "INCOMPARABLE",
+      "why": "GeniusFlow does not manufacture historical observations to create a before/after comparison. Waiting for a comparable prospective observation.",
+      "t0_labeled": false
+    },
+    "provenance": {
+      "identity_contract": "geniusflow.observer_identity.v1",
+      "generators": [
+        {
+          "id": "engine.dispatch.content_adapter._phi_s_label",
+          "status": "DERIVED",
+          "field": "phi_s_label"
+        }
+      ],
+      "readability": {
+        "href": null,
+        "status": "LINK",
+        "projection": {
+          "schema": "geniusflow.readability_projection.v0",
+          "embedded_in_field_state": false,
+          "editorial": false,
+          "phi_s_label": {
+            "generator": "engine.dispatch.content_adapter._phi_s_label",
+            "status": "DERIVED",
+            "value": "near equilibrium"
+          },
+          "kappa_living_zone": {
+            "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
+            "status": "PRIOR",
+            "value": null,
+            "note": "governance band reference; not an entity measurement"
+          }
+        }
+      },
+      "information_economics": {
+        "embedded_in_field_state": false,
+        "status": "LINK"
+      },
+      "receipts_available": false,
+      "never_labeled_t0": true
+    },
+    "measurements": {
+      "usdc_circulating": {
+        "status": "UNKNOWN",
+        "value": null,
+        "reason": "pipe_fixed_not_yet_persisted",
+        "family": "usdc_circulating",
+        "source": "defillama_stablecoins",
+        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+      },
+      "usyc_circulating": {
+        "status": "NOT_WIRED",
+        "value": null,
+        "reason": "not_wired",
+        "note": "No circulating USYC envelope is wired on the public card."
+      }
+    }
   }
 }

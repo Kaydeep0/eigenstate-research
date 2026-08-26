@@ -1,8 +1,8 @@
 {
   "entity": "CIRCLE",
   "node": "34539544",
-  "compiled_at": "2026-08-25T13:11:48.092004+00:00",
-  "digest": "sha256:b3729b1fc9b59dd3e82ccb9de62de2b66f2e36c2f83dd581a1c8f36b18324646",
+  "compiled_at": "2026-08-26T04:05:36.412468+00:00",
+  "digest": "sha256:bb5fc94f46410dad4f78dbd214ffecda34996d80622aec24e2294ca5b36e9efa",
   "own_numbers": {
     "phi_s": 11.3915,
     "kappa": 0.0,
@@ -214,7 +214,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-25T11:00:49.739571+00:00",
+        "last_observed_at": "2026-08-26T03:01:11.742569+00:00",
         "filings": null,
         "note": "Circle Internet Group, Inc. \u2014 398 total filings, 40 in last 90d"
       }
@@ -243,8 +243,8 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-08-25T13:07:18.925436+00:00",
-      "last_delta_i": 5.421707893809577e+149,
+      "last_observed_at": "2026-08-26T03:59:05.023086+00:00",
+      "last_delta_i": 3.8624284450341673e+180,
       "stale": false
     }
   },
@@ -463,12 +463,18 @@
     "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
   },
   "field_state": {
-    "schema_version": "geniusflow.entity_state_snapshot.v0",
+    "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "CIRCLE",
     "observed_at": "2026-08-25T03:36:54.297515+00:00",
-    "compiled_at": "2026-08-25T13:11:48.092004+00:00",
+    "compiled_at": "2026-08-26T04:05:36.412468+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
+    "identity_contract": "geniusflow.observer_identity.v1",
+    "identity_contract_effective_from": "2026-08-25T15:00:00Z",
+    "observer_node_id": "34539544",
+    "producer_node_id": "34539544",
+    "observation_origin": "field_state.compose",
+    "observer_identity_status": "OBSERVED",
     "state": {
       "claims": [
         {
@@ -736,7 +742,7 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-08-25T13:11:48.092004+00:00",
+        "compiled_at": "2026-08-26T04:05:36.412468+00:00",
         "last_observation": "2026-08-25T03:36:54.297515+00:00",
         "drift_cycles": 77
       },
@@ -1044,6 +1050,32 @@
       "schema_id": "geniusflow.state_identity.v0",
       "note": "provenance metadata from existing status system; no new confidence equation"
     },
+    "projections": {
+      "readability": {
+        "schema": "geniusflow.readability_projection.v0",
+        "embedded_in_field_state": false,
+        "editorial": false,
+        "phi_s_label": {
+          "generator": "engine.dispatch.content_adapter._phi_s_label",
+          "status": "DERIVED",
+          "value": "critical pressure"
+        },
+        "kappa_living_zone": {
+          "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
+          "status": "PRIOR",
+          "value": null,
+          "note": "governance band reference; not an entity measurement"
+        }
+      },
+      "knowledge_gap_map": {
+        "schema": "geniusflow.knowledge_gap_map.v0",
+        "embedded_in_field_state": false
+      },
+      "information_economics": {
+        "embedded_in_field_state": false,
+        "note": "references only; not a blob"
+      }
+    },
     "identity_by_path": {
       "own_numbers.phi_s": {
         "schema_id": "geniusflow.state_identity.v0",
@@ -1059,8 +1091,8 @@
           "world_causal_lead"
         ],
         "generator": {
-          "module": null,
-          "function": null,
+          "module": "engine.bridge.field_state",
+          "function": "compose_field_state_from_card",
           "algorithm_id": "phi_s.cf_pressure.v1",
           "algorithm_version": "frozen_v1"
         },
@@ -1069,7 +1101,7 @@
         "comparable_under": [
           "phi_s.cf_pressure.v1"
         ],
-        "epistemic_status": "UNKNOWN"
+        "epistemic_status": "DERIVED"
       },
       "own_numbers.kappa": {
         "schema_id": "geniusflow.state_identity.v0",
@@ -1084,8 +1116,8 @@
           "gamma_labeled_as_kappa"
         ],
         "generator": {
-          "module": null,
-          "function": null,
+          "module": "engine.bridge.field_state",
+          "function": "compose_field_state_from_card",
           "algorithm_id": "kappa.entity_physics.v1",
           "algorithm_version": "frozen_v1"
         },
@@ -1094,7 +1126,7 @@
         "comparable_under": [
           "kappa.entity_physics.v1"
         ],
-        "epistemic_status": "UNKNOWN"
+        "epistemic_status": "DERIVED"
       },
       "network_plugs.observation.last_delta_i": {
         "schema_id": "geniusflow.state_identity.v0",
@@ -1114,8 +1146,8 @@
           "E"
         ],
         "generator": {
-          "module": null,
-          "function": null,
+          "module": "engine.bridge.field_state",
+          "function": "compose_field_state_from_card",
           "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
           "algorithm_version": "frozen_v1"
         },
@@ -1127,6 +1159,643 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:7f9cf498570d644737636f568788616d0d18f655b0466c2e7b6dea0964c4ffab"
+    "snapshot_id": "sha256:d7c69351b918c868935606e831d37498aa195576c4038f8b3839f37c8279ed3a"
+  },
+  "epistemic_summary": {
+    "schema": "geniusflow.epistemic_summary.v0",
+    "projection": true,
+    "embedded_in_field_state": false,
+    "feeds_qpo": false,
+    "claims": {
+      "n": 3,
+      "evidence_backed": 3,
+      "attested": 3
+    },
+    "slots_by_class": {
+      "KNOWN_CURRENT": 4,
+      "KNOWN_STALE": 0,
+      "KNOWN_MISSING": 1,
+      "KNOWN_INCOMPARABLE": 1,
+      "BROKEN_PIPE": 1,
+      "NOT_WIRED": 1,
+      "NOT_SUPPORTED": 1,
+      "WITHHELD": 2,
+      "RELATIONSHIP_GAP": 10,
+      "UNKNOWN": 0
+    },
+    "aliases": {
+      "supported": 4,
+      "unsupported": 1,
+      "unknown": 1,
+      "withheld": 2,
+      "broken_pipe": 1,
+      "not_wired": 1,
+      "stale": 0,
+      "incomparable": 1,
+      "relationship_gap": 10
+    },
+    "note": "aliases map existing gap-map classes for machines. They are not a new taxonomy. Gap map is not embedded in Field State."
+  },
+  "projection_version": "geniusflow.public_entity_projection.v1",
+  "source_schema": "geniusflow.entity_state_snapshot.v1",
+  "source_snapshot_id": "sha256:d7c69351b918c868935606e831d37498aa195576c4038f8b3839f37c8279ed3a",
+  "projection_compiled_at": "2026-08-26T04:05:36.419311+00:00",
+  "freshness": {
+    "source_observed_at": "2026-08-25T03:36:54.297515+00:00",
+    "projection_compiled_at": "2026-08-26T04:05:36.419311+00:00",
+    "age_seconds": 88122,
+    "status": "CURRENT"
+  },
+  "public_entity_projection": {
+    "projection_version": "geniusflow.public_entity_projection.v1",
+    "source_schema": "geniusflow.entity_state_snapshot.v1",
+    "source_snapshot_id": "sha256:d7c69351b918c868935606e831d37498aa195576c4038f8b3839f37c8279ed3a",
+    "compiled_at": "2026-08-26T04:05:36.419311+00:00",
+    "freshness": {
+      "source_observed_at": "2026-08-25T03:36:54.297515+00:00",
+      "projection_compiled_at": "2026-08-26T04:05:36.419311+00:00",
+      "age_seconds": 88122,
+      "status": "CURRENT"
+    },
+    "projection": true,
+    "entity": "CIRCLE",
+    "node": "34539544",
+    "claims": [
+      {
+        "claim_id": "a22ec8fa-6d0d-4474-a7f7-c503c6798017",
+        "claim_text": "Circle issues USDC, regulated dollar stablecoin",
+        "grounding": {
+          "source_url": "https://www.circle.com/usdc",
+          "expected": "USDC",
+          "location": "",
+          "observation_id": "obs_17c0fc59de0340fd",
+          "observed_at": "2026-08-24T18:15:01.489854+00:00"
+        },
+        "status_at_publish": "ATTESTED-PRIMARY",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "CIRCLE_20260812",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/circle-20260812/",
+        "verified_at": "2026-08-12T15:48:08.600396+00:00",
+        "expires_at": "2026-11-10T15:48:08+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true,
+        "observation_id": "obs_17c0fc59de0340fd",
+        "observed_at": "2026-08-24T18:15:01.489854+00:00",
+        "grounding_id": "0ddfc977dcf986c8d76ca550b04155fc68ab96634bdc8824b85cbbd5c1c86044",
+        "published_at": "2026-08-24T18:15:01.492400+00:00",
+        "temporal_binding": {
+          "claim_id": "a22ec8fa-6d0d-4474-a7f7-c503c6798017",
+          "grounding_id": "0ddfc977dcf986c8d76ca550b04155fc68ab96634bdc8824b85cbbd5c1c86044",
+          "observation_id": "obs_17c0fc59de0340fd",
+          "observed_at": "2026-08-24T18:15:01.489854+00:00",
+          "published_at": "2026-08-24T18:15:01.492400+00:00",
+          "report_id": "V1_OPERATIONAL_CLOSURE_20260824"
+        }
+      },
+      {
+        "claim_id": "e661c819-129f-485c-8de4-5eb759970523",
+        "claim_text": "Circle publishes monthly USDC reserve attestations",
+        "grounding": {
+          "source_url": "https://www.circle.com/en/transparency",
+          "expected": "attestation",
+          "location": "",
+          "observation_id": "obs_e0de8c7f20204c12",
+          "observed_at": "2026-08-24T18:21:08.088845+00:00"
+        },
+        "status_at_publish": "ATTESTED-PRIMARY",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "CIRCLE_20260812",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/circle-20260812/",
+        "verified_at": "2026-08-12T15:48:09.051457+00:00",
+        "expires_at": "2026-11-10T15:48:09+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true,
+        "observation_id": "obs_e0de8c7f20204c12",
+        "observed_at": "2026-08-24T18:21:08.088845+00:00",
+        "temporal_binding": {
+          "claim_id": "e661c819-129f-485c-8de4-5eb759970523",
+          "observation_id": "obs_e0de8c7f20204c12",
+          "observed_at": "2026-08-24T18:21:08.088845+00:00"
+        }
+      },
+      {
+        "claim_id": "057e1877-21d1-4572-a06c-6c8301fa5a6b",
+        "claim_text": "Cross-Chain Transfer Protocol (CCTP) for native USDC",
+        "grounding": {
+          "source_url": "https://www.circle.com/en/cross-chain-transfer-protocol",
+          "expected": "CCTP",
+          "location": "",
+          "observation_id": "obs_f55e5acb418646d8",
+          "observed_at": "2026-08-24T18:21:08.348662+00:00"
+        },
+        "status_at_publish": "ATTESTED-PRIMARY",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "CIRCLE_20260812",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/circle-20260812/",
+        "verified_at": "2026-08-12T15:48:09.368014+00:00",
+        "expires_at": "2026-11-10T15:48:09+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true,
+        "observation_id": "obs_f55e5acb418646d8",
+        "observed_at": "2026-08-24T18:21:08.348662+00:00",
+        "temporal_binding": {
+          "claim_id": "057e1877-21d1-4572-a06c-6c8301fa5a6b",
+          "observation_id": "obs_f55e5acb418646d8",
+          "observed_at": "2026-08-24T18:21:08.348662+00:00"
+        }
+      }
+    ],
+    "state": {
+      "observed_at": "2026-08-25T03:36:54.297515+00:00",
+      "snapshot_role": "PROSPECTIVE_SNAPSHOT",
+      "identity_contract": "geniusflow.observer_identity.v1",
+      "t0_labeled": false
+    },
+    "field": {
+      "position": {
+        "status": "DERIVED",
+        "value": {
+          "power_components": {
+            "capital": 1,
+            "infrastructure": 2,
+            "information": 11,
+            "thread_product": 0.02037,
+            "balance": 0.733
+          },
+          "monetary_position": {
+            "position": 0.524,
+            "well": "fiat"
+          }
+        },
+        "reason": null,
+        "family": "structural_position",
+        "source": "own_numbers.power_components|monetary_position",
+        "note": null
+      },
+      "direction": {
+        "status": "UNKNOWN",
+        "value": null,
+        "reason": "direction_not_on_public_card",
+        "family": "field_direction",
+        "source": "EntityFieldState.field_direction",
+        "note": "giving/taking is composed only when EntityFieldState is already present"
+      },
+      "age": {
+        "status": "DERIVED",
+        "value": {
+          "compiled_at": "2026-08-26T04:05:36.412468+00:00",
+          "last_observation": "2026-08-25T03:36:54.297515+00:00",
+          "drift_cycles": 77
+        },
+        "reason": null,
+        "family": "observation_age",
+        "source": "compiled_at|last_observation|drift.cycles",
+        "note": null
+      },
+      "change": {
+        "status": "INCOMPARABLE",
+        "value": null,
+        "reason": "no_prior_comparable_snapshot",
+        "family": "typed_transition",
+        "source": "none",
+        "note": "empty change is honest before Phase 4 history",
+        "transition_kind": "INCOMPARABLE"
+      },
+      "neighborhood": {
+        "status": "DERIVED",
+        "n": 10,
+        "family": "typed_topology_hops"
+      }
+    },
+    "epistemic_summary": {
+      "schema": "geniusflow.epistemic_summary.v0",
+      "projection": true,
+      "embedded_in_field_state": false,
+      "feeds_qpo": false,
+      "supported": 4,
+      "unknown": 1,
+      "withheld": 2,
+      "broken_pipe": 1,
+      "not_wired": 1,
+      "claims": {
+        "n": 3,
+        "evidence_backed": 3,
+        "attested": 3
+      },
+      "aliases": {
+        "supported": 4,
+        "unsupported": 1,
+        "unknown": 1,
+        "withheld": 2,
+        "broken_pipe": 1,
+        "not_wired": 1,
+        "stale": 0,
+        "incomparable": 1,
+        "relationship_gap": 10
+      },
+      "slots_by_class": {
+        "KNOWN_CURRENT": 4,
+        "KNOWN_STALE": 0,
+        "KNOWN_MISSING": 1,
+        "KNOWN_INCOMPARABLE": 1,
+        "BROKEN_PIPE": 1,
+        "NOT_WIRED": 1,
+        "NOT_SUPPORTED": 1,
+        "WITHHELD": 2,
+        "RELATIONSHIP_GAP": 10,
+        "UNKNOWN": 0
+      },
+      "note": "aliases map existing gap-map classes for machines. They are not a new taxonomy. Gap map is not embedded in Field State."
+    },
+    "relationships": {
+      "in_degree": 7,
+      "out_degree": 7,
+      "by_vector": {
+        "Capital": {
+          "out": 0.5,
+          "in": 0.0
+        },
+        "Infrastructure": {
+          "out": 1.0,
+          "in": 0.0
+        },
+        "Information": {
+          "out": 2.0,
+          "in": 3.0165
+        }
+      },
+      "top_inbound": [
+        {
+          "source": "BLACKROCK",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "source": "JEREMY_ALLAIRE",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "source": "STABLECOIN_POOL",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "source": "CUMBERLAND",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "source": "RWA_SOLVES_YIELD",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        }
+      ],
+      "top_outbound": [
+        {
+          "target": "US_JURISDICTION",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "target": "CIRCLE_RESERVE_FUND",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "target": "BNY_MELLON",
+          "conn_type": "custody",
+          "vector": "Infrastructure"
+        },
+        {
+          "target": "JPMORGAN",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "target": "TREASURY_MARKET",
+          "conn_type": "custody",
+          "vector": "Infrastructure"
+        }
+      ],
+      "gravity_pairs": [
+        {
+          "entity": "JPMORGAN",
+          "mass": 97.0,
+          "hops": 1,
+          "pull": 3.88
+        },
+        {
+          "entity": "CITIGROUP",
+          "mass": 92.0,
+          "hops": 1,
+          "pull": 3.68
+        },
+        {
+          "entity": "BLACKROCK",
+          "mass": 84.0,
+          "hops": 1,
+          "pull": 3.36
+        },
+        {
+          "entity": "US_JURISDICTION",
+          "mass": 53.03,
+          "hops": 1,
+          "pull": 2.1212
+        },
+        {
+          "entity": "SEC",
+          "mass": 117.0,
+          "hops": 2,
+          "pull": 1.17
+        }
+      ]
+    },
+    "relationship_state": [
+      {
+        "target": "BLACKROCK",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "inbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "JEREMY_ALLAIRE",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "inbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "STUB",
+        "stub_class": "NARRATIVE_NODE",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "STABLECOIN_POOL",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "inbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "CUMBERLAND",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "inbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "STUB",
+        "stub_class": "UNPUBLISHED_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "RWA_SOLVES_YIELD",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "inbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "STUB",
+        "stub_class": "NARRATIVE_NODE",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "US_JURISDICTION",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "outbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "CIRCLE_RESERVE_FUND",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "outbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "BNY_MELLON",
+        "type": "custody",
+        "vector": "Infrastructure",
+        "direction": "outbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "JPMORGAN",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "outbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "type": "custody",
+        "vector": "Infrastructure",
+        "direction": "outbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "STUB",
+        "stub_class": "MARKET_NOT_FIRM",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      }
+    ],
+    "knowledge_gaps": {
+      "href": "/api/dossier?entity=CIRCLE&view=gaps",
+      "summary": {
+        "n": 21,
+        "by_class": {
+          "KNOWN_CURRENT": 4,
+          "KNOWN_STALE": 0,
+          "KNOWN_MISSING": 1,
+          "KNOWN_INCOMPARABLE": 1,
+          "BROKEN_PIPE": 1,
+          "NOT_WIRED": 1,
+          "NOT_SUPPORTED": 1,
+          "WITHHELD": 2,
+          "RELATIONSHIP_GAP": 10,
+          "UNKNOWN": 0
+        },
+        "by_dimension": {
+          "CLAIM": 1,
+          "CURRENT_MEASUREMENT": 5,
+          "TEMPORAL": 2,
+          "RELATIONSHIP": 10,
+          "CAPITAL": 2,
+          "INFRASTRUCTURE": 0,
+          "PROVENANCE": 1,
+          "IDENTITY": 0
+        }
+      },
+      "embedded_in_field_state": false
+    },
+    "consequence_tier": {
+      "status": "NOT_APPLICABLE",
+      "reason": "no_legal_typed_transition",
+      "feeds_qpo": false
+    },
+    "observation_clock": {
+      "entity": "CIRCLE",
+      "first_prospective_observation": "2026-08-25T03:36:54.297515+00:00",
+      "latest_prospective_observation": "2026-08-25T03:36:54.297515+00:00",
+      "n_prospective_snapshots": 2,
+      "identity_comparable_transitions": 0,
+      "world_observed_count": 0,
+      "world_observed_status": "UNAVAILABLE",
+      "world_observed_reason": "world_observed_producer_not_emitted",
+      "status": "OBSERVING",
+      "phase8_role_on_store": "PROSPECTIVE_SNAPSHOT",
+      "never_labeled_t0": true,
+      "note": "GeniusFlow cannot reconstruct a prospective observation after the fact. The clock begins when an observation is made. A stored prospective snapshot is not a labeled experiment origin."
+    },
+    "change_frontier": {
+      "entity": "CIRCLE",
+      "schema": "geniusflow.public_change_frontier.v0",
+      "comparable_prior_state": "NONE",
+      "world_observed": "UNAVAILABLE",
+      "neighborhood_change": "UNAVAILABLE",
+      "status": "UNAVAILABLE",
+      "refuse_code": "no_prior_comparable_snapshot",
+      "transition_kind": "INCOMPARABLE",
+      "why": "GeniusFlow does not manufacture historical observations to create a before/after comparison. Waiting for a comparable prospective observation.",
+      "t0_labeled": false
+    },
+    "provenance": {
+      "identity_contract": "geniusflow.observer_identity.v1",
+      "generators": [
+        {
+          "id": "engine.dispatch.content_adapter._phi_s_label",
+          "status": "DERIVED",
+          "field": "phi_s_label"
+        }
+      ],
+      "readability": {
+        "href": null,
+        "status": "LINK",
+        "projection": {
+          "schema": "geniusflow.readability_projection.v0",
+          "embedded_in_field_state": false,
+          "editorial": false,
+          "phi_s_label": {
+            "generator": "engine.dispatch.content_adapter._phi_s_label",
+            "status": "DERIVED",
+            "value": "critical pressure"
+          },
+          "kappa_living_zone": {
+            "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
+            "status": "PRIOR",
+            "value": null,
+            "note": "governance band reference; not an entity measurement"
+          }
+        }
+      },
+      "information_economics": {
+        "embedded_in_field_state": false,
+        "status": "LINK"
+      },
+      "receipts_available": false,
+      "never_labeled_t0": true
+    },
+    "measurements": {
+      "usdc_circulating": {
+        "status": "UNKNOWN",
+        "value": null,
+        "reason": "pipe_fixed_not_yet_persisted",
+        "family": "usdc_circulating",
+        "source": "defillama_stablecoins",
+        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+      },
+      "usyc_circulating": {
+        "status": "NOT_WIRED",
+        "value": null,
+        "reason": "not_wired",
+        "note": "No circulating USYC envelope is wired on the public card."
+      }
+    }
   }
 }

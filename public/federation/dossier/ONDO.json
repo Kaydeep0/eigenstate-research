@@ -1,7 +1,7 @@
 {
   "entity": "ONDO",
   "node": "34539544",
-  "compiled_at": "2026-08-25T13:11:50.409006+00:00",
+  "compiled_at": "2026-08-26T04:05:37.302279+00:00",
   "digest": "sha256:1b2b2c591e9163d26d8f33a98261f3d5c8c7679571809a967a5a09c16448933c",
   "own_numbers": {
     "phi_s": 4.8787,
@@ -190,7 +190,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-25T11:00:49.739571+00:00",
+        "last_observed_at": "2026-08-26T03:01:11.742569+00:00",
         "filings": null,
         "note": "Ondo I LP \u2014 4 total filings, 0 in last 90d"
       }
@@ -421,12 +421,18 @@
     "reason": "Measurement join SoT: child heat dual-stamps parent observation trail with delta_i=0. Not claim ATTESTED. Not deployed_on spider."
   },
   "field_state": {
-    "schema_version": "geniusflow.entity_state_snapshot.v0",
+    "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "ONDO",
     "observed_at": "2026-08-25T03:36:54.268331+00:00",
-    "compiled_at": "2026-08-25T13:11:50.409006+00:00",
+    "compiled_at": "2026-08-26T04:05:37.302279+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
+    "identity_contract": "geniusflow.observer_identity.v1",
+    "identity_contract_effective_from": "2026-08-25T15:00:00Z",
+    "observer_node_id": "34539544",
+    "producer_node_id": "34539544",
+    "observation_origin": "field_state.compose",
+    "observer_identity_status": "OBSERVED",
     "state": {
       "claims": [
         {
@@ -683,7 +689,7 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-08-25T13:11:50.409006+00:00",
+        "compiled_at": "2026-08-26T04:05:37.302279+00:00",
         "last_observation": "2026-08-25T03:36:54.268331+00:00",
         "drift_cycles": 77
       },
@@ -980,6 +986,32 @@
       "schema_id": "geniusflow.state_identity.v0",
       "note": "provenance metadata from existing status system; no new confidence equation"
     },
+    "projections": {
+      "readability": {
+        "schema": "geniusflow.readability_projection.v0",
+        "embedded_in_field_state": false,
+        "editorial": false,
+        "phi_s_label": {
+          "generator": "engine.dispatch.content_adapter._phi_s_label",
+          "status": "DERIVED",
+          "value": "high pressure"
+        },
+        "kappa_living_zone": {
+          "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
+          "status": "PRIOR",
+          "value": null,
+          "note": "governance band reference; not an entity measurement"
+        }
+      },
+      "knowledge_gap_map": {
+        "schema": "geniusflow.knowledge_gap_map.v0",
+        "embedded_in_field_state": false
+      },
+      "information_economics": {
+        "embedded_in_field_state": false,
+        "note": "references only; not a blob"
+      }
+    },
     "identity_by_path": {
       "own_numbers.phi_s": {
         "schema_id": "geniusflow.state_identity.v0",
@@ -995,8 +1027,8 @@
           "world_causal_lead"
         ],
         "generator": {
-          "module": null,
-          "function": null,
+          "module": "engine.bridge.field_state",
+          "function": "compose_field_state_from_card",
           "algorithm_id": "phi_s.cf_pressure.v1",
           "algorithm_version": "frozen_v1"
         },
@@ -1005,7 +1037,7 @@
         "comparable_under": [
           "phi_s.cf_pressure.v1"
         ],
-        "epistemic_status": "UNKNOWN"
+        "epistemic_status": "DERIVED"
       },
       "own_numbers.kappa": {
         "schema_id": "geniusflow.state_identity.v0",
@@ -1020,8 +1052,8 @@
           "gamma_labeled_as_kappa"
         ],
         "generator": {
-          "module": null,
-          "function": null,
+          "module": "engine.bridge.field_state",
+          "function": "compose_field_state_from_card",
           "algorithm_id": "kappa.entity_physics.v1",
           "algorithm_version": "frozen_v1"
         },
@@ -1030,7 +1062,7 @@
         "comparable_under": [
           "kappa.entity_physics.v1"
         ],
-        "epistemic_status": "UNKNOWN"
+        "epistemic_status": "DERIVED"
       },
       "network_plugs.observation.last_delta_i": {
         "schema_id": "geniusflow.state_identity.v0",
@@ -1050,8 +1082,8 @@
           "E"
         ],
         "generator": {
-          "module": null,
-          "function": null,
+          "module": "engine.bridge.field_state",
+          "function": "compose_field_state_from_card",
           "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
           "algorithm_version": "frozen_v1"
         },
@@ -1063,6 +1095,601 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:63e159523afb3b2168adb773c68f508989c73812f53b428fc5091b517625d5c7"
+    "snapshot_id": "sha256:247716515103c113cabeb91a4de14896e15a1d7254ad398b7a2d7522c668ef0a"
+  },
+  "epistemic_summary": {
+    "schema": "geniusflow.epistemic_summary.v0",
+    "projection": true,
+    "embedded_in_field_state": false,
+    "feeds_qpo": false,
+    "claims": {
+      "n": 4,
+      "evidence_backed": 4,
+      "attested": 3
+    },
+    "slots_by_class": {
+      "KNOWN_CURRENT": 4,
+      "KNOWN_STALE": 0,
+      "KNOWN_MISSING": 1,
+      "KNOWN_INCOMPARABLE": 1,
+      "BROKEN_PIPE": 1,
+      "NOT_WIRED": 1,
+      "NOT_SUPPORTED": 1,
+      "WITHHELD": 2,
+      "RELATIONSHIP_GAP": 10,
+      "UNKNOWN": 0
+    },
+    "aliases": {
+      "supported": 4,
+      "unsupported": 1,
+      "unknown": 1,
+      "withheld": 2,
+      "broken_pipe": 1,
+      "not_wired": 1,
+      "stale": 0,
+      "incomparable": 1,
+      "relationship_gap": 10
+    },
+    "note": "aliases map existing gap-map classes for machines. They are not a new taxonomy. Gap map is not embedded in Field State."
+  },
+  "projection_version": "geniusflow.public_entity_projection.v1",
+  "source_schema": "geniusflow.entity_state_snapshot.v1",
+  "source_snapshot_id": "sha256:247716515103c113cabeb91a4de14896e15a1d7254ad398b7a2d7522c668ef0a",
+  "projection_compiled_at": "2026-08-26T04:05:37.309035+00:00",
+  "freshness": {
+    "source_observed_at": "2026-08-25T03:36:54.268331+00:00",
+    "projection_compiled_at": "2026-08-26T04:05:37.309035+00:00",
+    "age_seconds": 88123,
+    "status": "CURRENT"
+  },
+  "public_entity_projection": {
+    "projection_version": "geniusflow.public_entity_projection.v1",
+    "source_schema": "geniusflow.entity_state_snapshot.v1",
+    "source_snapshot_id": "sha256:247716515103c113cabeb91a4de14896e15a1d7254ad398b7a2d7522c668ef0a",
+    "compiled_at": "2026-08-26T04:05:37.309035+00:00",
+    "freshness": {
+      "source_observed_at": "2026-08-25T03:36:54.268331+00:00",
+      "projection_compiled_at": "2026-08-26T04:05:37.309035+00:00",
+      "age_seconds": 88123,
+      "status": "CURRENT"
+    },
+    "projection": true,
+    "entity": "ONDO",
+    "node": "34539544",
+    "claims": [
+      {
+        "claim_id": "251db33a-402e-44c6-af82-ffb066bceda9",
+        "claim_text": "Ondo Finance \u2014 tokenized Treasuries and yield products",
+        "grounding": {
+          "source_url": "https://ondo.finance/",
+          "expected": "Ondo Finance",
+          "location": ""
+        },
+        "status_at_publish": "ATTESTED-PRIMARY",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "ONDO_20260815",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ondo-20260815/",
+        "verified_at": "2026-08-15T07:54:50.864030+00:00",
+        "expires_at": "2026-11-13T07:54:50+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true
+      },
+      {
+        "claim_id": "0c85af21-8184-4938-b298-a90525dec579",
+        "claim_text": "DeFiLlama tracks Ondo Finance protocol activity",
+        "grounding": {
+          "source_url": "https://defillama.com/protocol/ondo-finance",
+          "expected": "Ondo",
+          "location": ""
+        },
+        "status_at_publish": "ATTESTED-DERIVED",
+        "source_type": "derived",
+        "source_type_at_verification": "derived",
+        "source_role_reclassified": false,
+        "witness_class": "onchain_secondary",
+        "witness_weight": 0.62,
+        "report_id": "ONDO_20260815",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ondo-20260815/",
+        "verified_at": "2026-08-15T07:54:51.610976+00:00",
+        "expires_at": "2026-11-13T07:54:51+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true
+      },
+      {
+        "claim_id": "c204ec9f-2754-4bbd-9ec4-c5af39fe137a",
+        "claim_text": "OUSG \u2014 tokenized Treasuries on RWA.xyz",
+        "grounding": {
+          "source_url": "https://rwa.xyz/assets/ousg",
+          "expected": "OUSG",
+          "location": ""
+        },
+        "status_at_publish": "ATTESTED-DERIVED",
+        "source_type": "derived",
+        "source_type_at_verification": "derived",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "ONDO_20260815",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ondo-20260815/",
+        "verified_at": "2026-08-15T07:54:52.095207+00:00",
+        "expires_at": "2026-11-13T07:54:52+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true
+      },
+      {
+        "claim_id": "790b6933-1cc2-468d-b173-1f56e6a8cd3a",
+        "claim_text": "USDY \u2014 US Dollar Yield product documentation",
+        "grounding": {
+          "source_url": "https://docs.ondo.finance/general-access-products/usdy",
+          "expected": "USDY",
+          "location": ""
+        },
+        "status_at_publish": "HALLUCINATED",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "ONDO_20260815",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/ondo-20260815/",
+        "verified_at": "2026-08-15T07:54:51.357122+00:00",
+        "expires_at": "2026-11-13T07:54:51+00:00",
+        "volatility_class": "default",
+        "allows_canonical": false
+      }
+    ],
+    "state": {
+      "observed_at": "2026-08-25T03:36:54.268331+00:00",
+      "snapshot_role": "PROSPECTIVE_SNAPSHOT",
+      "identity_contract": "geniusflow.observer_identity.v1",
+      "t0_labeled": false
+    },
+    "field": {
+      "position": {
+        "status": "DERIVED",
+        "value": {
+          "power_components": {
+            "capital": 1.0,
+            "infrastructure": 0.0,
+            "information": 13.0,
+            "thread_product": 0.0,
+            "balance": 0.617
+          },
+          "monetary_position": {
+            "position": 0.484,
+            "well": "fiat"
+          }
+        },
+        "reason": null,
+        "family": "structural_position",
+        "source": "own_numbers.power_components|monetary_position",
+        "note": null
+      },
+      "direction": {
+        "status": "UNKNOWN",
+        "value": null,
+        "reason": "direction_not_on_public_card",
+        "family": "field_direction",
+        "source": "EntityFieldState.field_direction",
+        "note": "giving/taking is composed only when EntityFieldState is already present"
+      },
+      "age": {
+        "status": "DERIVED",
+        "value": {
+          "compiled_at": "2026-08-26T04:05:37.302279+00:00",
+          "last_observation": "2026-08-25T03:36:54.268331+00:00",
+          "drift_cycles": 77
+        },
+        "reason": null,
+        "family": "observation_age",
+        "source": "compiled_at|last_observation|drift.cycles",
+        "note": null
+      },
+      "change": {
+        "status": "INCOMPARABLE",
+        "value": null,
+        "reason": "no_prior_comparable_snapshot",
+        "family": "typed_transition",
+        "source": "none",
+        "note": "empty change is honest before Phase 4 history",
+        "transition_kind": "INCOMPARABLE"
+      },
+      "neighborhood": {
+        "status": "DERIVED",
+        "n": 10,
+        "family": "typed_topology_hops"
+      }
+    },
+    "epistemic_summary": {
+      "schema": "geniusflow.epistemic_summary.v0",
+      "projection": true,
+      "embedded_in_field_state": false,
+      "feeds_qpo": false,
+      "supported": 4,
+      "unknown": 1,
+      "withheld": 2,
+      "broken_pipe": 1,
+      "not_wired": 1,
+      "claims": {
+        "n": 4,
+        "evidence_backed": 4,
+        "attested": 3
+      },
+      "aliases": {
+        "supported": 4,
+        "unsupported": 1,
+        "unknown": 1,
+        "withheld": 2,
+        "broken_pipe": 1,
+        "not_wired": 1,
+        "stale": 0,
+        "incomparable": 1,
+        "relationship_gap": 10
+      },
+      "slots_by_class": {
+        "KNOWN_CURRENT": 4,
+        "KNOWN_STALE": 0,
+        "KNOWN_MISSING": 1,
+        "KNOWN_INCOMPARABLE": 1,
+        "BROKEN_PIPE": 1,
+        "NOT_WIRED": 1,
+        "NOT_SUPPORTED": 1,
+        "WITHHELD": 2,
+        "RELATIONSHIP_GAP": 10,
+        "UNKNOWN": 0
+      },
+      "note": "aliases map existing gap-map classes for machines. They are not a new taxonomy. Gap map is not embedded in Field State."
+    },
+    "relationships": {
+      "in_degree": 8,
+      "out_degree": 6,
+      "by_vector": {
+        "Capital": {
+          "out": 0.0,
+          "in": 0.5
+        },
+        "Infrastructure": {
+          "out": 0.0,
+          "in": 0.0
+        },
+        "Information": {
+          "out": 3.0,
+          "in": 3.01
+        }
+      },
+      "top_inbound": [
+        {
+          "source": "SECURITIZE",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "source": "COINBASE",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "source": "FIREBLOCKS",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "source": "BITGO",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "source": "NATHAN_ALLMAN",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        }
+      ],
+      "top_outbound": [
+        {
+          "target": "SEC",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "target": "BLACKROCK",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "target": "COINBASE",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "target": "TREASURY_MARKET",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "target": "OUSG",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        }
+      ],
+      "gravity_pairs": []
+    },
+    "relationship_state": [
+      {
+        "target": "SECURITIZE",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "inbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "COINBASE",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "inbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "FIREBLOCKS",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "inbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "BITGO",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "inbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "NATHAN_ALLMAN",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "inbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "SEC",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "outbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "BLACKROCK",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "outbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "COINBASE",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "outbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "TREASURY_MARKET",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "outbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "STUB",
+        "stub_class": "MARKET_NOT_FIRM",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "OUSG",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "outbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      }
+    ],
+    "knowledge_gaps": {
+      "href": "/api/dossier?entity=ONDO&view=gaps",
+      "summary": {
+        "n": 21,
+        "by_class": {
+          "KNOWN_CURRENT": 4,
+          "KNOWN_STALE": 0,
+          "KNOWN_MISSING": 1,
+          "KNOWN_INCOMPARABLE": 1,
+          "BROKEN_PIPE": 1,
+          "NOT_WIRED": 1,
+          "NOT_SUPPORTED": 1,
+          "WITHHELD": 2,
+          "RELATIONSHIP_GAP": 10,
+          "UNKNOWN": 0
+        },
+        "by_dimension": {
+          "CLAIM": 1,
+          "CURRENT_MEASUREMENT": 5,
+          "TEMPORAL": 2,
+          "RELATIONSHIP": 10,
+          "CAPITAL": 2,
+          "INFRASTRUCTURE": 0,
+          "PROVENANCE": 1,
+          "IDENTITY": 0
+        }
+      },
+      "embedded_in_field_state": false
+    },
+    "consequence_tier": {
+      "status": "NOT_APPLICABLE",
+      "reason": "no_legal_typed_transition",
+      "feeds_qpo": false
+    },
+    "observation_clock": {
+      "entity": "ONDO",
+      "first_prospective_observation": "2026-08-25T03:36:54.268331+00:00",
+      "latest_prospective_observation": "2026-08-25T03:36:54.268331+00:00",
+      "n_prospective_snapshots": 1,
+      "identity_comparable_transitions": 0,
+      "world_observed_count": 0,
+      "world_observed_status": "UNAVAILABLE",
+      "world_observed_reason": "world_observed_producer_not_emitted",
+      "status": "OBSERVING",
+      "phase8_role_on_store": "PROSPECTIVE_SNAPSHOT",
+      "never_labeled_t0": true,
+      "note": "GeniusFlow cannot reconstruct a prospective observation after the fact. The clock begins when an observation is made. A stored prospective snapshot is not a labeled experiment origin."
+    },
+    "change_frontier": {
+      "entity": "ONDO",
+      "schema": "geniusflow.public_change_frontier.v0",
+      "comparable_prior_state": "NONE",
+      "world_observed": "UNAVAILABLE",
+      "neighborhood_change": "UNAVAILABLE",
+      "status": "UNAVAILABLE",
+      "refuse_code": "no_prior_comparable_snapshot",
+      "transition_kind": "INCOMPARABLE",
+      "why": "GeniusFlow does not manufacture historical observations to create a before/after comparison. Waiting for a comparable prospective observation.",
+      "t0_labeled": false
+    },
+    "provenance": {
+      "identity_contract": "geniusflow.observer_identity.v1",
+      "generators": [
+        {
+          "id": "engine.dispatch.content_adapter._phi_s_label",
+          "status": "DERIVED",
+          "field": "phi_s_label"
+        }
+      ],
+      "readability": {
+        "href": null,
+        "status": "LINK",
+        "projection": {
+          "schema": "geniusflow.readability_projection.v0",
+          "embedded_in_field_state": false,
+          "editorial": false,
+          "phi_s_label": {
+            "generator": "engine.dispatch.content_adapter._phi_s_label",
+            "status": "DERIVED",
+            "value": "high pressure"
+          },
+          "kappa_living_zone": {
+            "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
+            "status": "PRIOR",
+            "value": null,
+            "note": "governance band reference; not an entity measurement"
+          }
+        }
+      },
+      "information_economics": {
+        "embedded_in_field_state": false,
+        "status": "LINK"
+      },
+      "receipts_available": false,
+      "never_labeled_t0": true
+    },
+    "measurements": {
+      "usdc_circulating": {
+        "status": "UNKNOWN",
+        "value": null,
+        "reason": "pipe_fixed_not_yet_persisted",
+        "family": "usdc_circulating",
+        "source": "defillama_stablecoins",
+        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+      },
+      "usyc_circulating": {
+        "status": "NOT_WIRED",
+        "value": null,
+        "reason": "not_wired",
+        "note": "No circulating USYC envelope is wired on the public card."
+      }
+    }
   }
 }

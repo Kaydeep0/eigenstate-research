@@ -1,8 +1,8 @@
 {
   "entity": "LARRY_FINK",
   "node": "34539544",
-  "compiled_at": "2026-08-25T13:11:37.467013+00:00",
-  "digest": "sha256:cb9396d8dae05d83701c2a936f4a480e2e14c3e16ec88a9c6e3bc7694e3494d2",
+  "compiled_at": "2026-08-26T04:05:32.343060+00:00",
+  "digest": "sha256:921e6e5df8932d604ee61b6c0266b70f3ce662f1ef437b78e226f6889a761963",
   "own_numbers": {
     "phi_s": 0.02,
     "kappa": 0.0492,
@@ -94,7 +94,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-25T11:00:49.739571+00:00",
+        "last_observed_at": "2026-08-26T03:01:11.742569+00:00",
         "filings": null,
         "note": "BlackRock Finance, Inc. \u2014 48826 total filings, 0 in last 90d"
       }
@@ -123,7 +123,7 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-08-25T13:07:18.925436+00:00",
+      "last_observed_at": "2026-08-26T03:59:05.023086+00:00",
       "last_delta_i": Infinity,
       "stale": false
     }
@@ -172,12 +172,18 @@
     "reason": "No measurement_links row names this entity as child or parent."
   },
   "field_state": {
-    "schema_version": "geniusflow.entity_state_snapshot.v0",
+    "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "LARRY_FINK",
     "observed_at": null,
-    "compiled_at": "2026-08-25T13:11:37.467013+00:00",
+    "compiled_at": "2026-08-26T04:05:32.343060+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
+    "identity_contract": "geniusflow.observer_identity.v1",
+    "identity_contract_effective_from": "2026-08-25T15:00:00Z",
+    "observer_node_id": "34539544",
+    "producer_node_id": "34539544",
+    "observation_origin": "field_state.compose",
+    "observer_identity_status": "OBSERVED",
     "state": {
       "claims": [],
       "measurements": {
@@ -294,7 +300,7 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-08-25T13:11:37.467013+00:00",
+        "compiled_at": "2026-08-26T04:05:32.343060+00:00",
         "last_observation": null,
         "drift_cycles": 77
       },
@@ -458,6 +464,32 @@
       "schema_id": "geniusflow.state_identity.v0",
       "note": "provenance metadata from existing status system; no new confidence equation"
     },
+    "projections": {
+      "readability": {
+        "schema": "geniusflow.readability_projection.v0",
+        "embedded_in_field_state": false,
+        "editorial": false,
+        "phi_s_label": {
+          "generator": "engine.dispatch.content_adapter._phi_s_label",
+          "status": "DERIVED",
+          "value": "near equilibrium"
+        },
+        "kappa_living_zone": {
+          "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
+          "status": "PRIOR",
+          "value": null,
+          "note": "governance band reference; not an entity measurement"
+        }
+      },
+      "knowledge_gap_map": {
+        "schema": "geniusflow.knowledge_gap_map.v0",
+        "embedded_in_field_state": false
+      },
+      "information_economics": {
+        "embedded_in_field_state": false,
+        "note": "references only; not a blob"
+      }
+    },
     "identity_by_path": {
       "own_numbers.phi_s": {
         "schema_id": "geniusflow.state_identity.v0",
@@ -473,8 +505,8 @@
           "world_causal_lead"
         ],
         "generator": {
-          "module": null,
-          "function": null,
+          "module": "engine.bridge.field_state",
+          "function": "compose_field_state_from_card",
           "algorithm_id": "phi_s.cf_pressure.v1",
           "algorithm_version": "frozen_v1"
         },
@@ -483,7 +515,7 @@
         "comparable_under": [
           "phi_s.cf_pressure.v1"
         ],
-        "epistemic_status": "UNKNOWN"
+        "epistemic_status": "DERIVED"
       },
       "own_numbers.kappa": {
         "schema_id": "geniusflow.state_identity.v0",
@@ -498,8 +530,8 @@
           "gamma_labeled_as_kappa"
         ],
         "generator": {
-          "module": null,
-          "function": null,
+          "module": "engine.bridge.field_state",
+          "function": "compose_field_state_from_card",
           "algorithm_id": "kappa.entity_physics.v1",
           "algorithm_version": "frozen_v1"
         },
@@ -508,7 +540,7 @@
         "comparable_under": [
           "kappa.entity_physics.v1"
         ],
-        "epistemic_status": "UNKNOWN"
+        "epistemic_status": "DERIVED"
       },
       "network_plugs.observation.last_delta_i": {
         "schema_id": "geniusflow.state_identity.v0",
@@ -528,8 +560,8 @@
           "E"
         ],
         "generator": {
-          "module": null,
-          "function": null,
+          "module": "engine.bridge.field_state",
+          "function": "compose_field_state_from_card",
           "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
           "algorithm_version": "frozen_v1"
         },
@@ -541,6 +573,383 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:3444ac62c28d5d7c27655750e0caa086ad3d2b877c7fe927f36b29942cc9ce75"
+    "snapshot_id": "sha256:b8a2251c7476122b71d998120e1986d3596858a69c8241a86a567b7e2caa227f"
+  },
+  "epistemic_summary": {
+    "schema": "geniusflow.epistemic_summary.v0",
+    "projection": true,
+    "embedded_in_field_state": false,
+    "feeds_qpo": false,
+    "claims": {
+      "n": 0,
+      "evidence_backed": 0,
+      "attested": 0
+    },
+    "slots_by_class": {
+      "KNOWN_CURRENT": 3,
+      "KNOWN_STALE": 0,
+      "KNOWN_MISSING": 2,
+      "KNOWN_INCOMPARABLE": 1,
+      "BROKEN_PIPE": 1,
+      "NOT_WIRED": 1,
+      "NOT_SUPPORTED": 1,
+      "WITHHELD": 2,
+      "RELATIONSHIP_GAP": 4,
+      "UNKNOWN": 0
+    },
+    "aliases": {
+      "supported": 3,
+      "unsupported": 1,
+      "unknown": 2,
+      "withheld": 2,
+      "broken_pipe": 1,
+      "not_wired": 1,
+      "stale": 0,
+      "incomparable": 1,
+      "relationship_gap": 4
+    },
+    "note": "aliases map existing gap-map classes for machines. They are not a new taxonomy. Gap map is not embedded in Field State."
+  },
+  "projection_version": "geniusflow.public_entity_projection.v1",
+  "source_schema": "geniusflow.entity_state_snapshot.v1",
+  "source_snapshot_id": "sha256:b8a2251c7476122b71d998120e1986d3596858a69c8241a86a567b7e2caa227f",
+  "projection_compiled_at": "2026-08-26T04:05:32.348714+00:00",
+  "freshness": {
+    "source_observed_at": null,
+    "projection_compiled_at": "2026-08-26T04:05:32.348714+00:00",
+    "age_seconds": null,
+    "status": "UNKNOWN"
+  },
+  "public_entity_projection": {
+    "projection_version": "geniusflow.public_entity_projection.v1",
+    "source_schema": "geniusflow.entity_state_snapshot.v1",
+    "source_snapshot_id": "sha256:b8a2251c7476122b71d998120e1986d3596858a69c8241a86a567b7e2caa227f",
+    "compiled_at": "2026-08-26T04:05:32.348714+00:00",
+    "freshness": {
+      "source_observed_at": null,
+      "projection_compiled_at": "2026-08-26T04:05:32.348714+00:00",
+      "age_seconds": null,
+      "status": "UNKNOWN"
+    },
+    "projection": true,
+    "entity": "LARRY_FINK",
+    "node": "34539544",
+    "claims": [],
+    "state": {
+      "observed_at": null,
+      "snapshot_role": "PROSPECTIVE_SNAPSHOT",
+      "identity_contract": "geniusflow.observer_identity.v1",
+      "t0_labeled": false
+    },
+    "field": {
+      "position": {
+        "status": "DERIVED",
+        "value": {
+          "monetary_position": {
+            "position": 0.535,
+            "well": "fiat"
+          }
+        },
+        "reason": null,
+        "family": "structural_position",
+        "source": "own_numbers.power_components|monetary_position",
+        "note": null
+      },
+      "direction": {
+        "status": "UNKNOWN",
+        "value": null,
+        "reason": "direction_not_on_public_card",
+        "family": "field_direction",
+        "source": "EntityFieldState.field_direction",
+        "note": "giving/taking is composed only when EntityFieldState is already present"
+      },
+      "age": {
+        "status": "DERIVED",
+        "value": {
+          "compiled_at": "2026-08-26T04:05:32.343060+00:00",
+          "last_observation": null,
+          "drift_cycles": 77
+        },
+        "reason": null,
+        "family": "observation_age",
+        "source": "compiled_at|last_observation|drift.cycles",
+        "note": null
+      },
+      "change": {
+        "status": "INCOMPARABLE",
+        "value": null,
+        "reason": "no_prior_comparable_snapshot",
+        "family": "typed_transition",
+        "source": "none",
+        "note": "empty change is honest before Phase 4 history",
+        "transition_kind": "INCOMPARABLE"
+      },
+      "neighborhood": {
+        "status": "DERIVED",
+        "n": 4,
+        "family": "typed_topology_hops"
+      }
+    },
+    "epistemic_summary": {
+      "schema": "geniusflow.epistemic_summary.v0",
+      "projection": true,
+      "embedded_in_field_state": false,
+      "feeds_qpo": false,
+      "supported": 3,
+      "unknown": 2,
+      "withheld": 2,
+      "broken_pipe": 1,
+      "not_wired": 1,
+      "claims": {
+        "n": 0,
+        "evidence_backed": 0,
+        "attested": 0
+      },
+      "aliases": {
+        "supported": 3,
+        "unsupported": 1,
+        "unknown": 2,
+        "withheld": 2,
+        "broken_pipe": 1,
+        "not_wired": 1,
+        "stale": 0,
+        "incomparable": 1,
+        "relationship_gap": 4
+      },
+      "slots_by_class": {
+        "KNOWN_CURRENT": 3,
+        "KNOWN_STALE": 0,
+        "KNOWN_MISSING": 2,
+        "KNOWN_INCOMPARABLE": 1,
+        "BROKEN_PIPE": 1,
+        "NOT_WIRED": 1,
+        "NOT_SUPPORTED": 1,
+        "WITHHELD": 2,
+        "RELATIONSHIP_GAP": 4,
+        "UNKNOWN": 0
+      },
+      "note": "aliases map existing gap-map classes for machines. They are not a new taxonomy. Gap map is not embedded in Field State."
+    },
+    "relationships": {
+      "in_degree": 2,
+      "out_degree": 2,
+      "by_vector": {
+        "Capital": {
+          "out": 0.0,
+          "in": 0.0
+        },
+        "Infrastructure": {
+          "out": 0.0,
+          "in": 0.0
+        },
+        "Information": {
+          "out": 1.0,
+          "in": 1.0
+        }
+      },
+      "top_inbound": [
+        {
+          "source": "JESSE_POLLAK",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "source": "CARLOS_DOMINGO",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        }
+      ],
+      "top_outbound": [
+        {
+          "target": "BLACKROCK",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        },
+        {
+          "target": "US_JURISDICTION",
+          "conn_type": "information_flow",
+          "vector": "Information"
+        }
+      ],
+      "gravity_pairs": []
+    },
+    "relationship_state": [
+      {
+        "target": "JESSE_POLLAK",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "inbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "CARLOS_DOMINGO",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "inbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "BLACKROCK",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "outbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      },
+      {
+        "target": "US_JURISDICTION",
+        "type": "information_flow",
+        "vector": "Information",
+        "direction": "outbound",
+        "origin": "AUTHORED_PRIOR",
+        "resolution": "REFUSED",
+        "stub_class": "UNKNOWN_ENTITY",
+        "support": "UNKNOWN",
+        "support_reason": "support_not_on_hop",
+        "last_tested": null,
+        "usefulness": {
+          "status": "UNKNOWN",
+          "reason": "usefulness_not_on_public_card"
+        }
+      }
+    ],
+    "knowledge_gaps": {
+      "href": "/api/dossier?entity=LARRY_FINK&view=gaps",
+      "summary": {
+        "n": 15,
+        "by_class": {
+          "KNOWN_CURRENT": 3,
+          "KNOWN_STALE": 0,
+          "KNOWN_MISSING": 2,
+          "KNOWN_INCOMPARABLE": 1,
+          "BROKEN_PIPE": 1,
+          "NOT_WIRED": 1,
+          "NOT_SUPPORTED": 1,
+          "WITHHELD": 2,
+          "RELATIONSHIP_GAP": 4,
+          "UNKNOWN": 0
+        },
+        "by_dimension": {
+          "CLAIM": 1,
+          "CURRENT_MEASUREMENT": 5,
+          "TEMPORAL": 2,
+          "RELATIONSHIP": 4,
+          "CAPITAL": 2,
+          "INFRASTRUCTURE": 0,
+          "PROVENANCE": 1,
+          "IDENTITY": 0
+        }
+      },
+      "embedded_in_field_state": false
+    },
+    "consequence_tier": {
+      "status": "NOT_APPLICABLE",
+      "reason": "no_legal_typed_transition",
+      "feeds_qpo": false
+    },
+    "observation_clock": {
+      "entity": "LARRY_FINK",
+      "first_prospective_observation": null,
+      "latest_prospective_observation": null,
+      "n_prospective_snapshots": 1,
+      "identity_comparable_transitions": 0,
+      "world_observed_count": 0,
+      "world_observed_status": "UNAVAILABLE",
+      "world_observed_reason": "world_observed_producer_not_emitted",
+      "status": "OBSERVING",
+      "phase8_role_on_store": "PROSPECTIVE_SNAPSHOT",
+      "never_labeled_t0": true,
+      "note": "GeniusFlow cannot reconstruct a prospective observation after the fact. The clock begins when an observation is made. A stored prospective snapshot is not a labeled experiment origin."
+    },
+    "change_frontier": {
+      "entity": "LARRY_FINK",
+      "schema": "geniusflow.public_change_frontier.v0",
+      "comparable_prior_state": "NONE",
+      "world_observed": "UNAVAILABLE",
+      "neighborhood_change": "UNAVAILABLE",
+      "status": "UNAVAILABLE",
+      "refuse_code": "no_prior_comparable_snapshot",
+      "transition_kind": "INCOMPARABLE",
+      "why": "GeniusFlow does not manufacture historical observations to create a before/after comparison. Waiting for a comparable prospective observation.",
+      "t0_labeled": false
+    },
+    "provenance": {
+      "identity_contract": "geniusflow.observer_identity.v1",
+      "generators": [
+        {
+          "id": "engine.dispatch.content_adapter._phi_s_label",
+          "status": "DERIVED",
+          "field": "phi_s_label"
+        }
+      ],
+      "readability": {
+        "href": null,
+        "status": "LINK",
+        "projection": {
+          "schema": "geniusflow.readability_projection.v0",
+          "embedded_in_field_state": false,
+          "editorial": false,
+          "phi_s_label": {
+            "generator": "engine.dispatch.content_adapter._phi_s_label",
+            "status": "DERIVED",
+            "value": "near equilibrium"
+          },
+          "kappa_living_zone": {
+            "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
+            "status": "PRIOR",
+            "value": null,
+            "note": "governance band reference; not an entity measurement"
+          }
+        }
+      },
+      "information_economics": {
+        "embedded_in_field_state": false,
+        "status": "LINK"
+      },
+      "receipts_available": false,
+      "never_labeled_t0": true
+    },
+    "measurements": {
+      "usdc_circulating": {
+        "status": "UNKNOWN",
+        "value": null,
+        "reason": "pipe_fixed_not_yet_persisted",
+        "family": "usdc_circulating",
+        "source": "defillama_stablecoins",
+        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+      },
+      "usyc_circulating": {
+        "status": "NOT_WIRED",
+        "value": null,
+        "reason": "not_wired",
+        "note": "No circulating USYC envelope is wired on the public card."
+      }
+    }
   }
 }
