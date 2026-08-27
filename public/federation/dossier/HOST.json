@@ -1,11 +1,11 @@
 {
   "entity": "HOST",
   "node": "34539544",
-  "compiled_at": "2026-08-26T13:03:19.464286+00:00",
-  "digest": "sha256:c1db366a6dbd3b51e56569e74337149152d00812f0316418133c10a852789e70",
+  "compiled_at": "2026-08-27T19:07:13.461168+00:00",
+  "digest": "sha256:54a12c8bc6d99ea8dc153b112103129e6cb6a817d1b0c9accbeeeb445dcf175b",
   "own_numbers": {
-    "phi_s": 1.6181,
-    "kappa": 0.33,
+    "phi_s": null,
+    "kappa": null,
     "mass": null,
     "power": null,
     "extraction": null,
@@ -25,27 +25,7 @@
     },
     "peers_by_power": []
   },
-  "relationships": {
-    "in_degree": 0,
-    "out_degree": 0,
-    "by_vector": {
-      "Capital": {
-        "out": 0.0,
-        "in": 0.0
-      },
-      "Infrastructure": {
-        "out": 0.0,
-        "in": 0.0
-      },
-      "Information": {
-        "out": 0.0,
-        "in": 0.0
-      }
-    },
-    "top_inbound": [],
-    "top_outbound": [],
-    "gravity_pairs": []
-  },
+  "relationships": null,
   "role_participations": [],
   "monetary_position": null,
   "drift": {
@@ -131,7 +111,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "HOST",
     "observed_at": null,
-    "compiled_at": "2026-08-26T13:03:19.464286+00:00",
+    "compiled_at": "2026-08-27T19:07:13.461168+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -209,7 +189,7 @@
       "not_families": [
         "structural_position"
       ],
-      "status": "DERIVED",
+      "status": "UNKNOWN",
       "source": "dossier.relationships",
       "observation_id": "none",
       "comparability": false,
@@ -218,7 +198,7 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-08-26T13:03:19.464286+00:00",
+        "compiled_at": "2026-08-27T19:07:13.461168+00:00",
         "last_observation": null,
         "drift_cycles": 27
       },
@@ -292,7 +272,7 @@
     "relationships": [],
     "metric_outputs": {
       "phi_s": {
-        "value": 1.6181,
+        "value": null,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -300,7 +280,7 @@
           "shannon_bits",
           "world_causal_lead"
         ],
-        "status": "DERIVED",
+        "status": "UNKNOWN",
         "source": "own_numbers.phi_s",
         "observation_id": "none",
         "comparability": false,
@@ -309,14 +289,14 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.33,
+        "value": null,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
           "host_kappa_blend",
           "gamma_labeled_as_kappa"
         ],
-        "status": "DERIVED",
+        "status": "UNKNOWN",
         "source": "own_numbers.kappa",
         "observation_id": "none",
         "comparability": false,
@@ -356,8 +336,8 @@
         "editorial": false,
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
-          "status": "DERIVED",
-          "value": "high pressure"
+          "status": "UNKNOWN",
+          "value": null
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -381,7 +361,7 @@
         "entity_id": "HOST",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 1.6181,
+        "magnitude": null,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -400,14 +380,14 @@
         "comparable_under": [
           "phi_s.cf_pressure.v1"
         ],
-        "epistemic_status": "DERIVED"
+        "epistemic_status": "UNKNOWN"
       },
       "own_numbers.kappa": {
         "schema_id": "geniusflow.state_identity.v0",
         "entity_id": "HOST",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.33,
+        "magnitude": null,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -425,7 +405,7 @@
         "comparable_under": [
           "kappa.entity_physics.v1"
         ],
-        "epistemic_status": "DERIVED"
+        "epistemic_status": "UNKNOWN"
       },
       "network_plugs.observation.last_delta_i": {
         "schema_id": "geniusflow.state_identity.v0",
@@ -458,7 +438,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:40286da375385abe6f4b6ea119d0a9640e6d5d968f675fc72d6f58c34dd28c42"
+    "snapshot_id": "sha256:e8592730feda2ff75f77dca5cba9a0b4cb53b106c91e3e85c2652eaa1e4e98cf"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -471,9 +451,9 @@
       "attested": 0
     },
     "slots_by_class": {
-      "KNOWN_CURRENT": 2,
+      "KNOWN_CURRENT": 1,
       "KNOWN_STALE": 0,
-      "KNOWN_MISSING": 3,
+      "KNOWN_MISSING": 4,
       "KNOWN_INCOMPARABLE": 1,
       "BROKEN_PIPE": 1,
       "NOT_WIRED": 1,
@@ -483,9 +463,9 @@
       "UNKNOWN": 0
     },
     "aliases": {
-      "supported": 2,
+      "supported": 1,
       "unsupported": 1,
-      "unknown": 3,
+      "unknown": 4,
       "withheld": 2,
       "broken_pipe": 1,
       "not_wired": 1,
@@ -497,22 +477,22 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:40286da375385abe6f4b6ea119d0a9640e6d5d968f675fc72d6f58c34dd28c42",
-  "projection_compiled_at": "2026-08-26T13:03:19.469601+00:00",
+  "source_snapshot_id": "sha256:e8592730feda2ff75f77dca5cba9a0b4cb53b106c91e3e85c2652eaa1e4e98cf",
+  "projection_compiled_at": "2026-08-27T19:07:13.467222+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-08-26T13:03:19.469601+00:00",
+    "projection_compiled_at": "2026-08-27T19:07:13.467222+00:00",
     "age_seconds": null,
     "status": "UNKNOWN"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:40286da375385abe6f4b6ea119d0a9640e6d5d968f675fc72d6f58c34dd28c42",
-    "compiled_at": "2026-08-26T13:03:19.469601+00:00",
+    "source_snapshot_id": "sha256:e8592730feda2ff75f77dca5cba9a0b4cb53b106c91e3e85c2652eaa1e4e98cf",
+    "compiled_at": "2026-08-27T19:07:13.467222+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-08-26T13:03:19.469601+00:00",
+      "projection_compiled_at": "2026-08-27T19:07:13.467222+00:00",
       "age_seconds": null,
       "status": "UNKNOWN"
     },
@@ -546,7 +526,7 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-08-26T13:03:19.464286+00:00",
+          "compiled_at": "2026-08-27T19:07:13.461168+00:00",
           "last_observation": null,
           "drift_cycles": 27
         },
@@ -575,8 +555,8 @@
       "projection": true,
       "embedded_in_field_state": false,
       "feeds_qpo": false,
-      "supported": 2,
-      "unknown": 3,
+      "supported": 1,
+      "unknown": 4,
       "withheld": 2,
       "broken_pipe": 1,
       "not_wired": 1,
@@ -586,9 +566,9 @@
         "attested": 0
       },
       "aliases": {
-        "supported": 2,
+        "supported": 1,
         "unsupported": 1,
-        "unknown": 3,
+        "unknown": 4,
         "withheld": 2,
         "broken_pipe": 1,
         "not_wired": 1,
@@ -597,9 +577,9 @@
         "relationship_gap": 0
       },
       "slots_by_class": {
-        "KNOWN_CURRENT": 2,
+        "KNOWN_CURRENT": 1,
         "KNOWN_STALE": 0,
-        "KNOWN_MISSING": 3,
+        "KNOWN_MISSING": 4,
         "KNOWN_INCOMPARABLE": 1,
         "BROKEN_PIPE": 1,
         "NOT_WIRED": 1,
@@ -610,36 +590,16 @@
       },
       "note": "aliases map existing gap-map classes for machines. They are not a new taxonomy. Gap map is not embedded in Field State."
     },
-    "relationships": {
-      "in_degree": 0,
-      "out_degree": 0,
-      "by_vector": {
-        "Capital": {
-          "out": 0.0,
-          "in": 0.0
-        },
-        "Infrastructure": {
-          "out": 0.0,
-          "in": 0.0
-        },
-        "Information": {
-          "out": 0.0,
-          "in": 0.0
-        }
-      },
-      "top_inbound": [],
-      "top_outbound": [],
-      "gravity_pairs": []
-    },
+    "relationships": {},
     "relationship_state": [],
     "knowledge_gaps": {
       "href": "/api/dossier?entity=HOST&view=gaps",
       "summary": {
         "n": 11,
         "by_class": {
-          "KNOWN_CURRENT": 2,
+          "KNOWN_CURRENT": 1,
           "KNOWN_STALE": 0,
-          "KNOWN_MISSING": 3,
+          "KNOWN_MISSING": 4,
           "KNOWN_INCOMPARABLE": 1,
           "BROKEN_PIPE": 1,
           "NOT_WIRED": 1,
@@ -670,7 +630,7 @@
       "entity": "HOST",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 1,
+      "n_prospective_snapshots": 2,
       "identity_comparable_transitions": 0,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
@@ -697,7 +657,7 @@
       "generators": [
         {
           "id": "engine.dispatch.content_adapter._phi_s_label",
-          "status": "DERIVED",
+          "status": "UNKNOWN",
           "field": "phi_s_label"
         }
       ],
@@ -710,8 +670,8 @@
           "editorial": false,
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
-            "status": "DERIVED",
-            "value": "high pressure"
+            "status": "UNKNOWN",
+            "value": null
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
