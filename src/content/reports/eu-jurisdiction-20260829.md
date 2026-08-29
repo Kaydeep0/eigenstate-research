@@ -1,0 +1,207 @@
+---
+id: "EU_JURISDICTION_20260829"
+entity_display: "EU Regulators"
+date: "August 29, 2026"
+date_iso: "2026-08-29"
+phi_s: 0.3314
+kappa: 0.1563
+vault_records: 0
+---
+# EU Regulators: Field Position Report
+
+*Eigenstate Research · August 29, 2026*
+
+*Publication snapshot (dated). Live SoT Φ_S / κ / M1 ledger overlay on the [Pages report](https://kaydeep0.github.io/eigenstate-research/reports/). [Methodology](https://kaydeep0.github.io/eigenstate-research/METHODOLOGY.md) · [Numbers glossary](https://kaydeep0.github.io/eigenstate-research/METHODOLOGY.md#numbers-glossary). E = ΔI/A, G = ∮E·dl, Protocol Truth → 1/φ*
+
+---
+
+## Publication snapshot
+
+Values below are **at publish** (2026-08-29). They are not the live hero SoT. vault@publish counts trimmed cycle-vault rows at publish time; it is not the lifetime M1 coverage ledger.
+
+| Metric | Value | Context |
+|--------|-------|---------|
+| Settlement Pressure (Φ_S) @ publish | 0.3314 | elevated settlement pressure; significant information gap relative to field weight |
+| Field Coherence (κ) @ publish | 0.1563 | low coherence; entity has limited connection to measured field activity |
+| vault@publish | 0 | No trimmed cycle-vault rows at publish; check live M1 ledger on the Pages hero before concluding zero coverage |
+
+## Field read (maintained state projection)
+
+*projection_version:* `geniusflow.public_entity_projection.v1` · *source_snapshot_id:* `sha256:fb70826686cede8fc8cada154780213a020aadb6a044496321e203ac546f8f79` · *identity_contract:* `geniusflow.observer_identity.v1`
+
+### CURRENT STATE
+
+- Claims on card: 3 (3 evidence-backed)
+- USDC circulating: UNKNOWN (pipe_fixed_not_yet_persisted)
+- USYC circulating: NOT_WIRED (not_wired)
+
+### POSITION
+
+- UNKNOWN
+
+### DIRECTION
+
+- UNKNOWN (direction_not_on_public_card)
+
+### AGE
+
+- DERIVED
+- Last observed: 2026-07-30T11:46:03.711734+00:00
+
+### NEIGHBORHOOD
+
+- UNKNOWN (no advertised hops on this card)
+
+### KNOWLEDGE GAPS
+
+- n=11 · broken_pipe=1 · unknown=3 · withheld=2
+
+### CHANGE
+
+- status=UNAVAILABLE · kind=INCOMPARABLE · reason=no_prior_comparable_snapshot
+- comparable transitions: 0
+- WORLD_OBSERVED: UNAVAILABLE
+- T0 labeled: no
+
+### Why did this report change from the previous publication?
+
+- measurement changed: UNKNOWN
+- evidence unchanged: UNKNOWN
+- relationship support: UNKNOWN
+- algorithm version: UNKNOWN
+- projection_version: `geniusflow.public_entity_projection.v1`
+- source_snapshot_id: `sha256:fb70826686cede8fc8cada154780213a020aadb6a044496321e203ac546f8f79`
+- reason: no_prior_publication
+
+## Publication field context
+
+*Global field state unavailable; run parkash to refresh.*
+
+## What it is
+
+EU Regulators represents the European regulatory framework,  primarily MiCA (Markets in Crypto-Assets Regulation) and the DLT Pilot Regime,  as a unified field node. MiCA, which came into full force in December 2024, is the world's first comprehensive crypto market regulation covering issuance, trading, and custody of crypto-assets. For the tokenized settlement layer, MiCA and the DLT Pilot create the most fully-defined regulatory perimeter globally,  making EU Regulators a reference node for how other jurisdictions' rules are likely to develop.
+
+## Verified claims
+
+**Field Confidence: ? LOW.** No external sources mapped for this entity; engine-internal data only
+
+**Verification: 3/3 source-checked (ATTESTED), 3 grounded.** Each claim below carries a machine-checked status against its cited source; ungrounded items are editorial assessments, not verified facts.
+
+Active signals the engine is tracking for EU Regulators:
+
+**MiCA full implementation,  December 2024** [✓ ATTESTED-PRIMARY]
+All MiCA provisions now in force. CASP licensing pipeline is active across Coinbase EU, Circle, Bitstamp, and others. Creates a regulated settlement counterparty universe in Europe that interacts with the global RWA topology.
+*Source-checked: ATTESTED-PRIMARY · status_at_publish=ATTESTED-PRIMARY · custody sha256 30ef74014ab9…. found near location anchor in primary source*
+
+**DLT Pilot Regime,  live tokenized settlement experiments** [✓ ATTESTED-PRIMARY]
+The European Securities and Markets Authority (ESMA) DLT Pilot allows regulated MTFs and SSS to operate on distributed ledgers. SIX Digital Exchange, Euroclear, and Deutsche Börse are active participants,  generating the first sovereign-grade data on DLT settlement efficiency vs conventional rails.
+*Source-checked: ATTESTED-PRIMARY · status_at_publish=ATTESTED-PRIMARY · custody sha256 632c24209706…. found near location anchor in primary source*
+
+**MiCA stablecoin volume caps,  EUR stablecoin constraint** [✓ ATTESTED-PRIMARY]
+MiCA limits daily transaction volume for e-money tokens to €200M/day. Circle's EURC and Société Générale's EUR CoinVertible are approaching operational scale where these caps become binding,  a constraint on Euro-denominated RWA settlement throughput.
+*Source-checked: ATTESTED-PRIMARY · status_at_publish=ATTESTED-PRIMARY · custody sha256 c24b70f6899f…. found near location anchor in primary source*
+
+## Field read
+
+### Settlement Pressure (Φ_S = 0.3314)
+
+Elevated settlement pressure; significant information gap relative to field weight.
+
+EU Regulators has elevated pressure because MiCA implementation is creating regulatory arbitrage dynamics: EU-registered entities gain CASP (Crypto Asset Service Provider) passports that allow cross-border operation in 27 member states, while non-EU issuers face market access barriers. The DLT Pilot Regime's sandbox for tokenized securities settlement is producing live data on whether blockchain-native settlement can replace T+2 conventional settlement,  a high-signal event for every settlement layer participant globally.
+
+### Coherence (κ = 0.1563)
+
+κ = 0.1563 reflects the engine's **publish-time measurement coverage**, not EU Regulators's actual institutional influence. When vault@publish is 0, the coherence score is derived from topology position (connection count and structural weight) without cycle-vault rows in this publish. Live M1 ledger obs on the Pages hero may still be non-zero; do not treat vault@publish = 0 as 'no measurements exist'.
+
+The equilibrium attractor is κ = 1/φ ≈ 0.618. At publish κ = 0.1563, EU Regulators is **0.4617 below** equilibrium. Attested observations of EU Regulators's rule outputs (rulemaking notices, enforcement actions, guidance documents) would raise κ toward the living zone [0.618, 0.678].
+
+### Vault coverage @ publish
+
+vault@publish = 0 for EU Regulators in this dated snapshot (no trimmed cycle-vault rows at publish). This is not a claim that the live M1 ledger is empty. Re-check the Pages hero M1 ledger obs and the [entity dossier](https://kaydeep0.github.io/eigenstate-research/dossier/EU_JURISDICTION/).
+
+### Recommendations
+
+The following actions are ranked by capital-adjusted score from the current photon queue:
+
+**1. Create compliance infrastructure map showing which entities are building vs waiting**
+
+- E = 0.81 (ΔI = 196.41 / A = 5.10)
+- Capital-adjusted score: 26,316,463
+- Estimated effort: 6h
+- Action type: `build`
+
+---
+
+## Sources
+
+This report is generated by the Eigenstate engine, an information-field measurement system for the tokenized settlement layer. The engine tracks 199 entities (M1 topology denominator) across the regulatory, infrastructure, issuer, and audience layers.
+
+**Human pages:**
+- [Methodology](https://kaydeep0.github.io/eigenstate-research/METHODOLOGY.md)
+- [Numbers glossary](https://kaydeep0.github.io/eigenstate-research/METHODOLOGY.md#numbers-glossary)
+- [Entity dossier (HTML)](https://kaydeep0.github.io/eigenstate-research/dossier/EU_JURISDICTION/)
+- [Verify walkthrough](https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/)
+- [Related reports](https://kaydeep0.github.io/eigenstate-research/reports/)
+
+**Core equations:**
+- E = ΔI/A: efficiency, information gained per unit action (Kirandeep's Law)
+- G = ∮E·dl: accumulated field circulation along topology paths
+- PT → 1/φ: Protocol Truth converges to golden-ratio equilibrium (1/φ ≈ 0.618)
+- Φ_S: settlement pain, unrealized settlement pressure per entity
+- κ: field coherence, integration of settlement activity across the topology
+
+**Published implementation:** [helixhash v0.1.1](https://doi.org/10.5281/zenodo.18413995) (Zenodo DOI 10.5281/zenodo.18413995)
+
+**vault@publish:** 0 for EU Regulators in this dated snapshot. Publish-time κ and Φ_S may be topology-derived in the prose; live M1 ledger obs on Pages can differ. See [numbers glossary](https://kaydeep0.github.io/eigenstate-research/METHODOLOGY.md#numbers-glossary).
+
+**Note:** Internal topology codenames are not used in public reports. All entity names in this report are public names.
+
+---
+
+## For agents
+
+Cold-agent entry for Node `34539544` / `EU_JURISDICTION`. Prefer human Pages first; do not treat raw API JSON as the primary reader UX.
+
+**Human pages:**
+- [Canonical report](https://kaydeep0.github.io/eigenstate-research/reports/eu-jurisdiction-20260829/)
+- [Entity dossier (HTML)](https://kaydeep0.github.io/eigenstate-research/dossier/EU_JURISDICTION/)
+- [Methodology](https://kaydeep0.github.io/eigenstate-research/METHODOLOGY.md)
+- [Numbers glossary](https://kaydeep0.github.io/eigenstate-research/METHODOLOGY.md#numbers-glossary)
+- [Verify walkthrough](https://kaydeep0.github.io/eigenstate-research/verify-walkthrough/)
+- [Related reports](https://kaydeep0.github.io/eigenstate-research/reports/)
+- [Paragraph journal](https://paragraph.com/@eigenstate)
+- [Federation network view](https://geniusflow-rwa.vercel.app/federation.html)
+- [RWA registry](https://geniusflow-rwa.vercel.app)
+
+**Machine JSON / federation APIs:**
+- Agent entry: https://geniusflow-federation.vercel.app/.well-known/geniusflow.json
+- Manifest: https://geniusflow-federation.vercel.app/api/manifest
+- Entity feed (EU Regulators): https://geniusflow-federation.vercel.app/api/report_feed?entity=EU_JURISDICTION
+- Machine dossier (Pages): https://kaydeep0.github.io/eigenstate-research/federation/dossier/EU_JURISDICTION.json
+- Live dossier API: https://geniusflow-federation.vercel.app/api/dossier?entity=EU_JURISDICTION
+- Machine claims (Pages): https://kaydeep0.github.io/eigenstate-research/federation/current-claims/EU_JURISDICTION.json
+- Federation card: https://geniusflow-federation.vercel.app/.well-known/geniusflow.json
+- Chain verify: https://geniusflow-federation.vercel.app/api/chain
+- Federation base: https://geniusflow-federation.vercel.app
+- Federation status: https://geniusflow-federation.vercel.app/api/status
+- llms.txt: https://geniusflow-federation.vercel.app/llms.txt
+- OpenAPI: https://geniusflow-federation.vercel.app/openapi.json
+- api/verify: https://geniusflow-federation.vercel.app/api/verify
+- api/package: https://geniusflow-federation.vercel.app/api/package
+- api/cite: https://geniusflow-federation.vercel.app/api/cite
+
+**Vercel apps:**
+- geniusflow-federation: https://geniusflow-federation.vercel.app
+- geniusflow-rwa: https://geniusflow-rwa.vercel.app
+
+**entity:** `EU_JURISDICTION`
+**report_id:** `EU_JURISDICTION_20260829`
+**Build fingerprint:** `2a8a4a16cdf49658…` (match `builds[].chain_hash` for `EU_JURISDICTION` in api/manifest, then verify via api/chain).
+**Granth head:** `c878ea685211abe4…` · length 4819
+
+**Verify:** GET api/manifest → find `builds[].target==entity` → match `chain_hash` → GET api/chain.
+---
+
+*Eigenstate Research · [paragraph.xyz/@eigenstate](https://paragraph.xyz/@eigenstate) · [kaydeep0.github.io/eigenstate-research](https://kaydeep0.github.io/eigenstate-research/)*
+
+*Generated: 2026-08-29T13:00:07 UTC by Eigenstate engine · EU Regulators · 2026-08-29*
