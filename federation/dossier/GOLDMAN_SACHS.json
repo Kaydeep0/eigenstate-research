@@ -1,11 +1,11 @@
 {
   "entity": "GOLDMAN_SACHS",
   "node": "34539544",
-  "compiled_at": "2026-08-30T04:02:59.229914+00:00",
-  "digest": "sha256:9c18c703da2e81497dce08a6df6b92b8251ea93d8ea9eff306bef03fa50d7f92",
+  "compiled_at": "2026-08-30T05:00:13.740241+00:00",
+  "digest": "sha256:fdd3d004a7a600f1927f37de74968686b20de2a69208abc2fdbf66502753d07d",
   "own_numbers": {
-    "phi_s": 4.8544,
-    "kappa": 0.1563,
+    "phi_s": 0.0,
+    "kappa": 0.0592,
     "mass": null,
     "power": null,
     "extraction": null,
@@ -25,27 +25,7 @@
     },
     "peers_by_power": []
   },
-  "relationships": {
-    "in_degree": 0,
-    "out_degree": 0,
-    "by_vector": {
-      "Capital": {
-        "out": 0.0,
-        "in": 0.0
-      },
-      "Infrastructure": {
-        "out": 0.0,
-        "in": 0.0
-      },
-      "Information": {
-        "out": 0.0,
-        "in": 0.0
-      }
-    },
-    "top_inbound": [],
-    "top_outbound": [],
-    "gravity_pairs": []
-  },
+  "relationships": null,
   "role_participations": [],
   "monetary_position": null,
   "drift": {
@@ -220,7 +200,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "GOLDMAN_SACHS",
     "observed_at": null,
-    "compiled_at": "2026-08-30T04:02:59.229914+00:00",
+    "compiled_at": "2026-08-30T05:00:13.740241+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -376,7 +356,7 @@
       "not_families": [
         "structural_position"
       ],
-      "status": "DERIVED",
+      "status": "UNKNOWN",
       "source": "dossier.relationships",
       "observation_id": "none",
       "comparability": false,
@@ -385,7 +365,7 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-08-30T04:02:59.229914+00:00",
+        "compiled_at": "2026-08-30T05:00:13.740241+00:00",
         "last_observation": null,
         "drift_cycles": 7
       },
@@ -537,7 +517,7 @@
     "relationships": [],
     "metric_outputs": {
       "phi_s": {
-        "value": 4.8544,
+        "value": 0.0,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -554,7 +534,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1563,
+        "value": 0.0592,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -602,7 +582,7 @@
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
           "status": "DERIVED",
-          "value": "high pressure"
+          "value": "near equilibrium"
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -626,7 +606,7 @@
         "entity_id": "GOLDMAN_SACHS",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 4.8544,
+        "magnitude": 0.0,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -652,7 +632,7 @@
         "entity_id": "GOLDMAN_SACHS",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1563,
+        "magnitude": 0.0592,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -703,7 +683,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:e83e9f888bf9dd151c16823e9d80122db966198f4c3d310aa05a0a436a6bc53d"
+    "snapshot_id": "sha256:a01f9da730361d5f2e5aabf65ab16011f8d83680e386ab3435e7e80f06543b7c"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -742,22 +722,22 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:e83e9f888bf9dd151c16823e9d80122db966198f4c3d310aa05a0a436a6bc53d",
-  "projection_compiled_at": "2026-08-30T04:02:59.238191+00:00",
+  "source_snapshot_id": "sha256:a01f9da730361d5f2e5aabf65ab16011f8d83680e386ab3435e7e80f06543b7c",
+  "projection_compiled_at": "2026-08-30T05:00:13.750082+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-08-30T04:02:59.238191+00:00",
+    "projection_compiled_at": "2026-08-30T05:00:13.750082+00:00",
     "age_seconds": null,
     "status": "UNKNOWN"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:e83e9f888bf9dd151c16823e9d80122db966198f4c3d310aa05a0a436a6bc53d",
-    "compiled_at": "2026-08-30T04:02:59.238191+00:00",
+    "source_snapshot_id": "sha256:a01f9da730361d5f2e5aabf65ab16011f8d83680e386ab3435e7e80f06543b7c",
+    "compiled_at": "2026-08-30T05:00:13.750082+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-08-30T04:02:59.238191+00:00",
+      "projection_compiled_at": "2026-08-30T05:00:13.750082+00:00",
       "age_seconds": null,
       "status": "UNKNOWN"
     },
@@ -869,7 +849,7 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-08-30T04:02:59.229914+00:00",
+          "compiled_at": "2026-08-30T05:00:13.740241+00:00",
           "last_observation": null,
           "drift_cycles": 7
         },
@@ -933,27 +913,7 @@
       },
       "note": "aliases map existing gap-map classes for machines. They are not a new taxonomy. Gap map is not embedded in Field State."
     },
-    "relationships": {
-      "in_degree": 0,
-      "out_degree": 0,
-      "by_vector": {
-        "Capital": {
-          "out": 0.0,
-          "in": 0.0
-        },
-        "Infrastructure": {
-          "out": 0.0,
-          "in": 0.0
-        },
-        "Information": {
-          "out": 0.0,
-          "in": 0.0
-        }
-      },
-      "top_inbound": [],
-      "top_outbound": [],
-      "gravity_pairs": []
-    },
+    "relationships": {},
     "relationship_state": [],
     "knowledge_gaps": {
       "href": "/api/dossier?entity=GOLDMAN_SACHS&view=gaps",
@@ -993,7 +953,7 @@
       "entity": "GOLDMAN_SACHS",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 5,
+      "n_prospective_snapshots": 6,
       "identity_comparable_transitions": 0,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
@@ -1034,7 +994,7 @@
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
             "status": "DERIVED",
-            "value": "high pressure"
+            "value": "near equilibrium"
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",

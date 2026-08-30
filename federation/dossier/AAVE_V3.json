@@ -1,11 +1,11 @@
 {
   "entity": "AAVE_V3",
   "node": "34539544",
-  "compiled_at": "2026-08-30T04:02:58.202959+00:00",
-  "digest": "sha256:73b23eaaf73c3702c898fe4213cc4a755c466fe4f0da96c6f97bec0bc5d0fabc",
+  "compiled_at": "2026-08-30T05:00:12.647358+00:00",
+  "digest": "sha256:e3e1ddfa1361154d7056730e610ca979b997430bd8a3b6cace16df9d9c6d14a6",
   "own_numbers": {
     "phi_s": 1.6181,
-    "kappa": 0.1563,
+    "kappa": 0.0592,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -61,12 +61,12 @@
   ],
   "monetary_position": null,
   "drift": {
-    "level": "watch",
-    "headline": "kappa -0.165 over 39 cycles",
-    "cycles": 39,
+    "level": "flag",
+    "headline": "kappa -0.262 over 40 cycles",
+    "cycles": 40,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0
+      "kappa": -0.0971
     }
   },
   "network_plugs": {
@@ -217,10 +217,10 @@
     "cite_class": "citeable",
     "source": "srr_grounding_defillama",
     "wire": "srr_sensor",
-    "ts": "2026-08-27T22:07:26.300765+00:00",
+    "ts": "2026-08-30T04:46:24.180618+00:00",
     "write_reason": "srr_grounded_primary_aum",
     "source_url": null,
-    "vault_row_ref": "sensor:srr_sensor:AAVE_V3:2026-08-27T22:07:26.300765+00:00",
+    "vault_row_ref": "sensor:srr_sensor:AAVE_V3:2026-08-30T04:46:24.180618+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -252,8 +252,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "AAVE_V3",
-    "observed_at": "2026-08-27T22:07:26.300765+00:00",
-    "compiled_at": "2026-08-30T04:02:58.202959+00:00",
+    "observed_at": "2026-08-30T04:46:24.180618+00:00",
+    "compiled_at": "2026-08-30T05:00:12.647358+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -404,9 +404,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-08-30T04:02:58.202959+00:00",
-        "last_observation": "2026-08-27T22:07:26.300765+00:00",
-        "drift_cycles": 39
+        "compiled_at": "2026-08-30T05:00:12.647358+00:00",
+        "last_observation": "2026-08-30T04:46:24.180618+00:00",
+        "drift_cycles": 40
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -559,7 +559,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1563,
+        "value": 0.0592,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -657,7 +657,7 @@
         "entity_id": "AAVE_V3",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1563,
+        "magnitude": 0.0592,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -708,7 +708,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:fce36e7237b5a53f1f028090d0750ca1ed70a9770f5b660165d9e616195620af"
+    "snapshot_id": "sha256:c70dfd88c5a3dd95f277b690592b9e820a0daec120e88807cd3977fec88aae96"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -747,23 +747,23 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:fce36e7237b5a53f1f028090d0750ca1ed70a9770f5b660165d9e616195620af",
-  "projection_compiled_at": "2026-08-30T04:02:58.211536+00:00",
+  "source_snapshot_id": "sha256:c70dfd88c5a3dd95f277b690592b9e820a0daec120e88807cd3977fec88aae96",
+  "projection_compiled_at": "2026-08-30T05:00:12.657023+00:00",
   "freshness": {
-    "source_observed_at": "2026-08-27T22:07:26.300765+00:00",
-    "projection_compiled_at": "2026-08-30T04:02:58.211536+00:00",
-    "age_seconds": 194131,
+    "source_observed_at": "2026-08-30T04:46:24.180618+00:00",
+    "projection_compiled_at": "2026-08-30T05:00:12.657023+00:00",
+    "age_seconds": 828,
     "status": "CURRENT"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:fce36e7237b5a53f1f028090d0750ca1ed70a9770f5b660165d9e616195620af",
-    "compiled_at": "2026-08-30T04:02:58.211536+00:00",
+    "source_snapshot_id": "sha256:c70dfd88c5a3dd95f277b690592b9e820a0daec120e88807cd3977fec88aae96",
+    "compiled_at": "2026-08-30T05:00:12.657023+00:00",
     "freshness": {
-      "source_observed_at": "2026-08-27T22:07:26.300765+00:00",
-      "projection_compiled_at": "2026-08-30T04:02:58.211536+00:00",
-      "age_seconds": 194131,
+      "source_observed_at": "2026-08-30T04:46:24.180618+00:00",
+      "projection_compiled_at": "2026-08-30T05:00:12.657023+00:00",
+      "age_seconds": 828,
       "status": "CURRENT"
     },
     "projection": true,
@@ -835,7 +835,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-08-27T22:07:26.300765+00:00",
+      "observed_at": "2026-08-30T04:46:24.180618+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -860,9 +860,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-08-30T04:02:58.202959+00:00",
-          "last_observation": "2026-08-27T22:07:26.300765+00:00",
-          "drift_cycles": 39
+          "compiled_at": "2026-08-30T05:00:12.647358+00:00",
+          "last_observation": "2026-08-30T04:46:24.180618+00:00",
+          "drift_cycles": 40
         },
         "reason": null,
         "family": "observation_age",
@@ -983,8 +983,8 @@
     "observation_clock": {
       "entity": "AAVE_V3",
       "first_prospective_observation": "2026-08-25T03:36:24.024037+00:00",
-      "latest_prospective_observation": "2026-08-27T22:07:26.300765+00:00",
-      "n_prospective_snapshots": 4,
+      "latest_prospective_observation": "2026-08-30T04:46:24.180618+00:00",
+      "n_prospective_snapshots": 5,
       "identity_comparable_transitions": 0,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
