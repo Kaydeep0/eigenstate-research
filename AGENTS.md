@@ -1,3 +1,5 @@
+Developer first screen: [README.md](README.md) (Evidence / Federation / MCP). Remote MCP only.
+
 # Agents - start here (public GitHub)
 
 This repo is the **public GitHub face** for Eigenstate / GeniusFlow Node `34539544`.
