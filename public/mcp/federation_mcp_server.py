@@ -1,27 +1,14 @@
 #!/usr/bin/env python3
 """
-GeniusFlow Federation MCP server (stdio JSON-RPC).
+GeniusFlow Federation MCP server.
 
-Wraps live federation HTTP endpoints so agents default to the public URL
-without signing anyone up.
+Preferred: remote Streamable HTTP, no clone.
 
-Cursor / Claude Desktop — add to MCP config:
+    https://geniusflow-federation.vercel.app/api/mcp
 
-{
-  "mcpServers": {
-    "geniusflow-federation": {
-      "command": "python3",
-      "args": [
-        "/ABS/PATH/to/geniusflow/engine/mcp/federation_mcp_server.py"
-      ],
-      "env": {
-        "GENIUSFLOW_FEDERATION_URL": "https://geniusflow-federation.vercel.app"
-      }
-    }
-  }
-}
-
-See docs/AGENT_TOOL_ADAPTER.md.
+Optional stdio wrapper around that same origin. If you use this file, clone
+the public eigenstate-research repo and point at mcp/federation_mcp_server.py
+in that clone. Do not use a private engine path.
 """
 from __future__ import annotations
 
