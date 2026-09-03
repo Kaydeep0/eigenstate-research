@@ -1,0 +1,30 @@
+---
+import { MIM_SUBSCRIBE } from '../lib/mim';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<p class:list={['mim-subscribe', className]}>
+  <a href={MIM_SUBSCRIBE.href} target="_blank" rel="noopener noreferrer">
+    {MIM_SUBSCRIBE.label}
+  </a>
+</p>
+
+<style>
+  .mim-subscribe {
+    margin: 0;
+  }
+
+  .mim-subscribe a {
+    color: var(--signal);
+    text-decoration: none;
+  }
+
+  .mim-subscribe a:hover {
+    text-decoration: underline;
+  }
+</style>

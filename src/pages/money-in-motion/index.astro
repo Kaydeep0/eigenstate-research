@@ -3,7 +3,10 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import MimSubscribe from '../../components/MimSubscribe.astro';
+import JsonLd from '../../components/JsonLd.astro';
 import { MIM_AUTHOR } from '../../lib/mim';
+import { mimLandingJsonLd } from '../../lib/mimSeo';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -12,14 +15,16 @@ const base = import.meta.env.BASE_URL;
 const pieces = (await getCollection('money-in-motion')).sort((a, b) =>
   b.data.date_iso.localeCompare(a.data.date_iso)
 );
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <Layout
   title="Money in Motion · Eigenstate Research"
-  description="Narrative spines: current events, fee paths, and cash-flow maps. Separate from signal reports."
+  description={`Research and writing by ${MIM_AUTHOR.name}`}
   fonts={fonts}
 >
   <Fragment slot="head">
+    <JsonLd data={mimLandingJsonLd(canonicalURL)} />
     <style>
       .page-hero {
         padding: 64px 40px 36px;
@@ -68,9 +73,6 @@ const pieces = (await getCollection('money-in-motion')).sort((a, b) =>
       .author-row a:hover {
         text-decoration: underline;
       }
-      .author-muted {
-        color: var(--text-secondary);
-      }
       .list {
         list-style: none;
         padding: 0;
@@ -102,6 +104,12 @@ const pieces = (await getCollection('money-in-motion')).sort((a, b) =>
       .item-title:hover {
         color: var(--signal);
       }
+      .item-ext {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        color: var(--signal);
+        letter-spacing: 0.04em;
+      }
       .empty {
         color: var(--text-secondary);
         padding: 40px 0;
@@ -113,28 +121,16 @@ const pieces = (await getCollection('money-in-motion')).sort((a, b) =>
 
   <header class="page-hero">
     <div class="container" style="padding-top: 0; padding-bottom: 0;">
-      <p class="eyebrow">Audience narratives</p>
+      <p class="eyebrow">Money in Motion</p>
       <h1 class="page-title">Money in Motion</h1>
-      <p class="page-sub">
-        Fee-path and cash-flow narratives for a public audience. Separate from measurement
-        signal reports. Same locked story craft as the LinkedIn cut.
-      </p>
-      <p class="author-row">
-        <span class="author-muted">By</span>
-        <a href={MIM_AUTHOR.linkedinProfile} target="_blank" rel="noopener noreferrer">
-          {MIM_AUTHOR.name}
-        </a>
-        <a href={MIM_AUTHOR.linkedinProfile} target="_blank" rel="noopener noreferrer">
-          LinkedIn profile ↗
-        </a>
-        <a href={MIM_AUTHOR.linkedinNewsletter} target="_blank" rel="noopener noreferrer">
-          Follow the newsletter ↗
-        </a>
-      </p>
+      <p class="page-sub">Research and writing by {MIM_AUTHOR.name}</p>
+      <div class="author-row">
+        <MimSubscribe />
+      </div>
     </div>
   </header>
 
-  <main class="container">
+  <main class="container" id="main">
     {
       pieces.length === 0 ? (
         <p class="empty">No Money in Motion pieces published yet.</p>
@@ -142,12 +138,25 @@ const pieces = (await getCollection('money-in-motion')).sort((a, b) =>
         <ul class="list">
           {pieces.map((p) => (
             <li class="item">
-              <a href={`${base}money-in-motion/${p.slug}/`}>
-                <p class="item-meta">
-                  {p.data.entity_display} · {p.data.date}
-                </p>
-                <h2 class="item-title">{p.data.title}</h2>
-              </a>
+              {p.data.eigenstate_body ? (
+                <a href={`${base}money-in-motion/${p.slug}/`}>
+                  <p class="item-meta">
+                    <time datetime={p.data.date_iso}>{p.data.date}</time>
+                    {p.data.series
+                      ? ` · ${p.data.series.name} · Part ${p.data.series.part}`
+                      : ''}
+                  </p>
+                  <h2 class="item-title">{p.data.title}</h2>
+                </a>
+              ) : (
+                <a href={p.data.linkedin_url} target="_blank" rel="noopener noreferrer">
+                  <p class="item-meta">
+                    <time datetime={p.data.date_iso}>{p.data.date}</time>
+                  </p>
+                  <h2 class="item-title">{p.data.title}</h2>
+                  <p class="item-ext">Read on LinkedIn ↗</p>
+                </a>
+              )}
             </li>
           ))}
         </ul>

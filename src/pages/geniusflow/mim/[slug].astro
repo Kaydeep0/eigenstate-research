@@ -1,0 +1,107 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const pieces = await getCollection('geniusflow-mim');
+  return pieces.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const fonts =
+  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
+const base = import.meta.env.BASE_URL;
+const visual = entry.data.visual
+  ? new URL(`${base}${entry.data.visual}`, Astro.site).toString()
+  : undefined;
+---
+
+<Layout
+  title={`${entry.data.title} · GeniusFlow`}
+  description={`${entry.data.entity_display} cash-flow narrative · GeniusFlow machine spine`}
+  fonts={fonts}
+  ogImage={visual}
+>
+  <Fragment slot="head">
+    <style>
+      .article-wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 56px 40px 80px;
+      }
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        color: var(--signal);
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+      .machine-note {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        margin: 0 0 24px;
+        color: var(--text-secondary);
+      }
+      .lead-visual {
+        width: 100%;
+        height: auto;
+        border: 1px solid var(--border);
+        margin: 28px 0 36px;
+        background: #fff;
+      }
+      .prose :global(h1) {
+        font-family: var(--font-heading);
+        font-size: clamp(26px, 3.2vw, 34px);
+        line-height: 1.25;
+        margin: 0 0 12px;
+      }
+      .prose :global(p) {
+        font-size: 17px;
+        line-height: 1.7;
+        margin: 0 0 1.15em;
+        color: var(--text-primary);
+      }
+      .prose :global(em) {
+        color: var(--text-secondary);
+        font-style: italic;
+      }
+      .prose :global(strong) {
+        font-weight: 600;
+      }
+    </style>
+  </Fragment>
+
+  <Nav />
+
+  <article class="article-wrap">
+    <p class="eyebrow">GeniusFlow · {entry.data.entity_display} · {entry.data.date}</p>
+    <p class="machine-note">
+      GeniusFlow cash-flow narrative. Machine-generated. Not Host-authored research.
+    </p>
+    {
+      entry.data.visual && (
+        <img
+          class="lead-visual"
+          src={`${base}${entry.data.visual}`}
+          alt={`${entry.data.entity_display} fee path visual`}
+          width="1200"
+          height="675"
+        />
+      )
+    }
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+
+  <Footer />
+</Layout>

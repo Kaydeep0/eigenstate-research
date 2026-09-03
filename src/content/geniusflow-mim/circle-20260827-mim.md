@@ -7,7 +7,7 @@ date_iso: "2026-08-30"
 report_id: "CIRCLE_20260827"
 channel: "Money in Motion"
 format: "mim_linkedin_stanton_visual_v1"
-visual: "money-in-motion/circle-20260827-mim.png"
+visual: "geniusflow/mim/circle-20260827-mim.png"
 ---
 
 # Circle and Coinbase Just Took Renegotiation Off the Table Through 2029. Here Is What That Locks.

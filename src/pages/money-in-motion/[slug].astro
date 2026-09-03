@@ -3,45 +3,69 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import MimSubscribe from '../../components/MimSubscribe.astro';
+import JsonLd from '../../components/JsonLd.astro';
 import { MIM_AUTHOR } from '../../lib/mim';
+import { humanArticleJsonLd } from '../../lib/mimSeo';
 
 export async function getStaticPaths() {
   const pieces = await getCollection('money-in-motion');
-  return pieces.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+  return pieces
+    .filter((entry) => entry.data.eigenstate_body)
+    .map((entry) => ({
+      params: { slug: entry.slug },
+      props: { entry, pieces },
+    }));
 }
 
-const { entry } = Astro.props;
+const { entry, pieces } = Astro.props;
 const { Content } = await entry.render();
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
 const base = import.meta.env.BASE_URL;
-const visual = entry.data.visual
-  ? new URL(`${base}${entry.data.visual}`, Astro.site).toString()
-  : undefined;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const series = entry.data.series;
+const seriesPeers = series
+  ? pieces
+      .filter(
+        (p) =>
+          p.data.eigenstate_body &&
+          p.data.series?.name === series.name &&
+          p.slug !== entry.slug
+      )
+      .sort((a, b) => (a.data.series?.part ?? 0) - (b.data.series?.part ?? 0))
+  : [];
 ---
 
 <Layout
   title={`${entry.data.title} · Money in Motion`}
-  description={`${entry.data.entity_display} cash-flow narrative · Money in Motion`}
+  description={entry.data.description}
   fonts={fonts}
-  ogImage={visual}
   ogType="article"
 >
   <Fragment slot="head">
+    <meta property="article:published_time" content={entry.data.date_iso} />
+    <meta property="article:author" content={entry.data.author} />
+    <JsonLd
+      data={humanArticleJsonLd({
+        headline: entry.data.title,
+        description: entry.data.description,
+        url: canonicalURL,
+        datePublished: entry.data.date_iso,
+        seriesName: series?.name,
+      })}
+    />
     <style>
       .article-wrap {
         max-width: 720px;
         margin: 0 auto;
         padding: 56px 40px 80px;
       }
-      .eyebrow {
+      .series-label {
         font-family: var(--font-mono);
         font-size: 12px;
         font-weight: 600;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.14em;
         color: var(--signal);
         text-transform: uppercase;
         margin-bottom: 14px;
@@ -50,7 +74,7 @@ const visual = entry.data.visual
         font-family: var(--font-mono);
         font-size: 13px;
         letter-spacing: 0.04em;
-        margin: 0 0 24px;
+        margin: 0 0 16px;
         color: var(--text-secondary);
       }
       .byline a {
@@ -59,6 +83,10 @@ const visual = entry.data.visual
       }
       .byline a:hover {
         text-decoration: underline;
+      }
+      .header-subscribe {
+        margin: 0 0 28px;
+        font-size: 14px;
       }
       .back {
         display: inline-block;
@@ -73,18 +101,23 @@ const visual = entry.data.visual
       .back:hover {
         color: var(--signal);
       }
-      .lead-visual {
-        width: 100%;
-        height: auto;
-        border: 1px solid var(--border);
-        margin: 28px 0 36px;
-        background: #fff;
-      }
       .prose :global(h1) {
         font-family: var(--font-heading);
         font-size: clamp(26px, 3.2vw, 34px);
         line-height: 1.25;
         margin: 0 0 12px;
+      }
+      .prose :global(h2) {
+        font-family: var(--font-heading);
+        font-size: 22px;
+        line-height: 1.35;
+        margin: 2em 0 0.7em;
+      }
+      .prose :global(h3) {
+        font-family: var(--font-heading);
+        font-size: 18px;
+        line-height: 1.4;
+        margin: 1.6em 0 0.6em;
       }
       .prose :global(p) {
         font-size: 17px;
@@ -99,6 +132,19 @@ const visual = entry.data.visual
       .prose :global(strong) {
         font-weight: 600;
       }
+      .prose :global(blockquote) {
+        margin: 1.4em 0;
+        padding: 0 0 0 1em;
+        border-left: 2px solid var(--border);
+        color: var(--text-secondary);
+      }
+      .prose :global(ul),
+      .prose :global(ol) {
+        margin: 0 0 1.15em;
+        padding-left: 1.3em;
+        font-size: 17px;
+        line-height: 1.7;
+      }
       .follow-box {
         margin-top: 40px;
         padding-top: 24px;
@@ -107,11 +153,16 @@ const visual = entry.data.visual
         line-height: 1.55;
         color: var(--text-secondary);
       }
-      .follow-box a {
+      .series-nav {
+        margin-top: 28px;
+        font-size: 15px;
+        line-height: 1.55;
+      }
+      .series-nav a {
         color: var(--signal);
         text-decoration: none;
       }
-      .follow-box a:hover {
+      .series-nav a:hover {
         text-decoration: underline;
       }
     </style>
@@ -121,43 +172,43 @@ const visual = entry.data.visual
 
   <article class="article-wrap">
     <a class="back" href={`${base}money-in-motion/`}>← Money in Motion</a>
-    <p class="eyebrow">{entry.data.entity_display} · {entry.data.date}</p>
-    <p class="byline">
-      By{' '}
-      <a href={MIM_AUTHOR.linkedinProfile} target="_blank" rel="noopener noreferrer">
-        {MIM_AUTHOR.name}
-      </a>
-      {' · '}
-      <a href={MIM_AUTHOR.linkedinProfile} target="_blank" rel="noopener noreferrer">
-        LinkedIn
-      </a>
-    </p>
     {
-      entry.data.visual && (
-        <img
-          class="lead-visual"
-          src={`${base}${entry.data.visual}`}
-          alt={`${entry.data.entity_display} fee path visual`}
-          width="1200"
-          height="675"
-        />
+      series && (
+        <p class="series-label">
+          {series.name}
+          {series.of ? ` · Part ${series.part} of ${series.of}` : ` · Part ${series.part}`}
+        </p>
       )
     }
+    <p class="byline">
+      <time datetime={entry.data.date_iso}>{entry.data.date}</time>
+      {' · '}
+      <a href={MIM_AUTHOR.linkedinProfile} target="_blank" rel="noopener noreferrer">
+        {entry.data.author}
+      </a>
+    </p>
+    <MimSubscribe class="header-subscribe" />
     <div class="prose">
       <Content />
     </div>
-    <p class="follow-box">
-      Follow{' '}
-      <a href={MIM_AUTHOR.linkedinProfile} target="_blank" rel="noopener noreferrer">
-        {MIM_AUTHOR.shortName} on LinkedIn
-      </a>
-      {' '}
-      and the{' '}
-      <a href={MIM_AUTHOR.linkedinNewsletter} target="_blank" rel="noopener noreferrer">
-        Money in Motion newsletter
-      </a>
-      .
-    </p>
+    {
+      seriesPeers.length > 0 && (
+        <nav class="series-nav" aria-label="Series">
+          {seriesPeers.map((peer) => (
+            <p>
+              {peer.data.series && peer.data.series.part < (series?.part ?? 0)
+                ? 'Previous'
+                : 'Next'}
+              {': '}
+              <a href={`${base}money-in-motion/${peer.slug}/`}>{peer.data.title}</a>
+            </p>
+          ))}
+        </nav>
+      )
+    }
+    <div class="follow-box">
+      <MimSubscribe />
+    </div>
   </article>
 
   <Footer />

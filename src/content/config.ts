@@ -59,7 +59,30 @@ const predictions = defineCollection({
   }),
 });
 
+/** Host-authored Money in Motion essays. Not the GeniusFlow spine schema. */
 const moneyInMotion = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    date: z.string(),
+    date_iso: z.string(),
+    author: z.string(),
+    linkedin_url: z.string().url(),
+    description: z.string(),
+    body_h1: z.string().optional(),
+    series: z
+      .object({
+        name: z.string(),
+        part: z.number().int(),
+        of: z.number().int().optional(),
+      })
+      .optional(),
+    eigenstate_body: z.boolean().default(true),
+  }),
+});
+
+/** GeniusFlow machine spines. Separate object from Host essays. */
+const geniusflowMim = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
@@ -71,6 +94,7 @@ const moneyInMotion = defineCollection({
     channel: z.string().default('Money in Motion'),
     format: z.string().default('mim_linkedin_stanton_visual_v1'),
     visual: z.string().optional(),
+    refreshed_at: z.string().optional(),
   }),
 });
 
@@ -78,4 +102,5 @@ export const collections = {
   reports,
   predictions,
   'money-in-motion': moneyInMotion,
+  'geniusflow-mim': geniusflowMim,
 };
