@@ -2,7 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import ResearchSurfaces from '../../components/ResearchSurfaces.astro';
 import circle from '../../data/circle-state.json';
+import { webpageJsonLd } from '../../lib/siteSeo';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap';
@@ -11,14 +14,27 @@ const board = circle.experiment || {};
 const st = board.current_status || {};
 ---
 <Layout title="The experiment · Eigenstate Research" description="No result until a prospective, identity-comparable change exists." fonts={fonts}>
+  <Fragment slot="head">
+    <JsonLd
+      data={webpageJsonLd({
+        name: 'The CIRCLE experiment',
+        description: 'No result until a prospective, identity-comparable change exists.',
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        creator: 'geniusflow',
+        about: 'CIRCLE',
+      })}
+    />
+  </Fragment>
   <Nav active="state" />
   <main class="wrap">
     <p class="kicker">The experiment</p>
     <h1>Does maintaining information through time help a machine decide where to look next?</h1>
+    <ResearchSurfaces current="experiment" />
     <p class="navline">
       <a href={`${base}state/`}>State</a>
-      <a href={`${base}changes/`}>Changes</a>
+      <a href={`${base}changes/`}>Change frontier</a>
       <a href={`${base}experiment/`}>Experiment</a>
+      <a href={`${base}methodology/`}>Methodology</a>
     </p>
     <pre>{`Evidence             ${st.evidence}
 Relationships        ${st.relationships}

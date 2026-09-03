@@ -1,0 +1,51 @@
+---
+/**
+ * Truthful surface map — not causal. Distinguishes Host research,
+ * machine evidence, maintained state, open experiments, and GeniusFlow output.
+ */
+interface Props {
+  current?: 'human' | 'evidence' | 'state' | 'experiment' | 'machine' | 'origin';
+}
+
+const { current } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const items = [
+  { key: 'human', href: `${base}money-in-motion/`, label: 'Human research' },
+  { key: 'evidence', href: `${base}reports/`, label: 'Evidence' },
+  { key: 'state', href: `${base}state/`, label: 'State' },
+  { key: 'experiment', href: `${base}experiment/`, label: 'Experiments' },
+  { key: 'machine', href: `${base}geniusflow/mim/circle-20260812-mim/`, label: 'Machine output' },
+] as const;
+---
+
+<nav class="surfaces" aria-label="Research surfaces">
+  {
+    items.map((item) => (
+      <a href={item.href} class={current === item.key ? 'on' : undefined}>
+        {item.label}
+      </a>
+    ))
+  }
+</nav>
+
+<style>
+  .surfaces {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    margin: 0 0 20px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .surfaces a {
+    color: var(--signal-dim);
+    text-decoration: none;
+  }
+
+  .surfaces a:hover,
+  .surfaces a.on {
+    color: var(--signal);
+  }
+</style>

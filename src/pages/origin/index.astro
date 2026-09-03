@@ -2,7 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import ResearchSurfaces from '../../components/ResearchSurfaces.astro';
 import { ORIGIN_SEATS, ORIGIN_LINEAGE } from '../../lib/originPattern';
+import { webpageJsonLd } from '../../lib/siteSeo';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -16,6 +19,16 @@ const fieldAt = (id: string | null) => (id ? `${base}field/?focus=${id}` : null)
   description="Circle and Tether are this wave's names for a VOC-era product: an issuer of the claim and a custodian of sovereign paper, from the 1602 charter to USDC and USDT on Treasuries."
   fonts={fonts}
 >
+  <Fragment slot="head">
+    <JsonLd
+      data={webpageJsonLd({
+        name: 'Origin · Circle, Tether, and the VOC product',
+        description:
+          "Circle and Tether are this wave's names for a VOC-era product: an issuer of the claim and a custodian of sovereign paper, from the 1602 charter to USDC and USDT on Treasuries.",
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+      })}
+    />
+  </Fragment>
   <Fragment slot="head">
     <style>
       .origin-hero {
@@ -56,7 +69,8 @@ const fieldAt = (id: string | null) => (id ? `${base}field/?focus=${id}` : null)
 
       .origin-section a,
       .origin-close a,
-      .origin-caption a {
+      .origin-caption a,
+      .origin-lead a {
         color: var(--signal);
       }
 
@@ -180,6 +194,13 @@ const fieldAt = (id: string | null) => (id ? `${base}field/?focus=${id}` : null)
       <p class="origin-lead">
         Hold one object: Power(N+1) = Power(N) × (Capital × Information × Infrastructure).
         Concentration is one wave's pile. Compounding is that pile writing the next charter.
+      </p>
+      <ResearchSurfaces current="origin" />
+      <p class="origin-lead">
+        This page is historical interpretation, not a field report.
+        Host essays: <a href={`${base}money-in-motion/`}>Money in Motion</a>
+        · Maintained CIRCLE state: <a href={`${base}state/`}>/state/</a>
+        · Dated machine reports: <a href={`${base}reports/`}>Signal reports</a>
       </p>
     </div>
   </header>

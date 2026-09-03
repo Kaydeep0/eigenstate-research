@@ -5,6 +5,8 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import EntityHub from '../../components/EntityHub.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { reportJsonLd } from '../../lib/siteSeo';
 import { slugFor, hubSlugForEntityCode } from '../../lib/reports';
 import { prepareReportBody, loadClaimSourceLinks } from '../../lib/reportBody';
 import { buildReportLinkCatalog } from '../../lib/federationLinks';
@@ -215,6 +217,15 @@ const hubProps = isHub
   ) : (
 <Layout title={`${entity_display} · Signal Report · Eigenstate Research`} description={description} fonts={fonts}>
   <Fragment slot="head">
+    <JsonLd
+      data={reportJsonLd({
+        name: `${entity_display} field position report ${date_iso}`,
+        description: `${entity_display} field position report dated ${date_iso}. GeniusFlow machine report. Eigenstate Research.`,
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        datePublished: date_iso,
+        about: entity_display,
+      })}
+    />
     <style>
       *,
       *::before,

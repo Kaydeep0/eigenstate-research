@@ -2,8 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import JsonLd from '../../components/JsonLd.astro';
 import batch from '../../data/tlog_monitor.json';
 import { ledgerDeltaLine } from '../../lib/ledgerContext';
+import { datasetJsonLd, dateOnly } from '../../lib/siteSeo';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -115,6 +117,19 @@ const subjects = [...b.per_log].sort((a, x) => {
   description="Public transparency logs, read twice, signatures checked against independently held keys and consistency proofs recomputed. A monitor, not a witness."
   fonts={fonts}
 >
+  <Fragment slot="head">
+    <JsonLd
+      data={datasetJsonLd({
+        name: 'Transparency log batch monitor',
+        description:
+          'Public transparency logs, read twice, signatures checked against independently held keys and consistency proofs recomputed. A monitor, not a witness.',
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        datePublished: dateOnly(b.generated_at),
+        creator: 'geniusflow',
+        about: 'Public transparency logs',
+      })}
+    />
+  </Fragment>
   <Nav cta={{ label: 'Request Pilot', href: requestAccess }} />
 
   <div class="rank-hero" id="main">

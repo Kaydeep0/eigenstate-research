@@ -2,8 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import JsonLd from '../../components/JsonLd.astro';
 import probe from '../../data/erc8004_probe.json';
 import { ledgerDeltaLine } from '../../lib/ledgerContext';
+import { datasetJsonLd, dateOnly } from '../../lib/siteSeo';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -92,6 +94,19 @@ const priorArt = {
   description="Read-only conformance probe over the ERC-8004 Identity Registry on Base. What share of registered agents resolve to nothing, named limb by limb. Not a reputation score."
   fonts={fonts}
 >
+  <Fragment slot="head">
+    <JsonLd
+      data={datasetJsonLd({
+        name: 'ERC-8004 refusal ledger',
+        description:
+          'Read-only conformance probe over the ERC-8004 Identity Registry on Base. Named limb refusals for the sampled population at the pinned block. Not a reputation score.',
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        datePublished: dateOnly(p.generated_at),
+        creator: 'geniusflow',
+        about: 'ERC-8004 Identity Registry on Base',
+      })}
+    />
+  </Fragment>
   <Nav cta={{ label: 'Request Pilot', href: requestAccess }} />
 
   <div class="rank-hero" id="main">

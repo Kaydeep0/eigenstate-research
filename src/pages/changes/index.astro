@@ -2,7 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import ResearchSurfaces from '../../components/ResearchSurfaces.astro';
 import circle from '../../data/circle-state.json';
+import { webpageJsonLd } from '../../lib/siteSeo';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap';
@@ -10,15 +13,28 @@ const base = import.meta.env.BASE_URL;
 const frontier = circle.change_frontier || {};
 const hops = circle.relationships || [];
 ---
-<Layout title="Change frontier · Eigenstate Research" description="No manufactured before/after. Waiting for a comparable prospective observation." fonts={fonts}>
+<Layout title="CIRCLE change frontier · Eigenstate Research" description="No manufactured before/after. Waiting for a comparable prospective observation." fonts={fonts}>
+  <Fragment slot="head">
+    <JsonLd
+      data={webpageJsonLd({
+        name: 'CIRCLE change frontier',
+        description: 'No manufactured before/after. Waiting for a comparable prospective observation.',
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        creator: 'geniusflow',
+        about: 'CIRCLE',
+      })}
+    />
+  </Fragment>
   <Nav active="state" />
   <main class="wrap">
     <p class="kicker">Change frontier</p>
-    <h1>CIRCLE</h1>
+    <h1>CIRCLE change frontier</h1>
+    <ResearchSurfaces current="state" />
     <p class="navline">
       <a href={`${base}state/`}>State</a>
-      <a href={`${base}changes/`}>Changes</a>
+      <a href={`${base}changes/`}>Change frontier</a>
       <a href={`${base}experiment/`}>Experiment</a>
+      <a href={`${base}methodology/`}>Methodology</a>
     </p>
     <pre>{`Comparable prior state:    ${frontier.comparable_prior_state}
 WORLD_OBSERVED:            ${frontier.world_observed}

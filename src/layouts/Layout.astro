@@ -12,9 +12,21 @@ interface Props {
   fonts?: string;
   ogImage?: string;
   ogType?: 'website' | 'article';
+  /** e.g. "noindex" on 404. Omit on indexable research pages. */
+  robots?: string;
+  /** False on error pages — do not emit a canonical to /404/. */
+  includeCanonical?: boolean;
 }
 
-const { title, description, fonts, ogImage, ogType = 'website' } = Astro.props;
+const {
+  title,
+  description,
+  fonts,
+  ogImage,
+  ogType = 'website',
+  robots,
+  includeCanonical = true,
+} = Astro.props;
 const base = import.meta.env.BASE_URL;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const resolvedOgImage = new URL(ogImage ?? `${base}assets/images/chart.png`, Astro.site).toString();
@@ -27,14 +39,15 @@ const resolvedOgImage = new URL(ogImage ?? `${base}assets/images/chart.png`, Ast
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
-    <link rel="canonical" href={canonicalURL} />
+    {robots && <meta name="robots" content={robots} />}
+    {includeCanonical && <link rel="canonical" href={canonicalURL} />}
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
 
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="Eigenstate Research" />
     <meta property="og:title" content={title} />
     {description && <meta property="og:description" content={description} />}
-    <meta property="og:url" content={canonicalURL} />
+    {includeCanonical && <meta property="og:url" content={canonicalURL} />}
     <meta property="og:image" content={resolvedOgImage} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />

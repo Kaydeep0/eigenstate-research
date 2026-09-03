@@ -3,6 +3,10 @@ import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import ResearchSurfaces from '../../../components/ResearchSurfaces.astro';
+import { geniusFlowCreativeWorkJsonLd } from '../../../lib/siteSeo';
+import { hubSlugForEntityCode } from '../../../lib/reports';
 
 export async function getStaticPaths() {
   const pieces = await getCollection('geniusflow-mim');
@@ -20,6 +24,9 @@ const base = import.meta.env.BASE_URL;
 const visual = entry.data.visual
   ? new URL(`${base}${entry.data.visual}`, Astro.site).toString()
   : undefined;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const hubSlug = hubSlugForEntityCode(entry.data.entity);
+const schemaName = `GeniusFlow cash-flow narrative · ${entry.data.entity_display} · ${entry.data.date_iso} · ${entry.data.report_id}`;
 ---
 
 <Layout
@@ -29,6 +36,16 @@ const visual = entry.data.visual
   ogImage={visual}
 >
   <Fragment slot="head">
+    <JsonLd
+      data={geniusFlowCreativeWorkJsonLd({
+        name: schemaName,
+        description: `${entry.data.entity_display} cash-flow narrative · GeniusFlow machine spine`,
+        url: canonicalURL,
+        datePublished: entry.data.date_iso,
+        about: entry.data.entity_display,
+        reportId: entry.data.report_id,
+      })}
+    />
     <style>
       .article-wrap {
         max-width: 720px;
@@ -50,6 +67,9 @@ const visual = entry.data.visual
         letter-spacing: 0.04em;
         margin: 0 0 24px;
         color: var(--text-secondary);
+      }
+      .machine-note a {
+        color: var(--signal);
       }
       .lead-visual {
         width: 100%;
@@ -86,6 +106,12 @@ const visual = entry.data.visual
     <p class="eyebrow">GeniusFlow · {entry.data.entity_display} · {entry.data.date}</p>
     <p class="machine-note">
       GeniusFlow cash-flow narrative. Machine-generated. Not Host-authored research.
+    </p>
+    <ResearchSurfaces current="machine" />
+    <p class="machine-note">
+      Host essays (separate object): <a href={`${base}money-in-motion/`}>Money in Motion</a>
+      · Matching field reports: <a href={`${base}reports/${hubSlug}/`}>{entry.data.entity_display} hub</a>
+      · Maintained state: <a href={`${base}state/`}>CIRCLE state</a>
     </p>
     {
       entry.data.visual && (

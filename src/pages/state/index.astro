@@ -2,7 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import ResearchSurfaces from '../../components/ResearchSurfaces.astro';
 import circle from '../../data/circle-state.json';
+import { webpageJsonLd } from '../../lib/siteSeo';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap';
@@ -20,16 +23,29 @@ function slot(env) {
 }
 ---
 <Layout title="CIRCLE state · Eigenstate Research" description="Read-only maintained entity state. UNKNOWN stays UNKNOWN." fonts={fonts}>
+  <Fragment slot="head">
+    <JsonLd
+      data={webpageJsonLd({
+        name: 'CIRCLE maintained state',
+        description: 'Read-only maintained entity state. UNKNOWN stays UNKNOWN.',
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        creator: 'geniusflow',
+        about: 'CIRCLE',
+      })}
+    />
+  </Fragment>
   <Nav active="state" />
   <main class="wrap">
     <p class="kicker">Maintained entity state</p>
-    <h1>CIRCLE</h1>
+    <h1>CIRCLE maintained state</h1>
     <p class="lede">GeniusFlow is not merely returning an answer. It is maintaining the epistemic condition of an entity. UNKNOWN stays UNKNOWN.</p>
+    <ResearchSurfaces current="state" />
     <p class="navline">
       <a href={`${base}state/`}>State</a>
-      <a href={`${base}changes/`}>Changes</a>
+      <a href={`${base}changes/`}>Change frontier</a>
       <a href={`${base}experiment/`}>Experiment</a>
       <a href={`${base}methodology/`}>Methodology</a>
+      <a href={`${base}dossier/CIRCLE/`}>CIRCLE dossier</a>
     </p>
     <h2>Observed</h2>
     <pre>{`Claims                     ${obs.claims}

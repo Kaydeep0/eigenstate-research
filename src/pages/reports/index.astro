@@ -3,6 +3,9 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import ResearchSurfaces from '../../components/ResearchSurfaces.astro';
+import { collectionPageJsonLd } from '../../lib/siteSeo';
 import { slugFor, hubSlugForEntityCode } from '../../lib/reports';
 import {
   loadSot,
@@ -91,6 +94,17 @@ function formatShort(iso: string): string {
   description="Public actors we observe with dated signal reports. Kind, latest report, last activity; Φ_S secondary. Dimensions demoted."
   fonts={fonts}
 >
+  <Fragment slot="head">
+    <JsonLd
+      data={collectionPageJsonLd({
+        name: 'Measured actors',
+        description:
+          'Public actors we observe with dated signal reports. Kind, latest report, last activity; Φ_S secondary. Dimensions demoted.',
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        creator: 'geniusflow',
+      })}
+    />
+  </Fragment>
   <Fragment slot="head">
     <style>
       .page-hero {
@@ -563,6 +577,12 @@ function formatShort(iso: string): string {
       not the default sort.{' '}
       <a href={`${base}methodology/#glossary`}>Numbers glossary</a> ·{' '}
       <a href={`${base}track-record/`}>Track Record</a>
+    </p>
+    <ResearchSurfaces current="evidence" />
+    <p class="sot-note">
+      These are GeniusFlow field position reports (machine evidence). Host essays live on{' '}
+      <a href={`${base}money-in-motion/`}>Money in Motion</a>. CIRCLE maintained state is on{' '}
+      <a href={`${base}state/`}>/state/</a>, not here.
     </p>
   </div>
 

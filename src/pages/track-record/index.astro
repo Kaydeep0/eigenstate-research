@@ -8,6 +8,8 @@ import {
   outcomeKind,
   outcomeLabel,
 } from '../../lib/predictionOutcomes';
+import JsonLd from '../../components/JsonLd.astro';
+import { itemListJsonLd } from '../../lib/siteSeo';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -70,6 +72,15 @@ const resolvedRows = (sb.resolved || []).map((row) => {
   fonts={fonts}
 >
   <Fragment slot="head">
+    <JsonLd
+      data={itemListJsonLd({
+        name: 'Host prediction register',
+        description:
+          'Verifiable Host prediction register: scored claims with deadlines, honest assessable counts, and live engine SoT. Public falsifiability, not marketing accuracy.',
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        itemNames: resolvedRows.map(({ meta, id }) => meta?.title || id).filter(Boolean),
+      })}
+    />
     <style>
       *,
       *::before,

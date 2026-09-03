@@ -2,9 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import JsonLd from '../../components/JsonLd.astro';
 import survey from '../../data/rwa_disclosure.json';
 import registryRows from '../../data/rwa-registry-rows.json';
 import { ledgerDeltaLine } from '../../lib/ledgerContext';
+import { datasetJsonLd, dateOnly } from '../../lib/siteSeo';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -117,6 +119,19 @@ const registry = registryRows as {
   description="Real world asset issuers and tokenized instruments, checked for whether a program can read their disclosed figure without a human, a document parser, or a third party."
   fonts={fonts}
 >
+  <Fragment slot="head">
+    <JsonLd
+      data={datasetJsonLd({
+        name: 'RWA disclosure survey',
+        description:
+          'Whether a program can read the disclosed reserve figure without a human, a document parser, or a third party. This node tracks the issuers listed on this page — not a sector-wide study.',
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        datePublished: dateOnly(s.generated_at),
+        creator: 'geniusflow',
+        about: 'RWA issuer disclosure surfaces',
+      })}
+    />
+  </Fragment>
   <Nav cta={{ label: 'Request Pilot', href: requestAccess }} />
 
   <div class="rank-hero" id="main">

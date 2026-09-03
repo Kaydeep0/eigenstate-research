@@ -4,7 +4,9 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import PredictionCard from '../../components/PredictionCard.astro';
+import JsonLd from '../../components/JsonLd.astro';
 import { loadSot } from '../../lib/sot';
+import { itemListJsonLd } from '../../lib/siteSeo';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -31,6 +33,17 @@ const stats = {
   description="Human claim-detail cards for early structural gap predictions. Scored Host register and outcomes live on Track Record."
   fonts={fonts}
 >
+  <Fragment slot="head">
+    <JsonLd
+      data={itemListJsonLd({
+        name: 'Host claim-detail cards',
+        description:
+          'Human claim-detail cards for early structural gap predictions. Scored Host register and outcomes live on Track Record.',
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        itemNames: predictions.map((p) => p.data.title),
+      })}
+    />
+  </Fragment>
   <Fragment slot="head">
     <style>
       *,

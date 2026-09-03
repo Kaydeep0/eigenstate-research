@@ -2,8 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import JsonLd from '../../components/JsonLd.astro';
 import corpus from '../../data/grounded_claims.json';
 import { ledgerDeltaLine } from '../../lib/ledgerContext';
+import { datasetJsonLd, dateOnly } from '../../lib/siteSeo';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -107,6 +109,19 @@ const firstReproduce = c.per_claim[0]?.reproduce ?? '';
   description="Every SEC and Federal Reserve claim this node publishes, rechecked against what those URLs serve today and against the free EDGAR full text index."
   fonts={fonts}
 >
+  <Fragment slot="head">
+    <JsonLd
+      data={datasetJsonLd({
+        name: 'Grounded claim corpus',
+        description:
+          'Every SEC and Federal Reserve claim this node publishes, rechecked against what those URLs serve today and against the free EDGAR full text index. This node corpus, not a sector rate.',
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        datePublished: dateOnly(c.generated_at),
+        creator: 'geniusflow',
+        about: 'SEC and Federal Reserve grounded claims on this node',
+      })}
+    />
+  </Fragment>
   <Nav cta={{ label: 'Request Pilot', href: requestAccess }} />
 
   <div class="rank-hero" id="main">

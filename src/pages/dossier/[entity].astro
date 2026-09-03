@@ -5,6 +5,9 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { formatNum } from '../../lib/sot';
+import JsonLd from '../../components/JsonLd.astro';
+import { isJunkDossierEntity } from '../../lib/sitemapDates';
+import { webpageJsonLd } from '../../lib/siteSeo';
 
 export function getStaticPaths() {
   const dir = path.join(process.cwd(), 'public', 'federation', 'dossier');
@@ -12,7 +15,9 @@ export function getStaticPaths() {
   return fs
     .readdirSync(dir)
     .filter((f) => f.endsWith('.json') && !f.startsWith('index'))
-    .map((f) => ({ params: { entity: f.replace(/\.json$/, '') } }));
+    .map((f) => f.replace(/\.json$/, ''))
+    .filter((entity) => !isJunkDossierEntity(entity))
+    .map((entity) => ({ params: { entity } }));
 }
 
 const { entity } = Astro.params;
@@ -71,6 +76,17 @@ const fonts =
   description={`Human-readable maintained entity state for ${display}. UNKNOWN stays UNKNOWN.`}
   fonts={fonts}
 >
+  <Fragment slot="head">
+    <JsonLd
+      data={webpageJsonLd({
+        name: `${display} dossier`,
+        description: `Human-readable maintained entity state for ${display}. UNKNOWN stays UNKNOWN.`,
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        creator: 'geniusflow',
+        about: display,
+      })}
+    />
+  </Fragment>
   <Fragment slot="head">
     <style>
       .wrap {
@@ -292,6 +308,9 @@ Change        ${envSlot(pepField.change)}`}</pre>
             <a href={methodology}>Methodology</a>
             <a href={verify}>Verify walkthrough</a>
             <a href={reportIndex}>Related reports</a>
+            <a href={`${base}state/`}>CIRCLE maintained state</a>
+            <a href={`${base}experiment/`}>Open experiment</a>
+            <a href={`${base}money-in-motion/`}>Human research</a>
           </div>
           {
             inbound.length > 0 || outbound.length > 0 ? (

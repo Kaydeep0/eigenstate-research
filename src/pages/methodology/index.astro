@@ -2,6 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import ResearchSurfaces from '../../components/ResearchSurfaces.astro';
+import { techArticleJsonLd } from '../../lib/siteSeo';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -109,6 +112,16 @@ const glossary = [
   fonts={fonts}
 >
   <Fragment slot="head">
+    <JsonLd
+      data={techArticleJsonLd({
+        name: 'Methodology',
+        description:
+          'How Eigenstate measures the tokenized settlement field: Measure, Publish, Act - equation, vault, helix honesty, verify gates, topology, and structural gaps.',
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+      })}
+    />
+  </Fragment>
+  <Fragment slot="head">
     <style>
       html {
         scroll-behavior: smooth;
@@ -152,6 +165,10 @@ const glossary = [
         line-height: 1.7;
         margin: 0 0 12px;
         max-width: 640px;
+      }
+
+      .meth-hero :global(.surfaces) {
+        margin-top: 18px;
       }
 
       .meth-hero .honesty {
@@ -603,6 +620,7 @@ const glossary = [
     <p class="honesty">
       Structural measurement · not a trade signal · Base commits only when gates pass
     </p>
+    <ResearchSurfaces />
   </header>
 
   <nav class="meth-toc" aria-label="Methodology walkthrough">
@@ -640,6 +658,9 @@ const glossary = [
         <a href={`${base}state/`}>/state</a> ·
         <a href={`${base}changes/`}>/changes</a> ·
         <a href={`${base}experiment/`}>/experiment</a>
+        · Human research: <a href={`${base}money-in-motion/`}>Money in Motion</a>
+        · Machine evidence: <a href={`${base}reports/`}>Signal reports</a>
+        · GeniusFlow narratives: <a href={`${base}geniusflow/mim/circle-20260812-mim/`}>machine spines</a>
       </p>
     </section>
 

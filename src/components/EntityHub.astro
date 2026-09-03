@@ -7,6 +7,8 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from './Nav.astro';
 import Footer from './Footer.astro';
+import JsonLd from './JsonLd.astro';
+import { collectionPageJsonLd } from '../lib/siteSeo';
 import {
   loadSot,
   resolveReportMetrics,
@@ -95,6 +97,14 @@ function formatShort(iso: string): string {
 
 <Layout title={`${entityDisplay} · Entity hub · Eigenstate Research`} description={description} fonts={fonts}>
   <Fragment slot="head">
+    <JsonLd
+      data={collectionPageJsonLd({
+        name: `${entityDisplay} entity hub`,
+        description,
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        creator: 'geniusflow',
+      })}
+    />
     <style>
       *,
       *::before,

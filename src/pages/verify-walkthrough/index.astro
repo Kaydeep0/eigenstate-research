@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { howtoJsonLd } from '../../lib/siteSeo';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -39,6 +41,24 @@ const refuseBody = `{
   description="Copy-paste federation walkthrough: status → dossier → package/verify for one real entity (AAVE_V3). Admit vs refuse, proof_shape, return-wire."
   fonts={fonts}
 >
+  <Fragment slot="head">
+    <JsonLd
+      data={howtoJsonLd({
+        name: 'Verify walkthrough',
+        description:
+          'Copy-paste federation walkthrough: status → dossier → package/verify for one real entity (AAVE_V3). Admit vs refuse, proof_shape, return-wire.',
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        steps: [
+          'OpenAPI + status',
+          'Dossier for one entity',
+          'Package — admit',
+          'Package — refuse',
+          'Verify grounding',
+          'Return-wire',
+        ],
+      })}
+    />
+  </Fragment>
   <Fragment slot="head">
     <style>
       .page-hero {

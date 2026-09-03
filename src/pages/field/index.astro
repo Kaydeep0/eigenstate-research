@@ -6,6 +6,8 @@ import Footer from '../../components/Footer.astro';
 import fieldGraph from '../../../public/field-graph.json';
 import { formatNum, entityCodeFromReportId } from '../../lib/sot';
 import { slugFor } from '../../lib/reports';
+import JsonLd from '../../components/JsonLd.astro';
+import { webpageJsonLd } from '../../lib/siteSeo';
 const W = 1200;
 const H = 760;
 
@@ -59,6 +61,17 @@ for (const r of await getCollection('reports')) {
   description="Live topology of measured entities and their connections. Node size is Φ_S from the engine dossier mirror."
   fonts={fonts}
 >
+  <Fragment slot="head">
+    <JsonLd
+      data={webpageJsonLd({
+        name: 'Field graph',
+        description: 'Live topology of measured entities and their connections. Node size is Φ_S from the engine dossier mirror.',
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        creator: 'geniusflow',
+        about: 'Measured settlement-layer entities',
+      })}
+    />
+  </Fragment>
   <Fragment slot="head">
     <style>
       .field-hero {

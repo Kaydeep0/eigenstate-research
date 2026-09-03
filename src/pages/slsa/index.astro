@@ -2,8 +2,10 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import JsonLd from '../../components/JsonLd.astro';
 import census from '../../data/slsa_provenance.json';
 import { ledgerDeltaLine } from '../../lib/ledgerContext';
+import { datasetJsonLd, dateOnly } from '../../lib/siteSeo';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -109,6 +111,19 @@ const refuseRate = share(c.must_refuse);
   description="Every distribution this engine installs, checked for a PEP 740 attestation, verified against Sigstore, and then asked whether the attestation is SLSA build provenance."
   fonts={fonts}
 >
+  <Fragment slot="head">
+    <JsonLd
+      data={datasetJsonLd({
+        name: 'Provenance census',
+        description:
+          'Census of distributions this engine installs: PEP 740 attestation present, Sigstore verify, then whether the attestation is SLSA build provenance. One install set, not PyPI-wide.',
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        datePublished: dateOnly(c.generated_at),
+        creator: 'geniusflow',
+        about: 'PEP 740 / SLSA provenance for this node install set',
+      })}
+    />
+  </Fragment>
   <Nav cta={{ label: 'Request Pilot', href: requestAccess }} />
 
   <div class="rank-hero" id="main">

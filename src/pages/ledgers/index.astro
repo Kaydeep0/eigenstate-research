@@ -2,7 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import JsonLd from '../../components/JsonLd.astro';
 import history from '../../data/ledger_refresh.json';
+import { datasetJsonLd, dateOnly } from '../../lib/siteSeo';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -127,6 +129,19 @@ const rows = [...h.ledgers].sort((a, b) => b.latest_run_at.localeCompare(a.lates
   description="Every measured ledger this node publishes, with one append-only row per publication, so a reader can check whether a number held the second time."
   fonts={fonts}
 >
+  <Fragment slot="head">
+    <JsonLd
+      data={datasetJsonLd({
+        name: 'Measured ledgers',
+        description:
+          'Every measured ledger this node publishes, with one append-only row per publication, so a reader can check whether a number held the second time.',
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        datePublished: dateOnly(h.generated_at),
+        creator: 'geniusflow',
+        about: 'Measured ledgers published by this node',
+      })}
+    />
+  </Fragment>
   <Nav cta={{ label: 'Request Pilot', href: requestAccess }} />
 
   <div class="rank-hero" id="main">

@@ -1,6 +1,8 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import { MIM_SITEMAP_LASTMOD } from './src/lib/mimSeo.ts';
+import { buildSitemapLastmod, isSitemapJunkPath } from './src/lib/sitemapDates.ts';
+
+const SITEMAP_LASTMOD = buildSitemapLastmod();
 
 export default defineConfig({
   site: 'https://kaydeep0.github.io',
@@ -8,11 +10,17 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     sitemap({
+      filter(page) {
+        return !isSitemapJunkPath(new URL(page).pathname);
+      },
       serialize(item) {
         const path = new URL(item.url).pathname;
-        const lastmod = MIM_SITEMAP_LASTMOD[path];
+        if (isSitemapJunkPath(path)) return undefined;
+        const lastmod = SITEMAP_LASTMOD[path];
         if (lastmod) {
           item.lastmod = lastmod;
+        } else {
+          delete item.lastmod;
         }
         return item;
       },

@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { howtoJsonLd } from '../../lib/siteSeo';
 
 const fonts =
   'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
@@ -50,6 +52,24 @@ curl -sS -X POST ${fed}/api/cite \\
   description="Free metalayer path: cite → verify → package → Darshan honesty. Pilot DRAFT, n_scored=1 (thin, gate 10), Task 5.4 HOLD. Not a paid confidence product."
   fonts={fonts}
 >
+  <Fragment slot="head">
+    <JsonLd
+      data={howtoJsonLd({
+        name: 'Free Mode A — Investor Walkthrough',
+        description:
+          'Free metalayer path: cite → verify → package → Darshan honesty. Pilot DRAFT, n_scored=1 (thin, gate 10). Not a paid confidence product.',
+        url: new URL(Astro.url.pathname, Astro.site).toString(),
+        steps: [
+          'Honesty board',
+          'Status',
+          'Pull a published claim',
+          'Cite',
+          'Package — admit vs refuse',
+          'Darshan honesty',
+        ],
+      })}
+    />
+  </Fragment>
   <Fragment slot="head">
     <style>
       .page-hero {
