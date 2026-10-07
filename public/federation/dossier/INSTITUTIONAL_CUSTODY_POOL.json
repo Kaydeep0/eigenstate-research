@@ -1,11 +1,11 @@
 {
   "entity": "INSTITUTIONAL_CUSTODY_POOL",
   "node": "34539544",
-  "compiled_at": "2026-10-07T22:09:20.609447+00:00",
-  "digest": "sha256:78a03b18b818e42334788247fe20f4cbb3666fc435a11529dc9b7e1710e0348d",
+  "compiled_at": "2026-10-07T22:51:25.295256+00:00",
+  "digest": "sha256:4da438a6f7a428deed420470631ea6538cd57389f82079366c0e135bc57ee28e",
   "own_numbers": {
     "phi_s": 0.115,
-    "kappa": 0.2017,
+    "kappa": 0.0938,
     "mass": 0.087,
     "power": null,
     "extraction": null,
@@ -78,12 +78,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "watch",
-    "headline": "kappa +0.153 over 232 cycles",
-    "cycles": 232,
+    "level": "steady",
+    "headline": null,
+    "cycles": 233,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0275,
+      "kappa": -0.1079,
       "boundary_score": 0.0
     }
   },
@@ -232,7 +232,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "INSTITUTIONAL_CUSTODY_POOL",
     "observed_at": null,
-    "compiled_at": "2026-10-07T22:09:20.609447+00:00",
+    "compiled_at": "2026-10-07T22:51:25.295256+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -422,9 +422,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-07T22:09:20.609447+00:00",
+        "compiled_at": "2026-10-07T22:51:25.295256+00:00",
         "last_observation": null,
-        "drift_cycles": 232
+        "drift_cycles": 233
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -610,7 +610,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.2017,
+        "value": 0.0938,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -736,7 +736,7 @@
         "entity_id": "INSTITUTIONAL_CUSTODY_POOL",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.2017,
+        "magnitude": 0.0938,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -843,7 +843,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:4383be802c9ce2182b89b11b56231b647413ea844b1f1f12bbd98c894f4312cf"
+    "snapshot_id": "sha256:824d16935fdd3f2c16aab35ad9db49a9b22e9ff9f0efbe10b4afc1b22ed1cb45"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -882,11 +882,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:4383be802c9ce2182b89b11b56231b647413ea844b1f1f12bbd98c894f4312cf",
-  "projection_compiled_at": "2026-10-07T22:09:20.773407+00:00",
+  "source_snapshot_id": "sha256:824d16935fdd3f2c16aab35ad9db49a9b22e9ff9f0efbe10b4afc1b22ed1cb45",
+  "projection_compiled_at": "2026-10-07T22:51:25.342986+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-07T22:09:20.773407+00:00",
+    "projection_compiled_at": "2026-10-07T22:51:25.342986+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -894,11 +894,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:4383be802c9ce2182b89b11b56231b647413ea844b1f1f12bbd98c894f4312cf",
-    "compiled_at": "2026-10-07T22:09:20.773407+00:00",
+    "source_snapshot_id": "sha256:824d16935fdd3f2c16aab35ad9db49a9b22e9ff9f0efbe10b4afc1b22ed1cb45",
+    "compiled_at": "2026-10-07T22:51:25.342986+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-07T22:09:20.773407+00:00",
+      "projection_compiled_at": "2026-10-07T22:51:25.342986+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -1002,9 +1002,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-07T22:09:20.609447+00:00",
+          "compiled_at": "2026-10-07T22:51:25.295256+00:00",
           "last_observation": null,
-          "drift_cycles": 232
+          "drift_cycles": 233
         },
         "reason": null,
         "family": "observation_age",
@@ -1213,8 +1213,8 @@
       "entity": "INSTITUTIONAL_CUSTODY_POOL",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 158,
-      "identity_comparable_transitions": 153,
+      "n_prospective_snapshots": 159,
+      "identity_comparable_transitions": 154,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
