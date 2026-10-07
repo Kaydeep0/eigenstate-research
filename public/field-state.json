@@ -1,7 +1,7 @@
 {
   "schema": "eigenstate.pages_sot.v1",
   "sot_definition": "SoT (source of truth) for Host/Pages is the engine measurement state: workspace/HOST/state.json (κ, PT, parkash stamps), M1 coverage from the coverage ledger (m1_strict ∩ topology / 199), and the host predictions register for scored claims. Website tiles must bake from this stamp — not frozen marketing HTML.",
-  "generated_at": "2026-10-07T19:05:03.427862+00:00",
+  "generated_at": "2026-10-07T19:22:54.802151+00:00",
   "sources": {
     "host_ref": "workspace/HOST/state.json",
     "host_updated_at": "2026-10-07T04:55:38.006978+00:00",
@@ -11,12 +11,12 @@
     "data_ref": "geniusflow/data"
   },
   "field": {
-    "kappa": 0.6,
-    "kappa_act": 0.6,
+    "kappa": 0.181426,
+    "kappa_act": 0.181426,
     "kappa_graph": 0.6682,
     "kappa_note": "kappa and kappa_act are the capture/act blend. kappa_graph is topology diagnostic.",
-    "protocol_truth": 0.017645,
-    "PT": 0.017645,
+    "protocol_truth": 0.013326,
+    "PT": 0.013326,
     "G_external_cumulative": 385.12,
     "mode": "sahaj",
     "canonical_act_threshold": 0.618034
@@ -38,8 +38,8 @@
   },
   "vault_at_export": {
     "note": "cycle_vault_records.json is a trimmed working buffer. Per-entity counts here are vault@export rows — not M1 lifetime observations.",
-    "total_rows": 64,
-    "entities_with_rows": 46,
+    "total_rows": 65,
+    "entities_with_rows": 47,
     "by_entity": {
       "CIRCLE": 5,
       "TETHER": 2,
@@ -86,7 +86,8 @@
       "HIGHWAY": 1,
       "DEFI_AUDIENCE": 1,
       "CRYPTO_NATIVE_AUDIENCE": 1,
-      "RWA_AUDIENCE": 1
+      "RWA_AUDIENCE": 1,
+      "FED": 1
     }
   },
   "entity_m1_obs_counts": {
@@ -289,12 +290,6 @@
     "34539544": 1
   },
   "pt_kappa_series": [
-    {
-      "cycle_id": 121,
-      "t_close": "2026-09-08T23:10:38.735400+00:00",
-      "PT": 0.030178,
-      "kappa": 0.467279
-    },
     {
       "cycle_id": 122,
       "t_close": "2026-09-09T02:33:55.149369+00:00",
@@ -1008,6 +1003,12 @@
       "t_close": "2026-10-07T06:18:06.134478+00:00",
       "PT": 0.015587,
       "kappa": 0.222655
+    },
+    {
+      "cycle_id": 241,
+      "t_close": "2026-10-07T19:06:05.711318+00:00",
+      "PT": 0.017645,
+      "kappa": 0.236636
     }
   ],
   "predictions_scoreboard": {
@@ -1266,9 +1267,9 @@
     }
   ],
   "helix": {
-    "index": 14168,
+    "index": 14169,
     "fingerprint_prefix": null,
-    "n_entries": 14169,
+    "n_entries": 14170,
     "note": "Local helix chain tip at export — on-chain commits remain gated."
   },
   "meta": {
