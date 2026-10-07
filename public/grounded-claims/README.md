@@ -1,6 +1,6 @@
 # Grounded claim corpus: the SEC and Fed claims this node publishes, rechecked
 
-Generated 2026-08-16T11:00:12.946222+00:00 · probe v1.0.1 · digest `d94b8706ffadc18e`
+Generated 2026-09-20T11:00:08.999290+00:00 · probe v1.0.1 · digest `0e1cba15654e4d9f`
 
 The population, every source URL and expected string, the limbs with their admit conditions and seven predictions were published before this run at digest `dc8f54dfef2d82e8`, in an earlier commit. Nothing in that file was edited afterwards.
 
@@ -11,7 +11,7 @@ A citation is not a check. This node publishes claims with a source URL and an e
 - **6 of 6** expected strings are still present in the bytes the cited URL serves today.
 - **0 of 6** claims cite a primary filing document. The rest cite a regulator website page.
 - **1 of 6** claims are held at more than one verdict inside this node's own ledger. The published card serves one side.
-- **3 of 6** claims are corroborated by the body of a primary filing a free public index returned, and **0 of 6** by a document the regulator itself authored.
+- **0 of 6** claims are corroborated by the body of a primary filing a free public index returned, and **0 of 6** by a document the regulator itself authored.
 - **5 of 6** clear every MUST limb; **0 of 6** clear MUST and SHOULD together.
 
 The corpus is 6 claims carried by 19 ledger rows. That is the whole of this node's regulator grounded surface, not a sample of it. The size is a finding rather than a limitation being excused.
@@ -38,9 +38,9 @@ MUST means a reader cannot check the claim by the route this node offers without
 - `ledger_rows_agree` (MUST, record chain): ok 5, fail 1, not applicable 0, not reached 0
 - `citation_is_a_primary_filing` (OBSERVED, corroboration chain): ok 0, fail 6, not applicable 0, not reached 0
 - `full_text_index_exists` (OBSERVED, corroboration chain): ok 3, fail 3, not applicable 0, not reached 0
-- `full_text_index_answers` (OBSERVED, corroboration chain): ok 3, fail 0, not applicable 0, not reached 3
-- `independent_filing_corroborates` (OBSERVED, corroboration chain): ok 3, fail 0, not applicable 0, not reached 3
-- `corroborating_document_authored_by_the_regulator` (OBSERVED, corroboration chain): ok 0, fail 3, not applicable 0, not reached 3
+- `full_text_index_answers` (OBSERVED, corroboration chain): ok 0, fail 3, not applicable 0, not reached 3
+- `independent_filing_corroborates` (OBSERVED, corroboration chain): ok 0, fail 0, not applicable 0, not reached 6
+- `corroborating_document_authored_by_the_regulator` (OBSERVED, corroboration chain): ok 0, fail 0, not applicable 0, not reached 6
 
 ## Where they refuse
 
@@ -61,7 +61,7 @@ Who each refusal belongs to:
 
 The SEC operates a free full text index over registrant filings that any program can query without credentials. The Federal Reserve operates no equivalent over its own statements. Of the 6 claims, 3 had an index to ask and 3 did not, and that refusal belongs to the absence of an index rather than to the claim or to this node.
 
-Where an index existed it answered for 3 of 3 claims. This probe then fetched 3 filing documents and found the recorded string in the body of a filing for 3 claims.
+Where an index existed it answered for 0 of 3 claims. This probe then fetched 0 filing documents and found the recorded string in the body of a filing for 0 claims.
 
 A corroborating filing is a registrant's document. It shows the phrase is used in a primary filing and it does not make the filer authoritative for the claim. Neither regulator in this corpus files on EDGAR as a registrant, so the limb asking whether the corroborating document was authored by the regulator cannot pass for any claim here, and the empty CIK sets that make that true were published in the expectations file rather than filled with a plausible looking number.
 
@@ -74,10 +74,10 @@ These were written into the expectations file and published before the run. Each
 - met (not blind): No claim in this corpus cites a primary filing document. Every citation is a regulator website page describing one. Observed: 0 of 6 citations were primary filings.
 - met (blind): Every claim's expected string is still present in the bytes served at its cited URL today. Observed: 6 of 6 expected strings were present in the bytes served today.
 - met (blind): No source in this corpus serves machine readable bytes. Observed: 0 of 6 sources served machine readable bytes.
-- met (not blind): The free EDGAR full text index answers with at least one hit for every claim in this corpus that has an index to ask, and the Federal Reserve claims have none, because no free full text index exists over the Federal Reserve's own statements. Observed: 3 of 3 claims with an index answered with a hit; 3 Federal Reserve claims had no index to ask.
+- missed (not blind): The free EDGAR full text index answers with at least one hit for every claim in this corpus that has an index to ask, and the Federal Reserve claims have none, because no free full text index exists over the Federal Reserve's own statements. Observed: 0 of 3 claims with an index answered with a hit; 3 Federal Reserve claims had no index to ask.
 - met (blind): No claim in this corpus is corroborated by a primary document the regulator itself authored. Where a filing carries the string, the filer is a registrant describing the regulator. Observed: 0 of 6 claims were corroborated by a document the regulator authored.
 - met (not blind): This node's own ledger holds at least one claim whose rows disagree about its verdict, and the published card serves one side of that disagreement without saying the other exists. Observed: 1 of 6 claims had ledger rows that disagree.
-- met (blind): At least half the claims in this corpus are corroborated by the body of an independent primary filing the index returned. Observed: 3 of 6 claims were corroborated by an independent filing body.
+- missed (blind): At least half the claims in this corpus are corroborated by the body of an independent primary filing the index returned. Observed: 0 of 6 claims were corroborated by an independent filing body.
 
 ## Per claim
 

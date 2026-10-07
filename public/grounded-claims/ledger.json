@@ -9,8 +9,8 @@
       "fix": "The receipt now names the first failing MUST limb, and falls back to a SHOULD only when no MUST failed. Because the three chains run independently there is no single sequence for limbs to fail in, so severity is the only ordering that means anything."
     }
   ],
-  "generated_at": "2026-08-16T11:00:12.946222+00:00",
-  "engine_commit": "5ca3050f7d863707ac5aefc3c876b5b755b39d9b",
+  "generated_at": "2026-09-20T11:00:08.999290+00:00",
+  "engine_commit": "753c3831d223ddfb4282e7d026c91b3e46bdce12",
   "expectations_digest": "dc8f54dfef2d82e8889a762b5949c1fdf7e12c8ec88baa9ef4f2b347ebe1d4dc",
   "expectations_generated_at": "2026-08-02T05:18:03.844604+00:00",
   "expectations_url": "https://geniusflow-federation.vercel.app/grounded-claims/expectations.json",
@@ -215,15 +215,11 @@
     "ledger_rows_agree": 5,
     "ledger_rows_disagree": 1,
     "full_text_index_exists": 3,
-    "full_text_index_answered": 3,
-    "independently_corroborated_by_a_filing": 3,
+    "full_text_index_answered": 0,
+    "independently_corroborated_by_a_filing": 0,
     "corroborated_by_the_regulator_itself": 0,
-    "filing_documents_fetched": 3,
-    "index_hit_totals": [
-      964,
-      10000,
-      10000
-    ],
+    "filing_documents_fetched": 0,
+    "index_hit_totals": [],
     "refuse_limb_counts": {
       "source_is_machine_readable": 5,
       "ledger_rows_agree": 1
@@ -320,25 +316,25 @@
         "not_reached": 0
       },
       "full_text_index_answers": {
-        "ok": 3,
-        "fail": 0,
-        "not_applicable": 0,
-        "absent": 0,
-        "not_reached": 3
-      },
-      "independent_filing_corroborates": {
-        "ok": 3,
-        "fail": 0,
-        "not_applicable": 0,
-        "absent": 0,
-        "not_reached": 3
-      },
-      "corroborating_document_authored_by_the_regulator": {
         "ok": 0,
         "fail": 3,
         "not_applicable": 0,
         "absent": 0,
         "not_reached": 3
+      },
+      "independent_filing_corroborates": {
+        "ok": 0,
+        "fail": 0,
+        "not_applicable": 0,
+        "absent": 0,
+        "not_reached": 6
+      },
+      "corroborating_document_authored_by_the_regulator": {
+        "ok": 0,
+        "fail": 0,
+        "not_applicable": 0,
+        "absent": 0,
+        "not_reached": 6
       }
     }
   },
@@ -352,7 +348,7 @@
       "source_url": "https://www.federalreserve.gov/monetarypolicy/fomc.htm",
       "published_status": "ATTESTED-PRIMARY",
       "published_at": "2026-07-29T17:12:42.884016+00:00",
-      "checked_at": "2026-08-16T11:00:01.649552+00:00",
+      "checked_at": "2026-09-20T11:00:01.955963+00:00",
       "must_admit": true,
       "full_admit": false,
       "refuse_limb": "source_is_machine_readable",
@@ -374,7 +370,7 @@
         "source_resolves": {
           "outcome": "ok",
           "status": 200,
-          "bytes": 97382
+          "bytes": 97474
         },
         "expected_string_present_in_served_bytes": {
           "outcome": "ok",
@@ -427,10 +423,10 @@
           "final_url": "https://www.federalreserve.gov/monetarypolicy/fomc.htm",
           "status": 200,
           "content_type": "text/html",
-          "bytes": 97382,
+          "bytes": 97474,
           "truncated_at_probe_cap": false,
           "error": null,
-          "fetched_at": "2026-08-16T11:00:01.647670+00:00"
+          "fetched_at": "2026-09-20T11:00:01.954093+00:00"
         },
         "match": {
           "found": true,
@@ -470,7 +466,7 @@
       "source_url": "https://www.federalreserve.gov/paymentsystems/fednow_about.htm",
       "published_status": "ATTESTED-PRIMARY",
       "published_at": "2026-07-29T17:12:42.718785+00:00",
-      "checked_at": "2026-08-16T11:00:02.328186+00:00",
+      "checked_at": "2026-09-20T11:00:02.713696+00:00",
       "must_admit": true,
       "full_admit": false,
       "refuse_limb": "source_is_machine_readable",
@@ -492,7 +488,7 @@
         "source_resolves": {
           "outcome": "ok",
           "status": 200,
-          "bytes": 82078
+          "bytes": 82006
         },
         "expected_string_present_in_served_bytes": {
           "outcome": "ok",
@@ -545,10 +541,10 @@
           "final_url": "https://www.federalreserve.gov/paymentsystems/fednow_about.htm",
           "status": 200,
           "content_type": "text/html",
-          "bytes": 82078,
+          "bytes": 82006,
           "truncated_at_probe_cap": false,
           "error": null,
-          "fetched_at": "2026-08-16T11:00:02.326888+00:00"
+          "fetched_at": "2026-09-20T11:00:02.712335+00:00"
         },
         "match": {
           "found": true,
@@ -588,7 +584,7 @@
       "source_url": "https://www.federalreserve.gov/aboutthefed.htm",
       "published_status": "ATTESTED-PRIMARY",
       "published_at": "2026-07-29T17:12:42.525950+00:00",
-      "checked_at": "2026-08-16T11:00:03.070583+00:00",
+      "checked_at": "2026-09-20T11:00:03.467099+00:00",
       "must_admit": true,
       "full_admit": false,
       "refuse_limb": "source_is_machine_readable",
@@ -610,7 +606,7 @@
         "source_resolves": {
           "outcome": "ok",
           "status": 200,
-          "bytes": 455621
+          "bytes": 455549
         },
         "expected_string_present_in_served_bytes": {
           "outcome": "ok",
@@ -663,10 +659,10 @@
           "final_url": "https://www.federalreserve.gov/aboutthefed.htm",
           "status": 200,
           "content_type": "text/html",
-          "bytes": 455621,
+          "bytes": 455549,
           "truncated_at_probe_cap": false,
           "error": null,
-          "fetched_at": "2026-08-16T11:00:03.067801+00:00"
+          "fetched_at": "2026-09-20T11:00:03.464599+00:00"
         },
         "match": {
           "found": true,
@@ -706,7 +702,7 @@
       "source_url": "https://www.sec.gov/rules-regulations/staff-guidance/staff-accounting-bulletins/staff-accounting-bulletin-122",
       "published_status": "CONTRADICTED",
       "published_at": "2026-08-02T01:38:07.831666+00:00",
-      "checked_at": "2026-08-16T11:00:06.604861+00:00",
+      "checked_at": "2026-09-20T11:00:05.297576+00:00",
       "must_admit": false,
       "full_admit": false,
       "refuse_limb": "ledger_rows_agree",
@@ -730,7 +726,7 @@
         "source_resolves": {
           "outcome": "ok",
           "status": 200,
-          "bytes": 71887
+          "bytes": 72035
         },
         "expected_string_present_in_served_bytes": {
           "outcome": "ok",
@@ -774,24 +770,15 @@
           "auth": "none; an identifying user agent is required"
         },
         "full_text_index_answers": {
-          "outcome": "ok",
-          "total_hits": 964,
-          "returned": 3
+          "outcome": "fail",
+          "reason": "index_request_failed:http_500",
+          "attribution": "probe"
         },
         "independent_filing_corroborates": {
-          "outcome": "ok",
-          "filer": "Customers Bancorp, Inc.  (CUBB, CUBI, CUBI-PE, CUBI-PF)  (CIK 0001488813)",
-          "form": "CORRESP",
-          "file_date": "2022-10-28",
-          "document_url": "https://www.sec.gov/Archives/edgar/data/1488813/000148881322000093/filename1.htm"
+          "outcome": "not_reached"
         },
         "corroborating_document_authored_by_the_regulator": {
-          "outcome": "fail",
-          "reason": "corroborating_filer_is_a_registrant_not_the_regulator",
-          "attribution": "no_index_exists",
-          "filer": "Customers Bancorp, Inc.  (CUBB, CUBI, CUBI-PE, CUBI-PF)  (CIK 0001488813)",
-          "cik": "1488813",
-          "note": "The filing corroborates that the string is used in a primary document. It does not make the filer authoritative for the claim, and neither regulator in this corpus files on EDGAR."
+          "outcome": "not_reached"
         }
       },
       "evidence": {
@@ -800,10 +787,10 @@
           "final_url": "https://www.sec.gov/rules-regulations/staff-guidance/staff-accounting-bulletins/staff-accounting-bulletin-122",
           "status": 200,
           "content_type": "text/html",
-          "bytes": 71887,
+          "bytes": 72035,
           "truncated_at_probe_cap": false,
           "error": null,
-          "fetched_at": "2026-08-16T11:00:03.777602+00:00"
+          "fetched_at": "2026-09-20T11:00:04.456852+00:00"
         },
         "match": {
           "found": true,
@@ -841,60 +828,11 @@
           "endpoint": "https://efts.sec.gov/LATEST/search-index",
           "query": "\"SAB 121\"",
           "request_url": "https://efts.sec.gov/LATEST/search-index?q=%22SAB%20121%22",
-          "status": 200,
-          "error": null,
-          "total_hits": 964,
-          "hits": [
-            {
-              "id": "0001488813-22-000093:filename1.htm",
-              "accession": "0001488813-22-000093",
-              "filename": "filename1.htm",
-              "cik": "1488813",
-              "filer": "Customers Bancorp, Inc.  (CUBB, CUBI, CUBI-PE, CUBI-PF)  (CIK 0001488813)",
-              "form": "CORRESP",
-              "file_date": "2022-10-28",
-              "document_url": "https://www.sec.gov/Archives/edgar/data/1488813/000148881322000093/filename1.htm"
-            },
-            {
-              "id": "0001437749-23-021171:filename1.htm",
-              "accession": "0001437749-23-021171",
-              "filename": "filename1.htm",
-              "cik": "1686400",
-              "filer": "Salt Blockchain Inc.  (CIK 0001686400)",
-              "form": "CORRESP",
-              "file_date": "2023-07-31",
-              "document_url": "https://www.sec.gov/Archives/edgar/data/1686400/000143774923021171/filename1.htm"
-            },
-            {
-              "id": "0001709585-23-000005:wflPublic2022p.pdf",
-              "accession": "0001709585-23-000005",
-              "filename": "wflPublic2022p.pdf",
-              "cik": "1709585",
-              "filer": "WEBULL FINANCIAL LLC  (CIK 0001709585)",
-              "form": "X-17A-5",
-              "file_date": "2023-04-28",
-              "document_url": "https://www.sec.gov/Archives/edgar/data/1709585/000170958523000005/wflPublic2022p.pdf"
-            }
-          ],
-          "total_hits_relation": "eq"
-        },
-        "filings_fetched": [
-          {
-            "id": "0001488813-22-000093:filename1.htm",
-            "accession": "0001488813-22-000093",
-            "filename": "filename1.htm",
-            "cik": "1488813",
-            "filer": "Customers Bancorp, Inc.  (CUBB, CUBI, CUBI-PE, CUBI-PF)  (CIK 0001488813)",
-            "form": "CORRESP",
-            "file_date": "2022-10-28",
-            "document_url": "https://www.sec.gov/Archives/edgar/data/1488813/000148881322000093/filename1.htm",
-            "status": 200,
-            "bytes": 228214,
-            "expected_found_in_filing_body": true,
-            "match_basis": "literal",
-            "error": null
-          }
-        ]
+          "status": 500,
+          "error": "http_500",
+          "total_hits": null,
+          "hits": []
+        }
       },
       "reproduce": {
         "api_verify": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.sec.gov%2Frules-regulations%2Fstaff-guidance%2Fstaff-accounting-bulletins%2Fstaff-accounting-bulletin-122&expected=SAB%20121",
@@ -910,7 +848,7 @@
       "source_url": "https://www.sec.gov/corpfin/framework-investment-contract-analysis-digital-assets",
       "published_status": "ATTESTED-PRIMARY",
       "published_at": "2026-08-02T01:38:09.223581+00:00",
-      "checked_at": "2026-08-16T11:00:10.778894+00:00",
+      "checked_at": "2026-09-20T11:00:07.309203+00:00",
       "must_admit": true,
       "full_admit": false,
       "refuse_limb": "source_is_machine_readable",
@@ -932,7 +870,7 @@
         "source_resolves": {
           "outcome": "ok",
           "status": 200,
-          "bytes": 99589
+          "bytes": 99737
         },
         "expected_string_present_in_served_bytes": {
           "outcome": "ok",
@@ -970,24 +908,15 @@
           "auth": "none; an identifying user agent is required"
         },
         "full_text_index_answers": {
-          "outcome": "ok",
-          "total_hits": 10000,
-          "returned": 3
+          "outcome": "fail",
+          "reason": "index_request_failed:http_500",
+          "attribution": "probe"
         },
         "independent_filing_corroborates": {
-          "outcome": "ok",
-          "filer": "PENN VIRGINIA CORP  (CIK 0000077159)",
-          "form": "11-K",
-          "file_date": "2006-06-28",
-          "document_url": "https://www.sec.gov/Archives/edgar/data/77159/000119312506137924/d11k.htm"
+          "outcome": "not_reached"
         },
         "corroborating_document_authored_by_the_regulator": {
-          "outcome": "fail",
-          "reason": "corroborating_filer_is_a_registrant_not_the_regulator",
-          "attribution": "no_index_exists",
-          "filer": "PENN VIRGINIA CORP  (CIK 0000077159)",
-          "cik": "77159",
-          "note": "The filing corroborates that the string is used in a primary document. It does not make the filer authoritative for the claim, and neither regulator in this corpus files on EDGAR."
+          "outcome": "not_reached"
         }
       },
       "evidence": {
@@ -996,10 +925,10 @@
           "final_url": "https://www.sec.gov/about/divisions-offices/division-corporation-finance/framework-investment-contract-analysis-digital-assets",
           "status": 200,
           "content_type": "text/html",
-          "bytes": 99589,
+          "bytes": 99737,
           "truncated_at_probe_cap": false,
           "error": null,
-          "fetched_at": "2026-08-16T11:00:08.010968+00:00"
+          "fetched_at": "2026-09-20T11:00:06.442980+00:00"
         },
         "match": {
           "found": true,
@@ -1034,60 +963,11 @@
           "endpoint": "https://efts.sec.gov/LATEST/search-index",
           "query": "\"investment contract\"",
           "request_url": "https://efts.sec.gov/LATEST/search-index?q=%22investment%20contract%22",
-          "status": 200,
-          "error": null,
-          "total_hits": 10000,
-          "hits": [
-            {
-              "id": "0001193125-06-137924:d11k.htm",
-              "accession": "0001193125-06-137924",
-              "filename": "d11k.htm",
-              "cik": "77159",
-              "filer": "PENN VIRGINIA CORP  (CIK 0000077159)",
-              "form": "11-K",
-              "file_date": "2006-06-28",
-              "document_url": "https://www.sec.gov/Archives/edgar/data/77159/000119312506137924/d11k.htm"
-            },
-            {
-              "id": "0001193125-07-149976:d11k.htm",
-              "accession": "0001193125-07-149976",
-              "filename": "d11k.htm",
-              "cik": "77159",
-              "filer": "PENN VIRGINIA CORP  (CIK 0000077159)",
-              "form": "11-K",
-              "file_date": "2007-07-05",
-              "document_url": "https://www.sec.gov/Archives/edgar/data/77159/000119312507149976/d11k.htm"
-            },
-            {
-              "id": "0000798354-26-000023:fi-20260625.htm",
-              "accession": "0000798354-26-000023",
-              "filename": "fi-20260625.htm",
-              "cik": "798354",
-              "filer": "FISERV INC  (FISV)  (CIK 0000798354)",
-              "form": "11-K",
-              "file_date": "2026-06-25",
-              "document_url": "https://www.sec.gov/Archives/edgar/data/798354/000079835426000023/fi-20260625.htm"
-            }
-          ],
-          "total_hits_relation": "gte"
-        },
-        "filings_fetched": [
-          {
-            "id": "0001193125-06-137924:d11k.htm",
-            "accession": "0001193125-06-137924",
-            "filename": "d11k.htm",
-            "cik": "77159",
-            "filer": "PENN VIRGINIA CORP  (CIK 0000077159)",
-            "form": "11-K",
-            "file_date": "2006-06-28",
-            "document_url": "https://www.sec.gov/Archives/edgar/data/77159/000119312506137924/d11k.htm",
-            "status": 200,
-            "bytes": 395088,
-            "expected_found_in_filing_body": true,
-            "match_basis": "literal",
-            "error": null
-          }
-        ]
+          "status": 500,
+          "error": "http_500",
+          "total_hits": null,
+          "hits": []
+        }
       },
       "reproduce": {
         "api_verify": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.sec.gov%2Fcorpfin%2Fframework-investment-contract-analysis-digital-assets&expected=investment%20contract",
@@ -1103,7 +983,7 @@
       "source_url": "https://www.sec.gov/about",
       "published_status": "ATTESTED-PRIMARY",
       "published_at": "2026-08-02T01:38:08.303317+00:00",
-      "checked_at": "2026-08-16T11:00:12.945792+00:00",
+      "checked_at": "2026-09-20T11:00:08.998977+00:00",
       "must_admit": true,
       "full_admit": false,
       "refuse_limb": "source_is_machine_readable",
@@ -1125,7 +1005,7 @@
         "source_resolves": {
           "outcome": "ok",
           "status": 200,
-          "bytes": 69687
+          "bytes": 69838
         },
         "expected_string_present_in_served_bytes": {
           "outcome": "ok",
@@ -1163,24 +1043,15 @@
           "auth": "none; an identifying user agent is required"
         },
         "full_text_index_answers": {
-          "outcome": "ok",
-          "total_hits": 10000,
-          "returned": 3
+          "outcome": "fail",
+          "reason": "index_request_failed:http_500",
+          "attribution": "probe"
         },
         "independent_filing_corroborates": {
-          "outcome": "ok",
-          "filer": "SEI TAX EXEMPT TRUST  (CIK 0000701817)",
-          "form": "497",
-          "file_date": "2009-04-13",
-          "document_url": "https://www.sec.gov/Archives/edgar/data/701817/000110465909023864/a09-9970_1497.htm"
+          "outcome": "not_reached"
         },
         "corroborating_document_authored_by_the_regulator": {
-          "outcome": "fail",
-          "reason": "corroborating_filer_is_a_registrant_not_the_regulator",
-          "attribution": "no_index_exists",
-          "filer": "SEI TAX EXEMPT TRUST  (CIK 0000701817)",
-          "cik": "701817",
-          "note": "The filing corroborates that the string is used in a primary document. It does not make the filer authoritative for the claim, and neither regulator in this corpus files on EDGAR."
+          "outcome": "not_reached"
         }
       },
       "evidence": {
@@ -1189,10 +1060,10 @@
           "final_url": "https://www.sec.gov/about",
           "status": 200,
           "content_type": "text/html",
-          "bytes": 69687,
+          "bytes": 69838,
           "truncated_at_probe_cap": false,
           "error": null,
-          "fetched_at": "2026-08-16T11:00:11.419223+00:00"
+          "fetched_at": "2026-09-20T11:00:08.220486+00:00"
         },
         "match": {
           "found": true,
@@ -1227,60 +1098,11 @@
           "endpoint": "https://efts.sec.gov/LATEST/search-index",
           "query": "\"protect investors\"",
           "request_url": "https://efts.sec.gov/LATEST/search-index?q=%22protect%20investors%22",
-          "status": 200,
-          "error": null,
-          "total_hits": 10000,
-          "hits": [
-            {
-              "id": "0001104659-09-023864:a09-9970_1497.htm",
-              "accession": "0001104659-09-023864",
-              "filename": "a09-9970_1497.htm",
-              "cik": "701817",
-              "filer": "SEI TAX EXEMPT TRUST  (CIK 0000701817)",
-              "form": "497",
-              "file_date": "2009-04-13",
-              "document_url": "https://www.sec.gov/Archives/edgar/data/701817/000110465909023864/a09-9970_1497.htm"
-            },
-            {
-              "id": "0001193125-07-219220:d497.htm",
-              "accession": "0001193125-07-219220",
-              "filename": "d497.htm",
-              "cik": "1011378",
-              "filer": "UNIVERSAL INSTITUTIONAL FUNDS INC  (CIK 0001011378)",
-              "form": "497",
-              "file_date": "2007-10-16",
-              "document_url": "https://www.sec.gov/Archives/edgar/data/1011378/000119312507219220/d497.htm"
-            },
-            {
-              "id": "0001193125-07-219225:d497.htm",
-              "accession": "0001193125-07-219225",
-              "filename": "d497.htm",
-              "cik": "741375",
-              "filer": "MORGAN STANLEY INSTITUTIONAL FUND TRUST  (CIK 0000741375)",
-              "form": "497",
-              "file_date": "2007-10-16",
-              "document_url": "https://www.sec.gov/Archives/edgar/data/741375/000119312507219225/d497.htm"
-            }
-          ],
-          "total_hits_relation": "gte"
-        },
-        "filings_fetched": [
-          {
-            "id": "0001104659-09-023864:a09-9970_1497.htm",
-            "accession": "0001104659-09-023864",
-            "filename": "a09-9970_1497.htm",
-            "cik": "701817",
-            "filer": "SEI TAX EXEMPT TRUST  (CIK 0000701817)",
-            "form": "497",
-            "file_date": "2009-04-13",
-            "document_url": "https://www.sec.gov/Archives/edgar/data/701817/000110465909023864/a09-9970_1497.htm",
-            "status": 200,
-            "bytes": 34911,
-            "expected_found_in_filing_body": true,
-            "match_basis": "literal",
-            "error": null
-          }
-        ]
+          "status": 500,
+          "error": "http_500",
+          "total_hits": null,
+          "hits": []
+        }
       },
       "reproduce": {
         "api_verify": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.sec.gov%2Fabout&expected=protect%20investors",
@@ -1318,8 +1140,8 @@
       "prediction": "The free EDGAR full text index answers with at least one hit for every claim in this corpus that has an index to ask, and the Federal Reserve claims have none, because no free full text index exists over the Federal Reserve's own statements.",
       "blind": false,
       "basis": "One pre freeze query for the string FedNow returned hits. See pre_freeze_observations.",
-      "observed": "3 of 3 claims with an index answered with a hit; 3 Federal Reserve claims had no index to ask",
-      "met": true
+      "observed": "0 of 3 claims with an index answered with a hit; 3 Federal Reserve claims had no index to ask",
+      "met": false
     },
     {
       "id": 5,
@@ -1342,9 +1164,9 @@
       "prediction": "At least half the claims in this corpus are corroborated by the body of an independent primary filing the index returned.",
       "blind": true,
       "basis": "No filing had been fetched for any population string when this file was written.",
-      "observed": "3 of 6 claims were corroborated by an independent filing body",
-      "met": true
+      "observed": "0 of 6 claims were corroborated by an independent filing body",
+      "met": false
     }
   ],
-  "digest": "d94b8706ffadc18e901b57d583790dd567f81c92f48db199a57eacbf642b8a38"
+  "digest": "0e1cba15654e4d9f6b17fabead34e33dfeecf415e4112e40598723dfa5f3313b"
 }

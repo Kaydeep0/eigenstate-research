@@ -1,39 +1,39 @@
 {
   "entity": "CITIGROUP",
   "node": "34539544",
-  "compiled_at": "2026-08-30T05:00:13.155762+00:00",
-  "digest": "sha256:8f53b1ca9a95f9a45b7e8a525dd8eadba00be36491add205fe0cc3e9d24d9489",
+  "compiled_at": "2026-10-07T19:11:45.118125+00:00",
+  "digest": "sha256:e399c4266a45c560d9285b9133f268990d31b29e012dd24e3d8655069e20bdfe",
   "own_numbers": {
-    "phi_s": 4.8794,
-    "kappa": 0.0405,
+    "phi_s": 0.0246,
+    "kappa": 0.2017,
     "mass": null,
-    "power": 0.44,
-    "extraction": 120551.988609,
+    "power": 0.54,
+    "extraction": 139711.72555,
     "memory_mass": null,
     "X_natural": null,
-    "gravity_mass": 92.0,
+    "gravity_mass": 93.0,
     "mass_type": "infrastructure"
   },
   "vs_whole": {
     "mass": null,
     "power": {
-      "value": 0.44,
+      "value": 0.54,
       "rank": 3,
       "of": 34
     },
     "gravity": {
-      "value": 92.0,
+      "value": 93.0,
       "rank": 10,
-      "of": 60
+      "of": 59
     },
     "extraction": {
-      "value": 120551.9886,
-      "rank": 11,
+      "value": 139711.7256,
+      "rank": 10,
       "of": 34
     },
     "share_of_whole": {
       "mass": null,
-      "power": 0.13924
+      "power": 0.16564
     },
     "peers_by_power": [
       {
@@ -46,7 +46,7 @@
       },
       {
         "entity": "CITIGROUP",
-        "power": 0.44
+        "power": 0.54
       },
       {
         "entity": "COINBASE",
@@ -59,7 +59,7 @@
     ]
   },
   "relationships": {
-    "in_degree": 5,
+    "in_degree": 6,
     "out_degree": 7,
     "by_vector": {
       "Capital": {
@@ -72,7 +72,7 @@
       },
       "Information": {
         "out": 1.0,
-        "in": 2.0
+        "in": 2.0163
       }
     },
     "top_inbound": [
@@ -134,31 +134,31 @@
         "entity": "FED",
         "mass": 114.0,
         "hops": 1,
-        "pull": 10488.0
+        "pull": 10602.0
       },
       {
         "entity": "SEC",
         "mass": 117.0,
         "hops": 2,
-        "pull": 2691.0
+        "pull": 2720.25
       },
       {
         "entity": "JPMORGAN",
         "mass": 97.0,
         "hops": 2,
-        "pull": 2231.0
+        "pull": 2255.25
       },
       {
         "entity": "BLACKROCK",
         "mass": 84.0,
         "hops": 2,
-        "pull": 1932.0
+        "pull": 1953.0
       },
       {
-        "entity": "US_JURISDICTION",
-        "mass": 53.03,
+        "entity": "HIGHWAY",
+        "mass": 61.0,
         "hops": 2,
-        "pull": 1219.69
+        "pull": 1418.25
       }
     ]
   },
@@ -179,16 +179,16 @@
     }
   ],
   "monetary_position": {
-    "position": 0.807,
+    "position": 0.804,
     "well": "fiat"
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +21115% over 80 cycles",
-    "cycles": 80,
+    "headline": "extraction -66% over 231 cycles",
+    "cycles": 231,
     "delta_last_cycle": {
-      "phi_s": 1.6182,
-      "kappa": -0.1072,
+      "phi_s": 0.0,
+      "kappa": -0.2601,
       "power": 0.0,
       "extraction": 0.0,
       "gravity_mass": 0.0,
@@ -202,9 +202,9 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-30T03:01:30.632702+00:00",
+        "last_observed_at": "2026-10-07T19:02:51.124478+00:00",
         "filings": null,
-        "note": "CITIGROUP INC \u2014 91754 total filings, 40 in last 90d"
+        "note": "CITIGROUP INC \u2014 93299 total filings, 40 in last 90d"
       }
     ],
     "outbound": [
@@ -230,10 +230,10 @@
       }
     ],
     "observation": {
-      "source": null,
-      "last_observed_at": null,
-      "last_delta_i": null,
-      "stale": true
+      "source": "propagated",
+      "last_observed_at": "2026-10-07T04:51:25.685688+00:00",
+      "last_delta_i": 4.776732699495293e+59,
+      "stale": false
     }
   },
   "claims": [
@@ -394,7 +394,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "CITIGROUP",
     "observed_at": null,
-    "compiled_at": "2026-08-30T05:00:13.155762+00:00",
+    "compiled_at": "2026-10-07T19:11:45.118125+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -403,6 +403,7 @@
     "producer_node_id": "34539544",
     "observation_origin": "field_state.compose",
     "observer_identity_status": "OBSERVED",
+    "instrumentation_repair": "phase8_lawful_20260830",
     "state": {
       "claims": [
         {
@@ -483,8 +484,8 @@
           "observation_id": "none",
           "comparability": false,
           "defaults_used": "none",
-          "refuse_code": "pipe_fixed_not_yet_persisted",
-          "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+          "refuse_code": "source_observation_absent",
+          "note": "Pipe is joinable. This compose received no independently acquired circulating row."
         }
       },
       "support": {
@@ -505,12 +506,12 @@
         "power_components": {
           "capital": 1,
           "infrastructure": 5,
-          "information": 6,
-          "thread_product": 0.027778,
-          "balance": 0.822
+          "information": 7,
+          "thread_product": 0.032407,
+          "balance": 0.814
         },
         "monetary_position": {
-          "position": 0.807,
+          "position": 0.804,
           "well": "fiat"
         }
       },
@@ -638,9 +639,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-08-30T05:00:13.155762+00:00",
+        "compiled_at": "2026-10-07T19:11:45.118125+00:00",
         "last_observation": null,
-        "drift_cycles": 80
+        "drift_cycles": 231
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -744,8 +745,8 @@
         "observation_id": "none",
         "comparability": false,
         "defaults_used": "none",
-        "refuse_code": "pipe_fixed_not_yet_persisted",
-        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        "refuse_code": "source_observation_absent",
+        "note": "Pipe is joinable. This compose received no independently acquired circulating row."
       },
       "sec_filing_occupancy": {
         "value": null,
@@ -857,7 +858,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 4.8794,
+        "value": 0.0246,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -874,7 +875,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0405,
+        "value": 0.2017,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -922,7 +923,7 @@
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
           "status": "DERIVED",
-          "value": "high pressure"
+          "value": "near equilibrium"
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -946,7 +947,7 @@
         "entity_id": "CITIGROUP",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 4.8794,
+        "magnitude": 0.0246,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -954,16 +955,44 @@
           "shannon_bits",
           "world_causal_lead"
         ],
+        "units": "dimensionless_index",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "phi_s.cf_pressure.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_physics",
+        "source_key": "kappa",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "kappa",
+            "source_store": "entity_physics",
+            "source_key": "kappa",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": false,
         "withhold_reason": null,
         "comparable_under": [
-          "phi_s.cf_pressure.v1"
+          "phi_s.cf_pressure.v1",
+          "entity_physics",
+          "kappa",
+          "none"
         ],
         "epistemic_status": "DERIVED"
       },
@@ -972,23 +1001,51 @@
         "entity_id": "CITIGROUP",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0405,
+        "magnitude": 0.2017,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
           "host_kappa_blend",
           "gamma_labeled_as_kappa"
         ],
+        "units": "dimensionless_index",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "kappa.entity_physics.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_physics",
+        "source_key": "kappa",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "kappa",
+            "source_store": "entity_physics",
+            "source_key": "kappa",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": false,
         "withhold_reason": null,
         "comparable_under": [
-          "kappa.entity_physics.v1"
+          "kappa.entity_physics.v1",
+          "entity_physics",
+          "kappa",
+          "none"
         ],
         "epistemic_status": "DERIVED"
       },
@@ -1009,21 +1066,49 @@
           "pred",
           "E"
         ],
+        "units": "unknown",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_states",
+        "source_key": "last_delta_i",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "last_delta_i",
+            "source_store": "entity_states",
+            "source_key": "last_delta_i",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": true,
         "withhold_reason": "unqualified_bootstrap_scalar",
         "comparable_under": [
-          "last_delta_i.signal_return_bootstrap.v1"
+          "last_delta_i.signal_return_bootstrap.v1",
+          "entity_states",
+          "last_delta_i",
+          "none"
         ],
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:cac63ef1e041657651f376969b1ed15e78bebf4ce872d685a06a988ff8914fef"
+    "snapshot_id": "sha256:d9239fad60b77c3b7c64832f6d3492ba4a4b272bb01d58ef9dab40293c91865e"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1038,9 +1123,9 @@
     "slots_by_class": {
       "KNOWN_CURRENT": 4,
       "KNOWN_STALE": 0,
-      "KNOWN_MISSING": 1,
+      "KNOWN_MISSING": 2,
       "KNOWN_INCOMPARABLE": 1,
-      "BROKEN_PIPE": 1,
+      "BROKEN_PIPE": 0,
       "NOT_WIRED": 1,
       "NOT_SUPPORTED": 1,
       "WITHHELD": 2,
@@ -1050,9 +1135,9 @@
     "aliases": {
       "supported": 4,
       "unsupported": 1,
-      "unknown": 1,
+      "unknown": 2,
       "withheld": 2,
-      "broken_pipe": 1,
+      "broken_pipe": 0,
       "not_wired": 1,
       "stale": 0,
       "incomparable": 1,
@@ -1062,24 +1147,26 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:cac63ef1e041657651f376969b1ed15e78bebf4ce872d685a06a988ff8914fef",
-  "projection_compiled_at": "2026-08-30T05:00:13.167078+00:00",
+  "source_snapshot_id": "sha256:d9239fad60b77c3b7c64832f6d3492ba4a4b272bb01d58ef9dab40293c91865e",
+  "projection_compiled_at": "2026-10-07T19:11:45.279553+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-08-30T05:00:13.167078+00:00",
+    "projection_compiled_at": "2026-10-07T19:11:45.279553+00:00",
     "age_seconds": null,
-    "status": "UNKNOWN"
+    "status": "UNKNOWN",
+    "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:cac63ef1e041657651f376969b1ed15e78bebf4ce872d685a06a988ff8914fef",
-    "compiled_at": "2026-08-30T05:00:13.167078+00:00",
+    "source_snapshot_id": "sha256:d9239fad60b77c3b7c64832f6d3492ba4a4b272bb01d58ef9dab40293c91865e",
+    "compiled_at": "2026-10-07T19:11:45.279553+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-08-30T05:00:13.167078+00:00",
+      "projection_compiled_at": "2026-10-07T19:11:45.279553+00:00",
       "age_seconds": null,
-      "status": "UNKNOWN"
+      "status": "UNKNOWN",
+      "relative_to": "projection_compiled_at"
     },
     "projection": true,
     "entity": "CITIGROUP",
@@ -1162,12 +1249,12 @@
           "power_components": {
             "capital": 1,
             "infrastructure": 5,
-            "information": 6,
-            "thread_product": 0.027778,
-            "balance": 0.822
+            "information": 7,
+            "thread_product": 0.032407,
+            "balance": 0.814
           },
           "monetary_position": {
-            "position": 0.807,
+            "position": 0.804,
             "well": "fiat"
           }
         },
@@ -1187,9 +1274,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-08-30T05:00:13.155762+00:00",
+          "compiled_at": "2026-10-07T19:11:45.118125+00:00",
           "last_observation": null,
-          "drift_cycles": 80
+          "drift_cycles": 231
         },
         "reason": null,
         "family": "observation_age",
@@ -1217,9 +1304,9 @@
       "embedded_in_field_state": false,
       "feeds_qpo": false,
       "supported": 4,
-      "unknown": 1,
+      "unknown": 2,
       "withheld": 2,
-      "broken_pipe": 1,
+      "broken_pipe": 0,
       "not_wired": 1,
       "claims": {
         "n": 3,
@@ -1229,9 +1316,9 @@
       "aliases": {
         "supported": 4,
         "unsupported": 1,
-        "unknown": 1,
+        "unknown": 2,
         "withheld": 2,
-        "broken_pipe": 1,
+        "broken_pipe": 0,
         "not_wired": 1,
         "stale": 0,
         "incomparable": 1,
@@ -1240,9 +1327,9 @@
       "slots_by_class": {
         "KNOWN_CURRENT": 4,
         "KNOWN_STALE": 0,
-        "KNOWN_MISSING": 1,
+        "KNOWN_MISSING": 2,
         "KNOWN_INCOMPARABLE": 1,
-        "BROKEN_PIPE": 1,
+        "BROKEN_PIPE": 0,
         "NOT_WIRED": 1,
         "NOT_SUPPORTED": 1,
         "WITHHELD": 2,
@@ -1252,7 +1339,7 @@
       "note": "aliases map existing gap-map classes for machines. They are not a new taxonomy. Gap map is not embedded in Field State."
     },
     "relationships": {
-      "in_degree": 5,
+      "in_degree": 6,
       "out_degree": 7,
       "by_vector": {
         "Capital": {
@@ -1265,7 +1352,7 @@
         },
         "Information": {
           "out": 1.0,
-          "in": 2.0
+          "in": 2.0163
         }
       },
       "top_inbound": [
@@ -1327,31 +1414,31 @@
           "entity": "FED",
           "mass": 114.0,
           "hops": 1,
-          "pull": 10488.0
+          "pull": 10602.0
         },
         {
           "entity": "SEC",
           "mass": 117.0,
           "hops": 2,
-          "pull": 2691.0
+          "pull": 2720.25
         },
         {
           "entity": "JPMORGAN",
           "mass": 97.0,
           "hops": 2,
-          "pull": 2231.0
+          "pull": 2255.25
         },
         {
           "entity": "BLACKROCK",
           "mass": 84.0,
           "hops": 2,
-          "pull": 1932.0
+          "pull": 1953.0
         },
         {
-          "entity": "US_JURISDICTION",
-          "mass": 53.03,
+          "entity": "HIGHWAY",
+          "mass": 61.0,
           "hops": 2,
-          "pull": 1219.69
+          "pull": 1418.25
         }
       ]
     },
@@ -1524,9 +1611,9 @@
         "by_class": {
           "KNOWN_CURRENT": 4,
           "KNOWN_STALE": 0,
-          "KNOWN_MISSING": 1,
+          "KNOWN_MISSING": 2,
           "KNOWN_INCOMPARABLE": 1,
-          "BROKEN_PIPE": 1,
+          "BROKEN_PIPE": 0,
           "NOT_WIRED": 1,
           "NOT_SUPPORTED": 1,
           "WITHHELD": 2,
@@ -1547,16 +1634,16 @@
       "embedded_in_field_state": false
     },
     "consequence_tier": {
-      "status": "NOT_APPLICABLE",
-      "reason": "no_legal_typed_transition",
+      "status": "UNKNOWN",
+      "reason": "tier_requires_transition_evidence",
       "feeds_qpo": false
     },
     "observation_clock": {
       "entity": "CITIGROUP",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 4,
-      "identity_comparable_transitions": 0,
+      "n_prospective_snapshots": 159,
+      "identity_comparable_transitions": 154,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -1568,13 +1655,11 @@
     "change_frontier": {
       "entity": "CITIGROUP",
       "schema": "geniusflow.public_change_frontier.v0",
-      "comparable_prior_state": "NONE",
+      "comparable_prior_state": "PRESENT",
       "world_observed": "UNAVAILABLE",
       "neighborhood_change": "UNAVAILABLE",
-      "status": "UNAVAILABLE",
-      "refuse_code": "no_prior_comparable_snapshot",
-      "transition_kind": "INCOMPARABLE",
-      "why": "GeniusFlow does not manufacture historical observations to create a before/after comparison. Waiting for a comparable prospective observation.",
+      "status": "COMPARABLE_WITHOUT_WORLD_OBSERVED",
+      "refuse_code": "world_observed_producer_not_emitted",
       "t0_labeled": false
     },
     "provenance": {
@@ -1596,7 +1681,7 @@
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
             "status": "DERIVED",
-            "value": "high pressure"
+            "value": "near equilibrium"
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -1617,10 +1702,10 @@
       "usdc_circulating": {
         "status": "UNKNOWN",
         "value": null,
-        "reason": "pipe_fixed_not_yet_persisted",
+        "reason": "source_observation_absent",
         "family": "usdc_circulating",
         "source": "defillama_stablecoins",
-        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        "note": "Pipe is joinable. This compose received no independently acquired circulating row."
       },
       "usyc_circulating": {
         "status": "NOT_WIRED",

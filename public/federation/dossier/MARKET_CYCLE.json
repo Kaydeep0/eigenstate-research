@@ -1,11 +1,11 @@
 {
   "entity": "MARKET_CYCLE",
   "node": "34539544",
-  "compiled_at": "2026-08-30T05:00:08.290786+00:00",
-  "digest": "sha256:888687bb8a34690b326699a7a73c6673ab811df1e986dff1542f2eeddbe0f6df",
+  "compiled_at": "2026-10-07T19:12:24.646995+00:00",
+  "digest": "sha256:8b754377daa1b224e44a4676fecacfc877edaa061e094e0dcffc0b8bc6a441d9",
   "own_numbers": {
     "phi_s": 0.024,
-    "kappa": 0.0123,
+    "kappa": 0.2017,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -69,12 +69,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 80,
+    "level": "watch",
+    "headline": "kappa +0.162 over 231 cycles",
+    "cycles": 231,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": -0.2601,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -111,6 +111,114 @@
       "stale": true
     }
   },
+  "claims": [
+    {
+      "claim_id": "2dba3985-4fe8-44cc-bf35-a48536ff885b",
+      "claim_text": "US Treasury \u2014 fiscal and market context",
+      "grounding": {
+        "source_url": "https://home.treasury.gov/",
+        "expected": "Treasury",
+        "location": "",
+        "observation_id": "obs_f5d0ec7101064e9d",
+        "observed_at": "2026-09-03T04:01:02.438959+00:00"
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "macro_primary",
+      "witness_weight": 0.88,
+      "report_id": "MARKET_CYCLE_20260903",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/market-cycle-20260903/",
+      "verified_at": "2026-09-03T04:00:50.410600+00:00",
+      "expires_at": "2026-12-02T04:00:50+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true,
+      "observation_id": "obs_f5d0ec7101064e9d",
+      "observed_at": "2026-09-03T04:01:02.438959+00:00",
+      "grounding_id": "a188fe60f8554b29a7f43b3359755da8e89ad4ce37b791bec5f5ac4c9112fbff",
+      "published_at": "2026-09-03T04:01:02.446209+00:00",
+      "temporal_binding": {
+        "claim_id": "2dba3985-4fe8-44cc-bf35-a48536ff885b",
+        "grounding_id": "a188fe60f8554b29a7f43b3359755da8e89ad4ce37b791bec5f5ac4c9112fbff",
+        "observation_id": "obs_f5d0ec7101064e9d",
+        "observed_at": "2026-09-03T04:01:02.438959+00:00",
+        "published_at": "2026-09-03T04:01:02.446209+00:00",
+        "report_id": "MARKET_CYCLE_20260903"
+      }
+    },
+    {
+      "claim_id": "28d0cdeb-8feb-4d95-86de-b2db8a1b8e1f",
+      "claim_text": "DeFiLlama \u2014 protocol TVL index",
+      "grounding": {
+        "source_url": "https://defillama.com/",
+        "expected": "DeFi",
+        "location": "",
+        "observation_id": "obs_99a049bef2504244",
+        "observed_at": "2026-09-03T04:00:52.931928+00:00"
+      },
+      "status_at_publish": "ATTESTED-DERIVED",
+      "source_type": "derived",
+      "source_type_at_verification": "derived",
+      "source_role_reclassified": false,
+      "witness_class": "onchain_secondary",
+      "witness_weight": 0.62,
+      "report_id": "MARKET_CYCLE_20260903",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/market-cycle-20260903/",
+      "verified_at": "2026-09-03T04:00:40.727827+00:00",
+      "expires_at": "2026-12-02T04:00:40+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true,
+      "observation_id": "obs_99a049bef2504244",
+      "observed_at": "2026-09-03T04:00:52.931928+00:00",
+      "grounding_id": "a51a24418b0d73cc0e9428663d0034ea71f7e4812ef568da51c5affff89f8edf",
+      "published_at": "2026-09-03T04:00:52.942562+00:00",
+      "temporal_binding": {
+        "claim_id": "28d0cdeb-8feb-4d95-86de-b2db8a1b8e1f",
+        "grounding_id": "a51a24418b0d73cc0e9428663d0034ea71f7e4812ef568da51c5affff89f8edf",
+        "observation_id": "obs_99a049bef2504244",
+        "observed_at": "2026-09-03T04:00:52.931928+00:00",
+        "published_at": "2026-09-03T04:00:52.942562+00:00",
+        "report_id": "MARKET_CYCLE_20260903"
+      }
+    },
+    {
+      "claim_id": "3d778bda-f746-4f88-8e58-c85e04b55d67",
+      "claim_text": "CoinMarketCap \u2014 market charts",
+      "grounding": {
+        "source_url": "https://coinmarketcap.com/charts/",
+        "expected": "market",
+        "location": "",
+        "observation_id": "obs_1c9467b51a034564",
+        "observed_at": "2026-09-03T04:00:53.172112+00:00"
+      },
+      "status_at_publish": "ATTESTED-DERIVED",
+      "source_type": "derived",
+      "source_type_at_verification": "derived",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "MARKET_CYCLE_20260903",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/market-cycle-20260903/",
+      "verified_at": "2026-09-03T04:00:40.953619+00:00",
+      "expires_at": "2026-12-02T04:00:40+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true,
+      "observation_id": "obs_1c9467b51a034564",
+      "observed_at": "2026-09-03T04:00:53.172112+00:00",
+      "grounding_id": "122d07412994ae7d51d9fc7e3badf68458ee7880f0e55486eec425c4907825a0",
+      "published_at": "2026-09-03T04:00:53.179201+00:00",
+      "temporal_binding": {
+        "claim_id": "3d778bda-f746-4f88-8e58-c85e04b55d67",
+        "grounding_id": "122d07412994ae7d51d9fc7e3badf68458ee7880f0e55486eec425c4907825a0",
+        "observation_id": "obs_1c9467b51a034564",
+        "observed_at": "2026-09-03T04:00:53.172112+00:00",
+        "published_at": "2026-09-03T04:00:53.179201+00:00",
+        "report_id": "MARKET_CYCLE_20260903"
+      }
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/MARKET_CYCLE.json",
   "locate": {
     "entity": "MARKET_CYCLE",
     "routing": "index_locate_classify",
@@ -158,7 +266,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "MARKET_CYCLE",
     "observed_at": null,
-    "compiled_at": "2026-08-30T05:00:08.290786+00:00",
+    "compiled_at": "2026-10-07T19:12:24.646995+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -167,8 +275,115 @@
     "producer_node_id": "34539544",
     "observation_origin": "field_state.compose",
     "observer_identity_status": "OBSERVED",
+    "instrumentation_repair": "phase8_lawful_20260830",
     "state": {
-      "claims": [],
+      "claims": [
+        {
+          "claim_id": "2dba3985-4fe8-44cc-bf35-a48536ff885b",
+          "claim_text": "US Treasury \u2014 fiscal and market context",
+          "grounding": {
+            "source_url": "https://home.treasury.gov/",
+            "expected": "Treasury",
+            "location": "",
+            "observation_id": "obs_f5d0ec7101064e9d",
+            "observed_at": "2026-09-03T04:01:02.438959+00:00"
+          },
+          "status_at_publish": "ATTESTED-PRIMARY",
+          "source_type": "primary",
+          "source_type_at_verification": "primary",
+          "source_role_reclassified": false,
+          "witness_class": "macro_primary",
+          "witness_weight": 0.88,
+          "report_id": "MARKET_CYCLE_20260903",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/market-cycle-20260903/",
+          "verified_at": "2026-09-03T04:00:50.410600+00:00",
+          "expires_at": "2026-12-02T04:00:50+00:00",
+          "volatility_class": "default",
+          "allows_canonical": true,
+          "observation_id": "obs_f5d0ec7101064e9d",
+          "observed_at": "2026-09-03T04:01:02.438959+00:00",
+          "grounding_id": "a188fe60f8554b29a7f43b3359755da8e89ad4ce37b791bec5f5ac4c9112fbff",
+          "published_at": "2026-09-03T04:01:02.446209+00:00",
+          "temporal_binding": {
+            "claim_id": "2dba3985-4fe8-44cc-bf35-a48536ff885b",
+            "grounding_id": "a188fe60f8554b29a7f43b3359755da8e89ad4ce37b791bec5f5ac4c9112fbff",
+            "observation_id": "obs_f5d0ec7101064e9d",
+            "observed_at": "2026-09-03T04:01:02.438959+00:00",
+            "published_at": "2026-09-03T04:01:02.446209+00:00",
+            "report_id": "MARKET_CYCLE_20260903"
+          }
+        },
+        {
+          "claim_id": "28d0cdeb-8feb-4d95-86de-b2db8a1b8e1f",
+          "claim_text": "DeFiLlama \u2014 protocol TVL index",
+          "grounding": {
+            "source_url": "https://defillama.com/",
+            "expected": "DeFi",
+            "location": "",
+            "observation_id": "obs_99a049bef2504244",
+            "observed_at": "2026-09-03T04:00:52.931928+00:00"
+          },
+          "status_at_publish": "ATTESTED-DERIVED",
+          "source_type": "derived",
+          "source_type_at_verification": "derived",
+          "source_role_reclassified": false,
+          "witness_class": "onchain_secondary",
+          "witness_weight": 0.62,
+          "report_id": "MARKET_CYCLE_20260903",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/market-cycle-20260903/",
+          "verified_at": "2026-09-03T04:00:40.727827+00:00",
+          "expires_at": "2026-12-02T04:00:40+00:00",
+          "volatility_class": "default",
+          "allows_canonical": true,
+          "observation_id": "obs_99a049bef2504244",
+          "observed_at": "2026-09-03T04:00:52.931928+00:00",
+          "grounding_id": "a51a24418b0d73cc0e9428663d0034ea71f7e4812ef568da51c5affff89f8edf",
+          "published_at": "2026-09-03T04:00:52.942562+00:00",
+          "temporal_binding": {
+            "claim_id": "28d0cdeb-8feb-4d95-86de-b2db8a1b8e1f",
+            "grounding_id": "a51a24418b0d73cc0e9428663d0034ea71f7e4812ef568da51c5affff89f8edf",
+            "observation_id": "obs_99a049bef2504244",
+            "observed_at": "2026-09-03T04:00:52.931928+00:00",
+            "published_at": "2026-09-03T04:00:52.942562+00:00",
+            "report_id": "MARKET_CYCLE_20260903"
+          }
+        },
+        {
+          "claim_id": "3d778bda-f746-4f88-8e58-c85e04b55d67",
+          "claim_text": "CoinMarketCap \u2014 market charts",
+          "grounding": {
+            "source_url": "https://coinmarketcap.com/charts/",
+            "expected": "market",
+            "location": "",
+            "observation_id": "obs_1c9467b51a034564",
+            "observed_at": "2026-09-03T04:00:53.172112+00:00"
+          },
+          "status_at_publish": "ATTESTED-DERIVED",
+          "source_type": "derived",
+          "source_type_at_verification": "derived",
+          "source_role_reclassified": false,
+          "witness_class": "unknown_secondary",
+          "witness_weight": 0.08,
+          "report_id": "MARKET_CYCLE_20260903",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/market-cycle-20260903/",
+          "verified_at": "2026-09-03T04:00:40.953619+00:00",
+          "expires_at": "2026-12-02T04:00:40+00:00",
+          "volatility_class": "default",
+          "allows_canonical": true,
+          "observation_id": "obs_1c9467b51a034564",
+          "observed_at": "2026-09-03T04:00:53.172112+00:00",
+          "grounding_id": "122d07412994ae7d51d9fc7e3badf68458ee7880f0e55486eec425c4907825a0",
+          "published_at": "2026-09-03T04:00:53.179201+00:00",
+          "temporal_binding": {
+            "claim_id": "3d778bda-f746-4f88-8e58-c85e04b55d67",
+            "grounding_id": "122d07412994ae7d51d9fc7e3badf68458ee7880f0e55486eec425c4907825a0",
+            "observation_id": "obs_1c9467b51a034564",
+            "observed_at": "2026-09-03T04:00:53.172112+00:00",
+            "published_at": "2026-09-03T04:00:53.179201+00:00",
+            "report_id": "MARKET_CYCLE_20260903"
+          }
+        }
+      ],
       "measurements": {
         "usdc_circulating": {
           "value": null,
@@ -183,8 +398,8 @@
           "observation_id": "none",
           "comparability": false,
           "defaults_used": "none",
-          "refuse_code": "pipe_fixed_not_yet_persisted",
-          "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+          "refuse_code": "source_observation_absent",
+          "note": "Pipe is joinable. This compose received no independently acquired circulating row."
         }
       },
       "support": {
@@ -192,7 +407,7 @@
         "unit": "unknown",
         "family": "published_claim_support",
         "not_families": [],
-        "status": "UNKNOWN",
+        "status": "OBSERVED",
         "source": "claim_ledger",
         "observation_id": "none",
         "comparability": false,
@@ -259,9 +474,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-08-30T05:00:08.290786+00:00",
+        "compiled_at": "2026-10-07T19:12:24.646995+00:00",
         "last_observation": null,
-        "drift_cycles": 80
+        "drift_cycles": 231
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -286,7 +501,113 @@
       "note": "empty change is honest before Phase 4 history",
       "transition_kind": "INCOMPARABLE"
     },
-    "claims": [],
+    "claims": [
+      {
+        "claim_id": "2dba3985-4fe8-44cc-bf35-a48536ff885b",
+        "claim_text": "US Treasury \u2014 fiscal and market context",
+        "grounding": {
+          "source_url": "https://home.treasury.gov/",
+          "expected": "Treasury",
+          "location": "",
+          "observation_id": "obs_f5d0ec7101064e9d",
+          "observed_at": "2026-09-03T04:01:02.438959+00:00"
+        },
+        "status_at_publish": "ATTESTED-PRIMARY",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "macro_primary",
+        "witness_weight": 0.88,
+        "report_id": "MARKET_CYCLE_20260903",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/market-cycle-20260903/",
+        "verified_at": "2026-09-03T04:00:50.410600+00:00",
+        "expires_at": "2026-12-02T04:00:50+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true,
+        "observation_id": "obs_f5d0ec7101064e9d",
+        "observed_at": "2026-09-03T04:01:02.438959+00:00",
+        "grounding_id": "a188fe60f8554b29a7f43b3359755da8e89ad4ce37b791bec5f5ac4c9112fbff",
+        "published_at": "2026-09-03T04:01:02.446209+00:00",
+        "temporal_binding": {
+          "claim_id": "2dba3985-4fe8-44cc-bf35-a48536ff885b",
+          "grounding_id": "a188fe60f8554b29a7f43b3359755da8e89ad4ce37b791bec5f5ac4c9112fbff",
+          "observation_id": "obs_f5d0ec7101064e9d",
+          "observed_at": "2026-09-03T04:01:02.438959+00:00",
+          "published_at": "2026-09-03T04:01:02.446209+00:00",
+          "report_id": "MARKET_CYCLE_20260903"
+        }
+      },
+      {
+        "claim_id": "28d0cdeb-8feb-4d95-86de-b2db8a1b8e1f",
+        "claim_text": "DeFiLlama \u2014 protocol TVL index",
+        "grounding": {
+          "source_url": "https://defillama.com/",
+          "expected": "DeFi",
+          "location": "",
+          "observation_id": "obs_99a049bef2504244",
+          "observed_at": "2026-09-03T04:00:52.931928+00:00"
+        },
+        "status_at_publish": "ATTESTED-DERIVED",
+        "source_type": "derived",
+        "source_type_at_verification": "derived",
+        "source_role_reclassified": false,
+        "witness_class": "onchain_secondary",
+        "witness_weight": 0.62,
+        "report_id": "MARKET_CYCLE_20260903",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/market-cycle-20260903/",
+        "verified_at": "2026-09-03T04:00:40.727827+00:00",
+        "expires_at": "2026-12-02T04:00:40+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true,
+        "observation_id": "obs_99a049bef2504244",
+        "observed_at": "2026-09-03T04:00:52.931928+00:00",
+        "grounding_id": "a51a24418b0d73cc0e9428663d0034ea71f7e4812ef568da51c5affff89f8edf",
+        "published_at": "2026-09-03T04:00:52.942562+00:00",
+        "temporal_binding": {
+          "claim_id": "28d0cdeb-8feb-4d95-86de-b2db8a1b8e1f",
+          "grounding_id": "a51a24418b0d73cc0e9428663d0034ea71f7e4812ef568da51c5affff89f8edf",
+          "observation_id": "obs_99a049bef2504244",
+          "observed_at": "2026-09-03T04:00:52.931928+00:00",
+          "published_at": "2026-09-03T04:00:52.942562+00:00",
+          "report_id": "MARKET_CYCLE_20260903"
+        }
+      },
+      {
+        "claim_id": "3d778bda-f746-4f88-8e58-c85e04b55d67",
+        "claim_text": "CoinMarketCap \u2014 market charts",
+        "grounding": {
+          "source_url": "https://coinmarketcap.com/charts/",
+          "expected": "market",
+          "location": "",
+          "observation_id": "obs_1c9467b51a034564",
+          "observed_at": "2026-09-03T04:00:53.172112+00:00"
+        },
+        "status_at_publish": "ATTESTED-DERIVED",
+        "source_type": "derived",
+        "source_type_at_verification": "derived",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "MARKET_CYCLE_20260903",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/market-cycle-20260903/",
+        "verified_at": "2026-09-03T04:00:40.953619+00:00",
+        "expires_at": "2026-12-02T04:00:40+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true,
+        "observation_id": "obs_1c9467b51a034564",
+        "observed_at": "2026-09-03T04:00:53.172112+00:00",
+        "grounding_id": "122d07412994ae7d51d9fc7e3badf68458ee7880f0e55486eec425c4907825a0",
+        "published_at": "2026-09-03T04:00:53.179201+00:00",
+        "temporal_binding": {
+          "claim_id": "3d778bda-f746-4f88-8e58-c85e04b55d67",
+          "grounding_id": "122d07412994ae7d51d9fc7e3badf68458ee7880f0e55486eec425c4907825a0",
+          "observation_id": "obs_1c9467b51a034564",
+          "observed_at": "2026-09-03T04:00:53.172112+00:00",
+          "published_at": "2026-09-03T04:00:53.179201+00:00",
+          "report_id": "MARKET_CYCLE_20260903"
+        }
+      }
+    ],
     "measurements": {
       "usdc_circulating": {
         "value": null,
@@ -301,8 +622,8 @@
         "observation_id": "none",
         "comparability": false,
         "defaults_used": "none",
-        "refuse_code": "pipe_fixed_not_yet_persisted",
-        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        "refuse_code": "source_observation_absent",
+        "note": "Pipe is joinable. This compose received no independently acquired circulating row."
       },
       "sec_filing_occupancy": {
         "value": null,
@@ -359,7 +680,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0123,
+        "value": 0.2017,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -439,16 +760,44 @@
           "shannon_bits",
           "world_causal_lead"
         ],
+        "units": "dimensionless_index",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "phi_s.cf_pressure.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_physics",
+        "source_key": "kappa",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "kappa",
+            "source_store": "entity_physics",
+            "source_key": "kappa",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": false,
         "withhold_reason": null,
         "comparable_under": [
-          "phi_s.cf_pressure.v1"
+          "phi_s.cf_pressure.v1",
+          "entity_physics",
+          "kappa",
+          "none"
         ],
         "epistemic_status": "DERIVED"
       },
@@ -457,23 +806,51 @@
         "entity_id": "MARKET_CYCLE",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0123,
+        "magnitude": 0.2017,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
           "host_kappa_blend",
           "gamma_labeled_as_kappa"
         ],
+        "units": "dimensionless_index",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "kappa.entity_physics.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_physics",
+        "source_key": "kappa",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "kappa",
+            "source_store": "entity_physics",
+            "source_key": "kappa",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": false,
         "withhold_reason": null,
         "comparable_under": [
-          "kappa.entity_physics.v1"
+          "kappa.entity_physics.v1",
+          "entity_physics",
+          "kappa",
+          "none"
         ],
         "epistemic_status": "DERIVED"
       },
@@ -494,21 +871,49 @@
           "pred",
           "E"
         ],
+        "units": "unknown",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_states",
+        "source_key": "last_delta_i",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "last_delta_i",
+            "source_store": "entity_states",
+            "source_key": "last_delta_i",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": true,
         "withhold_reason": "unqualified_bootstrap_scalar",
         "comparable_under": [
-          "last_delta_i.signal_return_bootstrap.v1"
+          "last_delta_i.signal_return_bootstrap.v1",
+          "entity_states",
+          "last_delta_i",
+          "none"
         ],
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:ab62642f7ea810dbe7192922f1bd05c96127740ef19151480619efaf250e71b3"
+    "snapshot_id": "sha256:d1a471ee4dec05f4f702249988c41041346f2bf46a83df80f3afb3a85f68c63a"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -516,16 +921,16 @@
     "embedded_in_field_state": false,
     "feeds_qpo": false,
     "claims": {
-      "n": 0,
-      "evidence_backed": 0,
-      "attested": 0
+      "n": 3,
+      "evidence_backed": 3,
+      "attested": 3
     },
     "slots_by_class": {
-      "KNOWN_CURRENT": 3,
+      "KNOWN_CURRENT": 4,
       "KNOWN_STALE": 0,
       "KNOWN_MISSING": 2,
       "KNOWN_INCOMPARABLE": 1,
-      "BROKEN_PIPE": 1,
+      "BROKEN_PIPE": 0,
       "NOT_WIRED": 1,
       "NOT_SUPPORTED": 1,
       "WITHHELD": 2,
@@ -533,11 +938,11 @@
       "UNKNOWN": 0
     },
     "aliases": {
-      "supported": 3,
+      "supported": 4,
       "unsupported": 1,
       "unknown": 2,
       "withheld": 2,
-      "broken_pipe": 1,
+      "broken_pipe": 0,
       "not_wired": 1,
       "stale": 0,
       "incomparable": 1,
@@ -547,29 +952,137 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:ab62642f7ea810dbe7192922f1bd05c96127740ef19151480619efaf250e71b3",
-  "projection_compiled_at": "2026-08-30T05:00:08.298574+00:00",
+  "source_snapshot_id": "sha256:d1a471ee4dec05f4f702249988c41041346f2bf46a83df80f3afb3a85f68c63a",
+  "projection_compiled_at": "2026-10-07T19:12:24.947044+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-08-30T05:00:08.298574+00:00",
+    "projection_compiled_at": "2026-10-07T19:12:24.947044+00:00",
     "age_seconds": null,
-    "status": "UNKNOWN"
+    "status": "UNKNOWN",
+    "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:ab62642f7ea810dbe7192922f1bd05c96127740ef19151480619efaf250e71b3",
-    "compiled_at": "2026-08-30T05:00:08.298574+00:00",
+    "source_snapshot_id": "sha256:d1a471ee4dec05f4f702249988c41041346f2bf46a83df80f3afb3a85f68c63a",
+    "compiled_at": "2026-10-07T19:12:24.947044+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-08-30T05:00:08.298574+00:00",
+      "projection_compiled_at": "2026-10-07T19:12:24.947044+00:00",
       "age_seconds": null,
-      "status": "UNKNOWN"
+      "status": "UNKNOWN",
+      "relative_to": "projection_compiled_at"
     },
     "projection": true,
     "entity": "MARKET_CYCLE",
     "node": "34539544",
-    "claims": [],
+    "claims": [
+      {
+        "claim_id": "2dba3985-4fe8-44cc-bf35-a48536ff885b",
+        "claim_text": "US Treasury \u2014 fiscal and market context",
+        "grounding": {
+          "source_url": "https://home.treasury.gov/",
+          "expected": "Treasury",
+          "location": "",
+          "observation_id": "obs_f5d0ec7101064e9d",
+          "observed_at": "2026-09-03T04:01:02.438959+00:00"
+        },
+        "status_at_publish": "ATTESTED-PRIMARY",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "macro_primary",
+        "witness_weight": 0.88,
+        "report_id": "MARKET_CYCLE_20260903",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/market-cycle-20260903/",
+        "verified_at": "2026-09-03T04:00:50.410600+00:00",
+        "expires_at": "2026-12-02T04:00:50+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true,
+        "observation_id": "obs_f5d0ec7101064e9d",
+        "observed_at": "2026-09-03T04:01:02.438959+00:00",
+        "grounding_id": "a188fe60f8554b29a7f43b3359755da8e89ad4ce37b791bec5f5ac4c9112fbff",
+        "published_at": "2026-09-03T04:01:02.446209+00:00",
+        "temporal_binding": {
+          "claim_id": "2dba3985-4fe8-44cc-bf35-a48536ff885b",
+          "grounding_id": "a188fe60f8554b29a7f43b3359755da8e89ad4ce37b791bec5f5ac4c9112fbff",
+          "observation_id": "obs_f5d0ec7101064e9d",
+          "observed_at": "2026-09-03T04:01:02.438959+00:00",
+          "published_at": "2026-09-03T04:01:02.446209+00:00",
+          "report_id": "MARKET_CYCLE_20260903"
+        }
+      },
+      {
+        "claim_id": "28d0cdeb-8feb-4d95-86de-b2db8a1b8e1f",
+        "claim_text": "DeFiLlama \u2014 protocol TVL index",
+        "grounding": {
+          "source_url": "https://defillama.com/",
+          "expected": "DeFi",
+          "location": "",
+          "observation_id": "obs_99a049bef2504244",
+          "observed_at": "2026-09-03T04:00:52.931928+00:00"
+        },
+        "status_at_publish": "ATTESTED-DERIVED",
+        "source_type": "derived",
+        "source_type_at_verification": "derived",
+        "source_role_reclassified": false,
+        "witness_class": "onchain_secondary",
+        "witness_weight": 0.62,
+        "report_id": "MARKET_CYCLE_20260903",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/market-cycle-20260903/",
+        "verified_at": "2026-09-03T04:00:40.727827+00:00",
+        "expires_at": "2026-12-02T04:00:40+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true,
+        "observation_id": "obs_99a049bef2504244",
+        "observed_at": "2026-09-03T04:00:52.931928+00:00",
+        "grounding_id": "a51a24418b0d73cc0e9428663d0034ea71f7e4812ef568da51c5affff89f8edf",
+        "published_at": "2026-09-03T04:00:52.942562+00:00",
+        "temporal_binding": {
+          "claim_id": "28d0cdeb-8feb-4d95-86de-b2db8a1b8e1f",
+          "grounding_id": "a51a24418b0d73cc0e9428663d0034ea71f7e4812ef568da51c5affff89f8edf",
+          "observation_id": "obs_99a049bef2504244",
+          "observed_at": "2026-09-03T04:00:52.931928+00:00",
+          "published_at": "2026-09-03T04:00:52.942562+00:00",
+          "report_id": "MARKET_CYCLE_20260903"
+        }
+      },
+      {
+        "claim_id": "3d778bda-f746-4f88-8e58-c85e04b55d67",
+        "claim_text": "CoinMarketCap \u2014 market charts",
+        "grounding": {
+          "source_url": "https://coinmarketcap.com/charts/",
+          "expected": "market",
+          "location": "",
+          "observation_id": "obs_1c9467b51a034564",
+          "observed_at": "2026-09-03T04:00:53.172112+00:00"
+        },
+        "status_at_publish": "ATTESTED-DERIVED",
+        "source_type": "derived",
+        "source_type_at_verification": "derived",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "MARKET_CYCLE_20260903",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/market-cycle-20260903/",
+        "verified_at": "2026-09-03T04:00:40.953619+00:00",
+        "expires_at": "2026-12-02T04:00:40+00:00",
+        "volatility_class": "default",
+        "allows_canonical": true,
+        "observation_id": "obs_1c9467b51a034564",
+        "observed_at": "2026-09-03T04:00:53.172112+00:00",
+        "grounding_id": "122d07412994ae7d51d9fc7e3badf68458ee7880f0e55486eec425c4907825a0",
+        "published_at": "2026-09-03T04:00:53.179201+00:00",
+        "temporal_binding": {
+          "claim_id": "3d778bda-f746-4f88-8e58-c85e04b55d67",
+          "grounding_id": "122d07412994ae7d51d9fc7e3badf68458ee7880f0e55486eec425c4907825a0",
+          "observation_id": "obs_1c9467b51a034564",
+          "observed_at": "2026-09-03T04:00:53.172112+00:00",
+          "published_at": "2026-09-03T04:00:53.179201+00:00",
+          "report_id": "MARKET_CYCLE_20260903"
+        }
+      }
+    ],
     "state": {
       "observed_at": null,
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
@@ -601,9 +1114,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-08-30T05:00:08.290786+00:00",
+          "compiled_at": "2026-10-07T19:12:24.646995+00:00",
           "last_observation": null,
-          "drift_cycles": 80
+          "drift_cycles": 231
         },
         "reason": null,
         "family": "observation_age",
@@ -630,33 +1143,33 @@
       "projection": true,
       "embedded_in_field_state": false,
       "feeds_qpo": false,
-      "supported": 3,
+      "supported": 4,
       "unknown": 2,
       "withheld": 2,
-      "broken_pipe": 1,
+      "broken_pipe": 0,
       "not_wired": 1,
       "claims": {
-        "n": 0,
-        "evidence_backed": 0,
-        "attested": 0
+        "n": 3,
+        "evidence_backed": 3,
+        "attested": 3
       },
       "aliases": {
-        "supported": 3,
+        "supported": 4,
         "unsupported": 1,
         "unknown": 2,
         "withheld": 2,
-        "broken_pipe": 1,
+        "broken_pipe": 0,
         "not_wired": 1,
         "stale": 0,
         "incomparable": 1,
         "relationship_gap": 1
       },
       "slots_by_class": {
-        "KNOWN_CURRENT": 3,
+        "KNOWN_CURRENT": 4,
         "KNOWN_STALE": 0,
         "KNOWN_MISSING": 2,
         "KNOWN_INCOMPARABLE": 1,
-        "BROKEN_PIPE": 1,
+        "BROKEN_PIPE": 0,
         "NOT_WIRED": 1,
         "NOT_SUPPORTED": 1,
         "WITHHELD": 2,
@@ -722,11 +1235,11 @@
       "summary": {
         "n": 12,
         "by_class": {
-          "KNOWN_CURRENT": 3,
+          "KNOWN_CURRENT": 4,
           "KNOWN_STALE": 0,
           "KNOWN_MISSING": 2,
           "KNOWN_INCOMPARABLE": 1,
-          "BROKEN_PIPE": 1,
+          "BROKEN_PIPE": 0,
           "NOT_WIRED": 1,
           "NOT_SUPPORTED": 1,
           "WITHHELD": 2,
@@ -747,16 +1260,16 @@
       "embedded_in_field_state": false
     },
     "consequence_tier": {
-      "status": "NOT_APPLICABLE",
-      "reason": "no_legal_typed_transition",
+      "status": "UNKNOWN",
+      "reason": "tier_requires_transition_evidence",
       "feeds_qpo": false
     },
     "observation_clock": {
       "entity": "MARKET_CYCLE",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 4,
-      "identity_comparable_transitions": 0,
+      "n_prospective_snapshots": 158,
+      "identity_comparable_transitions": 153,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -768,13 +1281,11 @@
     "change_frontier": {
       "entity": "MARKET_CYCLE",
       "schema": "geniusflow.public_change_frontier.v0",
-      "comparable_prior_state": "NONE",
+      "comparable_prior_state": "PRESENT",
       "world_observed": "UNAVAILABLE",
       "neighborhood_change": "UNAVAILABLE",
-      "status": "UNAVAILABLE",
-      "refuse_code": "no_prior_comparable_snapshot",
-      "transition_kind": "INCOMPARABLE",
-      "why": "GeniusFlow does not manufacture historical observations to create a before/after comparison. Waiting for a comparable prospective observation.",
+      "status": "COMPARABLE_WITHOUT_WORLD_OBSERVED",
+      "refuse_code": "world_observed_producer_not_emitted",
       "t0_labeled": false
     },
     "provenance": {
@@ -817,10 +1328,10 @@
       "usdc_circulating": {
         "status": "UNKNOWN",
         "value": null,
-        "reason": "pipe_fixed_not_yet_persisted",
+        "reason": "source_observation_absent",
         "family": "usdc_circulating",
         "source": "defillama_stablecoins",
-        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        "note": "Pipe is joinable. This compose received no independently acquired circulating row."
       },
       "usyc_circulating": {
         "status": "NOT_WIRED",

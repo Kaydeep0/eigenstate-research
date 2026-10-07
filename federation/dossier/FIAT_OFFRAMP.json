@@ -1,11 +1,11 @@
 {
   "entity": "FIAT_OFFRAMP",
   "node": "34539544",
-  "compiled_at": "2026-08-30T05:00:06.764105+00:00",
-  "digest": "sha256:662060865fb2284660008f16b19ef04a370f73a6a3e695a41b24378c359a9573",
+  "compiled_at": "2026-10-07T19:12:06.133857+00:00",
+  "digest": "sha256:6a46bec2e67f826f0b71ccdeecf18a5dee736d83f364bccfc7880b6615feee38",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0246,
+    "kappa": 0.2017,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -68,12 +68,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 80,
+    "level": "watch",
+    "headline": "kappa +0.150 over 231 cycles",
+    "cycles": 231,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": -0.2601,
       "boundary_score": 0.0
     }
   },
@@ -109,6 +109,72 @@
       "stale": true
     }
   },
+  "claims": [
+    {
+      "claim_id": "d093783c-46dc-44a5-a3ef-5f6d4b966d91",
+      "claim_text": "Coinbase \u2014 sell crypto for cash",
+      "grounding": {
+        "source_url": "https://www.coinbase.com/",
+        "expected": "sell",
+        "location": ""
+      },
+      "status_at_publish": "UNVERIFIED-PENDING",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "FIAT_OFFRAMP_20260907",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260907/",
+      "verified_at": "2026-09-07T13:51:39.098493+00:00",
+      "expires_at": "2026-12-06T13:51:39+00:00",
+      "volatility_class": "default",
+      "allows_canonical": false
+    },
+    {
+      "claim_id": "fa6c2d54-f05d-4fc8-b4c3-4116b1af5050",
+      "claim_text": "Circle USDC \u2014 redemption for dollars",
+      "grounding": {
+        "source_url": "https://www.circle.com/en/usdc",
+        "expected": "redeem",
+        "location": ""
+      },
+      "status_at_publish": "UNVERIFIED-PENDING",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "FIAT_OFFRAMP_20260907",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260907/",
+      "verified_at": "2026-09-07T13:51:39.099239+00:00",
+      "expires_at": "2026-12-06T13:51:39+00:00",
+      "volatility_class": "default",
+      "allows_canonical": false
+    },
+    {
+      "claim_id": "c6f79cf1-1418-4fdf-b514-318125ab45d9",
+      "claim_text": "Paxos \u2014 regulated redemption services",
+      "grounding": {
+        "source_url": "https://paxos.com/",
+        "expected": "redeem",
+        "location": ""
+      },
+      "status_at_publish": "UNVERIFIED-PENDING",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "FIAT_OFFRAMP_20260907",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260907/",
+      "verified_at": "2026-09-07T13:51:39.099816+00:00",
+      "expires_at": "2026-12-06T13:51:39+00:00",
+      "volatility_class": "default",
+      "allows_canonical": false
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/FIAT_OFFRAMP.json",
   "locate": {
     "entity": "FIAT_OFFRAMP",
     "routing": "index_locate_classify",
@@ -156,7 +222,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "FIAT_OFFRAMP",
     "observed_at": null,
-    "compiled_at": "2026-08-30T05:00:06.764105+00:00",
+    "compiled_at": "2026-10-07T19:12:06.133857+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -165,8 +231,73 @@
     "producer_node_id": "34539544",
     "observation_origin": "field_state.compose",
     "observer_identity_status": "OBSERVED",
+    "instrumentation_repair": "phase8_lawful_20260830",
     "state": {
-      "claims": [],
+      "claims": [
+        {
+          "claim_id": "d093783c-46dc-44a5-a3ef-5f6d4b966d91",
+          "claim_text": "Coinbase \u2014 sell crypto for cash",
+          "grounding": {
+            "source_url": "https://www.coinbase.com/",
+            "expected": "sell",
+            "location": ""
+          },
+          "status_at_publish": "UNVERIFIED-PENDING",
+          "source_type": "primary",
+          "source_type_at_verification": "primary",
+          "source_role_reclassified": false,
+          "witness_class": "unknown_secondary",
+          "witness_weight": 0.08,
+          "report_id": "FIAT_OFFRAMP_20260907",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260907/",
+          "verified_at": "2026-09-07T13:51:39.098493+00:00",
+          "expires_at": "2026-12-06T13:51:39+00:00",
+          "volatility_class": "default",
+          "allows_canonical": false
+        },
+        {
+          "claim_id": "fa6c2d54-f05d-4fc8-b4c3-4116b1af5050",
+          "claim_text": "Circle USDC \u2014 redemption for dollars",
+          "grounding": {
+            "source_url": "https://www.circle.com/en/usdc",
+            "expected": "redeem",
+            "location": ""
+          },
+          "status_at_publish": "UNVERIFIED-PENDING",
+          "source_type": "primary",
+          "source_type_at_verification": "primary",
+          "source_role_reclassified": false,
+          "witness_class": "unknown_secondary",
+          "witness_weight": 0.08,
+          "report_id": "FIAT_OFFRAMP_20260907",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260907/",
+          "verified_at": "2026-09-07T13:51:39.099239+00:00",
+          "expires_at": "2026-12-06T13:51:39+00:00",
+          "volatility_class": "default",
+          "allows_canonical": false
+        },
+        {
+          "claim_id": "c6f79cf1-1418-4fdf-b514-318125ab45d9",
+          "claim_text": "Paxos \u2014 regulated redemption services",
+          "grounding": {
+            "source_url": "https://paxos.com/",
+            "expected": "redeem",
+            "location": ""
+          },
+          "status_at_publish": "UNVERIFIED-PENDING",
+          "source_type": "primary",
+          "source_type_at_verification": "primary",
+          "source_role_reclassified": false,
+          "witness_class": "unknown_secondary",
+          "witness_weight": 0.08,
+          "report_id": "FIAT_OFFRAMP_20260907",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260907/",
+          "verified_at": "2026-09-07T13:51:39.099816+00:00",
+          "expires_at": "2026-12-06T13:51:39+00:00",
+          "volatility_class": "default",
+          "allows_canonical": false
+        }
+      ],
       "measurements": {
         "usdc_circulating": {
           "value": null,
@@ -181,8 +312,8 @@
           "observation_id": "none",
           "comparability": false,
           "defaults_used": "none",
-          "refuse_code": "pipe_fixed_not_yet_persisted",
-          "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+          "refuse_code": "source_observation_absent",
+          "note": "Pipe is joinable. This compose received no independently acquired circulating row."
         }
       },
       "support": {
@@ -190,7 +321,7 @@
         "unit": "unknown",
         "family": "published_claim_support",
         "not_families": [],
-        "status": "UNKNOWN",
+        "status": "OBSERVED",
         "source": "claim_ledger",
         "observation_id": "none",
         "comparability": false,
@@ -265,9 +396,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-08-30T05:00:06.764105+00:00",
+        "compiled_at": "2026-10-07T19:12:06.133857+00:00",
         "last_observation": null,
-        "drift_cycles": 80
+        "drift_cycles": 231
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -292,7 +423,71 @@
       "note": "empty change is honest before Phase 4 history",
       "transition_kind": "INCOMPARABLE"
     },
-    "claims": [],
+    "claims": [
+      {
+        "claim_id": "d093783c-46dc-44a5-a3ef-5f6d4b966d91",
+        "claim_text": "Coinbase \u2014 sell crypto for cash",
+        "grounding": {
+          "source_url": "https://www.coinbase.com/",
+          "expected": "sell",
+          "location": ""
+        },
+        "status_at_publish": "UNVERIFIED-PENDING",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "FIAT_OFFRAMP_20260907",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260907/",
+        "verified_at": "2026-09-07T13:51:39.098493+00:00",
+        "expires_at": "2026-12-06T13:51:39+00:00",
+        "volatility_class": "default",
+        "allows_canonical": false
+      },
+      {
+        "claim_id": "fa6c2d54-f05d-4fc8-b4c3-4116b1af5050",
+        "claim_text": "Circle USDC \u2014 redemption for dollars",
+        "grounding": {
+          "source_url": "https://www.circle.com/en/usdc",
+          "expected": "redeem",
+          "location": ""
+        },
+        "status_at_publish": "UNVERIFIED-PENDING",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "FIAT_OFFRAMP_20260907",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260907/",
+        "verified_at": "2026-09-07T13:51:39.099239+00:00",
+        "expires_at": "2026-12-06T13:51:39+00:00",
+        "volatility_class": "default",
+        "allows_canonical": false
+      },
+      {
+        "claim_id": "c6f79cf1-1418-4fdf-b514-318125ab45d9",
+        "claim_text": "Paxos \u2014 regulated redemption services",
+        "grounding": {
+          "source_url": "https://paxos.com/",
+          "expected": "redeem",
+          "location": ""
+        },
+        "status_at_publish": "UNVERIFIED-PENDING",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "FIAT_OFFRAMP_20260907",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260907/",
+        "verified_at": "2026-09-07T13:51:39.099816+00:00",
+        "expires_at": "2026-12-06T13:51:39+00:00",
+        "volatility_class": "default",
+        "allows_canonical": false
+      }
+    ],
     "measurements": {
       "usdc_circulating": {
         "value": null,
@@ -307,8 +502,8 @@
         "observation_id": "none",
         "comparability": false,
         "defaults_used": "none",
-        "refuse_code": "pipe_fixed_not_yet_persisted",
-        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        "refuse_code": "source_observation_absent",
+        "note": "Pipe is joinable. This compose received no independently acquired circulating row."
       },
       "sec_filing_occupancy": {
         "value": null,
@@ -373,7 +568,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0246,
+        "value": 0.2017,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -453,16 +648,44 @@
           "shannon_bits",
           "world_causal_lead"
         ],
+        "units": "dimensionless_index",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "phi_s.cf_pressure.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_physics",
+        "source_key": "kappa",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "kappa",
+            "source_store": "entity_physics",
+            "source_key": "kappa",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": false,
         "withhold_reason": null,
         "comparable_under": [
-          "phi_s.cf_pressure.v1"
+          "phi_s.cf_pressure.v1",
+          "entity_physics",
+          "kappa",
+          "none"
         ],
         "epistemic_status": "DERIVED"
       },
@@ -471,23 +694,51 @@
         "entity_id": "FIAT_OFFRAMP",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0246,
+        "magnitude": 0.2017,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
           "host_kappa_blend",
           "gamma_labeled_as_kappa"
         ],
+        "units": "dimensionless_index",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "kappa.entity_physics.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_physics",
+        "source_key": "kappa",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "kappa",
+            "source_store": "entity_physics",
+            "source_key": "kappa",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": false,
         "withhold_reason": null,
         "comparable_under": [
-          "kappa.entity_physics.v1"
+          "kappa.entity_physics.v1",
+          "entity_physics",
+          "kappa",
+          "none"
         ],
         "epistemic_status": "DERIVED"
       },
@@ -508,21 +759,49 @@
           "pred",
           "E"
         ],
+        "units": "unknown",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_states",
+        "source_key": "last_delta_i",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "last_delta_i",
+            "source_store": "entity_states",
+            "source_key": "last_delta_i",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": true,
         "withhold_reason": "unqualified_bootstrap_scalar",
         "comparable_under": [
-          "last_delta_i.signal_return_bootstrap.v1"
+          "last_delta_i.signal_return_bootstrap.v1",
+          "entity_states",
+          "last_delta_i",
+          "none"
         ],
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:cb1f765e1cde3fa5b4fe953c911062829d98c3ac99453bcf66e22a194532281d"
+    "snapshot_id": "sha256:8112bc6982c44765b50f12e1cb40723c9d600df53b7c22253242246295aa3ac7"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -530,16 +809,16 @@
     "embedded_in_field_state": false,
     "feeds_qpo": false,
     "claims": {
-      "n": 0,
-      "evidence_backed": 0,
+      "n": 3,
+      "evidence_backed": 3,
       "attested": 0
     },
     "slots_by_class": {
-      "KNOWN_CURRENT": 3,
+      "KNOWN_CURRENT": 4,
       "KNOWN_STALE": 0,
       "KNOWN_MISSING": 2,
       "KNOWN_INCOMPARABLE": 1,
-      "BROKEN_PIPE": 1,
+      "BROKEN_PIPE": 0,
       "NOT_WIRED": 1,
       "NOT_SUPPORTED": 1,
       "WITHHELD": 2,
@@ -547,11 +826,11 @@
       "UNKNOWN": 0
     },
     "aliases": {
-      "supported": 3,
+      "supported": 4,
       "unsupported": 1,
       "unknown": 2,
       "withheld": 2,
-      "broken_pipe": 1,
+      "broken_pipe": 0,
       "not_wired": 1,
       "stale": 0,
       "incomparable": 1,
@@ -561,29 +840,95 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:cb1f765e1cde3fa5b4fe953c911062829d98c3ac99453bcf66e22a194532281d",
-  "projection_compiled_at": "2026-08-30T05:00:06.772053+00:00",
+  "source_snapshot_id": "sha256:8112bc6982c44765b50f12e1cb40723c9d600df53b7c22253242246295aa3ac7",
+  "projection_compiled_at": "2026-10-07T19:12:06.367617+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-08-30T05:00:06.772053+00:00",
+    "projection_compiled_at": "2026-10-07T19:12:06.367617+00:00",
     "age_seconds": null,
-    "status": "UNKNOWN"
+    "status": "UNKNOWN",
+    "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:cb1f765e1cde3fa5b4fe953c911062829d98c3ac99453bcf66e22a194532281d",
-    "compiled_at": "2026-08-30T05:00:06.772053+00:00",
+    "source_snapshot_id": "sha256:8112bc6982c44765b50f12e1cb40723c9d600df53b7c22253242246295aa3ac7",
+    "compiled_at": "2026-10-07T19:12:06.367617+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-08-30T05:00:06.772053+00:00",
+      "projection_compiled_at": "2026-10-07T19:12:06.367617+00:00",
       "age_seconds": null,
-      "status": "UNKNOWN"
+      "status": "UNKNOWN",
+      "relative_to": "projection_compiled_at"
     },
     "projection": true,
     "entity": "FIAT_OFFRAMP",
     "node": "34539544",
-    "claims": [],
+    "claims": [
+      {
+        "claim_id": "d093783c-46dc-44a5-a3ef-5f6d4b966d91",
+        "claim_text": "Coinbase \u2014 sell crypto for cash",
+        "grounding": {
+          "source_url": "https://www.coinbase.com/",
+          "expected": "sell",
+          "location": ""
+        },
+        "status_at_publish": "UNVERIFIED-PENDING",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "FIAT_OFFRAMP_20260907",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260907/",
+        "verified_at": "2026-09-07T13:51:39.098493+00:00",
+        "expires_at": "2026-12-06T13:51:39+00:00",
+        "volatility_class": "default",
+        "allows_canonical": false
+      },
+      {
+        "claim_id": "fa6c2d54-f05d-4fc8-b4c3-4116b1af5050",
+        "claim_text": "Circle USDC \u2014 redemption for dollars",
+        "grounding": {
+          "source_url": "https://www.circle.com/en/usdc",
+          "expected": "redeem",
+          "location": ""
+        },
+        "status_at_publish": "UNVERIFIED-PENDING",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "FIAT_OFFRAMP_20260907",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260907/",
+        "verified_at": "2026-09-07T13:51:39.099239+00:00",
+        "expires_at": "2026-12-06T13:51:39+00:00",
+        "volatility_class": "default",
+        "allows_canonical": false
+      },
+      {
+        "claim_id": "c6f79cf1-1418-4fdf-b514-318125ab45d9",
+        "claim_text": "Paxos \u2014 regulated redemption services",
+        "grounding": {
+          "source_url": "https://paxos.com/",
+          "expected": "redeem",
+          "location": ""
+        },
+        "status_at_publish": "UNVERIFIED-PENDING",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "FIAT_OFFRAMP_20260907",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/fiat-offramp-20260907/",
+        "verified_at": "2026-09-07T13:51:39.099816+00:00",
+        "expires_at": "2026-12-06T13:51:39+00:00",
+        "volatility_class": "default",
+        "allows_canonical": false
+      }
+    ],
     "state": {
       "observed_at": null,
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
@@ -615,9 +960,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-08-30T05:00:06.764105+00:00",
+          "compiled_at": "2026-10-07T19:12:06.133857+00:00",
           "last_observation": null,
-          "drift_cycles": 80
+          "drift_cycles": 231
         },
         "reason": null,
         "family": "observation_age",
@@ -644,33 +989,33 @@
       "projection": true,
       "embedded_in_field_state": false,
       "feeds_qpo": false,
-      "supported": 3,
+      "supported": 4,
       "unknown": 2,
       "withheld": 2,
-      "broken_pipe": 1,
+      "broken_pipe": 0,
       "not_wired": 1,
       "claims": {
-        "n": 0,
-        "evidence_backed": 0,
+        "n": 3,
+        "evidence_backed": 3,
         "attested": 0
       },
       "aliases": {
-        "supported": 3,
+        "supported": 4,
         "unsupported": 1,
         "unknown": 2,
         "withheld": 2,
-        "broken_pipe": 1,
+        "broken_pipe": 0,
         "not_wired": 1,
         "stale": 0,
         "incomparable": 1,
         "relationship_gap": 2
       },
       "slots_by_class": {
-        "KNOWN_CURRENT": 3,
+        "KNOWN_CURRENT": 4,
         "KNOWN_STALE": 0,
         "KNOWN_MISSING": 2,
         "KNOWN_INCOMPARABLE": 1,
-        "BROKEN_PIPE": 1,
+        "BROKEN_PIPE": 0,
         "NOT_WIRED": 1,
         "NOT_SUPPORTED": 1,
         "WITHHELD": 2,
@@ -751,11 +1096,11 @@
       "summary": {
         "n": 13,
         "by_class": {
-          "KNOWN_CURRENT": 3,
+          "KNOWN_CURRENT": 4,
           "KNOWN_STALE": 0,
           "KNOWN_MISSING": 2,
           "KNOWN_INCOMPARABLE": 1,
-          "BROKEN_PIPE": 1,
+          "BROKEN_PIPE": 0,
           "NOT_WIRED": 1,
           "NOT_SUPPORTED": 1,
           "WITHHELD": 2,
@@ -776,16 +1121,16 @@
       "embedded_in_field_state": false
     },
     "consequence_tier": {
-      "status": "NOT_APPLICABLE",
-      "reason": "no_legal_typed_transition",
+      "status": "UNKNOWN",
+      "reason": "tier_requires_transition_evidence",
       "feeds_qpo": false
     },
     "observation_clock": {
       "entity": "FIAT_OFFRAMP",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 4,
-      "identity_comparable_transitions": 0,
+      "n_prospective_snapshots": 158,
+      "identity_comparable_transitions": 153,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -797,13 +1142,11 @@
     "change_frontier": {
       "entity": "FIAT_OFFRAMP",
       "schema": "geniusflow.public_change_frontier.v0",
-      "comparable_prior_state": "NONE",
+      "comparable_prior_state": "PRESENT",
       "world_observed": "UNAVAILABLE",
       "neighborhood_change": "UNAVAILABLE",
-      "status": "UNAVAILABLE",
-      "refuse_code": "no_prior_comparable_snapshot",
-      "transition_kind": "INCOMPARABLE",
-      "why": "GeniusFlow does not manufacture historical observations to create a before/after comparison. Waiting for a comparable prospective observation.",
+      "status": "COMPARABLE_WITHOUT_WORLD_OBSERVED",
+      "refuse_code": "world_observed_producer_not_emitted",
       "t0_labeled": false
     },
     "provenance": {
@@ -846,10 +1189,10 @@
       "usdc_circulating": {
         "status": "UNKNOWN",
         "value": null,
-        "reason": "pipe_fixed_not_yet_persisted",
+        "reason": "source_observation_absent",
         "family": "usdc_circulating",
         "source": "defillama_stablecoins",
-        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        "note": "Pipe is joinable. This compose received no independently acquired circulating row."
       },
       "usyc_circulating": {
         "status": "NOT_WIRED",

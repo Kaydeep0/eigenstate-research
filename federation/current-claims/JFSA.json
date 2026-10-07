@@ -2,37 +2,37 @@
   "entity": "JFSA",
   "claims": [
     {
-      "claim_id": "310e7f9d-a968-4dc6-a2bd-002f5bf18e1a",
+      "claim_id": "ca28f019-d9b2-436a-bdae-c6ecbebe73b4",
       "claim_text": "JFSA \u2014 Japan Financial Services Agency",
       "grounding": {
         "source_url": "https://www.fsa.go.jp/en/",
         "expected": "Financial Services Agency",
         "location": ""
       },
-      "status_at_publish": "ATTESTED-PRIMARY",
+      "status_at_publish": "UNVERIFIED-PENDING",
       "source_type": "primary",
       "source_type_at_verification": "primary",
       "source_role_reclassified": false,
       "witness_class": "unknown_secondary",
       "witness_weight": 0.08,
-      "report_id": "JFSA_20260818",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/jfsa-20260818/",
-      "verified_at": "2026-08-18T22:03:53.858642+00:00",
-      "expires_at": "2026-11-16T22:03:53+00:00",
+      "report_id": "JFSA_20260902",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/jfsa-20260902/",
+      "verified_at": "2026-09-02T22:03:46.269293+00:00",
+      "expires_at": "2026-12-01T22:03:46+00:00",
       "volatility_class": "default",
-      "allows_canonical": true,
+      "allows_canonical": false,
       "package": {
-        "claim_id": "310e7f9d-a968-4dc6-a2bd-002f5bf18e1a",
-        "verification_status": "ATTESTED-PRIMARY",
-        "allows_canonical": true,
+        "claim_id": "ca28f019-d9b2-436a-bdae-c6ecbebe73b4",
+        "verification_status": "UNVERIFIED-PENDING",
+        "allows_canonical": false,
         "claim_text": "JFSA \u2014 Japan Financial Services Agency",
-        "evaluated_at": "2026-08-25T13:11:54.043721+00:00",
-        "disposition": "admitted",
-        "exhibited_refusal": false,
-        "reason": "attested_published_claim",
+        "evaluated_at": "2026-10-07T19:14:18.909832+00:00",
+        "disposition": "withheld",
+        "exhibited_refusal": true,
+        "reason": "unverified_pending",
         "proof": {
           "version": "1.0.0",
-          "admitted": true,
+          "admitted": false,
           "limbs": {
             "registry_ref": {
               "ok": true,
@@ -41,10 +41,11 @@
               "ref": null
             },
             "refuse_or_admit": {
-              "ok": true,
-              "disposition": "admitted",
-              "exhibited_refusal": false,
-              "reason": "attested_published_claim"
+              "ok": false,
+              "disposition": "withheld",
+              "exhibited_refusal": true,
+              "reason": "unverified_pending",
+              "failed": "unverified_pending"
             },
             "provenance_spine": {
               "ok": true,
@@ -61,14 +62,16 @@
                 "custody_sha256": null,
                 "terminal_origin_fingerprint": null,
                 "helix_hash": null,
-                "verified_at": "2026-08-18T22:03:53.858642+00:00"
+                "verified_at": "2026-09-02T22:03:46.269293+00:00"
               },
               "invented": false,
               "note": "Pointers only \u2014 public package/verify does not assert cycle spine ok or invent attestations."
             }
           },
-          "failed_limbs": [],
-          "refuse_limb": null,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit",
           "spec": "docs/ATTESTATION_PROOF_SHAPE.md"
         },
         "proof_shape": {
@@ -78,44 +81,46 @@
             "refuse_or_admit",
             "provenance_spine"
           ],
-          "admitted": true,
-          "failed_limbs": [],
-          "refuse_limb": null
+          "admitted": false,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit"
         }
       }
     },
     {
-      "claim_id": "c8e014b0-d76e-48ea-8df8-0a4bf4d6aebc",
+      "claim_id": "032dd649-8f46-4e0a-97c2-f0663cbe39a4",
       "claim_text": "JFSA laws and regulations framework",
       "grounding": {
         "source_url": "https://www.fsa.go.jp/en/laws_regulations/index.html",
         "expected": "Financial Services Agency",
         "location": ""
       },
-      "status_at_publish": "ATTESTED-PRIMARY",
+      "status_at_publish": "UNVERIFIED-PENDING",
       "source_type": "primary",
       "source_type_at_verification": "primary",
       "source_role_reclassified": false,
       "witness_class": "unknown_secondary",
       "witness_weight": 0.08,
-      "report_id": "JFSA_20260818",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/jfsa-20260818/",
-      "verified_at": "2026-08-18T22:03:53.943026+00:00",
-      "expires_at": "2026-11-16T22:03:53+00:00",
+      "report_id": "JFSA_20260902",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/jfsa-20260902/",
+      "verified_at": "2026-09-02T22:03:46.269991+00:00",
+      "expires_at": "2026-12-01T22:03:46+00:00",
       "volatility_class": "default",
-      "allows_canonical": true,
+      "allows_canonical": false,
       "package": {
-        "claim_id": "c8e014b0-d76e-48ea-8df8-0a4bf4d6aebc",
-        "verification_status": "ATTESTED-PRIMARY",
-        "allows_canonical": true,
+        "claim_id": "032dd649-8f46-4e0a-97c2-f0663cbe39a4",
+        "verification_status": "UNVERIFIED-PENDING",
+        "allows_canonical": false,
         "claim_text": "JFSA laws and regulations framework",
-        "evaluated_at": "2026-08-25T13:11:54.043721+00:00",
-        "disposition": "admitted",
-        "exhibited_refusal": false,
-        "reason": "attested_published_claim",
+        "evaluated_at": "2026-10-07T19:14:18.909832+00:00",
+        "disposition": "withheld",
+        "exhibited_refusal": true,
+        "reason": "unverified_pending",
         "proof": {
           "version": "1.0.0",
-          "admitted": true,
+          "admitted": false,
           "limbs": {
             "registry_ref": {
               "ok": true,
@@ -124,10 +129,11 @@
               "ref": null
             },
             "refuse_or_admit": {
-              "ok": true,
-              "disposition": "admitted",
-              "exhibited_refusal": false,
-              "reason": "attested_published_claim"
+              "ok": false,
+              "disposition": "withheld",
+              "exhibited_refusal": true,
+              "reason": "unverified_pending",
+              "failed": "unverified_pending"
             },
             "provenance_spine": {
               "ok": true,
@@ -144,14 +150,16 @@
                 "custody_sha256": null,
                 "terminal_origin_fingerprint": null,
                 "helix_hash": null,
-                "verified_at": "2026-08-18T22:03:53.943026+00:00"
+                "verified_at": "2026-09-02T22:03:46.269991+00:00"
               },
               "invented": false,
               "note": "Pointers only \u2014 public package/verify does not assert cycle spine ok or invent attestations."
             }
           },
-          "failed_limbs": [],
-          "refuse_limb": null,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit",
           "spec": "docs/ATTESTATION_PROOF_SHAPE.md"
         },
         "proof_shape": {
@@ -161,44 +169,46 @@
             "refuse_or_admit",
             "provenance_spine"
           ],
-          "admitted": true,
-          "failed_limbs": [],
-          "refuse_limb": null
+          "admitted": false,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit"
         }
       }
     },
     {
-      "claim_id": "386eccf2-59df-492b-9988-623b546ab497",
+      "claim_id": "2eb401a2-f1a6-4797-97e0-f8b86de45261",
       "claim_text": "JFSA licensed financial institutions",
       "grounding": {
         "source_url": "https://www.fsa.go.jp/en/regulated/licensed/index.html",
         "expected": "Japan",
         "location": ""
       },
-      "status_at_publish": "ATTESTED-PRIMARY",
+      "status_at_publish": "UNVERIFIED-PENDING",
       "source_type": "primary",
       "source_type_at_verification": "primary",
       "source_role_reclassified": false,
       "witness_class": "unknown_secondary",
       "witness_weight": 0.08,
-      "report_id": "JFSA_20260818",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/jfsa-20260818/",
-      "verified_at": "2026-08-18T22:03:54.014808+00:00",
-      "expires_at": "2026-11-16T22:03:54+00:00",
+      "report_id": "JFSA_20260902",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/jfsa-20260902/",
+      "verified_at": "2026-09-02T22:03:46.270636+00:00",
+      "expires_at": "2026-12-01T22:03:46+00:00",
       "volatility_class": "default",
-      "allows_canonical": true,
+      "allows_canonical": false,
       "package": {
-        "claim_id": "386eccf2-59df-492b-9988-623b546ab497",
-        "verification_status": "ATTESTED-PRIMARY",
-        "allows_canonical": true,
+        "claim_id": "2eb401a2-f1a6-4797-97e0-f8b86de45261",
+        "verification_status": "UNVERIFIED-PENDING",
+        "allows_canonical": false,
         "claim_text": "JFSA licensed financial institutions",
-        "evaluated_at": "2026-08-25T13:11:54.043721+00:00",
-        "disposition": "admitted",
-        "exhibited_refusal": false,
-        "reason": "attested_published_claim",
+        "evaluated_at": "2026-10-07T19:14:18.909832+00:00",
+        "disposition": "withheld",
+        "exhibited_refusal": true,
+        "reason": "unverified_pending",
         "proof": {
           "version": "1.0.0",
-          "admitted": true,
+          "admitted": false,
           "limbs": {
             "registry_ref": {
               "ok": true,
@@ -207,10 +217,11 @@
               "ref": null
             },
             "refuse_or_admit": {
-              "ok": true,
-              "disposition": "admitted",
-              "exhibited_refusal": false,
-              "reason": "attested_published_claim"
+              "ok": false,
+              "disposition": "withheld",
+              "exhibited_refusal": true,
+              "reason": "unverified_pending",
+              "failed": "unverified_pending"
             },
             "provenance_spine": {
               "ok": true,
@@ -227,14 +238,16 @@
                 "custody_sha256": null,
                 "terminal_origin_fingerprint": null,
                 "helix_hash": null,
-                "verified_at": "2026-08-18T22:03:54.014808+00:00"
+                "verified_at": "2026-09-02T22:03:46.270636+00:00"
               },
               "invented": false,
               "note": "Pointers only \u2014 public package/verify does not assert cycle spine ok or invent attestations."
             }
           },
-          "failed_limbs": [],
-          "refuse_limb": null,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit",
           "spec": "docs/ATTESTATION_PROOF_SHAPE.md"
         },
         "proof_shape": {
@@ -244,17 +257,19 @@
             "refuse_or_admit",
             "provenance_spine"
           ],
-          "admitted": true,
-          "failed_limbs": [],
-          "refuse_limb": null
+          "admitted": false,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit"
         }
       }
     }
   ],
   "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/JFSA.json",
-  "generated_at": "2026-08-25T13:11:54.043721+00:00",
-  "source_ledger_sha256": "af16a6664281d3bbb793ea6ddef060e2541ae8214126ed93dc1714220d4d0d9e",
-  "current_through": "2026-11-16T22:03:53+00:00",
-  "currentness": "time_bounded_snapshot_recheck_after_current_through",
+  "generated_at": "2026-10-07T19:14:18.909832+00:00",
+  "source_ledger_sha256": "b139037b3cd0ef955898353755b414cdaa43549dc32b8fea6e90bf2aa95ddd4f",
+  "current_through": null,
+  "currentness": "no_admitted_claims_at_generation",
   "verify_hint": "POST /api/verify for grounding re-check; POST /api/package with the published claim object for admit/withhold/VOID/ILLUSTRATIVE disposition"
 }

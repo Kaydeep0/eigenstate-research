@@ -7,7 +7,7 @@
   "source_url": "https://www.sec.gov/rules-regulations/staff-guidance/staff-accounting-bulletins/staff-accounting-bulletin-122",
   "published_status": "CONTRADICTED",
   "published_at": "2026-08-02T01:38:07.831666+00:00",
-  "checked_at": "2026-08-16T11:00:06.604861+00:00",
+  "checked_at": "2026-09-20T11:00:05.297576+00:00",
   "must_admit": false,
   "full_admit": false,
   "refuse_limb": "ledger_rows_agree",
@@ -31,7 +31,7 @@
     "source_resolves": {
       "outcome": "ok",
       "status": 200,
-      "bytes": 71887
+      "bytes": 72035
     },
     "expected_string_present_in_served_bytes": {
       "outcome": "ok",
@@ -75,24 +75,15 @@
       "auth": "none; an identifying user agent is required"
     },
     "full_text_index_answers": {
-      "outcome": "ok",
-      "total_hits": 964,
-      "returned": 3
+      "outcome": "fail",
+      "reason": "index_request_failed:http_500",
+      "attribution": "probe"
     },
     "independent_filing_corroborates": {
-      "outcome": "ok",
-      "filer": "Customers Bancorp, Inc.  (CUBB, CUBI, CUBI-PE, CUBI-PF)  (CIK 0001488813)",
-      "form": "CORRESP",
-      "file_date": "2022-10-28",
-      "document_url": "https://www.sec.gov/Archives/edgar/data/1488813/000148881322000093/filename1.htm"
+      "outcome": "not_reached"
     },
     "corroborating_document_authored_by_the_regulator": {
-      "outcome": "fail",
-      "reason": "corroborating_filer_is_a_registrant_not_the_regulator",
-      "attribution": "no_index_exists",
-      "filer": "Customers Bancorp, Inc.  (CUBB, CUBI, CUBI-PE, CUBI-PF)  (CIK 0001488813)",
-      "cik": "1488813",
-      "note": "The filing corroborates that the string is used in a primary document. It does not make the filer authoritative for the claim, and neither regulator in this corpus files on EDGAR."
+      "outcome": "not_reached"
     }
   },
   "evidence": {
@@ -101,10 +92,10 @@
       "final_url": "https://www.sec.gov/rules-regulations/staff-guidance/staff-accounting-bulletins/staff-accounting-bulletin-122",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 71887,
+      "bytes": 72035,
       "truncated_at_probe_cap": false,
       "error": null,
-      "fetched_at": "2026-08-16T11:00:03.777602+00:00"
+      "fetched_at": "2026-09-20T11:00:04.456852+00:00"
     },
     "match": {
       "found": true,
@@ -142,66 +133,17 @@
       "endpoint": "https://efts.sec.gov/LATEST/search-index",
       "query": "\"SAB 121\"",
       "request_url": "https://efts.sec.gov/LATEST/search-index?q=%22SAB%20121%22",
-      "status": 200,
-      "error": null,
-      "total_hits": 964,
-      "hits": [
-        {
-          "id": "0001488813-22-000093:filename1.htm",
-          "accession": "0001488813-22-000093",
-          "filename": "filename1.htm",
-          "cik": "1488813",
-          "filer": "Customers Bancorp, Inc.  (CUBB, CUBI, CUBI-PE, CUBI-PF)  (CIK 0001488813)",
-          "form": "CORRESP",
-          "file_date": "2022-10-28",
-          "document_url": "https://www.sec.gov/Archives/edgar/data/1488813/000148881322000093/filename1.htm"
-        },
-        {
-          "id": "0001437749-23-021171:filename1.htm",
-          "accession": "0001437749-23-021171",
-          "filename": "filename1.htm",
-          "cik": "1686400",
-          "filer": "Salt Blockchain Inc.  (CIK 0001686400)",
-          "form": "CORRESP",
-          "file_date": "2023-07-31",
-          "document_url": "https://www.sec.gov/Archives/edgar/data/1686400/000143774923021171/filename1.htm"
-        },
-        {
-          "id": "0001709585-23-000005:wflPublic2022p.pdf",
-          "accession": "0001709585-23-000005",
-          "filename": "wflPublic2022p.pdf",
-          "cik": "1709585",
-          "filer": "WEBULL FINANCIAL LLC  (CIK 0001709585)",
-          "form": "X-17A-5",
-          "file_date": "2023-04-28",
-          "document_url": "https://www.sec.gov/Archives/edgar/data/1709585/000170958523000005/wflPublic2022p.pdf"
-        }
-      ],
-      "total_hits_relation": "eq"
-    },
-    "filings_fetched": [
-      {
-        "id": "0001488813-22-000093:filename1.htm",
-        "accession": "0001488813-22-000093",
-        "filename": "filename1.htm",
-        "cik": "1488813",
-        "filer": "Customers Bancorp, Inc.  (CUBB, CUBI, CUBI-PE, CUBI-PF)  (CIK 0001488813)",
-        "form": "CORRESP",
-        "file_date": "2022-10-28",
-        "document_url": "https://www.sec.gov/Archives/edgar/data/1488813/000148881322000093/filename1.htm",
-        "status": 200,
-        "bytes": 228214,
-        "expected_found_in_filing_body": true,
-        "match_basis": "literal",
-        "error": null
-      }
-    ]
+      "status": 500,
+      "error": "http_500",
+      "total_hits": null,
+      "hits": []
+    }
   },
   "reproduce": {
     "api_verify": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.sec.gov%2Frules-regulations%2Fstaff-guidance%2Fstaff-accounting-bulletins%2Fstaff-accounting-bulletin-122&expected=SAB%20121",
     "note": "The expected string test on this receipt applies the same rule as that endpoint, against the same URL. A reader who gets a different answer has found either a page that changed between the two requests or a defect, and both are worth reporting."
   },
   "ledger": "https://geniusflow-federation.vercel.app/grounded-claims/ledger.json",
-  "ledger_digest": "d94b8706ffadc18e901b57d583790dd567f81c92f48db199a57eacbf642b8a38",
+  "ledger_digest": "0e1cba15654e4d9f6b17fabead34e33dfeecf415e4112e40598723dfa5f3313b",
   "expectations_digest": "dc8f54dfef2d82e8889a762b5949c1fdf7e12c8ec88baa9ef4f2b347ebe1d4dc"
 }

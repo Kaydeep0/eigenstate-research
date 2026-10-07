@@ -2,37 +2,37 @@
   "entity": "MAPLE",
   "claims": [
     {
-      "claim_id": "83aa30a2-9f5d-496d-8e3d-33b117b1bcd1",
+      "claim_id": "f8b7a70b-bace-4a96-a383-3714fbcbb108",
       "claim_text": "Maple Finance developer documentation",
       "grounding": {
         "source_url": "https://docs.maple.finance/",
         "expected": "Maple",
         "location": ""
       },
-      "status_at_publish": "ATTESTED-PRIMARY",
+      "status_at_publish": "UNVERIFIED-PENDING",
       "source_type": "primary",
       "source_type_at_verification": "primary",
       "source_role_reclassified": false,
       "witness_class": "unknown_secondary",
       "witness_weight": 0.08,
-      "report_id": "MAPLE_20260812",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/maple-20260812/",
-      "verified_at": "2026-08-12T15:32:35.638801+00:00",
-      "expires_at": "2026-11-10T15:32:35+00:00",
+      "report_id": "MAPLE_20260829",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/maple-20260829/",
+      "verified_at": "2026-08-29T04:00:02.977380+00:00",
+      "expires_at": "2026-11-27T04:00:02+00:00",
       "volatility_class": "default",
-      "allows_canonical": true,
+      "allows_canonical": false,
       "package": {
-        "claim_id": "83aa30a2-9f5d-496d-8e3d-33b117b1bcd1",
-        "verification_status": "ATTESTED-PRIMARY",
-        "allows_canonical": true,
+        "claim_id": "f8b7a70b-bace-4a96-a383-3714fbcbb108",
+        "verification_status": "UNVERIFIED-PENDING",
+        "allows_canonical": false,
         "claim_text": "Maple Finance developer documentation",
-        "evaluated_at": "2026-08-25T13:11:54.043721+00:00",
-        "disposition": "admitted",
-        "exhibited_refusal": false,
-        "reason": "attested_published_claim",
+        "evaluated_at": "2026-10-07T19:14:18.909832+00:00",
+        "disposition": "withheld",
+        "exhibited_refusal": true,
+        "reason": "unverified_pending",
         "proof": {
           "version": "1.0.0",
-          "admitted": true,
+          "admitted": false,
           "limbs": {
             "registry_ref": {
               "ok": true,
@@ -41,10 +41,11 @@
               "ref": null
             },
             "refuse_or_admit": {
-              "ok": true,
-              "disposition": "admitted",
-              "exhibited_refusal": false,
-              "reason": "attested_published_claim"
+              "ok": false,
+              "disposition": "withheld",
+              "exhibited_refusal": true,
+              "reason": "unverified_pending",
+              "failed": "unverified_pending"
             },
             "provenance_spine": {
               "ok": true,
@@ -61,14 +62,16 @@
                 "custody_sha256": null,
                 "terminal_origin_fingerprint": null,
                 "helix_hash": null,
-                "verified_at": "2026-08-12T15:32:35.638801+00:00"
+                "verified_at": "2026-08-29T04:00:02.977380+00:00"
               },
               "invented": false,
               "note": "Pointers only \u2014 public package/verify does not assert cycle spine ok or invent attestations."
             }
           },
-          "failed_limbs": [],
-          "refuse_limb": null,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit",
           "spec": "docs/ATTESTATION_PROOF_SHAPE.md"
         },
         "proof_shape": {
@@ -78,44 +81,46 @@
             "refuse_or_admit",
             "provenance_spine"
           ],
-          "admitted": true,
-          "failed_limbs": [],
-          "refuse_limb": null
+          "admitted": false,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit"
         }
       }
     },
     {
-      "claim_id": "389da36f-52c4-4d6a-a629-6f4e7e5fdc5b",
+      "claim_id": "aa653df9-8254-432c-a5d7-57b9879ec762",
       "claim_text": "Maple \u2014 institutional lending pools",
       "grounding": {
         "source_url": "https://docs.maple.finance/",
         "expected": "institutional",
         "location": ""
       },
-      "status_at_publish": "ATTESTED-PRIMARY",
+      "status_at_publish": "UNVERIFIED-PENDING",
       "source_type": "primary",
       "source_type_at_verification": "primary",
       "source_role_reclassified": false,
       "witness_class": "unknown_secondary",
       "witness_weight": 0.08,
-      "report_id": "MAPLE_20260812",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/maple-20260812/",
-      "verified_at": "2026-08-12T15:32:35.807579+00:00",
-      "expires_at": "2026-11-10T15:32:35+00:00",
+      "report_id": "MAPLE_20260829",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/maple-20260829/",
+      "verified_at": "2026-08-29T04:00:02.978161+00:00",
+      "expires_at": "2026-11-27T04:00:02+00:00",
       "volatility_class": "default",
-      "allows_canonical": true,
+      "allows_canonical": false,
       "package": {
-        "claim_id": "389da36f-52c4-4d6a-a629-6f4e7e5fdc5b",
-        "verification_status": "ATTESTED-PRIMARY",
-        "allows_canonical": true,
+        "claim_id": "aa653df9-8254-432c-a5d7-57b9879ec762",
+        "verification_status": "UNVERIFIED-PENDING",
+        "allows_canonical": false,
         "claim_text": "Maple \u2014 institutional lending pools",
-        "evaluated_at": "2026-08-25T13:11:54.043721+00:00",
-        "disposition": "admitted",
-        "exhibited_refusal": false,
-        "reason": "attested_published_claim",
+        "evaluated_at": "2026-10-07T19:14:18.909832+00:00",
+        "disposition": "withheld",
+        "exhibited_refusal": true,
+        "reason": "unverified_pending",
         "proof": {
           "version": "1.0.0",
-          "admitted": true,
+          "admitted": false,
           "limbs": {
             "registry_ref": {
               "ok": true,
@@ -124,10 +129,11 @@
               "ref": null
             },
             "refuse_or_admit": {
-              "ok": true,
-              "disposition": "admitted",
-              "exhibited_refusal": false,
-              "reason": "attested_published_claim"
+              "ok": false,
+              "disposition": "withheld",
+              "exhibited_refusal": true,
+              "reason": "unverified_pending",
+              "failed": "unverified_pending"
             },
             "provenance_spine": {
               "ok": true,
@@ -144,14 +150,16 @@
                 "custody_sha256": null,
                 "terminal_origin_fingerprint": null,
                 "helix_hash": null,
-                "verified_at": "2026-08-12T15:32:35.807579+00:00"
+                "verified_at": "2026-08-29T04:00:02.978161+00:00"
               },
               "invented": false,
               "note": "Pointers only \u2014 public package/verify does not assert cycle spine ok or invent attestations."
             }
           },
-          "failed_limbs": [],
-          "refuse_limb": null,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit",
           "spec": "docs/ATTESTATION_PROOF_SHAPE.md"
         },
         "proof_shape": {
@@ -161,44 +169,46 @@
             "refuse_or_admit",
             "provenance_spine"
           ],
-          "admitted": true,
-          "failed_limbs": [],
-          "refuse_limb": null
+          "admitted": false,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit"
         }
       }
     },
     {
-      "claim_id": "71cceae3-f143-40af-aeb6-171186167585",
+      "claim_id": "2a9e2df5-5351-44ae-b58b-9b1f2978e7cb",
       "claim_text": "DeFiLlama \u2014 Maple Finance protocol listing",
       "grounding": {
         "source_url": "https://defillama.com/protocol/maple-finance",
         "expected": "lending",
         "location": ""
       },
-      "status_at_publish": "ATTESTED-DERIVED",
+      "status_at_publish": "UNVERIFIED-PENDING",
       "source_type": "derived",
       "source_type_at_verification": "derived",
       "source_role_reclassified": false,
       "witness_class": "onchain_secondary",
       "witness_weight": 0.62,
-      "report_id": "MAPLE_20260812",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/maple-20260812/",
-      "verified_at": "2026-08-12T15:32:35.924230+00:00",
-      "expires_at": "2026-11-10T15:32:35+00:00",
+      "report_id": "MAPLE_20260829",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/maple-20260829/",
+      "verified_at": "2026-08-29T04:00:02.978786+00:00",
+      "expires_at": "2026-11-27T04:00:02+00:00",
       "volatility_class": "default",
-      "allows_canonical": true,
+      "allows_canonical": false,
       "package": {
-        "claim_id": "71cceae3-f143-40af-aeb6-171186167585",
-        "verification_status": "ATTESTED-DERIVED",
-        "allows_canonical": true,
+        "claim_id": "2a9e2df5-5351-44ae-b58b-9b1f2978e7cb",
+        "verification_status": "UNVERIFIED-PENDING",
+        "allows_canonical": false,
         "claim_text": "DeFiLlama \u2014 Maple Finance protocol listing",
-        "evaluated_at": "2026-08-25T13:11:54.043721+00:00",
-        "disposition": "admitted",
-        "exhibited_refusal": false,
-        "reason": "attested_published_claim",
+        "evaluated_at": "2026-10-07T19:14:18.909832+00:00",
+        "disposition": "withheld",
+        "exhibited_refusal": true,
+        "reason": "unverified_pending",
         "proof": {
           "version": "1.0.0",
-          "admitted": true,
+          "admitted": false,
           "limbs": {
             "registry_ref": {
               "ok": true,
@@ -207,10 +217,11 @@
               "ref": null
             },
             "refuse_or_admit": {
-              "ok": true,
-              "disposition": "admitted",
-              "exhibited_refusal": false,
-              "reason": "attested_published_claim"
+              "ok": false,
+              "disposition": "withheld",
+              "exhibited_refusal": true,
+              "reason": "unverified_pending",
+              "failed": "unverified_pending"
             },
             "provenance_spine": {
               "ok": true,
@@ -227,14 +238,16 @@
                 "custody_sha256": null,
                 "terminal_origin_fingerprint": null,
                 "helix_hash": null,
-                "verified_at": "2026-08-12T15:32:35.924230+00:00"
+                "verified_at": "2026-08-29T04:00:02.978786+00:00"
               },
               "invented": false,
               "note": "Pointers only \u2014 public package/verify does not assert cycle spine ok or invent attestations."
             }
           },
-          "failed_limbs": [],
-          "refuse_limb": null,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit",
           "spec": "docs/ATTESTATION_PROOF_SHAPE.md"
         },
         "proof_shape": {
@@ -244,17 +257,19 @@
             "refuse_or_admit",
             "provenance_spine"
           ],
-          "admitted": true,
-          "failed_limbs": [],
-          "refuse_limb": null
+          "admitted": false,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit"
         }
       }
     }
   ],
   "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/MAPLE.json",
-  "generated_at": "2026-08-25T13:11:54.043721+00:00",
-  "source_ledger_sha256": "af16a6664281d3bbb793ea6ddef060e2541ae8214126ed93dc1714220d4d0d9e",
-  "current_through": "2026-11-10T15:32:35+00:00",
-  "currentness": "time_bounded_snapshot_recheck_after_current_through",
+  "generated_at": "2026-10-07T19:14:18.909832+00:00",
+  "source_ledger_sha256": "b139037b3cd0ef955898353755b414cdaa43549dc32b8fea6e90bf2aa95ddd4f",
+  "current_through": null,
+  "currentness": "no_admitted_claims_at_generation",
   "verify_hint": "POST /api/verify for grounding re-check; POST /api/package with the published claim object for admit/withhold/VOID/ILLUSTRATIVE disposition"
 }

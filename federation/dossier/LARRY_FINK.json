@@ -1,11 +1,11 @@
 {
   "entity": "LARRY_FINK",
   "node": "34539544",
-  "compiled_at": "2026-08-30T05:00:08.172638+00:00",
-  "digest": "sha256:445693bcff9626c589cd481070c79476fc51d0e6f821d10bc11f5f2acdf753bc",
+  "compiled_at": "2026-10-07T19:12:23.019471+00:00",
+  "digest": "sha256:75fc0c4b01153d5057308a62669c32ebb4bfb1cfbedd923f4e9bffe2f3800245",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0492,
+    "kappa": 0.2017,
     "mass": 0.1223,
     "power": null,
     "extraction": null,
@@ -78,12 +78,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 80,
+    "level": "watch",
+    "headline": "kappa +0.126 over 231 cycles",
+    "cycles": 231,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": -0.2601,
       "boundary_score": 0.0
     }
   },
@@ -94,7 +94,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-08-30T03:01:30.632702+00:00",
+        "last_observed_at": "2026-10-07T19:02:51.124478+00:00",
         "filings": null,
         "note": "BlackRock Finance, Inc. \u2014 48826 total filings, 0 in last 90d"
       }
@@ -123,11 +123,77 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-08-29T22:00:45.622284+00:00",
+      "last_observed_at": "2026-10-07T04:51:25.685688+00:00",
       "last_delta_i": Infinity,
       "stale": false
     }
   },
+  "claims": [
+    {
+      "claim_id": "bb7592d3-7891-46c2-a02f-4f985c759608",
+      "claim_text": "Larry Fink \u2014 BlackRock leadership",
+      "grounding": {
+        "source_url": "https://www.blackrock.com/corporate/about-us/leadership/larry-fink",
+        "expected": "Fink",
+        "location": ""
+      },
+      "status_at_publish": "UNVERIFIED-PENDING",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "LARRY_FINK_20260907",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/larry-fink-20260907/",
+      "verified_at": "2026-09-07T19:00:26.525168+00:00",
+      "expires_at": "2026-12-06T19:00:26+00:00",
+      "volatility_class": "default",
+      "allows_canonical": false
+    },
+    {
+      "claim_id": "8abe8d0b-b2a4-4dc2-b9e3-b76fff5d3b76",
+      "claim_text": "BlackRock corporate \u2014 global asset manager",
+      "grounding": {
+        "source_url": "https://www.blackrock.com/corporate",
+        "expected": "BlackRock",
+        "location": ""
+      },
+      "status_at_publish": "UNVERIFIED-PENDING",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "LARRY_FINK_20260907",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/larry-fink-20260907/",
+      "verified_at": "2026-09-07T19:00:26.525884+00:00",
+      "expires_at": "2026-12-06T19:00:26+00:00",
+      "volatility_class": "default",
+      "allows_canonical": false
+    },
+    {
+      "claim_id": "108595aa-d94e-4698-97e4-69b2f5580814",
+      "claim_text": "BUIDL \u2014 tokenized treasury fund listing",
+      "grounding": {
+        "source_url": "https://rwa.xyz/assets/buidl",
+        "expected": "BUIDL",
+        "location": ""
+      },
+      "status_at_publish": "UNVERIFIED-PENDING",
+      "source_type": "derived",
+      "source_type_at_verification": "derived",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "LARRY_FINK_20260907",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/larry-fink-20260907/",
+      "verified_at": "2026-09-07T19:00:26.526487+00:00",
+      "expires_at": "2026-12-06T19:00:26+00:00",
+      "volatility_class": "default",
+      "allows_canonical": false
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/LARRY_FINK.json",
   "locate": {
     "entity": "LARRY_FINK",
     "routing": "index_locate_classify",
@@ -175,7 +241,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "LARRY_FINK",
     "observed_at": null,
-    "compiled_at": "2026-08-30T05:00:08.172638+00:00",
+    "compiled_at": "2026-10-07T19:12:23.019471+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -184,8 +250,73 @@
     "producer_node_id": "34539544",
     "observation_origin": "field_state.compose",
     "observer_identity_status": "OBSERVED",
+    "instrumentation_repair": "phase8_lawful_20260830",
     "state": {
-      "claims": [],
+      "claims": [
+        {
+          "claim_id": "bb7592d3-7891-46c2-a02f-4f985c759608",
+          "claim_text": "Larry Fink \u2014 BlackRock leadership",
+          "grounding": {
+            "source_url": "https://www.blackrock.com/corporate/about-us/leadership/larry-fink",
+            "expected": "Fink",
+            "location": ""
+          },
+          "status_at_publish": "UNVERIFIED-PENDING",
+          "source_type": "primary",
+          "source_type_at_verification": "primary",
+          "source_role_reclassified": false,
+          "witness_class": "unknown_secondary",
+          "witness_weight": 0.08,
+          "report_id": "LARRY_FINK_20260907",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/larry-fink-20260907/",
+          "verified_at": "2026-09-07T19:00:26.525168+00:00",
+          "expires_at": "2026-12-06T19:00:26+00:00",
+          "volatility_class": "default",
+          "allows_canonical": false
+        },
+        {
+          "claim_id": "8abe8d0b-b2a4-4dc2-b9e3-b76fff5d3b76",
+          "claim_text": "BlackRock corporate \u2014 global asset manager",
+          "grounding": {
+            "source_url": "https://www.blackrock.com/corporate",
+            "expected": "BlackRock",
+            "location": ""
+          },
+          "status_at_publish": "UNVERIFIED-PENDING",
+          "source_type": "primary",
+          "source_type_at_verification": "primary",
+          "source_role_reclassified": false,
+          "witness_class": "unknown_secondary",
+          "witness_weight": 0.08,
+          "report_id": "LARRY_FINK_20260907",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/larry-fink-20260907/",
+          "verified_at": "2026-09-07T19:00:26.525884+00:00",
+          "expires_at": "2026-12-06T19:00:26+00:00",
+          "volatility_class": "default",
+          "allows_canonical": false
+        },
+        {
+          "claim_id": "108595aa-d94e-4698-97e4-69b2f5580814",
+          "claim_text": "BUIDL \u2014 tokenized treasury fund listing",
+          "grounding": {
+            "source_url": "https://rwa.xyz/assets/buidl",
+            "expected": "BUIDL",
+            "location": ""
+          },
+          "status_at_publish": "UNVERIFIED-PENDING",
+          "source_type": "derived",
+          "source_type_at_verification": "derived",
+          "source_role_reclassified": false,
+          "witness_class": "unknown_secondary",
+          "witness_weight": 0.08,
+          "report_id": "LARRY_FINK_20260907",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/larry-fink-20260907/",
+          "verified_at": "2026-09-07T19:00:26.526487+00:00",
+          "expires_at": "2026-12-06T19:00:26+00:00",
+          "volatility_class": "default",
+          "allows_canonical": false
+        }
+      ],
       "measurements": {
         "usdc_circulating": {
           "value": null,
@@ -200,8 +331,8 @@
           "observation_id": "none",
           "comparability": false,
           "defaults_used": "none",
-          "refuse_code": "pipe_fixed_not_yet_persisted",
-          "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+          "refuse_code": "source_observation_absent",
+          "note": "Pipe is joinable. This compose received no independently acquired circulating row."
         }
       },
       "support": {
@@ -209,7 +340,7 @@
         "unit": "unknown",
         "family": "published_claim_support",
         "not_families": [],
-        "status": "UNKNOWN",
+        "status": "OBSERVED",
         "source": "claim_ledger",
         "observation_id": "none",
         "comparability": false,
@@ -300,9 +431,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-08-30T05:00:08.172638+00:00",
+        "compiled_at": "2026-10-07T19:12:23.019471+00:00",
         "last_observation": null,
-        "drift_cycles": 80
+        "drift_cycles": 231
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -327,7 +458,71 @@
       "note": "empty change is honest before Phase 4 history",
       "transition_kind": "INCOMPARABLE"
     },
-    "claims": [],
+    "claims": [
+      {
+        "claim_id": "bb7592d3-7891-46c2-a02f-4f985c759608",
+        "claim_text": "Larry Fink \u2014 BlackRock leadership",
+        "grounding": {
+          "source_url": "https://www.blackrock.com/corporate/about-us/leadership/larry-fink",
+          "expected": "Fink",
+          "location": ""
+        },
+        "status_at_publish": "UNVERIFIED-PENDING",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "LARRY_FINK_20260907",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/larry-fink-20260907/",
+        "verified_at": "2026-09-07T19:00:26.525168+00:00",
+        "expires_at": "2026-12-06T19:00:26+00:00",
+        "volatility_class": "default",
+        "allows_canonical": false
+      },
+      {
+        "claim_id": "8abe8d0b-b2a4-4dc2-b9e3-b76fff5d3b76",
+        "claim_text": "BlackRock corporate \u2014 global asset manager",
+        "grounding": {
+          "source_url": "https://www.blackrock.com/corporate",
+          "expected": "BlackRock",
+          "location": ""
+        },
+        "status_at_publish": "UNVERIFIED-PENDING",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "LARRY_FINK_20260907",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/larry-fink-20260907/",
+        "verified_at": "2026-09-07T19:00:26.525884+00:00",
+        "expires_at": "2026-12-06T19:00:26+00:00",
+        "volatility_class": "default",
+        "allows_canonical": false
+      },
+      {
+        "claim_id": "108595aa-d94e-4698-97e4-69b2f5580814",
+        "claim_text": "BUIDL \u2014 tokenized treasury fund listing",
+        "grounding": {
+          "source_url": "https://rwa.xyz/assets/buidl",
+          "expected": "BUIDL",
+          "location": ""
+        },
+        "status_at_publish": "UNVERIFIED-PENDING",
+        "source_type": "derived",
+        "source_type_at_verification": "derived",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "LARRY_FINK_20260907",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/larry-fink-20260907/",
+        "verified_at": "2026-09-07T19:00:26.526487+00:00",
+        "expires_at": "2026-12-06T19:00:26+00:00",
+        "volatility_class": "default",
+        "allows_canonical": false
+      }
+    ],
     "measurements": {
       "usdc_circulating": {
         "value": null,
@@ -342,8 +537,8 @@
         "observation_id": "none",
         "comparability": false,
         "defaults_used": "none",
-        "refuse_code": "pipe_fixed_not_yet_persisted",
-        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        "refuse_code": "source_observation_absent",
+        "note": "Pipe is joinable. This compose received no independently acquired circulating row."
       },
       "sec_filing_occupancy": {
         "value": null,
@@ -424,7 +619,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0492,
+        "value": 0.2017,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -504,16 +699,44 @@
           "shannon_bits",
           "world_causal_lead"
         ],
+        "units": "dimensionless_index",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "phi_s.cf_pressure.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_physics",
+        "source_key": "kappa",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "kappa",
+            "source_store": "entity_physics",
+            "source_key": "kappa",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": false,
         "withhold_reason": null,
         "comparable_under": [
-          "phi_s.cf_pressure.v1"
+          "phi_s.cf_pressure.v1",
+          "entity_physics",
+          "kappa",
+          "none"
         ],
         "epistemic_status": "DERIVED"
       },
@@ -522,23 +745,51 @@
         "entity_id": "LARRY_FINK",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0492,
+        "magnitude": 0.2017,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
           "host_kappa_blend",
           "gamma_labeled_as_kappa"
         ],
+        "units": "dimensionless_index",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "kappa.entity_physics.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_physics",
+        "source_key": "kappa",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "kappa",
+            "source_store": "entity_physics",
+            "source_key": "kappa",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": false,
         "withhold_reason": null,
         "comparable_under": [
-          "kappa.entity_physics.v1"
+          "kappa.entity_physics.v1",
+          "entity_physics",
+          "kappa",
+          "none"
         ],
         "epistemic_status": "DERIVED"
       },
@@ -559,21 +810,49 @@
           "pred",
           "E"
         ],
+        "units": "unknown",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_states",
+        "source_key": "last_delta_i",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "last_delta_i",
+            "source_store": "entity_states",
+            "source_key": "last_delta_i",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": true,
         "withhold_reason": "unqualified_bootstrap_scalar",
         "comparable_under": [
-          "last_delta_i.signal_return_bootstrap.v1"
+          "last_delta_i.signal_return_bootstrap.v1",
+          "entity_states",
+          "last_delta_i",
+          "none"
         ],
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:600ba0e3157501bd2ffaf759b0a1980096871fe24dff67baed0a84552ec73290"
+    "snapshot_id": "sha256:dac9cad636dcb927eba516a3c1e5e379711cce6bc4ab7bb09454013cedd70a59"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -581,16 +860,16 @@
     "embedded_in_field_state": false,
     "feeds_qpo": false,
     "claims": {
-      "n": 0,
-      "evidence_backed": 0,
+      "n": 3,
+      "evidence_backed": 3,
       "attested": 0
     },
     "slots_by_class": {
-      "KNOWN_CURRENT": 3,
+      "KNOWN_CURRENT": 4,
       "KNOWN_STALE": 0,
       "KNOWN_MISSING": 2,
       "KNOWN_INCOMPARABLE": 1,
-      "BROKEN_PIPE": 1,
+      "BROKEN_PIPE": 0,
       "NOT_WIRED": 1,
       "NOT_SUPPORTED": 1,
       "WITHHELD": 2,
@@ -598,11 +877,11 @@
       "UNKNOWN": 0
     },
     "aliases": {
-      "supported": 3,
+      "supported": 4,
       "unsupported": 1,
       "unknown": 2,
       "withheld": 2,
-      "broken_pipe": 1,
+      "broken_pipe": 0,
       "not_wired": 1,
       "stale": 0,
       "incomparable": 1,
@@ -612,29 +891,95 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:600ba0e3157501bd2ffaf759b0a1980096871fe24dff67baed0a84552ec73290",
-  "projection_compiled_at": "2026-08-30T05:00:08.180471+00:00",
+  "source_snapshot_id": "sha256:dac9cad636dcb927eba516a3c1e5e379711cce6bc4ab7bb09454013cedd70a59",
+  "projection_compiled_at": "2026-10-07T19:12:23.266256+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-08-30T05:00:08.180471+00:00",
+    "projection_compiled_at": "2026-10-07T19:12:23.266256+00:00",
     "age_seconds": null,
-    "status": "UNKNOWN"
+    "status": "UNKNOWN",
+    "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:600ba0e3157501bd2ffaf759b0a1980096871fe24dff67baed0a84552ec73290",
-    "compiled_at": "2026-08-30T05:00:08.180471+00:00",
+    "source_snapshot_id": "sha256:dac9cad636dcb927eba516a3c1e5e379711cce6bc4ab7bb09454013cedd70a59",
+    "compiled_at": "2026-10-07T19:12:23.266256+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-08-30T05:00:08.180471+00:00",
+      "projection_compiled_at": "2026-10-07T19:12:23.266256+00:00",
       "age_seconds": null,
-      "status": "UNKNOWN"
+      "status": "UNKNOWN",
+      "relative_to": "projection_compiled_at"
     },
     "projection": true,
     "entity": "LARRY_FINK",
     "node": "34539544",
-    "claims": [],
+    "claims": [
+      {
+        "claim_id": "bb7592d3-7891-46c2-a02f-4f985c759608",
+        "claim_text": "Larry Fink \u2014 BlackRock leadership",
+        "grounding": {
+          "source_url": "https://www.blackrock.com/corporate/about-us/leadership/larry-fink",
+          "expected": "Fink",
+          "location": ""
+        },
+        "status_at_publish": "UNVERIFIED-PENDING",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "LARRY_FINK_20260907",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/larry-fink-20260907/",
+        "verified_at": "2026-09-07T19:00:26.525168+00:00",
+        "expires_at": "2026-12-06T19:00:26+00:00",
+        "volatility_class": "default",
+        "allows_canonical": false
+      },
+      {
+        "claim_id": "8abe8d0b-b2a4-4dc2-b9e3-b76fff5d3b76",
+        "claim_text": "BlackRock corporate \u2014 global asset manager",
+        "grounding": {
+          "source_url": "https://www.blackrock.com/corporate",
+          "expected": "BlackRock",
+          "location": ""
+        },
+        "status_at_publish": "UNVERIFIED-PENDING",
+        "source_type": "primary",
+        "source_type_at_verification": "primary",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "LARRY_FINK_20260907",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/larry-fink-20260907/",
+        "verified_at": "2026-09-07T19:00:26.525884+00:00",
+        "expires_at": "2026-12-06T19:00:26+00:00",
+        "volatility_class": "default",
+        "allows_canonical": false
+      },
+      {
+        "claim_id": "108595aa-d94e-4698-97e4-69b2f5580814",
+        "claim_text": "BUIDL \u2014 tokenized treasury fund listing",
+        "grounding": {
+          "source_url": "https://rwa.xyz/assets/buidl",
+          "expected": "BUIDL",
+          "location": ""
+        },
+        "status_at_publish": "UNVERIFIED-PENDING",
+        "source_type": "derived",
+        "source_type_at_verification": "derived",
+        "source_role_reclassified": false,
+        "witness_class": "unknown_secondary",
+        "witness_weight": 0.08,
+        "report_id": "LARRY_FINK_20260907",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/larry-fink-20260907/",
+        "verified_at": "2026-09-07T19:00:26.526487+00:00",
+        "expires_at": "2026-12-06T19:00:26+00:00",
+        "volatility_class": "default",
+        "allows_canonical": false
+      }
+    ],
     "state": {
       "observed_at": null,
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
@@ -666,9 +1011,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-08-30T05:00:08.172638+00:00",
+          "compiled_at": "2026-10-07T19:12:23.019471+00:00",
           "last_observation": null,
-          "drift_cycles": 80
+          "drift_cycles": 231
         },
         "reason": null,
         "family": "observation_age",
@@ -695,33 +1040,33 @@
       "projection": true,
       "embedded_in_field_state": false,
       "feeds_qpo": false,
-      "supported": 3,
+      "supported": 4,
       "unknown": 2,
       "withheld": 2,
-      "broken_pipe": 1,
+      "broken_pipe": 0,
       "not_wired": 1,
       "claims": {
-        "n": 0,
-        "evidence_backed": 0,
+        "n": 3,
+        "evidence_backed": 3,
         "attested": 0
       },
       "aliases": {
-        "supported": 3,
+        "supported": 4,
         "unsupported": 1,
         "unknown": 2,
         "withheld": 2,
-        "broken_pipe": 1,
+        "broken_pipe": 0,
         "not_wired": 1,
         "stale": 0,
         "incomparable": 1,
         "relationship_gap": 4
       },
       "slots_by_class": {
-        "KNOWN_CURRENT": 3,
+        "KNOWN_CURRENT": 4,
         "KNOWN_STALE": 0,
         "KNOWN_MISSING": 2,
         "KNOWN_INCOMPARABLE": 1,
-        "BROKEN_PIPE": 1,
+        "BROKEN_PIPE": 0,
         "NOT_WIRED": 1,
         "NOT_SUPPORTED": 1,
         "WITHHELD": 2,
@@ -844,11 +1189,11 @@
       "summary": {
         "n": 15,
         "by_class": {
-          "KNOWN_CURRENT": 3,
+          "KNOWN_CURRENT": 4,
           "KNOWN_STALE": 0,
           "KNOWN_MISSING": 2,
           "KNOWN_INCOMPARABLE": 1,
-          "BROKEN_PIPE": 1,
+          "BROKEN_PIPE": 0,
           "NOT_WIRED": 1,
           "NOT_SUPPORTED": 1,
           "WITHHELD": 2,
@@ -869,16 +1214,16 @@
       "embedded_in_field_state": false
     },
     "consequence_tier": {
-      "status": "NOT_APPLICABLE",
-      "reason": "no_legal_typed_transition",
+      "status": "UNKNOWN",
+      "reason": "tier_requires_transition_evidence",
       "feeds_qpo": false
     },
     "observation_clock": {
       "entity": "LARRY_FINK",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 4,
-      "identity_comparable_transitions": 0,
+      "n_prospective_snapshots": 158,
+      "identity_comparable_transitions": 153,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -890,13 +1235,11 @@
     "change_frontier": {
       "entity": "LARRY_FINK",
       "schema": "geniusflow.public_change_frontier.v0",
-      "comparable_prior_state": "NONE",
+      "comparable_prior_state": "PRESENT",
       "world_observed": "UNAVAILABLE",
       "neighborhood_change": "UNAVAILABLE",
-      "status": "UNAVAILABLE",
-      "refuse_code": "no_prior_comparable_snapshot",
-      "transition_kind": "INCOMPARABLE",
-      "why": "GeniusFlow does not manufacture historical observations to create a before/after comparison. Waiting for a comparable prospective observation.",
+      "status": "COMPARABLE_WITHOUT_WORLD_OBSERVED",
+      "refuse_code": "world_observed_producer_not_emitted",
       "t0_labeled": false
     },
     "provenance": {
@@ -939,10 +1282,10 @@
       "usdc_circulating": {
         "status": "UNKNOWN",
         "value": null,
-        "reason": "pipe_fixed_not_yet_persisted",
+        "reason": "source_observation_absent",
         "family": "usdc_circulating",
         "source": "defillama_stablecoins",
-        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        "note": "Pipe is joinable. This compose received no independently acquired circulating row."
       },
       "usyc_circulating": {
         "status": "NOT_WIRED",

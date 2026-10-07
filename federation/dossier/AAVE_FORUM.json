@@ -1,11 +1,11 @@
 {
   "entity": "AAVE_FORUM",
   "node": "34539544",
-  "compiled_at": "2026-08-30T05:00:12.587772+00:00",
-  "digest": "sha256:8eaa2951f2bd062418f42b0fc83a3bf729663592bd4f5ae01e564cc85608a0a0",
+  "compiled_at": "2026-10-07T19:11:25.781629+00:00",
+  "digest": "sha256:73000077d27f3dc4a0136b4dfbc84fc444af8c18939e9f9986a338e425287d20",
   "own_numbers": {
-    "phi_s": 1.6181,
-    "kappa": 0.0592,
+    "phi_s": 3.2362,
+    "kappa": 0.2017,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -24,7 +24,7 @@
     "gravity": {
       "value": 30,
       "rank": 37,
-      "of": 60
+      "of": 59
     },
     "extraction": null,
     "share_of_whole": {
@@ -58,11 +58,11 @@
   "monetary_position": null,
   "drift": {
     "level": "flag",
-    "headline": "kappa -0.382 over 80 cycles",
-    "cycles": 80,
+    "headline": "kappa -0.267 over 231 cycles",
+    "cycles": 231,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0971,
+      "kappa": -0.2601,
       "gravity_mass": 0.0
     }
   },
@@ -219,10 +219,10 @@
     "cite_class": "citeable",
     "source": "discourse_forum",
     "wire": "discourse_governance",
-    "ts": "2026-08-30T04:46:57.548131+00:00",
+    "ts": "2026-10-07T18:59:35.028817+00:00",
     "write_reason": "discourse_forum_topics",
     "source_url": null,
-    "vault_row_ref": "sensor:discourse_governance:AAVE_FORUM:2026-08-30T04:46:57.548131+00:00",
+    "vault_row_ref": "sensor:discourse_governance:AAVE_FORUM:2026-10-07T18:59:35.028817+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -254,8 +254,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "AAVE_FORUM",
-    "observed_at": "2026-08-30T04:46:57.548131+00:00",
-    "compiled_at": "2026-08-30T05:00:12.587772+00:00",
+    "observed_at": "2026-10-07T18:59:35.028817+00:00",
+    "compiled_at": "2026-10-07T19:11:25.781629+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -264,6 +264,7 @@
     "producer_node_id": "34539544",
     "observation_origin": "field_state.compose",
     "observer_identity_status": "OBSERVED",
+    "instrumentation_repair": "phase8_lawful_20260830",
     "state": {
       "claims": [
         {
@@ -386,8 +387,8 @@
           "observation_id": "none",
           "comparability": false,
           "defaults_used": "none",
-          "refuse_code": "pipe_fixed_not_yet_persisted",
-          "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+          "refuse_code": "source_observation_absent",
+          "note": "Pipe is joinable. This compose received no independently acquired circulating row."
         }
       },
       "support": {
@@ -448,9 +449,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-08-30T05:00:12.587772+00:00",
-        "last_observation": "2026-08-30T04:46:57.548131+00:00",
-        "drift_cycles": 80
+        "compiled_at": "2026-10-07T19:11:25.781629+00:00",
+        "last_observation": "2026-10-07T18:59:35.028817+00:00",
+        "drift_cycles": 231
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -596,8 +597,8 @@
         "observation_id": "none",
         "comparability": false,
         "defaults_used": "none",
-        "refuse_code": "pipe_fixed_not_yet_persisted",
-        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        "refuse_code": "source_observation_absent",
+        "note": "Pipe is joinable. This compose received no independently acquired circulating row."
       },
       "sec_filing_occupancy": {
         "value": null,
@@ -628,7 +629,7 @@
     "relationships": [],
     "metric_outputs": {
       "phi_s": {
-        "value": 1.6181,
+        "value": 3.2362,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -645,7 +646,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0592,
+        "value": 0.2017,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -717,7 +718,7 @@
         "entity_id": "AAVE_FORUM",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 1.6181,
+        "magnitude": 3.2362,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -725,16 +726,44 @@
           "shannon_bits",
           "world_causal_lead"
         ],
+        "units": "dimensionless_index",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "phi_s.cf_pressure.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_physics",
+        "source_key": "kappa",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "kappa",
+            "source_store": "entity_physics",
+            "source_key": "kappa",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": false,
         "withhold_reason": null,
         "comparable_under": [
-          "phi_s.cf_pressure.v1"
+          "phi_s.cf_pressure.v1",
+          "entity_physics",
+          "kappa",
+          "none"
         ],
         "epistemic_status": "DERIVED"
       },
@@ -743,23 +772,51 @@
         "entity_id": "AAVE_FORUM",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0592,
+        "magnitude": 0.2017,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
           "host_kappa_blend",
           "gamma_labeled_as_kappa"
         ],
+        "units": "dimensionless_index",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "kappa.entity_physics.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_physics",
+        "source_key": "kappa",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "kappa",
+            "source_store": "entity_physics",
+            "source_key": "kappa",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": false,
         "withhold_reason": null,
         "comparable_under": [
-          "kappa.entity_physics.v1"
+          "kappa.entity_physics.v1",
+          "entity_physics",
+          "kappa",
+          "none"
         ],
         "epistemic_status": "DERIVED"
       },
@@ -780,21 +837,49 @@
           "pred",
           "E"
         ],
+        "units": "unknown",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_states",
+        "source_key": "last_delta_i",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "last_delta_i",
+            "source_store": "entity_states",
+            "source_key": "last_delta_i",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": true,
         "withhold_reason": "unqualified_bootstrap_scalar",
         "comparable_under": [
-          "last_delta_i.signal_return_bootstrap.v1"
+          "last_delta_i.signal_return_bootstrap.v1",
+          "entity_states",
+          "last_delta_i",
+          "none"
         ],
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:824cd2ba6ca18f9ca83982b1ee81124c70748651a8ff52d00dc538aebbd458b5"
+    "snapshot_id": "sha256:992db3ed8487e9b87190d1f6eaf611d6a51ca9cba326d8a5dff65bffb953d6a0"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -809,9 +894,9 @@
     "slots_by_class": {
       "KNOWN_CURRENT": 3,
       "KNOWN_STALE": 0,
-      "KNOWN_MISSING": 2,
+      "KNOWN_MISSING": 3,
       "KNOWN_INCOMPARABLE": 1,
-      "BROKEN_PIPE": 1,
+      "BROKEN_PIPE": 0,
       "NOT_WIRED": 1,
       "NOT_SUPPORTED": 1,
       "WITHHELD": 2,
@@ -821,9 +906,9 @@
     "aliases": {
       "supported": 3,
       "unsupported": 1,
-      "unknown": 2,
+      "unknown": 3,
       "withheld": 2,
-      "broken_pipe": 1,
+      "broken_pipe": 0,
       "not_wired": 1,
       "stale": 0,
       "incomparable": 1,
@@ -833,24 +918,26 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:824cd2ba6ca18f9ca83982b1ee81124c70748651a8ff52d00dc538aebbd458b5",
-  "projection_compiled_at": "2026-08-30T05:00:12.595854+00:00",
+  "source_snapshot_id": "sha256:992db3ed8487e9b87190d1f6eaf611d6a51ca9cba326d8a5dff65bffb953d6a0",
+  "projection_compiled_at": "2026-10-07T19:11:25.953524+00:00",
   "freshness": {
-    "source_observed_at": "2026-08-30T04:46:57.548131+00:00",
-    "projection_compiled_at": "2026-08-30T05:00:12.595854+00:00",
-    "age_seconds": 795,
-    "status": "CURRENT"
+    "source_observed_at": "2026-10-07T18:59:35.028817+00:00",
+    "projection_compiled_at": "2026-10-07T19:11:25.953524+00:00",
+    "age_seconds": 710,
+    "status": "CURRENT",
+    "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:824cd2ba6ca18f9ca83982b1ee81124c70748651a8ff52d00dc538aebbd458b5",
-    "compiled_at": "2026-08-30T05:00:12.595854+00:00",
+    "source_snapshot_id": "sha256:992db3ed8487e9b87190d1f6eaf611d6a51ca9cba326d8a5dff65bffb953d6a0",
+    "compiled_at": "2026-10-07T19:11:25.953524+00:00",
     "freshness": {
-      "source_observed_at": "2026-08-30T04:46:57.548131+00:00",
-      "projection_compiled_at": "2026-08-30T05:00:12.595854+00:00",
-      "age_seconds": 795,
-      "status": "CURRENT"
+      "source_observed_at": "2026-10-07T18:59:35.028817+00:00",
+      "projection_compiled_at": "2026-10-07T19:11:25.953524+00:00",
+      "age_seconds": 710,
+      "status": "CURRENT",
+      "relative_to": "projection_compiled_at"
     },
     "projection": true,
     "entity": "AAVE_FORUM",
@@ -963,7 +1050,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-08-30T04:46:57.548131+00:00",
+      "observed_at": "2026-10-07T18:59:35.028817+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -988,9 +1075,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-08-30T05:00:12.587772+00:00",
-          "last_observation": "2026-08-30T04:46:57.548131+00:00",
-          "drift_cycles": 80
+          "compiled_at": "2026-10-07T19:11:25.781629+00:00",
+          "last_observation": "2026-10-07T18:59:35.028817+00:00",
+          "drift_cycles": 231
         },
         "reason": null,
         "family": "observation_age",
@@ -1018,9 +1105,9 @@
       "embedded_in_field_state": false,
       "feeds_qpo": false,
       "supported": 3,
-      "unknown": 2,
+      "unknown": 3,
       "withheld": 2,
-      "broken_pipe": 1,
+      "broken_pipe": 0,
       "not_wired": 1,
       "claims": {
         "n": 3,
@@ -1030,9 +1117,9 @@
       "aliases": {
         "supported": 3,
         "unsupported": 1,
-        "unknown": 2,
+        "unknown": 3,
         "withheld": 2,
-        "broken_pipe": 1,
+        "broken_pipe": 0,
         "not_wired": 1,
         "stale": 0,
         "incomparable": 1,
@@ -1041,9 +1128,9 @@
       "slots_by_class": {
         "KNOWN_CURRENT": 3,
         "KNOWN_STALE": 0,
-        "KNOWN_MISSING": 2,
+        "KNOWN_MISSING": 3,
         "KNOWN_INCOMPARABLE": 1,
-        "BROKEN_PIPE": 1,
+        "BROKEN_PIPE": 0,
         "NOT_WIRED": 1,
         "NOT_SUPPORTED": 1,
         "WITHHELD": 2,
@@ -1081,9 +1168,9 @@
         "by_class": {
           "KNOWN_CURRENT": 3,
           "KNOWN_STALE": 0,
-          "KNOWN_MISSING": 2,
+          "KNOWN_MISSING": 3,
           "KNOWN_INCOMPARABLE": 1,
-          "BROKEN_PIPE": 1,
+          "BROKEN_PIPE": 0,
           "NOT_WIRED": 1,
           "NOT_SUPPORTED": 1,
           "WITHHELD": 2,
@@ -1104,16 +1191,16 @@
       "embedded_in_field_state": false
     },
     "consequence_tier": {
-      "status": "NOT_APPLICABLE",
-      "reason": "no_legal_typed_transition",
+      "status": "UNKNOWN",
+      "reason": "tier_requires_transition_evidence",
       "feeds_qpo": false
     },
     "observation_clock": {
       "entity": "AAVE_FORUM",
       "first_prospective_observation": "2026-08-25T03:36:43.377366+00:00",
-      "latest_prospective_observation": "2026-08-30T04:46:57.548131+00:00",
-      "n_prospective_snapshots": 5,
-      "identity_comparable_transitions": 0,
+      "latest_prospective_observation": "2026-10-07T18:59:35.028817+00:00",
+      "n_prospective_snapshots": 168,
+      "identity_comparable_transitions": 162,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -1125,13 +1212,11 @@
     "change_frontier": {
       "entity": "AAVE_FORUM",
       "schema": "geniusflow.public_change_frontier.v0",
-      "comparable_prior_state": "NONE",
+      "comparable_prior_state": "PRESENT",
       "world_observed": "UNAVAILABLE",
       "neighborhood_change": "UNAVAILABLE",
-      "status": "UNAVAILABLE",
-      "refuse_code": "no_prior_comparable_snapshot",
-      "transition_kind": "INCOMPARABLE",
-      "why": "GeniusFlow does not manufacture historical observations to create a before/after comparison. Waiting for a comparable prospective observation.",
+      "status": "COMPARABLE_WITHOUT_WORLD_OBSERVED",
+      "refuse_code": "world_observed_producer_not_emitted",
       "t0_labeled": false
     },
     "provenance": {
@@ -1174,10 +1259,10 @@
       "usdc_circulating": {
         "status": "UNKNOWN",
         "value": null,
-        "reason": "pipe_fixed_not_yet_persisted",
+        "reason": "source_observation_absent",
         "family": "usdc_circulating",
         "source": "defillama_stablecoins",
-        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        "note": "Pipe is joinable. This compose received no independently acquired circulating row."
       },
       "usyc_circulating": {
         "status": "NOT_WIRED",

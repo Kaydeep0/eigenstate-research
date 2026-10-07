@@ -1,8 +1,8 @@
 {
   "entity": "SPARK_SAVINGS",
   "node": "34539544",
-  "compiled_at": "2026-08-30T05:00:10.366590+00:00",
-  "digest": "sha256:2366551cd40ca6421d1c0191eadc5de242e712572ee763846069ea5304dd5361",
+  "compiled_at": "2026-10-07T19:10:59.159802+00:00",
+  "digest": "sha256:e8ce687c72e3569a458c0ae6431b748b67cedb687f537aa71ab6db0df6cc34f0",
   "own_numbers": {
     "phi_s": null,
     "kappa": null,
@@ -158,7 +158,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "SPARK_SAVINGS",
     "observed_at": null,
-    "compiled_at": "2026-08-30T05:00:10.366590+00:00",
+    "compiled_at": "2026-10-07T19:10:59.159802+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -167,6 +167,7 @@
     "producer_node_id": "34539544",
     "observation_origin": "field_state.compose",
     "observer_identity_status": "OBSERVED",
+    "instrumentation_repair": "phase8_lawful_20260830",
     "state": {
       "claims": [],
       "measurements": {
@@ -183,8 +184,8 @@
           "observation_id": "none",
           "comparability": false,
           "defaults_used": "none",
-          "refuse_code": "pipe_fixed_not_yet_persisted",
-          "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+          "refuse_code": "source_observation_absent",
+          "note": "Pipe is joinable. This compose received no independently acquired circulating row."
         }
       },
       "support": {
@@ -245,7 +246,7 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-08-30T05:00:10.366590+00:00",
+        "compiled_at": "2026-10-07T19:10:59.159802+00:00",
         "last_observation": null,
         "drift_cycles": null
       },
@@ -287,8 +288,8 @@
         "observation_id": "none",
         "comparability": false,
         "defaults_used": "none",
-        "refuse_code": "pipe_fixed_not_yet_persisted",
-        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        "refuse_code": "source_observation_absent",
+        "note": "Pipe is joinable. This compose received no independently acquired circulating row."
       },
       "sec_filing_occupancy": {
         "value": null,
@@ -416,16 +417,44 @@
           "shannon_bits",
           "world_causal_lead"
         ],
+        "units": "dimensionless_index",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "phi_s.cf_pressure.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_physics",
+        "source_key": "kappa",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "kappa",
+            "source_store": "entity_physics",
+            "source_key": "kappa",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": false,
         "withhold_reason": null,
         "comparable_under": [
-          "phi_s.cf_pressure.v1"
+          "phi_s.cf_pressure.v1",
+          "entity_physics",
+          "kappa",
+          "none"
         ],
         "epistemic_status": "UNKNOWN"
       },
@@ -441,16 +470,44 @@
           "host_kappa_blend",
           "gamma_labeled_as_kappa"
         ],
+        "units": "dimensionless_index",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "kappa.entity_physics.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_physics",
+        "source_key": "kappa",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "kappa",
+            "source_store": "entity_physics",
+            "source_key": "kappa",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": false,
         "withhold_reason": null,
         "comparable_under": [
-          "kappa.entity_physics.v1"
+          "kappa.entity_physics.v1",
+          "entity_physics",
+          "kappa",
+          "none"
         ],
         "epistemic_status": "UNKNOWN"
       },
@@ -471,21 +528,49 @@
           "pred",
           "E"
         ],
+        "units": "unknown",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_states",
+        "source_key": "last_delta_i",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "last_delta_i",
+            "source_store": "entity_states",
+            "source_key": "last_delta_i",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": true,
         "withhold_reason": "unqualified_bootstrap_scalar",
         "comparable_under": [
-          "last_delta_i.signal_return_bootstrap.v1"
+          "last_delta_i.signal_return_bootstrap.v1",
+          "entity_states",
+          "last_delta_i",
+          "none"
         ],
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:45bd4e92e3953c54ee41a461983dad187f2650215af72231e49f89c1c05104da"
+    "snapshot_id": "sha256:77e74f596130e73dc8b35ef20eaf27d422386425dd089dd0ac1ce1b58b1440db"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -500,9 +585,9 @@
     "slots_by_class": {
       "KNOWN_CURRENT": 1,
       "KNOWN_STALE": 0,
-      "KNOWN_MISSING": 4,
+      "KNOWN_MISSING": 5,
       "KNOWN_INCOMPARABLE": 1,
-      "BROKEN_PIPE": 1,
+      "BROKEN_PIPE": 0,
       "NOT_WIRED": 1,
       "NOT_SUPPORTED": 1,
       "WITHHELD": 2,
@@ -512,9 +597,9 @@
     "aliases": {
       "supported": 1,
       "unsupported": 1,
-      "unknown": 4,
+      "unknown": 5,
       "withheld": 2,
-      "broken_pipe": 1,
+      "broken_pipe": 0,
       "not_wired": 1,
       "stale": 0,
       "incomparable": 1,
@@ -524,24 +609,26 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:45bd4e92e3953c54ee41a461983dad187f2650215af72231e49f89c1c05104da",
-  "projection_compiled_at": "2026-08-30T05:00:10.373608+00:00",
+  "source_snapshot_id": "sha256:77e74f596130e73dc8b35ef20eaf27d422386425dd089dd0ac1ce1b58b1440db",
+  "projection_compiled_at": "2026-10-07T19:10:59.295182+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-08-30T05:00:10.373608+00:00",
+    "projection_compiled_at": "2026-10-07T19:10:59.295182+00:00",
     "age_seconds": null,
-    "status": "UNKNOWN"
+    "status": "UNKNOWN",
+    "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:45bd4e92e3953c54ee41a461983dad187f2650215af72231e49f89c1c05104da",
-    "compiled_at": "2026-08-30T05:00:10.373608+00:00",
+    "source_snapshot_id": "sha256:77e74f596130e73dc8b35ef20eaf27d422386425dd089dd0ac1ce1b58b1440db",
+    "compiled_at": "2026-10-07T19:10:59.295182+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-08-30T05:00:10.373608+00:00",
+      "projection_compiled_at": "2026-10-07T19:10:59.295182+00:00",
       "age_seconds": null,
-      "status": "UNKNOWN"
+      "status": "UNKNOWN",
+      "relative_to": "projection_compiled_at"
     },
     "projection": true,
     "entity": "SPARK_SAVINGS",
@@ -573,7 +660,7 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-08-30T05:00:10.366590+00:00",
+          "compiled_at": "2026-10-07T19:10:59.159802+00:00",
           "last_observation": null,
           "drift_cycles": null
         },
@@ -603,9 +690,9 @@
       "embedded_in_field_state": false,
       "feeds_qpo": false,
       "supported": 1,
-      "unknown": 4,
+      "unknown": 5,
       "withheld": 2,
-      "broken_pipe": 1,
+      "broken_pipe": 0,
       "not_wired": 1,
       "claims": {
         "n": 0,
@@ -615,9 +702,9 @@
       "aliases": {
         "supported": 1,
         "unsupported": 1,
-        "unknown": 4,
+        "unknown": 5,
         "withheld": 2,
-        "broken_pipe": 1,
+        "broken_pipe": 0,
         "not_wired": 1,
         "stale": 0,
         "incomparable": 1,
@@ -626,9 +713,9 @@
       "slots_by_class": {
         "KNOWN_CURRENT": 1,
         "KNOWN_STALE": 0,
-        "KNOWN_MISSING": 4,
+        "KNOWN_MISSING": 5,
         "KNOWN_INCOMPARABLE": 1,
-        "BROKEN_PIPE": 1,
+        "BROKEN_PIPE": 0,
         "NOT_WIRED": 1,
         "NOT_SUPPORTED": 1,
         "WITHHELD": 2,
@@ -646,9 +733,9 @@
         "by_class": {
           "KNOWN_CURRENT": 1,
           "KNOWN_STALE": 0,
-          "KNOWN_MISSING": 4,
+          "KNOWN_MISSING": 5,
           "KNOWN_INCOMPARABLE": 1,
-          "BROKEN_PIPE": 1,
+          "BROKEN_PIPE": 0,
           "NOT_WIRED": 1,
           "NOT_SUPPORTED": 1,
           "WITHHELD": 2,
@@ -677,7 +764,7 @@
       "entity": "SPARK_SAVINGS",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 1,
+      "n_prospective_snapshots": 2,
       "identity_comparable_transitions": 0,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
@@ -739,10 +826,10 @@
       "usdc_circulating": {
         "status": "UNKNOWN",
         "value": null,
-        "reason": "pipe_fixed_not_yet_persisted",
+        "reason": "source_observation_absent",
         "family": "usdc_circulating",
         "source": "defillama_stablecoins",
-        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        "note": "Pipe is joinable. This compose received no independently acquired circulating row."
       },
       "usyc_circulating": {
         "status": "NOT_WIRED",

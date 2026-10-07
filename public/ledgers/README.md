@@ -1,15 +1,15 @@
 # Measured ledgers, and every time each one was published
 
-Generated 2026-08-23T16:35:21.932442+00:00 · tool ledger_refresh v1.0.0 · digest `94c684a029085d10`
+Generated 2026-09-20T11:00:09.287191+00:00 · tool ledger_refresh v1.0.0 · digest `d1f243c5fa38293b`
 
 A ledger published once is a snapshot dressed as a standing claim. This page is the
 correction: one row per publication, kept append only, so a reader can see whether a
 number held when the same probe was pointed at the same population a second time.
 
-5 ledgers indexed · 17 runs on record ·
+5 ledgers indexed · 19 runs on record ·
 0 still have a single run and are labelled as snapshots ·
 4 headline counters moved on the latest refresh,
-of which 2 rate comparisons still have overlapping intervals.
+of which 1 rate comparisons still have overlapping intervals.
 
 A counter can move while the published 95 percent intervals of the two runs still overlap. That is a move this measurement cannot distinguish from sampling noise, and it is counted separately here so a re-run is not mistaken for a finding.
 
@@ -21,26 +21,27 @@ Not a measurement of its own. This index does not fetch any subject, does not sc
 
 ### ERC-8004 Base refusal ledger
 
-`/erc8004/` · unit of measurement: one sampled registration · 2 run(s) on record
+`/erc8004/` · unit of measurement: one sampled registration · 3 run(s) on record
 
 | run | generated at | probe | digest | headline counters |
 | --- | --- | --- | --- | --- |
 | 1 | 2026-08-02T03:11:04.127287+00:00 | 1.0.0 | `ab79fc3924f1` | full_admit 45, full_refuse 455, must_admit 135, must_refuse 365 |
 | 2 | 2026-08-02T05:48:10.056391+00:00 | 1.0.0 | `f01dd0580950` | full_admit 56, full_refuse 444, must_admit 143, must_refuse 357 |
+| 3 | 2026-08-30T11:11:36.314221+00:00 | 1.0.0 | `602968d59537` | full_admit 44, full_refuse 456, must_admit 192, must_refuse 308 |
 
 Comparing two runs of this ledger: Two runs of this ledger are two samples, not two looks at the same set. Each run pins a fresh Base block and draws 500 agent ids seeded by that block hash, from a registry that keeps growing, so the rows compared here overlap only by chance. A count that moves by single digits is sampling noise before it is news. The published rate and its 95 percent interval are the comparison that means something, and they are shown below the counts.
 
 Moved on the latest refresh:
 
-* `must_admit` up from 135 to 143 (+8)
-* `must_refuse` down from 365 to 357 (-8)
-* `full_admit` up from 45 to 56 (+11)
-* `full_refuse` down from 455 to 444 (-11)
+* `must_admit` up from 143 to 192 (+49)
+* `must_refuse` down from 357 to 308 (-49)
+* `full_admit` down from 56 to 44 (-12)
+* `full_refuse` up from 444 to 456 (+12)
 
 What the rates and their intervals say about that move:
 
-* `must_miss_rate` 0.73 [0.689441, 0.767052] then 0.714 [0.672876, 0.751861], and the two 95 percent intervals overlap, so this run does not establish that the underlying rate moved at all
-* `full_miss_rate` 0.91 [0.88169, 0.932058] then 0.888 [0.857346, 0.912738], and the two 95 percent intervals overlap, so this run does not establish that the underlying rate moved at all
+* `must_miss_rate` 0.714 [0.672876, 0.751861] then 0.616 [0.572638, 0.657593], and the two 95 percent intervals do not overlap, so the underlying rate moved by more than this sample size can explain
+* `full_miss_rate` 0.888 [0.857346, 0.912738] then 0.912 [0.883923, 0.933794], and the two 95 percent intervals overlap, so this run does not establish that the underlying rate moved at all
 
 Human page: https://kaydeep0.github.io/eigenstate-research/erc8004/
 
@@ -110,7 +111,7 @@ PYTHONPATH=engine python3 engine/tools/rwa_disclosure_run.py run
 
 ### EDGAR and Federal Reserve grounded claim corpus
 
-`/grounded-claims/` · unit of measurement: one claim · 5 run(s) on record
+`/grounded-claims/` · unit of measurement: one claim · 6 run(s) on record
 
 | run | generated at | probe | digest | headline counters |
 | --- | --- | --- | --- | --- |
@@ -119,6 +120,7 @@ PYTHONPATH=engine python3 engine/tools/rwa_disclosure_run.py run
 | 3 | 2026-08-14T03:05:13.741183+00:00 | 1.0.1 | `0c23eaf6a9e0` | full_admit 0, full_refuse 6, must_admit 5, must_refuse 1 |
 | 4 | 2026-08-14T20:35:22.772189+00:00 | 1.0.1 | `5e2838ca3605` | full_admit 0, full_refuse 6, must_admit 5, must_refuse 1 |
 | 5 | 2026-08-16T11:00:12.946222+00:00 | 1.0.1 | `d94b8706ffad` | full_admit 0, full_refuse 6, must_admit 5, must_refuse 1 |
+| 6 | 2026-09-20T11:00:08.999290+00:00 | 1.0.1 | `0e1cba15654e` | full_admit 0, full_refuse 6, must_admit 5, must_refuse 1 |
 
 Comparing two runs of this ledger: The corpus is frozen in the expectations file and identical across runs, so a count that moves is a regulator page that changed under a citation this node already made.
 

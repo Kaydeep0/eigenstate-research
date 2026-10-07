@@ -1,11 +1,11 @@
 {
   "entity": "CURVE",
   "node": "34539544",
-  "compiled_at": "2026-08-30T05:00:13.344725+00:00",
-  "digest": "sha256:0fafcb61995f0366ee0b37fb3f301214c673ec75eb0180b015aac13541894f56",
+  "compiled_at": "2026-10-07T19:11:50.647602+00:00",
+  "digest": "sha256:e874b7ed916434f60010c35b83519a7f702186b8b115b57d1bfb47e16aa2dadc",
   "own_numbers": {
-    "phi_s": 1.6381,
-    "kappa": 0.0005,
+    "phi_s": 3.2562,
+    "kappa": 0.2017,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -101,11 +101,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +8090% over 80 cycles",
-    "cycles": 80,
+    "headline": "phi_s +8090% over 231 cycles",
+    "cycles": 231,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": -0.2601,
       "boundary_score": 0.0
     }
   },
@@ -143,19 +143,21 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-08-29T22:00:45.622284+00:00",
-      "last_delta_i": 5.204168044198093e+195,
+      "last_observed_at": "2026-10-07T04:51:25.685688+00:00",
+      "last_delta_i": Infinity,
       "stale": false
     }
   },
   "claims": [
     {
-      "claim_id": "dbc2efaa-bf07-4cd5-ac7b-636d9d7250ab",
+      "claim_id": "fdf11650-64aa-40f0-ac13-2094f0ccf685",
       "claim_text": "Curve Finance \u2014 stableswap liquidity protocol",
       "grounding": {
         "source_url": "https://curve.fi/",
         "expected": "Curve",
-        "location": ""
+        "location": "",
+        "observation_id": "obs_e1395a20c81f4716",
+        "observed_at": "2026-09-04T01:07:39.528423+00:00"
       },
       "status_at_publish": "ATTESTED-PRIMARY",
       "source_type": "primary",
@@ -163,20 +165,34 @@
       "source_role_reclassified": false,
       "witness_class": "unknown_secondary",
       "witness_weight": 0.08,
-      "report_id": "CURVE_20260819",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260819/",
-      "verified_at": "2026-08-19T04:05:04.011696+00:00",
-      "expires_at": "2026-11-17T04:05:04+00:00",
+      "report_id": "CURVE_20260904",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260904/",
+      "verified_at": "2026-09-04T01:05:06.466373+00:00",
+      "expires_at": "2026-12-03T01:05:06+00:00",
       "volatility_class": "default",
-      "allows_canonical": true
+      "allows_canonical": true,
+      "observation_id": "obs_e1395a20c81f4716",
+      "observed_at": "2026-09-04T01:07:39.528423+00:00",
+      "grounding_id": "c92ec01d4c8de591f18efcb0f03ded8fbb5ab45d6154038dc886bd5e14690aa0",
+      "published_at": "2026-09-04T01:07:39.541497+00:00",
+      "temporal_binding": {
+        "claim_id": "fdf11650-64aa-40f0-ac13-2094f0ccf685",
+        "grounding_id": "c92ec01d4c8de591f18efcb0f03ded8fbb5ab45d6154038dc886bd5e14690aa0",
+        "observation_id": "obs_e1395a20c81f4716",
+        "observed_at": "2026-09-04T01:07:39.528423+00:00",
+        "published_at": "2026-09-04T01:07:39.541497+00:00",
+        "report_id": "CURVE_20260904"
+      }
     },
     {
-      "claim_id": "6be9afc1-a057-4e31-98a8-7f526b7b2f40",
+      "claim_id": "c12363cc-2586-43aa-ba1e-67153bb83222",
       "claim_text": "Curve stablecoin liquidity pools on-chain",
       "grounding": {
         "source_url": "https://defillama.com/protocol/curve-dex",
         "expected": "stablecoin",
-        "location": ""
+        "location": "",
+        "observation_id": "obs_36652f7a970343a9",
+        "observed_at": "2026-09-04T01:07:40.755802+00:00"
       },
       "status_at_publish": "ATTESTED-DERIVED",
       "source_type": "derived",
@@ -184,20 +200,34 @@
       "source_role_reclassified": false,
       "witness_class": "onchain_secondary",
       "witness_weight": 0.62,
-      "report_id": "CURVE_20260819",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260819/",
-      "verified_at": "2026-08-19T04:05:04.213577+00:00",
-      "expires_at": "2026-11-17T04:05:04+00:00",
+      "report_id": "CURVE_20260904",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260904/",
+      "verified_at": "2026-09-04T01:05:06.913544+00:00",
+      "expires_at": "2026-12-03T01:05:06+00:00",
       "volatility_class": "default",
-      "allows_canonical": true
+      "allows_canonical": true,
+      "observation_id": "obs_36652f7a970343a9",
+      "observed_at": "2026-09-04T01:07:40.755802+00:00",
+      "grounding_id": "f2371bc7dcd30ec6a97bbd31aeeca23b4ece58c62a93417dfffa0d21f7ec9c25",
+      "published_at": "2026-09-04T01:07:40.762757+00:00",
+      "temporal_binding": {
+        "claim_id": "c12363cc-2586-43aa-ba1e-67153bb83222",
+        "grounding_id": "f2371bc7dcd30ec6a97bbd31aeeca23b4ece58c62a93417dfffa0d21f7ec9c25",
+        "observation_id": "obs_36652f7a970343a9",
+        "observed_at": "2026-09-04T01:07:40.755802+00:00",
+        "published_at": "2026-09-04T01:07:40.762757+00:00",
+        "report_id": "CURVE_20260904"
+      }
     },
     {
-      "claim_id": "faba4f5f-2c5e-4371-a2f2-33e9e7985eb2",
+      "claim_id": "34af0e02-c0e2-4ff0-bf7e-b20151a1d981",
       "claim_text": "DeFiLlama Curve DEX protocol index",
       "grounding": {
         "source_url": "https://defillama.com/protocol/curve-dex",
         "expected": "Curve",
-        "location": ""
+        "location": "",
+        "observation_id": "obs_33179195d1fb409a",
+        "observed_at": "2026-09-04T01:07:41.006062+00:00"
       },
       "status_at_publish": "ATTESTED-DERIVED",
       "source_type": "derived",
@@ -205,12 +235,24 @@
       "source_role_reclassified": false,
       "witness_class": "onchain_secondary",
       "witness_weight": 0.62,
-      "report_id": "CURVE_20260819",
-      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260819/",
-      "verified_at": "2026-08-19T04:05:04.512754+00:00",
-      "expires_at": "2026-11-17T04:05:04+00:00",
+      "report_id": "CURVE_20260904",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260904/",
+      "verified_at": "2026-09-04T01:05:07.292305+00:00",
+      "expires_at": "2026-12-03T01:05:07+00:00",
       "volatility_class": "default",
-      "allows_canonical": true
+      "allows_canonical": true,
+      "observation_id": "obs_33179195d1fb409a",
+      "observed_at": "2026-09-04T01:07:41.006062+00:00",
+      "grounding_id": "e8f261bc12d16d06e09d855203bb00c20f01bed50b04e08b56045604ed1bdd3e",
+      "published_at": "2026-09-04T01:07:41.010937+00:00",
+      "temporal_binding": {
+        "claim_id": "34af0e02-c0e2-4ff0-bf7e-b20151a1d981",
+        "grounding_id": "e8f261bc12d16d06e09d855203bb00c20f01bed50b04e08b56045604ed1bdd3e",
+        "observation_id": "obs_33179195d1fb409a",
+        "observed_at": "2026-09-04T01:07:41.006062+00:00",
+        "published_at": "2026-09-04T01:07:41.010937+00:00",
+        "report_id": "CURVE_20260904"
+      }
     }
   ],
   "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/CURVE.json",
@@ -269,10 +311,10 @@
     "cite_class": "citeable",
     "source": "snapshot_hub",
     "wire": "snapshot_governance",
-    "ts": "2026-08-30T04:46:48.464787+00:00",
+    "ts": "2026-10-07T18:59:24.017270+00:00",
     "write_reason": "snapshot_space_proposals",
     "source_url": null,
-    "vault_row_ref": "sensor:snapshot_governance:CURVE:2026-08-30T04:46:48.464787+00:00",
+    "vault_row_ref": "sensor:snapshot_governance:CURVE:2026-10-07T18:59:24.017270+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -304,8 +346,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "CURVE",
-    "observed_at": "2026-08-30T04:46:48.464787+00:00",
-    "compiled_at": "2026-08-30T05:00:13.344725+00:00",
+    "observed_at": "2026-10-07T18:59:24.017270+00:00",
+    "compiled_at": "2026-10-07T19:11:50.647602+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -314,15 +356,18 @@
     "producer_node_id": "34539544",
     "observation_origin": "field_state.compose",
     "observer_identity_status": "OBSERVED",
+    "instrumentation_repair": "phase8_lawful_20260830",
     "state": {
       "claims": [
         {
-          "claim_id": "dbc2efaa-bf07-4cd5-ac7b-636d9d7250ab",
+          "claim_id": "fdf11650-64aa-40f0-ac13-2094f0ccf685",
           "claim_text": "Curve Finance \u2014 stableswap liquidity protocol",
           "grounding": {
             "source_url": "https://curve.fi/",
             "expected": "Curve",
-            "location": ""
+            "location": "",
+            "observation_id": "obs_e1395a20c81f4716",
+            "observed_at": "2026-09-04T01:07:39.528423+00:00"
           },
           "status_at_publish": "ATTESTED-PRIMARY",
           "source_type": "primary",
@@ -330,20 +375,34 @@
           "source_role_reclassified": false,
           "witness_class": "unknown_secondary",
           "witness_weight": 0.08,
-          "report_id": "CURVE_20260819",
-          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260819/",
-          "verified_at": "2026-08-19T04:05:04.011696+00:00",
-          "expires_at": "2026-11-17T04:05:04+00:00",
+          "report_id": "CURVE_20260904",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260904/",
+          "verified_at": "2026-09-04T01:05:06.466373+00:00",
+          "expires_at": "2026-12-03T01:05:06+00:00",
           "volatility_class": "default",
-          "allows_canonical": true
+          "allows_canonical": true,
+          "observation_id": "obs_e1395a20c81f4716",
+          "observed_at": "2026-09-04T01:07:39.528423+00:00",
+          "grounding_id": "c92ec01d4c8de591f18efcb0f03ded8fbb5ab45d6154038dc886bd5e14690aa0",
+          "published_at": "2026-09-04T01:07:39.541497+00:00",
+          "temporal_binding": {
+            "claim_id": "fdf11650-64aa-40f0-ac13-2094f0ccf685",
+            "grounding_id": "c92ec01d4c8de591f18efcb0f03ded8fbb5ab45d6154038dc886bd5e14690aa0",
+            "observation_id": "obs_e1395a20c81f4716",
+            "observed_at": "2026-09-04T01:07:39.528423+00:00",
+            "published_at": "2026-09-04T01:07:39.541497+00:00",
+            "report_id": "CURVE_20260904"
+          }
         },
         {
-          "claim_id": "6be9afc1-a057-4e31-98a8-7f526b7b2f40",
+          "claim_id": "c12363cc-2586-43aa-ba1e-67153bb83222",
           "claim_text": "Curve stablecoin liquidity pools on-chain",
           "grounding": {
             "source_url": "https://defillama.com/protocol/curve-dex",
             "expected": "stablecoin",
-            "location": ""
+            "location": "",
+            "observation_id": "obs_36652f7a970343a9",
+            "observed_at": "2026-09-04T01:07:40.755802+00:00"
           },
           "status_at_publish": "ATTESTED-DERIVED",
           "source_type": "derived",
@@ -351,20 +410,34 @@
           "source_role_reclassified": false,
           "witness_class": "onchain_secondary",
           "witness_weight": 0.62,
-          "report_id": "CURVE_20260819",
-          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260819/",
-          "verified_at": "2026-08-19T04:05:04.213577+00:00",
-          "expires_at": "2026-11-17T04:05:04+00:00",
+          "report_id": "CURVE_20260904",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260904/",
+          "verified_at": "2026-09-04T01:05:06.913544+00:00",
+          "expires_at": "2026-12-03T01:05:06+00:00",
           "volatility_class": "default",
-          "allows_canonical": true
+          "allows_canonical": true,
+          "observation_id": "obs_36652f7a970343a9",
+          "observed_at": "2026-09-04T01:07:40.755802+00:00",
+          "grounding_id": "f2371bc7dcd30ec6a97bbd31aeeca23b4ece58c62a93417dfffa0d21f7ec9c25",
+          "published_at": "2026-09-04T01:07:40.762757+00:00",
+          "temporal_binding": {
+            "claim_id": "c12363cc-2586-43aa-ba1e-67153bb83222",
+            "grounding_id": "f2371bc7dcd30ec6a97bbd31aeeca23b4ece58c62a93417dfffa0d21f7ec9c25",
+            "observation_id": "obs_36652f7a970343a9",
+            "observed_at": "2026-09-04T01:07:40.755802+00:00",
+            "published_at": "2026-09-04T01:07:40.762757+00:00",
+            "report_id": "CURVE_20260904"
+          }
         },
         {
-          "claim_id": "faba4f5f-2c5e-4371-a2f2-33e9e7985eb2",
+          "claim_id": "34af0e02-c0e2-4ff0-bf7e-b20151a1d981",
           "claim_text": "DeFiLlama Curve DEX protocol index",
           "grounding": {
             "source_url": "https://defillama.com/protocol/curve-dex",
             "expected": "Curve",
-            "location": ""
+            "location": "",
+            "observation_id": "obs_33179195d1fb409a",
+            "observed_at": "2026-09-04T01:07:41.006062+00:00"
           },
           "status_at_publish": "ATTESTED-DERIVED",
           "source_type": "derived",
@@ -372,12 +445,24 @@
           "source_role_reclassified": false,
           "witness_class": "onchain_secondary",
           "witness_weight": 0.62,
-          "report_id": "CURVE_20260819",
-          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260819/",
-          "verified_at": "2026-08-19T04:05:04.512754+00:00",
-          "expires_at": "2026-11-17T04:05:04+00:00",
+          "report_id": "CURVE_20260904",
+          "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260904/",
+          "verified_at": "2026-09-04T01:05:07.292305+00:00",
+          "expires_at": "2026-12-03T01:05:07+00:00",
           "volatility_class": "default",
-          "allows_canonical": true
+          "allows_canonical": true,
+          "observation_id": "obs_33179195d1fb409a",
+          "observed_at": "2026-09-04T01:07:41.006062+00:00",
+          "grounding_id": "e8f261bc12d16d06e09d855203bb00c20f01bed50b04e08b56045604ed1bdd3e",
+          "published_at": "2026-09-04T01:07:41.010937+00:00",
+          "temporal_binding": {
+            "claim_id": "34af0e02-c0e2-4ff0-bf7e-b20151a1d981",
+            "grounding_id": "e8f261bc12d16d06e09d855203bb00c20f01bed50b04e08b56045604ed1bdd3e",
+            "observation_id": "obs_33179195d1fb409a",
+            "observed_at": "2026-09-04T01:07:41.006062+00:00",
+            "published_at": "2026-09-04T01:07:41.010937+00:00",
+            "report_id": "CURVE_20260904"
+          }
         }
       ],
       "measurements": {
@@ -394,8 +479,8 @@
           "observation_id": "none",
           "comparability": false,
           "defaults_used": "none",
-          "refuse_code": "pipe_fixed_not_yet_persisted",
-          "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+          "refuse_code": "source_observation_absent",
+          "note": "Pipe is joinable. This compose received no independently acquired circulating row."
         }
       },
       "support": {
@@ -494,9 +579,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-08-30T05:00:13.344725+00:00",
-        "last_observation": "2026-08-30T04:46:48.464787+00:00",
-        "drift_cycles": 80
+        "compiled_at": "2026-10-07T19:11:50.647602+00:00",
+        "last_observation": "2026-10-07T18:59:24.017270+00:00",
+        "drift_cycles": 231
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -523,12 +608,14 @@
     },
     "claims": [
       {
-        "claim_id": "dbc2efaa-bf07-4cd5-ac7b-636d9d7250ab",
+        "claim_id": "fdf11650-64aa-40f0-ac13-2094f0ccf685",
         "claim_text": "Curve Finance \u2014 stableswap liquidity protocol",
         "grounding": {
           "source_url": "https://curve.fi/",
           "expected": "Curve",
-          "location": ""
+          "location": "",
+          "observation_id": "obs_e1395a20c81f4716",
+          "observed_at": "2026-09-04T01:07:39.528423+00:00"
         },
         "status_at_publish": "ATTESTED-PRIMARY",
         "source_type": "primary",
@@ -536,20 +623,34 @@
         "source_role_reclassified": false,
         "witness_class": "unknown_secondary",
         "witness_weight": 0.08,
-        "report_id": "CURVE_20260819",
-        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260819/",
-        "verified_at": "2026-08-19T04:05:04.011696+00:00",
-        "expires_at": "2026-11-17T04:05:04+00:00",
+        "report_id": "CURVE_20260904",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260904/",
+        "verified_at": "2026-09-04T01:05:06.466373+00:00",
+        "expires_at": "2026-12-03T01:05:06+00:00",
         "volatility_class": "default",
-        "allows_canonical": true
+        "allows_canonical": true,
+        "observation_id": "obs_e1395a20c81f4716",
+        "observed_at": "2026-09-04T01:07:39.528423+00:00",
+        "grounding_id": "c92ec01d4c8de591f18efcb0f03ded8fbb5ab45d6154038dc886bd5e14690aa0",
+        "published_at": "2026-09-04T01:07:39.541497+00:00",
+        "temporal_binding": {
+          "claim_id": "fdf11650-64aa-40f0-ac13-2094f0ccf685",
+          "grounding_id": "c92ec01d4c8de591f18efcb0f03ded8fbb5ab45d6154038dc886bd5e14690aa0",
+          "observation_id": "obs_e1395a20c81f4716",
+          "observed_at": "2026-09-04T01:07:39.528423+00:00",
+          "published_at": "2026-09-04T01:07:39.541497+00:00",
+          "report_id": "CURVE_20260904"
+        }
       },
       {
-        "claim_id": "6be9afc1-a057-4e31-98a8-7f526b7b2f40",
+        "claim_id": "c12363cc-2586-43aa-ba1e-67153bb83222",
         "claim_text": "Curve stablecoin liquidity pools on-chain",
         "grounding": {
           "source_url": "https://defillama.com/protocol/curve-dex",
           "expected": "stablecoin",
-          "location": ""
+          "location": "",
+          "observation_id": "obs_36652f7a970343a9",
+          "observed_at": "2026-09-04T01:07:40.755802+00:00"
         },
         "status_at_publish": "ATTESTED-DERIVED",
         "source_type": "derived",
@@ -557,20 +658,34 @@
         "source_role_reclassified": false,
         "witness_class": "onchain_secondary",
         "witness_weight": 0.62,
-        "report_id": "CURVE_20260819",
-        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260819/",
-        "verified_at": "2026-08-19T04:05:04.213577+00:00",
-        "expires_at": "2026-11-17T04:05:04+00:00",
+        "report_id": "CURVE_20260904",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260904/",
+        "verified_at": "2026-09-04T01:05:06.913544+00:00",
+        "expires_at": "2026-12-03T01:05:06+00:00",
         "volatility_class": "default",
-        "allows_canonical": true
+        "allows_canonical": true,
+        "observation_id": "obs_36652f7a970343a9",
+        "observed_at": "2026-09-04T01:07:40.755802+00:00",
+        "grounding_id": "f2371bc7dcd30ec6a97bbd31aeeca23b4ece58c62a93417dfffa0d21f7ec9c25",
+        "published_at": "2026-09-04T01:07:40.762757+00:00",
+        "temporal_binding": {
+          "claim_id": "c12363cc-2586-43aa-ba1e-67153bb83222",
+          "grounding_id": "f2371bc7dcd30ec6a97bbd31aeeca23b4ece58c62a93417dfffa0d21f7ec9c25",
+          "observation_id": "obs_36652f7a970343a9",
+          "observed_at": "2026-09-04T01:07:40.755802+00:00",
+          "published_at": "2026-09-04T01:07:40.762757+00:00",
+          "report_id": "CURVE_20260904"
+        }
       },
       {
-        "claim_id": "faba4f5f-2c5e-4371-a2f2-33e9e7985eb2",
+        "claim_id": "34af0e02-c0e2-4ff0-bf7e-b20151a1d981",
         "claim_text": "DeFiLlama Curve DEX protocol index",
         "grounding": {
           "source_url": "https://defillama.com/protocol/curve-dex",
           "expected": "Curve",
-          "location": ""
+          "location": "",
+          "observation_id": "obs_33179195d1fb409a",
+          "observed_at": "2026-09-04T01:07:41.006062+00:00"
         },
         "status_at_publish": "ATTESTED-DERIVED",
         "source_type": "derived",
@@ -578,12 +693,24 @@
         "source_role_reclassified": false,
         "witness_class": "onchain_secondary",
         "witness_weight": 0.62,
-        "report_id": "CURVE_20260819",
-        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260819/",
-        "verified_at": "2026-08-19T04:05:04.512754+00:00",
-        "expires_at": "2026-11-17T04:05:04+00:00",
+        "report_id": "CURVE_20260904",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260904/",
+        "verified_at": "2026-09-04T01:05:07.292305+00:00",
+        "expires_at": "2026-12-03T01:05:07+00:00",
         "volatility_class": "default",
-        "allows_canonical": true
+        "allows_canonical": true,
+        "observation_id": "obs_33179195d1fb409a",
+        "observed_at": "2026-09-04T01:07:41.006062+00:00",
+        "grounding_id": "e8f261bc12d16d06e09d855203bb00c20f01bed50b04e08b56045604ed1bdd3e",
+        "published_at": "2026-09-04T01:07:41.010937+00:00",
+        "temporal_binding": {
+          "claim_id": "34af0e02-c0e2-4ff0-bf7e-b20151a1d981",
+          "grounding_id": "e8f261bc12d16d06e09d855203bb00c20f01bed50b04e08b56045604ed1bdd3e",
+          "observation_id": "obs_33179195d1fb409a",
+          "observed_at": "2026-09-04T01:07:41.006062+00:00",
+          "published_at": "2026-09-04T01:07:41.010937+00:00",
+          "report_id": "CURVE_20260904"
+        }
       }
     ],
     "measurements": {
@@ -600,8 +727,8 @@
         "observation_id": "none",
         "comparability": false,
         "defaults_used": "none",
-        "refuse_code": "pipe_fixed_not_yet_persisted",
-        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        "refuse_code": "source_observation_absent",
+        "note": "Pipe is joinable. This compose received no independently acquired circulating row."
       },
       "sec_filing_occupancy": {
         "value": null,
@@ -665,7 +792,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 1.6381,
+        "value": 3.2562,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -682,7 +809,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0005,
+        "value": 0.2017,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -754,7 +881,7 @@
         "entity_id": "CURVE",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 1.6381,
+        "magnitude": 3.2562,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -762,16 +889,44 @@
           "shannon_bits",
           "world_causal_lead"
         ],
+        "units": "dimensionless_index",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "phi_s.cf_pressure.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_physics",
+        "source_key": "kappa",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "kappa",
+            "source_store": "entity_physics",
+            "source_key": "kappa",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": false,
         "withhold_reason": null,
         "comparable_under": [
-          "phi_s.cf_pressure.v1"
+          "phi_s.cf_pressure.v1",
+          "entity_physics",
+          "kappa",
+          "none"
         ],
         "epistemic_status": "DERIVED"
       },
@@ -780,23 +935,51 @@
         "entity_id": "CURVE",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0005,
+        "magnitude": 0.2017,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
           "host_kappa_blend",
           "gamma_labeled_as_kappa"
         ],
+        "units": "dimensionless_index",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "kappa.entity_physics.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_physics",
+        "source_key": "kappa",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "kappa",
+            "source_store": "entity_physics",
+            "source_key": "kappa",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": false,
         "withhold_reason": null,
         "comparable_under": [
-          "kappa.entity_physics.v1"
+          "kappa.entity_physics.v1",
+          "entity_physics",
+          "kappa",
+          "none"
         ],
         "epistemic_status": "DERIVED"
       },
@@ -817,21 +1000,49 @@
           "pred",
           "E"
         ],
+        "units": "unknown",
         "generator": {
           "module": "engine.bridge.field_state",
           "function": "compose_field_state_from_card",
           "algorithm_id": "last_delta_i.signal_return_bootstrap.v1",
           "algorithm_version": "frozen_v1"
         },
+        "source_store": "entity_states",
+        "source_key": "last_delta_i",
+        "default_tag": "none",
+        "inputs": [
+          {
+            "name": "last_delta_i",
+            "source_store": "entity_states",
+            "source_key": "last_delta_i",
+            "floor_applied": null,
+            "missing_key_default": null,
+            "default_tag": "none"
+          }
+        ],
+        "clocks": {
+          "observed_at": null,
+          "computed_at": null,
+          "published_at": null,
+          "baked_at": null
+        },
+        "observation_lineage": {
+          "observation_id": null,
+          "coverage_row_id": null,
+          "status": "unknown"
+        },
         "withheld": true,
         "withhold_reason": "unqualified_bootstrap_scalar",
         "comparable_under": [
-          "last_delta_i.signal_return_bootstrap.v1"
+          "last_delta_i.signal_return_bootstrap.v1",
+          "entity_states",
+          "last_delta_i",
+          "none"
         ],
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:dbae47c14f13ae03a3d769a209d199f8fc60b39eeac4cf0b91de7dfb53129eae"
+    "snapshot_id": "sha256:9963e555c67d5f8643904990c7b3bb855ddb1736d99e4d363103db27ef9423b7"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -846,9 +1057,9 @@
     "slots_by_class": {
       "KNOWN_CURRENT": 4,
       "KNOWN_STALE": 0,
-      "KNOWN_MISSING": 1,
+      "KNOWN_MISSING": 2,
       "KNOWN_INCOMPARABLE": 1,
-      "BROKEN_PIPE": 1,
+      "BROKEN_PIPE": 0,
       "NOT_WIRED": 1,
       "NOT_SUPPORTED": 1,
       "WITHHELD": 2,
@@ -858,9 +1069,9 @@
     "aliases": {
       "supported": 4,
       "unsupported": 1,
-      "unknown": 1,
+      "unknown": 2,
       "withheld": 2,
-      "broken_pipe": 1,
+      "broken_pipe": 0,
       "not_wired": 1,
       "stale": 0,
       "incomparable": 1,
@@ -870,36 +1081,40 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:dbae47c14f13ae03a3d769a209d199f8fc60b39eeac4cf0b91de7dfb53129eae",
-  "projection_compiled_at": "2026-08-30T05:00:13.354700+00:00",
+  "source_snapshot_id": "sha256:9963e555c67d5f8643904990c7b3bb855ddb1736d99e4d363103db27ef9423b7",
+  "projection_compiled_at": "2026-10-07T19:11:50.857222+00:00",
   "freshness": {
-    "source_observed_at": "2026-08-30T04:46:48.464787+00:00",
-    "projection_compiled_at": "2026-08-30T05:00:13.354700+00:00",
-    "age_seconds": 804,
-    "status": "CURRENT"
+    "source_observed_at": "2026-10-07T18:59:24.017270+00:00",
+    "projection_compiled_at": "2026-10-07T19:11:50.857222+00:00",
+    "age_seconds": 746,
+    "status": "CURRENT",
+    "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:dbae47c14f13ae03a3d769a209d199f8fc60b39eeac4cf0b91de7dfb53129eae",
-    "compiled_at": "2026-08-30T05:00:13.354700+00:00",
+    "source_snapshot_id": "sha256:9963e555c67d5f8643904990c7b3bb855ddb1736d99e4d363103db27ef9423b7",
+    "compiled_at": "2026-10-07T19:11:50.857222+00:00",
     "freshness": {
-      "source_observed_at": "2026-08-30T04:46:48.464787+00:00",
-      "projection_compiled_at": "2026-08-30T05:00:13.354700+00:00",
-      "age_seconds": 804,
-      "status": "CURRENT"
+      "source_observed_at": "2026-10-07T18:59:24.017270+00:00",
+      "projection_compiled_at": "2026-10-07T19:11:50.857222+00:00",
+      "age_seconds": 746,
+      "status": "CURRENT",
+      "relative_to": "projection_compiled_at"
     },
     "projection": true,
     "entity": "CURVE",
     "node": "34539544",
     "claims": [
       {
-        "claim_id": "dbc2efaa-bf07-4cd5-ac7b-636d9d7250ab",
+        "claim_id": "fdf11650-64aa-40f0-ac13-2094f0ccf685",
         "claim_text": "Curve Finance \u2014 stableswap liquidity protocol",
         "grounding": {
           "source_url": "https://curve.fi/",
           "expected": "Curve",
-          "location": ""
+          "location": "",
+          "observation_id": "obs_e1395a20c81f4716",
+          "observed_at": "2026-09-04T01:07:39.528423+00:00"
         },
         "status_at_publish": "ATTESTED-PRIMARY",
         "source_type": "primary",
@@ -907,20 +1122,34 @@
         "source_role_reclassified": false,
         "witness_class": "unknown_secondary",
         "witness_weight": 0.08,
-        "report_id": "CURVE_20260819",
-        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260819/",
-        "verified_at": "2026-08-19T04:05:04.011696+00:00",
-        "expires_at": "2026-11-17T04:05:04+00:00",
+        "report_id": "CURVE_20260904",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260904/",
+        "verified_at": "2026-09-04T01:05:06.466373+00:00",
+        "expires_at": "2026-12-03T01:05:06+00:00",
         "volatility_class": "default",
-        "allows_canonical": true
+        "allows_canonical": true,
+        "observation_id": "obs_e1395a20c81f4716",
+        "observed_at": "2026-09-04T01:07:39.528423+00:00",
+        "grounding_id": "c92ec01d4c8de591f18efcb0f03ded8fbb5ab45d6154038dc886bd5e14690aa0",
+        "published_at": "2026-09-04T01:07:39.541497+00:00",
+        "temporal_binding": {
+          "claim_id": "fdf11650-64aa-40f0-ac13-2094f0ccf685",
+          "grounding_id": "c92ec01d4c8de591f18efcb0f03ded8fbb5ab45d6154038dc886bd5e14690aa0",
+          "observation_id": "obs_e1395a20c81f4716",
+          "observed_at": "2026-09-04T01:07:39.528423+00:00",
+          "published_at": "2026-09-04T01:07:39.541497+00:00",
+          "report_id": "CURVE_20260904"
+        }
       },
       {
-        "claim_id": "6be9afc1-a057-4e31-98a8-7f526b7b2f40",
+        "claim_id": "c12363cc-2586-43aa-ba1e-67153bb83222",
         "claim_text": "Curve stablecoin liquidity pools on-chain",
         "grounding": {
           "source_url": "https://defillama.com/protocol/curve-dex",
           "expected": "stablecoin",
-          "location": ""
+          "location": "",
+          "observation_id": "obs_36652f7a970343a9",
+          "observed_at": "2026-09-04T01:07:40.755802+00:00"
         },
         "status_at_publish": "ATTESTED-DERIVED",
         "source_type": "derived",
@@ -928,20 +1157,34 @@
         "source_role_reclassified": false,
         "witness_class": "onchain_secondary",
         "witness_weight": 0.62,
-        "report_id": "CURVE_20260819",
-        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260819/",
-        "verified_at": "2026-08-19T04:05:04.213577+00:00",
-        "expires_at": "2026-11-17T04:05:04+00:00",
+        "report_id": "CURVE_20260904",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260904/",
+        "verified_at": "2026-09-04T01:05:06.913544+00:00",
+        "expires_at": "2026-12-03T01:05:06+00:00",
         "volatility_class": "default",
-        "allows_canonical": true
+        "allows_canonical": true,
+        "observation_id": "obs_36652f7a970343a9",
+        "observed_at": "2026-09-04T01:07:40.755802+00:00",
+        "grounding_id": "f2371bc7dcd30ec6a97bbd31aeeca23b4ece58c62a93417dfffa0d21f7ec9c25",
+        "published_at": "2026-09-04T01:07:40.762757+00:00",
+        "temporal_binding": {
+          "claim_id": "c12363cc-2586-43aa-ba1e-67153bb83222",
+          "grounding_id": "f2371bc7dcd30ec6a97bbd31aeeca23b4ece58c62a93417dfffa0d21f7ec9c25",
+          "observation_id": "obs_36652f7a970343a9",
+          "observed_at": "2026-09-04T01:07:40.755802+00:00",
+          "published_at": "2026-09-04T01:07:40.762757+00:00",
+          "report_id": "CURVE_20260904"
+        }
       },
       {
-        "claim_id": "faba4f5f-2c5e-4371-a2f2-33e9e7985eb2",
+        "claim_id": "34af0e02-c0e2-4ff0-bf7e-b20151a1d981",
         "claim_text": "DeFiLlama Curve DEX protocol index",
         "grounding": {
           "source_url": "https://defillama.com/protocol/curve-dex",
           "expected": "Curve",
-          "location": ""
+          "location": "",
+          "observation_id": "obs_33179195d1fb409a",
+          "observed_at": "2026-09-04T01:07:41.006062+00:00"
         },
         "status_at_publish": "ATTESTED-DERIVED",
         "source_type": "derived",
@@ -949,16 +1192,28 @@
         "source_role_reclassified": false,
         "witness_class": "onchain_secondary",
         "witness_weight": 0.62,
-        "report_id": "CURVE_20260819",
-        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260819/",
-        "verified_at": "2026-08-19T04:05:04.512754+00:00",
-        "expires_at": "2026-11-17T04:05:04+00:00",
+        "report_id": "CURVE_20260904",
+        "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/curve-20260904/",
+        "verified_at": "2026-09-04T01:05:07.292305+00:00",
+        "expires_at": "2026-12-03T01:05:07+00:00",
         "volatility_class": "default",
-        "allows_canonical": true
+        "allows_canonical": true,
+        "observation_id": "obs_33179195d1fb409a",
+        "observed_at": "2026-09-04T01:07:41.006062+00:00",
+        "grounding_id": "e8f261bc12d16d06e09d855203bb00c20f01bed50b04e08b56045604ed1bdd3e",
+        "published_at": "2026-09-04T01:07:41.010937+00:00",
+        "temporal_binding": {
+          "claim_id": "34af0e02-c0e2-4ff0-bf7e-b20151a1d981",
+          "grounding_id": "e8f261bc12d16d06e09d855203bb00c20f01bed50b04e08b56045604ed1bdd3e",
+          "observation_id": "obs_33179195d1fb409a",
+          "observed_at": "2026-09-04T01:07:41.006062+00:00",
+          "published_at": "2026-09-04T01:07:41.010937+00:00",
+          "report_id": "CURVE_20260904"
+        }
       }
     ],
     "state": {
-      "observed_at": "2026-08-30T04:46:48.464787+00:00",
+      "observed_at": "2026-10-07T18:59:24.017270+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -988,9 +1243,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-08-30T05:00:13.344725+00:00",
-          "last_observation": "2026-08-30T04:46:48.464787+00:00",
-          "drift_cycles": 80
+          "compiled_at": "2026-10-07T19:11:50.647602+00:00",
+          "last_observation": "2026-10-07T18:59:24.017270+00:00",
+          "drift_cycles": 231
         },
         "reason": null,
         "family": "observation_age",
@@ -1018,9 +1273,9 @@
       "embedded_in_field_state": false,
       "feeds_qpo": false,
       "supported": 4,
-      "unknown": 1,
+      "unknown": 2,
       "withheld": 2,
-      "broken_pipe": 1,
+      "broken_pipe": 0,
       "not_wired": 1,
       "claims": {
         "n": 3,
@@ -1030,9 +1285,9 @@
       "aliases": {
         "supported": 4,
         "unsupported": 1,
-        "unknown": 1,
+        "unknown": 2,
         "withheld": 2,
-        "broken_pipe": 1,
+        "broken_pipe": 0,
         "not_wired": 1,
         "stale": 0,
         "incomparable": 1,
@@ -1041,9 +1296,9 @@
       "slots_by_class": {
         "KNOWN_CURRENT": 4,
         "KNOWN_STALE": 0,
-        "KNOWN_MISSING": 1,
+        "KNOWN_MISSING": 2,
         "KNOWN_INCOMPARABLE": 1,
-        "BROKEN_PIPE": 1,
+        "BROKEN_PIPE": 0,
         "NOT_WIRED": 1,
         "NOT_SUPPORTED": 1,
         "WITHHELD": 2,
@@ -1168,9 +1423,9 @@
         "by_class": {
           "KNOWN_CURRENT": 4,
           "KNOWN_STALE": 0,
-          "KNOWN_MISSING": 1,
+          "KNOWN_MISSING": 2,
           "KNOWN_INCOMPARABLE": 1,
-          "BROKEN_PIPE": 1,
+          "BROKEN_PIPE": 0,
           "NOT_WIRED": 1,
           "NOT_SUPPORTED": 1,
           "WITHHELD": 2,
@@ -1191,16 +1446,16 @@
       "embedded_in_field_state": false
     },
     "consequence_tier": {
-      "status": "NOT_APPLICABLE",
-      "reason": "no_legal_typed_transition",
+      "status": "UNKNOWN",
+      "reason": "tier_requires_transition_evidence",
       "feeds_qpo": false
     },
     "observation_clock": {
       "entity": "CURVE",
       "first_prospective_observation": "2026-08-25T03:36:34.803403+00:00",
-      "latest_prospective_observation": "2026-08-30T04:46:48.464787+00:00",
-      "n_prospective_snapshots": 5,
-      "identity_comparable_transitions": 0,
+      "latest_prospective_observation": "2026-10-07T18:59:24.017270+00:00",
+      "n_prospective_snapshots": 164,
+      "identity_comparable_transitions": 158,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -1212,13 +1467,11 @@
     "change_frontier": {
       "entity": "CURVE",
       "schema": "geniusflow.public_change_frontier.v0",
-      "comparable_prior_state": "NONE",
+      "comparable_prior_state": "PRESENT",
       "world_observed": "UNAVAILABLE",
       "neighborhood_change": "UNAVAILABLE",
-      "status": "UNAVAILABLE",
-      "refuse_code": "no_prior_comparable_snapshot",
-      "transition_kind": "INCOMPARABLE",
-      "why": "GeniusFlow does not manufacture historical observations to create a before/after comparison. Waiting for a comparable prospective observation.",
+      "status": "COMPARABLE_WITHOUT_WORLD_OBSERVED",
+      "refuse_code": "world_observed_producer_not_emitted",
       "t0_labeled": false
     },
     "provenance": {
@@ -1261,10 +1514,10 @@
       "usdc_circulating": {
         "status": "UNKNOWN",
         "value": null,
-        "reason": "pipe_fixed_not_yet_persisted",
+        "reason": "source_observation_absent",
         "family": "usdc_circulating",
         "source": "defillama_stablecoins",
-        "note": "Phase 2 repaired the circulating keep. This snapshot does not insert a live figure."
+        "note": "Pipe is joinable. This compose received no independently acquired circulating row."
       },
       "usyc_circulating": {
         "status": "NOT_WIRED",

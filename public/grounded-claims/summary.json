@@ -1,8 +1,8 @@
 {
   "probe": "grounded_claim_corpus",
   "probe_version": "1.0.1",
-  "generated_at": "2026-08-16T11:00:12.946222+00:00",
-  "digest": "d94b8706ffadc18e901b57d583790dd567f81c92f48db199a57eacbf642b8a38",
+  "generated_at": "2026-09-20T11:00:08.999290+00:00",
+  "digest": "0e1cba15654e4d9f6b17fabead34e33dfeecf415e4112e40598723dfa5f3313b",
   "expectations_digest": "dc8f54dfef2d82e8889a762b5949c1fdf7e12c8ec88baa9ef4f2b347ebe1d4dc",
   "expectations_generated_at": "2026-08-02T05:18:03.844604+00:00",
   "expectations": "https://geniusflow-federation.vercel.app/grounded-claims/expectations.json",
@@ -164,10 +164,10 @@
   "ledger_rows_agree": 5,
   "ledger_rows_disagree": 1,
   "full_text_index_exists": 3,
-  "full_text_index_answered": 3,
-  "independently_corroborated_by_a_filing": 3,
+  "full_text_index_answered": 0,
+  "independently_corroborated_by_a_filing": 0,
   "corroborated_by_the_regulator_itself": 0,
-  "filing_documents_fetched": 3,
+  "filing_documents_fetched": 0,
   "refuse_limb_counts": {
     "source_is_machine_readable": 5,
     "ledger_rows_agree": 1
@@ -264,25 +264,25 @@
       "not_reached": 0
     },
     "full_text_index_answers": {
-      "ok": 3,
-      "fail": 0,
-      "not_applicable": 0,
-      "absent": 0,
-      "not_reached": 3
-    },
-    "independent_filing_corroborates": {
-      "ok": 3,
-      "fail": 0,
-      "not_applicable": 0,
-      "absent": 0,
-      "not_reached": 3
-    },
-    "corroborating_document_authored_by_the_regulator": {
       "ok": 0,
       "fail": 3,
       "not_applicable": 0,
       "absent": 0,
       "not_reached": 3
+    },
+    "independent_filing_corroborates": {
+      "ok": 0,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 6
+    },
+    "corroborating_document_authored_by_the_regulator": {
+      "ok": 0,
+      "fail": 0,
+      "not_applicable": 0,
+      "absent": 0,
+      "not_reached": 6
     }
   },
   "predictions_scored": [
@@ -315,8 +315,8 @@
       "prediction": "The free EDGAR full text index answers with at least one hit for every claim in this corpus that has an index to ask, and the Federal Reserve claims have none, because no free full text index exists over the Federal Reserve's own statements.",
       "blind": false,
       "basis": "One pre freeze query for the string FedNow returned hits. See pre_freeze_observations.",
-      "observed": "3 of 3 claims with an index answered with a hit; 3 Federal Reserve claims had no index to ask",
-      "met": true
+      "observed": "0 of 3 claims with an index answered with a hit; 3 Federal Reserve claims had no index to ask",
+      "met": false
     },
     {
       "id": 5,
@@ -339,8 +339,8 @@
       "prediction": "At least half the claims in this corpus are corroborated by the body of an independent primary filing the index returned.",
       "blind": true,
       "basis": "No filing had been fetched for any population string when this file was written.",
-      "observed": "3 of 6 claims were corroborated by an independent filing body",
-      "met": true
+      "observed": "0 of 6 claims were corroborated by an independent filing body",
+      "met": false
     }
   ],
   "per_claim": [
@@ -432,8 +432,8 @@
       "refuse_reason": "ledger_rows_agree:ledger_rows_disagree:ATTESTED-PRIMARY|CONTRADICTED",
       "attribution": "this_node",
       "still_grounded": true,
-      "corroborating_filing": "https://www.sec.gov/Archives/edgar/data/1488813/000148881322000093/filename1.htm",
-      "corroborating_filer": "Customers Bancorp, Inc.  (CUBB, CUBI, CUBI-PE, CUBI-PF)  (CIK 0001488813)",
+      "corroborating_filing": null,
+      "corroborating_filer": null,
       "receipt": "https://geniusflow-federation.vercel.app/grounded-claims/receipts/SEC_SAB_121.json",
       "reproduce": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.sec.gov%2Frules-regulations%2Fstaff-guidance%2Fstaff-accounting-bulletins%2Fstaff-accounting-bulletin-122&expected=SAB%20121"
     },
@@ -455,8 +455,8 @@
       "refuse_reason": "source_is_machine_readable:html_document",
       "attribution": "publisher",
       "still_grounded": true,
-      "corroborating_filing": "https://www.sec.gov/Archives/edgar/data/77159/000119312506137924/d11k.htm",
-      "corroborating_filer": "PENN VIRGINIA CORP  (CIK 0000077159)",
+      "corroborating_filing": null,
+      "corroborating_filer": null,
       "receipt": "https://geniusflow-federation.vercel.app/grounded-claims/receipts/SEC_INVESTMENT_CONTRACT.json",
       "reproduce": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.sec.gov%2Fcorpfin%2Fframework-investment-contract-analysis-digital-assets&expected=investment%20contract"
     },
@@ -478,8 +478,8 @@
       "refuse_reason": "source_is_machine_readable:html_document",
       "attribution": "publisher",
       "still_grounded": true,
-      "corroborating_filing": "https://www.sec.gov/Archives/edgar/data/701817/000110465909023864/a09-9970_1497.htm",
-      "corroborating_filer": "SEI TAX EXEMPT TRUST  (CIK 0000701817)",
+      "corroborating_filing": null,
+      "corroborating_filer": null,
       "receipt": "https://geniusflow-federation.vercel.app/grounded-claims/receipts/SEC_PROTECT_INVESTORS.json",
       "reproduce": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.sec.gov%2Fabout&expected=protect%20investors"
     }

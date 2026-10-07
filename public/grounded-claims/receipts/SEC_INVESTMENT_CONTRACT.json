@@ -7,7 +7,7 @@
   "source_url": "https://www.sec.gov/corpfin/framework-investment-contract-analysis-digital-assets",
   "published_status": "ATTESTED-PRIMARY",
   "published_at": "2026-08-02T01:38:09.223581+00:00",
-  "checked_at": "2026-08-16T11:00:10.778894+00:00",
+  "checked_at": "2026-09-20T11:00:07.309203+00:00",
   "must_admit": true,
   "full_admit": false,
   "refuse_limb": "source_is_machine_readable",
@@ -29,7 +29,7 @@
     "source_resolves": {
       "outcome": "ok",
       "status": 200,
-      "bytes": 99589
+      "bytes": 99737
     },
     "expected_string_present_in_served_bytes": {
       "outcome": "ok",
@@ -67,24 +67,15 @@
       "auth": "none; an identifying user agent is required"
     },
     "full_text_index_answers": {
-      "outcome": "ok",
-      "total_hits": 10000,
-      "returned": 3
+      "outcome": "fail",
+      "reason": "index_request_failed:http_500",
+      "attribution": "probe"
     },
     "independent_filing_corroborates": {
-      "outcome": "ok",
-      "filer": "PENN VIRGINIA CORP  (CIK 0000077159)",
-      "form": "11-K",
-      "file_date": "2006-06-28",
-      "document_url": "https://www.sec.gov/Archives/edgar/data/77159/000119312506137924/d11k.htm"
+      "outcome": "not_reached"
     },
     "corroborating_document_authored_by_the_regulator": {
-      "outcome": "fail",
-      "reason": "corroborating_filer_is_a_registrant_not_the_regulator",
-      "attribution": "no_index_exists",
-      "filer": "PENN VIRGINIA CORP  (CIK 0000077159)",
-      "cik": "77159",
-      "note": "The filing corroborates that the string is used in a primary document. It does not make the filer authoritative for the claim, and neither regulator in this corpus files on EDGAR."
+      "outcome": "not_reached"
     }
   },
   "evidence": {
@@ -93,10 +84,10 @@
       "final_url": "https://www.sec.gov/about/divisions-offices/division-corporation-finance/framework-investment-contract-analysis-digital-assets",
       "status": 200,
       "content_type": "text/html",
-      "bytes": 99589,
+      "bytes": 99737,
       "truncated_at_probe_cap": false,
       "error": null,
-      "fetched_at": "2026-08-16T11:00:08.010968+00:00"
+      "fetched_at": "2026-09-20T11:00:06.442980+00:00"
     },
     "match": {
       "found": true,
@@ -131,66 +122,17 @@
       "endpoint": "https://efts.sec.gov/LATEST/search-index",
       "query": "\"investment contract\"",
       "request_url": "https://efts.sec.gov/LATEST/search-index?q=%22investment%20contract%22",
-      "status": 200,
-      "error": null,
-      "total_hits": 10000,
-      "hits": [
-        {
-          "id": "0001193125-06-137924:d11k.htm",
-          "accession": "0001193125-06-137924",
-          "filename": "d11k.htm",
-          "cik": "77159",
-          "filer": "PENN VIRGINIA CORP  (CIK 0000077159)",
-          "form": "11-K",
-          "file_date": "2006-06-28",
-          "document_url": "https://www.sec.gov/Archives/edgar/data/77159/000119312506137924/d11k.htm"
-        },
-        {
-          "id": "0001193125-07-149976:d11k.htm",
-          "accession": "0001193125-07-149976",
-          "filename": "d11k.htm",
-          "cik": "77159",
-          "filer": "PENN VIRGINIA CORP  (CIK 0000077159)",
-          "form": "11-K",
-          "file_date": "2007-07-05",
-          "document_url": "https://www.sec.gov/Archives/edgar/data/77159/000119312507149976/d11k.htm"
-        },
-        {
-          "id": "0000798354-26-000023:fi-20260625.htm",
-          "accession": "0000798354-26-000023",
-          "filename": "fi-20260625.htm",
-          "cik": "798354",
-          "filer": "FISERV INC  (FISV)  (CIK 0000798354)",
-          "form": "11-K",
-          "file_date": "2026-06-25",
-          "document_url": "https://www.sec.gov/Archives/edgar/data/798354/000079835426000023/fi-20260625.htm"
-        }
-      ],
-      "total_hits_relation": "gte"
-    },
-    "filings_fetched": [
-      {
-        "id": "0001193125-06-137924:d11k.htm",
-        "accession": "0001193125-06-137924",
-        "filename": "d11k.htm",
-        "cik": "77159",
-        "filer": "PENN VIRGINIA CORP  (CIK 0000077159)",
-        "form": "11-K",
-        "file_date": "2006-06-28",
-        "document_url": "https://www.sec.gov/Archives/edgar/data/77159/000119312506137924/d11k.htm",
-        "status": 200,
-        "bytes": 395088,
-        "expected_found_in_filing_body": true,
-        "match_basis": "literal",
-        "error": null
-      }
-    ]
+      "status": 500,
+      "error": "http_500",
+      "total_hits": null,
+      "hits": []
+    }
   },
   "reproduce": {
     "api_verify": "https://geniusflow-federation.vercel.app/api/verify?source_url=https%3A%2F%2Fwww.sec.gov%2Fcorpfin%2Fframework-investment-contract-analysis-digital-assets&expected=investment%20contract",
     "note": "The expected string test on this receipt applies the same rule as that endpoint, against the same URL. A reader who gets a different answer has found either a page that changed between the two requests or a defect, and both are worth reporting."
   },
   "ledger": "https://geniusflow-federation.vercel.app/grounded-claims/ledger.json",
-  "ledger_digest": "d94b8706ffadc18e901b57d583790dd567f81c92f48db199a57eacbf642b8a38",
+  "ledger_digest": "0e1cba15654e4d9f6b17fabead34e33dfeecf415e4112e40598723dfa5f3313b",
   "expectations_digest": "dc8f54dfef2d82e8889a762b5949c1fdf7e12c8ec88baa9ef4f2b347ebe1d4dc"
 }

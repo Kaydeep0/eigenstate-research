@@ -1,0 +1,270 @@
+{
+  "entity": "CUSTODY_IS_SOLVED",
+  "claims": [
+    {
+      "claim_id": "de885f5a-91af-4b97-8898-56854782d557",
+      "claim_text": "Coinbase Institutional \u2014 qualified infrastructure",
+      "grounding": {
+        "source_url": "https://www.coinbase.com/institutional",
+        "expected": "institutional",
+        "location": ""
+      },
+      "status_at_publish": "ATTESTED-PRIMARY",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CUSTODY_IS_SOLVED_20260831",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/custody-is-solved-20260831/",
+      "verified_at": "2026-08-31T01:00:32.324670+00:00",
+      "expires_at": "2026-11-29T01:00:32+00:00",
+      "volatility_class": "default",
+      "allows_canonical": true,
+      "package": {
+        "claim_id": "de885f5a-91af-4b97-8898-56854782d557",
+        "verification_status": "ATTESTED-PRIMARY",
+        "allows_canonical": true,
+        "claim_text": "Coinbase Institutional \u2014 qualified infrastructure",
+        "evaluated_at": "2026-10-07T19:14:18.909832+00:00",
+        "disposition": "admitted",
+        "exhibited_refusal": false,
+        "reason": "attested_published_claim",
+        "proof": {
+          "version": "1.0.0",
+          "admitted": true,
+          "limbs": {
+            "registry_ref": {
+              "ok": true,
+              "required": false,
+              "status": "not_applicable",
+              "ref": null
+            },
+            "refuse_or_admit": {
+              "ok": true,
+              "disposition": "admitted",
+              "exhibited_refusal": false,
+              "reason": "attested_published_claim"
+            },
+            "provenance_spine": {
+              "ok": true,
+              "required_layers": [
+                "helix",
+                "wfp",
+                "act_account",
+                "federation",
+                "cite_verify_rail"
+              ],
+              "claim_pointers": {
+                "source_url": "https://www.coinbase.com/institutional",
+                "expected": "institutional",
+                "custody_sha256": null,
+                "terminal_origin_fingerprint": null,
+                "helix_hash": null,
+                "verified_at": "2026-08-31T01:00:32.324670+00:00"
+              },
+              "invented": false,
+              "note": "Pointers only \u2014 public package/verify does not assert cycle spine ok or invent attestations."
+            }
+          },
+          "failed_limbs": [],
+          "refuse_limb": null,
+          "spec": "docs/ATTESTATION_PROOF_SHAPE.md"
+        },
+        "proof_shape": {
+          "version": "1.0.0",
+          "limbs": [
+            "registry_ref",
+            "refuse_or_admit",
+            "provenance_spine"
+          ],
+          "admitted": true,
+          "failed_limbs": [],
+          "refuse_limb": null
+        }
+      }
+    },
+    {
+      "claim_id": "7d5c31e9-259a-43cf-962e-d52c88e88c09",
+      "claim_text": "Coinbase Custody \u2014 institutional digital asset custody",
+      "grounding": {
+        "source_url": "https://www.coinbase.com/custody",
+        "expected": "custody",
+        "location": ""
+      },
+      "status_at_publish": "HALLUCINATED",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CUSTODY_IS_SOLVED_20260831",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/custody-is-solved-20260831/",
+      "verified_at": "2026-08-31T01:00:31.703041+00:00",
+      "expires_at": "2026-11-29T01:00:31+00:00",
+      "volatility_class": "default",
+      "allows_canonical": false,
+      "package": {
+        "claim_id": "7d5c31e9-259a-43cf-962e-d52c88e88c09",
+        "verification_status": "HALLUCINATED",
+        "allows_canonical": false,
+        "claim_text": "Coinbase Custody \u2014 institutional digital asset custody",
+        "evaluated_at": "2026-10-07T19:14:18.909832+00:00",
+        "disposition": "withheld",
+        "exhibited_refusal": true,
+        "reason": "failed_or_contradicted_verification",
+        "proof": {
+          "version": "1.0.0",
+          "admitted": false,
+          "limbs": {
+            "registry_ref": {
+              "ok": true,
+              "required": false,
+              "status": "not_applicable",
+              "ref": null
+            },
+            "refuse_or_admit": {
+              "ok": false,
+              "disposition": "withheld",
+              "exhibited_refusal": true,
+              "reason": "failed_or_contradicted_verification",
+              "failed": "failed_or_contradicted_verification"
+            },
+            "provenance_spine": {
+              "ok": true,
+              "required_layers": [
+                "helix",
+                "wfp",
+                "act_account",
+                "federation",
+                "cite_verify_rail"
+              ],
+              "claim_pointers": {
+                "source_url": "https://www.coinbase.com/custody",
+                "expected": "custody",
+                "custody_sha256": null,
+                "terminal_origin_fingerprint": null,
+                "helix_hash": null,
+                "verified_at": "2026-08-31T01:00:31.703041+00:00"
+              },
+              "invented": false,
+              "note": "Pointers only \u2014 public package/verify does not assert cycle spine ok or invent attestations."
+            }
+          },
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit",
+          "spec": "docs/ATTESTATION_PROOF_SHAPE.md"
+        },
+        "proof_shape": {
+          "version": "1.0.0",
+          "limbs": [
+            "registry_ref",
+            "refuse_or_admit",
+            "provenance_spine"
+          ],
+          "admitted": false,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit"
+        }
+      }
+    },
+    {
+      "claim_id": "fd651271-d336-4dff-9818-628af847e995",
+      "claim_text": "BitGo \u2014 digital asset custody",
+      "grounding": {
+        "source_url": "https://www.bitgo.com/",
+        "expected": "custody",
+        "location": ""
+      },
+      "status_at_publish": "HALLUCINATED",
+      "source_type": "primary",
+      "source_type_at_verification": "primary",
+      "source_role_reclassified": false,
+      "witness_class": "unknown_secondary",
+      "witness_weight": 0.08,
+      "report_id": "CUSTODY_IS_SOLVED_20260831",
+      "report_url": "https://kaydeep0.github.io/eigenstate-research/reports/custody-is-solved-20260831/",
+      "verified_at": "2026-08-31T01:00:31.939169+00:00",
+      "expires_at": "2026-11-29T01:00:31+00:00",
+      "volatility_class": "default",
+      "allows_canonical": false,
+      "package": {
+        "claim_id": "fd651271-d336-4dff-9818-628af847e995",
+        "verification_status": "HALLUCINATED",
+        "allows_canonical": false,
+        "claim_text": "BitGo \u2014 digital asset custody",
+        "evaluated_at": "2026-10-07T19:14:18.909832+00:00",
+        "disposition": "withheld",
+        "exhibited_refusal": true,
+        "reason": "failed_or_contradicted_verification",
+        "proof": {
+          "version": "1.0.0",
+          "admitted": false,
+          "limbs": {
+            "registry_ref": {
+              "ok": true,
+              "required": false,
+              "status": "not_applicable",
+              "ref": null
+            },
+            "refuse_or_admit": {
+              "ok": false,
+              "disposition": "withheld",
+              "exhibited_refusal": true,
+              "reason": "failed_or_contradicted_verification",
+              "failed": "failed_or_contradicted_verification"
+            },
+            "provenance_spine": {
+              "ok": true,
+              "required_layers": [
+                "helix",
+                "wfp",
+                "act_account",
+                "federation",
+                "cite_verify_rail"
+              ],
+              "claim_pointers": {
+                "source_url": "https://www.bitgo.com/",
+                "expected": "custody",
+                "custody_sha256": null,
+                "terminal_origin_fingerprint": null,
+                "helix_hash": null,
+                "verified_at": "2026-08-31T01:00:31.939169+00:00"
+              },
+              "invented": false,
+              "note": "Pointers only \u2014 public package/verify does not assert cycle spine ok or invent attestations."
+            }
+          },
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit",
+          "spec": "docs/ATTESTATION_PROOF_SHAPE.md"
+        },
+        "proof_shape": {
+          "version": "1.0.0",
+          "limbs": [
+            "registry_ref",
+            "refuse_or_admit",
+            "provenance_spine"
+          ],
+          "admitted": false,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit"
+        }
+      }
+    }
+  ],
+  "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/CUSTODY_IS_SOLVED.json",
+  "generated_at": "2026-10-07T19:14:18.909832+00:00",
+  "source_ledger_sha256": "b139037b3cd0ef955898353755b414cdaa43549dc32b8fea6e90bf2aa95ddd4f",
+  "current_through": "2026-11-29T01:00:32+00:00",
+  "currentness": "time_bounded_snapshot_recheck_after_current_through",
+  "verify_hint": "POST /api/verify for grounding re-check; POST /api/package with the published claim object for admit/withhold/VOID/ILLUSTRATIVE disposition"
+}

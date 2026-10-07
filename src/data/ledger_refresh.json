@@ -1,13 +1,13 @@
 {
   "index": "measured ledgers published by this node, with their run history",
   "tool": "ledger_refresh v1.0.0",
-  "generated_at": "2026-08-23T16:35:21.932442+00:00",
+  "generated_at": "2026-09-20T11:00:09.287191+00:00",
   "ledgers_indexed": 5,
-  "runs_on_record": 17,
+  "runs_on_record": 19,
   "ledgers_with_one_run_only": 0,
   "ledgers_whose_counters_held_between_the_last_two_runs": 4,
   "headline_counters_that_moved_on_the_latest_refresh": 4,
-  "rate_comparisons_whose_intervals_still_overlap": 2,
+  "rate_comparisons_whose_intervals_still_overlap": 1,
   "what_an_overlapping_interval_means": "A counter can move while the published 95 percent intervals of the two runs still overlap. That is a move this measurement cannot distinguish from sampling noise, and it is counted separately here so a re-run is not mistaken for a finding.",
   "what_this_is": "An append only record of every publication of every measured ledger on this node. Each row is copied from the summary.json that was actually served, so a row can be checked against the digest it names.",
   "what_this_is_not": "Not a measurement of its own. This index does not fetch any subject, does not score any ledger and cannot make a refusal disappear. If a ledger is wrong, it is wrong here too, twice, with both digests shown.",
@@ -24,10 +24,10 @@
       "ledger": "erc8004",
       "title": "ERC-8004 Base refusal ledger",
       "unit": "sampled registration",
-      "runs_on_record": 2,
+      "runs_on_record": 3,
       "first_run_at": "2026-08-02T03:11:04.127287+00:00",
-      "latest_run_at": "2026-08-02T05:48:10.056391+00:00",
-      "latest_digest": "f01dd0580950e1f7c9f82f6c0ec6b7d7aafcd43261bc5bd36d214277df6ad6a0",
+      "latest_run_at": "2026-08-30T11:11:36.314221+00:00",
+      "latest_digest": "602968d59537339fadbe0c77ed622e62d60b96b4dd325512ce5e69fc0a22cf7f",
       "latest_probe_version": "1.0.0",
       "human_page": "https://kaydeep0.github.io/eigenstate-research/erc8004/",
       "machine_summary": "https://geniusflow-federation.vercel.app/erc8004/summary.json",
@@ -91,66 +91,95 @@
             }
           },
           "top_refuse_reason": "agent_uri_resolves:empty_agent_uri"
+        },
+        {
+          "run_index": 3,
+          "generated_at": "2026-08-30T11:11:36.314221+00:00",
+          "digest": "602968d59537339fadbe0c77ed622e62d60b96b4dd325512ce5e69fc0a22cf7f",
+          "probe_version": "1.0.0",
+          "counts": {
+            "full_admit": 44,
+            "full_refuse": 456,
+            "must_admit": 192,
+            "must_refuse": 308
+          },
+          "rates": {
+            "full_miss_rate": {
+              "ci95": [
+                0.883923,
+                0.933794
+              ],
+              "rate": 0.912
+            },
+            "must_miss_rate": {
+              "ci95": [
+                0.572638,
+                0.657593
+              ],
+              "rate": 0.616
+            }
+          },
+          "top_refuse_reason": "agent_uri_resolves:empty_agent_uri"
         }
       ],
       "latest_delta": {
-        "from_digest": "ab79fc3924f1e61171105fe196959f74bdf23590a1cd88f6dfd165eb4b23e7f4",
-        "to_digest": "f01dd0580950e1f7c9f82f6c0ec6b7d7aafcd43261bc5bd36d214277df6ad6a0",
-        "from_generated_at": "2026-08-02T03:11:04.127287+00:00",
-        "to_generated_at": "2026-08-02T05:48:10.056391+00:00",
+        "from_digest": "f01dd0580950e1f7c9f82f6c0ec6b7d7aafcd43261bc5bd36d214277df6ad6a0",
+        "to_digest": "602968d59537339fadbe0c77ed622e62d60b96b4dd325512ce5e69fc0a22cf7f",
+        "from_generated_at": "2026-08-02T05:48:10.056391+00:00",
+        "to_generated_at": "2026-08-30T11:11:36.314221+00:00",
         "changes": [
           {
             "counter": "must_admit",
-            "before": 135,
-            "after": 143,
-            "change": 8
+            "before": 143,
+            "after": 192,
+            "change": 49
           },
           {
             "counter": "must_refuse",
-            "before": 365,
-            "after": 357,
-            "change": -8
+            "before": 357,
+            "after": 308,
+            "change": -49
           },
           {
             "counter": "full_admit",
-            "before": 45,
-            "after": 56,
-            "change": 11
+            "before": 56,
+            "after": 44,
+            "change": -12
           },
           {
             "counter": "full_refuse",
-            "before": 455,
-            "after": 444,
-            "change": -11
+            "before": 444,
+            "after": 456,
+            "change": 12
           }
         ],
         "rate_comparison": [
           {
             "rate": "must_miss_rate",
-            "before": 0.73,
-            "after": 0.714,
+            "before": 0.714,
+            "after": 0.616,
             "before_ci95": [
-              0.689441,
-              0.767052
-            ],
-            "after_ci95": [
               0.672876,
               0.751861
             ],
-            "intervals_overlap": true,
-            "reading": "the two 95 percent intervals overlap, so this run does not establish that the underlying rate moved at all"
+            "after_ci95": [
+              0.572638,
+              0.657593
+            ],
+            "intervals_overlap": false,
+            "reading": "the two 95 percent intervals do not overlap, so the underlying rate moved by more than this sample size can explain"
           },
           {
             "rate": "full_miss_rate",
-            "before": 0.91,
-            "after": 0.888,
+            "before": 0.888,
+            "after": 0.912,
             "before_ci95": [
-              0.88169,
-              0.932058
-            ],
-            "after_ci95": [
               0.857346,
               0.912738
+            ],
+            "after_ci95": [
+              0.883923,
+              0.933794
             ],
             "intervals_overlap": true,
             "reading": "the two 95 percent intervals overlap, so this run does not establish that the underlying rate moved at all"
@@ -325,10 +354,10 @@
       "ledger": "grounded-claims",
       "title": "EDGAR and Federal Reserve grounded claim corpus",
       "unit": "claim",
-      "runs_on_record": 5,
+      "runs_on_record": 6,
       "first_run_at": "2026-08-02T05:20:17.615362+00:00",
-      "latest_run_at": "2026-08-16T11:00:12.946222+00:00",
-      "latest_digest": "d94b8706ffadc18e901b57d583790dd567f81c92f48db199a57eacbf642b8a38",
+      "latest_run_at": "2026-09-20T11:00:08.999290+00:00",
+      "latest_digest": "0e1cba15654e4d9f6b17fabead34e33dfeecf415e4112e40598723dfa5f3313b",
       "latest_probe_version": "1.0.1",
       "human_page": "https://kaydeep0.github.io/eigenstate-research/grounded-claims/",
       "machine_summary": "https://geniusflow-federation.vercel.app/grounded-claims/summary.json",
@@ -404,13 +433,27 @@
           },
           "rates": {},
           "top_refuse_reason": "source_is_machine_readable:html_document"
+        },
+        {
+          "run_index": 6,
+          "generated_at": "2026-09-20T11:00:08.999290+00:00",
+          "digest": "0e1cba15654e4d9f6b17fabead34e33dfeecf415e4112e40598723dfa5f3313b",
+          "probe_version": "1.0.1",
+          "counts": {
+            "full_admit": 0,
+            "full_refuse": 6,
+            "must_admit": 5,
+            "must_refuse": 1
+          },
+          "rates": {},
+          "top_refuse_reason": "source_is_machine_readable:html_document"
         }
       ],
       "latest_delta": {
-        "from_digest": "5e2838ca3605ab36a09569baf32f12f275fb8e1d1e53528d6a7ceb6fc8d52879",
-        "to_digest": "d94b8706ffadc18e901b57d583790dd567f81c92f48db199a57eacbf642b8a38",
-        "from_generated_at": "2026-08-14T20:35:22.772189+00:00",
-        "to_generated_at": "2026-08-16T11:00:12.946222+00:00",
+        "from_digest": "d94b8706ffadc18e901b57d583790dd567f81c92f48db199a57eacbf642b8a38",
+        "to_digest": "0e1cba15654e4d9f6b17fabead34e33dfeecf415e4112e40598723dfa5f3313b",
+        "from_generated_at": "2026-08-16T11:00:12.946222+00:00",
+        "to_generated_at": "2026-09-20T11:00:08.999290+00:00",
         "changes": [],
         "rate_comparison": []
       },
@@ -507,7 +550,7 @@
       "trend": "the headline counters did not move between the last two runs. The digests still differ because timestamps and per row detail differ."
     }
   ],
-  "digest": "94c684a029085d10bef4917a0b9f5f4f3932df230783811e52f5a3d4c3320d29",
+  "digest": "d1f243c5fa38293bbf18cdb9d3614f1db189133e7e8b2ab3415cde23ca339c95",
   "mirrored_at": "https://kaydeep0.github.io/eigenstate-research/ledgers/",
   "mirror_note": "This file is a mirror of the index identified by the digest above. Both origins carry the same rows."
 }
