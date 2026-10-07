@@ -1,23 +1,23 @@
 {
   "schema": "eigenstate.pages_sot.v1",
   "sot_definition": "SoT (source of truth) for Host/Pages is the engine measurement state: workspace/HOST/state.json (κ, PT, parkash stamps), M1 coverage from the coverage ledger (m1_strict ∩ topology / 199), and the host predictions register for scored claims. Website tiles must bake from this stamp — not frozen marketing HTML.",
-  "generated_at": "2026-08-25T13:10:00.403795+00:00",
+  "generated_at": "2026-10-07T04:00:07.040237+00:00",
   "sources": {
     "host_ref": "workspace/HOST/state.json",
-    "host_updated_at": "2026-08-25T11:16:28.111011+00:00",
-    "parkash_last_parkash_at": "2026-08-25T03:38:35.627059+00:00",
-    "coverage_sot_stamped_at": "2026-08-25T03:38:35.627049+00:00",
+    "host_updated_at": "2026-10-07T01:28:31.400527+00:00",
+    "parkash_last_parkash_at": "2026-10-07T02:50:01.967310+00:00",
+    "coverage_sot_stamped_at": "2026-10-07T02:49:16.254383+00:00",
     "coverage_basis": "primary_m1_wire_14",
     "data_ref": "geniusflow/data"
   },
   "field": {
-    "kappa": 0.340999,
-    "kappa_act": 0.340999,
+    "kappa": 0.6,
+    "kappa_act": 0.6,
     "kappa_graph": 0.6682,
     "kappa_note": "kappa and kappa_act are the capture/act blend. kappa_graph is topology diagnostic.",
-    "protocol_truth": 0.007603,
-    "PT": 0.007603,
-    "G_external_cumulative": 152.11999999999998,
+    "protocol_truth": 0.015754,
+    "PT": 0.015754,
+    "G_external_cumulative": 385.12,
     "mode": "sahaj",
     "canonical_act_threshold": 0.618034
   },
@@ -39,97 +39,91 @@
   "vault_at_export": {
     "note": "cycle_vault_records.json is a trimmed working buffer. Per-entity counts here are vault@export rows — not M1 lifetime observations.",
     "total_rows": 64,
-    "entities_with_rows": 16,
+    "entities_with_rows": 10,
     "by_entity": {
-      "CANTON_NETWORK": 3,
-      "CITI_TREASURY_SERVICES": 6,
-      "JEKYLL_ISLAND": 3,
-      "DEFI_AUDIENCE": 6,
-      "RWA_AUDIENCE": 6,
-      "CABLE": 6,
-      "HIGHWAY": 5,
-      "CITIGROUP": 3,
-      "BNY_MELLON": 5,
-      "COINBASE": 3,
-      "STABLECOIN_POOL": 3,
-      "FED": 5,
-      "RING": 3,
-      "CRYPTO_NATIVE_AUDIENCE": 3,
-      "BENJAMIN_STRONG": 2,
-      "REPUTATION": 2
+      "RING": 8,
+      "CABLE": 8,
+      "HIGHWAY": 8,
+      "DEFI_AUDIENCE": 8,
+      "CRYPTO_NATIVE_AUDIENCE": 8,
+      "RWA_AUDIENCE": 8,
+      "COINBASE": 4,
+      "CIRCLE": 4,
+      "TETHER": 4,
+      "INSTITUTIONAL_CUSTODY_POOL": 4
     }
   },
   "entity_m1_obs_counts": {
-    "CIRCLE": 228,
-    "ETHEREUM": 174,
-    "COINBASE": 156,
-    "REG_D": 95,
-    "US_JURISDICTION": 94,
-    "ONDO": 89,
-    "SEC": 87,
-    "REG_S": 85,
-    "TOKENIZED_TREASURY": 82,
-    "DORA": 79,
-    "MICA_FULL_IMPLEMENTATION": 79,
-    "UNISWAP": 79,
-    "MORPHO": 77,
-    "MICA": 76,
-    "JFSA": 71,
-    "BAFIN": 70,
-    "BLACKROCK": 67,
-    "BASE": 66,
-    "JPMORGAN": 65,
-    "FED": 65,
-    "RIPPLE": 64,
-    "PAXOS": 64,
-    "HKMA": 62,
-    "CANTON_NETWORK": 62,
-    "FIDELITY": 60,
-    "FCA": 60,
-    "CFTC": 60,
-    "OCC": 60,
-    "BNY_MELLON": 58,
-    "FARCASTER": 55,
-    "DTCC": 55,
-    "TETHER": 46,
-    "BLACKROCK_BUIDL": 46,
-    "ONDO_YIELD_ASSETS": 45,
-    "CIRCLE_USYC": 45,
-    "PAXOS_GOLD": 44,
-    "TETHER_GOLD": 44,
-    "SPIKO": 42,
-    "WBTC": 42,
-    "USDT0": 42,
-    "JUSTCRYPTOS": 42,
-    "BACKED": 41,
-    "AAVE_FORUM": 41,
-    "COMPOUND_GOVERNANCE": 41,
-    "MAPLE": 40,
-    "AERODROME": 40,
-    "ARBITRUM": 40,
-    "COMPOUND_FORUM": 40,
-    "KAMINO_LEND": 40,
-    "AAVE_V3": 40,
-    "PENDLE": 40,
-    "POLYGON": 39,
-    "AVALANCHE": 39,
-    "SKY": 39,
-    "SOLANA": 39,
-    "AAVE_GOVERNANCE": 39,
-    "JUSTLEND": 37,
-    "SPARKLEND": 37,
-    "CURVE": 36,
-    "GITHUB_PRESENCE": 21,
-    "BITNOMIAL": 12,
+    "COINBASE": 486,
+    "ETHEREUM": 451,
+    "CIRCLE": 382,
+    "UNISWAP": 323,
+    "MORPHO": 321,
+    "US_JURISDICTION": 246,
+    "BASE": 217,
+    "TETHER": 206,
+    "ONDO_YIELD_ASSETS": 205,
+    "CIRCLE_USYC": 205,
+    "WBTC": 202,
+    "USDT0": 202,
+    "JUSTCRYPTOS": 202,
+    "SEC": 201,
+    "MAPLE": 200,
+    "AERODROME": 200,
+    "KAMINO_LEND": 200,
+    "AAVE_V3": 200,
+    "PENDLE": 200,
+    "REG_D": 193,
+    "BLACKROCK": 190,
+    "FARCASTER": 189,
+    "TOKENIZED_TREASURY": 188,
+    "REG_S": 181,
+    "RIPPLE": 176,
+    "PAXOS": 176,
+    "JPMORGAN": 174,
+    "FIDELITY": 171,
+    "DORA": 171,
+    "MICA_FULL_IMPLEMENTATION": 171,
+    "MICA": 168,
+    "JFSA": 167,
+    "BAFIN": 163,
+    "AAVE_FORUM": 163,
+    "COMPOUND_GOVERNANCE": 163,
+    "ARBITRUM": 162,
+    "COMPOUND_FORUM": 162,
+    "FED": 161,
+    "POLYGON": 161,
+    "SKY": 161,
+    "SOLANA": 161,
+    "AAVE_GOVERNANCE": 161,
+    "JUSTLEND": 159,
+    "SPARKLEND": 159,
+    "CANTON_NETWORK": 158,
+    "CURVE": 158,
+    "FCA": 156,
+    "CFTC": 156,
+    "OCC": 156,
+    "BNY_MELLON": 156,
+    "DTCC": 151,
+    "ONDO": 124,
+    "BLACKROCK_BUIDL": 118,
+    "PAXOS_GOLD": 116,
+    "TETHER_GOLD": 116,
+    "SPIKO": 114,
+    "BACKED": 113,
+    "HKMA": 111,
+    "AVALANCHE": 50,
+    "BITNOMIAL": 46,
+    "KRAKEN": 46,
+    "GITHUB_PRESENCE": 39,
+    "GSR": 21,
+    "GOLDMAN": 21,
+    "JUMP_TRADING": 19,
+    "STRONGHOLD": 19,
+    "SECURITIZE": 18,
     "EU_JURISDICTION": 11,
-    "KRAKEN": 11,
     "ESMA": 10,
     "MAS": 8,
-    "JUMP_TRADING": 6,
-    "GSR": 6,
-    "SECURITIZE": 6,
-    "GOLDMAN": 6,
-    "STRONGHOLD": 5,
     "RWA_AUDIENCE": 1,
     "DEFI_AUDIENCE": 1,
     "CRYPTO_NATIVE_AUDIENCE": 1,
@@ -260,497 +254,737 @@
   },
   "pt_kappa_series": [
     {
-      "cycle_id": 0,
-      "t_close": "2026-07-29T15:37:26.349312+00:00",
-      "PT": 0.0,
-      "kappa": 0.7357
+      "cycle_id": 120,
+      "t_close": "2026-09-08T19:47:00.466388+00:00",
+      "PT": 0.039304,
+      "kappa": 0.6
     },
     {
-      "cycle_id": 1,
-      "t_close": "2026-07-29T16:01:19.195493+00:00",
-      "PT": 0.0,
-      "kappa": 0.7357
+      "cycle_id": 121,
+      "t_close": "2026-09-08T23:10:38.735400+00:00",
+      "PT": 0.030178,
+      "kappa": 0.467279
     },
     {
-      "cycle_id": 2,
-      "t_close": "2026-07-29T17:30:47.534728+00:00",
-      "PT": 0.0,
-      "kappa": 0.7629
+      "cycle_id": 122,
+      "t_close": "2026-09-09T02:33:55.149369+00:00",
+      "PT": 0.034099,
+      "kappa": 0.453664
     },
     {
-      "cycle_id": 3,
-      "t_close": "2026-07-29T17:45:52.588412+00:00",
-      "PT": 0.0,
-      "kappa": 0.7629
+      "cycle_id": 123,
+      "t_close": "2026-09-09T06:01:00.607912+00:00",
+      "PT": 0.031704,
+      "kappa": 0.465282
     },
     {
-      "cycle_id": 4,
-      "t_close": "2026-07-29T19:18:38.821679+00:00",
-      "PT": 0.018948,
-      "kappa": 0.7629
+      "cycle_id": 124,
+      "t_close": "2026-09-09T21:55:44.400674+00:00",
+      "PT": 0.036962,
+      "kappa": 0.483861
     },
     {
-      "cycle_id": 5,
-      "t_close": "2026-07-29T20:30:45.043232+00:00",
-      "PT": 0.025116,
-      "kappa": 0.7629
+      "cycle_id": 125,
+      "t_close": "2026-09-10T01:23:07.752497+00:00",
+      "PT": 0.032606,
+      "kappa": 0.496731
     },
     {
-      "cycle_id": 6,
-      "t_close": "2026-07-29T23:26:10.036114+00:00",
-      "PT": 0.026883,
-      "kappa": 0.7629
+      "cycle_id": 126,
+      "t_close": "2026-09-10T04:47:31.079714+00:00",
+      "PT": 0.032805,
+      "kappa": 0.452012
     },
     {
-      "cycle_id": 7,
-      "t_close": "2026-07-30T01:54:56.786800+00:00",
-      "PT": 0.027669,
-      "kappa": 0.7629
+      "cycle_id": 127,
+      "t_close": "2026-09-10T08:12:08.764878+00:00",
+      "PT": 0.032101,
+      "kappa": 0.511132
     },
     {
-      "cycle_id": 8,
-      "t_close": "2026-07-30T03:36:11.394787+00:00",
-      "PT": 0.028056,
-      "kappa": 0.7629
+      "cycle_id": 128,
+      "t_close": "2026-09-10T11:34:44.651983+00:00",
+      "PT": 0.0276,
+      "kappa": 0.511004
     },
     {
-      "cycle_id": 9,
-      "t_close": "2026-07-30T07:43:52.518077+00:00",
-      "PT": 0.028869,
-      "kappa": 0.7629
+      "cycle_id": 129,
+      "t_close": "2026-09-10T14:58:46.914355+00:00",
+      "PT": 0.031905,
+      "kappa": 0.6
     },
     {
-      "cycle_id": 10,
-      "t_close": "2026-07-30T11:51:31.364921+00:00",
-      "PT": 0.029691,
-      "kappa": 0.7629
+      "cycle_id": 130,
+      "t_close": "2026-09-10T18:24:37.637177+00:00",
+      "PT": 0.0381,
+      "kappa": 0.6
     },
     {
-      "cycle_id": 11,
-      "t_close": "2026-07-30T15:59:19.225088+00:00",
-      "PT": 0.03,
-      "kappa": 0.7629
+      "cycle_id": 131,
+      "t_close": "2026-09-10T21:48:25.840178+00:00",
+      "PT": 0.027375,
+      "kappa": 0.455612
     },
     {
-      "cycle_id": 12,
-      "t_close": "2026-07-31T19:08:29.632046+00:00",
-      "PT": 0.017361,
-      "kappa": 0.7624
+      "cycle_id": 132,
+      "t_close": "2026-09-11T01:10:46.087260+00:00",
+      "PT": 0.030727,
+      "kappa": 0.465206
     },
     {
-      "cycle_id": 13,
-      "t_close": "2026-07-31T22:41:10.716387+00:00",
-      "PT": 0.011697,
-      "kappa": 0.7684
+      "cycle_id": 133,
+      "t_close": "2026-09-11T04:33:17.037680+00:00",
+      "PT": 0.026702,
+      "kappa": 0.472591
     },
     {
-      "cycle_id": 14,
-      "t_close": "2026-08-01T01:11:05.192641+00:00",
-      "PT": 0.011262,
-      "kappa": 0.6686
+      "cycle_id": 134,
+      "t_close": "2026-09-11T07:53:07.678745+00:00",
+      "PT": 0.032791,
+      "kappa": 0.6
     },
     {
-      "cycle_id": 15,
-      "t_close": "2026-08-01T01:32:37.870312+00:00",
-      "PT": 0.011746,
-      "kappa": 0.6686
+      "cycle_id": 135,
+      "t_close": "2026-09-11T11:12:34.219644+00:00",
+      "PT": 0.032407,
+      "kappa": 0.6
     },
     {
-      "cycle_id": 16,
-      "t_close": "2026-08-01T02:20:46.732243+00:00",
-      "PT": 0.012745,
-      "kappa": 0.6686
+      "cycle_id": 136,
+      "t_close": "2026-09-11T14:33:26.585431+00:00",
+      "PT": 0.02474,
+      "kappa": 0.472591
     },
     {
-      "cycle_id": 17,
-      "t_close": "2026-08-01T02:50:12.611715+00:00",
-      "PT": 0.01106,
-      "kappa": 0.6686
+      "cycle_id": 137,
+      "t_close": "2026-09-11T17:57:13.339975+00:00",
+      "PT": 0.029583,
+      "kappa": 0.459265
     },
     {
-      "cycle_id": 18,
-      "t_close": "2026-08-01T05:15:17.565947+00:00",
-      "PT": 0.012429,
-      "kappa": 0.6686
+      "cycle_id": 138,
+      "t_close": "2026-09-11T21:23:14.417650+00:00",
+      "PT": 0.031431,
+      "kappa": 0.518206
     },
     {
-      "cycle_id": 19,
-      "t_close": "2026-08-01T06:59:26.507848+00:00",
-      "PT": 0.012864,
-      "kappa": 0.6686
+      "cycle_id": 139,
+      "t_close": "2026-09-14T01:00:16.269725+00:00",
+      "PT": 0.034889,
+      "kappa": 0.474168
     },
     {
-      "cycle_id": 20,
-      "t_close": "2026-08-01T11:07:31.668949+00:00",
-      "PT": 0.01107,
-      "kappa": 0.6686
+      "cycle_id": 140,
+      "t_close": "2026-09-14T04:31:22.656779+00:00",
+      "PT": 0.026923,
+      "kappa": 0.386272
     },
     {
-      "cycle_id": 21,
-      "t_close": "2026-08-01T13:21:07.527595+00:00",
-      "PT": 0.013023,
-      "kappa": 0.6686
+      "cycle_id": 141,
+      "t_close": "2026-09-14T07:55:46.743861+00:00",
+      "PT": 0.040642,
+      "kappa": 0.500692
     },
     {
-      "cycle_id": 22,
-      "t_close": "2026-08-01T14:45:34.427717+00:00",
-      "PT": 0.013023,
-      "kappa": 0.6686
+      "cycle_id": 142,
+      "t_close": "2026-09-14T11:16:36.509427+00:00",
+      "PT": 0.033785,
+      "kappa": 0.473555
     },
     {
-      "cycle_id": 23,
-      "t_close": "2026-08-01T15:15:57.008619+00:00",
-      "PT": 0.0127,
-      "kappa": 0.6686
+      "cycle_id": 143,
+      "t_close": "2026-09-14T14:40:39.684157+00:00",
+      "PT": 0.03393,
+      "kappa": 0.54379
     },
     {
-      "cycle_id": 24,
-      "t_close": "2026-08-01T19:25:14.187069+00:00",
-      "PT": 0.012262,
-      "kappa": 0.6683
+      "cycle_id": 144,
+      "t_close": "2026-09-14T18:06:45.436897+00:00",
+      "PT": 0.040716,
+      "kappa": 0.6
     },
     {
-      "cycle_id": 25,
-      "t_close": "2026-08-01T22:04:36.404656+00:00",
-      "PT": 0.012004,
-      "kappa": 0.6683
+      "cycle_id": 145,
+      "t_close": "2026-09-14T21:35:59.409252+00:00",
+      "PT": 0.036536,
+      "kappa": 0.527862
     },
     {
-      "cycle_id": 26,
-      "t_close": "2026-08-01T23:35:23.731007+00:00",
-      "PT": 0.011784,
-      "kappa": 0.6687
+      "cycle_id": 146,
+      "t_close": "2026-09-15T00:50:48.671869+00:00",
+      "PT": 0.028995,
+      "kappa": 0.455841
     },
     {
-      "cycle_id": 27,
-      "t_close": "2026-08-02T03:45:22.559899+00:00",
-      "PT": 0.011147,
-      "kappa": 0.6687
+      "cycle_id": 147,
+      "t_close": "2026-09-15T04:16:02.627079+00:00",
+      "PT": 0.035484,
+      "kappa": 0.465085
     },
     {
-      "cycle_id": 28,
-      "t_close": "2026-08-02T05:49:28.211529+00:00",
-      "PT": 0.008701,
-      "kappa": null
+      "cycle_id": 148,
+      "t_close": "2026-09-15T07:40:20.504416+00:00",
+      "PT": 0.032173,
+      "kappa": 0.434845
     },
     {
-      "cycle_id": 29,
-      "t_close": "2026-08-02T06:23:52.553171+00:00",
-      "PT": 0.00697,
-      "kappa": 0.6687
+      "cycle_id": 149,
+      "t_close": "2026-09-15T11:02:37.000036+00:00",
+      "PT": 0.025784,
+      "kappa": 0.473332
     },
     {
-      "cycle_id": 30,
-      "t_close": "2026-08-02T06:32:48.048251+00:00",
-      "PT": 0.007573,
-      "kappa": 0.6687
+      "cycle_id": 150,
+      "t_close": "2026-09-15T14:27:14.695716+00:00",
+      "PT": 0.028251,
+      "kappa": 0.467303
     },
     {
-      "cycle_id": 31,
-      "t_close": "2026-08-02T06:46:06.913435+00:00",
-      "PT": 0.00777,
-      "kappa": 0.6687
+      "cycle_id": 151,
+      "t_close": "2026-09-15T17:51:19.966333+00:00",
+      "PT": 0.031383,
+      "kappa": 0.527862
     },
     {
-      "cycle_id": 32,
-      "t_close": "2026-08-02T06:55:37.492146+00:00",
-      "PT": 0.007758,
-      "kappa": 0.6687
+      "cycle_id": 152,
+      "t_close": "2026-09-15T21:19:20.433356+00:00",
+      "PT": 0.044495,
+      "kappa": 0.213328
     },
     {
-      "cycle_id": 33,
-      "t_close": "2026-08-02T07:07:01.983118+00:00",
-      "PT": 0.007857,
-      "kappa": 0.6687
+      "cycle_id": 153,
+      "t_close": "2026-09-16T00:53:18.987399+00:00",
+      "PT": 0.039628,
+      "kappa": 0.198393
     },
     {
-      "cycle_id": 34,
-      "t_close": "2026-08-02T10:24:35.032354+00:00",
-      "PT": 0.007723,
-      "kappa": 0.6687
+      "cycle_id": 154,
+      "t_close": "2026-09-16T04:31:24.082310+00:00",
+      "PT": 0.042881,
+      "kappa": 0.214838
     },
     {
-      "cycle_id": 35,
-      "t_close": "2026-08-02T13:19:06.888652+00:00",
-      "PT": 0.007723,
-      "kappa": 0.6687
+      "cycle_id": 155,
+      "t_close": "2026-09-16T16:24:46.815575+00:00",
+      "PT": 0.035588,
+      "kappa": 0.205503
     },
     {
-      "cycle_id": 36,
-      "t_close": "2026-08-02T16:27:35.755109+00:00",
-      "PT": 0.005529,
-      "kappa": 0.6687
+      "cycle_id": 156,
+      "t_close": "2026-09-16T19:52:57.852538+00:00",
+      "PT": 0.033682,
+      "kappa": 0.170396
     },
     {
-      "cycle_id": 37,
-      "t_close": "2026-08-02T16:28:20.482945+00:00",
-      "PT": 0.005143,
-      "kappa": 0.6687
+      "cycle_id": 157,
+      "t_close": "2026-09-16T23:20:37.207233+00:00",
+      "PT": 0.039084,
+      "kappa": 0.197628
     },
     {
-      "cycle_id": 38,
-      "t_close": "2026-08-02T17:04:55.617362+00:00",
-      "PT": 0.005087,
-      "kappa": 0.6687
+      "cycle_id": 158,
+      "t_close": "2026-09-17T02:46:57.342882+00:00",
+      "PT": 0.032326,
+      "kappa": 0.170488
     },
     {
-      "cycle_id": 39,
-      "t_close": "2026-08-02T21:12:23.563030+00:00",
-      "PT": 0.005326,
-      "kappa": 0.319528
+      "cycle_id": 159,
+      "t_close": "2026-09-17T06:12:51.900677+00:00",
+      "PT": 0.045972,
+      "kappa": 0.236042
     },
     {
-      "cycle_id": 40,
-      "t_close": "2026-08-02T22:40:39.503656+00:00",
-      "PT": 0.005405,
-      "kappa": 0.319528
+      "cycle_id": 160,
+      "t_close": "2026-09-17T09:38:09.903824+00:00",
+      "PT": 0.040327,
+      "kappa": 0.241391
     },
     {
-      "cycle_id": 41,
-      "t_close": "2026-08-03T13:20:25.155843+00:00",
-      "PT": 0.005032,
-      "kappa": 0.319528
+      "cycle_id": 161,
+      "t_close": "2026-09-17T23:43:36.902528+00:00",
+      "PT": 0.04221,
+      "kappa": 0.19805
     },
     {
-      "cycle_id": 42,
-      "t_close": "2026-08-04T13:19:15.977866+00:00",
-      "PT": 0.004201,
-      "kappa": 0.321632
+      "cycle_id": 162,
+      "t_close": "2026-09-18T03:05:26.733120+00:00",
+      "PT": 0.031313,
+      "kappa": 0.161223
     },
     {
-      "cycle_id": 43,
-      "t_close": "2026-08-05T13:19:11.526924+00:00",
-      "PT": 0.005468,
-      "kappa": 0.415318
+      "cycle_id": 163,
+      "t_close": "2026-09-18T06:27:33.559298+00:00",
+      "PT": 0.032761,
+      "kappa": 0.15041
     },
     {
-      "cycle_id": 44,
-      "t_close": "2026-08-06T13:21:28.400279+00:00",
-      "PT": 0.005688,
-      "kappa": 0.415318
+      "cycle_id": 164,
+      "t_close": "2026-09-18T09:48:28.044930+00:00",
+      "PT": 0.029318,
+      "kappa": 0.138645
     },
     {
-      "cycle_id": 45,
-      "t_close": "2026-08-07T13:23:49.777249+00:00",
-      "PT": 0.005356,
-      "kappa": 0.415318
+      "cycle_id": 165,
+      "t_close": "2026-09-18T13:11:25.460496+00:00",
+      "PT": 0.023441,
+      "kappa": 0.122276
     },
     {
-      "cycle_id": 46,
-      "t_close": "2026-08-08T13:23:47.124072+00:00",
-      "PT": 0.002397,
-      "kappa": 0.138543
+      "cycle_id": 166,
+      "t_close": "2026-09-19T20:17:19.821560+00:00",
+      "PT": 0.016171,
+      "kappa": 0.08463
     },
     {
-      "cycle_id": 47,
-      "t_close": "2026-08-11T20:01:32.305873+00:00",
-      "PT": 0.015824,
-      "kappa": 0.385723
+      "cycle_id": 167,
+      "t_close": "2026-09-19T23:38:59.908111+00:00",
+      "PT": 0.02747,
+      "kappa": 0.144914
     },
     {
-      "cycle_id": 48,
-      "t_close": "2026-08-12T00:00:49.237645+00:00",
-      "PT": 0.015917,
-      "kappa": 0.386604
+      "cycle_id": 168,
+      "t_close": "2026-09-20T02:59:03.041014+00:00",
+      "PT": 0.023611,
+      "kappa": 0.133256
     },
     {
-      "cycle_id": 49,
-      "t_close": "2026-08-12T04:12:19.257942+00:00",
-      "PT": 0.01416,
-      "kappa": 0.38015
+      "cycle_id": 169,
+      "t_close": "2026-09-20T06:18:25.478059+00:00",
+      "PT": 0.040714,
+      "kappa": 0.20381
     },
     {
-      "cycle_id": 50,
-      "t_close": "2026-08-12T08:21:22.750593+00:00",
-      "PT": 0.0171,
-      "kappa": 0.38015
+      "cycle_id": 170,
+      "t_close": "2026-09-20T09:41:32.588505+00:00",
+      "PT": 0.033912,
+      "kappa": 0.172315
     },
     {
-      "cycle_id": 51,
-      "t_close": "2026-08-12T12:31:12.233797+00:00",
-      "PT": 0.014675,
-      "kappa": 0.378938
+      "cycle_id": 171,
+      "t_close": "2026-09-20T12:58:53.241730+00:00",
+      "PT": 0.026352,
+      "kappa": 0.167835
     },
     {
-      "cycle_id": 52,
-      "t_close": "2026-08-12T13:18:22.548429+00:00",
-      "PT": 0.014956,
-      "kappa": 0.378938
+      "cycle_id": 172,
+      "t_close": "2026-09-20T16:18:09.401990+00:00",
+      "PT": 0.029839,
+      "kappa": 0.167808
     },
     {
-      "cycle_id": 53,
-      "t_close": "2026-08-12T14:22:24.236859+00:00",
-      "PT": 0.014816,
-      "kappa": 0.378938
+      "cycle_id": 173,
+      "t_close": "2026-09-20T19:39:01.627114+00:00",
+      "PT": 0.035047,
+      "kappa": 0.181121
     },
     {
-      "cycle_id": 54,
-      "t_close": "2026-08-12T16:41:40.750175+00:00",
-      "PT": 0.014156,
-      "kappa": 0.378938
+      "cycle_id": 174,
+      "t_close": "2026-09-20T23:00:40.443549+00:00",
+      "PT": 0.03819,
+      "kappa": 0.219709
     },
     {
-      "cycle_id": 55,
-      "t_close": "2026-08-12T20:52:28.062560+00:00",
-      "PT": 0.016397,
-      "kappa": 0.378938
+      "cycle_id": 175,
+      "t_close": "2026-09-21T02:26:55.421073+00:00",
+      "PT": 0.035768,
+      "kappa": 0.211982
     },
     {
-      "cycle_id": 56,
-      "t_close": "2026-08-13T01:03:02.424870+00:00",
-      "PT": 0.018205,
-      "kappa": 0.379018
+      "cycle_id": 176,
+      "t_close": "2026-09-21T19:09:58.645577+00:00",
+      "PT": 0.047735,
+      "kappa": 0.260083
     },
     {
-      "cycle_id": 57,
-      "t_close": "2026-08-13T05:13:08.540745+00:00",
-      "PT": 0.016199,
-      "kappa": 0.379018
+      "cycle_id": 177,
+      "t_close": "2026-09-21T22:32:29.860010+00:00",
+      "PT": 0.030274,
+      "kappa": 0.184769
     },
     {
-      "cycle_id": 58,
-      "t_close": "2026-08-13T09:23:22.506365+00:00",
-      "PT": 0.017782,
-      "kappa": 0.379018
+      "cycle_id": 178,
+      "t_close": "2026-09-22T01:57:43.894143+00:00",
+      "PT": 0.026659,
+      "kappa": 0.183772
     },
     {
-      "cycle_id": 59,
-      "t_close": "2026-08-13T13:18:44.083704+00:00",
-      "PT": 0.017837,
-      "kappa": 0.379018
+      "cycle_id": 179,
+      "t_close": "2026-09-22T05:18:06.173902+00:00",
+      "PT": 0.039886,
+      "kappa": 0.258177
     },
     {
-      "cycle_id": 60,
-      "t_close": "2026-08-13T13:33:08.260121+00:00",
-      "PT": 0.017846,
-      "kappa": 0.379018
+      "cycle_id": 180,
+      "t_close": "2026-09-22T08:39:32.896388+00:00",
+      "PT": 0.039463,
+      "kappa": 0.2229
     },
     {
-      "cycle_id": 61,
-      "t_close": "2026-08-13T17:47:38.893281+00:00",
-      "PT": 0.016385,
-      "kappa": 0.379018
+      "cycle_id": 181,
+      "t_close": "2026-09-22T11:57:27.911144+00:00",
+      "PT": 0.024379,
+      "kappa": 0.145685
     },
     {
-      "cycle_id": 62,
-      "t_close": "2026-08-13T22:14:51.683006+00:00",
-      "PT": 0.016881,
-      "kappa": 0.379018
+      "cycle_id": 182,
+      "t_close": "2026-09-22T15:21:27.408113+00:00",
+      "PT": 0.031838,
+      "kappa": 0.180346
     },
     {
-      "cycle_id": 63,
-      "t_close": "2026-08-14T02:26:40.565661+00:00",
-      "PT": 0.016741,
-      "kappa": 0.376372
+      "cycle_id": 183,
+      "t_close": "2026-09-22T16:06:33.131932+00:00",
+      "PT": 0.028017,
+      "kappa": 0.158474
     },
     {
-      "cycle_id": 64,
-      "t_close": "2026-08-14T06:37:26.667108+00:00",
-      "PT": 0.017241,
-      "kappa": 0.376391
+      "cycle_id": 184,
+      "t_close": "2026-09-22T19:32:25.947861+00:00",
+      "PT": 0.024799,
+      "kappa": 0.201733
     },
     {
-      "cycle_id": 65,
-      "t_close": "2026-08-14T10:53:14.119267+00:00",
-      "PT": 0.017133,
-      "kappa": 0.376391
+      "cycle_id": 185,
+      "t_close": "2026-09-22T22:54:16.059844+00:00",
+      "PT": 0.029363,
+      "kappa": 0.188129
     },
     {
-      "cycle_id": 66,
-      "t_close": "2026-08-14T13:21:17.324342+00:00",
-      "PT": 0.017713,
-      "kappa": 0.376391
+      "cycle_id": 186,
+      "t_close": "2026-09-23T02:25:48.669104+00:00",
+      "PT": 0.034173,
+      "kappa": 0.200299
     },
     {
-      "cycle_id": 67,
-      "t_close": "2026-08-14T15:07:51.413248+00:00",
-      "PT": 0.017366,
-      "kappa": 0.376391
+      "cycle_id": 187,
+      "t_close": "2026-09-23T05:48:31.224971+00:00",
+      "PT": 0.028649,
+      "kappa": 0.184751
     },
     {
-      "cycle_id": 68,
-      "t_close": "2026-08-14T19:18:39.900333+00:00",
-      "PT": 0.01771,
-      "kappa": 0.376391
+      "cycle_id": 188,
+      "t_close": "2026-09-23T09:10:41.250356+00:00",
+      "PT": 0.029702,
+      "kappa": 0.18213
     },
     {
-      "cycle_id": 69,
-      "t_close": "2026-08-14T23:31:53.686485+00:00",
-      "PT": 0.015312,
-      "kappa": 0.332012
+      "cycle_id": 189,
+      "t_close": "2026-09-23T16:36:51.568986+00:00",
+      "PT": 0.026918,
+      "kappa": 0.172288
     },
     {
-      "cycle_id": 70,
-      "t_close": "2026-08-15T03:42:07.676899+00:00",
-      "PT": 0.015035,
-      "kappa": 0.332012
+      "cycle_id": 190,
+      "t_close": "2026-09-23T20:01:31.852958+00:00",
+      "PT": 0.024939,
+      "kappa": 0.180285
     },
     {
-      "cycle_id": 71,
-      "t_close": "2026-08-15T07:53:24.209246+00:00",
-      "PT": 0.015359,
-      "kappa": 0.332012
+      "cycle_id": 191,
+      "t_close": "2026-09-23T23:22:36.026315+00:00",
+      "PT": 0.031838,
+      "kappa": 0.212749
     },
     {
-      "cycle_id": 72,
-      "t_close": "2026-08-15T12:06:27.150471+00:00",
-      "PT": 0.015359,
-      "kappa": 0.332012
+      "cycle_id": 192,
+      "t_close": "2026-09-24T02:45:44.605483+00:00",
+      "PT": 0.033692,
+      "kappa": 0.206193
     },
     {
-      "cycle_id": 73,
-      "t_close": "2026-08-15T13:19:11.769773+00:00",
-      "PT": 0.015581,
-      "kappa": 0.332012
+      "cycle_id": 193,
+      "t_close": "2026-09-24T06:14:14.951803+00:00",
+      "PT": 0.017466,
+      "kappa": 0.106959
     },
     {
-      "cycle_id": 74,
-      "t_close": "2026-08-15T16:23:24.906111+00:00",
-      "PT": 0.015197,
-      "kappa": 0.332012
+      "cycle_id": 194,
+      "t_close": "2026-09-24T09:37:53.588657+00:00",
+      "PT": 0.016634,
+      "kappa": 0.129904
     },
     {
-      "cycle_id": 75,
-      "t_close": "2026-08-15T20:34:54.635432+00:00",
-      "PT": 0.031605,
-      "kappa": 0.332012
+      "cycle_id": 195,
+      "t_close": "2026-09-24T13:00:12.022855+00:00",
+      "PT": 0.019623,
+      "kappa": 0.141274
     },
     {
-      "cycle_id": 76,
-      "t_close": "2026-08-23T16:34:01.439015+00:00",
-      "PT": 0.010276,
-      "kappa": 0.338839
+      "cycle_id": 196,
+      "t_close": "2026-09-24T18:31:06.753754+00:00",
+      "PT": 0.032693,
+      "kappa": 0.205934
     },
     {
-      "cycle_id": 77,
-      "t_close": "2026-08-24T14:08:06.170527+00:00",
-      "PT": 0.007627,
-      "kappa": 0.331206
+      "cycle_id": 197,
+      "t_close": "2026-09-24T21:53:28.652518+00:00",
+      "PT": 0.024941,
+      "kappa": 0.16442
     },
     {
-      "cycle_id": 78,
-      "t_close": "2026-08-25T02:09:58.849710+00:00",
-      "PT": 0.007436,
-      "kappa": 0.331206
+      "cycle_id": 198,
+      "t_close": "2026-09-25T01:15:29.978853+00:00",
+      "PT": 0.023433,
+      "kappa": 0.173567
     },
     {
-      "cycle_id": 79,
-      "t_close": "2026-08-25T03:42:54.069903+00:00",
-      "PT": 0.008205,
-      "kappa": 0.329965
+      "cycle_id": 199,
+      "t_close": "2026-09-25T04:41:11.597904+00:00",
+      "PT": 0.022321,
+      "kappa": 0.153894
+    },
+    {
+      "cycle_id": 200,
+      "t_close": "2026-09-25T08:02:42.098173+00:00",
+      "PT": 0.0338,
+      "kappa": 0.223031
+    },
+    {
+      "cycle_id": 201,
+      "t_close": "2026-09-25T11:25:31.353247+00:00",
+      "PT": 0.016453,
+      "kappa": 0.122472
+    },
+    {
+      "cycle_id": 202,
+      "t_close": "2026-09-25T14:48:44.336963+00:00",
+      "PT": 0.027482,
+      "kappa": 0.182192
+    },
+    {
+      "cycle_id": 203,
+      "t_close": "2026-09-25T18:11:25.675841+00:00",
+      "PT": 0.023937,
+      "kappa": 0.160372
+    },
+    {
+      "cycle_id": 204,
+      "t_close": "2026-09-25T21:36:56.879064+00:00",
+      "PT": 0.022235,
+      "kappa": 0.20156
+    },
+    {
+      "cycle_id": 205,
+      "t_close": "2026-09-26T01:00:17.041607+00:00",
+      "PT": 0.021427,
+      "kappa": 0.163868
+    },
+    {
+      "cycle_id": 206,
+      "t_close": "2026-09-26T04:23:27.680694+00:00",
+      "PT": 0.028992,
+      "kappa": 0.198242
+    },
+    {
+      "cycle_id": 207,
+      "t_close": "2026-09-26T07:46:23.299092+00:00",
+      "PT": 0.021831,
+      "kappa": 0.171826
+    },
+    {
+      "cycle_id": 208,
+      "t_close": "2026-09-26T11:05:19.045289+00:00",
+      "PT": 0.029865,
+      "kappa": 0.206537
+    },
+    {
+      "cycle_id": 209,
+      "t_close": "2026-09-26T14:26:04.930093+00:00",
+      "PT": 0.018382,
+      "kappa": 0.128514
+    },
+    {
+      "cycle_id": 210,
+      "t_close": "2026-09-26T17:46:47.831777+00:00",
+      "PT": 0.020032,
+      "kappa": 0.158645
+    },
+    {
+      "cycle_id": 211,
+      "t_close": "2026-09-26T21:08:17.286917+00:00",
+      "PT": 0.016802,
+      "kappa": 0.126139
+    },
+    {
+      "cycle_id": 212,
+      "t_close": "2026-09-29T01:42:48.446372+00:00",
+      "PT": 0.026374,
+      "kappa": 0.213268
+    },
+    {
+      "cycle_id": 213,
+      "t_close": "2026-09-29T05:04:14.452914+00:00",
+      "PT": 0.013625,
+      "kappa": 0.124252
+    },
+    {
+      "cycle_id": 214,
+      "t_close": "2026-09-29T08:24:36.808300+00:00",
+      "PT": 0.013784,
+      "kappa": 0.140061
+    },
+    {
+      "cycle_id": 215,
+      "t_close": "2026-09-29T11:45:03.524672+00:00",
+      "PT": 0.017611,
+      "kappa": 0.154889
+    },
+    {
+      "cycle_id": 216,
+      "t_close": "2026-09-29T15:13:14.408165+00:00",
+      "PT": 0.010125,
+      "kappa": 0.100965
+    },
+    {
+      "cycle_id": 217,
+      "t_close": "2026-09-29T18:39:00.513623+00:00",
+      "PT": 0.010011,
+      "kappa": 0.090001
+    },
+    {
+      "cycle_id": 218,
+      "t_close": "2026-09-29T22:05:08.115881+00:00",
+      "PT": 0.007565,
+      "kappa": 0.089274
+    },
+    {
+      "cycle_id": 219,
+      "t_close": "2026-09-30T01:33:29.498904+00:00",
+      "PT": 0.008003,
+      "kappa": 0.075972
+    },
+    {
+      "cycle_id": 220,
+      "t_close": "2026-09-30T05:00:10.260876+00:00",
+      "PT": 0.017295,
+      "kappa": 0.151961
+    },
+    {
+      "cycle_id": 221,
+      "t_close": "2026-09-30T08:20:50.851305+00:00",
+      "PT": 0.025164,
+      "kappa": 0.262507
+    },
+    {
+      "cycle_id": 222,
+      "t_close": "2026-09-30T11:41:09.543528+00:00",
+      "PT": 0.023218,
+      "kappa": 0.219997
+    },
+    {
+      "cycle_id": 223,
+      "t_close": "2026-09-30T16:58:12.220954+00:00",
+      "PT": 0.021633,
+      "kappa": 0.195027
+    },
+    {
+      "cycle_id": 224,
+      "t_close": "2026-09-30T20:20:58.843643+00:00",
+      "PT": 0.016511,
+      "kappa": 0.165017
+    },
+    {
+      "cycle_id": 225,
+      "t_close": "2026-09-30T23:47:00.528677+00:00",
+      "PT": 0.022984,
+      "kappa": 0.215824
+    },
+    {
+      "cycle_id": 226,
+      "t_close": "2026-10-01T02:25:02.265605+00:00",
+      "PT": 0.003787,
+      "kappa": 0.143374
+    },
+    {
+      "cycle_id": 227,
+      "t_close": "2026-10-01T03:08:47.213129+00:00",
+      "PT": 0.022961,
+      "kappa": 0.202774
+    },
+    {
+      "cycle_id": 228,
+      "t_close": "2026-10-01T06:30:32.806629+00:00",
+      "PT": 0.015993,
+      "kappa": 0.152575
+    },
+    {
+      "cycle_id": 229,
+      "t_close": "2026-10-01T09:52:31.111247+00:00",
+      "PT": 0.023854,
+      "kappa": 0.262739
+    },
+    {
+      "cycle_id": 230,
+      "t_close": "2026-10-01T13:19:14.870240+00:00",
+      "PT": 0.019442,
+      "kappa": 0.18286
+    },
+    {
+      "cycle_id": 231,
+      "t_close": "2026-10-01T16:40:50.314924+00:00",
+      "PT": 0.02327,
+      "kappa": 0.220631
+    },
+    {
+      "cycle_id": 232,
+      "t_close": "2026-10-01T20:03:35.455565+00:00",
+      "PT": 0.020498,
+      "kappa": 0.209986
+    },
+    {
+      "cycle_id": 233,
+      "t_close": "2026-10-01T23:27:14.426385+00:00",
+      "PT": 0.013613,
+      "kappa": 0.149174
+    },
+    {
+      "cycle_id": 234,
+      "t_close": "2026-10-02T02:53:32.641898+00:00",
+      "PT": 0.013711,
+      "kappa": 0.143643
+    },
+    {
+      "cycle_id": 235,
+      "t_close": "2026-10-02T06:15:57.126075+00:00",
+      "PT": 0.020012,
+      "kappa": 0.233357
+    },
+    {
+      "cycle_id": 236,
+      "t_close": "2026-10-02T23:14:31.225939+00:00",
+      "PT": 0.021636,
+      "kappa": 0.220214
+    },
+    {
+      "cycle_id": 237,
+      "t_close": "2026-10-06T20:07:26.987010+00:00",
+      "PT": 0.014476,
+      "kappa": 0.205457
+    },
+    {
+      "cycle_id": 238,
+      "t_close": "2026-10-06T23:30:12.174340+00:00",
+      "PT": 0.011869,
+      "kappa": 0.170452
+    },
+    {
+      "cycle_id": 239,
+      "t_close": "2026-10-07T02:53:51.700049+00:00",
+      "PT": 0.011557,
+      "kappa": 0.165588
     }
   ],
   "predictions_scoreboard": {
-    "n_total": 155,
-    "n_open": 150,
-    "n_resolved": 5,
+    "n_total": 156,
+    "n_open": 149,
+    "n_resolved": 7,
     "n_void": 1,
-    "n_assessable": 3,
-    "n_true": 2,
+    "n_assessable": 5,
+    "n_true": 4,
     "n_false": 1,
-    "accuracy_pct": null,
-    "note": "Host prediction register: 3 assessable (TRUE/FALSE, non-VOID) of 5 resolved; 150 open. Accuracy % shown only when assessable n ≥ 5.",
-    "updated_at": "2026-08-23T16:23:30+00:00",
+    "accuracy_pct": 80.0,
+    "note": "Host prediction register: 5 assessable (TRUE/FALSE, non-VOID) of 7 resolved; 149 open. Accuracy % shown only when assessable n ≥ 5.",
+    "updated_at": "2026-09-04T22:48:17+00:00",
     "resolved": [
       {
         "prediction_id": "FED_EXTRACTION_001",
@@ -772,6 +1006,17 @@
         "resolved_at": "2026-07-05T17:37:30+00:00",
         "title": "a settlement-gap event on NSE involving a 98:1 (or similar order-of-magnitude) ratio between cle...",
         "claim": "a settlement-gap event on NSE involving a 98:1 (or similar order-of-magnitude) ratio between cleared positions and underlying capacity will surface before 2026-06-13.",
+        "why": null
+      },
+      {
+        "prediction_id": "FOMC_EFFR_TARGET_003",
+        "status": "RESOLVED",
+        "outcome": "TRUE",
+        "deadline": "2026-08-31",
+        "calibration_weight": "capital",
+        "resolved_at": "2026-09-03T18:19:39+00:00",
+        "title": "Through calendar date 2026-08-31 inclusive, every New York Fed Markets publication of the EFFR p...",
+        "claim": "Through calendar date 2026-08-31 inclusive, every New York Fed Markets publication of the EFFR policy target band for that date (fields targetRateFrom and targetRateTo on https://markets.newyorkfed.org/api/rates/all/latest.json or the successor NY Fed daily EFFR record on markets.newyorkfed.org) will equal 3.50 and 3.75 respectively.",
         "why": null
       },
       {
@@ -806,6 +1051,17 @@
         "title": "On https://api.llama.fi/v2/historicalChainTvl, taking the latest observation whose date (unix se...",
         "claim": "On https://api.llama.fi/v2/historicalChainTvl, taking the latest observation whose date (unix seconds, UTC day) is less than or equal to end of calendar date 2026-08-17, the tvl field (USD) will be strictly greater than 60_000_000_000.",
         "why": null
+      },
+      {
+        "prediction_id": "DEFILLAMA_STABLECOIN_MCAP_006",
+        "status": "RESOLVED",
+        "outcome": "TRUE",
+        "deadline": "2026-09-03",
+        "calibration_weight": "capital",
+        "resolved_at": "2026-09-04T22:46:13+00:00",
+        "title": "On https://stablecoins.llama.fi/stablecoincharts/all, taking the latest observation whose date (...",
+        "claim": "On https://stablecoins.llama.fi/stablecoincharts/all, taking the latest observation whose date (unix seconds, UTC day) is less than or equal to end of calendar date 2026-09-03, the totalCirculatingUSD.peggedUSD field will be strictly greater than 250_000_000_000.",
+        "why": null
       }
     ]
   },
@@ -813,18 +1069,8 @@
     {
       "entity": "CIRCLE",
       "display": "Circle",
-      "phi_s": 11.3915,
-      "kappa": 0.0,
-      "display_kind": "issuer_protocol",
-      "facet_label": "Issuers / Protocols",
-      "display_role": "actor",
-      "role_label": "Actors"
-    },
-    {
-      "entity": "TETHER",
-      "display": "Tether",
-      "phi_s": 6.5561,
-      "kappa": 0.0034,
+      "phi_s": 9.7733,
+      "kappa": 0.4343,
       "display_kind": "issuer_protocol",
       "facet_label": "Issuers / Protocols",
       "display_role": "actor",
@@ -834,7 +1080,7 @@
       "entity": "COINBASE",
       "display": "Coinbase",
       "phi_s": 6.5107,
-      "kappa": 0.0008,
+      "kappa": 0.4343,
       "display_kind": "issuer_protocol",
       "facet_label": "Issuers / Protocols",
       "display_role": "actor",
@@ -844,7 +1090,17 @@
       "entity": "UNISWAP",
       "display": "Uniswap DEX",
       "phi_s": 6.4925,
-      "kappa": 0.0009,
+      "kappa": 0.4343,
+      "display_kind": "issuer_protocol",
+      "facet_label": "Issuers / Protocols",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "TETHER",
+      "display": "Tether",
+      "phi_s": 4.9379,
+      "kappa": 0.4343,
       "display_kind": "issuer_protocol",
       "facet_label": "Issuers / Protocols",
       "display_role": "actor",
@@ -853,40 +1109,10 @@
     {
       "entity": "BLACKROCK",
       "display": "BlackRock",
-      "phi_s": 4.9047,
-      "kappa": 0.0001,
+      "phi_s": 3.2866,
+      "kappa": 0.4343,
       "display_kind": "institution",
       "facet_label": "Institutions",
-      "display_role": "actor",
-      "role_label": "Actors"
-    },
-    {
-      "entity": "ONDO",
-      "display": "Ondo Finance",
-      "phi_s": 4.8787,
-      "kappa": 0.0,
-      "display_kind": "issuer_protocol",
-      "facet_label": "Issuers / Protocols",
-      "display_role": "actor",
-      "role_label": "Actors"
-    },
-    {
-      "entity": "GOLDMAN_SACHS",
-      "display": "GOLDMAN_SACHS",
-      "phi_s": 4.8544,
-      "kappa": 0.33,
-      "display_kind": "institution",
-      "facet_label": "Institutions",
-      "display_role": "actor",
-      "role_label": "Actors"
-    },
-    {
-      "entity": "RIPPLE",
-      "display": "RIPPLE",
-      "phi_s": 4.8544,
-      "kappa": 0.33,
-      "display_kind": "issuer_protocol",
-      "facet_label": "Issuers / Protocols",
       "display_role": "actor",
       "role_label": "Actors"
     },
@@ -894,7 +1120,7 @@
       "entity": "REG_D",
       "display": "Regulation D Exemption",
       "phi_s": 3.2842,
-      "kappa": 0.0,
+      "kappa": 0.4343,
       "display_kind": "rule_framework",
       "facet_label": "Rule frameworks",
       "display_role": "rule_framework",
@@ -905,7 +1131,7 @@
       "entity": "REG_S",
       "display": "Regulation S Exemption",
       "phi_s": 3.2842,
-      "kappa": 0.0,
+      "kappa": 0.4343,
       "display_kind": "rule_framework",
       "facet_label": "Rule frameworks",
       "display_role": "rule_framework",
@@ -913,10 +1139,20 @@
       "kind_note": "regulation / exemption framework"
     },
     {
+      "entity": "ONDO",
+      "display": "Ondo Finance",
+      "phi_s": 3.2605,
+      "kappa": 0.4343,
+      "display_kind": "issuer_protocol",
+      "facet_label": "Issuers / Protocols",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
       "entity": "JPMORGAN",
       "display": "JPMorgan Chase",
       "phi_s": 3.2598,
-      "kappa": 0.0008,
+      "kappa": 0.4343,
       "display_kind": "institution",
       "facet_label": "Institutions",
       "display_role": "actor",
@@ -926,7 +1162,7 @@
       "entity": "ETHEREUM",
       "display": "Ethereum L1",
       "phi_s": 3.2562,
-      "kappa": 0.0,
+      "kappa": 0.4343,
       "display_kind": "chain",
       "facet_label": "Chains",
       "display_role": "rail",
@@ -936,7 +1172,7 @@
       "entity": "MORPHO",
       "display": "Morpho Lending",
       "phi_s": 3.2562,
-      "kappa": 0.0006,
+      "kappa": 0.4343,
       "display_kind": "other",
       "facet_label": "Other",
       "display_role": "other",
@@ -946,17 +1182,27 @@
       "entity": "PAXOS",
       "display": "PAXOS",
       "phi_s": 3.2562,
-      "kappa": 0.0,
+      "kappa": 0.4343,
       "display_kind": "other",
       "facet_label": "Other",
       "display_role": "other",
       "role_label": "Other"
     },
     {
+      "entity": "RIPPLE",
+      "display": "RIPPLE",
+      "phi_s": 3.2362,
+      "kappa": 0.4343,
+      "display_kind": "issuer_protocol",
+      "facet_label": "Issuers / Protocols",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
       "entity": "SEC",
       "display": "Securities and Exchange Commission",
       "phi_s": 2.9249,
-      "kappa": 0.0001,
+      "kappa": 0.4343,
       "display_kind": "regulator",
       "facet_label": "Regulators",
       "display_role": "actor",
@@ -966,7 +1212,17 @@
       "entity": "US_JURISDICTION",
       "display": "United States Jurisdiction",
       "phi_s": 2.5971,
-      "kappa": 0.0,
+      "kappa": 0.4343,
+      "display_kind": "regulator",
+      "facet_label": "Regulators",
+      "display_role": "actor",
+      "role_label": "Actors"
+    },
+    {
+      "entity": "FED",
+      "display": "Federal Reserve",
+      "phi_s": 2.4495,
+      "kappa": 0.4343,
       "display_kind": "regulator",
       "facet_label": "Regulators",
       "display_role": "actor",
@@ -974,9 +1230,9 @@
     }
   ],
   "helix": {
-    "index": 4578,
+    "index": 14050,
     "fingerprint_prefix": null,
-    "n_entries": 4579,
+    "n_entries": 14051,
     "note": "Local helix chain tip at export — on-chain commits remain gated."
   },
   "meta": {
