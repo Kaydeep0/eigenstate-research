@@ -1,10 +1,10 @@
 {
   "entity": "BAFIN",
   "node": "34539544",
-  "compiled_at": "2026-10-13T22:08:36.048968+00:00",
-  "digest": "sha256:b27d7b4b7b0680f4fc100f1a6296fd437734601e6e8f4aac1d5c10c5644b5db3",
+  "compiled_at": "2026-10-13T23:17:19.517267+00:00",
+  "digest": "sha256:bede910fea394bc5fa03f6c9dc1592d0c0d1bdc426c5c703dc001da5f602e397",
   "own_numbers": {
-    "phi_s": 0.016,
+    "phi_s": 1.6341,
     "kappa": 0.1089,
     "mass": 0.087,
     "power": null,
@@ -101,12 +101,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 247,
+    "level": "flag",
+    "headline": "phi_s +10113% over 248 cycles",
+    "cycles": 248,
     "delta_last_cycle": {
-      "phi_s": -1.6181,
-      "kappa": -0.3254,
+      "phi_s": 1.6181,
+      "kappa": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -120,7 +120,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "de_regulatory_gdp_proxy",
-        "last_observed_at": "2026-10-13T19:35:36.232424+00:00",
+        "last_observed_at": "2026-10-13T22:58:02.161944+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -274,10 +274,10 @@
     "cite_class": "citeable",
     "source": "regulator_publication_feed",
     "wire": "international_regulators",
-    "ts": "2026-10-13T16:14:17.944457+00:00",
+    "ts": "2026-10-13T22:58:47.529929+00:00",
     "write_reason": "first_observation",
     "source_url": null,
-    "vault_row_ref": "vault:124:BAFIN:regulator_publication_feed:2026-10-13T16:14:17.944457+00:00",
+    "vault_row_ref": "vault:132:BAFIN:regulator_publication_feed:2026-10-13T22:58:47.529929+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -309,8 +309,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "BAFIN",
-    "observed_at": "2026-10-13T16:14:17.944457+00:00",
-    "compiled_at": "2026-10-13T22:08:36.048968+00:00",
+    "observed_at": "2026-10-13T22:58:47.529929+00:00",
+    "compiled_at": "2026-10-13T23:17:19.517267+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -476,9 +476,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-13T22:08:36.048968+00:00",
-        "last_observation": "2026-10-13T16:14:17.944457+00:00",
-        "drift_cycles": 247
+        "compiled_at": "2026-10-13T23:17:19.517267+00:00",
+        "last_observation": "2026-10-13T22:58:47.529929+00:00",
+        "drift_cycles": 248
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -623,7 +623,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 0.016,
+        "value": 1.6341,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -688,7 +688,7 @@
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
           "status": "DERIVED",
-          "value": "near equilibrium"
+          "value": "high pressure"
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -712,7 +712,7 @@
         "entity_id": "BAFIN",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 0.016,
+        "magnitude": 1.6341,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -873,7 +873,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:a34dda688fff53351eb938b622261760b494dfe64f6cdf998984349b17ed68aa"
+    "snapshot_id": "sha256:03b0ed7d069fbb7e1b90f999ece2c101ee73d83d884c681997557c769f170acc"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -912,24 +912,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:a34dda688fff53351eb938b622261760b494dfe64f6cdf998984349b17ed68aa",
-  "projection_compiled_at": "2026-10-13T22:08:36.246238+00:00",
+  "source_snapshot_id": "sha256:03b0ed7d069fbb7e1b90f999ece2c101ee73d83d884c681997557c769f170acc",
+  "projection_compiled_at": "2026-10-13T23:17:19.568035+00:00",
   "freshness": {
-    "source_observed_at": "2026-10-13T16:14:17.944457+00:00",
-    "projection_compiled_at": "2026-10-13T22:08:36.246238+00:00",
-    "age_seconds": 21258,
+    "source_observed_at": "2026-10-13T22:58:47.529929+00:00",
+    "projection_compiled_at": "2026-10-13T23:17:19.568035+00:00",
+    "age_seconds": 1112,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:a34dda688fff53351eb938b622261760b494dfe64f6cdf998984349b17ed68aa",
-    "compiled_at": "2026-10-13T22:08:36.246238+00:00",
+    "source_snapshot_id": "sha256:03b0ed7d069fbb7e1b90f999ece2c101ee73d83d884c681997557c769f170acc",
+    "compiled_at": "2026-10-13T23:17:19.568035+00:00",
     "freshness": {
-      "source_observed_at": "2026-10-13T16:14:17.944457+00:00",
-      "projection_compiled_at": "2026-10-13T22:08:36.246238+00:00",
-      "age_seconds": 21258,
+      "source_observed_at": "2026-10-13T22:58:47.529929+00:00",
+      "projection_compiled_at": "2026-10-13T23:17:19.568035+00:00",
+      "age_seconds": 1112,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1002,7 +1002,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-10-13T16:14:17.944457+00:00",
+      "observed_at": "2026-10-13T22:58:47.529929+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -1032,9 +1032,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-13T22:08:36.048968+00:00",
-          "last_observation": "2026-10-13T16:14:17.944457+00:00",
-          "drift_cycles": 247
+          "compiled_at": "2026-10-13T23:17:19.517267+00:00",
+          "last_observation": "2026-10-13T22:58:47.529929+00:00",
+          "drift_cycles": 248
         },
         "reason": null,
         "family": "observation_age",
@@ -1209,9 +1209,9 @@
     "observation_clock": {
       "entity": "BAFIN",
       "first_prospective_observation": "2026-08-25T03:36:59.377443+00:00",
-      "latest_prospective_observation": "2026-10-13T16:14:17.944457+00:00",
-      "n_prospective_snapshots": 181,
-      "identity_comparable_transitions": 174,
+      "latest_prospective_observation": "2026-10-13T22:58:47.529929+00:00",
+      "n_prospective_snapshots": 182,
+      "identity_comparable_transitions": 175,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -1249,7 +1249,7 @@
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
             "status": "DERIVED",
-            "value": "near equilibrium"
+            "value": "high pressure"
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
