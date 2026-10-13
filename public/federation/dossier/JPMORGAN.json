@@ -1,11 +1,11 @@
 {
   "entity": "JPMORGAN",
   "node": "34539544",
-  "compiled_at": "2026-10-08T22:33:14.577422+00:00",
-  "digest": "sha256:9b8a40c6955c033e83026554fd8f1331748613b1dc60a984a1a0db2f2e7d9771",
+  "compiled_at": "2026-10-13T16:32:04.453462+00:00",
+  "digest": "sha256:fc521ee9dc3765ef204a34b5216ff7bb4572ebbac05d71225eb7d7d0503d355c",
   "own_numbers": {
-    "phi_s": 4.8779,
-    "kappa": 0.1852,
+    "phi_s": 3.2598,
+    "kappa": 0.4343,
     "mass": 0.322003,
     "power": 1.1,
     "extraction": 553859.275053,
@@ -28,7 +28,7 @@
     "gravity": {
       "value": 97.0,
       "rank": 9,
-      "of": 59
+      "of": 60
     },
     "extraction": {
       "value": 553859.2751,
@@ -180,11 +180,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +21484% over 240 cycles",
-    "cycles": 240,
+    "headline": "phi_s +14324% over 246 cycles",
+    "cycles": 246,
     "delta_last_cycle": {
       "phi_s": 1.6181,
-      "kappa": -0.0713,
+      "kappa": 0.2315,
       "power": 0.0,
       "extraction": 0.0,
       "gravity_mass": 0.0,
@@ -192,15 +192,15 @@
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "live_at_request",
     "inbound": [
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live",
-        "last_observed_at": "2026-10-08T19:02:50.976981+00:00",
+        "status": "live_at_request",
+        "last_observed_at": "2026-10-09T19:05:01.734874+00:00",
         "filings": null,
-        "note": "JPMORGAN CHASE & CO \u2014 168663 total filings, 40 in last 90d"
+        "note": "CIK 0000019617 \u2014 live on feed + parkash sensor"
       }
     ],
     "outbound": [
@@ -228,7 +228,7 @@
     "observation": {
       "source": "information_flow",
       "last_observed_at": "2026-08-17T00:08:14.137252+00:00",
-      "last_delta_i": 0.16299,
+      "last_delta_i": 0.001177,
       "stale": true
     }
   },
@@ -353,10 +353,10 @@
     "cite_class": "citeable",
     "source": "sec_edgar",
     "wire": "sec_entities",
-    "ts": "2026-10-08T22:15:23.486077+00:00",
-    "write_reason": "change_9.9pct",
+    "ts": "2026-10-09T01:44:48.714533+00:00",
+    "write_reason": "change_650.8pct",
     "source_url": null,
-    "vault_row_ref": "vault:127:JPMORGAN:sec_edgar:2026-10-08T22:15:23.486077+00:00",
+    "vault_row_ref": "vault:101:JPMORGAN:sec_edgar:2026-10-09T01:44:48.714533+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -388,8 +388,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "JPMORGAN",
-    "observed_at": "2026-10-08T22:15:23.486077+00:00",
-    "compiled_at": "2026-10-08T22:33:14.577422+00:00",
+    "observed_at": "2026-10-09T01:44:48.714533+00:00",
+    "compiled_at": "2026-10-13T16:32:04.453462+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -634,9 +634,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-08T22:33:14.577422+00:00",
-        "last_observation": "2026-10-08T22:15:23.486077+00:00",
-        "drift_cycles": 240
+        "compiled_at": "2026-10-13T16:32:04.453462+00:00",
+        "last_observation": "2026-10-09T01:44:48.714533+00:00",
+        "drift_cycles": 246
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -853,7 +853,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 4.8779,
+        "value": 3.2598,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -870,7 +870,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1852,
+        "value": 0.4343,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -942,7 +942,7 @@
         "entity_id": "JPMORGAN",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 4.8779,
+        "magnitude": 3.2598,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -996,7 +996,7 @@
         "entity_id": "JPMORGAN",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1852,
+        "magnitude": 0.4343,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1103,7 +1103,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:e5276eb35db068e9287305571f7559fd68be78ff595ce7319a37fdea2b9ee585"
+    "snapshot_id": "sha256:18fc6a6fed7fa86cf388ade2b32705a8d0f54c2464c44ee2376e68ff22570c70"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1142,24 +1142,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:e5276eb35db068e9287305571f7559fd68be78ff595ce7319a37fdea2b9ee585",
-  "projection_compiled_at": "2026-10-08T22:33:14.630466+00:00",
+  "source_snapshot_id": "sha256:18fc6a6fed7fa86cf388ade2b32705a8d0f54c2464c44ee2376e68ff22570c70",
+  "projection_compiled_at": "2026-10-13T16:32:04.505446+00:00",
   "freshness": {
-    "source_observed_at": "2026-10-08T22:15:23.486077+00:00",
-    "projection_compiled_at": "2026-10-08T22:33:14.630466+00:00",
-    "age_seconds": 1071,
+    "source_observed_at": "2026-10-09T01:44:48.714533+00:00",
+    "projection_compiled_at": "2026-10-13T16:32:04.505446+00:00",
+    "age_seconds": 398835,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:e5276eb35db068e9287305571f7559fd68be78ff595ce7319a37fdea2b9ee585",
-    "compiled_at": "2026-10-08T22:33:14.630466+00:00",
+    "source_snapshot_id": "sha256:18fc6a6fed7fa86cf388ade2b32705a8d0f54c2464c44ee2376e68ff22570c70",
+    "compiled_at": "2026-10-13T16:32:04.505446+00:00",
     "freshness": {
-      "source_observed_at": "2026-10-08T22:15:23.486077+00:00",
-      "projection_compiled_at": "2026-10-08T22:33:14.630466+00:00",
-      "age_seconds": 1071,
+      "source_observed_at": "2026-10-09T01:44:48.714533+00:00",
+      "projection_compiled_at": "2026-10-13T16:32:04.505446+00:00",
+      "age_seconds": 398835,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1232,7 +1232,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-10-08T22:15:23.486077+00:00",
+      "observed_at": "2026-10-09T01:44:48.714533+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -1269,9 +1269,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-08T22:33:14.577422+00:00",
-          "last_observation": "2026-10-08T22:15:23.486077+00:00",
-          "drift_cycles": 240
+          "compiled_at": "2026-10-13T16:32:04.453462+00:00",
+          "last_observation": "2026-10-09T01:44:48.714533+00:00",
+          "drift_cycles": 246
         },
         "reason": null,
         "family": "observation_age",
@@ -1636,9 +1636,9 @@
     "observation_clock": {
       "entity": "JPMORGAN",
       "first_prospective_observation": "2026-08-25T03:36:54.307429+00:00",
-      "latest_prospective_observation": "2026-10-08T22:15:23.486077+00:00",
-      "n_prospective_snapshots": 178,
-      "identity_comparable_transitions": 170,
+      "latest_prospective_observation": "2026-10-09T01:44:48.714533+00:00",
+      "n_prospective_snapshots": 184,
+      "identity_comparable_transitions": 176,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
