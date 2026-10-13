@@ -1,11 +1,11 @@
 {
   "entity": "DEFILLAMA_DATA",
   "node": "34539544",
-  "compiled_at": "2026-10-13T19:01:57.966546+00:00",
-  "digest": "sha256:4d4a605caf139654ace74643e7953170f245ae328202f3808bd19577cf355821",
+  "compiled_at": "2026-10-13T19:55:03.978470+00:00",
+  "digest": "sha256:fe726fffbf2fcb1ea8d3f2c90365e782efd6605be6dd8a509043b2502ce9095b",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.4343,
+    "kappa": 0.1089,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -67,12 +67,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "kappa +0.410 over 246 cycles",
-    "cycles": 246,
+    "level": "steady",
+    "headline": null,
+    "cycles": 247,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.2315,
+      "kappa": -0.3254,
       "boundary_score": 0.0
     }
   },
@@ -221,7 +221,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "DEFILLAMA_DATA",
     "observed_at": null,
-    "compiled_at": "2026-10-13T19:01:57.966546+00:00",
+    "compiled_at": "2026-10-13T19:55:03.978470+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -395,9 +395,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-13T19:01:57.966546+00:00",
+        "compiled_at": "2026-10-13T19:55:03.978470+00:00",
         "last_observation": null,
-        "drift_cycles": 246
+        "drift_cycles": 247
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -567,7 +567,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.4343,
+        "value": 0.1089,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -693,7 +693,7 @@
         "entity_id": "DEFILLAMA_DATA",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.4343,
+        "magnitude": 0.1089,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -800,7 +800,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:fb02056f83f6c1e0ca00249a9a6889d1a66fe15a5a7ef737967622ab3b58c25a"
+    "snapshot_id": "sha256:e976c7be1584286ab078f6b09236d1207403880848d492df5faacc423b84677a"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -839,11 +839,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:fb02056f83f6c1e0ca00249a9a6889d1a66fe15a5a7ef737967622ab3b58c25a",
-  "projection_compiled_at": "2026-10-13T19:01:58.045500+00:00",
+  "source_snapshot_id": "sha256:e976c7be1584286ab078f6b09236d1207403880848d492df5faacc423b84677a",
+  "projection_compiled_at": "2026-10-13T19:55:04.028804+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-13T19:01:58.045500+00:00",
+    "projection_compiled_at": "2026-10-13T19:55:04.028804+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -851,11 +851,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:fb02056f83f6c1e0ca00249a9a6889d1a66fe15a5a7ef737967622ab3b58c25a",
-    "compiled_at": "2026-10-13T19:01:58.045500+00:00",
+    "source_snapshot_id": "sha256:e976c7be1584286ab078f6b09236d1207403880848d492df5faacc423b84677a",
+    "compiled_at": "2026-10-13T19:55:04.028804+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-13T19:01:58.045500+00:00",
+      "projection_compiled_at": "2026-10-13T19:55:04.028804+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -959,9 +959,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-13T19:01:57.966546+00:00",
+          "compiled_at": "2026-10-13T19:55:03.978470+00:00",
           "last_observation": null,
-          "drift_cycles": 246
+          "drift_cycles": 247
         },
         "reason": null,
         "family": "observation_age",
@@ -1127,8 +1127,8 @@
       "entity": "DEFILLAMA_DATA",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 173,
-      "identity_comparable_transitions": 168,
+      "n_prospective_snapshots": 174,
+      "identity_comparable_transitions": 169,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
