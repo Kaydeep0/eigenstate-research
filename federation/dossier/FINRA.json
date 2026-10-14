@@ -1,11 +1,11 @@
 {
   "entity": "FINRA",
   "node": "34539544",
-  "compiled_at": "2026-10-14T13:23:13.093921+00:00",
-  "digest": "sha256:50190819693cf419a222112d7e488a5166013d570acb9c9604774aee9f9df5ba",
+  "compiled_at": "2026-10-14T19:02:12.580932+00:00",
+  "digest": "sha256:0187c6a4e8341a952d75901f1fd8f12bd72ca2d8e56782f1d984479da36747a2",
   "own_numbers": {
     "phi_s": 0.064,
-    "kappa": 0.4343,
+    "kappa": 0.184,
     "mass": 0.180868,
     "power": null,
     "extraction": null,
@@ -121,12 +121,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "kappa +0.386 over 252 cycles",
-    "cycles": 252,
+    "level": "watch",
+    "headline": "kappa +0.136 over 253 cycles",
+    "cycles": 253,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": -0.2503,
       "gravity_mass": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
@@ -324,7 +324,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "FINRA",
     "observed_at": null,
-    "compiled_at": "2026-10-14T13:23:13.093921+00:00",
+    "compiled_at": "2026-10-14T19:02:12.580932+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -514,9 +514,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-14T13:23:13.093921+00:00",
+        "compiled_at": "2026-10-14T19:02:12.580932+00:00",
         "last_observation": null,
-        "drift_cycles": 252
+        "drift_cycles": 253
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -702,7 +702,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.4343,
+        "value": 0.184,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -828,7 +828,7 @@
         "entity_id": "FINRA",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.4343,
+        "magnitude": 0.184,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -935,7 +935,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:b8efb8f7c541a42c638a4685e054779c2a9c06f943f7d3d3ca11665681ce5c34"
+    "snapshot_id": "sha256:dfc732d1993cd93399a8094e80eb2540300788cd0447ffedbbd7ac84e90b2e0c"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -974,11 +974,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:b8efb8f7c541a42c638a4685e054779c2a9c06f943f7d3d3ca11665681ce5c34",
-  "projection_compiled_at": "2026-10-14T13:23:13.230514+00:00",
+  "source_snapshot_id": "sha256:dfc732d1993cd93399a8094e80eb2540300788cd0447ffedbbd7ac84e90b2e0c",
+  "projection_compiled_at": "2026-10-14T19:02:12.661960+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-14T13:23:13.230514+00:00",
+    "projection_compiled_at": "2026-10-14T19:02:12.661960+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -986,11 +986,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:b8efb8f7c541a42c638a4685e054779c2a9c06f943f7d3d3ca11665681ce5c34",
-    "compiled_at": "2026-10-14T13:23:13.230514+00:00",
+    "source_snapshot_id": "sha256:dfc732d1993cd93399a8094e80eb2540300788cd0447ffedbbd7ac84e90b2e0c",
+    "compiled_at": "2026-10-14T19:02:12.661960+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-14T13:23:13.230514+00:00",
+      "projection_compiled_at": "2026-10-14T19:02:12.661960+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -1094,9 +1094,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-14T13:23:13.093921+00:00",
+          "compiled_at": "2026-10-14T19:02:12.580932+00:00",
           "last_observation": null,
-          "drift_cycles": 252
+          "drift_cycles": 253
         },
         "reason": null,
         "family": "observation_age",
@@ -1336,8 +1336,8 @@
       "entity": "FINRA",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 179,
-      "identity_comparable_transitions": 174,
+      "n_prospective_snapshots": 181,
+      "identity_comparable_transitions": 176,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

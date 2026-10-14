@@ -1,11 +1,11 @@
 {
   "entity": "JUMP_TRADING",
   "node": "34539544",
-  "compiled_at": "2026-10-14T13:23:20.858630+00:00",
-  "digest": "sha256:96483931f879b8e23dc6358140c6a77ce9b8856ae483804016f9ab4a0686907b",
+  "compiled_at": "2026-10-14T19:02:16.413098+00:00",
+  "digest": "sha256:4f5de4751871ef72c275b66cc1b9b639aa8c19da598e9b50690c21da6d5511dd",
   "own_numbers": {
-    "phi_s": 1.6381,
-    "kappa": 0.4343,
+    "phi_s": 0.02,
+    "kappa": 0.184,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -62,12 +62,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "phi_s +8090% over 252 cycles",
-    "cycles": 252,
+    "level": "watch",
+    "headline": "kappa +0.172 over 253 cycles",
+    "cycles": 253,
     "delta_last_cycle": {
-      "phi_s": 1.6181,
-      "kappa": 0.0,
+      "phi_s": -1.6181,
+      "kappa": -0.2503,
       "boundary_score": 0.0
     }
   },
@@ -223,7 +223,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "JUMP_TRADING",
     "observed_at": "2026-10-14T12:35:08.727612+00:00",
-    "compiled_at": "2026-10-14T13:23:20.858630+00:00",
+    "compiled_at": "2026-10-14T19:02:16.413098+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -389,9 +389,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-14T13:23:20.858630+00:00",
+        "compiled_at": "2026-10-14T19:02:16.413098+00:00",
         "last_observation": "2026-10-14T12:35:08.727612+00:00",
-        "drift_cycles": 252
+        "drift_cycles": 253
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -536,7 +536,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 1.6381,
+        "value": 0.02,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -553,7 +553,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.4343,
+        "value": 0.184,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -601,7 +601,7 @@
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
           "status": "DERIVED",
-          "value": "high pressure"
+          "value": "near equilibrium"
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -625,7 +625,7 @@
         "entity_id": "JUMP_TRADING",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 1.6381,
+        "magnitude": 0.02,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -679,7 +679,7 @@
         "entity_id": "JUMP_TRADING",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.4343,
+        "magnitude": 0.184,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -786,7 +786,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:a46def85b522acf4291d7eb3921c0fa2ae4c7f76eb015bb6d29d2f41219f2861"
+    "snapshot_id": "sha256:75c564b17ebaf21ca419ef93f5912e9b639f682149e5771c83294ec010c92f87"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -825,24 +825,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:a46def85b522acf4291d7eb3921c0fa2ae4c7f76eb015bb6d29d2f41219f2861",
-  "projection_compiled_at": "2026-10-14T13:23:20.993715+00:00",
+  "source_snapshot_id": "sha256:75c564b17ebaf21ca419ef93f5912e9b639f682149e5771c83294ec010c92f87",
+  "projection_compiled_at": "2026-10-14T19:02:16.497760+00:00",
   "freshness": {
     "source_observed_at": "2026-10-14T12:35:08.727612+00:00",
-    "projection_compiled_at": "2026-10-14T13:23:20.993715+00:00",
-    "age_seconds": 2892,
+    "projection_compiled_at": "2026-10-14T19:02:16.497760+00:00",
+    "age_seconds": 23227,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:a46def85b522acf4291d7eb3921c0fa2ae4c7f76eb015bb6d29d2f41219f2861",
-    "compiled_at": "2026-10-14T13:23:20.993715+00:00",
+    "source_snapshot_id": "sha256:75c564b17ebaf21ca419ef93f5912e9b639f682149e5771c83294ec010c92f87",
+    "compiled_at": "2026-10-14T19:02:16.497760+00:00",
     "freshness": {
       "source_observed_at": "2026-10-14T12:35:08.727612+00:00",
-      "projection_compiled_at": "2026-10-14T13:23:20.993715+00:00",
-      "age_seconds": 2892,
+      "projection_compiled_at": "2026-10-14T19:02:16.497760+00:00",
+      "age_seconds": 23227,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -945,9 +945,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-14T13:23:20.858630+00:00",
+          "compiled_at": "2026-10-14T19:02:16.413098+00:00",
           "last_observation": "2026-10-14T12:35:08.727612+00:00",
-          "drift_cycles": 252
+          "drift_cycles": 253
         },
         "reason": null,
         "family": "observation_age",
@@ -1092,8 +1092,8 @@
       "entity": "JUMP_TRADING",
       "first_prospective_observation": "2026-08-15T13:12:48.350094+00:00",
       "latest_prospective_observation": "2026-10-14T12:35:08.727612+00:00",
-      "n_prospective_snapshots": 179,
-      "identity_comparable_transitions": 174,
+      "n_prospective_snapshots": 181,
+      "identity_comparable_transitions": 176,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -1131,7 +1131,7 @@
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
             "status": "DERIVED",
-            "value": "high pressure"
+            "value": "near equilibrium"
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",

@@ -1,11 +1,11 @@
 {
   "entity": "RIPPLE",
   "node": "34539544",
-  "compiled_at": "2026-10-14T13:23:34.397489+00:00",
-  "digest": "sha256:a9022c852fddcfa44a35499a912035d94c92a5cf30c066c689576de9fae72a98",
+  "compiled_at": "2026-10-14T19:02:23.111157+00:00",
+  "digest": "sha256:92378697b1006d66ac6bf2e59afefb35b1277e6696e3f6598bced524206f5fae",
   "own_numbers": {
-    "phi_s": 3.2362,
-    "kappa": 0.4343,
+    "phi_s": 1.6181,
+    "kappa": 0.184,
     "mass": null,
     "power": null,
     "extraction": null,
@@ -58,23 +58,23 @@
   "monetary_position": null,
   "drift": {
     "level": "flag",
-    "headline": "phi_s +100% over 248 cycles",
-    "cycles": 248,
+    "headline": "kappa -0.416 over 249 cycles",
+    "cycles": 249,
     "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": 0.0
+      "phi_s": -1.6181,
+      "kappa": -0.2503
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "live_at_request",
     "inbound": [
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live",
-        "last_observed_at": "2026-10-14T11:01:03.237427+00:00",
+        "status": "live_at_request",
+        "last_observed_at": "2026-10-14T15:04:57.611750+00:00",
         "filings": null,
-        "note": "Ripple Labs Inc. \u2014 15 total filings, 0 in last 90d"
+        "note": "CIK 0001685012"
       }
     ],
     "outbound": [
@@ -300,7 +300,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "RIPPLE",
     "observed_at": "2026-10-14T12:35:37.823899+00:00",
-    "compiled_at": "2026-10-14T13:23:34.397489+00:00",
+    "compiled_at": "2026-10-14T19:02:23.111157+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -494,9 +494,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-14T13:23:34.397489+00:00",
+        "compiled_at": "2026-10-14T19:02:23.111157+00:00",
         "last_observation": "2026-10-14T12:35:37.823899+00:00",
-        "drift_cycles": 248
+        "drift_cycles": 249
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -674,7 +674,7 @@
     "relationships": [],
     "metric_outputs": {
       "phi_s": {
-        "value": 3.2362,
+        "value": 1.6181,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -691,7 +691,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.4343,
+        "value": 0.184,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -763,7 +763,7 @@
         "entity_id": "RIPPLE",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 3.2362,
+        "magnitude": 1.6181,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -817,7 +817,7 @@
         "entity_id": "RIPPLE",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.4343,
+        "magnitude": 0.184,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -924,7 +924,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:e506610f9911d9370a847b455a769edbbb7330184173f7f01bd01512e668fd57"
+    "snapshot_id": "sha256:034d5b26a79be95b412e722408a9b2ed2c6eddff6fe35f03c0bb4957a911c888"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -963,24 +963,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:e506610f9911d9370a847b455a769edbbb7330184173f7f01bd01512e668fd57",
-  "projection_compiled_at": "2026-10-14T13:23:34.567331+00:00",
+  "source_snapshot_id": "sha256:034d5b26a79be95b412e722408a9b2ed2c6eddff6fe35f03c0bb4957a911c888",
+  "projection_compiled_at": "2026-10-14T19:02:23.194671+00:00",
   "freshness": {
     "source_observed_at": "2026-10-14T12:35:37.823899+00:00",
-    "projection_compiled_at": "2026-10-14T13:23:34.567331+00:00",
-    "age_seconds": 2876,
+    "projection_compiled_at": "2026-10-14T19:02:23.194671+00:00",
+    "age_seconds": 23205,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:e506610f9911d9370a847b455a769edbbb7330184173f7f01bd01512e668fd57",
-    "compiled_at": "2026-10-14T13:23:34.567331+00:00",
+    "source_snapshot_id": "sha256:034d5b26a79be95b412e722408a9b2ed2c6eddff6fe35f03c0bb4957a911c888",
+    "compiled_at": "2026-10-14T19:02:23.194671+00:00",
     "freshness": {
       "source_observed_at": "2026-10-14T12:35:37.823899+00:00",
-      "projection_compiled_at": "2026-10-14T13:23:34.567331+00:00",
-      "age_seconds": 2876,
+      "projection_compiled_at": "2026-10-14T19:02:23.194671+00:00",
+      "age_seconds": 23205,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1120,9 +1120,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-14T13:23:34.397489+00:00",
+          "compiled_at": "2026-10-14T19:02:23.111157+00:00",
           "last_observation": "2026-10-14T12:35:37.823899+00:00",
-          "drift_cycles": 248
+          "drift_cycles": 249
         },
         "reason": null,
         "family": "observation_age",
@@ -1244,8 +1244,8 @@
       "entity": "RIPPLE",
       "first_prospective_observation": "2026-08-25T03:36:54.300690+00:00",
       "latest_prospective_observation": "2026-10-14T12:35:37.823899+00:00",
-      "n_prospective_snapshots": 191,
-      "identity_comparable_transitions": 185,
+      "n_prospective_snapshots": 193,
+      "identity_comparable_transitions": 187,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

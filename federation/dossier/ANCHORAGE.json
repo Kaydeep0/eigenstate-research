@@ -1,11 +1,11 @@
 {
   "entity": "ANCHORAGE",
   "node": "34539544",
-  "compiled_at": "2026-10-14T13:22:49.395700+00:00",
-  "digest": "sha256:aac2f5e3c6c15c0e7fec194508bd6e7bf4daf18b1309476ce003578e28f8e72b",
+  "compiled_at": "2026-10-14T19:01:59.658802+00:00",
+  "digest": "sha256:5a46254b8938a88b1ce3d163f0638d50b7a0f5891300efd7aa587ce1f5ea0194",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.4343,
+    "kappa": 0.184,
     "mass": 0.102272,
     "power": null,
     "extraction": null,
@@ -75,25 +75,25 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "kappa +0.410 over 252 cycles",
-    "cycles": 252,
+    "level": "watch",
+    "headline": "kappa +0.160 over 253 cycles",
+    "cycles": 253,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": -0.2503,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "live_at_request",
     "inbound": [
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live",
-        "last_observed_at": "2026-10-14T11:01:03.237427+00:00",
+        "status": "live_at_request",
+        "last_observed_at": "2026-10-14T15:04:57.611750+00:00",
         "filings": null,
-        "note": "Anchor Labs, Inc. \u2014 4 total filings, 0 in last 90d"
+        "note": "CIK 0001783914"
       }
     ],
     "outbound": [
@@ -275,7 +275,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "ANCHORAGE",
     "observed_at": null,
-    "compiled_at": "2026-10-14T13:22:49.395700+00:00",
+    "compiled_at": "2026-10-14T19:01:59.658802+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -449,9 +449,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-14T13:22:49.395700+00:00",
+        "compiled_at": "2026-10-14T19:01:59.658802+00:00",
         "last_observation": null,
-        "drift_cycles": 252
+        "drift_cycles": 253
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -621,7 +621,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.4343,
+        "value": 0.184,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -747,7 +747,7 @@
         "entity_id": "ANCHORAGE",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.4343,
+        "magnitude": 0.184,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -854,7 +854,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:6880331c77cb8a6eb153f6bb2c606129edb7c89f5667a2fa459a1b4969150b6b"
+    "snapshot_id": "sha256:74eb439cc436da1c61cc9a62c5cd81606ae900a1c6a2edd7012ac27968b2800f"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -893,11 +893,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:6880331c77cb8a6eb153f6bb2c606129edb7c89f5667a2fa459a1b4969150b6b",
-  "projection_compiled_at": "2026-10-14T13:22:49.565036+00:00",
+  "source_snapshot_id": "sha256:74eb439cc436da1c61cc9a62c5cd81606ae900a1c6a2edd7012ac27968b2800f",
+  "projection_compiled_at": "2026-10-14T19:01:59.742031+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-14T13:22:49.565036+00:00",
+    "projection_compiled_at": "2026-10-14T19:01:59.742031+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -905,11 +905,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:6880331c77cb8a6eb153f6bb2c606129edb7c89f5667a2fa459a1b4969150b6b",
-    "compiled_at": "2026-10-14T13:22:49.565036+00:00",
+    "source_snapshot_id": "sha256:74eb439cc436da1c61cc9a62c5cd81606ae900a1c6a2edd7012ac27968b2800f",
+    "compiled_at": "2026-10-14T19:01:59.742031+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-14T13:22:49.565036+00:00",
+      "projection_compiled_at": "2026-10-14T19:01:59.742031+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -1013,9 +1013,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-14T13:22:49.395700+00:00",
+          "compiled_at": "2026-10-14T19:01:59.658802+00:00",
           "last_observation": null,
-          "drift_cycles": 252
+          "drift_cycles": 253
         },
         "reason": null,
         "family": "observation_age",
@@ -1181,8 +1181,8 @@
       "entity": "ANCHORAGE",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 180,
-      "identity_comparable_transitions": 175,
+      "n_prospective_snapshots": 182,
+      "identity_comparable_transitions": 177,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
