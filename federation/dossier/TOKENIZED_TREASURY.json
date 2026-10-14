@@ -1,11 +1,11 @@
 {
   "entity": "TOKENIZED_TREASURY",
   "node": "34539544",
-  "compiled_at": "2026-10-14T22:09:37.598861+00:00",
-  "digest": "sha256:d449840f742c68c5a4b82172ce7f22498dbd97ebe2cec26404677dd66adcd040",
+  "compiled_at": "2026-10-14T23:13:19.201967+00:00",
+  "digest": "sha256:28c0a5b0a5b30954a96a643becd330af42d6535bafdd2f58b31168710971cd56",
   "own_numbers": {
-    "phi_s": 1.6521,
-    "kappa": 0.1848,
+    "phi_s": 3.2702,
+    "kappa": 0.1248,
     "mass": 0.172245,
     "power": 0.13,
     "extraction": 1085704.489796,
@@ -205,11 +205,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +5145% over 254 cycles",
-    "cycles": 254,
+    "headline": "phi_s +10282% over 255 cycles",
+    "cycles": 255,
     "delta_last_cycle": {
       "phi_s": 1.6181,
-      "kappa": 0.0008,
+      "kappa": -0.06,
       "power": 0.0,
       "extraction": 0.0,
       "boundary_score": 0.0
@@ -224,7 +224,7 @@
         "status": "live",
         "series_id": "DGS10",
         "label": "treasury_10y_pct",
-        "last_observed_at": "2026-10-14T19:27:26.319205+00:00",
+        "last_observed_at": "2026-10-14T22:52:42.530521+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -252,7 +252,7 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-10-14T22:00:28.384470+00:00",
+      "last_observed_at": "2026-10-14T22:11:00.070682+00:00",
       "last_delta_i": 0.4751543404092065,
       "stale": false
     }
@@ -378,10 +378,10 @@
     "cite_class": "citeable",
     "source": "defillama",
     "wire": "defillama",
-    "ts": "2026-10-14T19:28:33.099464+00:00",
-    "write_reason": "first_observation",
+    "ts": "2026-10-14T22:53:31.408953+00:00",
+    "write_reason": "change_infpct",
     "source_url": null,
-    "vault_row_ref": "vault:107:TOKENIZED_TREASURY:defillama:2026-10-14T19:28:33.099464+00:00",
+    "vault_row_ref": "vault:111:TOKENIZED_TREASURY:defillama:2026-10-14T22:53:31.408953+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -413,8 +413,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "TOKENIZED_TREASURY",
-    "observed_at": "2026-10-14T19:28:33.099464+00:00",
-    "compiled_at": "2026-10-14T22:09:37.598861+00:00",
+    "observed_at": "2026-10-14T22:53:31.408953+00:00",
+    "compiled_at": "2026-10-14T23:13:19.201967+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -659,9 +659,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-14T22:09:37.598861+00:00",
-        "last_observation": "2026-10-14T19:28:33.099464+00:00",
-        "drift_cycles": 254
+        "compiled_at": "2026-10-14T23:13:19.201967+00:00",
+        "last_observation": "2026-10-14T22:53:31.408953+00:00",
+        "drift_cycles": 255
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -878,7 +878,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 1.6521,
+        "value": 3.2702,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -895,7 +895,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1848,
+        "value": 0.1248,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -967,7 +967,7 @@
         "entity_id": "TOKENIZED_TREASURY",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 1.6521,
+        "magnitude": 3.2702,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -1021,7 +1021,7 @@
         "entity_id": "TOKENIZED_TREASURY",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1848,
+        "magnitude": 0.1248,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1128,7 +1128,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:425b24c88df14a8bccd0327597b6dd5b7522b817a46c603661ef9b538cdf2e0a"
+    "snapshot_id": "sha256:d09f242982e218a52cccb6fdeedf6c9f23348a3f4ac9eab77ccf5a8d93f686cd"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1167,24 +1167,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:425b24c88df14a8bccd0327597b6dd5b7522b817a46c603661ef9b538cdf2e0a",
-  "projection_compiled_at": "2026-10-14T22:09:37.734036+00:00",
+  "source_snapshot_id": "sha256:d09f242982e218a52cccb6fdeedf6c9f23348a3f4ac9eab77ccf5a8d93f686cd",
+  "projection_compiled_at": "2026-10-14T23:13:19.255759+00:00",
   "freshness": {
-    "source_observed_at": "2026-10-14T19:28:33.099464+00:00",
-    "projection_compiled_at": "2026-10-14T22:09:37.734036+00:00",
-    "age_seconds": 9664,
+    "source_observed_at": "2026-10-14T22:53:31.408953+00:00",
+    "projection_compiled_at": "2026-10-14T23:13:19.255759+00:00",
+    "age_seconds": 1187,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:425b24c88df14a8bccd0327597b6dd5b7522b817a46c603661ef9b538cdf2e0a",
-    "compiled_at": "2026-10-14T22:09:37.734036+00:00",
+    "source_snapshot_id": "sha256:d09f242982e218a52cccb6fdeedf6c9f23348a3f4ac9eab77ccf5a8d93f686cd",
+    "compiled_at": "2026-10-14T23:13:19.255759+00:00",
     "freshness": {
-      "source_observed_at": "2026-10-14T19:28:33.099464+00:00",
-      "projection_compiled_at": "2026-10-14T22:09:37.734036+00:00",
-      "age_seconds": 9664,
+      "source_observed_at": "2026-10-14T22:53:31.408953+00:00",
+      "projection_compiled_at": "2026-10-14T23:13:19.255759+00:00",
+      "age_seconds": 1187,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1257,7 +1257,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-10-14T19:28:33.099464+00:00",
+      "observed_at": "2026-10-14T22:53:31.408953+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -1294,9 +1294,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-14T22:09:37.598861+00:00",
-          "last_observation": "2026-10-14T19:28:33.099464+00:00",
-          "drift_cycles": 254
+          "compiled_at": "2026-10-14T23:13:19.201967+00:00",
+          "last_observation": "2026-10-14T22:53:31.408953+00:00",
+          "drift_cycles": 255
         },
         "reason": null,
         "family": "observation_age",
@@ -1661,9 +1661,9 @@
     "observation_clock": {
       "entity": "TOKENIZED_TREASURY",
       "first_prospective_observation": "2026-08-25T03:36:54.256551+00:00",
-      "latest_prospective_observation": "2026-10-14T19:28:33.099464+00:00",
-      "n_prospective_snapshots": 189,
-      "identity_comparable_transitions": 182,
+      "latest_prospective_observation": "2026-10-14T22:53:31.408953+00:00",
+      "n_prospective_snapshots": 190,
+      "identity_comparable_transitions": 183,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
