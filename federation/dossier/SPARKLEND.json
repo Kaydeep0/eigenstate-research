@@ -1,11 +1,11 @@
 {
   "entity": "SPARKLEND",
   "node": "34539544",
-  "compiled_at": "2026-10-14T19:02:25.290641+00:00",
-  "digest": "sha256:5364cf88da6cafa7654df1f5ad097be51084e33415650319b1b5d96644a866bc",
+  "compiled_at": "2026-10-14T19:49:24.284221+00:00",
+  "digest": "sha256:0d3ff1521f53818373015ab49187015e6cf552d2bbb68192a3fb1c8b1d28cf9a",
   "own_numbers": {
-    "phi_s": null,
-    "kappa": null,
+    "phi_s": 1.6181,
+    "kappa": 0.1848,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -29,7 +29,27 @@
     },
     "peers_by_power": []
   },
-  "relationships": null,
+  "relationships": {
+    "in_degree": 0,
+    "out_degree": 0,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 0.0,
+        "in": 0.0
+      }
+    },
+    "top_inbound": [],
+    "top_outbound": [],
+    "gravity_pairs": []
+  },
   "role_participations": [
     {
       "product_id": "SPARKLEND",
@@ -42,11 +62,11 @@
   "monetary_position": null,
   "drift": {
     "level": "watch",
-    "headline": "kappa +0.113 over 170 cycles",
-    "cycles": 170,
+    "headline": "kappa -0.137 over 171 cycles",
+    "cycles": 171,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0
+      "kappa": -0.2495
     }
   },
   "network_plugs": {
@@ -197,10 +217,10 @@
     "cite_class": "citeable",
     "source": "snapshot_hub",
     "wire": "snapshot_governance",
-    "ts": "2026-10-14T12:35:13.043027+00:00",
+    "ts": "2026-10-14T19:28:11.996277+00:00",
     "write_reason": "snapshot_space_proposals",
     "source_url": null,
-    "vault_row_ref": "sensor:snapshot_governance:SPARKLEND:2026-10-14T12:35:13.043027+00:00",
+    "vault_row_ref": "sensor:snapshot_governance:SPARKLEND:2026-10-14T19:28:11.996277+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -238,8 +258,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "SPARKLEND",
-    "observed_at": "2026-10-14T12:35:13.043027+00:00",
-    "compiled_at": "2026-10-14T19:02:25.290641+00:00",
+    "observed_at": "2026-10-14T19:28:11.996277+00:00",
+    "compiled_at": "2026-10-14T19:49:24.284221+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -382,7 +402,7 @@
       "not_families": [
         "structural_position"
       ],
-      "status": "UNKNOWN",
+      "status": "DERIVED",
       "source": "dossier.relationships",
       "observation_id": "none",
       "comparability": false,
@@ -391,9 +411,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-14T19:02:25.290641+00:00",
-        "last_observation": "2026-10-14T12:35:13.043027+00:00",
-        "drift_cycles": 170
+        "compiled_at": "2026-10-14T19:49:24.284221+00:00",
+        "last_observation": "2026-10-14T19:28:11.996277+00:00",
+        "drift_cycles": 171
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -529,7 +549,7 @@
     "relationships": [],
     "metric_outputs": {
       "phi_s": {
-        "value": null,
+        "value": 1.6181,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -537,7 +557,7 @@
           "shannon_bits",
           "world_causal_lead"
         ],
-        "status": "UNKNOWN",
+        "status": "DERIVED",
         "source": "own_numbers.phi_s",
         "observation_id": "none",
         "comparability": false,
@@ -546,14 +566,14 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": null,
+        "value": 0.1848,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
           "host_kappa_blend",
           "gamma_labeled_as_kappa"
         ],
-        "status": "UNKNOWN",
+        "status": "DERIVED",
         "source": "own_numbers.kappa",
         "observation_id": "none",
         "comparability": false,
@@ -593,8 +613,8 @@
         "editorial": false,
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
-          "status": "UNKNOWN",
-          "value": null
+          "status": "DERIVED",
+          "value": "high pressure"
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -618,7 +638,7 @@
         "entity_id": "SPARKLEND",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": null,
+        "magnitude": 1.6181,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -665,14 +685,14 @@
           "kappa",
           "none"
         ],
-        "epistemic_status": "UNKNOWN"
+        "epistemic_status": "DERIVED"
       },
       "own_numbers.kappa": {
         "schema_id": "geniusflow.state_identity.v0",
         "entity_id": "SPARKLEND",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": null,
+        "magnitude": 0.1848,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -718,7 +738,7 @@
           "kappa",
           "none"
         ],
-        "epistemic_status": "UNKNOWN"
+        "epistemic_status": "DERIVED"
       },
       "network_plugs.observation.last_delta_i": {
         "schema_id": "geniusflow.state_identity.v0",
@@ -779,7 +799,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:549dffd221753e0533fc8118ccc051d0c4e1ae53c89d4c35ae71a6691ea37293"
+    "snapshot_id": "sha256:b6d8511da763030ad0d34d1fc3834011f1157e35b12754917a806532e72f37ac"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -792,9 +812,9 @@
       "attested": 3
     },
     "slots_by_class": {
-      "KNOWN_CURRENT": 2,
+      "KNOWN_CURRENT": 3,
       "KNOWN_STALE": 0,
-      "KNOWN_MISSING": 4,
+      "KNOWN_MISSING": 3,
       "KNOWN_INCOMPARABLE": 1,
       "BROKEN_PIPE": 0,
       "NOT_WIRED": 1,
@@ -804,9 +824,9 @@
       "UNKNOWN": 0
     },
     "aliases": {
-      "supported": 2,
+      "supported": 3,
       "unsupported": 1,
-      "unknown": 4,
+      "unknown": 3,
       "withheld": 2,
       "broken_pipe": 0,
       "not_wired": 1,
@@ -818,24 +838,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:549dffd221753e0533fc8118ccc051d0c4e1ae53c89d4c35ae71a6691ea37293",
-  "projection_compiled_at": "2026-10-14T19:02:25.368099+00:00",
+  "source_snapshot_id": "sha256:b6d8511da763030ad0d34d1fc3834011f1157e35b12754917a806532e72f37ac",
+  "projection_compiled_at": "2026-10-14T19:49:24.334146+00:00",
   "freshness": {
-    "source_observed_at": "2026-10-14T12:35:13.043027+00:00",
-    "projection_compiled_at": "2026-10-14T19:02:25.368099+00:00",
-    "age_seconds": 23232,
+    "source_observed_at": "2026-10-14T19:28:11.996277+00:00",
+    "projection_compiled_at": "2026-10-14T19:49:24.334146+00:00",
+    "age_seconds": 1272,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:549dffd221753e0533fc8118ccc051d0c4e1ae53c89d4c35ae71a6691ea37293",
-    "compiled_at": "2026-10-14T19:02:25.368099+00:00",
+    "source_snapshot_id": "sha256:b6d8511da763030ad0d34d1fc3834011f1157e35b12754917a806532e72f37ac",
+    "compiled_at": "2026-10-14T19:49:24.334146+00:00",
     "freshness": {
-      "source_observed_at": "2026-10-14T12:35:13.043027+00:00",
-      "projection_compiled_at": "2026-10-14T19:02:25.368099+00:00",
-      "age_seconds": 23232,
+      "source_observed_at": "2026-10-14T19:28:11.996277+00:00",
+      "projection_compiled_at": "2026-10-14T19:49:24.334146+00:00",
+      "age_seconds": 1272,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -908,7 +928,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-10-14T12:35:13.043027+00:00",
+      "observed_at": "2026-10-14T19:28:11.996277+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -933,9 +953,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-14T19:02:25.290641+00:00",
-          "last_observation": "2026-10-14T12:35:13.043027+00:00",
-          "drift_cycles": 170
+          "compiled_at": "2026-10-14T19:49:24.284221+00:00",
+          "last_observation": "2026-10-14T19:28:11.996277+00:00",
+          "drift_cycles": 171
         },
         "reason": null,
         "family": "observation_age",
@@ -962,8 +982,8 @@
       "projection": true,
       "embedded_in_field_state": false,
       "feeds_qpo": false,
-      "supported": 2,
-      "unknown": 4,
+      "supported": 3,
+      "unknown": 3,
       "withheld": 2,
       "broken_pipe": 0,
       "not_wired": 1,
@@ -973,9 +993,9 @@
         "attested": 3
       },
       "aliases": {
-        "supported": 2,
+        "supported": 3,
         "unsupported": 1,
-        "unknown": 4,
+        "unknown": 3,
         "withheld": 2,
         "broken_pipe": 0,
         "not_wired": 1,
@@ -984,9 +1004,9 @@
         "relationship_gap": 0
       },
       "slots_by_class": {
-        "KNOWN_CURRENT": 2,
+        "KNOWN_CURRENT": 3,
         "KNOWN_STALE": 0,
-        "KNOWN_MISSING": 4,
+        "KNOWN_MISSING": 3,
         "KNOWN_INCOMPARABLE": 1,
         "BROKEN_PIPE": 0,
         "NOT_WIRED": 1,
@@ -997,16 +1017,36 @@
       },
       "note": "aliases map existing gap-map classes for machines. They are not a new taxonomy. Gap map is not embedded in Field State."
     },
-    "relationships": {},
+    "relationships": {
+      "in_degree": 0,
+      "out_degree": 0,
+      "by_vector": {
+        "Capital": {
+          "out": 0.0,
+          "in": 0.0
+        },
+        "Infrastructure": {
+          "out": 0.0,
+          "in": 0.0
+        },
+        "Information": {
+          "out": 0.0,
+          "in": 0.0
+        }
+      },
+      "top_inbound": [],
+      "top_outbound": [],
+      "gravity_pairs": []
+    },
     "relationship_state": [],
     "knowledge_gaps": {
       "href": "/api/dossier?entity=SPARKLEND&view=gaps",
       "summary": {
         "n": 11,
         "by_class": {
-          "KNOWN_CURRENT": 2,
+          "KNOWN_CURRENT": 3,
           "KNOWN_STALE": 0,
-          "KNOWN_MISSING": 4,
+          "KNOWN_MISSING": 3,
           "KNOWN_INCOMPARABLE": 1,
           "BROKEN_PIPE": 0,
           "NOT_WIRED": 1,
@@ -1036,9 +1076,9 @@
     "observation_clock": {
       "entity": "SPARKLEND",
       "first_prospective_observation": "2026-08-25T03:36:34.803403+00:00",
-      "latest_prospective_observation": "2026-10-14T12:35:13.043027+00:00",
-      "n_prospective_snapshots": 154,
-      "identity_comparable_transitions": 148,
+      "latest_prospective_observation": "2026-10-14T19:28:11.996277+00:00",
+      "n_prospective_snapshots": 155,
+      "identity_comparable_transitions": 149,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -1062,7 +1102,7 @@
       "generators": [
         {
           "id": "engine.dispatch.content_adapter._phi_s_label",
-          "status": "UNKNOWN",
+          "status": "DERIVED",
           "field": "phi_s_label"
         }
       ],
@@ -1075,8 +1115,8 @@
           "editorial": false,
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
-            "status": "UNKNOWN",
-            "value": null
+            "status": "DERIVED",
+            "value": "high pressure"
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
