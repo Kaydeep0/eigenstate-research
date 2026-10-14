@@ -1,11 +1,11 @@
 {
   "entity": "CERTIK",
   "node": "34539544",
-  "compiled_at": "2026-10-14T06:07:25.143420+00:00",
-  "digest": "sha256:d267b52009895117519b1d83edcdc75d98b819f3b5919b3a800e2c412a7df0cd",
+  "compiled_at": "2026-10-14T12:54:37.813734+00:00",
+  "digest": "sha256:2cdea331ee25f399b84d809619dad03c5e8a104651d228e5705249c1f39e7317",
   "own_numbers": {
     "phi_s": 0.0,
-    "kappa": 0.105,
+    "kappa": 0.4343,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -56,12 +56,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "watch",
-    "headline": "kappa +0.105 over 250 cycles",
-    "cycles": 250,
+    "level": "flag",
+    "headline": "kappa +0.434 over 252 cycles",
+    "cycles": 252,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.3293,
+      "kappa": 0.0,
       "boundary_score": 0.0
     }
   },
@@ -210,7 +210,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "CERTIK",
     "observed_at": null,
-    "compiled_at": "2026-10-14T06:07:25.143420+00:00",
+    "compiled_at": "2026-10-14T12:54:37.813734+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -367,9 +367,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-14T06:07:25.143420+00:00",
+        "compiled_at": "2026-10-14T12:54:37.813734+00:00",
         "last_observation": null,
-        "drift_cycles": 250
+        "drift_cycles": 252
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -522,7 +522,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.105,
+        "value": 0.4343,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -648,7 +648,7 @@
         "entity_id": "CERTIK",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.105,
+        "magnitude": 0.4343,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -755,7 +755,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:aacca49805928b0f7091f668fe71adf7ca11f6487ceb6a62adc90ef6c14c67a4"
+    "snapshot_id": "sha256:df7babe7d19bc2bc91fd91ab153fe83bb4782b9613bd5b4dd1786960aaef5464"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -794,11 +794,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:aacca49805928b0f7091f668fe71adf7ca11f6487ceb6a62adc90ef6c14c67a4",
-  "projection_compiled_at": "2026-10-14T06:07:25.193930+00:00",
+  "source_snapshot_id": "sha256:df7babe7d19bc2bc91fd91ab153fe83bb4782b9613bd5b4dd1786960aaef5464",
+  "projection_compiled_at": "2026-10-14T12:54:37.864661+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-14T06:07:25.193930+00:00",
+    "projection_compiled_at": "2026-10-14T12:54:37.864661+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -806,11 +806,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:aacca49805928b0f7091f668fe71adf7ca11f6487ceb6a62adc90ef6c14c67a4",
-    "compiled_at": "2026-10-14T06:07:25.193930+00:00",
+    "source_snapshot_id": "sha256:df7babe7d19bc2bc91fd91ab153fe83bb4782b9613bd5b4dd1786960aaef5464",
+    "compiled_at": "2026-10-14T12:54:37.864661+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-14T06:07:25.193930+00:00",
+      "projection_compiled_at": "2026-10-14T12:54:37.864661+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -914,9 +914,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-14T06:07:25.143420+00:00",
+          "compiled_at": "2026-10-14T12:54:37.813734+00:00",
           "last_observation": null,
-          "drift_cycles": 250
+          "drift_cycles": 252
         },
         "reason": null,
         "family": "observation_age",
@@ -1038,8 +1038,8 @@
       "entity": "CERTIK",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 177,
-      "identity_comparable_transitions": 172,
+      "n_prospective_snapshots": 179,
+      "identity_comparable_transitions": 174,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

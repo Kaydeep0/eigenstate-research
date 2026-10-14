@@ -1,11 +1,11 @@
 {
   "entity": "GAP_STABLECOIN_CONCENTRATION",
   "node": "34539544",
-  "compiled_at": "2026-10-14T06:07:02.693293+00:00",
-  "digest": "sha256:4ed0a83003fad7197c091b3a4fb9dca0d845983f66e68082b8f2b302a5fb59d9",
+  "compiled_at": "2026-10-14T12:54:15.319163+00:00",
+  "digest": "sha256:1d89609c6468589e612c640c1dc040a7d3811cc9780047999f27496f135d74e0",
   "own_numbers": {
     "phi_s": 0.0,
-    "kappa": 0.105,
+    "kappa": 0.4343,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -56,12 +56,12 @@
     "well": "boundary"
   },
   "drift": {
-    "level": "watch",
-    "headline": "kappa +0.105 over 250 cycles",
-    "cycles": 250,
+    "level": "flag",
+    "headline": "kappa +0.434 over 252 cycles",
+    "cycles": 252,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.3293,
+      "kappa": 0.0,
       "boundary_score": 0.0
     }
   },
@@ -144,7 +144,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "GAP_STABLECOIN_CONCENTRATION",
     "observed_at": null,
-    "compiled_at": "2026-10-14T06:07:02.693293+00:00",
+    "compiled_at": "2026-10-14T12:54:15.319163+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -237,9 +237,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-14T06:07:02.693293+00:00",
+        "compiled_at": "2026-10-14T12:54:15.319163+00:00",
         "last_observation": null,
-        "drift_cycles": 250
+        "drift_cycles": 252
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -328,7 +328,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.105,
+        "value": 0.4343,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -454,7 +454,7 @@
         "entity_id": "GAP_STABLECOIN_CONCENTRATION",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.105,
+        "magnitude": 0.4343,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -561,7 +561,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:0b8ffb1786f517d4fa7bb24e98209aba73db8b5f1ef6405b7f6df2667a0d1b99"
+    "snapshot_id": "sha256:613dfedc2055a89d479941f58466ee3c4515e5f288b7417a3572eb98c02e3f5a"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -600,11 +600,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:0b8ffb1786f517d4fa7bb24e98209aba73db8b5f1ef6405b7f6df2667a0d1b99",
-  "projection_compiled_at": "2026-10-14T06:07:02.735976+00:00",
+  "source_snapshot_id": "sha256:613dfedc2055a89d479941f58466ee3c4515e5f288b7417a3572eb98c02e3f5a",
+  "projection_compiled_at": "2026-10-14T12:54:15.362615+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-14T06:07:02.735976+00:00",
+    "projection_compiled_at": "2026-10-14T12:54:15.362615+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -612,11 +612,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:0b8ffb1786f517d4fa7bb24e98209aba73db8b5f1ef6405b7f6df2667a0d1b99",
-    "compiled_at": "2026-10-14T06:07:02.735976+00:00",
+    "source_snapshot_id": "sha256:613dfedc2055a89d479941f58466ee3c4515e5f288b7417a3572eb98c02e3f5a",
+    "compiled_at": "2026-10-14T12:54:15.362615+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-14T06:07:02.735976+00:00",
+      "projection_compiled_at": "2026-10-14T12:54:15.362615+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -656,9 +656,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-14T06:07:02.693293+00:00",
+          "compiled_at": "2026-10-14T12:54:15.319163+00:00",
           "last_observation": null,
-          "drift_cycles": 250
+          "drift_cycles": 252
         },
         "reason": null,
         "family": "observation_age",
@@ -780,8 +780,8 @@
       "entity": "GAP_STABLECOIN_CONCENTRATION",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 178,
-      "identity_comparable_transitions": 173,
+      "n_prospective_snapshots": 180,
+      "identity_comparable_transitions": 175,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

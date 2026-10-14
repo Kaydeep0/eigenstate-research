@@ -1,11 +1,11 @@
 {
   "entity": "BNY_MELLON",
   "node": "34539544",
-  "compiled_at": "2026-10-14T06:07:24.530695+00:00",
-  "digest": "sha256:94037ed000f702e432a5b910c3b2ee05665a61eef09342490229e13795045f5f",
+  "compiled_at": "2026-10-14T12:54:37.195397+00:00",
+  "digest": "sha256:d939760787a902e098366c0bb693e61cff509900a5eb2769fa464948904a6c3d",
   "own_numbers": {
     "phi_s": 1.6667,
-    "kappa": 0.105,
+    "kappa": 0.4343,
     "mass": 0.111029,
     "power": 0.17,
     "extraction": 31987.5607,
@@ -186,11 +186,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +2735% over 250 cycles",
-    "cycles": 250,
+    "headline": "phi_s +2735% over 252 cycles",
+    "cycles": 252,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.3293,
+      "kappa": 0.0,
       "power": 0.0,
       "extraction": 0.0,
       "boundary_score": 0.0
@@ -203,7 +203,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-10-14T03:01:29.457531+00:00",
+        "last_observed_at": "2026-10-14T11:01:03.237427+00:00",
         "filings": null,
         "note": "Bank of New York Mellon Corp \u2014 4798 total filings, 40 in last 90d"
       }
@@ -232,7 +232,7 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-10-14T04:48:44.557064+00:00",
+      "last_observed_at": "2026-10-14T11:18:13.796495+00:00",
       "last_delta_i": Infinity,
       "stale": false
     }
@@ -421,10 +421,10 @@
     "cite_class": "citeable",
     "source": "settlement_primary_landing",
     "wire": "settlement_substrate",
-    "ts": "2026-10-14T05:48:35.107534+00:00",
-    "write_reason": "first_observation",
+    "ts": "2026-10-14T12:35:39.966455+00:00",
+    "write_reason": "change_infpct",
     "source_url": null,
-    "vault_row_ref": "vault:128:BNY_MELLON:settlement_primary_landing:2026-10-14T05:48:35.107534+00:00",
+    "vault_row_ref": "vault:129:BNY_MELLON:settlement_primary_landing:2026-10-14T12:35:39.966455+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -456,8 +456,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "BNY_MELLON",
-    "observed_at": "2026-10-14T05:48:35.107534+00:00",
-    "compiled_at": "2026-10-14T06:07:24.530695+00:00",
+    "observed_at": "2026-10-14T12:35:39.966455+00:00",
+    "compiled_at": "2026-10-14T12:54:37.195397+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -721,9 +721,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-14T06:07:24.530695+00:00",
-        "last_observation": "2026-10-14T05:48:35.107534+00:00",
-        "drift_cycles": 250
+        "compiled_at": "2026-10-14T12:54:37.195397+00:00",
+        "last_observation": "2026-10-14T12:35:39.966455+00:00",
+        "drift_cycles": 252
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -976,7 +976,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.105,
+        "value": 0.4343,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1102,7 +1102,7 @@
         "entity_id": "BNY_MELLON",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.105,
+        "magnitude": 0.4343,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1209,7 +1209,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:48b77c6c7a039030823f371e05b99e2bb79d5163d6d2035d2f353f63d835ca28"
+    "snapshot_id": "sha256:644bbaa6858068cf11ea8e334ce678a8205b46f0d43b1ee2930c0f66ad9724af"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1248,24 +1248,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:48b77c6c7a039030823f371e05b99e2bb79d5163d6d2035d2f353f63d835ca28",
-  "projection_compiled_at": "2026-10-14T06:07:24.583993+00:00",
+  "source_snapshot_id": "sha256:644bbaa6858068cf11ea8e334ce678a8205b46f0d43b1ee2930c0f66ad9724af",
+  "projection_compiled_at": "2026-10-14T12:54:37.250233+00:00",
   "freshness": {
-    "source_observed_at": "2026-10-14T05:48:35.107534+00:00",
-    "projection_compiled_at": "2026-10-14T06:07:24.583993+00:00",
-    "age_seconds": 1129,
+    "source_observed_at": "2026-10-14T12:35:39.966455+00:00",
+    "projection_compiled_at": "2026-10-14T12:54:37.250233+00:00",
+    "age_seconds": 1137,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:48b77c6c7a039030823f371e05b99e2bb79d5163d6d2035d2f353f63d835ca28",
-    "compiled_at": "2026-10-14T06:07:24.583993+00:00",
+    "source_snapshot_id": "sha256:644bbaa6858068cf11ea8e334ce678a8205b46f0d43b1ee2930c0f66ad9724af",
+    "compiled_at": "2026-10-14T12:54:37.250233+00:00",
     "freshness": {
-      "source_observed_at": "2026-10-14T05:48:35.107534+00:00",
-      "projection_compiled_at": "2026-10-14T06:07:24.583993+00:00",
-      "age_seconds": 1129,
+      "source_observed_at": "2026-10-14T12:35:39.966455+00:00",
+      "projection_compiled_at": "2026-10-14T12:54:37.250233+00:00",
+      "age_seconds": 1137,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1365,7 +1365,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-10-14T05:48:35.107534+00:00",
+      "observed_at": "2026-10-14T12:35:39.966455+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -1402,9 +1402,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-14T06:07:24.530695+00:00",
-          "last_observation": "2026-10-14T05:48:35.107534+00:00",
-          "drift_cycles": 250
+          "compiled_at": "2026-10-14T12:54:37.195397+00:00",
+          "last_observation": "2026-10-14T12:35:39.966455+00:00",
+          "drift_cycles": 252
         },
         "reason": null,
         "family": "observation_age",
@@ -1748,9 +1748,9 @@
     "observation_clock": {
       "entity": "BNY_MELLON",
       "first_prospective_observation": "2026-08-25T03:36:57.234749+00:00",
-      "latest_prospective_observation": "2026-10-14T05:48:35.107534+00:00",
-      "n_prospective_snapshots": 188,
-      "identity_comparable_transitions": 178,
+      "latest_prospective_observation": "2026-10-14T12:35:39.966455+00:00",
+      "n_prospective_snapshots": 190,
+      "identity_comparable_transitions": 180,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

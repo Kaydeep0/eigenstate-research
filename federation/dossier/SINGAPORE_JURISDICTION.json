@@ -1,11 +1,11 @@
 {
   "entity": "SINGAPORE_JURISDICTION",
   "node": "34539544",
-  "compiled_at": "2026-10-14T06:07:40.595591+00:00",
-  "digest": "sha256:668c0396d17aca4e79efc4b6d6a2e0db77f62ed6f4092c8359c903ef247f9de3",
+  "compiled_at": "2026-10-14T12:54:53.435544+00:00",
+  "digest": "sha256:8b7b1455163e1d9e953d87c2bfd1eebdcd37a0aed187426987e78532f0fe22c0",
   "own_numbers": {
     "phi_s": 0.1028,
-    "kappa": 0.105,
+    "kappa": 0.4343,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -104,12 +104,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 250,
+    "level": "flag",
+    "headline": "kappa +0.398 over 252 cycles",
+    "cycles": 252,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.3293,
+      "kappa": 0.0,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -123,7 +123,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "sg_jurisdiction_gdp_proxy",
-        "last_observed_at": "2026-10-14T05:47:32.190094+00:00",
+        "last_observed_at": "2026-10-14T12:34:26.439133+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -269,7 +269,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "SINGAPORE_JURISDICTION",
     "observed_at": null,
-    "compiled_at": "2026-10-14T06:07:40.595591+00:00",
+    "compiled_at": "2026-10-14T12:54:53.435544+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -451,9 +451,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-14T06:07:40.595591+00:00",
+        "compiled_at": "2026-10-14T12:54:53.435544+00:00",
         "last_observation": null,
-        "drift_cycles": 250
+        "drift_cycles": 252
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -631,7 +631,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.105,
+        "value": 0.4343,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -757,7 +757,7 @@
         "entity_id": "SINGAPORE_JURISDICTION",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.105,
+        "magnitude": 0.4343,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -864,7 +864,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:cd315240e34d271c09bb3c20f5720a597ff8ea545d5e2bd89c4e831723dfa818"
+    "snapshot_id": "sha256:9f347c9edc866c608ce4343865dca14e6d0a5f656a5f9863007f02942819d381"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -903,11 +903,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:cd315240e34d271c09bb3c20f5720a597ff8ea545d5e2bd89c4e831723dfa818",
-  "projection_compiled_at": "2026-10-14T06:07:40.646566+00:00",
+  "source_snapshot_id": "sha256:9f347c9edc866c608ce4343865dca14e6d0a5f656a5f9863007f02942819d381",
+  "projection_compiled_at": "2026-10-14T12:54:53.487644+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-14T06:07:40.646566+00:00",
+    "projection_compiled_at": "2026-10-14T12:54:53.487644+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -915,11 +915,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:cd315240e34d271c09bb3c20f5720a597ff8ea545d5e2bd89c4e831723dfa818",
-    "compiled_at": "2026-10-14T06:07:40.646566+00:00",
+    "source_snapshot_id": "sha256:9f347c9edc866c608ce4343865dca14e6d0a5f656a5f9863007f02942819d381",
+    "compiled_at": "2026-10-14T12:54:53.487644+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-14T06:07:40.646566+00:00",
+      "projection_compiled_at": "2026-10-14T12:54:53.487644+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -1023,9 +1023,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-14T06:07:40.595591+00:00",
+          "compiled_at": "2026-10-14T12:54:53.435544+00:00",
           "last_observation": null,
-          "drift_cycles": 250
+          "drift_cycles": 252
         },
         "reason": null,
         "family": "observation_age",
@@ -1244,8 +1244,8 @@
       "entity": "SINGAPORE_JURISDICTION",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 177,
-      "identity_comparable_transitions": 172,
+      "n_prospective_snapshots": 179,
+      "identity_comparable_transitions": 174,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

@@ -1,11 +1,11 @@
 {
   "entity": "BARE_METAL_VALIDATORS",
   "node": "34539544",
-  "compiled_at": "2026-10-14T06:07:23.171247+00:00",
-  "digest": "sha256:9a32ddab5c1f76e73fac97ce36c06100aa4de6538971a449f025b23904182339",
+  "compiled_at": "2026-10-14T12:54:35.820120+00:00",
+  "digest": "sha256:53f9548cc9e996af2fe8f262ce2cb09bdb361e888058192743cefe1449bbde62",
   "own_numbers": {
     "phi_s": 0.0,
-    "kappa": 0.105,
+    "kappa": 0.4343,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -56,12 +56,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "watch",
-    "headline": "kappa +0.105 over 250 cycles",
-    "cycles": 250,
+    "level": "flag",
+    "headline": "kappa +0.434 over 252 cycles",
+    "cycles": 252,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.3293,
+      "kappa": 0.0,
       "boundary_score": 0.0
     }
   },
@@ -210,7 +210,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "BARE_METAL_VALIDATORS",
     "observed_at": null,
-    "compiled_at": "2026-10-14T06:07:23.171247+00:00",
+    "compiled_at": "2026-10-14T12:54:35.820120+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -367,9 +367,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-14T06:07:23.171247+00:00",
+        "compiled_at": "2026-10-14T12:54:35.820120+00:00",
         "last_observation": null,
-        "drift_cycles": 250
+        "drift_cycles": 252
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -522,7 +522,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.105,
+        "value": 0.4343,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -648,7 +648,7 @@
         "entity_id": "BARE_METAL_VALIDATORS",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.105,
+        "magnitude": 0.4343,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -755,7 +755,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:f0ef4eec0833cf05c1fc2e116eb854aea310c6aaee9872852fd9d3c1794c52bc"
+    "snapshot_id": "sha256:5514aba4d19b31a4e0bdbaf081d69a660d2932296cf7edb128efc82ab20dfbc6"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -794,11 +794,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:f0ef4eec0833cf05c1fc2e116eb854aea310c6aaee9872852fd9d3c1794c52bc",
-  "projection_compiled_at": "2026-10-14T06:07:23.221829+00:00",
+  "source_snapshot_id": "sha256:5514aba4d19b31a4e0bdbaf081d69a660d2932296cf7edb128efc82ab20dfbc6",
+  "projection_compiled_at": "2026-10-14T12:54:35.871136+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-14T06:07:23.221829+00:00",
+    "projection_compiled_at": "2026-10-14T12:54:35.871136+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -806,11 +806,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:f0ef4eec0833cf05c1fc2e116eb854aea310c6aaee9872852fd9d3c1794c52bc",
-    "compiled_at": "2026-10-14T06:07:23.221829+00:00",
+    "source_snapshot_id": "sha256:5514aba4d19b31a4e0bdbaf081d69a660d2932296cf7edb128efc82ab20dfbc6",
+    "compiled_at": "2026-10-14T12:54:35.871136+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-14T06:07:23.221829+00:00",
+      "projection_compiled_at": "2026-10-14T12:54:35.871136+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -914,9 +914,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-14T06:07:23.171247+00:00",
+          "compiled_at": "2026-10-14T12:54:35.820120+00:00",
           "last_observation": null,
-          "drift_cycles": 250
+          "drift_cycles": 252
         },
         "reason": null,
         "family": "observation_age",
@@ -1038,8 +1038,8 @@
       "entity": "BARE_METAL_VALIDATORS",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 179,
-      "identity_comparable_transitions": 174,
+      "n_prospective_snapshots": 181,
+      "identity_comparable_transitions": 176,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
