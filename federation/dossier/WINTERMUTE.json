@@ -1,11 +1,11 @@
 {
   "entity": "WINTERMUTE",
   "node": "34539544",
-  "compiled_at": "2026-10-14T04:09:52.755544+00:00",
-  "digest": "sha256:a5ad18dc04073fa79ae62e9a1bb1229ca8f9ee08189dd6c1bbc2fb599e2c7830",
+  "compiled_at": "2026-10-14T06:07:45.140531+00:00",
+  "digest": "sha256:1451cf4a1f5a8eb52435b920abc92120864ef7cd4cb2040fa243a89e2d2bc7bb",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.4343,
+    "kappa": 0.105,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -75,17 +75,17 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "kappa +0.410 over 249 cycles",
-    "cycles": 249,
+    "level": "steady",
+    "headline": null,
+    "cycles": 250,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.3254,
+      "kappa": -0.3293,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "stale",
+    "freshness": "live",
     "inbound": [],
     "outbound": [
       {
@@ -111,9 +111,9 @@
     ],
     "observation": {
       "source": "defi_llama_tvl",
-      "last_observed_at": "2026-09-30T22:00:26.411583+00:00",
-      "last_delta_i": 0.09366341071681944,
-      "stale": true
+      "last_observed_at": "2026-10-14T04:48:27.543264+00:00",
+      "last_delta_i": 0.06449324765286477,
+      "stale": false
     }
   },
   "claims": [
@@ -229,7 +229,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "WINTERMUTE",
     "observed_at": null,
-    "compiled_at": "2026-10-14T04:09:52.755544+00:00",
+    "compiled_at": "2026-10-14T06:07:45.140531+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -403,9 +403,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-14T04:09:52.755544+00:00",
+        "compiled_at": "2026-10-14T06:07:45.140531+00:00",
         "last_observation": null,
-        "drift_cycles": 249
+        "drift_cycles": 250
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -575,7 +575,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.4343,
+        "value": 0.105,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -701,7 +701,7 @@
         "entity_id": "WINTERMUTE",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.4343,
+        "magnitude": 0.105,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -808,7 +808,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:c36b96ac0e7e1933eee8348b457906185524be23ecfd09c95cb5de102daeb4ec"
+    "snapshot_id": "sha256:88779a1d06bd94721498517f108c08174573cd42fd85b2460f73a97737414471"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -847,11 +847,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:c36b96ac0e7e1933eee8348b457906185524be23ecfd09c95cb5de102daeb4ec",
-  "projection_compiled_at": "2026-10-14T04:09:52.888649+00:00",
+  "source_snapshot_id": "sha256:88779a1d06bd94721498517f108c08174573cd42fd85b2460f73a97737414471",
+  "projection_compiled_at": "2026-10-14T06:07:45.190719+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-14T04:09:52.888649+00:00",
+    "projection_compiled_at": "2026-10-14T06:07:45.190719+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -859,11 +859,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:c36b96ac0e7e1933eee8348b457906185524be23ecfd09c95cb5de102daeb4ec",
-    "compiled_at": "2026-10-14T04:09:52.888649+00:00",
+    "source_snapshot_id": "sha256:88779a1d06bd94721498517f108c08174573cd42fd85b2460f73a97737414471",
+    "compiled_at": "2026-10-14T06:07:45.190719+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-14T04:09:52.888649+00:00",
+      "projection_compiled_at": "2026-10-14T06:07:45.190719+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -967,9 +967,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-14T04:09:52.755544+00:00",
+          "compiled_at": "2026-10-14T06:07:45.140531+00:00",
           "last_observation": null,
-          "drift_cycles": 249
+          "drift_cycles": 250
         },
         "reason": null,
         "family": "observation_age",
@@ -1135,8 +1135,8 @@
       "entity": "WINTERMUTE",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 176,
-      "identity_comparable_transitions": 171,
+      "n_prospective_snapshots": 177,
+      "identity_comparable_transitions": 172,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
