@@ -1,11 +1,11 @@
 {
   "entity": "TREASURY_MARKET",
   "node": "34539544",
-  "compiled_at": "2026-10-15T01:10:02.785753+00:00",
-  "digest": "sha256:22311f6815b0fc04b83142405c2bcfad94f0f681efd2a517da6eab7b538dbf7a",
+  "compiled_at": "2026-10-15T02:38:41.718094+00:00",
+  "digest": "sha256:673fdef7e598ba91ceccd2d09f686bb327adae9ac6567b69ca7711b836e38703",
   "own_numbers": {
-    "phi_s": 1.6779,
-    "kappa": 0.1248,
+    "phi_s": 0.0598,
+    "kappa": 0.0761,
     "mass": 0.0789,
     "power": 0.89,
     "extraction": 2375912.0,
@@ -193,11 +193,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +2706% over 255 cycles",
-    "cycles": 255,
+    "headline": "extraction +115% over 256 cycles",
+    "cycles": 256,
     "delta_last_cycle": {
-      "phi_s": 1.6181,
-      "kappa": -0.06,
+      "phi_s": -1.6181,
+      "kappa": -0.0487,
       "power": 0.0,
       "extraction": 0.0,
       "boundary_score": 0.0
@@ -212,7 +212,7 @@
         "status": "live",
         "series_id": "GFDEBTN",
         "label": "federal_debt_millions",
-        "last_observed_at": "2026-10-14T22:52:42.530521+00:00",
+        "last_observed_at": "2026-10-15T02:17:44.359242+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -437,7 +437,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "TREASURY_MARKET",
     "observed_at": null,
-    "compiled_at": "2026-10-15T01:10:02.785753+00:00",
+    "compiled_at": "2026-10-15T02:38:41.718094+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -700,9 +700,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-15T01:10:02.785753+00:00",
+        "compiled_at": "2026-10-15T02:38:41.718094+00:00",
         "last_observation": null,
-        "drift_cycles": 255
+        "drift_cycles": 256
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -937,7 +937,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 1.6779,
+        "value": 0.0598,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -954,7 +954,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1248,
+        "value": 0.0761,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1002,7 +1002,7 @@
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
           "status": "DERIVED",
-          "value": "high pressure"
+          "value": "low pressure"
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -1026,7 +1026,7 @@
         "entity_id": "TREASURY_MARKET",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 1.6779,
+        "magnitude": 0.0598,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -1080,7 +1080,7 @@
         "entity_id": "TREASURY_MARKET",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1248,
+        "magnitude": 0.0761,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1187,7 +1187,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:9f18f9c90867fa161a2d52766159a6e36686a3912fb1e19777b52914765d1e6d"
+    "snapshot_id": "sha256:bd00ecd3b976109156a347a3aef5d947aeb48c08712cdb4752e46ac5addb9c1e"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1226,11 +1226,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:9f18f9c90867fa161a2d52766159a6e36686a3912fb1e19777b52914765d1e6d",
-  "projection_compiled_at": "2026-10-15T01:10:02.918052+00:00",
+  "source_snapshot_id": "sha256:bd00ecd3b976109156a347a3aef5d947aeb48c08712cdb4752e46ac5addb9c1e",
+  "projection_compiled_at": "2026-10-15T02:38:41.767941+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-15T01:10:02.918052+00:00",
+    "projection_compiled_at": "2026-10-15T02:38:41.767941+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -1238,11 +1238,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:9f18f9c90867fa161a2d52766159a6e36686a3912fb1e19777b52914765d1e6d",
-    "compiled_at": "2026-10-15T01:10:02.918052+00:00",
+    "source_snapshot_id": "sha256:bd00ecd3b976109156a347a3aef5d947aeb48c08712cdb4752e46ac5addb9c1e",
+    "compiled_at": "2026-10-15T02:38:41.767941+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-15T01:10:02.918052+00:00",
+      "projection_compiled_at": "2026-10-15T02:38:41.767941+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -1395,9 +1395,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-15T01:10:02.785753+00:00",
+          "compiled_at": "2026-10-15T02:38:41.718094+00:00",
           "last_observation": null,
-          "drift_cycles": 255
+          "drift_cycles": 256
         },
         "reason": null,
         "family": "observation_age",
@@ -1700,8 +1700,8 @@
       "entity": "TREASURY_MARKET",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 185,
-      "identity_comparable_transitions": 181,
+      "n_prospective_snapshots": 186,
+      "identity_comparable_transitions": 182,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -1739,7 +1739,7 @@
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
             "status": "DERIVED",
-            "value": "high pressure"
+            "value": "low pressure"
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
