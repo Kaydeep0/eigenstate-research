@@ -1,11 +1,11 @@
 {
   "entity": "JPMORGAN",
   "node": "34539544",
-  "compiled_at": "2026-10-15T13:23:31.176088+00:00",
-  "digest": "sha256:f712556706984fdcf6e54d9d1b9747585730be3f99a596bb1a5654f0aebc9b0f",
+  "compiled_at": "2026-10-16T01:01:58.153720+00:00",
+  "digest": "sha256:1ad597082fed8a9875991b506e96f98d4e96dcd1acb672862044c5b67dd081fa",
   "own_numbers": {
-    "phi_s": 3.2598,
-    "kappa": 0.0806,
+    "phi_s": 1.6417,
+    "kappa": 0.0657,
     "mass": 0.322003,
     "power": 1.1,
     "extraction": 553859.275053,
@@ -180,11 +180,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +14324% over 259 cycles",
-    "cycles": 259,
+    "headline": "phi_s +7164% over 262 cycles",
+    "cycles": 262,
     "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": 0.0002,
+      "phi_s": -1.6181,
+      "kappa": -0.088,
       "power": 0.0,
       "extraction": 0.0,
       "gravity_mass": 0.0,
@@ -192,15 +192,15 @@
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "live_at_request",
     "inbound": [
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live",
-        "last_observed_at": "2026-10-15T11:01:05.410444+00:00",
+        "status": "live_at_request",
+        "last_observed_at": "2026-10-15T23:05:02.417205+00:00",
         "filings": null,
-        "note": "JPMORGAN CHASE & CO \u2014 168987 total filings, 40 in last 90d"
+        "note": "CIK 0000019617 \u2014 live on feed + parkash sensor"
       }
     ],
     "outbound": [
@@ -226,10 +226,10 @@
       }
     ],
     "observation": {
-      "source": "propagated",
-      "last_observed_at": "2026-10-15T13:22:22.508202+00:00",
-      "last_delta_i": 5.671391371017119e+35,
-      "stale": false
+      "source": "information_flow",
+      "last_observed_at": "2026-08-17T00:08:14.137252+00:00",
+      "last_delta_i": 1.0,
+      "stale": true
     }
   },
   "claims": [
@@ -389,7 +389,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "JPMORGAN",
     "observed_at": "2026-10-15T12:25:29.435919+00:00",
-    "compiled_at": "2026-10-15T13:23:31.176088+00:00",
+    "compiled_at": "2026-10-16T01:01:58.153720+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -634,9 +634,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-15T13:23:31.176088+00:00",
+        "compiled_at": "2026-10-16T01:01:58.153720+00:00",
         "last_observation": "2026-10-15T12:25:29.435919+00:00",
-        "drift_cycles": 259
+        "drift_cycles": 262
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -853,7 +853,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 3.2598,
+        "value": 1.6417,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -870,7 +870,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0806,
+        "value": 0.0657,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -942,7 +942,7 @@
         "entity_id": "JPMORGAN",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 3.2598,
+        "magnitude": 1.6417,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -996,7 +996,7 @@
         "entity_id": "JPMORGAN",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0806,
+        "magnitude": 0.0657,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1103,7 +1103,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:3a8fcc675c7f002e22e83f3f646efa944ad8188eb6911d0eff221efb484cde33"
+    "snapshot_id": "sha256:bac70c5c6fb785598ca6d7fece80dcbb3f527673b697da5ac5416f1cc259b82a"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1142,24 +1142,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:3a8fcc675c7f002e22e83f3f646efa944ad8188eb6911d0eff221efb484cde33",
-  "projection_compiled_at": "2026-10-15T13:23:31.352224+00:00",
+  "source_snapshot_id": "sha256:bac70c5c6fb785598ca6d7fece80dcbb3f527673b697da5ac5416f1cc259b82a",
+  "projection_compiled_at": "2026-10-16T01:01:58.208894+00:00",
   "freshness": {
     "source_observed_at": "2026-10-15T12:25:29.435919+00:00",
-    "projection_compiled_at": "2026-10-15T13:23:31.352224+00:00",
-    "age_seconds": 3481,
+    "projection_compiled_at": "2026-10-16T01:01:58.208894+00:00",
+    "age_seconds": 45388,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:3a8fcc675c7f002e22e83f3f646efa944ad8188eb6911d0eff221efb484cde33",
-    "compiled_at": "2026-10-15T13:23:31.352224+00:00",
+    "source_snapshot_id": "sha256:bac70c5c6fb785598ca6d7fece80dcbb3f527673b697da5ac5416f1cc259b82a",
+    "compiled_at": "2026-10-16T01:01:58.208894+00:00",
     "freshness": {
       "source_observed_at": "2026-10-15T12:25:29.435919+00:00",
-      "projection_compiled_at": "2026-10-15T13:23:31.352224+00:00",
-      "age_seconds": 3481,
+      "projection_compiled_at": "2026-10-16T01:01:58.208894+00:00",
+      "age_seconds": 45388,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1269,9 +1269,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-15T13:23:31.176088+00:00",
+          "compiled_at": "2026-10-16T01:01:58.153720+00:00",
           "last_observation": "2026-10-15T12:25:29.435919+00:00",
-          "drift_cycles": 259
+          "drift_cycles": 262
         },
         "reason": null,
         "family": "observation_age",
@@ -1637,8 +1637,8 @@
       "entity": "JPMORGAN",
       "first_prospective_observation": "2026-08-25T03:36:54.307429+00:00",
       "latest_prospective_observation": "2026-10-15T12:25:29.435919+00:00",
-      "n_prospective_snapshots": 198,
-      "identity_comparable_transitions": 190,
+      "n_prospective_snapshots": 201,
+      "identity_comparable_transitions": 193,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

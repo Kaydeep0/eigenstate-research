@@ -1,11 +1,11 @@
 {
   "entity": "CIRCLE",
   "node": "34539544",
-  "compiled_at": "2026-10-15T13:23:08.184217+00:00",
-  "digest": "sha256:b78079ed1537273368e734dd22fec74b1d917d700e3b1acb1eaac76609944850",
+  "compiled_at": "2026-10-16T01:01:49.340090+00:00",
+  "digest": "sha256:916179809663cb65c9b715e3a3f0d5c3181cd37d4f0c260919af0ced33acc273",
   "own_numbers": {
-    "phi_s": 8.1552,
-    "kappa": 0.0806,
+    "phi_s": 4.919,
+    "kappa": 0.0657,
     "mass": 0.24142,
     "power": 0.04,
     "extraction": 479377.124183,
@@ -191,11 +191,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +11567% over 259 cycles",
-    "cycles": 259,
+    "headline": "phi_s +6937% over 262 cycles",
+    "cycles": 262,
     "delta_last_cycle": {
-      "phi_s": -1.6181,
-      "kappa": 0.0002,
+      "phi_s": -4.8543,
+      "kappa": -0.088,
       "power": 0.0,
       "extraction": 0.0,
       "boundary_score": 0.0
@@ -213,10 +213,10 @@
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live",
-        "last_observed_at": "2026-10-15T11:01:05.410444+00:00",
+        "status": "live_at_request",
+        "last_observed_at": "2026-10-15T23:05:02.417205+00:00",
         "filings": null,
-        "note": "Circle Internet Group, Inc. \u2014 438 total filings, 40 in last 90d"
+        "note": "CIK 0001876042"
       }
     ],
     "outbound": [
@@ -243,8 +243,8 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-10-15T13:22:22.508202+00:00",
-      "last_delta_i": 0.07005446292595566,
+      "last_observed_at": "2026-10-15T22:00:28.908123+00:00",
+      "last_delta_i": 1039012252.5823753,
       "stale": false
     }
   },
@@ -2853,7 +2853,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "CIRCLE",
     "observed_at": "2026-10-15T12:25:29.425288+00:00",
-    "compiled_at": "2026-10-15T13:23:08.184217+00:00",
+    "compiled_at": "2026-10-16T01:01:49.340090+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -3140,9 +3140,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-15T13:23:08.184217+00:00",
+        "compiled_at": "2026-10-16T01:01:49.340090+00:00",
         "last_observation": "2026-10-15T12:25:29.425288+00:00",
-        "drift_cycles": 259
+        "drift_cycles": 262
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -3401,7 +3401,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 8.1552,
+        "value": 4.919,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -3418,7 +3418,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0806,
+        "value": 0.0657,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -3466,7 +3466,7 @@
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
           "status": "DERIVED",
-          "value": "critical pressure"
+          "value": "high pressure"
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -3490,7 +3490,7 @@
         "entity_id": "CIRCLE",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 8.1552,
+        "magnitude": 4.919,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -3544,7 +3544,7 @@
         "entity_id": "CIRCLE",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0806,
+        "magnitude": 0.0657,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -3704,7 +3704,7 @@
         "epistemic_status": "EXPERIMENTAL"
       }
     },
-    "snapshot_id": "sha256:b72f9c0193cceb4da60beeaac50fbb4bab1b46a47d0d9c39a2ad05a5c5a0b7dd"
+    "snapshot_id": "sha256:6cd0bf2b4d5b7764a807ce3fe4c6fc0202bc5a733671a3e2f092ea4e5f13cc34"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -3743,24 +3743,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:b72f9c0193cceb4da60beeaac50fbb4bab1b46a47d0d9c39a2ad05a5c5a0b7dd",
-  "projection_compiled_at": "2026-10-15T13:23:08.942132+00:00",
+  "source_snapshot_id": "sha256:6cd0bf2b4d5b7764a807ce3fe4c6fc0202bc5a733671a3e2f092ea4e5f13cc34",
+  "projection_compiled_at": "2026-10-16T01:01:49.639858+00:00",
   "freshness": {
     "source_observed_at": "2026-10-15T12:25:29.425288+00:00",
-    "projection_compiled_at": "2026-10-15T13:23:08.942132+00:00",
-    "age_seconds": 3459,
+    "projection_compiled_at": "2026-10-16T01:01:49.639858+00:00",
+    "age_seconds": 45380,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:b72f9c0193cceb4da60beeaac50fbb4bab1b46a47d0d9c39a2ad05a5c5a0b7dd",
-    "compiled_at": "2026-10-15T13:23:08.942132+00:00",
+    "source_snapshot_id": "sha256:6cd0bf2b4d5b7764a807ce3fe4c6fc0202bc5a733671a3e2f092ea4e5f13cc34",
+    "compiled_at": "2026-10-16T01:01:49.639858+00:00",
     "freshness": {
       "source_observed_at": "2026-10-15T12:25:29.425288+00:00",
-      "projection_compiled_at": "2026-10-15T13:23:08.942132+00:00",
-      "age_seconds": 3459,
+      "projection_compiled_at": "2026-10-16T01:01:49.639858+00:00",
+      "age_seconds": 45380,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -3912,9 +3912,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-15T13:23:08.184217+00:00",
+          "compiled_at": "2026-10-16T01:01:49.340090+00:00",
           "last_observation": "2026-10-15T12:25:29.425288+00:00",
-          "drift_cycles": 259
+          "drift_cycles": 262
         },
         "reason": null,
         "family": "observation_age",
@@ -4280,8 +4280,8 @@
       "entity": "CIRCLE",
       "first_prospective_observation": "2026-08-25T03:36:54.297515+00:00",
       "latest_prospective_observation": "2026-10-15T12:25:29.425288+00:00",
-      "n_prospective_snapshots": 213,
-      "identity_comparable_transitions": 204,
+      "n_prospective_snapshots": 216,
+      "identity_comparable_transitions": 207,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -4319,7 +4319,7 @@
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
             "status": "DERIVED",
-            "value": "critical pressure"
+            "value": "high pressure"
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
