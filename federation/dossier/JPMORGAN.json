@@ -1,8 +1,8 @@
 {
   "entity": "JPMORGAN",
   "node": "34539544",
-  "compiled_at": "2026-10-16T02:31:55.274884+00:00",
-  "digest": "sha256:71c43a1eff7e4e5a8651460dc79710bf8f5d03492bfd0b200a88ee596e4b6839",
+  "compiled_at": "2026-10-16T04:03:30.697122+00:00",
+  "digest": "sha256:3850fec6c3aca91e9c5250ed2349f8006f9a73f745d26dfffa51185651a282ca",
   "own_numbers": {
     "phi_s": 3.2598,
     "kappa": 0.0654,
@@ -192,15 +192,15 @@
     }
   },
   "network_plugs": {
-    "freshness": "live_at_request",
+    "freshness": "live",
     "inbound": [
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live_at_request",
-        "last_observed_at": "2026-10-15T23:05:02.417205+00:00",
+        "status": "live",
+        "last_observed_at": "2026-10-16T03:01:19.042526+00:00",
         "filings": null,
-        "note": "CIK 0000019617 \u2014 live on feed + parkash sensor"
+        "note": "JPMORGAN CHASE & CO \u2014 169083 total filings, 40 in last 90d"
       }
     ],
     "outbound": [
@@ -226,10 +226,10 @@
       }
     ],
     "observation": {
-      "source": "information_flow",
-      "last_observed_at": "2026-08-17T00:08:14.137252+00:00",
-      "last_delta_i": 1.0,
-      "stale": true
+      "source": "propagated",
+      "last_observed_at": "2026-10-16T03:57:29.906661+00:00",
+      "last_delta_i": 2100892.114867693,
+      "stale": false
     }
   },
   "claims": [
@@ -389,7 +389,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "JPMORGAN",
     "observed_at": "2026-10-15T12:25:29.435919+00:00",
-    "compiled_at": "2026-10-16T02:31:55.274884+00:00",
+    "compiled_at": "2026-10-16T04:03:30.697122+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -634,7 +634,7 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-16T02:31:55.274884+00:00",
+        "compiled_at": "2026-10-16T04:03:30.697122+00:00",
         "last_observation": "2026-10-15T12:25:29.435919+00:00",
         "drift_cycles": 263
       },
@@ -1103,7 +1103,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:184e63bd31689f8397b97e96415200a773470287f4d1ad358d62cad453142b05"
+    "snapshot_id": "sha256:62a64ce35ff7a7d5a924869f8efd0c2e5ca98a84179d33d85b8308c7e29b2c6a"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1142,24 +1142,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:184e63bd31689f8397b97e96415200a773470287f4d1ad358d62cad453142b05",
-  "projection_compiled_at": "2026-10-16T02:31:55.383126+00:00",
+  "source_snapshot_id": "sha256:62a64ce35ff7a7d5a924869f8efd0c2e5ca98a84179d33d85b8308c7e29b2c6a",
+  "projection_compiled_at": "2026-10-16T04:03:30.752656+00:00",
   "freshness": {
     "source_observed_at": "2026-10-15T12:25:29.435919+00:00",
-    "projection_compiled_at": "2026-10-16T02:31:55.383126+00:00",
-    "age_seconds": 50785,
+    "projection_compiled_at": "2026-10-16T04:03:30.752656+00:00",
+    "age_seconds": 56281,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:184e63bd31689f8397b97e96415200a773470287f4d1ad358d62cad453142b05",
-    "compiled_at": "2026-10-16T02:31:55.383126+00:00",
+    "source_snapshot_id": "sha256:62a64ce35ff7a7d5a924869f8efd0c2e5ca98a84179d33d85b8308c7e29b2c6a",
+    "compiled_at": "2026-10-16T04:03:30.752656+00:00",
     "freshness": {
       "source_observed_at": "2026-10-15T12:25:29.435919+00:00",
-      "projection_compiled_at": "2026-10-16T02:31:55.383126+00:00",
-      "age_seconds": 50785,
+      "projection_compiled_at": "2026-10-16T04:03:30.752656+00:00",
+      "age_seconds": 56281,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1269,7 +1269,7 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-16T02:31:55.274884+00:00",
+          "compiled_at": "2026-10-16T04:03:30.697122+00:00",
           "last_observation": "2026-10-15T12:25:29.435919+00:00",
           "drift_cycles": 263
         },
