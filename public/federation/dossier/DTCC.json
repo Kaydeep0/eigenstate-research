@@ -1,11 +1,11 @@
 {
   "entity": "DTCC",
   "node": "34539544",
-  "compiled_at": "2026-10-16T05:57:09.256665+00:00",
-  "digest": "sha256:d49456f77b8122e6de2303235ca54553ce16074077e728efc1a31a116a8f3656",
+  "compiled_at": "2026-10-16T16:17:31.795794+00:00",
+  "digest": "sha256:a7a84f3454651c9fb1d33ed4d988de4d519f958308baa393bf2e30d8a6d60661",
   "own_numbers": {
     "phi_s": 1.6181,
-    "kappa": 0.1457,
+    "kappa": 0.1022,
     "mass": 0.184606,
     "power": null,
     "extraction": null,
@@ -128,11 +128,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +7990% over 264 cycles",
-    "cycles": 264,
+    "headline": "phi_s +7990% over 265 cycles",
+    "cycles": 265,
     "delta_last_cycle": {
-      "phi_s": 1.6181,
-      "kappa": 0.0803,
+      "phi_s": 0.0,
+      "kappa": -0.0435,
       "boundary_score": 0.0
     }
   },
@@ -145,7 +145,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "settlement_volume_gdp_proxy",
-        "last_observed_at": "2026-10-16T05:35:30.675441+00:00",
+        "last_observed_at": "2026-10-16T09:00:44.055850+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -173,7 +173,7 @@
     ],
     "observation": {
       "source": null,
-      "last_observed_at": "2026-10-15T21:18:49.536311+00:00",
+      "last_observed_at": "2026-10-16T09:30:45.310094+00:00",
       "last_delta_i": null,
       "stale": false
     }
@@ -299,10 +299,10 @@
     "cite_class": "citeable",
     "source": "settlement_primary_landing",
     "wire": "settlement_substrate",
-    "ts": "2026-10-16T05:38:44.897412+00:00",
+    "ts": "2026-10-16T09:01:44.653657+00:00",
     "write_reason": "first_observation",
     "source_url": null,
-    "vault_row_ref": "vault:129:DTCC:settlement_primary_landing:2026-10-16T05:38:44.897412+00:00",
+    "vault_row_ref": "vault:129:DTCC:settlement_primary_landing:2026-10-16T09:01:44.653657+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -334,8 +334,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "DTCC",
-    "observed_at": "2026-10-16T05:38:44.897412+00:00",
-    "compiled_at": "2026-10-16T05:57:09.256665+00:00",
+    "observed_at": "2026-10-16T09:01:44.653657+00:00",
+    "compiled_at": "2026-10-16T16:17:31.795794+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -557,9 +557,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-16T05:57:09.256665+00:00",
-        "last_observation": "2026-10-16T05:38:44.897412+00:00",
-        "drift_cycles": 264
+        "compiled_at": "2026-10-16T16:17:31.795794+00:00",
+        "last_observation": "2026-10-16T09:01:44.653657+00:00",
+        "drift_cycles": 265
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -777,7 +777,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1457,
+        "value": 0.1022,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -903,7 +903,7 @@
         "entity_id": "DTCC",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1457,
+        "magnitude": 0.1022,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1010,7 +1010,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:af1ae0b90583fcc435cddf1e98728a240111a5f6138565c8d037cd237716608a"
+    "snapshot_id": "sha256:5f311e02664227e48d20a882cc65f9513b2d7152ada1547267c2bd0c39a7d191"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1049,24 +1049,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:af1ae0b90583fcc435cddf1e98728a240111a5f6138565c8d037cd237716608a",
-  "projection_compiled_at": "2026-10-16T05:57:09.312278+00:00",
+  "source_snapshot_id": "sha256:5f311e02664227e48d20a882cc65f9513b2d7152ada1547267c2bd0c39a7d191",
+  "projection_compiled_at": "2026-10-16T16:17:31.903459+00:00",
   "freshness": {
-    "source_observed_at": "2026-10-16T05:38:44.897412+00:00",
-    "projection_compiled_at": "2026-10-16T05:57:09.312278+00:00",
-    "age_seconds": 1104,
+    "source_observed_at": "2026-10-16T09:01:44.653657+00:00",
+    "projection_compiled_at": "2026-10-16T16:17:31.903459+00:00",
+    "age_seconds": 26147,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:af1ae0b90583fcc435cddf1e98728a240111a5f6138565c8d037cd237716608a",
-    "compiled_at": "2026-10-16T05:57:09.312278+00:00",
+    "source_snapshot_id": "sha256:5f311e02664227e48d20a882cc65f9513b2d7152ada1547267c2bd0c39a7d191",
+    "compiled_at": "2026-10-16T16:17:31.903459+00:00",
     "freshness": {
-      "source_observed_at": "2026-10-16T05:38:44.897412+00:00",
-      "projection_compiled_at": "2026-10-16T05:57:09.312278+00:00",
-      "age_seconds": 1104,
+      "source_observed_at": "2026-10-16T09:01:44.653657+00:00",
+      "projection_compiled_at": "2026-10-16T16:17:31.903459+00:00",
+      "age_seconds": 26147,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1139,7 +1139,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-10-16T05:38:44.897412+00:00",
+      "observed_at": "2026-10-16T09:01:44.653657+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -1169,9 +1169,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-16T05:57:09.256665+00:00",
-          "last_observation": "2026-10-16T05:38:44.897412+00:00",
-          "drift_cycles": 264
+          "compiled_at": "2026-10-16T16:17:31.795794+00:00",
+          "last_observation": "2026-10-16T09:01:44.653657+00:00",
+          "drift_cycles": 265
         },
         "reason": null,
         "family": "observation_age",
@@ -1463,9 +1463,9 @@
     "observation_clock": {
       "entity": "DTCC",
       "first_prospective_observation": "2026-08-25T03:36:57.633383+00:00",
-      "latest_prospective_observation": "2026-10-16T05:38:44.897412+00:00",
-      "n_prospective_snapshots": 197,
-      "identity_comparable_transitions": 190,
+      "latest_prospective_observation": "2026-10-16T09:01:44.653657+00:00",
+      "n_prospective_snapshots": 198,
+      "identity_comparable_transitions": 191,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
