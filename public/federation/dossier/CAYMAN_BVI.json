@@ -1,11 +1,11 @@
 {
   "entity": "CAYMAN_BVI",
   "node": "34539544",
-  "compiled_at": "2026-10-16T22:09:44.776035+00:00",
-  "digest": "sha256:ea4f7b691b49fae72d69e51098acd1929c7297dc855a55c2ed41d92162d9d4cf",
+  "compiled_at": "2026-10-17T01:03:28.756599+00:00",
+  "digest": "sha256:80d3b9639a123ab2556f05f9cec4b4a8bb089a14b38ed50a9a62583fea6063be",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.1041,
+    "kappa": 0.2798,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -67,12 +67,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 267,
+    "level": "flag",
+    "headline": "kappa +0.256 over 268 cycles",
+    "cycles": 268,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0799,
+      "kappa": 0.1757,
       "boundary_score": 0.0
     }
   },
@@ -221,7 +221,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "CAYMAN_BVI",
     "observed_at": null,
-    "compiled_at": "2026-10-16T22:09:44.776035+00:00",
+    "compiled_at": "2026-10-17T01:03:28.756599+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -395,9 +395,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-16T22:09:44.776035+00:00",
+        "compiled_at": "2026-10-17T01:03:28.756599+00:00",
         "last_observation": null,
-        "drift_cycles": 267
+        "drift_cycles": 268
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -567,7 +567,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1041,
+        "value": 0.2798,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -693,7 +693,7 @@
         "entity_id": "CAYMAN_BVI",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1041,
+        "magnitude": 0.2798,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -800,7 +800,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:02488f041ba5feb8f9c3dd5beadd973c131462b0beb30adf6027406e8ebf168a"
+    "snapshot_id": "sha256:2107a3651db976d01c6e542933042c5321fc45136148b24f59d4ed6b50001263"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -839,11 +839,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:02488f041ba5feb8f9c3dd5beadd973c131462b0beb30adf6027406e8ebf168a",
-  "projection_compiled_at": "2026-10-16T22:09:44.950070+00:00",
+  "source_snapshot_id": "sha256:2107a3651db976d01c6e542933042c5321fc45136148b24f59d4ed6b50001263",
+  "projection_compiled_at": "2026-10-17T01:03:28.836841+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-16T22:09:44.950070+00:00",
+    "projection_compiled_at": "2026-10-17T01:03:28.836841+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -851,11 +851,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:02488f041ba5feb8f9c3dd5beadd973c131462b0beb30adf6027406e8ebf168a",
-    "compiled_at": "2026-10-16T22:09:44.950070+00:00",
+    "source_snapshot_id": "sha256:2107a3651db976d01c6e542933042c5321fc45136148b24f59d4ed6b50001263",
+    "compiled_at": "2026-10-17T01:03:28.836841+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-16T22:09:44.950070+00:00",
+      "projection_compiled_at": "2026-10-17T01:03:28.836841+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -959,9 +959,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-16T22:09:44.776035+00:00",
+          "compiled_at": "2026-10-17T01:03:28.756599+00:00",
           "last_observation": null,
-          "drift_cycles": 267
+          "drift_cycles": 268
         },
         "reason": null,
         "family": "observation_age",
@@ -1127,8 +1127,8 @@
       "entity": "CAYMAN_BVI",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 195,
-      "identity_comparable_transitions": 190,
+      "n_prospective_snapshots": 196,
+      "identity_comparable_transitions": 191,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
