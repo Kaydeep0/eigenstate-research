@@ -1,11 +1,11 @@
 {
   "entity": "CITI_TREASURY_SERVICES",
   "node": "34539544",
-  "compiled_at": "2026-10-18T10:26:19.794177+00:00",
-  "digest": "sha256:f41a05973db969c7a8073df0af7c2a34c77fe5246c862f0beee8f6eb0026a76b",
+  "compiled_at": "2026-10-18T11:05:11.964769+00:00",
+  "digest": "sha256:884199609e172f5e5a21fd2b6d0276a64ea40dcd86f9daf3b4abb72ef695bcec",
   "own_numbers": {
     "phi_s": 0.0225,
-    "kappa": 0.1492,
+    "kappa": 0.4343,
     "mass": null,
     "power": 0.02,
     "extraction": 64255.2381,
@@ -171,12 +171,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 277,
+    "level": "flag",
+    "headline": "kappa +0.301 over 278 cycles",
+    "cycles": 278,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.073,
+      "kappa": 0.2851,
       "power": 0.0,
       "extraction": 0.0,
       "boundary_score": 0.0
@@ -333,7 +333,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "CITI_TREASURY_SERVICES",
     "observed_at": null,
-    "compiled_at": "2026-10-18T10:26:19.794177+00:00",
+    "compiled_at": "2026-10-18T11:05:11.964769+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -554,9 +554,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-18T10:26:19.794177+00:00",
+        "compiled_at": "2026-10-18T11:05:11.964769+00:00",
         "last_observation": null,
-        "drift_cycles": 277
+        "drift_cycles": 278
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -766,7 +766,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1492,
+        "value": 0.4343,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -892,7 +892,7 @@
         "entity_id": "CITI_TREASURY_SERVICES",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1492,
+        "magnitude": 0.4343,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -999,7 +999,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:c4291fa0da24fc737eafe0f516a2bcb52387047a0635981497fbdfd6234fe24f"
+    "snapshot_id": "sha256:992a1ca34f0cb43396235d74dc256b47875c0d064e5f656901ad97f2868071c5"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1038,11 +1038,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:c4291fa0da24fc737eafe0f516a2bcb52387047a0635981497fbdfd6234fe24f",
-  "projection_compiled_at": "2026-10-18T10:26:19.949347+00:00",
+  "source_snapshot_id": "sha256:992a1ca34f0cb43396235d74dc256b47875c0d064e5f656901ad97f2868071c5",
+  "projection_compiled_at": "2026-10-18T11:05:12.023938+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-18T10:26:19.949347+00:00",
+    "projection_compiled_at": "2026-10-18T11:05:12.023938+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -1050,11 +1050,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:c4291fa0da24fc737eafe0f516a2bcb52387047a0635981497fbdfd6234fe24f",
-    "compiled_at": "2026-10-18T10:26:19.949347+00:00",
+    "source_snapshot_id": "sha256:992a1ca34f0cb43396235d74dc256b47875c0d064e5f656901ad97f2868071c5",
+    "compiled_at": "2026-10-18T11:05:12.023938+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-18T10:26:19.949347+00:00",
+      "projection_compiled_at": "2026-10-18T11:05:12.023938+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -1165,9 +1165,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-18T10:26:19.794177+00:00",
+          "compiled_at": "2026-10-18T11:05:11.964769+00:00",
           "last_observation": null,
-          "drift_cycles": 277
+          "drift_cycles": 278
         },
         "reason": null,
         "family": "observation_age",
@@ -1470,8 +1470,8 @@
       "entity": "CITI_TREASURY_SERVICES",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 206,
-      "identity_comparable_transitions": 200,
+      "n_prospective_snapshots": 207,
+      "identity_comparable_transitions": 201,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
