@@ -216,7 +216,7 @@
         "status": "live",
         "last_observed_at": "2026-10-18T11:01:04.836014+00:00",
         "filings": null,
-        "note": "Circle Internet Group, Inc. \u2014 438 total filings, 40 in last 90d"
+        "note": "Circle Internet Group, Inc. — 438 total filings, 40 in last 90d"
       }
     ],
     "outbound": [
@@ -399,7 +399,7 @@
         }
       }
     ],
-    "note": "PRIMARY map role \u2192 sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. \u03c3\u2089 host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
+    "note": "PRIMARY map role → sevadar:paper_id + Task 4.3 action. Empty domains means no bindable chair. σ₉ host_gated. Generic counterparty is an edge label, not a surge. domains[].cite.package_hash is the map-role cite (Stripe 1.1); not a new ledger claim."
   },
   "last_observation": {
     "available": true,
@@ -425,7 +425,7 @@
     "settlement_v2": "HOLD",
     "not_g_external": true,
     "auto_dual_ack": false,
-    "reason": "Last CONFIRMED m1_strict coverage observation occupies \u03c35 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
+    "reason": "Last CONFIRMED m1_strict coverage observation occupies σ5 (observe). CONFIRMED is sensor-status, not claim ATTESTED. Magnitude scalars withheld. Not a /api/verify pair. Dual-ack stays Host-gated."
   },
   "measurement_join": {
     "available": true,
@@ -437,7 +437,7 @@
         "parent": "CIRCLE",
         "relation": "fund_of",
         "join_rule": "issuer_instrument_v1",
-        "evidence": "topology_membership_manifest.parent_entity; NETWORK_TOPOLOGY_PROXIMITY_RINGS CIRCLE\u2192CIRCLE_RESERVE_FUND"
+        "evidence": "topology_membership_manifest.parent_entity; NETWORK_TOPOLOGY_PROXIMITY_RINGS CIRCLE→CIRCLE_RESERVE_FUND"
       },
       {
         "child": "CIRCLE_USYC",
@@ -458,7 +458,7 @@
         "parent": "CIRCLE",
         "relation": "issuer_product",
         "join_rule": "issuer_instrument_v1",
-        "evidence": "DefiLlama/SRR symbol USYC is Circle USYC; same issuer join as CIRCLE_USYC\u2192CIRCLE"
+        "evidence": "DefiLlama/SRR symbol USYC is Circle USYC; same issuer join as CIRCLE_USYC→CIRCLE"
       }
     ],
     "n_as_parent": 4,
@@ -3493,7 +3493,7 @@
         "schema_id": "geniusflow.state_identity.v0",
         "entity_id": "CIRCLE",
         "value_path": "own_numbers.phi_s",
-        "display_glyph": "\u03a6_S",
+        "display_glyph": "Φ_S",
         "magnitude": 8.1552,
         "kind": "derived",
         "family": "capital_flow_pressure",
@@ -3547,7 +3547,7 @@
         "schema_id": "geniusflow.state_identity.v0",
         "entity_id": "CIRCLE",
         "value_path": "own_numbers.kappa",
-        "display_glyph": "\u03ba",
+        "display_glyph": "κ",
         "magnitude": 0.4343,
         "kind": "derived",
         "family": "entity_physics_kappa",
@@ -3747,24 +3747,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:e05da137baf3e5bf9434f688a276f2a374b457a51d144a1a60d91e5d0c54bbcc",
-  "projection_compiled_at": "2026-10-18T13:01:50.869127+00:00",
+  "source_snapshot_id": "sha256:d5b0d20593f4419a2dda0bdf9ce1da5ed6e5b9d54e007b4a3818a488085b0f48",
+  "projection_compiled_at": "2026-10-18T13:15:57.877742+00:00",
   "freshness": {
     "source_observed_at": "2026-10-18T10:46:26.956302+00:00",
-    "projection_compiled_at": "2026-10-18T13:01:50.869127+00:00",
-    "age_seconds": 8123,
+    "projection_compiled_at": "2026-10-18T13:15:57.877742+00:00",
+    "age_seconds": 8970,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:e05da137baf3e5bf9434f688a276f2a374b457a51d144a1a60d91e5d0c54bbcc",
-    "compiled_at": "2026-10-18T13:01:50.869127+00:00",
+    "source_snapshot_id": "sha256:d5b0d20593f4419a2dda0bdf9ce1da5ed6e5b9d54e007b4a3818a488085b0f48",
+    "compiled_at": "2026-10-18T13:15:57.877742+00:00",
     "freshness": {
       "source_observed_at": "2026-10-18T10:46:26.956302+00:00",
-      "projection_compiled_at": "2026-10-18T13:01:50.869127+00:00",
-      "age_seconds": 8123,
+      "projection_compiled_at": "2026-10-18T13:15:57.877742+00:00",
+      "age_seconds": 8970,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -3886,20 +3886,8 @@
     },
     "field": {
       "position": {
-        "status": "DERIVED",
-        "value": {
-          "power_components": {
-            "capital": 1,
-            "infrastructure": 2,
-            "information": 11,
-            "thread_product": 0.02037,
-            "balance": 0.733
-          },
-          "monetary_position": {
-            "position": 0.524,
-            "well": "fiat"
-          }
-        },
+        "status": "UNKNOWN",
+        "value": null,
         "reason": null,
         "family": "structural_position",
         "source": "own_numbers.power_components|monetary_position",
@@ -3916,7 +3904,7 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-18T13:01:50.513361+00:00",
+          "compiled_at": "2026-10-18T13:15:57.129291+00:00",
           "last_observation": "2026-10-18T10:46:26.956302+00:00",
           "drift_cycles": 278
         },
@@ -3945,8 +3933,8 @@
       "projection": true,
       "embedded_in_field_state": false,
       "feeds_qpo": false,
-      "supported": 5,
-      "unknown": 1,
+      "supported": 3,
+      "unknown": 3,
       "withheld": 2,
       "broken_pipe": 0,
       "not_wired": 1,
@@ -3956,134 +3944,31 @@
         "attested": 3
       },
       "aliases": {
-        "supported": 5,
+        "supported": 3,
         "unsupported": 1,
-        "unknown": 1,
+        "unknown": 3,
         "withheld": 2,
         "broken_pipe": 0,
         "not_wired": 1,
         "stale": 0,
         "incomparable": 1,
-        "relationship_gap": 10
+        "relationship_gap": 0
       },
       "slots_by_class": {
-        "KNOWN_CURRENT": 5,
+        "KNOWN_CURRENT": 3,
         "KNOWN_STALE": 0,
-        "KNOWN_MISSING": 1,
+        "KNOWN_MISSING": 3,
         "KNOWN_INCOMPARABLE": 1,
         "BROKEN_PIPE": 0,
         "NOT_WIRED": 1,
         "NOT_SUPPORTED": 1,
         "WITHHELD": 2,
-        "RELATIONSHIP_GAP": 10,
+        "RELATIONSHIP_GAP": 0,
         "UNKNOWN": 0
       },
       "note": "aliases map existing gap-map classes for machines. They are not a new taxonomy. Gap map is not embedded in Field State."
     },
-    "relationships": {
-      "in_degree": 7,
-      "out_degree": 7,
-      "by_vector": {
-        "Capital": {
-          "out": 0.5,
-          "in": 0.0
-        },
-        "Infrastructure": {
-          "out": 1.0,
-          "in": 0.0
-        },
-        "Information": {
-          "out": 2.0,
-          "in": 3.0165
-        }
-      },
-      "top_inbound": [
-        {
-          "source": "BLACKROCK",
-          "conn_type": "information_flow",
-          "vector": "Information"
-        },
-        {
-          "source": "JEREMY_ALLAIRE",
-          "conn_type": "information_flow",
-          "vector": "Information"
-        },
-        {
-          "source": "STABLECOIN_POOL",
-          "conn_type": "information_flow",
-          "vector": "Information"
-        },
-        {
-          "source": "CUMBERLAND",
-          "conn_type": "information_flow",
-          "vector": "Information"
-        },
-        {
-          "source": "RWA_SOLVES_YIELD",
-          "conn_type": "information_flow",
-          "vector": "Information"
-        }
-      ],
-      "top_outbound": [
-        {
-          "target": "US_JURISDICTION",
-          "conn_type": "information_flow",
-          "vector": "Information"
-        },
-        {
-          "target": "CIRCLE_RESERVE_FUND",
-          "conn_type": "information_flow",
-          "vector": "Information"
-        },
-        {
-          "target": "BNY_MELLON",
-          "conn_type": "custody",
-          "vector": "Infrastructure"
-        },
-        {
-          "target": "JPMORGAN",
-          "conn_type": "information_flow",
-          "vector": "Information"
-        },
-        {
-          "target": "TREASURY_MARKET",
-          "conn_type": "custody",
-          "vector": "Infrastructure"
-        }
-      ],
-      "gravity_pairs": [
-        {
-          "entity": "JPMORGAN",
-          "mass": 97.0,
-          "hops": 1,
-          "pull": 3.88
-        },
-        {
-          "entity": "CITIGROUP",
-          "mass": 93.0,
-          "hops": 1,
-          "pull": 3.72
-        },
-        {
-          "entity": "BLACKROCK",
-          "mass": 84.0,
-          "hops": 1,
-          "pull": 3.36
-        },
-        {
-          "entity": "US_JURISDICTION",
-          "mass": 53.03,
-          "hops": 1,
-          "pull": 2.1212
-        },
-        {
-          "entity": "SEC",
-          "mass": 117.0,
-          "hops": 2,
-          "pull": 1.17
-        }
-      ]
-    },
+    "relationships": {},
     "relationship_state": [
       {
         "target": "BLACKROCK",
@@ -4249,24 +4134,24 @@
     "knowledge_gaps": {
       "href": "/api/dossier?entity=CIRCLE&view=gaps",
       "summary": {
-        "n": 21,
+        "n": 11,
         "by_class": {
-          "KNOWN_CURRENT": 5,
+          "KNOWN_CURRENT": 3,
           "KNOWN_STALE": 0,
-          "KNOWN_MISSING": 1,
+          "KNOWN_MISSING": 3,
           "KNOWN_INCOMPARABLE": 1,
           "BROKEN_PIPE": 0,
           "NOT_WIRED": 1,
           "NOT_SUPPORTED": 1,
           "WITHHELD": 2,
-          "RELATIONSHIP_GAP": 10,
+          "RELATIONSHIP_GAP": 0,
           "UNKNOWN": 0
         },
         "by_dimension": {
           "CLAIM": 1,
           "CURRENT_MEASUREMENT": 5,
           "TEMPORAL": 2,
-          "RELATIONSHIP": 10,
+          "RELATIONSHIP": 0,
           "CAPITAL": 2,
           "INFRASTRUCTURE": 0,
           "PROVENANCE": 1,
@@ -4309,7 +4194,7 @@
       "generators": [
         {
           "id": "engine.dispatch.content_adapter._phi_s_label",
-          "status": "DERIVED",
+          "status": "UNKNOWN",
           "field": "phi_s_label"
         }
       ],
@@ -4322,8 +4207,8 @@
           "editorial": false,
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
-            "status": "DERIVED",
-            "value": "critical pressure"
+            "status": "UNKNOWN",
+            "value": null
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
