@@ -1,7 +1,7 @@
 {
   "schema": "eigenstate.pages_sot.v1",
   "sot_definition": "SoT (source of truth) for Host/Pages is the engine measurement state: workspace/HOST/state.json (κ, PT, parkash stamps), M1 coverage from the coverage ledger (m1_strict ∩ topology / 199), and the host predictions register for scored claims. Website tiles must bake from this stamp — not frozen marketing HTML.",
-  "generated_at": "2026-10-18T04:05:02.750999+00:00",
+  "generated_at": "2026-10-18T04:18:47.370589+00:00",
   "sources": {
     "host_ref": "workspace/HOST/state.json",
     "host_updated_at": "2026-10-18T02:52:08.882313+00:00",
@@ -15,9 +15,9 @@
     "kappa_act": 0.518526,
     "kappa_graph": 0.6682,
     "kappa_note": "kappa and kappa_act are the capture/act blend. kappa_graph is topology diagnostic.",
-    "protocol_truth": 0.004991,
-    "PT": 0.004991,
-    "G_external_cumulative": 472.12,
+    "protocol_truth": 0.007089,
+    "PT": 0.007089,
+    "G_external_cumulative": 477.12,
     "mode": "sahaj",
     "canonical_act_threshold": 0.618034
   },
@@ -38,7 +38,7 @@
   },
   "vault_at_export": {
     "note": "cycle_vault_records.json is a trimmed working buffer. Per-entity counts here are vault@export rows — not M1 lifetime observations.",
-    "total_rows": 64,
+    "total_rows": 67,
     "entities_with_rows": 49,
     "by_entity": {
       "UNISWAP": 4,
@@ -63,10 +63,10 @@
       "TOKENIZED_TREASURY": 1,
       "ETHEREUM": 2,
       "BASE": 1,
-      "FARCASTER": 1,
+      "FARCASTER": 2,
       "FIDELITY": 1,
       "X": 1,
-      "US_JURISDICTION": 1,
+      "US_JURISDICTION": 2,
       "BNY_MELLON": 1,
       "CANTON_NETWORK": 1,
       "DTCC": 1,
@@ -74,7 +74,7 @@
       "BAFIN": 1,
       "HKMA": 1,
       "JFSA": 1,
-      "FED": 2,
+      "FED": 3,
       "OCC": 1,
       "CFTC": 1,
       "REG_D": 2,
@@ -292,12 +292,6 @@
     "34539544": 1
   },
   "pt_kappa_series": [
-    {
-      "cycle_id": 166,
-      "t_close": "2026-09-19T20:17:19.821560+00:00",
-      "PT": 0.016171,
-      "kappa": 0.08463
-    },
     {
       "cycle_id": 167,
       "t_close": "2026-09-19T23:38:59.908111+00:00",
@@ -1011,6 +1005,12 @@
       "t_close": "2026-10-18T00:44:14.411053+00:00",
       "PT": 0.007703,
       "kappa": 0.201966
+    },
+    {
+      "cycle_id": 286,
+      "t_close": "2026-10-18T04:08:18.110493+00:00",
+      "PT": 0.004991,
+      "kappa": 0.154163
     }
   ],
   "predictions_scoreboard": {
@@ -1269,9 +1269,9 @@
     }
   ],
   "helix": {
-    "index": 16537,
+    "index": 16540,
     "fingerprint_prefix": null,
-    "n_entries": 16538,
+    "n_entries": 16541,
     "note": "Local helix chain tip at export — on-chain commits remain gated."
   },
   "meta": {
