@@ -1,12 +1,12 @@
 # Measured ledgers, and every time each one was published
 
-Generated 2026-09-20T11:00:09.287191+00:00 · tool ledger_refresh v1.0.0 · digest `d1f243c5fa38293b`
+Generated 2026-10-18T11:00:58.482966+00:00 · tool ledger_refresh v1.0.0 · digest `ebfcffff3e9c3fcc`
 
 A ledger published once is a snapshot dressed as a standing claim. This page is the
 correction: one row per publication, kept append only, so a reader can see whether a
 number held when the same probe was pointed at the same population a second time.
 
-5 ledgers indexed · 19 runs on record ·
+5 ledgers indexed · 20 runs on record ·
 0 still have a single run and are labelled as snapshots ·
 4 headline counters moved on the latest refresh,
 of which 1 rate comparisons still have overlapping intervals.
@@ -83,13 +83,14 @@ Re-run it yourself:
 
 ### Real world asset disclosure interface survey
 
-`/rwa/` · unit of measurement: one issuer · 3 run(s) on record
+`/rwa/` · unit of measurement: one issuer · 4 run(s) on record
 
 | run | generated at | probe | digest | headline counters |
 | --- | --- | --- | --- | --- |
 | 1 | 2026-08-02T04:34:38.790773+00:00 | 1.0.2 | `ce9c3eb42c04` | full_admit 0, full_refuse 17, must_admit 2, must_refuse 15 |
 | 2 | 2026-08-02T05:43:24.872498+00:00 | 1.0.2 | `e4d5d4e38e70` | full_admit 0, full_refuse 17, must_admit 2, must_refuse 15 |
 | 3 | 2026-08-04T06:40:35.489850+00:00 | 1.0.2 | `284402e11fbf` | full_admit 0, full_refuse 17, must_admit 2, must_refuse 15 |
+| 4 | 2026-10-18T11:00:58.225993+00:00 | 1.0.2 | `3e8756b2227e` | full_admit 0, full_refuse 17, must_admit 2, must_refuse 15 |
 
 Comparing two runs of this ledger: The population is frozen in the expectations file and identical across runs, so a count that moves is an issuer that changed what it serves. Still not a sector rate: the population is what this node already tracks.
 

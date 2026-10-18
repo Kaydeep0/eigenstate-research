@@ -4,15 +4,17 @@
   "segment_role": "instrument",
   "in_population_because": "this node exports a public dossier card for BLACKROCK_BUIDL and it is a real world asset instrument",
   "dossier": "https://kaydeep0.github.io/eigenstate-research/dossier/blackrock_buidl/",
-  "probed_at": "2026-08-04T06:40:34.226179+00:00",
+  "probed_at": "2026-10-18T11:00:56.703353+00:00",
   "must_admit": true,
   "full_admit": false,
   "failed_limbs": [
+    "figure_addressable_by_key_path",
+    "as_of_date_present",
     "issuer_operated_surface",
     "registry_ref_present"
   ],
-  "refuse_limb": "issuer_operated_surface",
-  "refuse_reason": "issuer_operated_surface:surface_is_third_party:llama.fi",
+  "refuse_limb": "figure_addressable_by_key_path",
+  "refuse_reason": "figure_addressable_by_key_path:no_numeric_value_under_a_quantity_key",
   "attribution": "issuer",
   "machine_readable_surface_exists": true,
   "issuer_operated_machine_readable_surface_exists": false,
@@ -31,7 +33,7 @@
       "detail": {
         "url": "https://api.llama.fi/protocol/blackrock-buidl",
         "http_status": 200,
-        "bytes": 825345
+        "bytes": 1022
       }
     },
     "machine_readable_media_type": {
@@ -49,19 +51,14 @@
       }
     },
     "figure_addressable_by_key_path": {
-      "status": "ok",
-      "detail": {
-        "key_path": "$.chainTvls.Ethereum.tvl[0].totalLiquidityUSD",
-        "key": "totalLiquidityUSD",
-        "value": 491830738.0
-      }
+      "status": "fail",
+      "reason": "no_numeric_value_under_a_quantity_key"
     },
     "as_of_date_present": {
-      "status": "ok",
+      "status": "fail",
+      "reason": "no_as_of_date_on_the_surface",
       "detail": {
-        "key_path": "$.chainTvls.Ethereum.tvl[0].date",
-        "key": "date",
-        "value": 1720224000
+        "note": "the surface serves a number with no time attached to it"
       }
     },
     "issuer_operated_surface": {
@@ -99,25 +96,17 @@
       "known_aggregator": true,
       "http_status": 200,
       "transport_error": null,
-      "bytes": 825345,
+      "bytes": 1022,
       "content_type_header": "application/json",
-      "reach": 6,
+      "reach": 4,
       "resolves": true,
       "media_type_sniffed": "json",
       "header_disagrees_with_bytes": false,
       "machine_readable": true,
       "truncated_at_probe_cap": false,
       "parses": true,
-      "quantity": {
-        "key_path": "$.chainTvls.Ethereum.tvl[0].totalLiquidityUSD",
-        "key": "totalLiquidityUSD",
-        "value": 491830738.0
-      },
-      "as_of": {
-        "key_path": "$.chainTvls.Ethereum.tvl[0].date",
-        "key": "date",
-        "value": 1720224000
-      },
+      "quantity": null,
+      "as_of": null,
       "registry_refs": {
         "caip10": [],
         "evm_addresses": [],
@@ -131,6 +120,6 @@
   ],
   "conventional_paths_probed": [],
   "ledger": "https://geniusflow-federation.vercel.app/rwa/ledger.json",
-  "ledger_digest": "284402e11fbfa905afd3c8a97924759d08e914b27e727bb08ced2c365725f028",
+  "ledger_digest": "3e8756b2227e0b30d4777e682a0dfb0d464e21488ff7936f50551eca10e3adc6",
   "expectations_digest": "28961d5d66629b9a0d370b1331bd7b7b66f7c857d78a47145e29567c7c7aef1a"
 }

@@ -1,6 +1,6 @@
 # RWA disclosure interface conformance survey
 
-Generated 2026-08-04T06:40:35.489850+00:00 · probe v1.0.2 · digest `284402e11fbfa905`
+Generated 2026-10-18T11:00:58.225993+00:00 · probe v1.0.2 · digest `3e8756b2227e0b30`
 
 The population, every candidate surface, the admit rule for each limb and the five predictions were published before this run at digest `28961d5d66629b9a`, in an earlier commit. Nothing in that file was edited afterwards.
 
@@ -31,14 +31,14 @@ This engine's sensor grounding file records the same gap in its own notes for a 
 
 - `disclosure_surface_declared`: first failing limb for 11 of 17
 - `machine_readable_media_type`: first failing limb for 4 of 17
-- `issuer_operated_surface`: first failing limb for 1 of 17
+- `figure_addressable_by_key_path`: first failing limb for 1 of 17
 - `as_of_date_present`: first failing limb for 1 of 17
 
 Most common named reasons:
 
 - `disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node`: 11
 - `machine_readable_media_type:html_document`: 4
-- `issuer_operated_surface:surface_is_third_party:llama.fi`: 1
+- `figure_addressable_by_key_path:no_numeric_value_under_a_quantity_key`: 1
 - `as_of_date_present:no_as_of_date_on_the_surface`: 1
 
 ## Limbs
@@ -49,8 +49,8 @@ Each limb is reported separately so a refusal names which one failed. `not_reach
 - `surface_resolves` (MUST): ok 6, fail 0, not applicable 0, absent 0, not reached 11
 - `machine_readable_media_type` (MUST): ok 2, fail 4, not applicable 0, absent 0, not reached 11
 - `body_parses_as_served_type` (MUST): ok 2, fail 0, not applicable 0, absent 0, not reached 15
-- `figure_addressable_by_key_path` (SHOULD): ok 2, fail 0, not applicable 0, absent 0, not reached 15
-- `as_of_date_present` (SHOULD): ok 1, fail 1, not applicable 0, absent 0, not reached 15
+- `figure_addressable_by_key_path` (SHOULD): ok 1, fail 1, not applicable 0, absent 0, not reached 15
+- `as_of_date_present` (SHOULD): ok 0, fail 2, not applicable 0, absent 0, not reached 15
 - `issuer_operated_surface` (SHOULD): ok 0, fail 2, not applicable 0, absent 0, not reached 15
 - `registry_ref_present` (OBSERVED): ok 1, fail 1, not applicable 0, absent 0, not reached 15
 - `registry_ref_chain_qualified` (OBSERVED): ok 0, fail 1, not applicable 0, absent 0, not reached 16

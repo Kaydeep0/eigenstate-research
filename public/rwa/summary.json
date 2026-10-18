@@ -1,8 +1,8 @@
 {
   "probe": "rwa_disclosure_interface_survey",
   "probe_version": "1.0.2",
-  "generated_at": "2026-08-04T06:40:35.489850+00:00",
-  "digest": "284402e11fbfa905afd3c8a97924759d08e914b27e727bb08ced2c365725f028",
+  "generated_at": "2026-10-18T11:00:58.225993+00:00",
+  "digest": "3e8756b2227e0b30d4777e682a0dfb0d464e21488ff7936f50551eca10e3adc6",
   "expectations_digest": "28961d5d66629b9a0d370b1331bd7b7b66f7c857d78a47145e29567c7c7aef1a",
   "expectations_generated_at": "2026-08-02T04:28:11.184875+00:00",
   "expectations": "https://geniusflow-federation.vercel.app/rwa/expectations.json",
@@ -131,13 +131,13 @@
   "refuse_limb_counts": {
     "disclosure_surface_declared": 11,
     "machine_readable_media_type": 4,
-    "issuer_operated_surface": 1,
+    "figure_addressable_by_key_path": 1,
     "as_of_date_present": 1
   },
   "top_refuse_reasons": {
     "disclosure_surface_declared:no_disclosure_surface_recorded_by_this_node": 11,
     "machine_readable_media_type:html_document": 4,
-    "issuer_operated_surface:surface_is_third_party:llama.fi": 1,
+    "figure_addressable_by_key_path:no_numeric_value_under_a_quantity_key": 1,
     "as_of_date_present:no_as_of_date_on_the_surface": 1
   },
   "limb_outcomes": {
@@ -170,15 +170,15 @@
       "not_reached": 15
     },
     "figure_addressable_by_key_path": {
-      "ok": 2,
-      "fail": 0,
+      "ok": 1,
+      "fail": 1,
       "not_applicable": 0,
       "absent": 0,
       "not_reached": 15
     },
     "as_of_date_present": {
-      "ok": 1,
-      "fail": 1,
+      "ok": 0,
+      "fail": 2,
       "not_applicable": 0,
       "absent": 0,
       "not_reached": 15
@@ -444,8 +444,8 @@
       "segment_role": "instrument",
       "must_admit": true,
       "full_admit": false,
-      "refuse_limb": "issuer_operated_surface",
-      "refuse_reason": "issuer_operated_surface:surface_is_third_party:llama.fi",
+      "refuse_limb": "figure_addressable_by_key_path",
+      "refuse_reason": "figure_addressable_by_key_path:no_numeric_value_under_a_quantity_key",
       "attribution": "issuer",
       "machine_readable_surface_exists": true,
       "issuer_operated_machine_readable_surface_exists": false,
