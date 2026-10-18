@@ -1,11 +1,11 @@
 {
   "entity": "STANDARD_OIL",
   "node": "34539544",
-  "compiled_at": "2026-10-18T16:02:46.302138+00:00",
-  "digest": "sha256:0ca0de9fb233f3a3ef81647fda4d0237745645d5b5da90c5694b51655de02892",
+  "compiled_at": "2026-10-18T17:51:48.634374+00:00",
+  "digest": "sha256:5947958360c1d72a9baa72b61c12af65a8f137e9d1c571b96327da91946c9c22",
   "own_numbers": {
     "phi_s": 0.06,
-    "kappa": 0.0793,
+    "kappa": 0.4343,
     "mass": null,
     "power": null,
     "extraction": null,
@@ -66,12 +66,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 279,
+    "level": "flag",
+    "headline": "kappa +0.422 over 280 cycles",
+    "cycles": 280,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.355,
+      "kappa": 0.355,
       "boundary_score": 0.0
     }
   },
@@ -220,7 +220,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "STANDARD_OIL",
     "observed_at": null,
-    "compiled_at": "2026-10-18T16:02:46.302138+00:00",
+    "compiled_at": "2026-10-18T17:51:48.634374+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -386,9 +386,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-18T16:02:46.302138+00:00",
+        "compiled_at": "2026-10-18T17:51:48.634374+00:00",
         "last_observation": null,
-        "drift_cycles": 279
+        "drift_cycles": 280
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -550,7 +550,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0793,
+        "value": 0.4343,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -676,7 +676,7 @@
         "entity_id": "STANDARD_OIL",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0793,
+        "magnitude": 0.4343,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -783,7 +783,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:f29a4fffec69ec489c6e5bf093e422356c84c4a2244a49ea24e7af96a13e6b68"
+    "snapshot_id": "sha256:b60be4a3873ecaf94b0b003d3c8e06ea2e91394baa67e993dda3a18724d7a8af"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -822,11 +822,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:f29a4fffec69ec489c6e5bf093e422356c84c4a2244a49ea24e7af96a13e6b68",
-  "projection_compiled_at": "2026-10-18T16:02:46.358866+00:00",
+  "source_snapshot_id": "sha256:b60be4a3873ecaf94b0b003d3c8e06ea2e91394baa67e993dda3a18724d7a8af",
+  "projection_compiled_at": "2026-10-18T17:51:48.692544+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-18T16:02:46.358866+00:00",
+    "projection_compiled_at": "2026-10-18T17:51:48.692544+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -834,11 +834,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:f29a4fffec69ec489c6e5bf093e422356c84c4a2244a49ea24e7af96a13e6b68",
-    "compiled_at": "2026-10-18T16:02:46.358866+00:00",
+    "source_snapshot_id": "sha256:b60be4a3873ecaf94b0b003d3c8e06ea2e91394baa67e993dda3a18724d7a8af",
+    "compiled_at": "2026-10-18T17:51:48.692544+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-18T16:02:46.358866+00:00",
+      "projection_compiled_at": "2026-10-18T17:51:48.692544+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -942,9 +942,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-18T16:02:46.302138+00:00",
+          "compiled_at": "2026-10-18T17:51:48.634374+00:00",
           "last_observation": null,
-          "drift_cycles": 279
+          "drift_cycles": 280
         },
         "reason": null,
         "family": "observation_age",
@@ -1089,8 +1089,8 @@
       "entity": "STANDARD_OIL",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 207,
-      "identity_comparable_transitions": 202,
+      "n_prospective_snapshots": 208,
+      "identity_comparable_transitions": 203,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

@@ -1,11 +1,11 @@
 {
   "entity": "COINGECKO_DATA",
   "node": "34539544",
-  "compiled_at": "2026-10-18T16:02:30.370318+00:00",
-  "digest": "sha256:a25e977ba596bbe4c33dd70b1b307f59cacfa4521a05ef16f73e1d44d268fefd",
+  "compiled_at": "2026-10-18T17:51:31.887859+00:00",
+  "digest": "sha256:0f595f5453f9f11c89f8fe08b3e30c190772958c42da5dce576b1c0c911e52e4",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0793,
+    "kappa": 0.4343,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -68,12 +68,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 279,
+    "level": "flag",
+    "headline": "kappa +0.422 over 280 cycles",
+    "cycles": 280,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.355,
+      "kappa": 0.355,
       "boundary_score": 0.0
     }
   },
@@ -104,8 +104,8 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-10-18T15:56:37.348260+00:00",
-      "last_delta_i": 0.0014189338854783472,
+      "last_observed_at": "2026-10-18T16:12:17.854272+00:00",
+      "last_delta_i": 0.0014191893089025257,
       "stale": false
     }
   },
@@ -222,7 +222,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "COINGECKO_DATA",
     "observed_at": null,
-    "compiled_at": "2026-10-18T16:02:30.370318+00:00",
+    "compiled_at": "2026-10-18T17:51:31.887859+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -396,9 +396,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-18T16:02:30.370318+00:00",
+        "compiled_at": "2026-10-18T17:51:31.887859+00:00",
         "last_observation": null,
-        "drift_cycles": 279
+        "drift_cycles": 280
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -568,7 +568,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0793,
+        "value": 0.4343,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -694,7 +694,7 @@
         "entity_id": "COINGECKO_DATA",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0793,
+        "magnitude": 0.4343,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -801,7 +801,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:d188b862b4466b6aa7a4ec5c063df62b9199201aa2f62703de15e451bd3b16ae"
+    "snapshot_id": "sha256:a1ead38d61933e0cbb40559ebc2e17940d471392421abbf6cc5b02ad36288fea"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -840,11 +840,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:d188b862b4466b6aa7a4ec5c063df62b9199201aa2f62703de15e451bd3b16ae",
-  "projection_compiled_at": "2026-10-18T16:02:30.426089+00:00",
+  "source_snapshot_id": "sha256:a1ead38d61933e0cbb40559ebc2e17940d471392421abbf6cc5b02ad36288fea",
+  "projection_compiled_at": "2026-10-18T17:51:31.945924+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-18T16:02:30.426089+00:00",
+    "projection_compiled_at": "2026-10-18T17:51:31.945924+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -852,11 +852,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:d188b862b4466b6aa7a4ec5c063df62b9199201aa2f62703de15e451bd3b16ae",
-    "compiled_at": "2026-10-18T16:02:30.426089+00:00",
+    "source_snapshot_id": "sha256:a1ead38d61933e0cbb40559ebc2e17940d471392421abbf6cc5b02ad36288fea",
+    "compiled_at": "2026-10-18T17:51:31.945924+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-18T16:02:30.426089+00:00",
+      "projection_compiled_at": "2026-10-18T17:51:31.945924+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -960,9 +960,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-18T16:02:30.370318+00:00",
+          "compiled_at": "2026-10-18T17:51:31.887859+00:00",
           "last_observation": null,
-          "drift_cycles": 279
+          "drift_cycles": 280
         },
         "reason": null,
         "family": "observation_age",
@@ -1129,8 +1129,8 @@
       "entity": "COINGECKO_DATA",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 207,
-      "identity_comparable_transitions": 202,
+      "n_prospective_snapshots": 208,
+      "identity_comparable_transitions": 203,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

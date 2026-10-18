@@ -1,11 +1,11 @@
 {
   "entity": "FIREBLOCKS",
   "node": "34539544",
-  "compiled_at": "2026-10-18T16:02:35.344357+00:00",
-  "digest": "sha256:c52fcfe3216a55334cb6de16415b0f3d503c76e75d11289051eae82f8dd2a422",
+  "compiled_at": "2026-10-18T17:51:37.101886+00:00",
+  "digest": "sha256:c7fb1a943ada21d783b45cc9c8eb13af6467b7818ee59f26df5aadfc126efe96",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0793,
+    "kappa": 0.4343,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -67,12 +67,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 279,
+    "level": "flag",
+    "headline": "kappa +0.410 over 280 cycles",
+    "cycles": 280,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.355,
+      "kappa": 0.355,
       "boundary_score": 0.0
     }
   },
@@ -221,7 +221,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "FIREBLOCKS",
     "observed_at": null,
-    "compiled_at": "2026-10-18T16:02:35.344357+00:00",
+    "compiled_at": "2026-10-18T17:51:37.101886+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -395,9 +395,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-18T16:02:35.344357+00:00",
+        "compiled_at": "2026-10-18T17:51:37.101886+00:00",
         "last_observation": null,
-        "drift_cycles": 279
+        "drift_cycles": 280
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -567,7 +567,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0793,
+        "value": 0.4343,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -693,7 +693,7 @@
         "entity_id": "FIREBLOCKS",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0793,
+        "magnitude": 0.4343,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -800,7 +800,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:3266356e84b494072cfc3563bacb0131aa154d6ddb2cf3846c4591182eb63b0b"
+    "snapshot_id": "sha256:55306f95d112d883fd472f2a3e60ea7ce449484da9f802535ce9bb9dfa7613ee"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -839,11 +839,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:3266356e84b494072cfc3563bacb0131aa154d6ddb2cf3846c4591182eb63b0b",
-  "projection_compiled_at": "2026-10-18T16:02:35.400419+00:00",
+  "source_snapshot_id": "sha256:55306f95d112d883fd472f2a3e60ea7ce449484da9f802535ce9bb9dfa7613ee",
+  "projection_compiled_at": "2026-10-18T17:51:37.159339+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-18T16:02:35.400419+00:00",
+    "projection_compiled_at": "2026-10-18T17:51:37.159339+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -851,11 +851,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:3266356e84b494072cfc3563bacb0131aa154d6ddb2cf3846c4591182eb63b0b",
-    "compiled_at": "2026-10-18T16:02:35.400419+00:00",
+    "source_snapshot_id": "sha256:55306f95d112d883fd472f2a3e60ea7ce449484da9f802535ce9bb9dfa7613ee",
+    "compiled_at": "2026-10-18T17:51:37.159339+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-18T16:02:35.400419+00:00",
+      "projection_compiled_at": "2026-10-18T17:51:37.159339+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -959,9 +959,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-18T16:02:35.344357+00:00",
+          "compiled_at": "2026-10-18T17:51:37.101886+00:00",
           "last_observation": null,
-          "drift_cycles": 279
+          "drift_cycles": 280
         },
         "reason": null,
         "family": "observation_age",
@@ -1127,8 +1127,8 @@
       "entity": "FIREBLOCKS",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 207,
-      "identity_comparable_transitions": 202,
+      "n_prospective_snapshots": 208,
+      "identity_comparable_transitions": 203,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
