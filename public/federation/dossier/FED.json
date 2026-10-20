@@ -1,11 +1,11 @@
 {
   "entity": "FED",
   "node": "34539544",
-  "compiled_at": "2026-10-20T04:02:34.497482+00:00",
-  "digest": "sha256:5e89fc209c34ebbd0b859dec4a1691c17857e8f1aefff43181d48e94405661e3",
+  "compiled_at": "2026-10-20T05:59:00.107124+00:00",
+  "digest": "sha256:ce6afc06be0ba7ce3cd112f24695e9bedc63e465f2b6e6d63efa437d422fab8a",
   "own_numbers": {
-    "phi_s": 0.8314,
-    "kappa": 0.34,
+    "phi_s": 2.4495,
+    "kappa": 0.1523,
     "mass": 0.353753,
     "power": 0.0,
     "extraction": 554920.6349,
@@ -202,11 +202,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "extraction +101% over 286 cycles",
-    "cycles": 286,
+    "headline": "phi_s +273% over 287 cycles",
+    "cycles": 287,
     "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": 0.2074,
+      "phi_s": 1.6181,
+      "kappa": -0.1877,
       "power": 0.0,
       "extraction": 0.0,
       "gravity_mass": 0.0,
@@ -223,7 +223,7 @@
         "status": "live",
         "series_id": "M2SL",
         "label": "m2_billions",
-        "last_observed_at": "2026-10-20T02:15:03.409941+00:00",
+        "last_observed_at": "2026-10-20T05:38:40.275207+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -419,10 +419,10 @@
     "cite_class": "citeable",
     "source": "federal_reserve_h41",
     "wire": "primary_m1_regulators",
-    "ts": "2026-10-19T19:26:25.914891+00:00",
-    "write_reason": "change_403.9pct",
+    "ts": "2026-10-20T05:39:58.260146+00:00",
+    "write_reason": "first_observation",
     "source_url": null,
-    "vault_row_ref": "vault:133:FED:federal_reserve_h41:2026-10-19T19:26:25.914891+00:00",
+    "vault_row_ref": "vault:133:FED:federal_reserve_h41:2026-10-20T05:39:58.260146+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -462,8 +462,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "FED",
-    "observed_at": "2026-10-19T19:26:25.914891+00:00",
-    "compiled_at": "2026-10-20T04:02:34.497482+00:00",
+    "observed_at": "2026-10-20T05:39:58.260146+00:00",
+    "compiled_at": "2026-10-20T05:59:00.107124+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -750,9 +750,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-20T04:02:34.497482+00:00",
-        "last_observation": "2026-10-19T19:26:25.914891+00:00",
-        "drift_cycles": 286
+        "compiled_at": "2026-10-20T05:59:00.107124+00:00",
+        "last_observation": "2026-10-20T05:39:58.260146+00:00",
+        "drift_cycles": 287
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -1011,7 +1011,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 0.8314,
+        "value": 2.4495,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -1028,7 +1028,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.34,
+        "value": 0.1523,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1076,7 +1076,7 @@
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
           "status": "DERIVED",
-          "value": "elevated pressure"
+          "value": "high pressure"
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -1100,7 +1100,7 @@
         "entity_id": "FED",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 0.8314,
+        "magnitude": 2.4495,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -1154,7 +1154,7 @@
         "entity_id": "FED",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.34,
+        "magnitude": 0.1523,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1261,7 +1261,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:3195d99cb318033493963363249993e63a9cf6e0555f58c4b734eb8f90dae45a"
+    "snapshot_id": "sha256:1f881c2ee1b6dae2f097d599383656595e6d33a3a5feca5d86b91f395ae5aefc"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1300,24 +1300,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:3195d99cb318033493963363249993e63a9cf6e0555f58c4b734eb8f90dae45a",
-  "projection_compiled_at": "2026-10-20T04:02:34.554092+00:00",
+  "source_snapshot_id": "sha256:1f881c2ee1b6dae2f097d599383656595e6d33a3a5feca5d86b91f395ae5aefc",
+  "projection_compiled_at": "2026-10-20T05:59:00.164948+00:00",
   "freshness": {
-    "source_observed_at": "2026-10-19T19:26:25.914891+00:00",
-    "projection_compiled_at": "2026-10-20T04:02:34.554092+00:00",
-    "age_seconds": 30968,
+    "source_observed_at": "2026-10-20T05:39:58.260146+00:00",
+    "projection_compiled_at": "2026-10-20T05:59:00.164948+00:00",
+    "age_seconds": 1141,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:3195d99cb318033493963363249993e63a9cf6e0555f58c4b734eb8f90dae45a",
-    "compiled_at": "2026-10-20T04:02:34.554092+00:00",
+    "source_snapshot_id": "sha256:1f881c2ee1b6dae2f097d599383656595e6d33a3a5feca5d86b91f395ae5aefc",
+    "compiled_at": "2026-10-20T05:59:00.164948+00:00",
     "freshness": {
-      "source_observed_at": "2026-10-19T19:26:25.914891+00:00",
-      "projection_compiled_at": "2026-10-20T04:02:34.554092+00:00",
-      "age_seconds": 30968,
+      "source_observed_at": "2026-10-20T05:39:58.260146+00:00",
+      "projection_compiled_at": "2026-10-20T05:59:00.164948+00:00",
+      "age_seconds": 1141,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1432,7 +1432,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-10-19T19:26:25.914891+00:00",
+      "observed_at": "2026-10-20T05:39:58.260146+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -1469,9 +1469,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-20T04:02:34.497482+00:00",
-          "last_observation": "2026-10-19T19:26:25.914891+00:00",
-          "drift_cycles": 286
+          "compiled_at": "2026-10-20T05:59:00.107124+00:00",
+          "last_observation": "2026-10-20T05:39:58.260146+00:00",
+          "drift_cycles": 287
         },
         "reason": null,
         "family": "observation_age",
@@ -1836,9 +1836,9 @@
     "observation_clock": {
       "entity": "FED",
       "first_prospective_observation": "2026-08-15T20:28:26.364160+00:00",
-      "latest_prospective_observation": "2026-10-19T19:26:25.914891+00:00",
-      "n_prospective_snapshots": 228,
-      "identity_comparable_transitions": 218,
+      "latest_prospective_observation": "2026-10-20T05:39:58.260146+00:00",
+      "n_prospective_snapshots": 229,
+      "identity_comparable_transitions": 219,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -1876,7 +1876,7 @@
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
             "status": "DERIVED",
-            "value": "elevated pressure"
+            "value": "high pressure"
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
