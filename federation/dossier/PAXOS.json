@@ -1,11 +1,11 @@
 {
   "entity": "PAXOS",
   "node": "34539544",
-  "compiled_at": "2026-10-20T19:02:13.061952+00:00",
-  "digest": "sha256:db84a169bdd40a13e73fc9971ac2f10f2a88405210efa08aefd8726af5a5891a",
+  "compiled_at": "2026-10-20T19:33:27.964349+00:00",
+  "digest": "sha256:77dae597422fd0364f73e686b7fa0381ace37b22078146d376f937580dbd75d0",
   "own_numbers": {
-    "phi_s": 1.6381,
-    "kappa": 0.1595,
+    "phi_s": 3.2562,
+    "kappa": 0.4343,
     "mass": null,
     "power": null,
     "extraction": null,
@@ -67,16 +67,16 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "kappa -0.441 over 286 cycles",
-    "cycles": 286,
+    "headline": "phi_s +101% over 287 cycles",
+    "cycles": 287,
     "delta_last_cycle": {
-      "phi_s": -1.6181,
-      "kappa": -0.2748,
+      "phi_s": 1.6181,
+      "kappa": 0.2748,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live_at_request",
+    "freshness": "live",
     "inbound": [
       {
         "network": "fred",
@@ -84,16 +84,16 @@
         "status": "live",
         "series_id": "GDP",
         "label": "stablecoin_issuer_gdp_proxy",
-        "last_observed_at": "2026-10-20T15:49:02.239688+00:00",
+        "last_observed_at": "2026-10-20T19:13:44.188991+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       },
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live_at_request",
-        "last_observed_at": "2026-10-20T15:04:58.265276+00:00",
+        "status": "live",
+        "last_observed_at": "2026-10-20T19:02:40.402000+00:00",
         "filings": null,
-        "note": "CIK 0002097647"
+        "note": "Paxos Labs Inc. \u2014 1 total filings, 0 in last 90d"
       }
     ],
     "outbound": [
@@ -246,10 +246,10 @@
     "cite_class": "citeable",
     "source": "sec_edgar",
     "wire": "sec_entities",
-    "ts": "2026-10-20T12:25:24.552246+00:00",
+    "ts": "2026-10-20T19:14:26.144123+00:00",
     "write_reason": "change_320.8pct",
     "source_url": null,
-    "vault_row_ref": "vault:123:PAXOS:sec_edgar:2026-10-20T12:25:24.552246+00:00",
+    "vault_row_ref": "vault:123:PAXOS:sec_edgar:2026-10-20T19:14:26.144123+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -281,8 +281,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "PAXOS",
-    "observed_at": "2026-10-20T12:25:24.552246+00:00",
-    "compiled_at": "2026-10-20T19:02:13.061952+00:00",
+    "observed_at": "2026-10-20T19:14:26.144123+00:00",
+    "compiled_at": "2026-10-20T19:33:27.964349+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -448,9 +448,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-20T19:02:13.061952+00:00",
-        "last_observation": "2026-10-20T12:25:24.552246+00:00",
-        "drift_cycles": 286
+        "compiled_at": "2026-10-20T19:33:27.964349+00:00",
+        "last_observation": "2026-10-20T19:14:26.144123+00:00",
+        "drift_cycles": 287
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -595,7 +595,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 1.6381,
+        "value": 3.2562,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -612,7 +612,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1595,
+        "value": 0.4343,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -684,7 +684,7 @@
         "entity_id": "PAXOS",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 1.6381,
+        "magnitude": 3.2562,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -738,7 +738,7 @@
         "entity_id": "PAXOS",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1595,
+        "magnitude": 0.4343,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -845,7 +845,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:2679b8fea5fc337c060a07a4478104fdbb84f6f8332a1a06b07a13e0a03b7299"
+    "snapshot_id": "sha256:f781f1f3a850fe2e85f451613c097e8c766f7fa38ecdbf023b6178e19b7d1fa4"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -884,24 +884,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:2679b8fea5fc337c060a07a4478104fdbb84f6f8332a1a06b07a13e0a03b7299",
-  "projection_compiled_at": "2026-10-20T19:02:13.168336+00:00",
+  "source_snapshot_id": "sha256:f781f1f3a850fe2e85f451613c097e8c766f7fa38ecdbf023b6178e19b7d1fa4",
+  "projection_compiled_at": "2026-10-20T19:33:28.024804+00:00",
   "freshness": {
-    "source_observed_at": "2026-10-20T12:25:24.552246+00:00",
-    "projection_compiled_at": "2026-10-20T19:02:13.168336+00:00",
-    "age_seconds": 23808,
+    "source_observed_at": "2026-10-20T19:14:26.144123+00:00",
+    "projection_compiled_at": "2026-10-20T19:33:28.024804+00:00",
+    "age_seconds": 1141,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:2679b8fea5fc337c060a07a4478104fdbb84f6f8332a1a06b07a13e0a03b7299",
-    "compiled_at": "2026-10-20T19:02:13.168336+00:00",
+    "source_snapshot_id": "sha256:f781f1f3a850fe2e85f451613c097e8c766f7fa38ecdbf023b6178e19b7d1fa4",
+    "compiled_at": "2026-10-20T19:33:28.024804+00:00",
     "freshness": {
-      "source_observed_at": "2026-10-20T12:25:24.552246+00:00",
-      "projection_compiled_at": "2026-10-20T19:02:13.168336+00:00",
-      "age_seconds": 23808,
+      "source_observed_at": "2026-10-20T19:14:26.144123+00:00",
+      "projection_compiled_at": "2026-10-20T19:33:28.024804+00:00",
+      "age_seconds": 1141,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -974,7 +974,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-10-20T12:25:24.552246+00:00",
+      "observed_at": "2026-10-20T19:14:26.144123+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -1004,9 +1004,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-20T19:02:13.061952+00:00",
-          "last_observation": "2026-10-20T12:25:24.552246+00:00",
-          "drift_cycles": 286
+          "compiled_at": "2026-10-20T19:33:27.964349+00:00",
+          "last_observation": "2026-10-20T19:14:26.144123+00:00",
+          "drift_cycles": 287
         },
         "reason": null,
         "family": "observation_age",
@@ -1150,9 +1150,9 @@
     "observation_clock": {
       "entity": "PAXOS",
       "first_prospective_observation": "2026-08-25T03:36:54.304256+00:00",
-      "latest_prospective_observation": "2026-10-20T12:25:24.552246+00:00",
-      "n_prospective_snapshots": 228,
-      "identity_comparable_transitions": 222,
+      "latest_prospective_observation": "2026-10-20T19:14:26.144123+00:00",
+      "n_prospective_snapshots": 229,
+      "identity_comparable_transitions": 223,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

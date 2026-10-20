@@ -1,11 +1,11 @@
 {
   "entity": "BNY_MELLON",
   "node": "34539544",
-  "compiled_at": "2026-10-20T19:01:57.741774+00:00",
-  "digest": "sha256:91e8a847cfa3ca957e99b6ff522fc69663653c4ce245111be725ce27de41f0c3",
+  "compiled_at": "2026-10-20T19:33:12.313052+00:00",
+  "digest": "sha256:612752327f997124868c79277c297bfeb30afbb6c06a3b0528618e41b352586a",
   "own_numbers": {
     "phi_s": 1.6667,
-    "kappa": 0.1595,
+    "kappa": 0.4343,
     "mass": 0.111029,
     "power": 0.17,
     "extraction": 31987.5607,
@@ -186,11 +186,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +2735% over 290 cycles",
-    "cycles": 290,
+    "headline": "phi_s +2735% over 291 cycles",
+    "cycles": 291,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.2748,
+      "kappa": 0.2748,
       "power": 0.0,
       "extraction": 0.0,
       "boundary_score": 0.0
@@ -202,10 +202,10 @@
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live_at_request",
-        "last_observed_at": "2026-10-20T15:04:58.265276+00:00",
+        "status": "live",
+        "last_observed_at": "2026-10-20T19:02:40.402000+00:00",
         "filings": null,
-        "note": "CIK 0001390777 \u2014 live on feed + parkash sensor"
+        "note": "Bank of New York Mellon Corp \u2014 4802 total filings, 40 in last 90d"
       }
     ],
     "outbound": [
@@ -421,10 +421,10 @@
     "cite_class": "citeable",
     "source": "settlement_primary_landing",
     "wire": "settlement_substrate",
-    "ts": "2026-10-20T15:49:55.514078+00:00",
-    "write_reason": "first_observation",
+    "ts": "2026-10-20T19:14:28.433923+00:00",
+    "write_reason": "change_infpct",
     "source_url": null,
-    "vault_row_ref": "vault:120:BNY_MELLON:settlement_primary_landing:2026-10-20T15:49:55.514078+00:00",
+    "vault_row_ref": "vault:128:BNY_MELLON:settlement_primary_landing:2026-10-20T19:14:28.433923+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -456,8 +456,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "BNY_MELLON",
-    "observed_at": "2026-10-20T15:49:55.514078+00:00",
-    "compiled_at": "2026-10-20T19:01:57.741774+00:00",
+    "observed_at": "2026-10-20T19:14:28.433923+00:00",
+    "compiled_at": "2026-10-20T19:33:12.313052+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -721,9 +721,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-20T19:01:57.741774+00:00",
-        "last_observation": "2026-10-20T15:49:55.514078+00:00",
-        "drift_cycles": 290
+        "compiled_at": "2026-10-20T19:33:12.313052+00:00",
+        "last_observation": "2026-10-20T19:14:28.433923+00:00",
+        "drift_cycles": 291
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -976,7 +976,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1595,
+        "value": 0.4343,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1102,7 +1102,7 @@
         "entity_id": "BNY_MELLON",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1595,
+        "magnitude": 0.4343,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1209,7 +1209,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:674fc9f53b75e7ca991815c50cd9a372c593b26050b10986b46f4241329438c3"
+    "snapshot_id": "sha256:f24e38a63a15e6e33cf9ccfa4476897a9ca3beb91a78676493bdeed3805f329d"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1248,24 +1248,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:674fc9f53b75e7ca991815c50cd9a372c593b26050b10986b46f4241329438c3",
-  "projection_compiled_at": "2026-10-20T19:01:57.804421+00:00",
+  "source_snapshot_id": "sha256:f24e38a63a15e6e33cf9ccfa4476897a9ca3beb91a78676493bdeed3805f329d",
+  "projection_compiled_at": "2026-10-20T19:33:12.376990+00:00",
   "freshness": {
-    "source_observed_at": "2026-10-20T15:49:55.514078+00:00",
-    "projection_compiled_at": "2026-10-20T19:01:57.804421+00:00",
-    "age_seconds": 11522,
+    "source_observed_at": "2026-10-20T19:14:28.433923+00:00",
+    "projection_compiled_at": "2026-10-20T19:33:12.376990+00:00",
+    "age_seconds": 1123,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:674fc9f53b75e7ca991815c50cd9a372c593b26050b10986b46f4241329438c3",
-    "compiled_at": "2026-10-20T19:01:57.804421+00:00",
+    "source_snapshot_id": "sha256:f24e38a63a15e6e33cf9ccfa4476897a9ca3beb91a78676493bdeed3805f329d",
+    "compiled_at": "2026-10-20T19:33:12.376990+00:00",
     "freshness": {
-      "source_observed_at": "2026-10-20T15:49:55.514078+00:00",
-      "projection_compiled_at": "2026-10-20T19:01:57.804421+00:00",
-      "age_seconds": 11522,
+      "source_observed_at": "2026-10-20T19:14:28.433923+00:00",
+      "projection_compiled_at": "2026-10-20T19:33:12.376990+00:00",
+      "age_seconds": 1123,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1365,7 +1365,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-10-20T15:49:55.514078+00:00",
+      "observed_at": "2026-10-20T19:14:28.433923+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -1402,9 +1402,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-20T19:01:57.741774+00:00",
-          "last_observation": "2026-10-20T15:49:55.514078+00:00",
-          "drift_cycles": 290
+          "compiled_at": "2026-10-20T19:33:12.313052+00:00",
+          "last_observation": "2026-10-20T19:14:28.433923+00:00",
+          "drift_cycles": 291
         },
         "reason": null,
         "family": "observation_age",
@@ -1748,9 +1748,9 @@
     "observation_clock": {
       "entity": "BNY_MELLON",
       "first_prospective_observation": "2026-08-25T03:36:57.234749+00:00",
-      "latest_prospective_observation": "2026-10-20T15:49:55.514078+00:00",
-      "n_prospective_snapshots": 231,
-      "identity_comparable_transitions": 221,
+      "latest_prospective_observation": "2026-10-20T19:14:28.433923+00:00",
+      "n_prospective_snapshots": 232,
+      "identity_comparable_transitions": 222,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

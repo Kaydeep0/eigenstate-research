@@ -1,11 +1,11 @@
 {
   "entity": "HKMA",
   "node": "34539544",
-  "compiled_at": "2026-10-20T19:02:07.070739+00:00",
-  "digest": "sha256:b28e1777c9032f82c806ae7e9f17b801be5f4d49689619d8c914839d5120595c",
+  "compiled_at": "2026-10-20T19:33:21.833190+00:00",
+  "digest": "sha256:7a844e1c1929adc32ec9b20df109672c811af87a395348d4013cdbae4eebe975",
   "own_numbers": {
     "phi_s": 0.064,
-    "kappa": 0.1595,
+    "kappa": 0.4343,
     "mass": 0.104053,
     "power": null,
     "extraction": null,
@@ -99,12 +99,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "watch",
-    "headline": "kappa +0.135 over 290 cycles",
-    "cycles": 290,
+    "level": "flag",
+    "headline": "kappa +0.410 over 291 cycles",
+    "cycles": 291,
     "delta_last_cycle": {
-      "phi_s": -1.6181,
-      "kappa": -0.2748,
+      "phi_s": 0.0,
+      "kappa": 0.2748,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -118,7 +118,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "hk_regulatory_gdp_proxy",
-        "last_observed_at": "2026-10-20T15:49:02.239688+00:00",
+        "last_observed_at": "2026-10-20T19:13:44.188991+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -271,7 +271,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "HKMA",
     "observed_at": "2026-10-20T12:25:31.089334+00:00",
-    "compiled_at": "2026-10-20T19:02:07.070739+00:00",
+    "compiled_at": "2026-10-20T19:33:21.833190+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -445,9 +445,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-20T19:02:07.070739+00:00",
+        "compiled_at": "2026-10-20T19:33:21.833190+00:00",
         "last_observation": "2026-10-20T12:25:31.089334+00:00",
-        "drift_cycles": 290
+        "drift_cycles": 291
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -617,7 +617,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1595,
+        "value": 0.4343,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -743,7 +743,7 @@
         "entity_id": "HKMA",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1595,
+        "magnitude": 0.4343,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -850,7 +850,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:26e198091540daad424ad0d44c19e5f0bd562a902e5cb9f3ef58015484832374"
+    "snapshot_id": "sha256:a76705a54c70b6d246ac6358f5c044944b7bc14d9e9c7e51134f1e787a50f5a7"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -889,24 +889,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:26e198091540daad424ad0d44c19e5f0bd562a902e5cb9f3ef58015484832374",
-  "projection_compiled_at": "2026-10-20T19:02:07.130894+00:00",
+  "source_snapshot_id": "sha256:a76705a54c70b6d246ac6358f5c044944b7bc14d9e9c7e51134f1e787a50f5a7",
+  "projection_compiled_at": "2026-10-20T19:33:21.893766+00:00",
   "freshness": {
     "source_observed_at": "2026-10-20T12:25:31.089334+00:00",
-    "projection_compiled_at": "2026-10-20T19:02:07.130894+00:00",
-    "age_seconds": 23796,
+    "projection_compiled_at": "2026-10-20T19:33:21.893766+00:00",
+    "age_seconds": 25670,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:26e198091540daad424ad0d44c19e5f0bd562a902e5cb9f3ef58015484832374",
-    "compiled_at": "2026-10-20T19:02:07.130894+00:00",
+    "source_snapshot_id": "sha256:a76705a54c70b6d246ac6358f5c044944b7bc14d9e9c7e51134f1e787a50f5a7",
+    "compiled_at": "2026-10-20T19:33:21.893766+00:00",
     "freshness": {
       "source_observed_at": "2026-10-20T12:25:31.089334+00:00",
-      "projection_compiled_at": "2026-10-20T19:02:07.130894+00:00",
-      "age_seconds": 23796,
+      "projection_compiled_at": "2026-10-20T19:33:21.893766+00:00",
+      "age_seconds": 25670,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1009,9 +1009,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-20T19:02:07.070739+00:00",
+          "compiled_at": "2026-10-20T19:33:21.833190+00:00",
           "last_observation": "2026-10-20T12:25:31.089334+00:00",
-          "drift_cycles": 290
+          "drift_cycles": 291
         },
         "reason": null,
         "family": "observation_age",
@@ -1209,8 +1209,8 @@
       "entity": "HKMA",
       "first_prospective_observation": "2026-08-25T03:37:02.044507+00:00",
       "latest_prospective_observation": "2026-10-20T12:25:31.089334+00:00",
-      "n_prospective_snapshots": 222,
-      "identity_comparable_transitions": 217,
+      "n_prospective_snapshots": 223,
+      "identity_comparable_transitions": 218,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

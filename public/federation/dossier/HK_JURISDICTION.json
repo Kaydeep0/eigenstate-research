@@ -1,11 +1,11 @@
 {
   "entity": "HK_JURISDICTION",
   "node": "34539544",
-  "compiled_at": "2026-10-20T19:02:07.199263+00:00",
-  "digest": "sha256:bbb2b7930775dfed1ea244e6d250c5cf5a5a234f34602c01d7d6857791fe52cd",
+  "compiled_at": "2026-10-20T19:33:21.963925+00:00",
+  "digest": "sha256:4c46e54849f2804c106a420c33d082267ce644954b5a1069843ba3ff5b3840d1",
   "own_numbers": {
     "phi_s": 0.1286,
-    "kappa": 0.1595,
+    "kappa": 0.4343,
     "mass": 0.151037,
     "power": null,
     "extraction": null,
@@ -103,12 +103,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "watch",
-    "headline": "kappa +0.123 over 290 cycles",
-    "cycles": 290,
+    "level": "flag",
+    "headline": "kappa +0.398 over 291 cycles",
+    "cycles": 291,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.2748,
+      "kappa": 0.2748,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -120,7 +120,7 @@
         "network": "fred",
         "kind": "macro_primary",
         "status": "live",
-        "last_observed_at": "2026-10-20T15:49:02.239688+00:00",
+        "last_observed_at": "2026-10-20T19:13:44.188991+00:00",
         "source": "FRED_HK_PROXY",
         "note": "HK GDP proxy"
       }
@@ -309,7 +309,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "HK_JURISDICTION",
     "observed_at": null,
-    "compiled_at": "2026-10-20T19:02:07.199263+00:00",
+    "compiled_at": "2026-10-20T19:33:21.963925+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -533,9 +533,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-20T19:02:07.199263+00:00",
+        "compiled_at": "2026-10-20T19:33:21.963925+00:00",
         "last_observation": null,
-        "drift_cycles": 290
+        "drift_cycles": 291
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -755,7 +755,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1595,
+        "value": 0.4343,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -881,7 +881,7 @@
         "entity_id": "HK_JURISDICTION",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1595,
+        "magnitude": 0.4343,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -988,7 +988,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:048318320cd42929e4a0c33f30435197db955bb94cedaed69d7830181032a541"
+    "snapshot_id": "sha256:554654f1f7d393b8b6973f5e97b2a7e95ff5c083b99649c07b7d71edd4640961"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1027,11 +1027,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:048318320cd42929e4a0c33f30435197db955bb94cedaed69d7830181032a541",
-  "projection_compiled_at": "2026-10-20T19:02:07.255242+00:00",
+  "source_snapshot_id": "sha256:554654f1f7d393b8b6973f5e97b2a7e95ff5c083b99649c07b7d71edd4640961",
+  "projection_compiled_at": "2026-10-20T19:33:22.020613+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-20T19:02:07.255242+00:00",
+    "projection_compiled_at": "2026-10-20T19:33:22.020613+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -1039,11 +1039,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:048318320cd42929e4a0c33f30435197db955bb94cedaed69d7830181032a541",
-    "compiled_at": "2026-10-20T19:02:07.255242+00:00",
+    "source_snapshot_id": "sha256:554654f1f7d393b8b6973f5e97b2a7e95ff5c083b99649c07b7d71edd4640961",
+    "compiled_at": "2026-10-20T19:33:22.020613+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-20T19:02:07.255242+00:00",
+      "projection_compiled_at": "2026-10-20T19:33:22.020613+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -1189,9 +1189,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-20T19:02:07.199263+00:00",
+          "compiled_at": "2026-10-20T19:33:21.963925+00:00",
           "last_observation": null,
-          "drift_cycles": 290
+          "drift_cycles": 291
         },
         "reason": null,
         "family": "observation_age",
@@ -1409,8 +1409,8 @@
       "entity": "HK_JURISDICTION",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 218,
-      "identity_comparable_transitions": 212,
+      "n_prospective_snapshots": 219,
+      "identity_comparable_transitions": 213,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
