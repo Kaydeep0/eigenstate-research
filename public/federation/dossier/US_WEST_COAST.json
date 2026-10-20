@@ -1,11 +1,11 @@
 {
   "entity": "US_WEST_COAST",
   "node": "34539544",
-  "compiled_at": "2026-10-20T01:02:13.614654+00:00",
-  "digest": "sha256:a395fb5efd57b5abc37dfac2fdee4df0b4b61cb9873f9b2b5b602fc0e929b308",
+  "compiled_at": "2026-10-20T02:35:21.167962+00:00",
+  "digest": "sha256:f65a3e5ad1df9d8dba809d5c99a898d96ab8cb15e9239b37c5df603a57a8506a",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.1326,
+    "kappa": 0.34,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -68,12 +68,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "watch",
-    "headline": "kappa +0.108 over 285 cycles",
-    "cycles": 285,
+    "level": "flag",
+    "headline": "kappa +0.316 over 286 cycles",
+    "cycles": 286,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.3017,
+      "kappa": 0.2074,
       "boundary_score": 0.0
     }
   },
@@ -222,7 +222,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "US_WEST_COAST",
     "observed_at": null,
-    "compiled_at": "2026-10-20T01:02:13.614654+00:00",
+    "compiled_at": "2026-10-20T02:35:21.167962+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -396,9 +396,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-20T01:02:13.614654+00:00",
+        "compiled_at": "2026-10-20T02:35:21.167962+00:00",
         "last_observation": null,
-        "drift_cycles": 285
+        "drift_cycles": 286
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -568,7 +568,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1326,
+        "value": 0.34,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -694,7 +694,7 @@
         "entity_id": "US_WEST_COAST",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1326,
+        "magnitude": 0.34,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -801,7 +801,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:21538bf6f8405632e8c53b9ab914211950efc0083e9ef4812a0ac679ec8d330a"
+    "snapshot_id": "sha256:571bd2d5833550b7f265b2fbd08fc443c4be636081d83e926fee40c57ffec80e"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -840,11 +840,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:21538bf6f8405632e8c53b9ab914211950efc0083e9ef4812a0ac679ec8d330a",
-  "projection_compiled_at": "2026-10-20T01:02:13.716681+00:00",
+  "source_snapshot_id": "sha256:571bd2d5833550b7f265b2fbd08fc443c4be636081d83e926fee40c57ffec80e",
+  "projection_compiled_at": "2026-10-20T02:35:21.227047+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-20T01:02:13.716681+00:00",
+    "projection_compiled_at": "2026-10-20T02:35:21.227047+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -852,11 +852,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:21538bf6f8405632e8c53b9ab914211950efc0083e9ef4812a0ac679ec8d330a",
-    "compiled_at": "2026-10-20T01:02:13.716681+00:00",
+    "source_snapshot_id": "sha256:571bd2d5833550b7f265b2fbd08fc443c4be636081d83e926fee40c57ffec80e",
+    "compiled_at": "2026-10-20T02:35:21.227047+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-20T01:02:13.716681+00:00",
+      "projection_compiled_at": "2026-10-20T02:35:21.227047+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -960,9 +960,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-20T01:02:13.614654+00:00",
+          "compiled_at": "2026-10-20T02:35:21.167962+00:00",
           "last_observation": null,
-          "drift_cycles": 285
+          "drift_cycles": 286
         },
         "reason": null,
         "family": "observation_age",
@@ -1129,8 +1129,8 @@
       "entity": "US_WEST_COAST",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 213,
-      "identity_comparable_transitions": 208,
+      "n_prospective_snapshots": 214,
+      "identity_comparable_transitions": 209,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

@@ -1,11 +1,11 @@
 {
   "entity": "LARRY_FINK",
   "node": "34539544",
-  "compiled_at": "2026-10-20T01:02:02.370162+00:00",
-  "digest": "sha256:ab60f01b61e23bc34cd9e92676147276960c4c7e40b2ea738269cd5740609373",
+  "compiled_at": "2026-10-20T02:35:09.798153+00:00",
+  "digest": "sha256:d2aab3a20526a32a7bf432a8df7bc9706d57657fdfe431a6e874cbea9cb81fbe",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.1326,
+    "kappa": 0.34,
     "mass": 0.1223,
     "power": null,
     "extraction": null,
@@ -78,12 +78,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 285,
+    "level": "flag",
+    "headline": "kappa +0.291 over 286 cycles",
+    "cycles": 286,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.3017,
+      "kappa": 0.2074,
       "boundary_score": 0.0
     }
   },
@@ -241,7 +241,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "LARRY_FINK",
     "observed_at": null,
-    "compiled_at": "2026-10-20T01:02:02.370162+00:00",
+    "compiled_at": "2026-10-20T02:35:09.798153+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -431,9 +431,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-20T01:02:02.370162+00:00",
+        "compiled_at": "2026-10-20T02:35:09.798153+00:00",
         "last_observation": null,
-        "drift_cycles": 285
+        "drift_cycles": 286
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -619,7 +619,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1326,
+        "value": 0.34,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -745,7 +745,7 @@
         "entity_id": "LARRY_FINK",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1326,
+        "magnitude": 0.34,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -852,7 +852,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:f604529e2a4c8d297038c564db308fb26a05bf2d8d2b47f4ad3bc1c83707a461"
+    "snapshot_id": "sha256:eedef5e706357d0a1be31d6173cea41a077596cce7ffbd325ecc1f980ff3664c"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -891,11 +891,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:f604529e2a4c8d297038c564db308fb26a05bf2d8d2b47f4ad3bc1c83707a461",
-  "projection_compiled_at": "2026-10-20T01:02:02.428589+00:00",
+  "source_snapshot_id": "sha256:eedef5e706357d0a1be31d6173cea41a077596cce7ffbd325ecc1f980ff3664c",
+  "projection_compiled_at": "2026-10-20T02:35:09.857552+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-20T01:02:02.428589+00:00",
+    "projection_compiled_at": "2026-10-20T02:35:09.857552+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -903,11 +903,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:f604529e2a4c8d297038c564db308fb26a05bf2d8d2b47f4ad3bc1c83707a461",
-    "compiled_at": "2026-10-20T01:02:02.428589+00:00",
+    "source_snapshot_id": "sha256:eedef5e706357d0a1be31d6173cea41a077596cce7ffbd325ecc1f980ff3664c",
+    "compiled_at": "2026-10-20T02:35:09.857552+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-20T01:02:02.428589+00:00",
+      "projection_compiled_at": "2026-10-20T02:35:09.857552+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -1011,9 +1011,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-20T01:02:02.370162+00:00",
+          "compiled_at": "2026-10-20T02:35:09.798153+00:00",
           "last_observation": null,
-          "drift_cycles": 285
+          "drift_cycles": 286
         },
         "reason": null,
         "family": "observation_age",
@@ -1222,8 +1222,8 @@
       "entity": "LARRY_FINK",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 213,
-      "identity_comparable_transitions": 208,
+      "n_prospective_snapshots": 214,
+      "identity_comparable_transitions": 209,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
