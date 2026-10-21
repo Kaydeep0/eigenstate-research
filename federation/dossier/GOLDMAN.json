@@ -1,10 +1,10 @@
 {
   "entity": "GOLDMAN",
   "node": "34539544",
-  "compiled_at": "2026-10-21T04:08:26.755450+00:00",
-  "digest": "sha256:59fb6376f90a3873592afeb0b2482f59eb45a49cd3f0eeff24c34f4576ff32f5",
+  "compiled_at": "2026-10-21T05:45:36.007528+00:00",
+  "digest": "sha256:66ce789b8edc92ed7f6141a414b451e8f22c06c78e5663ec2988bc216252d589",
   "own_numbers": {
-    "phi_s": 1.6181,
+    "phi_s": 0.0,
     "kappa": 0.1052,
     "mass": 0.037563,
     "power": null,
@@ -84,11 +84,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +5578% over 293 cycles",
-    "cycles": 293,
+    "headline": "phi_s -100% over 294 cycles",
+    "cycles": 294,
     "delta_last_cycle": {
-      "phi_s": 1.6181,
-      "kappa": -0.0799,
+      "phi_s": -1.6181,
+      "kappa": 0.0,
       "boundary_score": 0.0
     }
   },
@@ -215,7 +215,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "GOLDMAN",
     "observed_at": "2026-10-21T02:01:54.188764+00:00",
-    "compiled_at": "2026-10-21T04:08:26.755450+00:00",
+    "compiled_at": "2026-10-21T05:45:36.007528+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -325,9 +325,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-21T04:08:26.755450+00:00",
+        "compiled_at": "2026-10-21T05:45:36.007528+00:00",
         "last_observation": "2026-10-21T02:01:54.188764+00:00",
-        "drift_cycles": 293
+        "drift_cycles": 294
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -416,7 +416,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 1.6181,
+        "value": 0.0,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -481,7 +481,7 @@
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
           "status": "DERIVED",
-          "value": "high pressure"
+          "value": "near equilibrium"
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -505,7 +505,7 @@
         "entity_id": "GOLDMAN",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 1.6181,
+        "magnitude": 0.0,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -666,7 +666,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:2ecf8d9ea613dbec42a359b990c72c8700a4d3917d0f72b568ce7548e0f93905"
+    "snapshot_id": "sha256:4175fa2560e58f22fbe3f096f6f18e64889ac163ccbe2ed519cb409812fa1297"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -705,24 +705,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:2ecf8d9ea613dbec42a359b990c72c8700a4d3917d0f72b568ce7548e0f93905",
-  "projection_compiled_at": "2026-10-21T04:08:26.934174+00:00",
+  "source_snapshot_id": "sha256:4175fa2560e58f22fbe3f096f6f18e64889ac163ccbe2ed519cb409812fa1297",
+  "projection_compiled_at": "2026-10-21T05:45:36.059346+00:00",
   "freshness": {
     "source_observed_at": "2026-10-21T02:01:54.188764+00:00",
-    "projection_compiled_at": "2026-10-21T04:08:26.934174+00:00",
-    "age_seconds": 7592,
+    "projection_compiled_at": "2026-10-21T05:45:36.059346+00:00",
+    "age_seconds": 13421,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:2ecf8d9ea613dbec42a359b990c72c8700a4d3917d0f72b568ce7548e0f93905",
-    "compiled_at": "2026-10-21T04:08:26.934174+00:00",
+    "source_snapshot_id": "sha256:4175fa2560e58f22fbe3f096f6f18e64889ac163ccbe2ed519cb409812fa1297",
+    "compiled_at": "2026-10-21T05:45:36.059346+00:00",
     "freshness": {
       "source_observed_at": "2026-10-21T02:01:54.188764+00:00",
-      "projection_compiled_at": "2026-10-21T04:08:26.934174+00:00",
-      "age_seconds": 7592,
+      "projection_compiled_at": "2026-10-21T05:45:36.059346+00:00",
+      "age_seconds": 13421,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -761,9 +761,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-21T04:08:26.755450+00:00",
+          "compiled_at": "2026-10-21T05:45:36.007528+00:00",
           "last_observation": "2026-10-21T02:01:54.188764+00:00",
-          "drift_cycles": 293
+          "drift_cycles": 294
         },
         "reason": null,
         "family": "observation_age",
@@ -930,8 +930,8 @@
       "entity": "GOLDMAN",
       "first_prospective_observation": "2026-08-25T03:36:30.553539+00:00",
       "latest_prospective_observation": "2026-10-21T02:01:54.188764+00:00",
-      "n_prospective_snapshots": 223,
-      "identity_comparable_transitions": 218,
+      "n_prospective_snapshots": 224,
+      "identity_comparable_transitions": 219,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -969,7 +969,7 @@
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
             "status": "DERIVED",
-            "value": "high pressure"
+            "value": "near equilibrium"
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
