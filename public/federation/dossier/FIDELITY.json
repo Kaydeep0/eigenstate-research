@@ -1,11 +1,11 @@
 {
   "entity": "FIDELITY",
   "node": "34539544",
-  "compiled_at": "2026-10-22T13:02:04.144688+00:00",
-  "digest": "sha256:4ac72e5bce1f457f08d39abcca71c592c4784065cf555c71d08cb8fd6334e1f6",
+  "compiled_at": "2026-10-22T16:02:19.957964+00:00",
+  "digest": "sha256:61f06c6e6779adbcdc61ea3f483b364dc059b18b574f31adcece494db094e97a",
   "own_numbers": {
     "phi_s": 1.6181,
-    "kappa": 0.1077,
+    "kappa": 0.0716,
     "mass": 0.161497,
     "power": null,
     "extraction": null,
@@ -76,25 +76,25 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +1.618 over 300 cycles",
-    "cycles": 300,
+    "headline": "phi_s +1.618 over 301 cycles",
+    "cycles": 301,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0036,
+      "kappa": -0.0361,
       "gravity_mass": 0.0,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "live_at_request",
     "inbound": [
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live",
-        "last_observed_at": "2026-10-22T11:00:54.326629+00:00",
+        "status": "live_at_request",
+        "last_observed_at": "2026-10-22T15:05:00.969552+00:00",
         "filings": null,
-        "note": "FMR LLC \u2014 44134 total filings, 40 in last 90d"
+        "note": "CIK 0000315066 \u2014 live on feed + parkash sensor"
       }
     ],
     "outbound": [
@@ -361,7 +361,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "FIDELITY",
     "observed_at": "2026-10-22T11:00:46.976588+00:00",
-    "compiled_at": "2026-10-22T13:02:04.144688+00:00",
+    "compiled_at": "2026-10-22T16:02:19.957964+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -560,9 +560,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-22T13:02:04.144688+00:00",
+        "compiled_at": "2026-10-22T16:02:19.957964+00:00",
         "last_observation": "2026-10-22T11:00:46.976588+00:00",
-        "drift_cycles": 300
+        "drift_cycles": 301
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -757,7 +757,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1077,
+        "value": 0.0716,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -883,7 +883,7 @@
         "entity_id": "FIDELITY",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1077,
+        "magnitude": 0.0716,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -990,7 +990,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:3209b7182953be6abb4098d6f1a89b701c02948de736e74478745899e832a71f"
+    "snapshot_id": "sha256:b4638cee2ee9b2f758752d887006633a97b083d362dae177bc24c76fcd4b1c5c"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1029,24 +1029,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:3209b7182953be6abb4098d6f1a89b701c02948de736e74478745899e832a71f",
-  "projection_compiled_at": "2026-10-22T13:02:04.202277+00:00",
+  "source_snapshot_id": "sha256:b4638cee2ee9b2f758752d887006633a97b083d362dae177bc24c76fcd4b1c5c",
+  "projection_compiled_at": "2026-10-22T16:02:20.015902+00:00",
   "freshness": {
     "source_observed_at": "2026-10-22T11:00:46.976588+00:00",
-    "projection_compiled_at": "2026-10-22T13:02:04.202277+00:00",
-    "age_seconds": 7277,
+    "projection_compiled_at": "2026-10-22T16:02:20.015902+00:00",
+    "age_seconds": 18093,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:3209b7182953be6abb4098d6f1a89b701c02948de736e74478745899e832a71f",
-    "compiled_at": "2026-10-22T13:02:04.202277+00:00",
+    "source_snapshot_id": "sha256:b4638cee2ee9b2f758752d887006633a97b083d362dae177bc24c76fcd4b1c5c",
+    "compiled_at": "2026-10-22T16:02:20.015902+00:00",
     "freshness": {
       "source_observed_at": "2026-10-22T11:00:46.976588+00:00",
-      "projection_compiled_at": "2026-10-22T13:02:04.202277+00:00",
-      "age_seconds": 7277,
+      "projection_compiled_at": "2026-10-22T16:02:20.015902+00:00",
+      "age_seconds": 18093,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1191,9 +1191,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-22T13:02:04.144688+00:00",
+          "compiled_at": "2026-10-22T16:02:19.957964+00:00",
           "last_observation": "2026-10-22T11:00:46.976588+00:00",
-          "drift_cycles": 300
+          "drift_cycles": 301
         },
         "reason": null,
         "family": "observation_age",
@@ -1315,8 +1315,8 @@
       "entity": "FIDELITY",
       "first_prospective_observation": "2026-08-25T03:36:54.290774+00:00",
       "latest_prospective_observation": "2026-10-22T11:00:46.976588+00:00",
-      "n_prospective_snapshots": 236,
-      "identity_comparable_transitions": 228,
+      "n_prospective_snapshots": 237,
+      "identity_comparable_transitions": 229,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

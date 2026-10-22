@@ -1,11 +1,11 @@
 {
   "entity": "HKMA",
   "node": "34539544",
-  "compiled_at": "2026-10-22T13:02:05.770616+00:00",
-  "digest": "sha256:26a6813f77d327b564f78903fb7e2ec4dc2a466c1fb82fb29edac0a73e386ae3",
+  "compiled_at": "2026-10-22T16:02:21.646195+00:00",
+  "digest": "sha256:b5cfd01424dfe4e06ea73980700c08c384999a382e788803de0955d28c8da63a",
   "own_numbers": {
     "phi_s": 0.064,
-    "kappa": 0.1077,
+    "kappa": 0.0716,
     "mass": 0.104053,
     "power": null,
     "extraction": null,
@@ -101,10 +101,10 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 300,
+    "cycles": 301,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0036,
+      "kappa": -0.0361,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -118,7 +118,7 @@
         "status": "live",
         "series_id": "GDP",
         "label": "hk_regulatory_gdp_proxy",
-        "last_observed_at": "2026-10-22T10:59:54.696823+00:00",
+        "last_observed_at": "2026-10-22T14:26:32.969951+00:00",
         "note": "fredgraph.csv at feed request time; parkash macro via population_field"
       }
     ],
@@ -271,7 +271,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "HKMA",
     "observed_at": "2026-10-21T12:14:03.238054+00:00",
-    "compiled_at": "2026-10-22T13:02:05.770616+00:00",
+    "compiled_at": "2026-10-22T16:02:21.646195+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -445,9 +445,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-22T13:02:05.770616+00:00",
+        "compiled_at": "2026-10-22T16:02:21.646195+00:00",
         "last_observation": "2026-10-21T12:14:03.238054+00:00",
-        "drift_cycles": 300
+        "drift_cycles": 301
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -617,7 +617,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1077,
+        "value": 0.0716,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -743,7 +743,7 @@
         "entity_id": "HKMA",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1077,
+        "magnitude": 0.0716,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -850,7 +850,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:8480e0d7bc64ea0a2fd03b3c04cea2df407e42419b084f1744bd616de162211b"
+    "snapshot_id": "sha256:5b3e6f1d8f1ec5a1a0a4ba017eb42ee4572a443eb9735b867a5c58ed2e106a4e"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -889,24 +889,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:8480e0d7bc64ea0a2fd03b3c04cea2df407e42419b084f1744bd616de162211b",
-  "projection_compiled_at": "2026-10-22T13:02:05.875829+00:00",
+  "source_snapshot_id": "sha256:5b3e6f1d8f1ec5a1a0a4ba017eb42ee4572a443eb9735b867a5c58ed2e106a4e",
+  "projection_compiled_at": "2026-10-22T16:02:21.708155+00:00",
   "freshness": {
     "source_observed_at": "2026-10-21T12:14:03.238054+00:00",
-    "projection_compiled_at": "2026-10-22T13:02:05.875829+00:00",
-    "age_seconds": 89282,
+    "projection_compiled_at": "2026-10-22T16:02:21.708155+00:00",
+    "age_seconds": 100098,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:8480e0d7bc64ea0a2fd03b3c04cea2df407e42419b084f1744bd616de162211b",
-    "compiled_at": "2026-10-22T13:02:05.875829+00:00",
+    "source_snapshot_id": "sha256:5b3e6f1d8f1ec5a1a0a4ba017eb42ee4572a443eb9735b867a5c58ed2e106a4e",
+    "compiled_at": "2026-10-22T16:02:21.708155+00:00",
     "freshness": {
       "source_observed_at": "2026-10-21T12:14:03.238054+00:00",
-      "projection_compiled_at": "2026-10-22T13:02:05.875829+00:00",
-      "age_seconds": 89282,
+      "projection_compiled_at": "2026-10-22T16:02:21.708155+00:00",
+      "age_seconds": 100098,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1009,9 +1009,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-22T13:02:05.770616+00:00",
+          "compiled_at": "2026-10-22T16:02:21.646195+00:00",
           "last_observation": "2026-10-21T12:14:03.238054+00:00",
-          "drift_cycles": 300
+          "drift_cycles": 301
         },
         "reason": null,
         "family": "observation_age",
@@ -1209,8 +1209,8 @@
       "entity": "HKMA",
       "first_prospective_observation": "2026-08-25T03:37:02.044507+00:00",
       "latest_prospective_observation": "2026-10-21T12:14:03.238054+00:00",
-      "n_prospective_snapshots": 232,
-      "identity_comparable_transitions": 227,
+      "n_prospective_snapshots": 233,
+      "identity_comparable_transitions": 228,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
