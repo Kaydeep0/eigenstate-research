@@ -1,7 +1,7 @@
 {
   "schema": "eigenstate.pages_sot.v1",
   "sot_definition": "SoT (source of truth) for Host/Pages is the engine measurement state: workspace/HOST/state.json (κ, PT, parkash stamps), M1 coverage from the coverage ledger (m1_strict ∩ topology / 199), and the host predictions register for scored claims. Website tiles must bake from this stamp — not frozen marketing HTML.",
-  "generated_at": "2026-10-23T16:05:03.161496+00:00",
+  "generated_at": "2026-10-23T22:04:23.226751+00:00",
   "sources": {
     "host_ref": "workspace/HOST/state.json",
     "host_updated_at": "2026-10-23T13:16:09.530037+00:00",
@@ -39,21 +39,22 @@
   "vault_at_export": {
     "note": "cycle_vault_records.json is a trimmed working buffer. Per-entity counts here are vault@export rows — not M1 lifetime observations.",
     "total_rows": 64,
-    "entities_with_rows": 13,
+    "entities_with_rows": 14,
     "by_entity": {
-      "RING": 8,
+      "DEFI_AUDIENCE": 8,
+      "RWA_AUDIENCE": 8,
       "CABLE": 8,
       "HIGHWAY": 8,
-      "DEFI_AUDIENCE": 8,
+      "RING": 8,
       "CRYPTO_NATIVE_AUDIENCE": 8,
-      "RWA_AUDIENCE": 8,
       "CIRCLE": 4,
-      "SEC": 4,
-      "FED": 4,
-      "BASE": 1,
-      "INSTITUTIONAL_CUSTODY_POOL": 1,
       "ONCHAIN_IS_TRANSPARENT": 1,
-      "US_JURISDICTION": 1
+      "SEC": 4,
+      "FED": 3,
+      "US_JURISDICTION": 1,
+      "BNY_MELLON": 1,
+      "CUSTODY_IS_SOLVED": 1,
+      "BASE": 1
     }
   },
   "entity_m1_obs_counts": {
@@ -1233,9 +1234,9 @@
     }
   ],
   "helix": {
-    "index": 18378,
+    "index": 18379,
     "fingerprint_prefix": null,
-    "n_entries": 18379,
+    "n_entries": 18380,
     "note": "Local helix chain tip at export — on-chain commits remain gated."
   },
   "meta": {
