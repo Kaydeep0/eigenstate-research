@@ -1,11 +1,11 @@
 {
   "entity": "TETHER",
   "node": "34539544",
-  "compiled_at": "2026-10-23T04:34:38.482782+00:00",
-  "digest": "sha256:65f3363e37dfe162a580433a2e17c1ef028010d4cee160a719443b6431eb5b0e",
+  "compiled_at": "2026-10-23T11:24:59.163900+00:00",
+  "digest": "sha256:d32f8b14808a7b2d0aee2bcac41fa80744083eb641bd7f2b2b2cd708fd19cc41",
   "own_numbers": {
-    "phi_s": 6.5561,
-    "kappa": 0.0942,
+    "phi_s": 4.9379,
+    "kappa": 0.0777,
     "mass": 0.127014,
     "power": 0.0,
     "extraction": 30325.0794,
@@ -138,11 +138,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +7742% over 305 cycles",
-    "cycles": 305,
+    "headline": "phi_s +5807% over 307 cycles",
+    "cycles": 307,
     "delta_last_cycle": {
-      "phi_s": 1.6182,
-      "kappa": 0.0564,
+      "phi_s": 0.0,
+      "kappa": 0.0,
       "power": 0.0,
       "extraction": 0.0,
       "boundary_score": 0.0
@@ -182,8 +182,8 @@
     ],
     "observation": {
       "source": "measurement_link_join",
-      "last_observed_at": "2026-10-23T00:46:53.321822+00:00",
-      "last_delta_i": 6.1989731528268424e+47,
+      "last_observed_at": "2026-10-23T11:02:39.881901+00:00",
+      "last_delta_i": 5.994698230525803e+62,
       "stale": false
     }
   },
@@ -308,10 +308,10 @@
     "cite_class": "citeable",
     "source": "srr_grounding_defillama",
     "wire": "srr_sensor",
-    "ts": "2026-10-23T04:10:37.403754+00:00",
+    "ts": "2026-10-23T11:02:39.881901+00:00",
     "write_reason": "srr_grounded_primary_aum",
     "source_url": null,
-    "vault_row_ref": "sensor:srr_sensor:TETHER:2026-10-23T04:10:37.403754+00:00",
+    "vault_row_ref": "sensor:srr_sensor:TETHER:2026-10-23T11:02:39.881901+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -365,8 +365,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "TETHER",
-    "observed_at": "2026-10-23T04:10:37.403754+00:00",
-    "compiled_at": "2026-10-23T04:34:38.482782+00:00",
+    "observed_at": "2026-10-23T11:02:39.881901+00:00",
+    "compiled_at": "2026-10-23T11:24:59.163900+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -587,9 +587,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-23T04:34:38.482782+00:00",
-        "last_observation": "2026-10-23T04:10:37.403754+00:00",
-        "drift_cycles": 305
+        "compiled_at": "2026-10-23T11:24:59.163900+00:00",
+        "last_observation": "2026-10-23T11:02:39.881901+00:00",
+        "drift_cycles": 307
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -782,7 +782,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 6.5561,
+        "value": 4.9379,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -799,7 +799,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0942,
+        "value": 0.0777,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -847,7 +847,7 @@
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
           "status": "DERIVED",
-          "value": "critical pressure"
+          "value": "high pressure"
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -871,7 +871,7 @@
         "entity_id": "TETHER",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 6.5561,
+        "magnitude": 4.9379,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -925,7 +925,7 @@
         "entity_id": "TETHER",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0942,
+        "magnitude": 0.0777,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1032,7 +1032,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:22b8f2b32ec1b02a6495317d74d82687c1c4b98a17bd6010784b37aba9ed2585"
+    "snapshot_id": "sha256:60b60e38e2e3f839543b3a06662c525de6cb9da0b0a4573b0cdd181717ec794b"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1071,24 +1071,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:22b8f2b32ec1b02a6495317d74d82687c1c4b98a17bd6010784b37aba9ed2585",
-  "projection_compiled_at": "2026-10-23T04:34:38.597959+00:00",
+  "source_snapshot_id": "sha256:60b60e38e2e3f839543b3a06662c525de6cb9da0b0a4573b0cdd181717ec794b",
+  "projection_compiled_at": "2026-10-23T11:24:59.230368+00:00",
   "freshness": {
-    "source_observed_at": "2026-10-23T04:10:37.403754+00:00",
-    "projection_compiled_at": "2026-10-23T04:34:38.597959+00:00",
-    "age_seconds": 1441,
+    "source_observed_at": "2026-10-23T11:02:39.881901+00:00",
+    "projection_compiled_at": "2026-10-23T11:24:59.230368+00:00",
+    "age_seconds": 1339,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:22b8f2b32ec1b02a6495317d74d82687c1c4b98a17bd6010784b37aba9ed2585",
-    "compiled_at": "2026-10-23T04:34:38.597959+00:00",
+    "source_snapshot_id": "sha256:60b60e38e2e3f839543b3a06662c525de6cb9da0b0a4573b0cdd181717ec794b",
+    "compiled_at": "2026-10-23T11:24:59.230368+00:00",
     "freshness": {
-      "source_observed_at": "2026-10-23T04:10:37.403754+00:00",
-      "projection_compiled_at": "2026-10-23T04:34:38.597959+00:00",
-      "age_seconds": 1441,
+      "source_observed_at": "2026-10-23T11:02:39.881901+00:00",
+      "projection_compiled_at": "2026-10-23T11:24:59.230368+00:00",
+      "age_seconds": 1339,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1161,7 +1161,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-10-23T04:10:37.403754+00:00",
+      "observed_at": "2026-10-23T11:02:39.881901+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -1198,9 +1198,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-23T04:34:38.482782+00:00",
-          "last_observation": "2026-10-23T04:10:37.403754+00:00",
-          "drift_cycles": 305
+          "compiled_at": "2026-10-23T11:24:59.163900+00:00",
+          "last_observation": "2026-10-23T11:02:39.881901+00:00",
+          "drift_cycles": 307
         },
         "reason": null,
         "family": "observation_age",
@@ -1471,9 +1471,9 @@
     "observation_clock": {
       "entity": "TETHER",
       "first_prospective_observation": "2026-08-25T03:36:24.024037+00:00",
-      "latest_prospective_observation": "2026-10-23T04:10:37.403754+00:00",
-      "n_prospective_snapshots": 246,
-      "identity_comparable_transitions": 240,
+      "latest_prospective_observation": "2026-10-23T11:02:39.881901+00:00",
+      "n_prospective_snapshots": 248,
+      "identity_comparable_transitions": 242,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -1511,7 +1511,7 @@
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
             "status": "DERIVED",
-            "value": "critical pressure"
+            "value": "high pressure"
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
