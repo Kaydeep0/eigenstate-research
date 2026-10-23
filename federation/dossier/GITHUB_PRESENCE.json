@@ -1,11 +1,11 @@
 {
   "entity": "GITHUB_PRESENCE",
   "node": "34539544",
-  "compiled_at": "2026-10-23T04:02:41.112361+00:00",
-  "digest": "sha256:2bd727e331d940fbc027c32d1b582ba963e3f9cb3e1c873698aca2af9b65dbdc",
+  "compiled_at": "2026-10-23T04:34:21.379341+00:00",
+  "digest": "sha256:90284c5542bb9aa0060018e75403ae2ff774a01c89b62b08560afadbdf826659",
   "own_numbers": {
-    "phi_s": 0.0,
-    "kappa": 0.0378,
+    "phi_s": 1.6181,
+    "kappa": 0.0942,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -60,12 +60,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 304,
+    "level": "flag",
+    "headline": "phi_s +1.618 over 305 cycles",
+    "cycles": 305,
     "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": -0.1395,
+      "phi_s": 1.6181,
+      "kappa": 0.0564,
       "gravity_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -228,10 +228,10 @@
     "cite_class": "citeable",
     "source": "github_public_api",
     "wire": "presence_metaworld",
-    "ts": "2026-10-21T05:25:57.861926+00:00",
+    "ts": "2026-10-23T04:11:35.396321+00:00",
     "write_reason": "first_observation",
     "source_url": null,
-    "vault_row_ref": "vault:126:GITHUB_PRESENCE:github_public_api:2026-10-21T05:25:57.861926+00:00",
+    "vault_row_ref": "vault:118:GITHUB_PRESENCE:github_public_api:2026-10-23T04:11:35.396321+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -263,8 +263,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "GITHUB_PRESENCE",
-    "observed_at": "2026-10-21T05:25:57.861926+00:00",
-    "compiled_at": "2026-10-23T04:02:41.112361+00:00",
+    "observed_at": "2026-10-23T04:11:35.396321+00:00",
+    "compiled_at": "2026-10-23T04:34:21.379341+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -463,9 +463,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-23T04:02:41.112361+00:00",
-        "last_observation": "2026-10-21T05:25:57.861926+00:00",
-        "drift_cycles": 304
+        "compiled_at": "2026-10-23T04:34:21.379341+00:00",
+        "last_observation": "2026-10-23T04:11:35.396321+00:00",
+        "drift_cycles": 305
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -643,7 +643,7 @@
     "relationships": [],
     "metric_outputs": {
       "phi_s": {
-        "value": 0.0,
+        "value": 1.6181,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -660,7 +660,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0378,
+        "value": 0.0942,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -708,7 +708,7 @@
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
           "status": "DERIVED",
-          "value": "near equilibrium"
+          "value": "high pressure"
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -732,7 +732,7 @@
         "entity_id": "GITHUB_PRESENCE",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 0.0,
+        "magnitude": 1.6181,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -786,7 +786,7 @@
         "entity_id": "GITHUB_PRESENCE",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0378,
+        "magnitude": 0.0942,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -893,7 +893,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:d8b816b4b6abf57039e620a76ad1890adeedd69b92ecc4ea1bf95f5fe89ad042"
+    "snapshot_id": "sha256:fc16fbba56b5053be2655694863fe77ce52fcc1fb217f70048ff15ff713064f0"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -932,24 +932,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:d8b816b4b6abf57039e620a76ad1890adeedd69b92ecc4ea1bf95f5fe89ad042",
-  "projection_compiled_at": "2026-10-23T04:02:41.214087+00:00",
+  "source_snapshot_id": "sha256:fc16fbba56b5053be2655694863fe77ce52fcc1fb217f70048ff15ff713064f0",
+  "projection_compiled_at": "2026-10-23T04:34:21.481033+00:00",
   "freshness": {
-    "source_observed_at": "2026-10-21T05:25:57.861926+00:00",
-    "projection_compiled_at": "2026-10-23T04:02:41.214087+00:00",
-    "age_seconds": 167803,
+    "source_observed_at": "2026-10-23T04:11:35.396321+00:00",
+    "projection_compiled_at": "2026-10-23T04:34:21.481033+00:00",
+    "age_seconds": 1366,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:d8b816b4b6abf57039e620a76ad1890adeedd69b92ecc4ea1bf95f5fe89ad042",
-    "compiled_at": "2026-10-23T04:02:41.214087+00:00",
+    "source_snapshot_id": "sha256:fc16fbba56b5053be2655694863fe77ce52fcc1fb217f70048ff15ff713064f0",
+    "compiled_at": "2026-10-23T04:34:21.481033+00:00",
     "freshness": {
-      "source_observed_at": "2026-10-21T05:25:57.861926+00:00",
-      "projection_compiled_at": "2026-10-23T04:02:41.214087+00:00",
-      "age_seconds": 167803,
+      "source_observed_at": "2026-10-23T04:11:35.396321+00:00",
+      "projection_compiled_at": "2026-10-23T04:34:21.481033+00:00",
+      "age_seconds": 1366,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1064,7 +1064,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-10-21T05:25:57.861926+00:00",
+      "observed_at": "2026-10-23T04:11:35.396321+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -1094,9 +1094,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-23T04:02:41.112361+00:00",
-          "last_observation": "2026-10-21T05:25:57.861926+00:00",
-          "drift_cycles": 304
+          "compiled_at": "2026-10-23T04:34:21.379341+00:00",
+          "last_observation": "2026-10-23T04:11:35.396321+00:00",
+          "drift_cycles": 305
         },
         "reason": null,
         "family": "observation_age",
@@ -1217,9 +1217,9 @@
     "observation_clock": {
       "entity": "GITHUB_PRESENCE",
       "first_prospective_observation": "2026-08-25T03:36:55.583848+00:00",
-      "latest_prospective_observation": "2026-10-21T05:25:57.861926+00:00",
-      "n_prospective_snapshots": 232,
-      "identity_comparable_transitions": 227,
+      "latest_prospective_observation": "2026-10-23T04:11:35.396321+00:00",
+      "n_prospective_snapshots": 233,
+      "identity_comparable_transitions": 228,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -1257,7 +1257,7 @@
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
             "status": "DERIVED",
-            "value": "near equilibrium"
+            "value": "high pressure"
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
