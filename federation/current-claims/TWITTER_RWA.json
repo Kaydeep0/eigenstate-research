@@ -26,13 +26,13 @@
         "verification_status": "ATTESTED-DERIVED",
         "allows_canonical": true,
         "claim_text": "RWA asset index cross-reference",
-        "evaluated_at": "2026-10-24T10:33:28.170414+00:00",
-        "disposition": "admitted",
-        "exhibited_refusal": false,
-        "reason": "attested_published_claim",
+        "evaluated_at": "2026-11-02T21:27:45.051436+00:00",
+        "disposition": "withheld",
+        "exhibited_refusal": true,
+        "reason": "verification_expired",
         "proof": {
           "version": "1.0.0",
-          "admitted": true,
+          "admitted": false,
           "limbs": {
             "registry_ref": {
               "ok": true,
@@ -41,10 +41,11 @@
               "ref": null
             },
             "refuse_or_admit": {
-              "ok": true,
-              "disposition": "admitted",
-              "exhibited_refusal": false,
-              "reason": "attested_published_claim"
+              "ok": false,
+              "disposition": "withheld",
+              "exhibited_refusal": true,
+              "reason": "verification_expired",
+              "failed": "verification_expired"
             },
             "provenance_spine": {
               "ok": true,
@@ -67,8 +68,10 @@
               "note": "Pointers only \u2014 public package/verify does not assert cycle spine ok or invent attestations."
             }
           },
-          "failed_limbs": [],
-          "refuse_limb": null,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit",
           "spec": "docs/ATTESTATION_PROOF_SHAPE.md"
         },
         "proof_shape": {
@@ -78,9 +81,11 @@
             "refuse_or_admit",
             "provenance_spine"
           ],
-          "admitted": true,
-          "failed_limbs": [],
-          "refuse_limb": null
+          "admitted": false,
+          "failed_limbs": [
+            "refuse_or_admit"
+          ],
+          "refuse_limb": "refuse_or_admit"
         }
       }
     },
@@ -109,7 +114,7 @@
         "verification_status": "UNVERIFIED-PENDING",
         "allows_canonical": false,
         "claim_text": "X \u2014 real-time social platform",
-        "evaluated_at": "2026-10-24T10:33:28.170414+00:00",
+        "evaluated_at": "2026-11-02T21:27:45.051436+00:00",
         "disposition": "withheld",
         "exhibited_refusal": true,
         "reason": "unverified_pending",
@@ -197,7 +202,7 @@
         "verification_status": "UNVERIFIED-PENDING",
         "allows_canonical": false,
         "claim_text": "X platform terms of service",
-        "evaluated_at": "2026-10-24T10:33:28.170414+00:00",
+        "evaluated_at": "2026-11-02T21:27:45.051436+00:00",
         "disposition": "withheld",
         "exhibited_refusal": true,
         "reason": "unverified_pending",
@@ -262,9 +267,9 @@
     }
   ],
   "claims_mirror": "https://kaydeep0.github.io/eigenstate-research/federation/current-claims/TWITTER_RWA.json",
-  "generated_at": "2026-10-24T10:33:28.170414+00:00",
+  "generated_at": "2026-11-02T21:27:45.051436+00:00",
   "source_ledger_sha256": "b139037b3cd0ef955898353755b414cdaa43549dc32b8fea6e90bf2aa95ddd4f",
-  "current_through": "2026-10-30T04:00:49+00:00",
-  "currentness": "time_bounded_snapshot_recheck_after_current_through",
+  "current_through": null,
+  "currentness": "no_admitted_claims_at_generation",
   "verify_hint": "POST /api/verify for grounding re-check; POST /api/package with the published claim object for admit/withhold/VOID/ILLUSTRATIVE disposition"
 }

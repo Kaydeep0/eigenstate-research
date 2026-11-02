@@ -1,11 +1,11 @@
 {
   "entity": "BARE_METAL_VALIDATORS",
   "node": "34539544",
-  "compiled_at": "2026-10-24T10:31:00.594400+00:00",
-  "digest": "sha256:ea258e99d37ff9110be51ec1c3ac7aebf5799537eec987e8250f6db0ea78e95a",
+  "compiled_at": "2026-11-02T21:27:02.439588+00:00",
+  "digest": "sha256:ce76ab47af457c7cf782ac20d797fff9befdbbbf9a4a745691aad46b5763b19d",
   "own_numbers": {
     "phi_s": 0.0,
-    "kappa": 0.0805,
+    "kappa": 0.084,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -58,15 +58,15 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 312,
+    "cycles": 313,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0699,
+      "kappa": 0.0035,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "stale",
     "inbound": [],
     "outbound": [
       {
@@ -94,7 +94,7 @@
       "source": "defi_llama_tvl",
       "last_observed_at": "2026-10-21T10:53:25.287708+00:00",
       "last_delta_i": 0.11922638493896699,
-      "stale": false
+      "stale": true
     }
   },
   "claims": [
@@ -210,7 +210,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "BARE_METAL_VALIDATORS",
     "observed_at": null,
-    "compiled_at": "2026-10-24T10:31:00.594400+00:00",
+    "compiled_at": "2026-11-02T21:27:02.439588+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -367,9 +367,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-24T10:31:00.594400+00:00",
+        "compiled_at": "2026-11-02T21:27:02.439588+00:00",
         "last_observation": null,
-        "drift_cycles": 312
+        "drift_cycles": 313
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -522,7 +522,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0805,
+        "value": 0.084,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -648,7 +648,7 @@
         "entity_id": "BARE_METAL_VALIDATORS",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0805,
+        "magnitude": 0.084,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -755,7 +755,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:420b65aea0328a33a412104eba09d36f80728ed093d72d2ad9106bf7209d5509"
+    "snapshot_id": "sha256:76cf7d2ccabbaf4bbefad1d1dcc5b4e849d827bf63b5a77f08998bd5a98b404b"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -794,11 +794,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:420b65aea0328a33a412104eba09d36f80728ed093d72d2ad9106bf7209d5509",
-  "projection_compiled_at": "2026-10-24T10:31:00.923468+00:00",
+  "source_snapshot_id": "sha256:76cf7d2ccabbaf4bbefad1d1dcc5b4e849d827bf63b5a77f08998bd5a98b404b",
+  "projection_compiled_at": "2026-11-02T21:27:02.503697+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-24T10:31:00.923468+00:00",
+    "projection_compiled_at": "2026-11-02T21:27:02.503697+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -806,11 +806,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:420b65aea0328a33a412104eba09d36f80728ed093d72d2ad9106bf7209d5509",
-    "compiled_at": "2026-10-24T10:31:00.923468+00:00",
+    "source_snapshot_id": "sha256:76cf7d2ccabbaf4bbefad1d1dcc5b4e849d827bf63b5a77f08998bd5a98b404b",
+    "compiled_at": "2026-11-02T21:27:02.503697+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-24T10:31:00.923468+00:00",
+      "projection_compiled_at": "2026-11-02T21:27:02.503697+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -914,9 +914,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-24T10:31:00.594400+00:00",
+          "compiled_at": "2026-11-02T21:27:02.439588+00:00",
           "last_observation": null,
-          "drift_cycles": 312
+          "drift_cycles": 313
         },
         "reason": null,
         "family": "observation_age",
@@ -1038,8 +1038,8 @@
       "entity": "BARE_METAL_VALIDATORS",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 242,
-      "identity_comparable_transitions": 237,
+      "n_prospective_snapshots": 243,
+      "identity_comparable_transitions": 238,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

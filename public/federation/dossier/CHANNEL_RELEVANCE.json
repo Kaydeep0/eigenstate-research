@@ -1,11 +1,11 @@
 {
   "entity": "CHANNEL_RELEVANCE",
   "node": "34539544",
-  "compiled_at": "2026-10-24T10:31:10.569389+00:00",
-  "digest": "sha256:242f162b533590ab26e62c5a1721cf77d9b61109ea57b859e028d62825842766",
+  "compiled_at": "2026-11-02T21:27:05.416345+00:00",
+  "digest": "sha256:046a8752f06b627345b43da916d6bd0d9fb6d66df023df13868d5aaf238ed4f7",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0805,
+    "kappa": 0.084,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -64,15 +64,15 @@
   "drift": {
     "level": "steady",
     "headline": null,
-    "cycles": 312,
+    "cycles": 313,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0699,
+      "kappa": 0.0035,
       "boundary_score": 0.0
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "stale",
     "inbound": [],
     "outbound": [
       {
@@ -98,9 +98,9 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-10-24T10:29:13.900910+00:00",
-      "last_delta_i": 2.6665060418687263e+29,
-      "stale": false
+      "last_observed_at": "2026-10-24T10:42:21.296574+00:00",
+      "last_delta_i": 5.328764948755272e+29,
+      "stale": true
     }
   },
   "claims": [
@@ -216,7 +216,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "CHANNEL_RELEVANCE",
     "observed_at": null,
-    "compiled_at": "2026-10-24T10:31:10.569389+00:00",
+    "compiled_at": "2026-11-02T21:27:05.416345+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -382,9 +382,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-24T10:31:10.569389+00:00",
+        "compiled_at": "2026-11-02T21:27:05.416345+00:00",
         "last_observation": null,
-        "drift_cycles": 312
+        "drift_cycles": 313
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -546,7 +546,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0805,
+        "value": 0.084,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -672,7 +672,7 @@
         "entity_id": "CHANNEL_RELEVANCE",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0805,
+        "magnitude": 0.084,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -779,7 +779,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:43e3508a7bc7c602cd750995fd24c8eca0f6af00a91dda1b3e58319f21accde8"
+    "snapshot_id": "sha256:17512ed014b09605c95eb86a29d3e5d656d3eee1619d6923cfac5f1e28acea97"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -818,11 +818,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:43e3508a7bc7c602cd750995fd24c8eca0f6af00a91dda1b3e58319f21accde8",
-  "projection_compiled_at": "2026-10-24T10:31:10.804740+00:00",
+  "source_snapshot_id": "sha256:17512ed014b09605c95eb86a29d3e5d656d3eee1619d6923cfac5f1e28acea97",
+  "projection_compiled_at": "2026-11-02T21:27:05.480668+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-24T10:31:10.804740+00:00",
+    "projection_compiled_at": "2026-11-02T21:27:05.480668+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -830,11 +830,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:43e3508a7bc7c602cd750995fd24c8eca0f6af00a91dda1b3e58319f21accde8",
-    "compiled_at": "2026-10-24T10:31:10.804740+00:00",
+    "source_snapshot_id": "sha256:17512ed014b09605c95eb86a29d3e5d656d3eee1619d6923cfac5f1e28acea97",
+    "compiled_at": "2026-11-02T21:27:05.480668+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-24T10:31:10.804740+00:00",
+      "projection_compiled_at": "2026-11-02T21:27:05.480668+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -938,9 +938,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-24T10:31:10.569389+00:00",
+          "compiled_at": "2026-11-02T21:27:05.416345+00:00",
           "last_observation": null,
-          "drift_cycles": 312
+          "drift_cycles": 313
         },
         "reason": null,
         "family": "observation_age",
@@ -1085,8 +1085,8 @@
       "entity": "CHANNEL_RELEVANCE",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 240,
-      "identity_comparable_transitions": 235,
+      "n_prospective_snapshots": 241,
+      "identity_comparable_transitions": 236,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

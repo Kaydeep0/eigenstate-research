@@ -1,11 +1,11 @@
 {
   "entity": "GEMINI_CORPORATE",
   "node": "34539544",
-  "compiled_at": "2026-10-24T10:31:38.451116+00:00",
-  "digest": "sha256:6750c820961f667e097def4d4500cb61a28853a3745813e8c4a57ce377c03149",
+  "compiled_at": "2026-11-02T21:27:13.493269+00:00",
+  "digest": "sha256:7ee6ffe3a019468e02152ad08ffe75a217bf11e8629c8fb8a286b3c577b5fffa",
   "own_numbers": {
-    "phi_s": null,
-    "kappa": null,
+    "phi_s": 1.6181,
+    "kappa": 0.084,
     "mass": null,
     "power": null,
     "extraction": null,
@@ -25,26 +25,46 @@
     },
     "peers_by_power": []
   },
-  "relationships": null,
+  "relationships": {
+    "in_degree": 0,
+    "out_degree": 0,
+    "by_vector": {
+      "Capital": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Infrastructure": {
+        "out": 0.0,
+        "in": 0.0
+      },
+      "Information": {
+        "out": 0.0,
+        "in": 0.0
+      }
+    },
+    "top_inbound": [],
+    "top_outbound": [],
+    "gravity_pairs": []
+  },
   "role_participations": [],
   "monetary_position": null,
   "drift": {
     "level": "watch",
-    "headline": "kappa -0.163 over 21 cycles",
-    "cycles": 21,
+    "headline": "kappa -0.235 over 22 cycles",
+    "cycles": 22,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0529
+      "kappa": -0.073
     }
   },
   "network_plugs": {
-    "freshness": "live",
+    "freshness": "live_at_request",
     "inbound": [
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live",
-        "last_observed_at": "2026-10-24T07:01:46.157667+00:00",
+        "status": "live_at_request",
+        "last_observed_at": "2026-10-24T11:01:01.021527+00:00",
         "filings": null,
         "note": "Gemini Space Station, Inc. \u2014 107 total filings, 8 in last 90d"
       }
@@ -186,7 +206,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "GEMINI_CORPORATE",
     "observed_at": null,
-    "compiled_at": "2026-10-24T10:31:38.451116+00:00",
+    "compiled_at": "2026-11-02T21:27:13.493269+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -329,7 +349,7 @@
       "not_families": [
         "structural_position"
       ],
-      "status": "UNKNOWN",
+      "status": "DERIVED",
       "source": "dossier.relationships",
       "observation_id": "none",
       "comparability": false,
@@ -338,9 +358,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-10-24T10:31:38.451116+00:00",
+        "compiled_at": "2026-11-02T21:27:13.493269+00:00",
         "last_observation": null,
-        "drift_cycles": 21
+        "drift_cycles": 22
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -476,7 +496,7 @@
     "relationships": [],
     "metric_outputs": {
       "phi_s": {
-        "value": null,
+        "value": 1.6181,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -484,7 +504,7 @@
           "shannon_bits",
           "world_causal_lead"
         ],
-        "status": "UNKNOWN",
+        "status": "DERIVED",
         "source": "own_numbers.phi_s",
         "observation_id": "none",
         "comparability": false,
@@ -493,14 +513,14 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": null,
+        "value": 0.084,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
           "host_kappa_blend",
           "gamma_labeled_as_kappa"
         ],
-        "status": "UNKNOWN",
+        "status": "DERIVED",
         "source": "own_numbers.kappa",
         "observation_id": "none",
         "comparability": false,
@@ -540,8 +560,8 @@
         "editorial": false,
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
-          "status": "UNKNOWN",
-          "value": null
+          "status": "DERIVED",
+          "value": "high pressure"
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -565,7 +585,7 @@
         "entity_id": "GEMINI_CORPORATE",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": null,
+        "magnitude": 1.6181,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -612,14 +632,14 @@
           "kappa",
           "none"
         ],
-        "epistemic_status": "UNKNOWN"
+        "epistemic_status": "DERIVED"
       },
       "own_numbers.kappa": {
         "schema_id": "geniusflow.state_identity.v0",
         "entity_id": "GEMINI_CORPORATE",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": null,
+        "magnitude": 0.084,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -665,7 +685,7 @@
           "kappa",
           "none"
         ],
-        "epistemic_status": "UNKNOWN"
+        "epistemic_status": "DERIVED"
       },
       "network_plugs.observation.last_delta_i": {
         "schema_id": "geniusflow.state_identity.v0",
@@ -726,7 +746,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:b560295b68a483e8c33d607ff64d6091554aaf525063ce7b0cf7c4d7d9b4f816"
+    "snapshot_id": "sha256:b79c6f4a2bda1a62a7edf0a05cd1b8f1d113b60b5b424c5c3256df6615880fb4"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -739,9 +759,9 @@
       "attested": 0
     },
     "slots_by_class": {
-      "KNOWN_CURRENT": 2,
+      "KNOWN_CURRENT": 3,
       "KNOWN_STALE": 0,
-      "KNOWN_MISSING": 4,
+      "KNOWN_MISSING": 3,
       "KNOWN_INCOMPARABLE": 1,
       "BROKEN_PIPE": 0,
       "NOT_WIRED": 1,
@@ -751,9 +771,9 @@
       "UNKNOWN": 0
     },
     "aliases": {
-      "supported": 2,
+      "supported": 3,
       "unsupported": 1,
-      "unknown": 4,
+      "unknown": 3,
       "withheld": 2,
       "broken_pipe": 0,
       "not_wired": 1,
@@ -765,11 +785,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:b560295b68a483e8c33d607ff64d6091554aaf525063ce7b0cf7c4d7d9b4f816",
-  "projection_compiled_at": "2026-10-24T10:31:38.635973+00:00",
+  "source_snapshot_id": "sha256:b79c6f4a2bda1a62a7edf0a05cd1b8f1d113b60b5b424c5c3256df6615880fb4",
+  "projection_compiled_at": "2026-11-02T21:27:13.545873+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-10-24T10:31:38.635973+00:00",
+    "projection_compiled_at": "2026-11-02T21:27:13.545873+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -777,11 +797,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:b560295b68a483e8c33d607ff64d6091554aaf525063ce7b0cf7c4d7d9b4f816",
-    "compiled_at": "2026-10-24T10:31:38.635973+00:00",
+    "source_snapshot_id": "sha256:b79c6f4a2bda1a62a7edf0a05cd1b8f1d113b60b5b424c5c3256df6615880fb4",
+    "compiled_at": "2026-11-02T21:27:13.545873+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-10-24T10:31:38.635973+00:00",
+      "projection_compiled_at": "2026-11-02T21:27:13.545873+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -880,9 +900,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-10-24T10:31:38.451116+00:00",
+          "compiled_at": "2026-11-02T21:27:13.493269+00:00",
           "last_observation": null,
-          "drift_cycles": 21
+          "drift_cycles": 22
         },
         "reason": null,
         "family": "observation_age",
@@ -909,8 +929,8 @@
       "projection": true,
       "embedded_in_field_state": false,
       "feeds_qpo": false,
-      "supported": 2,
-      "unknown": 4,
+      "supported": 3,
+      "unknown": 3,
       "withheld": 2,
       "broken_pipe": 0,
       "not_wired": 1,
@@ -920,9 +940,9 @@
         "attested": 0
       },
       "aliases": {
-        "supported": 2,
+        "supported": 3,
         "unsupported": 1,
-        "unknown": 4,
+        "unknown": 3,
         "withheld": 2,
         "broken_pipe": 0,
         "not_wired": 1,
@@ -931,9 +951,9 @@
         "relationship_gap": 0
       },
       "slots_by_class": {
-        "KNOWN_CURRENT": 2,
+        "KNOWN_CURRENT": 3,
         "KNOWN_STALE": 0,
-        "KNOWN_MISSING": 4,
+        "KNOWN_MISSING": 3,
         "KNOWN_INCOMPARABLE": 1,
         "BROKEN_PIPE": 0,
         "NOT_WIRED": 1,
@@ -944,16 +964,36 @@
       },
       "note": "aliases map existing gap-map classes for machines. They are not a new taxonomy. Gap map is not embedded in Field State."
     },
-    "relationships": {},
+    "relationships": {
+      "in_degree": 0,
+      "out_degree": 0,
+      "by_vector": {
+        "Capital": {
+          "out": 0.0,
+          "in": 0.0
+        },
+        "Infrastructure": {
+          "out": 0.0,
+          "in": 0.0
+        },
+        "Information": {
+          "out": 0.0,
+          "in": 0.0
+        }
+      },
+      "top_inbound": [],
+      "top_outbound": [],
+      "gravity_pairs": []
+    },
     "relationship_state": [],
     "knowledge_gaps": {
       "href": "/api/dossier?entity=GEMINI_CORPORATE&view=gaps",
       "summary": {
         "n": 11,
         "by_class": {
-          "KNOWN_CURRENT": 2,
+          "KNOWN_CURRENT": 3,
           "KNOWN_STALE": 0,
-          "KNOWN_MISSING": 4,
+          "KNOWN_MISSING": 3,
           "KNOWN_INCOMPARABLE": 1,
           "BROKEN_PIPE": 0,
           "NOT_WIRED": 1,
@@ -984,8 +1024,8 @@
       "entity": "GEMINI_CORPORATE",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 36,
-      "identity_comparable_transitions": 34,
+      "n_prospective_snapshots": 37,
+      "identity_comparable_transitions": 35,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -1009,7 +1049,7 @@
       "generators": [
         {
           "id": "engine.dispatch.content_adapter._phi_s_label",
-          "status": "UNKNOWN",
+          "status": "DERIVED",
           "field": "phi_s_label"
         }
       ],
@@ -1022,8 +1062,8 @@
           "editorial": false,
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
-            "status": "UNKNOWN",
-            "value": null
+            "status": "DERIVED",
+            "value": "high pressure"
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
