@@ -1,11 +1,11 @@
 {
   "entity": "BLACKROCK",
   "node": "34539544",
-  "compiled_at": "2026-11-02T23:10:12.930297+00:00",
-  "digest": "sha256:001cd1a19f8bf475dedbb75acc81569a1ba8c0615fa4b7727da5191461f6766b",
+  "compiled_at": "2026-11-03T00:51:29.697002+00:00",
+  "digest": "sha256:31044efc08866dce31d1854c5d5ed1787e573ef8f29177463567428d9d7f96f1",
   "own_numbers": {
-    "phi_s": 9.7591,
-    "kappa": 0.084,
+    "phi_s": 3.2866,
+    "kappa": 0.0982,
     "mass": 0.219478,
     "power": 0.0,
     "extraction": 341.7143,
@@ -188,11 +188,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +16413% over 313 cycles",
-    "cycles": 313,
+    "headline": "phi_s +5461% over 314 cycles",
+    "cycles": 314,
     "delta_last_cycle": {
-      "phi_s": 6.4725,
-      "kappa": 0.0035,
+      "phi_s": -6.4725,
+      "kappa": 0.0142,
       "power": 0.0,
       "extraction": 0.0,
       "gravity_mass": 0.0,
@@ -200,7 +200,7 @@
     }
   },
   "network_plugs": {
-    "freshness": "live_at_request",
+    "freshness": "live",
     "inbound": [
       {
         "network": "defillama",
@@ -211,8 +211,8 @@
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live_at_request",
-        "last_observed_at": "2026-10-24T11:01:01.021527+00:00",
+        "status": "live",
+        "last_observed_at": "2026-11-03T00:02:47.049431+00:00",
         "filings": null,
         "note": "BlackRock Finance, Inc. \u2014 48826 total filings, 0 in last 90d"
       }
@@ -409,10 +409,10 @@
     "cite_class": "citeable",
     "source": "sec_edgar",
     "wire": "sec_entities",
-    "ts": "2026-11-02T21:07:17.879741+00:00",
-    "write_reason": "change_1343.7pct",
+    "ts": "2026-11-03T00:31:38.610051+00:00",
+    "write_reason": "change_76.8pct",
     "source_url": null,
-    "vault_row_ref": "vault:182:BLACKROCK:sec_edgar:2026-11-02T21:07:17.879741+00:00",
+    "vault_row_ref": "vault:118:BLACKROCK:sec_edgar:2026-11-03T00:31:38.610051+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -459,8 +459,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "BLACKROCK",
-    "observed_at": "2026-11-02T21:07:17.879741+00:00",
-    "compiled_at": "2026-11-02T23:10:12.930297+00:00",
+    "observed_at": "2026-11-03T00:31:38.610051+00:00",
+    "compiled_at": "2026-11-03T00:51:29.697002+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -747,9 +747,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-02T23:10:12.930297+00:00",
-        "last_observation": "2026-11-02T21:07:17.879741+00:00",
-        "drift_cycles": 313
+        "compiled_at": "2026-11-03T00:51:29.697002+00:00",
+        "last_observation": "2026-11-03T00:31:38.610051+00:00",
+        "drift_cycles": 314
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -1008,7 +1008,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 9.7591,
+        "value": 3.2866,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -1025,7 +1025,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.084,
+        "value": 0.0982,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1073,7 +1073,7 @@
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
           "status": "DERIVED",
-          "value": "critical pressure"
+          "value": "high pressure"
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -1097,7 +1097,7 @@
         "entity_id": "BLACKROCK",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 9.7591,
+        "magnitude": 3.2866,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -1151,7 +1151,7 @@
         "entity_id": "BLACKROCK",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.084,
+        "magnitude": 0.0982,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1258,7 +1258,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:e5cc5e94a25e733ccd85f461d99ead07b21a7720aff0520c56be2cd62f23bd46"
+    "snapshot_id": "sha256:23533ad509f2f0804b98913a74240ae65645033c7b973f38545492fdedbdb4d0"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1297,24 +1297,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:e5cc5e94a25e733ccd85f461d99ead07b21a7720aff0520c56be2cd62f23bd46",
-  "projection_compiled_at": "2026-11-02T23:10:13.139093+00:00",
+  "source_snapshot_id": "sha256:23533ad509f2f0804b98913a74240ae65645033c7b973f38545492fdedbdb4d0",
+  "projection_compiled_at": "2026-11-03T00:51:29.760465+00:00",
   "freshness": {
-    "source_observed_at": "2026-11-02T21:07:17.879741+00:00",
-    "projection_compiled_at": "2026-11-02T23:10:13.139093+00:00",
-    "age_seconds": 7375,
+    "source_observed_at": "2026-11-03T00:31:38.610051+00:00",
+    "projection_compiled_at": "2026-11-03T00:51:29.760465+00:00",
+    "age_seconds": 1191,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:e5cc5e94a25e733ccd85f461d99ead07b21a7720aff0520c56be2cd62f23bd46",
-    "compiled_at": "2026-11-02T23:10:13.139093+00:00",
+    "source_snapshot_id": "sha256:23533ad509f2f0804b98913a74240ae65645033c7b973f38545492fdedbdb4d0",
+    "compiled_at": "2026-11-03T00:51:29.760465+00:00",
     "freshness": {
-      "source_observed_at": "2026-11-02T21:07:17.879741+00:00",
-      "projection_compiled_at": "2026-11-02T23:10:13.139093+00:00",
-      "age_seconds": 7375,
+      "source_observed_at": "2026-11-03T00:31:38.610051+00:00",
+      "projection_compiled_at": "2026-11-03T00:51:29.760465+00:00",
+      "age_seconds": 1191,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1429,7 +1429,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-11-02T21:07:17.879741+00:00",
+      "observed_at": "2026-11-03T00:31:38.610051+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -1466,9 +1466,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-02T23:10:12.930297+00:00",
-          "last_observation": "2026-11-02T21:07:17.879741+00:00",
-          "drift_cycles": 313
+          "compiled_at": "2026-11-03T00:51:29.697002+00:00",
+          "last_observation": "2026-11-03T00:31:38.610051+00:00",
+          "drift_cycles": 314
         },
         "reason": null,
         "family": "observation_age",
@@ -1833,9 +1833,9 @@
     "observation_clock": {
       "entity": "BLACKROCK",
       "first_prospective_observation": "2026-08-25T03:36:54.287538+00:00",
-      "latest_prospective_observation": "2026-11-02T21:07:17.879741+00:00",
-      "n_prospective_snapshots": 256,
-      "identity_comparable_transitions": 246,
+      "latest_prospective_observation": "2026-11-03T00:31:38.610051+00:00",
+      "n_prospective_snapshots": 257,
+      "identity_comparable_transitions": 247,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -1873,7 +1873,7 @@
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
             "status": "DERIVED",
-            "value": "critical pressure"
+            "value": "high pressure"
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
