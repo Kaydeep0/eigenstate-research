@@ -1,11 +1,11 @@
 {
   "entity": "SCOTT_BESSENT",
   "node": "34539544",
-  "compiled_at": "2026-11-03T20:11:23.580532+00:00",
-  "digest": "sha256:6a15a80d5ed2d217f45a530d610a23cebfc56113caa70efead45c6c08346c2f3",
+  "compiled_at": "2026-11-03T21:43:45.735900+00:00",
+  "digest": "sha256:68044a879d25bd6c7b76068cb65c4f702fdd79f7f676ef91dd3ea7f28e61c215",
   "own_numbers": {
     "phi_s": 0.0,
-    "kappa": 0.0931,
+    "kappa": 0.2688,
     "mass": null,
     "power": null,
     "extraction": null,
@@ -58,12 +58,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 319,
+    "level": "flag",
+    "headline": "kappa +0.257 over 320 cycles",
+    "cycles": 320,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0658,
+      "kappa": 0.1757,
       "boundary_score": 0.0
     }
   },
@@ -212,7 +212,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "SCOTT_BESSENT",
     "observed_at": null,
-    "compiled_at": "2026-11-03T20:11:23.580532+00:00",
+    "compiled_at": "2026-11-03T21:43:45.735900+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -378,9 +378,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-03T20:11:23.580532+00:00",
+        "compiled_at": "2026-11-03T21:43:45.735900+00:00",
         "last_observation": null,
-        "drift_cycles": 319
+        "drift_cycles": 320
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -542,7 +542,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0931,
+        "value": 0.2688,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -668,7 +668,7 @@
         "entity_id": "SCOTT_BESSENT",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0931,
+        "magnitude": 0.2688,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -775,7 +775,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:fb6e71892f5babd4814b6210d1aafe7ddc31cd30a12d89645987da0d17c1bc73"
+    "snapshot_id": "sha256:d277d0da4fd257cc65c10951ea5d98dbe21001dd413b9ec61a33cd0413e0f195"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -814,11 +814,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:fb6e71892f5babd4814b6210d1aafe7ddc31cd30a12d89645987da0d17c1bc73",
-  "projection_compiled_at": "2026-11-03T20:11:23.872117+00:00",
+  "source_snapshot_id": "sha256:d277d0da4fd257cc65c10951ea5d98dbe21001dd413b9ec61a33cd0413e0f195",
+  "projection_compiled_at": "2026-11-03T21:43:45.802056+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-11-03T20:11:23.872117+00:00",
+    "projection_compiled_at": "2026-11-03T21:43:45.802056+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -826,11 +826,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:fb6e71892f5babd4814b6210d1aafe7ddc31cd30a12d89645987da0d17c1bc73",
-    "compiled_at": "2026-11-03T20:11:23.872117+00:00",
+    "source_snapshot_id": "sha256:d277d0da4fd257cc65c10951ea5d98dbe21001dd413b9ec61a33cd0413e0f195",
+    "compiled_at": "2026-11-03T21:43:45.802056+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-11-03T20:11:23.872117+00:00",
+      "projection_compiled_at": "2026-11-03T21:43:45.802056+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -934,9 +934,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-03T20:11:23.580532+00:00",
+          "compiled_at": "2026-11-03T21:43:45.735900+00:00",
           "last_observation": null,
-          "drift_cycles": 319
+          "drift_cycles": 320
         },
         "reason": null,
         "family": "observation_age",
@@ -1081,8 +1081,8 @@
       "entity": "SCOTT_BESSENT",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 248,
-      "identity_comparable_transitions": 243,
+      "n_prospective_snapshots": 249,
+      "identity_comparable_transitions": 244,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
