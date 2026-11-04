@@ -1,11 +1,11 @@
 {
   "entity": "CODE4RENA",
   "node": "34539544",
-  "compiled_at": "2026-11-04T05:03:06.091999+00:00",
-  "digest": "sha256:22d9219a7d981ca2e74313dbd0974a6e922b7f40f5d0b28bcd11919c01ca2944",
+  "compiled_at": "2026-11-04T11:30:22.114943+00:00",
+  "digest": "sha256:1fa807f6c3232ed1a72745fd8b0663f589a1b5da6250ab2cb6953945c6ac89fe",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.0931,
+    "kappa": 0.2798,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -62,12 +62,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 322,
+    "level": "flag",
+    "headline": "kappa +0.268 over 324 cycles",
+    "cycles": 324,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0661,
+      "kappa": 0.011,
       "boundary_score": 0.0
     }
   },
@@ -216,7 +216,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "CODE4RENA",
     "observed_at": null,
-    "compiled_at": "2026-11-04T05:03:06.091999+00:00",
+    "compiled_at": "2026-11-04T11:30:22.114943+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -382,9 +382,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-04T05:03:06.091999+00:00",
+        "compiled_at": "2026-11-04T11:30:22.114943+00:00",
         "last_observation": null,
-        "drift_cycles": 322
+        "drift_cycles": 324
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -546,7 +546,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0931,
+        "value": 0.2798,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -672,7 +672,7 @@
         "entity_id": "CODE4RENA",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0931,
+        "magnitude": 0.2798,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -779,7 +779,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:1bab4fdc2a68049be79137a93b25c94962ffa5d6377f1b8f74dced4ca7e5003d"
+    "snapshot_id": "sha256:5035c10618147c6f5f48f255e73c97c245e23ca6d3dbe2c10e35d80c0823f0e4"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -818,11 +818,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:1bab4fdc2a68049be79137a93b25c94962ffa5d6377f1b8f74dced4ca7e5003d",
-  "projection_compiled_at": "2026-11-04T05:03:06.160641+00:00",
+  "source_snapshot_id": "sha256:5035c10618147c6f5f48f255e73c97c245e23ca6d3dbe2c10e35d80c0823f0e4",
+  "projection_compiled_at": "2026-11-04T11:30:22.185963+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-11-04T05:03:06.160641+00:00",
+    "projection_compiled_at": "2026-11-04T11:30:22.185963+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -830,11 +830,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:1bab4fdc2a68049be79137a93b25c94962ffa5d6377f1b8f74dced4ca7e5003d",
-    "compiled_at": "2026-11-04T05:03:06.160641+00:00",
+    "source_snapshot_id": "sha256:5035c10618147c6f5f48f255e73c97c245e23ca6d3dbe2c10e35d80c0823f0e4",
+    "compiled_at": "2026-11-04T11:30:22.185963+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-11-04T05:03:06.160641+00:00",
+      "projection_compiled_at": "2026-11-04T11:30:22.185963+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -938,9 +938,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-04T05:03:06.091999+00:00",
+          "compiled_at": "2026-11-04T11:30:22.114943+00:00",
           "last_observation": null,
-          "drift_cycles": 322
+          "drift_cycles": 324
         },
         "reason": null,
         "family": "observation_age",
@@ -1085,8 +1085,8 @@
       "entity": "CODE4RENA",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 251,
-      "identity_comparable_transitions": 246,
+      "n_prospective_snapshots": 254,
+      "identity_comparable_transitions": 249,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

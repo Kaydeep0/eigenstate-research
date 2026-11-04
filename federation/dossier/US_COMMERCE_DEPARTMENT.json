@@ -1,11 +1,11 @@
 {
   "entity": "US_COMMERCE_DEPARTMENT",
   "node": "34539544",
-  "compiled_at": "2026-11-04T05:03:30.336130+00:00",
-  "digest": "sha256:0ebae5a76d3b300e2172bb1208a4c1288f58b037188d6e94c2eb5d45732b6372",
+  "compiled_at": "2026-11-04T11:30:46.978272+00:00",
+  "digest": "sha256:24e25961c2344ac7f137d23a2a53795c83c5d2a3434e45a858dc058d7b471013",
   "own_numbers": {
     "phi_s": 0.0,
-    "kappa": 0.0931,
+    "kappa": 0.2798,
     "mass": null,
     "power": null,
     "extraction": null,
@@ -66,12 +66,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 322,
+    "level": "flag",
+    "headline": "kappa +0.268 over 324 cycles",
+    "cycles": 324,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0661,
+      "kappa": 0.011,
       "boundary_score": 0.0
     }
   },
@@ -220,7 +220,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "US_COMMERCE_DEPARTMENT",
     "observed_at": null,
-    "compiled_at": "2026-11-04T05:03:30.336130+00:00",
+    "compiled_at": "2026-11-04T11:30:46.978272+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -386,9 +386,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-04T05:03:30.336130+00:00",
+        "compiled_at": "2026-11-04T11:30:46.978272+00:00",
         "last_observation": null,
-        "drift_cycles": 322
+        "drift_cycles": 324
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -550,7 +550,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0931,
+        "value": 0.2798,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -676,7 +676,7 @@
         "entity_id": "US_COMMERCE_DEPARTMENT",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0931,
+        "magnitude": 0.2798,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -783,7 +783,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:c9249e06360636805495245e849921936269f571de8c186b0cf9f1bd1e15dc3c"
+    "snapshot_id": "sha256:9c10349a105cdc38a504bdb9fece07435c91937070fe2f2bdb70d3e9e0fa6036"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -822,11 +822,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:c9249e06360636805495245e849921936269f571de8c186b0cf9f1bd1e15dc3c",
-  "projection_compiled_at": "2026-11-04T05:03:30.404473+00:00",
+  "source_snapshot_id": "sha256:9c10349a105cdc38a504bdb9fece07435c91937070fe2f2bdb70d3e9e0fa6036",
+  "projection_compiled_at": "2026-11-04T11:30:47.047711+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-11-04T05:03:30.404473+00:00",
+    "projection_compiled_at": "2026-11-04T11:30:47.047711+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -834,11 +834,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:c9249e06360636805495245e849921936269f571de8c186b0cf9f1bd1e15dc3c",
-    "compiled_at": "2026-11-04T05:03:30.404473+00:00",
+    "source_snapshot_id": "sha256:9c10349a105cdc38a504bdb9fece07435c91937070fe2f2bdb70d3e9e0fa6036",
+    "compiled_at": "2026-11-04T11:30:47.047711+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-11-04T05:03:30.404473+00:00",
+      "projection_compiled_at": "2026-11-04T11:30:47.047711+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -942,9 +942,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-04T05:03:30.336130+00:00",
+          "compiled_at": "2026-11-04T11:30:46.978272+00:00",
           "last_observation": null,
-          "drift_cycles": 322
+          "drift_cycles": 324
         },
         "reason": null,
         "family": "observation_age",
@@ -1089,8 +1089,8 @@
       "entity": "US_COMMERCE_DEPARTMENT",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 251,
-      "identity_comparable_transitions": 246,
+      "n_prospective_snapshots": 254,
+      "identity_comparable_transitions": 249,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
