@@ -1,11 +1,11 @@
 {
   "entity": "FIAT_OFFRAMP",
   "node": "34539544",
-  "compiled_at": "2026-11-06T17:11:27.386557+00:00",
-  "digest": "sha256:3c5336c27e4ace1217f4800aecec70a2b675a9acc9c86584aeafca454ae6603f",
+  "compiled_at": "2026-11-06T18:43:19.774811+00:00",
+  "digest": "sha256:80e324a03c0c73536f99b14733521395ea7c21920c139308332202bc6f12253b",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.104,
+    "kappa": 0.2797,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -68,12 +68,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 339,
+    "level": "flag",
+    "headline": "kappa +0.256 over 340 cycles",
+    "cycles": 340,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0661,
+      "kappa": 0.1757,
       "boundary_score": 0.0
     }
   },
@@ -222,7 +222,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "FIAT_OFFRAMP",
     "observed_at": null,
-    "compiled_at": "2026-11-06T17:11:27.386557+00:00",
+    "compiled_at": "2026-11-06T18:43:19.774811+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -396,9 +396,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-06T17:11:27.386557+00:00",
+        "compiled_at": "2026-11-06T18:43:19.774811+00:00",
         "last_observation": null,
-        "drift_cycles": 339
+        "drift_cycles": 340
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -568,7 +568,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.104,
+        "value": 0.2797,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -694,7 +694,7 @@
         "entity_id": "FIAT_OFFRAMP",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.104,
+        "magnitude": 0.2797,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -801,7 +801,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:57425208f9747dada8d2fabe5b737a5264d1dc840f167cbeb95ef9af37c3e28d"
+    "snapshot_id": "sha256:3373534d19ab879da6e61fdd440ba8ca71826171fdd8411cf540e302538680fd"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -840,11 +840,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:57425208f9747dada8d2fabe5b737a5264d1dc840f167cbeb95ef9af37c3e28d",
-  "projection_compiled_at": "2026-11-06T17:11:27.699149+00:00",
+  "source_snapshot_id": "sha256:3373534d19ab879da6e61fdd440ba8ca71826171fdd8411cf540e302538680fd",
+  "projection_compiled_at": "2026-11-06T18:43:19.946542+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-11-06T17:11:27.699149+00:00",
+    "projection_compiled_at": "2026-11-06T18:43:19.946542+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -852,11 +852,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:57425208f9747dada8d2fabe5b737a5264d1dc840f167cbeb95ef9af37c3e28d",
-    "compiled_at": "2026-11-06T17:11:27.699149+00:00",
+    "source_snapshot_id": "sha256:3373534d19ab879da6e61fdd440ba8ca71826171fdd8411cf540e302538680fd",
+    "compiled_at": "2026-11-06T18:43:19.946542+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-11-06T17:11:27.699149+00:00",
+      "projection_compiled_at": "2026-11-06T18:43:19.946542+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -960,9 +960,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-06T17:11:27.386557+00:00",
+          "compiled_at": "2026-11-06T18:43:19.774811+00:00",
           "last_observation": null,
-          "drift_cycles": 339
+          "drift_cycles": 340
         },
         "reason": null,
         "family": "observation_age",
@@ -1129,8 +1129,8 @@
       "entity": "FIAT_OFFRAMP",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 271,
-      "identity_comparable_transitions": 266,
+      "n_prospective_snapshots": 272,
+      "identity_comparable_transitions": 267,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

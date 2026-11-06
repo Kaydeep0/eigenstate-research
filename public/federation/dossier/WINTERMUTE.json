@@ -1,11 +1,11 @@
 {
   "entity": "WINTERMUTE",
   "node": "34539544",
-  "compiled_at": "2026-11-06T17:12:24.237940+00:00",
-  "digest": "sha256:6f1761b8d8bb364ef0ba01422ca579ae5a531e99a436ae7f0feb2f2cdd427b19",
+  "compiled_at": "2026-11-06T18:43:44.183725+00:00",
+  "digest": "sha256:05a8408ceeb24347e9730a65efed1062a26e5b515cae65844c396e90fd7d5a8d",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.104,
+    "kappa": 0.2797,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -75,12 +75,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 339,
+    "level": "flag",
+    "headline": "kappa +0.256 over 340 cycles",
+    "cycles": 340,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0661,
+      "kappa": 0.1757,
       "boundary_score": 0.0
     }
   },
@@ -229,7 +229,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "WINTERMUTE",
     "observed_at": null,
-    "compiled_at": "2026-11-06T17:12:24.237940+00:00",
+    "compiled_at": "2026-11-06T18:43:44.183725+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -403,9 +403,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-06T17:12:24.237940+00:00",
+        "compiled_at": "2026-11-06T18:43:44.183725+00:00",
         "last_observation": null,
-        "drift_cycles": 339
+        "drift_cycles": 340
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -575,7 +575,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.104,
+        "value": 0.2797,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -701,7 +701,7 @@
         "entity_id": "WINTERMUTE",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.104,
+        "magnitude": 0.2797,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -808,7 +808,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:c25b0f6a8f29e8c2d35aab437240e5cd5bccc6d3b9da668be6e78dadaf4ed17c"
+    "snapshot_id": "sha256:cfe9c92dc4c75f42659d62265f568c8ef73e49921cd4b17bf39b21214b392847"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -847,11 +847,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:c25b0f6a8f29e8c2d35aab437240e5cd5bccc6d3b9da668be6e78dadaf4ed17c",
-  "projection_compiled_at": "2026-11-06T17:12:24.536891+00:00",
+  "source_snapshot_id": "sha256:cfe9c92dc4c75f42659d62265f568c8ef73e49921cd4b17bf39b21214b392847",
+  "projection_compiled_at": "2026-11-06T18:43:44.358489+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-11-06T17:12:24.536891+00:00",
+    "projection_compiled_at": "2026-11-06T18:43:44.358489+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -859,11 +859,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:c25b0f6a8f29e8c2d35aab437240e5cd5bccc6d3b9da668be6e78dadaf4ed17c",
-    "compiled_at": "2026-11-06T17:12:24.536891+00:00",
+    "source_snapshot_id": "sha256:cfe9c92dc4c75f42659d62265f568c8ef73e49921cd4b17bf39b21214b392847",
+    "compiled_at": "2026-11-06T18:43:44.358489+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-11-06T17:12:24.536891+00:00",
+      "projection_compiled_at": "2026-11-06T18:43:44.358489+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -967,9 +967,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-06T17:12:24.237940+00:00",
+          "compiled_at": "2026-11-06T18:43:44.183725+00:00",
           "last_observation": null,
-          "drift_cycles": 339
+          "drift_cycles": 340
         },
         "reason": null,
         "family": "observation_age",
@@ -1135,8 +1135,8 @@
       "entity": "WINTERMUTE",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 271,
-      "identity_comparable_transitions": 266,
+      "n_prospective_snapshots": 272,
+      "identity_comparable_transitions": 267,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
