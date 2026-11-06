@@ -1,11 +1,11 @@
 {
   "entity": "JPMORGAN",
   "node": "34539544",
-  "compiled_at": "2026-11-06T05:11:41.279985+00:00",
-  "digest": "sha256:725933a558318ec0546a894ca3759b41f4db2d2de84b2cf2e4d9c5c6f15b1809",
+  "compiled_at": "2026-11-06T11:48:57.075250+00:00",
+  "digest": "sha256:51ceed7a784832115ee789fe8f7f347d0e085a84cbd8976f36a4e15aa2c6280b",
   "own_numbers": {
-    "phi_s": 1.6417,
-    "kappa": 0.1021,
+    "phi_s": 3.2598,
+    "kappa": 0.1701,
     "mass": 0.322003,
     "power": 1.1,
     "extraction": 553859.275053,
@@ -180,11 +180,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +7164% over 336 cycles",
-    "cycles": 336,
+    "headline": "phi_s +14324% over 338 cycles",
+    "cycles": 338,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0645,
+      "kappa": -0.1096,
       "power": 0.0,
       "extraction": 0.0,
       "gravity_mass": 0.0,
@@ -192,15 +192,15 @@
     }
   },
   "network_plugs": {
-    "freshness": "live_at_request",
+    "freshness": "live",
     "inbound": [
       {
         "network": "sec_edgar",
         "kind": "regulatory_primary",
-        "status": "live_at_request",
-        "last_observed_at": "2026-11-06T04:01:55.426763+00:00",
+        "status": "live",
+        "last_observed_at": "2026-11-06T08:00:58.137303+00:00",
         "filings": null,
-        "note": "CIK 0000019617 \u2014 live on feed + parkash sensor"
+        "note": "JPMORGAN CHASE & CO \u2014 170720 total filings, 40 in last 90d"
       }
     ],
     "outbound": [
@@ -226,10 +226,10 @@
       }
     ],
     "observation": {
-      "source": "information_flow",
-      "last_observed_at": "2026-08-17T00:08:14.137252+00:00",
-      "last_delta_i": 1.0,
-      "stale": true
+      "source": "propagated",
+      "last_observed_at": "2026-11-06T10:10:01.258632+00:00",
+      "last_delta_i": 92274102756803.27,
+      "stale": false
     }
   },
   "claims": [
@@ -353,10 +353,10 @@
     "cite_class": "citeable",
     "source": "sec_edgar",
     "wire": "sec_entities",
-    "ts": "2026-11-05T14:35:15.260018+00:00",
-    "write_reason": "change_8.0pct",
+    "ts": "2026-11-06T11:28:17.292991+00:00",
+    "write_reason": "change_9.9pct",
     "source_url": null,
-    "vault_row_ref": "vault:124:JPMORGAN:sec_edgar:2026-11-05T14:35:15.260018+00:00",
+    "vault_row_ref": "vault:124:JPMORGAN:sec_edgar:2026-11-06T11:28:17.292991+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -388,8 +388,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "JPMORGAN",
-    "observed_at": "2026-11-05T14:35:15.260018+00:00",
-    "compiled_at": "2026-11-06T05:11:41.279985+00:00",
+    "observed_at": "2026-11-06T11:28:17.292991+00:00",
+    "compiled_at": "2026-11-06T11:48:57.075250+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -634,9 +634,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-06T05:11:41.279985+00:00",
-        "last_observation": "2026-11-05T14:35:15.260018+00:00",
-        "drift_cycles": 336
+        "compiled_at": "2026-11-06T11:48:57.075250+00:00",
+        "last_observation": "2026-11-06T11:28:17.292991+00:00",
+        "drift_cycles": 338
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -853,7 +853,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 1.6417,
+        "value": 3.2598,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -870,7 +870,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1021,
+        "value": 0.1701,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -942,7 +942,7 @@
         "entity_id": "JPMORGAN",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 1.6417,
+        "magnitude": 3.2598,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -996,7 +996,7 @@
         "entity_id": "JPMORGAN",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1021,
+        "magnitude": 0.1701,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1103,7 +1103,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:d512d50750126ecb611b9a5a77831598479f19ed5b4c9820ab42c28287b50034"
+    "snapshot_id": "sha256:82c89e870c730834e35f20961ffdbd2db1380f886ce12f2615fafb6ff300e94f"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1142,24 +1142,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:d512d50750126ecb611b9a5a77831598479f19ed5b4c9820ab42c28287b50034",
-  "projection_compiled_at": "2026-11-06T05:11:41.627926+00:00",
+  "source_snapshot_id": "sha256:82c89e870c730834e35f20961ffdbd2db1380f886ce12f2615fafb6ff300e94f",
+  "projection_compiled_at": "2026-11-06T11:48:57.209030+00:00",
   "freshness": {
-    "source_observed_at": "2026-11-05T14:35:15.260018+00:00",
-    "projection_compiled_at": "2026-11-06T05:11:41.627926+00:00",
-    "age_seconds": 52586,
+    "source_observed_at": "2026-11-06T11:28:17.292991+00:00",
+    "projection_compiled_at": "2026-11-06T11:48:57.209030+00:00",
+    "age_seconds": 1239,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:d512d50750126ecb611b9a5a77831598479f19ed5b4c9820ab42c28287b50034",
-    "compiled_at": "2026-11-06T05:11:41.627926+00:00",
+    "source_snapshot_id": "sha256:82c89e870c730834e35f20961ffdbd2db1380f886ce12f2615fafb6ff300e94f",
+    "compiled_at": "2026-11-06T11:48:57.209030+00:00",
     "freshness": {
-      "source_observed_at": "2026-11-05T14:35:15.260018+00:00",
-      "projection_compiled_at": "2026-11-06T05:11:41.627926+00:00",
-      "age_seconds": 52586,
+      "source_observed_at": "2026-11-06T11:28:17.292991+00:00",
+      "projection_compiled_at": "2026-11-06T11:48:57.209030+00:00",
+      "age_seconds": 1239,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1232,7 +1232,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-11-05T14:35:15.260018+00:00",
+      "observed_at": "2026-11-06T11:28:17.292991+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -1269,9 +1269,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-06T05:11:41.279985+00:00",
-          "last_observation": "2026-11-05T14:35:15.260018+00:00",
-          "drift_cycles": 336
+          "compiled_at": "2026-11-06T11:48:57.075250+00:00",
+          "last_observation": "2026-11-06T11:28:17.292991+00:00",
+          "drift_cycles": 338
         },
         "reason": null,
         "family": "observation_age",
@@ -1636,9 +1636,9 @@
     "observation_clock": {
       "entity": "JPMORGAN",
       "first_prospective_observation": "2026-08-25T03:36:54.307429+00:00",
-      "latest_prospective_observation": "2026-11-05T14:35:15.260018+00:00",
-      "n_prospective_snapshots": 280,
-      "identity_comparable_transitions": 272,
+      "latest_prospective_observation": "2026-11-06T11:28:17.292991+00:00",
+      "n_prospective_snapshots": 283,
+      "identity_comparable_transitions": 275,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
