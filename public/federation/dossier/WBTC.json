@@ -1,11 +1,11 @@
 {
   "entity": "WBTC",
   "node": "34539544",
-  "compiled_at": "2026-11-10T05:03:35.281031+00:00",
-  "digest": "sha256:312ae096c7d1c1d39aad8bfbc224e7cc82149a0d2b89bee781e09d8210a7046f",
+  "compiled_at": "2026-11-10T06:21:09.116967+00:00",
+  "digest": "sha256:f8e1592399e429e767addb1bdca079f025242c2a49c4eac6d33d2b2de8cb16c4",
   "own_numbers": {
-    "phi_s": 3.2362,
-    "kappa": 0.2184,
+    "phi_s": 1.6181,
+    "kappa": 0.104,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -61,12 +61,12 @@
   ],
   "monetary_position": null,
   "drift": {
-    "level": "flag",
-    "headline": "phi_s +100% over 305 cycles",
-    "cycles": 305,
+    "level": "watch",
+    "headline": "kappa -0.218 over 306 cycles",
+    "cycles": 306,
     "delta_last_cycle": {
-      "phi_s": 1.6181,
-      "kappa": 0.1067
+      "phi_s": -1.6181,
+      "kappa": -0.1144
     }
   },
   "network_plugs": {
@@ -217,10 +217,10 @@
     "cite_class": "citeable",
     "source": "srr_grounding_defillama",
     "wire": "srr_sensor",
-    "ts": "2026-11-10T02:29:17.959006+00:00",
+    "ts": "2026-11-10T05:57:25.776423+00:00",
     "write_reason": "srr_grounded_primary_aum",
     "source_url": null,
-    "vault_row_ref": "sensor:srr_sensor:WBTC:2026-11-10T02:29:17.959006+00:00",
+    "vault_row_ref": "sensor:srr_sensor:WBTC:2026-11-10T05:57:25.776423+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -252,8 +252,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "WBTC",
-    "observed_at": "2026-11-10T02:29:17.959006+00:00",
-    "compiled_at": "2026-11-10T05:03:35.281031+00:00",
+    "observed_at": "2026-11-10T05:57:25.776423+00:00",
+    "compiled_at": "2026-11-10T06:21:09.116967+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -405,9 +405,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-10T05:03:35.281031+00:00",
-        "last_observation": "2026-11-10T02:29:17.959006+00:00",
-        "drift_cycles": 305
+        "compiled_at": "2026-11-10T06:21:09.116967+00:00",
+        "last_observation": "2026-11-10T05:57:25.776423+00:00",
+        "drift_cycles": 306
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -543,7 +543,7 @@
     "relationships": [],
     "metric_outputs": {
       "phi_s": {
-        "value": 3.2362,
+        "value": 1.6181,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -560,7 +560,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.2184,
+        "value": 0.104,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -632,7 +632,7 @@
         "entity_id": "WBTC",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 3.2362,
+        "magnitude": 1.6181,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -686,7 +686,7 @@
         "entity_id": "WBTC",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.2184,
+        "magnitude": 0.104,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -793,7 +793,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:5d39e51d7d4c75431d942dcaca74025c283d59aa1151a82191b557a70e8960bf"
+    "snapshot_id": "sha256:6cb762586c6aafe7e8f826f019409049ea4f080b82e7c2321ed6d5d55fdf2e69"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -832,24 +832,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:5d39e51d7d4c75431d942dcaca74025c283d59aa1151a82191b557a70e8960bf",
-  "projection_compiled_at": "2026-11-10T05:03:35.448776+00:00",
+  "source_snapshot_id": "sha256:6cb762586c6aafe7e8f826f019409049ea4f080b82e7c2321ed6d5d55fdf2e69",
+  "projection_compiled_at": "2026-11-10T06:21:09.239430+00:00",
   "freshness": {
-    "source_observed_at": "2026-11-10T02:29:17.959006+00:00",
-    "projection_compiled_at": "2026-11-10T05:03:35.448776+00:00",
-    "age_seconds": 9257,
+    "source_observed_at": "2026-11-10T05:57:25.776423+00:00",
+    "projection_compiled_at": "2026-11-10T06:21:09.239430+00:00",
+    "age_seconds": 1423,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:5d39e51d7d4c75431d942dcaca74025c283d59aa1151a82191b557a70e8960bf",
-    "compiled_at": "2026-11-10T05:03:35.448776+00:00",
+    "source_snapshot_id": "sha256:6cb762586c6aafe7e8f826f019409049ea4f080b82e7c2321ed6d5d55fdf2e69",
+    "compiled_at": "2026-11-10T06:21:09.239430+00:00",
     "freshness": {
-      "source_observed_at": "2026-11-10T02:29:17.959006+00:00",
-      "projection_compiled_at": "2026-11-10T05:03:35.448776+00:00",
-      "age_seconds": 9257,
+      "source_observed_at": "2026-11-10T05:57:25.776423+00:00",
+      "projection_compiled_at": "2026-11-10T06:21:09.239430+00:00",
+      "age_seconds": 1423,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -922,7 +922,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-11-10T02:29:17.959006+00:00",
+      "observed_at": "2026-11-10T05:57:25.776423+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -947,9 +947,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-10T05:03:35.281031+00:00",
-          "last_observation": "2026-11-10T02:29:17.959006+00:00",
-          "drift_cycles": 305
+          "compiled_at": "2026-11-10T06:21:09.116967+00:00",
+          "last_observation": "2026-11-10T05:57:25.776423+00:00",
+          "drift_cycles": 306
         },
         "reason": null,
         "family": "observation_age",
@@ -1070,9 +1070,9 @@
     "observation_clock": {
       "entity": "WBTC",
       "first_prospective_observation": "2026-08-25T03:36:24.024037+00:00",
-      "latest_prospective_observation": "2026-11-10T02:29:17.959006+00:00",
-      "n_prospective_snapshots": 291,
-      "identity_comparable_transitions": 285,
+      "latest_prospective_observation": "2026-11-10T05:57:25.776423+00:00",
+      "n_prospective_snapshots": 292,
+      "identity_comparable_transitions": 286,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
