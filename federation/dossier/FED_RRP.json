@@ -1,11 +1,11 @@
 {
   "entity": "FED_RRP",
   "node": "34539544",
-  "compiled_at": "2026-11-10T06:20:44.635985+00:00",
-  "digest": "sha256:36394ef7335e8e8515ca2ef3eb7caeb3af17a8b0865fbf8df452bc44579a091d",
+  "compiled_at": "2026-11-10T13:14:09.276448+00:00",
+  "digest": "sha256:2219780e866a0c1659839b7452c756b078c8495512b40616bc0f96ecabd0b36e",
   "own_numbers": {
     "phi_s": 0.04,
-    "kappa": 0.104,
+    "kappa": 0.1678,
     "mass": null,
     "power": 0.0,
     "extraction": 1554.2857,
@@ -113,12 +113,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "steady",
-    "headline": null,
-    "cycles": 346,
+    "level": "watch",
+    "headline": "kappa +0.119 over 348 cycles",
+    "cycles": 348,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.1144,
+      "kappa": 0.0517,
       "power": 0.0,
       "extraction": 0.0,
       "boundary_score": 0.0
@@ -151,8 +151,8 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-11-10T04:39:31.046032+00:00",
-      "last_delta_i": 1.2383954422025034e+26,
+      "last_observed_at": "2026-11-10T08:04:54.980574+00:00",
+      "last_delta_i": 9.213996913326114e+30,
       "stale": false
     }
   },
@@ -312,7 +312,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "FED_RRP",
     "observed_at": null,
-    "compiled_at": "2026-11-10T06:20:44.635985+00:00",
+    "compiled_at": "2026-11-10T13:14:09.276448+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -501,9 +501,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-10T06:20:44.635985+00:00",
+        "compiled_at": "2026-11-10T13:14:09.276448+00:00",
         "last_observation": null,
-        "drift_cycles": 346
+        "drift_cycles": 348
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -681,7 +681,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.104,
+        "value": 0.1678,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -807,7 +807,7 @@
         "entity_id": "FED_RRP",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.104,
+        "magnitude": 0.1678,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -914,7 +914,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:9847376a29846d8a608e170f6d714c6768f1cb77bc78aba393b5cdba60f41178"
+    "snapshot_id": "sha256:4b4267ca90d01f5c09f2ceaf12b9a8a4bd5f4db78e8313943391073e909a01cf"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -953,11 +953,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:9847376a29846d8a608e170f6d714c6768f1cb77bc78aba393b5cdba60f41178",
-  "projection_compiled_at": "2026-11-10T06:20:44.714283+00:00",
+  "source_snapshot_id": "sha256:4b4267ca90d01f5c09f2ceaf12b9a8a4bd5f4db78e8313943391073e909a01cf",
+  "projection_compiled_at": "2026-11-10T13:14:09.352814+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-11-10T06:20:44.714283+00:00",
+    "projection_compiled_at": "2026-11-10T13:14:09.352814+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -965,11 +965,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:9847376a29846d8a608e170f6d714c6768f1cb77bc78aba393b5cdba60f41178",
-    "compiled_at": "2026-11-10T06:20:44.714283+00:00",
+    "source_snapshot_id": "sha256:4b4267ca90d01f5c09f2ceaf12b9a8a4bd5f4db78e8313943391073e909a01cf",
+    "compiled_at": "2026-11-10T13:14:09.352814+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-11-10T06:20:44.714283+00:00",
+      "projection_compiled_at": "2026-11-10T13:14:09.352814+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -1080,9 +1080,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-10T06:20:44.635985+00:00",
+          "compiled_at": "2026-11-10T13:14:09.276448+00:00",
           "last_observation": null,
-          "drift_cycles": 346
+          "drift_cycles": 348
         },
         "reason": null,
         "family": "observation_age",
@@ -1270,8 +1270,8 @@
       "entity": "FED_RRP",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 278,
-      "identity_comparable_transitions": 273,
+      "n_prospective_snapshots": 280,
+      "identity_comparable_transitions": 275,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
