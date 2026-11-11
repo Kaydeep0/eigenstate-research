@@ -1,11 +1,11 @@
 {
   "entity": "UK_JURISDICTION",
   "node": "34539544",
-  "compiled_at": "2026-11-11T20:03:44.756765+00:00",
-  "digest": "sha256:0570c61d38dfe2248b88b02da62a8d869acac964fee3da085cef9dfae378732c",
+  "compiled_at": "2026-11-11T20:40:33.465560+00:00",
+  "digest": "sha256:a2c7371867ac206432f950b25e6d17c7597079432168eebfa4ed2465fccb9766",
   "own_numbers": {
     "phi_s": 0.048,
-    "kappa": 0.34,
+    "kappa": 0.1619,
     "mass": 0.087,
     "power": null,
     "extraction": null,
@@ -98,12 +98,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "kappa +0.316 over 356 cycles",
-    "cycles": 356,
+    "level": "watch",
+    "headline": "kappa +0.138 over 357 cycles",
+    "cycles": 357,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": -0.1781,
       "memory_mass": 0.0,
       "boundary_score": 0.0
     }
@@ -253,7 +253,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "UK_JURISDICTION",
     "observed_at": null,
-    "compiled_at": "2026-11-11T20:03:44.756765+00:00",
+    "compiled_at": "2026-11-11T20:40:33.465560+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -427,9 +427,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-11T20:03:44.756765+00:00",
+        "compiled_at": "2026-11-11T20:40:33.465560+00:00",
         "last_observation": null,
-        "drift_cycles": 356
+        "drift_cycles": 357
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -599,7 +599,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.34,
+        "value": 0.1619,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -725,7 +725,7 @@
         "entity_id": "UK_JURISDICTION",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.34,
+        "magnitude": 0.1619,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -832,7 +832,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:d0f32eb2dc10f985fe0a15721b85e0104e97fa6af959579be1cffdb679202c30"
+    "snapshot_id": "sha256:547f69c40190be62b828f1b9a368b5b428856bff265c06f6e223ca6a9adc2dbf"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -871,11 +871,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:d0f32eb2dc10f985fe0a15721b85e0104e97fa6af959579be1cffdb679202c30",
-  "projection_compiled_at": "2026-11-11T20:03:44.879906+00:00",
+  "source_snapshot_id": "sha256:547f69c40190be62b828f1b9a368b5b428856bff265c06f6e223ca6a9adc2dbf",
+  "projection_compiled_at": "2026-11-11T20:40:33.585182+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-11-11T20:03:44.879906+00:00",
+    "projection_compiled_at": "2026-11-11T20:40:33.585182+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -883,11 +883,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:d0f32eb2dc10f985fe0a15721b85e0104e97fa6af959579be1cffdb679202c30",
-    "compiled_at": "2026-11-11T20:03:44.879906+00:00",
+    "source_snapshot_id": "sha256:547f69c40190be62b828f1b9a368b5b428856bff265c06f6e223ca6a9adc2dbf",
+    "compiled_at": "2026-11-11T20:40:33.585182+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-11-11T20:03:44.879906+00:00",
+      "projection_compiled_at": "2026-11-11T20:40:33.585182+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -991,9 +991,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-11T20:03:44.756765+00:00",
+          "compiled_at": "2026-11-11T20:40:33.465560+00:00",
           "last_observation": null,
-          "drift_cycles": 356
+          "drift_cycles": 357
         },
         "reason": null,
         "family": "observation_age",
@@ -1190,8 +1190,8 @@
       "entity": "UK_JURISDICTION",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 288,
-      "identity_comparable_transitions": 283,
+      "n_prospective_snapshots": 289,
+      "identity_comparable_transitions": 284,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

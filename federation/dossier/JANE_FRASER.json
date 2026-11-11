@@ -1,11 +1,11 @@
 {
   "entity": "JANE_FRASER",
   "node": "34539544",
-  "compiled_at": "2026-11-11T20:03:25.559928+00:00",
-  "digest": "sha256:f31f35259df7c226ae4012c10d75329cf1639db06c27d0df6699dd02d6420ba3",
+  "compiled_at": "2026-11-11T20:40:14.349004+00:00",
+  "digest": "sha256:ba41a346d843d783b2b0c691da0aa6923322e5c36a7964e7704c4749661c9744",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.34,
+    "kappa": 0.1619,
     "mass": null,
     "power": null,
     "extraction": null,
@@ -69,12 +69,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "kappa +0.304 over 356 cycles",
-    "cycles": 356,
+    "level": "watch",
+    "headline": "kappa +0.126 over 357 cycles",
+    "cycles": 357,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.0,
+      "kappa": -0.1781,
       "boundary_score": 0.0
     }
   },
@@ -223,7 +223,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "JANE_FRASER",
     "observed_at": null,
-    "compiled_at": "2026-11-11T20:03:25.559928+00:00",
+    "compiled_at": "2026-11-11T20:40:14.349004+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -405,9 +405,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-11T20:03:25.559928+00:00",
+        "compiled_at": "2026-11-11T20:40:14.349004+00:00",
         "last_observation": null,
-        "drift_cycles": 356
+        "drift_cycles": 357
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -585,7 +585,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.34,
+        "value": 0.1619,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -711,7 +711,7 @@
         "entity_id": "JANE_FRASER",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.34,
+        "magnitude": 0.1619,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -818,7 +818,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:a4b181e79850099becfae4b4451e22353e5b118c5efded92193fa87d7983e5c9"
+    "snapshot_id": "sha256:25a7475582697806b7c2e8d27746d629973e6b2f3d1d9831a143fefb0d991f69"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -857,11 +857,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:a4b181e79850099becfae4b4451e22353e5b118c5efded92193fa87d7983e5c9",
-  "projection_compiled_at": "2026-11-11T20:03:25.683751+00:00",
+  "source_snapshot_id": "sha256:25a7475582697806b7c2e8d27746d629973e6b2f3d1d9831a143fefb0d991f69",
+  "projection_compiled_at": "2026-11-11T20:40:14.472745+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-11-11T20:03:25.683751+00:00",
+    "projection_compiled_at": "2026-11-11T20:40:14.472745+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -869,11 +869,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:a4b181e79850099becfae4b4451e22353e5b118c5efded92193fa87d7983e5c9",
-    "compiled_at": "2026-11-11T20:03:25.683751+00:00",
+    "source_snapshot_id": "sha256:25a7475582697806b7c2e8d27746d629973e6b2f3d1d9831a143fefb0d991f69",
+    "compiled_at": "2026-11-11T20:40:14.472745+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-11-11T20:03:25.683751+00:00",
+      "projection_compiled_at": "2026-11-11T20:40:14.472745+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -977,9 +977,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-11T20:03:25.559928+00:00",
+          "compiled_at": "2026-11-11T20:40:14.349004+00:00",
           "last_observation": null,
-          "drift_cycles": 356
+          "drift_cycles": 357
         },
         "reason": null,
         "family": "observation_age",
@@ -1167,8 +1167,8 @@
       "entity": "JANE_FRASER",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 288,
-      "identity_comparable_transitions": 283,
+      "n_prospective_snapshots": 289,
+      "identity_comparable_transitions": 284,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
