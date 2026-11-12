@@ -1,10 +1,10 @@
 {
   "entity": "JUMP_TRADING",
   "node": "34539544",
-  "compiled_at": "2026-11-11T23:12:30.431460+00:00",
-  "digest": "sha256:efd6495181ee6f4b7c781f47e3ebd35de5bca7b84fe17837cd220c6c994921a4",
+  "compiled_at": "2026-11-12T00:10:29.817816+00:00",
+  "digest": "sha256:c4f60417f5b9e71bff56c2aea74aa41528609235164831ae52f728c9cd1d5f6c",
   "own_numbers": {
-    "phi_s": 1.6381,
+    "phi_s": 0.02,
     "kappa": 0.1619,
     "mass": 0.0348,
     "power": null,
@@ -62,12 +62,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "phi_s +8090% over 357 cycles",
-    "cycles": 357,
+    "level": "watch",
+    "headline": "kappa +0.150 over 358 cycles",
+    "cycles": 358,
     "delta_last_cycle": {
-      "phi_s": 1.6181,
-      "kappa": -0.1781,
+      "phi_s": -1.6181,
+      "kappa": 0.0,
       "boundary_score": 0.0
     }
   },
@@ -223,7 +223,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "JUMP_TRADING",
     "observed_at": "2026-11-11T20:14:37.337806+00:00",
-    "compiled_at": "2026-11-11T23:12:30.431460+00:00",
+    "compiled_at": "2026-11-12T00:10:29.817816+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -389,9 +389,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-11T23:12:30.431460+00:00",
+        "compiled_at": "2026-11-12T00:10:29.817816+00:00",
         "last_observation": "2026-11-11T20:14:37.337806+00:00",
-        "drift_cycles": 357
+        "drift_cycles": 358
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -536,7 +536,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 1.6381,
+        "value": 0.02,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -601,7 +601,7 @@
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
           "status": "DERIVED",
-          "value": "high pressure"
+          "value": "near equilibrium"
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -625,7 +625,7 @@
         "entity_id": "JUMP_TRADING",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 1.6381,
+        "magnitude": 0.02,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -786,7 +786,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:6c9bbf311b934fc33bcc00e7f9168c9c7e70a12097e45c92589fb394d685b853"
+    "snapshot_id": "sha256:a4f4db2684ad2609333ea50ffcd77a29bbc97ba5d19015475b24386564386bdd"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -825,24 +825,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:6c9bbf311b934fc33bcc00e7f9168c9c7e70a12097e45c92589fb394d685b853",
-  "projection_compiled_at": "2026-11-11T23:12:30.804424+00:00",
+  "source_snapshot_id": "sha256:a4f4db2684ad2609333ea50ffcd77a29bbc97ba5d19015475b24386564386bdd",
+  "projection_compiled_at": "2026-11-12T00:10:29.895477+00:00",
   "freshness": {
     "source_observed_at": "2026-11-11T20:14:37.337806+00:00",
-    "projection_compiled_at": "2026-11-11T23:12:30.804424+00:00",
-    "age_seconds": 10673,
+    "projection_compiled_at": "2026-11-12T00:10:29.895477+00:00",
+    "age_seconds": 14152,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:6c9bbf311b934fc33bcc00e7f9168c9c7e70a12097e45c92589fb394d685b853",
-    "compiled_at": "2026-11-11T23:12:30.804424+00:00",
+    "source_snapshot_id": "sha256:a4f4db2684ad2609333ea50ffcd77a29bbc97ba5d19015475b24386564386bdd",
+    "compiled_at": "2026-11-12T00:10:29.895477+00:00",
     "freshness": {
       "source_observed_at": "2026-11-11T20:14:37.337806+00:00",
-      "projection_compiled_at": "2026-11-11T23:12:30.804424+00:00",
-      "age_seconds": 10673,
+      "projection_compiled_at": "2026-11-12T00:10:29.895477+00:00",
+      "age_seconds": 14152,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -945,9 +945,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-11T23:12:30.431460+00:00",
+          "compiled_at": "2026-11-12T00:10:29.817816+00:00",
           "last_observation": "2026-11-11T20:14:37.337806+00:00",
-          "drift_cycles": 357
+          "drift_cycles": 358
         },
         "reason": null,
         "family": "observation_age",
@@ -1092,8 +1092,8 @@
       "entity": "JUMP_TRADING",
       "first_prospective_observation": "2026-08-15T13:12:48.350094+00:00",
       "latest_prospective_observation": "2026-11-11T20:14:37.337806+00:00",
-      "n_prospective_snapshots": 289,
-      "identity_comparable_transitions": 284,
+      "n_prospective_snapshots": 290,
+      "identity_comparable_transitions": 285,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -1131,7 +1131,7 @@
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
             "status": "DERIVED",
-            "value": "high pressure"
+            "value": "near equilibrium"
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
