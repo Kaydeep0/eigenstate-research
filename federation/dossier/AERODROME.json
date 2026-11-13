@@ -1,11 +1,11 @@
 {
   "entity": "AERODROME",
   "node": "34539544",
-  "compiled_at": "2026-11-13T17:02:56.844659+00:00",
-  "digest": "sha256:bccdb870fc3cc1d92072dd102bf243da3cde7be61535733d4549342205e43f94",
+  "compiled_at": "2026-11-13T17:34:26.357776+00:00",
+  "digest": "sha256:e25a9722bf4fda711874780627db6c2990f7ea4e50b64d74ed5f75bc8f5afd3f",
   "own_numbers": {
     "phi_s": 1.6381,
-    "kappa": 0.0872,
+    "kappa": 0.1234,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -69,11 +69,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +8090% over 365 cycles",
-    "cycles": 365,
+    "headline": "phi_s +8090% over 366 cycles",
+    "cycles": 366,
     "delta_last_cycle": {
-      "phi_s": -1.6181,
-      "kappa": -0.0582,
+      "phi_s": 0.0,
+      "kappa": 0.0362,
       "boundary_score": 0.0
     }
   },
@@ -193,10 +193,10 @@
     "cite_class": "citeable",
     "source": "srr_grounding_defillama",
     "wire": "srr_sensor",
-    "ts": "2026-11-13T13:42:28.804886+00:00",
+    "ts": "2026-11-13T17:10:36.150973+00:00",
     "write_reason": "srr_grounded_primary_aum",
     "source_url": null,
-    "vault_row_ref": "sensor:srr_sensor:AERODROME:2026-11-13T13:42:28.804886+00:00",
+    "vault_row_ref": "sensor:srr_sensor:AERODROME:2026-11-13T17:10:36.150973+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -228,8 +228,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "AERODROME",
-    "observed_at": "2026-11-13T13:42:28.804886+00:00",
-    "compiled_at": "2026-11-13T17:02:56.844659+00:00",
+    "observed_at": "2026-11-13T17:10:36.150973+00:00",
+    "compiled_at": "2026-11-13T17:34:26.357776+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -403,9 +403,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-13T17:02:56.844659+00:00",
-        "last_observation": "2026-11-13T13:42:28.804886+00:00",
-        "drift_cycles": 365
+        "compiled_at": "2026-11-13T17:34:26.357776+00:00",
+        "last_observation": "2026-11-13T17:10:36.150973+00:00",
+        "drift_cycles": 366
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -575,7 +575,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0872,
+        "value": 0.1234,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -701,7 +701,7 @@
         "entity_id": "AERODROME",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0872,
+        "magnitude": 0.1234,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -808,7 +808,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:32772770b68a6f6719343a820a03380e67bb81516e45f5eed2c0b903618b02e1"
+    "snapshot_id": "sha256:4036d1f74e65798cc36c7e911560f3fe05c1aec2d3c2b4210203d7f14170886a"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -847,24 +847,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:32772770b68a6f6719343a820a03380e67bb81516e45f5eed2c0b903618b02e1",
-  "projection_compiled_at": "2026-11-13T17:02:56.969561+00:00",
+  "source_snapshot_id": "sha256:4036d1f74e65798cc36c7e911560f3fe05c1aec2d3c2b4210203d7f14170886a",
+  "projection_compiled_at": "2026-11-13T17:34:26.486528+00:00",
   "freshness": {
-    "source_observed_at": "2026-11-13T13:42:28.804886+00:00",
-    "projection_compiled_at": "2026-11-13T17:02:56.969561+00:00",
-    "age_seconds": 12028,
+    "source_observed_at": "2026-11-13T17:10:36.150973+00:00",
+    "projection_compiled_at": "2026-11-13T17:34:26.486528+00:00",
+    "age_seconds": 1430,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:32772770b68a6f6719343a820a03380e67bb81516e45f5eed2c0b903618b02e1",
-    "compiled_at": "2026-11-13T17:02:56.969561+00:00",
+    "source_snapshot_id": "sha256:4036d1f74e65798cc36c7e911560f3fe05c1aec2d3c2b4210203d7f14170886a",
+    "compiled_at": "2026-11-13T17:34:26.486528+00:00",
     "freshness": {
-      "source_observed_at": "2026-11-13T13:42:28.804886+00:00",
-      "projection_compiled_at": "2026-11-13T17:02:56.969561+00:00",
-      "age_seconds": 12028,
+      "source_observed_at": "2026-11-13T17:10:36.150973+00:00",
+      "projection_compiled_at": "2026-11-13T17:34:26.486528+00:00",
+      "age_seconds": 1430,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -937,7 +937,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-11-13T13:42:28.804886+00:00",
+      "observed_at": "2026-11-13T17:10:36.150973+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -967,9 +967,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-13T17:02:56.844659+00:00",
-          "last_observation": "2026-11-13T13:42:28.804886+00:00",
-          "drift_cycles": 365
+          "compiled_at": "2026-11-13T17:34:26.357776+00:00",
+          "last_observation": "2026-11-13T17:10:36.150973+00:00",
+          "drift_cycles": 366
         },
         "reason": null,
         "family": "observation_age",
@@ -1135,9 +1135,9 @@
     "observation_clock": {
       "entity": "AERODROME",
       "first_prospective_observation": "2026-08-25T03:36:24.024037+00:00",
-      "latest_prospective_observation": "2026-11-13T13:42:28.804886+00:00",
-      "n_prospective_snapshots": 310,
-      "identity_comparable_transitions": 304,
+      "latest_prospective_observation": "2026-11-13T17:10:36.150973+00:00",
+      "n_prospective_snapshots": 311,
+      "identity_comparable_transitions": 305,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",

@@ -1,11 +1,11 @@
 {
   "entity": "TREASURY_MARKET",
   "node": "34539544",
-  "compiled_at": "2026-11-13T17:03:37.595785+00:00",
-  "digest": "sha256:a4adfcd2e252b67c9a37f1c701f335243eed26d1f72f4e7a33240fa6186de041",
+  "compiled_at": "2026-11-13T17:35:07.656787+00:00",
+  "digest": "sha256:4d35581514a95df3b7ef1c79b4c601e3df6fb1e25770e733cdc645a4e9412cee",
   "own_numbers": {
     "phi_s": 0.0598,
-    "kappa": 0.0872,
+    "kappa": 0.1234,
     "mass": 0.0789,
     "power": 0.89,
     "extraction": 2375912.0,
@@ -193,11 +193,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "extraction +115% over 365 cycles",
-    "cycles": 365,
+    "headline": "extraction +115% over 366 cycles",
+    "cycles": 366,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": -0.0582,
+      "kappa": 0.0362,
       "power": 0.0,
       "extraction": 0.0,
       "boundary_score": 0.0
@@ -437,7 +437,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "TREASURY_MARKET",
     "observed_at": null,
-    "compiled_at": "2026-11-13T17:03:37.595785+00:00",
+    "compiled_at": "2026-11-13T17:35:07.656787+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -700,9 +700,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-13T17:03:37.595785+00:00",
+        "compiled_at": "2026-11-13T17:35:07.656787+00:00",
         "last_observation": null,
-        "drift_cycles": 365
+        "drift_cycles": 366
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -954,7 +954,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.0872,
+        "value": 0.1234,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1080,7 +1080,7 @@
         "entity_id": "TREASURY_MARKET",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.0872,
+        "magnitude": 0.1234,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1187,7 +1187,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:58f94abbe4f6aff676fa4d9a2baff505996ca2f7023fd817614bc7599d9a6904"
+    "snapshot_id": "sha256:4e054ea39961a29006577cdacd8bc475552f853284659a2207c1bda7c068d109"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1226,11 +1226,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:58f94abbe4f6aff676fa4d9a2baff505996ca2f7023fd817614bc7599d9a6904",
-  "projection_compiled_at": "2026-11-13T17:03:37.784645+00:00",
+  "source_snapshot_id": "sha256:4e054ea39961a29006577cdacd8bc475552f853284659a2207c1bda7c068d109",
+  "projection_compiled_at": "2026-11-13T17:35:07.850272+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-11-13T17:03:37.784645+00:00",
+    "projection_compiled_at": "2026-11-13T17:35:07.850272+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -1238,11 +1238,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:58f94abbe4f6aff676fa4d9a2baff505996ca2f7023fd817614bc7599d9a6904",
-    "compiled_at": "2026-11-13T17:03:37.784645+00:00",
+    "source_snapshot_id": "sha256:4e054ea39961a29006577cdacd8bc475552f853284659a2207c1bda7c068d109",
+    "compiled_at": "2026-11-13T17:35:07.850272+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-11-13T17:03:37.784645+00:00",
+      "projection_compiled_at": "2026-11-13T17:35:07.850272+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -1395,9 +1395,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-13T17:03:37.595785+00:00",
+          "compiled_at": "2026-11-13T17:35:07.656787+00:00",
           "last_observation": null,
-          "drift_cycles": 365
+          "drift_cycles": 366
         },
         "reason": null,
         "family": "observation_age",
@@ -1700,8 +1700,8 @@
       "entity": "TREASURY_MARKET",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 299,
-      "identity_comparable_transitions": 295,
+      "n_prospective_snapshots": 300,
+      "identity_comparable_transitions": 296,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
