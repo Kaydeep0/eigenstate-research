@@ -1,11 +1,11 @@
 {
   "entity": "DAN_GALLAGHER",
   "node": "34539544",
-  "compiled_at": "2026-11-13T05:02:38.703798+00:00",
-  "digest": "sha256:b0b23132f0f9035ceeb0efcd3bfa6b5dcfe352ebd7e2dcef5d8faf82e3c9f34e",
+  "compiled_at": "2026-11-13T07:11:54.312684+00:00",
+  "digest": "sha256:2378cd7b2fa664ab72c40dae8e10820fe1cd7180c90d9db5463d35ea791ba46b",
   "own_numbers": {
     "phi_s": 0.02,
-    "kappa": 0.34,
+    "kappa": 0.1877,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -62,12 +62,12 @@
     "well": "fiat"
   },
   "drift": {
-    "level": "flag",
-    "headline": "kappa +0.328 over 362 cycles",
-    "cycles": 362,
+    "level": "watch",
+    "headline": "kappa +0.176 over 363 cycles",
+    "cycles": 363,
     "delta_last_cycle": {
       "phi_s": 0.0,
-      "kappa": 0.1781,
+      "kappa": -0.1523,
       "boundary_score": 0.0
     }
   },
@@ -216,7 +216,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "DAN_GALLAGHER",
     "observed_at": null,
-    "compiled_at": "2026-11-13T05:02:38.703798+00:00",
+    "compiled_at": "2026-11-13T07:11:54.312684+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -382,9 +382,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-13T05:02:38.703798+00:00",
+        "compiled_at": "2026-11-13T07:11:54.312684+00:00",
         "last_observation": null,
-        "drift_cycles": 362
+        "drift_cycles": 363
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -546,7 +546,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.34,
+        "value": 0.1877,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -672,7 +672,7 @@
         "entity_id": "DAN_GALLAGHER",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.34,
+        "magnitude": 0.1877,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -779,7 +779,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:0df242cfa640f770d17e8451172b136117e8b810e01a21749124913f9076a562"
+    "snapshot_id": "sha256:b3b5a4b5cc3c2abfc171c975990fee8f294619002782f15f6bef9d23b24736cf"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -818,11 +818,11 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:0df242cfa640f770d17e8451172b136117e8b810e01a21749124913f9076a562",
-  "projection_compiled_at": "2026-11-13T05:02:38.781092+00:00",
+  "source_snapshot_id": "sha256:b3b5a4b5cc3c2abfc171c975990fee8f294619002782f15f6bef9d23b24736cf",
+  "projection_compiled_at": "2026-11-13T07:11:54.439544+00:00",
   "freshness": {
     "source_observed_at": null,
-    "projection_compiled_at": "2026-11-13T05:02:38.781092+00:00",
+    "projection_compiled_at": "2026-11-13T07:11:54.439544+00:00",
     "age_seconds": null,
     "status": "UNKNOWN",
     "relative_to": "projection_compiled_at"
@@ -830,11 +830,11 @@
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:0df242cfa640f770d17e8451172b136117e8b810e01a21749124913f9076a562",
-    "compiled_at": "2026-11-13T05:02:38.781092+00:00",
+    "source_snapshot_id": "sha256:b3b5a4b5cc3c2abfc171c975990fee8f294619002782f15f6bef9d23b24736cf",
+    "compiled_at": "2026-11-13T07:11:54.439544+00:00",
     "freshness": {
       "source_observed_at": null,
-      "projection_compiled_at": "2026-11-13T05:02:38.781092+00:00",
+      "projection_compiled_at": "2026-11-13T07:11:54.439544+00:00",
       "age_seconds": null,
       "status": "UNKNOWN",
       "relative_to": "projection_compiled_at"
@@ -938,9 +938,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-13T05:02:38.703798+00:00",
+          "compiled_at": "2026-11-13T07:11:54.312684+00:00",
           "last_observation": null,
-          "drift_cycles": 362
+          "drift_cycles": 363
         },
         "reason": null,
         "family": "observation_age",
@@ -1085,8 +1085,8 @@
       "entity": "DAN_GALLAGHER",
       "first_prospective_observation": null,
       "latest_prospective_observation": null,
-      "n_prospective_snapshots": 294,
-      "identity_comparable_transitions": 289,
+      "n_prospective_snapshots": 295,
+      "identity_comparable_transitions": 290,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
