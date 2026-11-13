@@ -1,11 +1,11 @@
 {
   "entity": "COINBASE",
   "node": "34539544",
-  "compiled_at": "2026-11-13T07:11:51.194282+00:00",
-  "digest": "sha256:fd4ddff94d0f4324d2d872a5b21a2274dee3c0bd824a74569fcbb2bcd3eae602",
+  "compiled_at": "2026-11-13T14:04:33.895139+00:00",
+  "digest": "sha256:9eda02f3c7db159bad71970898f18e2dd1c78d6b5aed4a20c4d35e6fe645d421",
   "own_numbers": {
-    "phi_s": 9.7469,
-    "kappa": 0.1877,
+    "phi_s": 4.8926,
+    "kappa": 0.0872,
     "mass": 0.251771,
     "power": 0.3,
     "extraction": 28637632.750942,
@@ -191,11 +191,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +25283% over 363 cycles",
-    "cycles": 363,
+    "headline": "phi_s +12641% over 365 cycles",
+    "cycles": 365,
     "delta_last_cycle": {
-      "phi_s": 4.8543,
-      "kappa": -0.1523,
+      "phi_s": -6.4725,
+      "kappa": -0.0582,
       "power": 0.0,
       "extraction": 0.0,
       "boundary_score": 0.0
@@ -214,7 +214,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-11-13T04:01:29.568983+00:00",
+        "last_observed_at": "2026-11-13T12:01:01.649601+00:00",
         "filings": null,
         "note": "Coinbase Global, Inc. \u2014 1206 total filings, 28 in last 90d"
       }
@@ -243,8 +243,8 @@
     ],
     "observation": {
       "source": "information_flow",
-      "last_observed_at": "2026-11-13T03:05:26.395448+00:00",
-      "last_delta_i": 2.0,
+      "last_observed_at": "2026-11-13T12:28:12.081483+00:00",
+      "last_delta_i": 1.6182,
       "stale": false
     }
   },
@@ -465,10 +465,10 @@
     "cite_class": "citeable",
     "source": "sec_edgar",
     "wire": "sec_entities",
-    "ts": "2026-11-13T06:46:05.297586+00:00",
+    "ts": "2026-11-13T13:43:00.171243+00:00",
     "write_reason": "change_672.8pct",
     "source_url": null,
-    "vault_row_ref": "vault:117:COINBASE:sec_edgar:2026-11-13T06:46:05.297586+00:00",
+    "vault_row_ref": "vault:120:COINBASE:sec_edgar:2026-11-13T13:43:00.171243+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -500,8 +500,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "COINBASE",
-    "observed_at": "2026-11-13T06:46:05.297586+00:00",
-    "compiled_at": "2026-11-13T07:11:51.194282+00:00",
+    "observed_at": "2026-11-13T13:43:00.171243+00:00",
+    "compiled_at": "2026-11-13T14:04:33.895139+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -806,9 +806,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-13T07:11:51.194282+00:00",
-        "last_observation": "2026-11-13T06:46:05.297586+00:00",
-        "drift_cycles": 363
+        "compiled_at": "2026-11-13T14:04:33.895139+00:00",
+        "last_observation": "2026-11-13T13:43:00.171243+00:00",
+        "drift_cycles": 365
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -1085,7 +1085,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 9.7469,
+        "value": 4.8926,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -1102,7 +1102,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1877,
+        "value": 0.0872,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1150,7 +1150,7 @@
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
           "status": "DERIVED",
-          "value": "critical pressure"
+          "value": "high pressure"
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -1174,7 +1174,7 @@
         "entity_id": "COINBASE",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 9.7469,
+        "magnitude": 4.8926,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -1228,7 +1228,7 @@
         "entity_id": "COINBASE",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1877,
+        "magnitude": 0.0872,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1335,7 +1335,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:62d1c92ac9188ea80beb32cc41a33ba0b086942f0ffac6ab194114750661ebd3"
+    "snapshot_id": "sha256:ac77eef19ac9c728aca2f4a406c403f13e33ce7d39304414dde3864d95fba804"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1374,24 +1374,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:62d1c92ac9188ea80beb32cc41a33ba0b086942f0ffac6ab194114750661ebd3",
-  "projection_compiled_at": "2026-11-13T07:11:51.354763+00:00",
+  "source_snapshot_id": "sha256:ac77eef19ac9c728aca2f4a406c403f13e33ce7d39304414dde3864d95fba804",
+  "projection_compiled_at": "2026-11-13T14:04:33.984846+00:00",
   "freshness": {
-    "source_observed_at": "2026-11-13T06:46:05.297586+00:00",
-    "projection_compiled_at": "2026-11-13T07:11:51.354763+00:00",
-    "age_seconds": 1546,
+    "source_observed_at": "2026-11-13T13:43:00.171243+00:00",
+    "projection_compiled_at": "2026-11-13T14:04:33.984846+00:00",
+    "age_seconds": 1293,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:62d1c92ac9188ea80beb32cc41a33ba0b086942f0ffac6ab194114750661ebd3",
-    "compiled_at": "2026-11-13T07:11:51.354763+00:00",
+    "source_snapshot_id": "sha256:ac77eef19ac9c728aca2f4a406c403f13e33ce7d39304414dde3864d95fba804",
+    "compiled_at": "2026-11-13T14:04:33.984846+00:00",
     "freshness": {
-      "source_observed_at": "2026-11-13T06:46:05.297586+00:00",
-      "projection_compiled_at": "2026-11-13T07:11:51.354763+00:00",
-      "age_seconds": 1546,
+      "source_observed_at": "2026-11-13T13:43:00.171243+00:00",
+      "projection_compiled_at": "2026-11-13T14:04:33.984846+00:00",
+      "age_seconds": 1293,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1524,7 +1524,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-11-13T06:46:05.297586+00:00",
+      "observed_at": "2026-11-13T13:43:00.171243+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -1561,9 +1561,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-13T07:11:51.194282+00:00",
-          "last_observation": "2026-11-13T06:46:05.297586+00:00",
-          "drift_cycles": 363
+          "compiled_at": "2026-11-13T14:04:33.895139+00:00",
+          "last_observation": "2026-11-13T13:43:00.171243+00:00",
+          "drift_cycles": 365
         },
         "reason": null,
         "family": "observation_age",
@@ -1928,9 +1928,9 @@
     "observation_clock": {
       "entity": "COINBASE",
       "first_prospective_observation": "2026-08-25T03:36:54.293952+00:00",
-      "latest_prospective_observation": "2026-11-13T06:46:05.297586+00:00",
-      "n_prospective_snapshots": 318,
-      "identity_comparable_transitions": 307,
+      "latest_prospective_observation": "2026-11-13T13:43:00.171243+00:00",
+      "n_prospective_snapshots": 320,
+      "identity_comparable_transitions": 309,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -1968,7 +1968,7 @@
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
             "status": "DERIVED",
-            "value": "critical pressure"
+            "value": "high pressure"
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
