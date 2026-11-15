@@ -1,6 +1,6 @@
 # Measured ledgers, and every time each one was published
 
-Generated 2026-10-18T11:00:58.482966+00:00 · tool ledger_refresh v1.0.0 · digest `ebfcffff3e9c3fcc`
+Generated 2026-11-15T12:00:01.519678+00:00 · tool ledger_refresh v1.0.0 · digest `ebfcffff3e9c3fcc`
 
 A ledger published once is a snapshot dressed as a standing claim. This page is the
 correction: one row per publication, kept append only, so a reader can see whether a
