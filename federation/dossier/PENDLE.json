@@ -1,11 +1,11 @@
 {
   "entity": "PENDLE",
   "node": "34539544",
-  "compiled_at": "2026-11-14T23:11:45.421211+00:00",
-  "digest": "sha256:2b9942d38901360e65c158d1323064a06eff247d603d8574d01fd6143dc427b5",
+  "compiled_at": "2026-11-15T02:13:27.458810+00:00",
+  "digest": "sha256:e173637a8fba2f54ab6fb1f594e8366157dfbb1b1985da97c82de354f34bc69c",
   "own_numbers": {
-    "phi_s": 3.2362,
-    "kappa": 0.121,
+    "phi_s": 1.6181,
+    "kappa": 0.0872,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -53,12 +53,12 @@
   "role_participations": [],
   "monetary_position": null,
   "drift": {
-    "level": "flag",
-    "headline": "phi_s +100% over 332 cycles",
-    "cycles": 332,
+    "level": "watch",
+    "headline": "kappa -0.234 over 333 cycles",
+    "cycles": 333,
     "delta_last_cycle": {
-      "phi_s": 1.6181,
-      "kappa": -0.0007
+      "phi_s": -1.6181,
+      "kappa": -0.0338
     }
   },
   "network_plugs": {
@@ -172,10 +172,10 @@
     "cite_class": "citeable",
     "source": "srr_grounding_defillama",
     "wire": "srr_sensor",
-    "ts": "2026-11-14T22:27:21.186074+00:00",
+    "ts": "2026-11-15T01:56:41.028820+00:00",
     "write_reason": "srr_grounded_primary_aum",
     "source_url": null,
-    "vault_row_ref": "sensor:srr_sensor:PENDLE:2026-11-14T22:27:21.186074+00:00",
+    "vault_row_ref": "sensor:srr_sensor:PENDLE:2026-11-15T01:56:41.028820+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -207,8 +207,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "PENDLE",
-    "observed_at": "2026-11-14T22:27:21.186074+00:00",
-    "compiled_at": "2026-11-14T23:11:45.421211+00:00",
+    "observed_at": "2026-11-15T01:56:41.028820+00:00",
+    "compiled_at": "2026-11-15T02:13:27.458810+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -360,9 +360,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-14T23:11:45.421211+00:00",
-        "last_observation": "2026-11-14T22:27:21.186074+00:00",
-        "drift_cycles": 332
+        "compiled_at": "2026-11-15T02:13:27.458810+00:00",
+        "last_observation": "2026-11-15T01:56:41.028820+00:00",
+        "drift_cycles": 333
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -498,7 +498,7 @@
     "relationships": [],
     "metric_outputs": {
       "phi_s": {
-        "value": 3.2362,
+        "value": 1.6181,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -515,7 +515,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.121,
+        "value": 0.0872,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -587,7 +587,7 @@
         "entity_id": "PENDLE",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 3.2362,
+        "magnitude": 1.6181,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -641,7 +641,7 @@
         "entity_id": "PENDLE",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.121,
+        "magnitude": 0.0872,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -748,7 +748,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:950d4201fab8bdf186b9465b1dd37774d7ec9c9e5b2ca1e1f3a33016114751c0"
+    "snapshot_id": "sha256:d488e3af6ad7578b96dffccf564e80f3b1078efbff2f30f02de26d3e0a2d14ec"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -787,24 +787,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:950d4201fab8bdf186b9465b1dd37774d7ec9c9e5b2ca1e1f3a33016114751c0",
-  "projection_compiled_at": "2026-11-14T23:11:45.740986+00:00",
+  "source_snapshot_id": "sha256:d488e3af6ad7578b96dffccf564e80f3b1078efbff2f30f02de26d3e0a2d14ec",
+  "projection_compiled_at": "2026-11-15T02:13:27.636274+00:00",
   "freshness": {
-    "source_observed_at": "2026-11-14T22:27:21.186074+00:00",
-    "projection_compiled_at": "2026-11-14T23:11:45.740986+00:00",
-    "age_seconds": 2664,
+    "source_observed_at": "2026-11-15T01:56:41.028820+00:00",
+    "projection_compiled_at": "2026-11-15T02:13:27.636274+00:00",
+    "age_seconds": 1006,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:950d4201fab8bdf186b9465b1dd37774d7ec9c9e5b2ca1e1f3a33016114751c0",
-    "compiled_at": "2026-11-14T23:11:45.740986+00:00",
+    "source_snapshot_id": "sha256:d488e3af6ad7578b96dffccf564e80f3b1078efbff2f30f02de26d3e0a2d14ec",
+    "compiled_at": "2026-11-15T02:13:27.636274+00:00",
     "freshness": {
-      "source_observed_at": "2026-11-14T22:27:21.186074+00:00",
-      "projection_compiled_at": "2026-11-14T23:11:45.740986+00:00",
-      "age_seconds": 2664,
+      "source_observed_at": "2026-11-15T01:56:41.028820+00:00",
+      "projection_compiled_at": "2026-11-15T02:13:27.636274+00:00",
+      "age_seconds": 1006,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -877,7 +877,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-11-14T22:27:21.186074+00:00",
+      "observed_at": "2026-11-15T01:56:41.028820+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -902,9 +902,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-14T23:11:45.421211+00:00",
-          "last_observation": "2026-11-14T22:27:21.186074+00:00",
-          "drift_cycles": 332
+          "compiled_at": "2026-11-15T02:13:27.458810+00:00",
+          "last_observation": "2026-11-15T01:56:41.028820+00:00",
+          "drift_cycles": 333
         },
         "reason": null,
         "family": "observation_age",
@@ -1025,9 +1025,9 @@
     "observation_clock": {
       "entity": "PENDLE",
       "first_prospective_observation": "2026-08-25T03:36:24.024037+00:00",
-      "latest_prospective_observation": "2026-11-14T22:27:21.186074+00:00",
-      "n_prospective_snapshots": 318,
-      "identity_comparable_transitions": 312,
+      "latest_prospective_observation": "2026-11-15T01:56:41.028820+00:00",
+      "n_prospective_snapshots": 319,
+      "identity_comparable_transitions": 313,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
