@@ -1,11 +1,11 @@
 {
   "entity": "AAVE_V3",
   "node": "34539544",
-  "compiled_at": "2026-11-18T02:02:52.087419+00:00",
-  "digest": "sha256:a968936b46e7d12a41d28f3b1f4a34703797f5d574d919023d86fed560098b00",
+  "compiled_at": "2026-11-18T04:48:53.402464+00:00",
+  "digest": "sha256:8c2a3a1426132dd6fc5b8dd36f2e01c1c90c886e18c6462fe9a51dbbcee9ade3",
   "own_numbers": {
-    "phi_s": 1.6181,
-    "kappa": 0.1317,
+    "phi_s": 3.2362,
+    "kappa": 0.1101,
     "mass": 0.0348,
     "power": null,
     "extraction": null,
@@ -61,12 +61,12 @@
   ],
   "monetary_position": null,
   "drift": {
-    "level": "watch",
-    "headline": "kappa -0.190 over 343 cycles",
-    "cycles": 343,
+    "level": "flag",
+    "headline": "phi_s +100% over 344 cycles",
+    "cycles": 344,
     "delta_last_cycle": {
-      "phi_s": -1.6181,
-      "kappa": 0.0135
+      "phi_s": 1.6181,
+      "kappa": -0.0216
     }
   },
   "network_plugs": {
@@ -217,10 +217,10 @@
     "cite_class": "citeable",
     "source": "srr_grounding_defillama",
     "wire": "srr_sensor",
-    "ts": "2026-11-18T00:54:54.932939+00:00",
+    "ts": "2026-11-18T04:22:45.311569+00:00",
     "write_reason": "srr_grounded_primary_aum",
     "source_url": null,
-    "vault_row_ref": "sensor:srr_sensor:AAVE_V3:2026-11-18T00:54:54.932939+00:00",
+    "vault_row_ref": "sensor:srr_sensor:AAVE_V3:2026-11-18T04:22:45.311569+00:00",
     "sensor_id": null,
     "surge_domain": "progression",
     "sigma_key": "sigma_progression",
@@ -252,8 +252,8 @@
   "field_state": {
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "AAVE_V3",
-    "observed_at": "2026-11-18T00:54:54.932939+00:00",
-    "compiled_at": "2026-11-18T02:02:52.087419+00:00",
+    "observed_at": "2026-11-18T04:22:45.311569+00:00",
+    "compiled_at": "2026-11-18T04:48:53.402464+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -405,9 +405,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-18T02:02:52.087419+00:00",
-        "last_observation": "2026-11-18T00:54:54.932939+00:00",
-        "drift_cycles": 343
+        "compiled_at": "2026-11-18T04:48:53.402464+00:00",
+        "last_observation": "2026-11-18T04:22:45.311569+00:00",
+        "drift_cycles": 344
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -543,7 +543,7 @@
     "relationships": [],
     "metric_outputs": {
       "phi_s": {
-        "value": 1.6181,
+        "value": 3.2362,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -560,7 +560,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1317,
+        "value": 0.1101,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -632,7 +632,7 @@
         "entity_id": "AAVE_V3",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 1.6181,
+        "magnitude": 3.2362,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -686,7 +686,7 @@
         "entity_id": "AAVE_V3",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1317,
+        "magnitude": 0.1101,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -793,7 +793,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:f727c1da0aa3183768d4dd2cb835fd071bb4da43e1024996b03652b810976f9e"
+    "snapshot_id": "sha256:45c2a8193b1835c9533a4a1c9b1865500ec665d1ed8d993637056756d6c38dbf"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -832,24 +832,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:f727c1da0aa3183768d4dd2cb835fd071bb4da43e1024996b03652b810976f9e",
-  "projection_compiled_at": "2026-11-18T02:02:52.173970+00:00",
+  "source_snapshot_id": "sha256:45c2a8193b1835c9533a4a1c9b1865500ec665d1ed8d993637056756d6c38dbf",
+  "projection_compiled_at": "2026-11-18T04:48:53.486356+00:00",
   "freshness": {
-    "source_observed_at": "2026-11-18T00:54:54.932939+00:00",
-    "projection_compiled_at": "2026-11-18T02:02:52.173970+00:00",
-    "age_seconds": 4077,
+    "source_observed_at": "2026-11-18T04:22:45.311569+00:00",
+    "projection_compiled_at": "2026-11-18T04:48:53.486356+00:00",
+    "age_seconds": 1568,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:f727c1da0aa3183768d4dd2cb835fd071bb4da43e1024996b03652b810976f9e",
-    "compiled_at": "2026-11-18T02:02:52.173970+00:00",
+    "source_snapshot_id": "sha256:45c2a8193b1835c9533a4a1c9b1865500ec665d1ed8d993637056756d6c38dbf",
+    "compiled_at": "2026-11-18T04:48:53.486356+00:00",
     "freshness": {
-      "source_observed_at": "2026-11-18T00:54:54.932939+00:00",
-      "projection_compiled_at": "2026-11-18T02:02:52.173970+00:00",
-      "age_seconds": 4077,
+      "source_observed_at": "2026-11-18T04:22:45.311569+00:00",
+      "projection_compiled_at": "2026-11-18T04:48:53.486356+00:00",
+      "age_seconds": 1568,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -922,7 +922,7 @@
       }
     ],
     "state": {
-      "observed_at": "2026-11-18T00:54:54.932939+00:00",
+      "observed_at": "2026-11-18T04:22:45.311569+00:00",
       "snapshot_role": "PROSPECTIVE_SNAPSHOT",
       "identity_contract": "geniusflow.observer_identity.v1",
       "t0_labeled": false
@@ -947,9 +947,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-18T02:02:52.087419+00:00",
-          "last_observation": "2026-11-18T00:54:54.932939+00:00",
-          "drift_cycles": 343
+          "compiled_at": "2026-11-18T04:48:53.402464+00:00",
+          "last_observation": "2026-11-18T04:22:45.311569+00:00",
+          "drift_cycles": 344
         },
         "reason": null,
         "family": "observation_age",
@@ -1070,9 +1070,9 @@
     "observation_clock": {
       "entity": "AAVE_V3",
       "first_prospective_observation": "2026-08-25T03:36:24.024037+00:00",
-      "latest_prospective_observation": "2026-11-18T00:54:54.932939+00:00",
-      "n_prospective_snapshots": 330,
-      "identity_comparable_transitions": 324,
+      "latest_prospective_observation": "2026-11-18T04:22:45.311569+00:00",
+      "n_prospective_snapshots": 331,
+      "identity_comparable_transitions": 325,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
