@@ -1,11 +1,11 @@
 {
   "entity": "BNY_MELLON",
   "node": "34539544",
-  "compiled_at": "2026-11-17T23:11:18.346680+00:00",
-  "digest": "sha256:4c9f3731350cbab921d9e285c0794061744743fadc809a394384cb5862ca1946",
+  "compiled_at": "2026-11-18T02:02:56.242178+00:00",
+  "digest": "sha256:104008b82708de39157ca6ec052bf7f747da79ab17dc250f0668deef6572f00e",
   "own_numbers": {
-    "phi_s": 1.6667,
-    "kappa": 0.1182,
+    "phi_s": 0.0486,
+    "kappa": 0.1317,
     "mass": 0.111029,
     "power": 0.17,
     "extraction": 31987.5607,
@@ -186,11 +186,11 @@
   },
   "drift": {
     "level": "flag",
-    "headline": "phi_s +2735% over 382 cycles",
-    "cycles": 382,
+    "headline": "extraction +205% over 383 cycles",
+    "cycles": 383,
     "delta_last_cycle": {
-      "phi_s": 0.0,
-      "kappa": -0.029,
+      "phi_s": -1.6181,
+      "kappa": 0.0135,
       "power": 0.0,
       "extraction": 0.0,
       "boundary_score": 0.0
@@ -203,9 +203,9 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-11-16T00:01:14.543663+00:00",
+        "last_observed_at": "2026-11-18T00:01:10.674295+00:00",
         "filings": null,
-        "note": "Bank of New York Mellon Corp \u2014 4819 total filings, 35 in last 90d"
+        "note": "Bank of New York Mellon Corp \u2014 4819 total filings, 33 in last 90d"
       }
     ],
     "outbound": [
@@ -232,7 +232,7 @@
     ],
     "observation": {
       "source": "propagated",
-      "last_observed_at": "2026-11-17T23:08:59.740904+00:00",
+      "last_observed_at": "2026-11-17T23:46:30.258951+00:00",
       "last_delta_i": Infinity,
       "stale": false
     }
@@ -457,7 +457,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "BNY_MELLON",
     "observed_at": "2026-11-17T21:26:51.764217+00:00",
-    "compiled_at": "2026-11-17T23:11:18.346680+00:00",
+    "compiled_at": "2026-11-18T02:02:56.242178+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -721,9 +721,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-17T23:11:18.346680+00:00",
+        "compiled_at": "2026-11-18T02:02:56.242178+00:00",
         "last_observation": "2026-11-17T21:26:51.764217+00:00",
-        "drift_cycles": 382
+        "drift_cycles": 383
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -959,7 +959,7 @@
     ],
     "metric_outputs": {
       "phi_s": {
-        "value": 1.6667,
+        "value": 0.0486,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -976,7 +976,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1182,
+        "value": 0.1317,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1024,7 +1024,7 @@
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
           "status": "DERIVED",
-          "value": "high pressure"
+          "value": "near equilibrium"
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -1048,7 +1048,7 @@
         "entity_id": "BNY_MELLON",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 1.6667,
+        "magnitude": 0.0486,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -1102,7 +1102,7 @@
         "entity_id": "BNY_MELLON",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1182,
+        "magnitude": 0.1317,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -1209,7 +1209,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:60958a328c9b2ff033fb0a1f636b7531daf4e9fc08da6a40a1291fb83496477b"
+    "snapshot_id": "sha256:57323f49bd9f611ab8051c7ab8bafe468666fc524d96005705bccf6ec506f34a"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -1248,24 +1248,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:60958a328c9b2ff033fb0a1f636b7531daf4e9fc08da6a40a1291fb83496477b",
-  "projection_compiled_at": "2026-11-17T23:11:18.711798+00:00",
+  "source_snapshot_id": "sha256:57323f49bd9f611ab8051c7ab8bafe468666fc524d96005705bccf6ec506f34a",
+  "projection_compiled_at": "2026-11-18T02:02:56.330929+00:00",
   "freshness": {
     "source_observed_at": "2026-11-17T21:26:51.764217+00:00",
-    "projection_compiled_at": "2026-11-17T23:11:18.711798+00:00",
-    "age_seconds": 6266,
+    "projection_compiled_at": "2026-11-18T02:02:56.330929+00:00",
+    "age_seconds": 16564,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:60958a328c9b2ff033fb0a1f636b7531daf4e9fc08da6a40a1291fb83496477b",
-    "compiled_at": "2026-11-17T23:11:18.711798+00:00",
+    "source_snapshot_id": "sha256:57323f49bd9f611ab8051c7ab8bafe468666fc524d96005705bccf6ec506f34a",
+    "compiled_at": "2026-11-18T02:02:56.330929+00:00",
     "freshness": {
       "source_observed_at": "2026-11-17T21:26:51.764217+00:00",
-      "projection_compiled_at": "2026-11-17T23:11:18.711798+00:00",
-      "age_seconds": 6266,
+      "projection_compiled_at": "2026-11-18T02:02:56.330929+00:00",
+      "age_seconds": 16564,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1402,9 +1402,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-17T23:11:18.346680+00:00",
+          "compiled_at": "2026-11-18T02:02:56.242178+00:00",
           "last_observation": "2026-11-17T21:26:51.764217+00:00",
-          "drift_cycles": 382
+          "drift_cycles": 383
         },
         "reason": null,
         "family": "observation_age",
@@ -1749,8 +1749,8 @@
       "entity": "BNY_MELLON",
       "first_prospective_observation": "2026-08-25T03:36:57.234749+00:00",
       "latest_prospective_observation": "2026-11-17T21:26:51.764217+00:00",
-      "n_prospective_snapshots": 330,
-      "identity_comparable_transitions": 320,
+      "n_prospective_snapshots": 331,
+      "identity_comparable_transitions": 321,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -1788,7 +1788,7 @@
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
             "status": "DERIVED",
-            "value": "high pressure"
+            "value": "near equilibrium"
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
