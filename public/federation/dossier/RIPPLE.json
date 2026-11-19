@@ -1,11 +1,11 @@
 {
   "entity": "RIPPLE",
   "node": "34539544",
-  "compiled_at": "2026-11-18T05:03:12.378557+00:00",
-  "digest": "sha256:a337b9f7c0c60f5eacdb98bf2952cda445430cf06f180ea775222fd45dee27eb",
+  "compiled_at": "2026-11-18T08:16:12.756569+00:00",
+  "digest": "sha256:08beea28532a43f4b24757b305a499db80d0dc078a1305b42a70c7aceadb62d6",
   "own_numbers": {
-    "phi_s": 6.4725,
-    "kappa": 0.1101,
+    "phi_s": 3.2362,
+    "kappa": 0.1795,
     "mass": null,
     "power": null,
     "extraction": null,
@@ -58,11 +58,11 @@
   "monetary_position": null,
   "drift": {
     "level": "flag",
-    "headline": "phi_s +300% over 380 cycles",
-    "cycles": 380,
+    "headline": "phi_s +100% over 381 cycles",
+    "cycles": 381,
     "delta_last_cycle": {
-      "phi_s": 3.2363,
-      "kappa": -0.0216
+      "phi_s": -3.2363,
+      "kappa": 0.0694
     }
   },
   "network_plugs": {
@@ -72,7 +72,7 @@
         "network": "sec_edgar",
         "kind": "regulatory_primary",
         "status": "live",
-        "last_observed_at": "2026-11-18T04:01:19.976378+00:00",
+        "last_observed_at": "2026-11-18T08:01:08.808058+00:00",
         "filings": null,
         "note": "Ripple Labs Inc. \u2014 16 total filings, 1 in last 90d"
       }
@@ -300,7 +300,7 @@
     "schema_version": "geniusflow.entity_state_snapshot.v1",
     "entity_id": "RIPPLE",
     "observed_at": "2026-11-18T04:23:51.574058+00:00",
-    "compiled_at": "2026-11-18T05:03:12.378557+00:00",
+    "compiled_at": "2026-11-18T08:16:12.756569+00:00",
     "organism_version": "unhashed_specimen",
     "topology_version": "topology_epoch:2026-08-14_host_admit_paypal_paxos_pyusd:members=177",
     "identity_contract": "geniusflow.observer_identity.v1",
@@ -494,9 +494,9 @@
     },
     "age": {
       "value": {
-        "compiled_at": "2026-11-18T05:03:12.378557+00:00",
+        "compiled_at": "2026-11-18T08:16:12.756569+00:00",
         "last_observation": "2026-11-18T04:23:51.574058+00:00",
-        "drift_cycles": 380
+        "drift_cycles": 381
       },
       "unit": "unknown",
       "family": "observation_age",
@@ -674,7 +674,7 @@
     "relationships": [],
     "metric_outputs": {
       "phi_s": {
-        "value": 6.4725,
+        "value": 3.2362,
         "unit": "dimensionless_index",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -691,7 +691,7 @@
         "note": "comparable only under the same kappa store, key, and default"
       },
       "kappa": {
-        "value": 0.1101,
+        "value": 0.1795,
         "unit": "dimensionless_index",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -739,7 +739,7 @@
         "phi_s_label": {
           "generator": "engine.dispatch.content_adapter._phi_s_label",
           "status": "DERIVED",
-          "value": "critical pressure"
+          "value": "high pressure"
         },
         "kappa_living_zone": {
           "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
@@ -763,7 +763,7 @@
         "entity_id": "RIPPLE",
         "value_path": "own_numbers.phi_s",
         "display_glyph": "\u03a6_S",
-        "magnitude": 6.4725,
+        "magnitude": 3.2362,
         "kind": "derived",
         "family": "capital_flow_pressure",
         "not_families": [
@@ -817,7 +817,7 @@
         "entity_id": "RIPPLE",
         "value_path": "own_numbers.kappa",
         "display_glyph": "\u03ba",
-        "magnitude": 0.1101,
+        "magnitude": 0.1795,
         "kind": "derived",
         "family": "entity_physics_kappa",
         "not_families": [
@@ -924,7 +924,7 @@
         "epistemic_status": "WITHHELD"
       }
     },
-    "snapshot_id": "sha256:aac19ec1c64a35a9ceb58057ea736445439f8cd18cc6bc2af2fadce369a1c3bf"
+    "snapshot_id": "sha256:bf2ce6ae0fc21bff7d4e145c6287e1652bbaf5e0687bdb3bf1ccf0caea6bed37"
   },
   "epistemic_summary": {
     "schema": "geniusflow.epistemic_summary.v0",
@@ -963,24 +963,24 @@
   },
   "projection_version": "geniusflow.public_entity_projection.v1",
   "source_schema": "geniusflow.entity_state_snapshot.v1",
-  "source_snapshot_id": "sha256:aac19ec1c64a35a9ceb58057ea736445439f8cd18cc6bc2af2fadce369a1c3bf",
-  "projection_compiled_at": "2026-11-18T05:03:12.509771+00:00",
+  "source_snapshot_id": "sha256:bf2ce6ae0fc21bff7d4e145c6287e1652bbaf5e0687bdb3bf1ccf0caea6bed37",
+  "projection_compiled_at": "2026-11-18T08:16:12.838977+00:00",
   "freshness": {
     "source_observed_at": "2026-11-18T04:23:51.574058+00:00",
-    "projection_compiled_at": "2026-11-18T05:03:12.509771+00:00",
-    "age_seconds": 2360,
+    "projection_compiled_at": "2026-11-18T08:16:12.838977+00:00",
+    "age_seconds": 13941,
     "status": "CURRENT",
     "relative_to": "projection_compiled_at"
   },
   "public_entity_projection": {
     "projection_version": "geniusflow.public_entity_projection.v1",
     "source_schema": "geniusflow.entity_state_snapshot.v1",
-    "source_snapshot_id": "sha256:aac19ec1c64a35a9ceb58057ea736445439f8cd18cc6bc2af2fadce369a1c3bf",
-    "compiled_at": "2026-11-18T05:03:12.509771+00:00",
+    "source_snapshot_id": "sha256:bf2ce6ae0fc21bff7d4e145c6287e1652bbaf5e0687bdb3bf1ccf0caea6bed37",
+    "compiled_at": "2026-11-18T08:16:12.838977+00:00",
     "freshness": {
       "source_observed_at": "2026-11-18T04:23:51.574058+00:00",
-      "projection_compiled_at": "2026-11-18T05:03:12.509771+00:00",
-      "age_seconds": 2360,
+      "projection_compiled_at": "2026-11-18T08:16:12.838977+00:00",
+      "age_seconds": 13941,
       "status": "CURRENT",
       "relative_to": "projection_compiled_at"
     },
@@ -1120,9 +1120,9 @@
       "age": {
         "status": "DERIVED",
         "value": {
-          "compiled_at": "2026-11-18T05:03:12.378557+00:00",
+          "compiled_at": "2026-11-18T08:16:12.756569+00:00",
           "last_observation": "2026-11-18T04:23:51.574058+00:00",
-          "drift_cycles": 380
+          "drift_cycles": 381
         },
         "reason": null,
         "family": "observation_age",
@@ -1244,8 +1244,8 @@
       "entity": "RIPPLE",
       "first_prospective_observation": "2026-08-25T03:36:54.300690+00:00",
       "latest_prospective_observation": "2026-11-18T04:23:51.574058+00:00",
-      "n_prospective_snapshots": 330,
-      "identity_comparable_transitions": 324,
+      "n_prospective_snapshots": 331,
+      "identity_comparable_transitions": 325,
       "world_observed_count": 0,
       "world_observed_status": "UNAVAILABLE",
       "world_observed_reason": "world_observed_producer_not_emitted",
@@ -1283,7 +1283,7 @@
           "phi_s_label": {
             "generator": "engine.dispatch.content_adapter._phi_s_label",
             "status": "DERIVED",
-            "value": "critical pressure"
+            "value": "high pressure"
           },
           "kappa_living_zone": {
             "generator": "engine.node.equation_constants.KAPPA_LIVING_ZONE",
